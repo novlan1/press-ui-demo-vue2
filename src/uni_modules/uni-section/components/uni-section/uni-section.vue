@@ -100,68 +100,70 @@
 	}
 </script>
 <style lang="scss" >
-	$uni-primary: #2979ff !default;
+$uni-primary: #2979ff !default;
 
-	.uni-section {
-		background-color: #fff;
-    .uni-section-header {
-      position: relative;
+.uni-section {
+  background-color: #fff;
+  .uni-section-header {
+    position: relative;
+    /* #ifndef APP-NVUE */
+    display: flex;
+    /* #endif */
+    flex-direction: row;
+    // 取消垂向居中，当文字多行时，并不美观
+    // align-items: center;
+    padding: 12px 10px;
+    font-weight: normal;
+
+    &__decoration {
+      margin-right: 6px;
+      background-color: $uni-primary;
+      &.line {
+        width: 4px;
+        height: 12px;
+        border-radius: 10px;
+        margin-top: 4px;
+      }
+
+      &.circle {
+        width: 8px;
+        height: 8px;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+      }
+
+      &.square {
+        width: 8px;
+        height: 8px;
+      }
+    }
+
+    &__content {
       /* #ifndef APP-NVUE */
       display: flex;
       /* #endif */
-      flex-direction: row;
-      align-items: center;
-      padding: 12px 10px;
-      font-weight: normal;
+      flex-direction: column;
+      flex: 1;
+      color: #333;
 
-      &__decoration{
-        margin-right: 6px;
-        background-color: $uni-primary;
-        &.line {
-          width: 4px;
-          height: 12px;
-          border-radius: 10px;
-        }
-
-        &.circle {
-          width: 8px;
-          height: 8px;
-          border-top-right-radius: 50px;
-          border-top-left-radius: 50px;
-          border-bottom-left-radius: 50px;
-          border-bottom-right-radius: 50px;
-        }
-
-        &.square {
-          width: 8px;
-          height: 8px;
-        }
+      .distraction {
+        flex-direction: row;
+        align-items: center;
       }
-
-      &__content {
-        /* #ifndef APP-NVUE */
-        display: flex;
-        /* #endif */
-        flex-direction: column;
-        flex: 1;
-        color: #333;
-
-        .distraction {
-          flex-direction: row;
-          align-items: center;
-        }
-        &-sub {
-          margin-top: 2px;
-        }
-      }
-
-      &__slot-right{
-        font-size: 14px;
+      &-sub {
+        margin-top: 2px;
       }
     }
 
-    .uni-section-content{
+    &__slot-right {
       font-size: 14px;
     }
-	}
+  }
+
+  .uni-section-content {
+    font-size: 14px;
+  }
+}
 </style>

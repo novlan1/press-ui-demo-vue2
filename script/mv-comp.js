@@ -2,6 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const SAVE_FILE_PATH = path.resolve(__dirname, '../src/global-comp.js')
 
+const EXCLUDE_COMPONENT_LIST = ['UniListAd']
+
 function uppercase(name) {
   return name.replace(/(^|-)\S/g, (a,b)=>{
     return a.toUpperCase()
@@ -9,12 +11,13 @@ function uppercase(name) {
 }
 
 function main() {
-  const dirs = fs.readdirSync('uni_modules')
+  const dir = './src/uni_modules/'
+  const dirs = fs.readdirSync(dir)
 
   const compNames = []
 
   const strList = dirs.map(dir => {
-    const compsPath = `uni_modules/${dir}/components`
+    const compsPath = `./src/uni_modules/${dir}/components`
     
     // components文件夹存在
     if (fs.existsSync(compsPath)) {
@@ -27,11 +30,11 @@ function main() {
         if (fs.existsSync(compPath)) {
           const compName = uppercase(comp)
           
-          compNames.push(compName)
-          
-          console.log('正在处理: ', compPath)
-
-          return  `import ${compName} from '../${compPath}'`
+          if (EXCLUDE_COMPONENT_LIST.indexOf(compName) === -1) {
+            console.log('正在处理: ', compPath)
+            compNames.push(compName)
+            return  `import ${compName} from './uni_modules/${dir}/components/${comp}/${comp}.vue'`
+          }
         }
       })
     }

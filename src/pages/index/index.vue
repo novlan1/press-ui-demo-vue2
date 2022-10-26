@@ -1,5 +1,6 @@
 <template>
 	<view class="home-container">
+		<!-- <match-loading /> -->
 		<view class="home-header">
 			<image class="home-header__bg" src="../../static/image/uniui-header-bg.png" mode="widthFix"></image>
 			<image class="home-header__logo" src="../../static/image/uniui-logo.png" mode="aspectFit"></image>
@@ -270,67 +271,67 @@
 </script>
 
 <style lang="scss">
-	.home-container {
-		position: relative;
-		background-color: #fff;
-		overflow: hidden;
-	}
+.home-container {
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
 
-	.home-header {
-		display: flex;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		background-color: #fff;
-		/* #ifndef APP-NVUE */
-		box-sizing: border-box;
+.home-header {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  /* #ifndef APP-NVUE */
+  box-sizing: border-box;
 
-		/* #endif */
-		&__bg {
-			display: flex;
-			margin-top: 20px;
-			/* #ifdef APP-NVUE */
-			flex: 1;
-			/* #endif */
-			/* #ifndef APP-NVUE */
-			width: 100%;
-			/* #endif */
-		}
+  /* #endif */
+  &__bg {
+    display: flex;
+    margin-top: 20px;
+    /* #ifdef APP-NVUE */
+    flex: 1;
+    /* #endif */
+    /* #ifndef APP-NVUE */
+    width: 100%;
+    /* #endif */
+  }
 
-		&__logo {
-			position: absolute;
-			top: 22px;
-			left: 20px;
-			width: 70px;
-			height: 20px;
-			z-index: 1;
-		}
+  &__logo {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    width: 70px;
+    height: 20px;
+    z-index: 1;
+  }
 
-		&__content {
-			position: absolute;
-			top: 58px;
-			left: 48px;
-			width: 200px;
-			z-index: 1;
+  &__content {
+    position: absolute;
+    top: 58px;
+    left: 48px;
+    width: 200px;
+    z-index: 1;
 
-			&-title {
-				font-size: 16px;
-				font-weight: 600;
-				color: #1F1F1F;
-			}
+    &-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1f1f1f;
+    }
 
-			&-subtitle {
-				margin-top: 8px;
-				font-size: 12px;
-				font-weight: 400;
-				color: #666;
-			}
-		}
-	}
+    &-subtitle {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #666;
+    }
+  }
+}
 
-	.home-content {
-		margin-top: 170px;
-		overflow: hidden;
-	}
+.home-content {
+  margin-top: 170px;
+  overflow: hidden;
+}
 </style>

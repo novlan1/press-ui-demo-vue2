@@ -5,7 +5,6 @@ import Vue from 'vue'
 import './global-comp'
 
 
-
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({

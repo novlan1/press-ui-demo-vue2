@@ -1,5 +1,5 @@
 {
-	"name": "uni-ui",
+	"name": "uni-press-ui",
 	"appid": "__UNI__FD40C16",
 	"description": "",
 	"versionName": "1.0.0",
@@ -48,6 +48,9 @@
 		"setting": {
 			"urlCheck": true
 		}
+	},
+	"mp-qq": {
+		"appid": "1112254204"
 	},
 	"h5": {
 		"router": {

@@ -47,6 +47,8 @@
     "test:ios": "cross-env UNI_PLATFORM=app-plus UNI_OS_NAME=ios jest -i",
     "test:mp-baidu": "cross-env UNI_PLATFORM=mp-baidu jest -i",
     "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "lint": "eslint --ext .js,.ts.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts.vue ."
   },
@@ -99,7 +101,9 @@
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-code-copy": "^1.0.6"
   },
   "browserslist": [
     "Android >= 4.4",

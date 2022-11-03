@@ -1,19 +1,8 @@
-# my-project
+# PressUI
 
-## Project setup
-```
-npm install
-```
+## 如何使用
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+下载`src/uni_modules`到本地，即可使用。
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+

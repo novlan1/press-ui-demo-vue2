@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "npm run serve",
     "serve": "npm run dev:h5",
     "build": "npm run build:h5",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
@@ -45,7 +46,9 @@
     "test:h5": "cross-env UNI_PLATFORM=h5 jest -i",
     "test:ios": "cross-env UNI_PLATFORM=app-plus UNI_OS_NAME=ios jest -i",
     "test:mp-baidu": "cross-env UNI_PLATFORM=mp-baidu jest -i",
-    "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i"
+    "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i",
+    "lint": "eslint --ext .js,.ts.vue .",
+    "lint:fix": "eslint --fix --ext .js,.ts.vue ."
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.1-alpha-36420220922001",
@@ -91,6 +94,7 @@
     "@vue/cli-service": "~4.5.11",
     "babel-plugin-import": "^1.11.0",
     "cross-env": "^7.0.2",
+    "eslint-config-light": "^1.0.6",
     "jest": "^25.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",

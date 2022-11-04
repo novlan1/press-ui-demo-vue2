@@ -41,10 +41,10 @@
             v-for="(layout, index) in styles"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+layout.url+'.png'"
+            :thumb="'/static/icons/'+layout.icon+'.png'"
             :title="layout.name"
             link
-            :to="`/pages/${platform}/${layout.url}/${layout.url}`"
+            :to="`/pages/${layout.url}`"
           />
         </uni-list>
         <uni-section
@@ -58,10 +58,10 @@
             v-for="(view, index) in views"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+view.url+'.png'"
+            :thumb="'/static/icons/'+view.icon+'.png'"
             :title="view.name"
             link
-            :to="`/pages/${platform}/${view.url}/${view.url}`"
+            :to="`/pages/${view.url}`"
           />
         </uni-list>
         <uni-section
@@ -76,10 +76,10 @@
             v-for="(layout, index) in layouts"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+layout.url+'.png'"
+            :thumb="'/static/icons/'+layout.icon+'.png'"
             :title="layout.name"
             link
-            :to="`/pages/${platform}/${layout.url}/${layout.url}`"
+            :to="`/pages/${layout.url}`"
           />
         </uni-list>
 
@@ -93,10 +93,10 @@
             v-for="(view, index) in forms"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+view.url+'.png'"
+            :thumb="'/static/icons/'+view.icon+'.png'"
             :title="view.name"
             link
-            :to="`/pages/${platform}/${view.url}/${view.url}`"
+            :to="`/pages/${view.url}`"
           />
         </uni-list>
         <uni-section
@@ -109,10 +109,10 @@
             v-for="(view, index) in dataComs"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+view.url+'.png'"
+            :thumb="'/static/icons/'+view.icon+'.png'"
             :title="view.name"
             link
-            :to="`/pages/${platform}/${view.url}/${view.url}`"
+            :to="`/pages/${view.url}`"
           />
         </uni-list>
         <uni-section
@@ -125,10 +125,10 @@
             v-for="(func, index) in functionals"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+func.url+'.png'"
+            :thumb="'/static/icons/'+func.icon+'.png'"
             :title="func.name"
             link
-            :to="`/pages/${platform}/${func.url}/${func.url}`"
+            :to="`/pages/${func.url}`"
           />
         </uni-list>
         <uni-section
@@ -141,10 +141,26 @@
             v-for="(navi, index) in navigations"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+navi.url+'.png'"
+            :thumb="'/static/icons/'+navi.icon+'.png'"
             :title="navi.name"
             link
-            :to="`/pages/${platform}/${navi.url}/${navi.url}`"
+            :to="`/pages/${navi.url}`"
+          />
+        </uni-list>
+        <uni-section
+          title="match"
+          color="#007aff"
+          type="line"
+        />
+        <uni-list>
+          <uni-list-item
+            v-for="(navi, index) in match"
+            :key="index"
+            show-arrow
+            :thumb="'/static/icons/'+navi.icon+'.png'"
+            :title="navi.name"
+            link
+            :to="`/pages/${navi.url}`"
           />
         </uni-list>
       </uni-card>
@@ -158,108 +174,135 @@ export default {
     return {
       styles: [{
         name: '字体',
-        url: 'font',
+        url: 'vue/font/font',
+        icon: 'font',
       }, {
         name: '颜色',
-        url: 'color',
+        url: 'vue/color/color',
+        icon: 'color',
       }, {
         name: '间距',
-        url: 'space',
+        url: 'vue/space/space',
+        icon: 'space',
       }, {
         name: '圆角',
-        url: 'radius',
+        url: 'vue/radius/radius',
+        icon: 'radius',
       }, {
         name: 'Button 按钮',
-        url: 'button',
+        url: 'vue/button/button',
+        icon: 'button',
       }],
       layouts: [{
         name: 'Card 卡片',
-        url: 'card',
+        url: 'vue/card/card',
+        icon: 'card',
       },
       {
         name: 'Grid 宫格',
-        url: 'grid',
+        url: 'vue/grid/grid',
+        icon: 'grid',
       },
       {
         name: 'List 列表',
-        url: 'list',
+        url: 'vue/list/list',
+        icon: 'list',
       },
       {
         name: 'Title 章节标题',
-        url: 'title',
+        url: 'vue/title/title',
+        icon: 'title',
       },
       {
         name: 'Layout 布局',
-        url: 'row',
+        url: 'vue/row/row',
+        icon: 'row',
       },
       {
         name: 'Section 标题栏',
-        url: 'section',
+        url: 'vue/section/section',
+        icon: 'section',
       },
       ],
       views: [{
         name: 'Badge 数字角标',
-        url: 'badge',
+        url: 'vue/badge/badge',
+        icon: 'badge',
       },
       {
         name: 'Fab 悬浮按钮',
-        url: 'fab',
+        url: 'vue/fab/fab',
+        icon: 'fab',
       },
       {
         name: 'Fav 收藏按钮',
-        url: 'fav',
+        url: 'vue/fav/fav',
+        icon: 'fav',
       },
       {
         name: 'Icons 图标',
-        url: 'icons',
+        url: 'vue/icons/icons',
+        icon: 'icons',
       },
       {
         name: 'NoticeBar 通告栏',
-        url: 'notice-bar',
+        url: 'vue/notice-bar/notice-bar',
+        icon: 'notice-bar',
       },
       {
         name: 'Tag 标签',
-        url: 'tag',
+        url: 'vue/tag/tag',
+        icon: 'tag',
       }, {
         name: 'Transition 过渡动画',
-        url: 'transition',
+        url: 'vue/transition/transition',
+        icon: 'transition',
       },
       ],
       forms: [{
         name: 'Easyinput 增强输入框',
-        url: 'easyinput',
+        url: 'vue/easyinput/easyinput',
+        icon: 'easyinput',
       }, {
         name: 'Form 表单',
-        url: 'forms',
+        url: 'vue/forms/forms',
+        icon: 'forms',
       }, {
         name: 'Group 分组',
-        url: 'group',
+        url: 'vue/group/group',
+        icon: 'group',
       }, {
         name: 'FilePicker 文件选择上传',
-        url: 'file-picker',
+        url: 'vue/file-picker/file-picker',
+        icon: 'file-picker',
       }, {
         name: 'NumberBox 数字输入框',
-        url: 'number-box',
+        url: 'vue/number-box/number-box',
+        icon: 'number-box',
       },
       ],
       dataComs: [{
         name: 'DataCheckbox 单选复选框',
-        url: 'data-checkbox',
+        url: 'vue/data-checkbox/data-checkbox',
+        icon: 'data-checkbox',
       },
       {
         name: 'DataSelect 下拉框选择器',
-        url: 'data-select',
+        url: 'vue/data-select/data-select',
+        icon: 'data-select',
       },
       // #ifndef MP-KUAISHOU
       {
         name: 'DataPicker 级联选择',
-        url: 'data-picker',
+        url: 'vue/data-picker/data-picker',
+        icon: 'data-picker',
       },
       // #endif
       // #ifndef APP-NVUE || MP-KUAISHOU || MP-LARK || MP-TOUTIAO || MP-BAIDU
       {
         name: 'DatetimePicker 日期时间选择',
-        url: 'datetime-picker',
+        url: 'vue/datetime-picker/datetime-picker',
+        icon: 'datetime-picker',
       },
         // #endif
       ],
@@ -270,89 +313,113 @@ export default {
         // },
         {
           name: 'Collapse 折叠面板',
-          url: 'collapse',
+          url: 'vue/collapse/collapse',
+          icon: 'collapse',
         },
         // #ifndef APP-NVUE
         {
           name: 'Combox 组合输入框',
-          url: 'combox',
+          url: 'vue/combox/combox',
+          icon: 'combox',
         },
         // #endif
         {
           name: 'Drawer 抽屉',
-          url: 'drawer',
+          url: 'vue/drawer/drawer',
+          icon: 'drawer',
         },
         {
           name: 'Pagination 分页器',
-          url: 'pagination',
+          url: 'vue/pagination/pagination',
+          icon: 'pagination',
         },
         {
           name: 'SwiperDot 轮播图指示点',
-          url: 'swiper-dot',
+          url: 'vue/swiper-dot/swiper-dot',
+          icon: 'swiper-dot',
         },
         {
           name: 'Steps 步骤条',
-          url: 'steps',
+          url: 'vue/steps/steps',
+          icon: 'steps',
         },
         {
           name: 'SegmentedControl 分段器',
-          url: 'segmented-control',
+          url: 'vue/segmented-control/segmented-control',
+          icon: 'segmented-control',
         },
         {
           name: 'Countdown 倒计时',
-          url: 'countdown',
+          url: 'vue/countdown/countdown',
+          icon: 'countdown',
         },
         {
           name: 'Rate 评分',
-          url: 'rate',
+          url: 'vue/rate/rate',
+          icon: 'rate',
         },
         {
           name: 'Popup 弹出层',
-          url: 'popup',
+          url: 'vue/popup/popup',
+          icon: 'popup',
         },
         {
           name: 'IndexedList 索引列表',
-          url: 'indexed-list',
+          url: 'vue/indexed-list/indexed-list',
+          icon: 'indexed-list',
         },
         {
           name: 'Link 超链接',
-          url: 'link',
+          url: 'vue/link/link',
+          icon: 'link',
         },
         {
           name: 'LoadMore 加载更多',
-          url: 'load-more',
+          url: 'vue/load-more/load-more',
+          icon: 'load-more',
         },
         // #ifndef APP-NVUE || MP-KUAISHOU || MP-LARK
         {
           name: 'SwipeAction 滑动操作',
-          url: 'swipe-action',
+          url: 'vue/swipe-action/swipe-action',
+          icon: 'swipe-action',
         },
         // #endif
         {
           name: 'SearchBar 搜索栏',
-          url: 'search-bar',
+          url: 'vue/search-bar/search-bar',
+          icon: 'search-bar',
         },
         {
           name: 'Dateformat 日期格式化',
-          url: 'dateformat',
+          url: 'vue/dateformat/dateformat',
+          icon: 'dateformat',
         },
         {
           name: 'Tooltip 文字提示',
-          url: 'tooltip',
+          url: 'vue/tooltip/tooltip',
+          icon: 'tooltip',
         },
       ],
       navigations: [{
         name: 'Breadcrumb 面包屑',
-        url: 'breadcrumb',
+        url: 'vue/breadcrumb/breadcrumb',
+        icon: 'breadcrumb',
       }, {
         name: 'NavBar 导航栏',
-        url: 'nav-bar',
+        url: 'vue/nav-bar/nav-bar',
+        icon: 'nav-bar',
       },
       {
         name: 'GoodsNav 商品导航',
-        url: 'goods-nav',
+        url: 'vue/goods-nav/goods-nav',
+        icon: 'goods-nav',
       },
       ],
+      match: [{
+        name: 'picker ',
+        url: 'match/picker/picker',
+      }],
       platform: 'vue',
     };
   },

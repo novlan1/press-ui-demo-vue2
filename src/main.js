@@ -1,26 +1,31 @@
-console.log('%cuni-app官方团队诚邀优秀前端工程师加盟，一起打造更卓越的uni-app & uniCloud\n\n欢迎投递简历到: %chr2013@dcloud.io', 'color:red;font-size:14px','color:red;font-size:14px;font-weight: bold;')
-import App from './App'
+import App from './App';
 // #ifndef VUE3
-import Vue from 'vue'
-import './global-comp'
+import Vue from 'vue';
+// import './global-comp';
 
+import MatchLoading from './uni_modules/match/components/match-loading/match-loading.vue';
+import MatchPicker from './uni_modules/match/components/match-picker/match-picker.vue';
 
-Vue.config.productionTip = false
-App.mpType = 'app'
+Vue.component('MatchLoading', MatchLoading);
+Vue.component('MatchPicker', MatchPicker);
+
+Vue.config.productionTip = false;
+App.mpType = 'app';
 const app = new Vue({
-	...App
-})
-app.$mount()
+  ...App,
+});
+app.$mount();
 // #endif
 
 // #ifdef VUE3
+// eslint-disable-next-line import/first
 import {
-	createSSRApp
-} from 'vue'
+  createSSRApp,
+} from 'vue';
 export function createApp() {
-	const app = createSSRApp(App)
-	return {
-		app
-	}
+  const app = createSSRApp(App);
+  return {
+    app,
+  };
 }
 // #endif

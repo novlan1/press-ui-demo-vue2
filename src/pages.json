@@ -391,6 +391,12 @@
 		"backgroundColor": "#f5f5f5",
 		"h5": {
 			"maxWidth": 1190
+		},
+		"mp-weixin": {
+			"usingComponents": {}
+		},
+		"mp-qq": {
+			"usingComponents": {}
 		}
 	}
 }

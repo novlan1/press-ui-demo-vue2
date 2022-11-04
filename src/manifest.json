@@ -44,12 +44,16 @@
 	},
 	"quickapp": {},
 	"mp-weixin": {
+		"usingComponents": true,
+		"lazyCodeLoading": "requiredComponents",
 		"appid": "wxd593abb04ef95f3e",
 		"setting": {
 			"urlCheck": true
 		}
 	},
 	"mp-qq": {
+		"lazyCodeLoading": "requiredComponents",
+		"usingComponents": true,
 		"appid": "1112254204"
 	},
 	"h5": {

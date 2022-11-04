@@ -6,6 +6,16 @@
     type="bottom"
   >
     <view class="u-picker">
+      <Toolbar
+        v-if="showToolbar"
+        :cancel-color="cancelColor"
+        :confirm-color="confirmColor"
+        :cancel-text="cancelText"
+        :confirm-text="confirmText"
+        :title="title"
+        @cancel="cancel"
+        @confirm="confirm"
+      />
       <picker-view
         class="u-picker__view"
         :indicator-style="`height: ${addUnit(itemHeight)}`"
@@ -43,12 +53,14 @@
 </template>
 <script>
 import UniPopup from '../../../uni-popup/components/uni-popup/uni-popup.vue';
+import Toolbar from '../match-toolbar/match-toolbar.vue';
 import { deepClone, sleep, isObject, addUnit } from './util';
 
 export default {
   name: 'MatchPicker',
   components: {
     UniPopup,
+    Toolbar,
   },
   props: {
     // 是否展示picker弹窗
@@ -142,7 +154,7 @@ export default {
   watch: {
     show: {
       // immediate: true,
-      handle(val) {
+      handler(val) {
         if (val) {
           this.$refs?.popup?.open('bottom');
         }

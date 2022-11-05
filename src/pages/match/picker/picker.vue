@@ -14,26 +14,26 @@
         级联选择
       </button>
     </view>
-    <match-picker
+    <press-picker
       :show="pickerOption.normal.show"
       :columns="pickerOption.normal.columns"
       @confirm="(args)=>onConfirm(args, 'normal')"
       @change="(args)=>onChange(args, 'normal')"
     />
-    <match-picker
+    <press-picker
       :show="pickerOption.default.show"
       :columns="pickerOption.default.columns"
       :default-index="pickerOption.default.defaultIndex"
       @confirm="(args)=>onConfirm(args, 'default')"
       @change="(args)=>onChange(args, 'default')"
     />
-    <match-picker
+    <press-picker
       :show="pickerOption.multiColumn.show"
       :columns="pickerOption.multiColumn.columns"
       @confirm="(args)=>onConfirm(args, 'multiColumn')"
       @change="(args)=>onChange(args, 'multiColumn')"
     />
-    <match-picker
+    <press-picker
       :show="pickerOption.children.show"
       :columns="pickerOption.children.columns"
       @confirm="(args)=>onConfirm(args, 'children')"

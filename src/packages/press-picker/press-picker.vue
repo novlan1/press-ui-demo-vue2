@@ -53,11 +53,11 @@
 </template>
 <script>
 import UniPopup from '../uni-popup/components/uni-popup/uni-popup.vue';
-import Toolbar from '../match-toolbar/match-toolbar.vue';
+import Toolbar from '../press-toolbar/press-toolbar.vue';
 import { deepClone, sleep, isObject, addUnit } from './util';
 
 export default {
-  name: 'MatchPicker',
+  name: 'PressPicker',
   components: {
     UniPopup,
     Toolbar,

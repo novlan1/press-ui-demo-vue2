@@ -5,7 +5,7 @@ import Vue from 'vue';
 // import './global-comp';
 
 import MatchLoading from 'src/packages/match-loading/match-loading.vue';
-import MatchPicker from 'src/packages/match-picker/match-picker.vue';
+import PressPicker from 'src/packages/press-picker/press-picker.vue';
 import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
@@ -138,7 +138,7 @@ Vue.component('UniTransition', UniTransition);
 Vue.component('UniUi', UniUi);
 
 Vue.component('MatchLoading', MatchLoading);
-Vue.component('MatchPicker', MatchPicker);
+Vue.component('PressPicker', PressPicker);
 Vue.component('PressDialog', PressDialog);
 
 Vue.config.productionTip = false;

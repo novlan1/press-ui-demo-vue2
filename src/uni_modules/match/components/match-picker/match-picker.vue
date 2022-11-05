@@ -266,7 +266,7 @@ export default {
       for (let i = 1;i < indexes.length;i++) {
         res = res[indexes[i]].children;
       }
-      return res;
+      return res.map(item => item[this.keyName]);
     },
     // 设置index索引，此方法可被外部调用设置
     setIndexes(index, setLastIndex) {

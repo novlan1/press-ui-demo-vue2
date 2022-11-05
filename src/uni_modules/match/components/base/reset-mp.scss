@@ -1,0 +1,76 @@
+/*
+* desc：小程序的兼容样式
+* date：2022-08-02
+* author：v_lanffang（方岚）
+* email：v_lanffang@tencent.com
+*/
+
+page {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+}
+
+view,
+text,
+scroll-view,
+image {
+  box-sizing: border-box;
+}
+
+swiper {
+  height: 100%;
+}
+
+input,
+button,
+textarea,
+._select {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+}
+
+button::after {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  border: none;
+  transform: none;
+}
+
+uni-button {
+  padding: 0;
+
+  &:after {
+    border: none;
+    transform: none;
+    border-radius: 0;
+  }
+}
+
+.tip-match-tab {
+  .van-tabs__scroll--line {
+    height: 100%;
+    background-color: transparent;
+  }
+
+  .van-tabs--line {
+    .van-tabs__wrap {
+      height: auto;
+    }
+  }
+
+  .van-tabs__line {
+    border-radius: none;
+    background-color: transparent;
+  }
+}

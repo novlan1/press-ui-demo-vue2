@@ -416,10 +416,16 @@ export default {
         icon: 'goods-nav',
       },
       ],
-      match: [{
-        name: 'picker ',
-        url: 'match/picker/picker',
-      }],
+      match: [
+        {
+          name: 'picker ',
+          url: 'match/picker/picker',
+        },
+        {
+          name: 'dialog ',
+          url: 'match/dialog/dialog',
+        },
+      ],
       platform: 'vue',
     };
   },

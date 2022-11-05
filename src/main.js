@@ -5,9 +5,12 @@ import Vue from 'vue';
 
 import MatchLoading from './uni_modules/match/components/match-loading/match-loading.vue';
 import MatchPicker from './uni_modules/match/components/match-picker/match-picker.vue';
+import PressDialog from './uni_modules/match/components/press-dialog/press-dialog.vue';
+
 
 Vue.component('MatchLoading', MatchLoading);
 Vue.component('MatchPicker', MatchPicker);
+Vue.component('PressDialog', PressDialog);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

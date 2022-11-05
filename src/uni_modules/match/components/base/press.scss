@@ -1,0 +1,102 @@
+/*
+* desc：按压状态
+* date：2021-01-24
+* author：v_lanffang（方岚）
+* email：v_lanffang@tencent.com
+*/
+
+@import "./layout";
+
+// 主按钮按压态
+.primary-btn-press {
+  &:active {
+    background: $color-blue  !important;
+  }
+}
+
+// 次按钮按压态
+.secondary-btn-press {
+  &:active {
+    background: $color-gray-3  !important;
+  }
+}
+
+// 线框按钮按压态
+.border-btn-press {
+  &:active {
+    background: $color-bg  !important;
+    border-color: $color-blue  !important;
+    color: $color-blue  !important;
+  }
+}
+
+// 列表按压态
+.list-press {
+  &:active {
+    background: $color-bg  !important;
+  }
+}
+
+// 卡片按压态
+.card-press {
+  &:active {
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
+}
+
+//icon按压态
+.icon-press {
+  &:active {
+    color: $color-black  !important;
+
+    .iconfont {
+      color: $color-black  !important;
+    }
+  }
+}
+
+// 主按钮动态添加按压态
+.primary-btn-press-active {
+  background: $color-blue  !important;
+}
+
+// 次按钮动态添加按压态
+.secondary-btn-press-active {
+  background: $color-gray-3  !important;
+}
+
+// 线框按钮动态添加按压态
+.border-btn-press-active {
+  background: $color-bg  !important;
+  border-color: $color-blue  !important;
+  color: $color-blue  !important;
+}
+
+// 列表动态添加按压态
+.list-press-active {
+  background: $color-bg  !important;
+}
+
+// 卡片动态添加按压态
+.card-press-active {
+  background: $color-bg  !important;
+}
+
+//可以复制
+.copy-press {
+  -webkit-touch-callout: default;
+  -webkit-user-select: auto;
+  /*webkit浏览器*/
+  -khtml-user-select: auto;
+  /*早期浏览器*/
+  -moz-user-select: auto;
+  /*火狐*/
+  -ms-user-select: auto;
+  /*IE10*/
+  user-select: auto;
+}
+
+//为后续兼容小程序 行内元素样式
+.display-inline {
+  display: inline;
+}

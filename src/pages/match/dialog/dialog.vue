@@ -18,7 +18,7 @@
   </view>
 </template>
 <script>
-import PressDialog from 'packages/uni_modules/match/components/press-dialog/press-dialog.js';
+import PressDialog from 'src/packages/uni_modules/match/components/press-dialog/press-dialog.js';
 
 export default {
   data() {
@@ -33,7 +33,8 @@ export default {
         content: '仅限队长报名，发给队长来报名吧！',
         confirmText: '确认',
         cancelText: '取消',
-      });
+      }).then(() => {})
+        .catch(() => {});
     },
   },
 };

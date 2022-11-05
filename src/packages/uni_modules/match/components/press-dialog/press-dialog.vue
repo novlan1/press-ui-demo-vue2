@@ -58,6 +58,10 @@
 </template>
 <script>
 import ButtonLoading from '../match-loading/match-loading.vue';
+function isMp() {
+  return typeof getCurrentPages === 'function';
+}
+
 export default {
   name: 'PressDialog',
   components: {
@@ -191,8 +195,9 @@ export default {
       }, 500);
     },
     destroy() {
-      if (this.isMpWeixin) return;
+      if (isMp()) return;
       this.$destroy();
+      console.log('ddddd');
       if (document.body.contains(this.$el)) {
         document.body.removeChild(this.$el);
       }

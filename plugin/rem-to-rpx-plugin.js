@@ -16,7 +16,6 @@ class RemToRpxPlugin {
 
         const sourceCode = asset.source() || asset._valueAsString || asset._value || asset._cachedSource;
         if (sourceCode != null) {
-          console.log('sourceCode is null', asset);
           asset.source = () =>
             // console.log('source', fileName, sourceCode)
             // 这里返回null或者undefined会导致编译过程无法结束，所以sourceCode需要判空才给asset.source赋值

@@ -18,7 +18,7 @@
   </view>
 </template>
 <script>
-import PressDialog from '../../../uni_modules/match/components/press-dialog/press-dialog.js';
+import PressDialog from 'packages/uni_modules/match/components/press-dialog/press-dialog.js';
 
 export default {
   data() {

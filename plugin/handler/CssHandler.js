@@ -42,7 +42,6 @@ function handleRem(content) {
   const hasMatch = false;
 
   const records = [];
-  console.log('match', match);
 
   while (match = pattern.exec(content)) {
     // console.log('match', match);

@@ -52,7 +52,7 @@
   </UniPopup>
 </template>
 <script>
-import UniPopup from '../../../uni-popup/components/uni-popup/uni-popup.vue';
+import UniPopup from '../uni-popup/components/uni-popup/uni-popup.vue';
 import Toolbar from '../match-toolbar/match-toolbar.vue';
 import { deepClone, sleep, isObject, addUnit } from './util';
 

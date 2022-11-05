@@ -1,5 +1,6 @@
-import App from './App';
+import App from './App.vue';
 // #ifndef VUE3
+// eslint-disable-next-line import/no-unresolved
 import Vue from 'vue';
 // import './global-comp';
 

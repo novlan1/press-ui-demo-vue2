@@ -14,7 +14,7 @@
         级联选择
       </button> -->
     </view>
-    <!-- <press-dialog id="tip-match-comm-tips-dialog" /> -->
+    <press-dialog id="tip-match-comm-tips-dialog" />
   </view>
 </template>
 <script>

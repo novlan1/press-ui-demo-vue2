@@ -149,6 +149,9 @@ export default {
       innerColumns: [],
       // 上一次的变化列索引
       columnIndex: 0,
+
+      // 是否是级联
+      isC: false,
     };
   },
   watch: {
@@ -225,6 +228,21 @@ export default {
       // 将当前的各项变化索引，设置为"上一次"的索引变化值
       this.setLastIndex(value);
       this.setIndexes(value);
+      if (this.isC) {
+        const indexes = [];
+
+        for (let i = 0;i < this.innerIndex.length;i++) {
+          const idx = this.innerIndex[i];
+          if (i < columnIndex) {
+            indexes.push(idx);
+          } else if (i === columnIndex) {
+            indexes.push(index);
+          } else if (i > columnIndex) {
+            this.setColumnValues(i, this.getNColumnChildren(indexes));
+            indexes.push(0);
+          }
+        }
+      }
 
       this.$emit('change', {
         // #ifndef MP-WEIXIN || MP-LARK
@@ -238,6 +256,17 @@ export default {
         values,
         columnIndex,
       });
+    },
+    // 根据索引，获取第n列的children，用于级联选择
+    getNColumnChildren(indexes) {
+      if (!indexes?.length) {
+        throw new Error('getNColumnChildren 中 indexes 不能为空');
+      }
+      let res = this.columns[indexes[0]].children;
+      for (let i = 1;i < indexes.length;i++) {
+        res = res[indexes[i]].children;
+      }
+      return res;
     },
     // 设置index索引，此方法可被外部调用设置
     setIndexes(index, setLastIndex) {
@@ -277,6 +306,27 @@ export default {
     },
     // 设置整体各列的columns的值
     setColumns(columns) {
+      const isMulti = Array.isArray(columns[0].values);
+      const isC = columns[0].children;
+      this.isC = isC;
+
+      if (isMulti) {
+        this.innerIndex = columns.map(item => item.defaultIndex || 0);
+        columns = columns.map(item => item.values);
+      } else if (isC) {
+        const idx = 0;
+        const fColumns = [columns.map(item => item[this.keyName])];
+        let { children } = columns[idx];
+
+        while (children) {
+          fColumns.push(children.map(item => item[this.keyName]));
+          children = children[idx]?.children;
+        }
+        columns = fColumns;
+      } else {
+        columns = [columns];
+      }
+
       this.innerColumns = deepClone(columns);
       // 如果在设置各列数据时，没有被设置默认的各列索引defaultIndex，那么用0去填充它，数组长度为列的数量
       if (this.innerIndex.length === 0) {

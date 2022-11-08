@@ -62,7 +62,7 @@
 			<uni-list>
 				<uni-list-item :show-extra-icon="true" showArrow :extra-icon="extraIcon" title="列表左侧带扩展图标" />
 				<uni-list-item title="列表左侧带略缩图" note="列表描述信息" showArrow
-					thumb="/static/c1.png"
+					thumb="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/number/c1.png"
 					thumb-size="sm" rightText="小图" />
 
 				<uni-list-item title="列表左侧带略缩图" note="列表描述信息" showArrow
@@ -138,27 +138,27 @@
 </script>
 
 <style lang="scss">
-	.slot-box {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		align-items: center;
-	}
+.slot-box {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  align-items: center;
+}
 
-	.slot-image {
-		/* #ifndef APP-NVUE */
-		display: block;
-		/* #endif */
-		margin-right: 10px;
-		width: 30px;
-		height: 30px;
-	}
+.slot-image {
+  /* #ifndef APP-NVUE */
+  display: block;
+  /* #endif */
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
 
-	.slot-text {
-		flex: 1;
-		font-size: 14px;
-		color: #4cd964;
-		margin-right: 10px;
-	}
+.slot-text {
+  flex: 1;
+  font-size: 14px;
+  color: #4cd964;
+  margin-right: 10px;
+}
 </style>

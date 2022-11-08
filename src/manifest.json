@@ -61,7 +61,7 @@
 			"mode": "history",
 			"base": ""
 		},
-		"title": "uni-ui",
+		"title": "press-ui",
 		"template": "template.h5.html"
 	},
 	"vueVersion": "2"

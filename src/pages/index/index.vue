@@ -4,12 +4,12 @@
     <view class="home-header">
       <image
         class="home-header__bg"
-        src="../../static/image/uniui-header-bg.png"
+        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/uniui-header-bg.png"
         mode="widthFix"
       />
       <image
         class="home-header__logo"
-        src="../../static/image/uniui-logo.png"
+        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/uniui-logo.png"
         mode="aspectFit"
       />
       <view class="home-header__content">
@@ -18,7 +18,7 @@
         </view>
         <view>
           <text class="home-header__content-subtitle">
-            uni-ui 是 DCloud 官方面向uni-app开发者提供的一套 ui 解决方案
+            press-ui 是一套易用的、灵活的、基于uni-app的组件库
           </text>
         </view>
       </view>
@@ -41,7 +41,7 @@
             v-for="(layout, index) in styles"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+layout.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+layout.icon+'.png'"
             :title="layout.name"
             link
             :to="`/pages/${layout.url}`"
@@ -58,7 +58,7 @@
             v-for="(view, index) in views"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+view.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+view.icon+'.png'"
             :title="view.name"
             link
             :to="`/pages/${view.url}`"
@@ -76,7 +76,7 @@
             v-for="(layout, index) in layouts"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+layout.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+layout.icon+'.png'"
             :title="layout.name"
             link
             :to="`/pages/${layout.url}`"
@@ -93,7 +93,7 @@
             v-for="(view, index) in forms"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+view.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+view.icon+'.png'"
             :title="view.name"
             link
             :to="`/pages/${view.url}`"
@@ -109,7 +109,7 @@
             v-for="(view, index) in dataComs"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+view.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+view.icon+'.png'"
             :title="view.name"
             link
             :to="`/pages/${view.url}`"
@@ -125,7 +125,7 @@
             v-for="(func, index) in functionals"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+func.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+func.icon+'.png'"
             :title="func.name"
             link
             :to="`/pages/${func.url}`"
@@ -141,7 +141,7 @@
             v-for="(navi, index) in navigations"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+navi.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+navi.icon+'.png'"
             :title="navi.name"
             link
             :to="`/pages/${navi.url}`"
@@ -157,7 +157,7 @@
             v-for="(navi, index) in match"
             :key="index"
             show-arrow
-            :thumb="'/static/icons/'+navi.icon+'.png'"
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+navi.icon+'.png'"
             :title="navi.name"
             link
             :to="`/pages/${navi.url}`"

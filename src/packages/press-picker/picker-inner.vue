@@ -1,5 +1,5 @@
 <template>
-  <PopupContainer
+  <PressPopup
     :is-showpopup-close="true"
     :show-back-arrow="showBackArrow"
     :popup-title="title"
@@ -14,22 +14,22 @@
     >
       {{ tip }}
     </div>
-    <Picker
+    <PressPickerView
       ref="picker"
       :data="data"
       :current="current"
       @currentIndexChanged="onCurrentIndexChanged"
     />
-  </PopupContainer>
+  </PressPopup>
 </template>
 <script>
-import PopupContainer from '../press-popup';
-import Picker from '../press-picker-view';
+import PressPopup from '../press-popup/press-popup.vue';
+import PressPickerView from '../press-picker-view/press-picker-view.vue';
 
 export default {
   components: {
-    PopupContainer,
-    Picker,
+    PressPopup,
+    PressPickerView,
   },
   props: {
     // 弹窗标题

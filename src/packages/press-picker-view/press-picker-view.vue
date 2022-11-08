@@ -41,6 +41,11 @@
 </template>
 
 <script>
+function isMp() {
+  return typeof getCurrentPages === 'function';
+}
+
+
 export default {
   props: {
     // 列表数据
@@ -226,7 +231,7 @@ export default {
       return dep;
     },
     getElementIndex(element) {
-      if (this.isMpWeixin) {
+      if (isMp) {
         return parseInt(element.id, 10);
       }
       let  i = 0;

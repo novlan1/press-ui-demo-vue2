@@ -4,6 +4,7 @@ module.exports = {
   globals: {
     getCurrentPages: true,
     qq: true,
+    weex: true,
   },
   settings: {
   },

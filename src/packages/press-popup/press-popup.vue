@@ -20,10 +20,15 @@
           class="tip-match-popup-title-line"
           @click.stop="clickCancel"
         />
-        <div
+        <!-- <div
           v-if="isShowpopupClose && !showBackArrow"
           class="tip-match-popup-close iconfont icon-close"
           @click.stop="clickCancel"
+        /> -->
+        <PressIcon
+          v-if="isShowpopupClose && !showBackArrow"
+          class="tip-match-popup-close iconfont icon-close"
+          @click="clickCancel"
         />
         <div
           v-if="isShowpopupClose && showBackArrow"

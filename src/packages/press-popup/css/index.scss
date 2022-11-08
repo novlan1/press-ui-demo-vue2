@@ -6,6 +6,7 @@
 */
 @import "../../base/layout.scss";
 @import "../../base/mixin.scss";
+@import '../../base//animate.scss';
 
 .tip-match-bottom-popup-wrap {
   position: fixed;
@@ -46,6 +47,7 @@
   justify-content: center;
   height: 1.44rem;
   padding: .24rem 0;
+  box-sizing: border-box;
 
   &::after {
     position: absolute;
@@ -138,4 +140,41 @@
   right: .4rem;
   padding: .04rem .24rem;
   line-height: .44rem;
+}
+
+
+/*
+* desc：动效
+* date：2021-09-30
+* author：lauheeliu（刘诏熹）
+* email：lauheeliu@tencent.com
+*/
+
+/* 渐隐渐现 */
+.tip-match-fade-in {
+  animation: fade-in .3s ease-out both;
+}
+
+.tip-match-fade-out {
+  animation: fade-out .3s ease-in both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }

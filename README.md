@@ -27,6 +27,18 @@ src/local-component/module/tip-match/tip-match-comm-tips-dialog
 删除了目录： src/local-component/module/tip-match/tip-match-comm-tips-dialog 
  
 
+### picker
+
+local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
+
+替换为
+
+@tencent/press-ui/press-picker/press-picker
+
+
+
+
+
  ## TODO
 
 - dialog 
@@ -64,5 +76,12 @@ p2
   - 难复用
   - 缺乏文档、demo
   - 代码规范缺失
+  - 无法沉淀
+  - 依赖关系混乱，即使复制粘贴也要很长时间来梳理
+  - API混乱，脱离业界标准
+- 业务库愈发臃肿，随着需求迭代，越来越难以维护
 
+## 组件依赖最小原则
+
+组件不要依赖太多的外部公共文件，保持独立性
 

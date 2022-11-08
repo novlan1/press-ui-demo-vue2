@@ -52,8 +52,13 @@
   </div>
 </template>
 <script>
+import PressIcon from '../press-icon/press-icon.vue';
+
 export default {
   name: 'PopupContainer',
+  components: {
+    PressIcon,
+  },
   props: {
     // 是否显示关闭按钮
     isShowpopupClose: {

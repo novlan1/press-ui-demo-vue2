@@ -18,7 +18,7 @@
 
 ### dialog
 
-src/local-component/module/tip-match/tip-match-comm-tips-dialog 
+- src/local-component/module/tip-match/tip-match-comm-tips-dialog 
 
 替换为
 
@@ -27,13 +27,22 @@ src/local-component/module/tip-match/tip-match-comm-tips-dialog
 删除了目录： src/local-component/module/tip-match/tip-match-comm-tips-dialog 
  
 
+
+- src/local-component/ui/tip-match/tip-match-tip-popup/index.vue
+
+替换为
+
+@tencent/press-ui/press-dialog/press-dialog
+
 ### picker
 
-local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
+src/local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
 
 替换为
 
 @tencent/press-ui/press-picker/press-picker
+
+
 
 
 

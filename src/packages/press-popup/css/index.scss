@@ -1,0 +1,141 @@
+/*
+* desc：弹窗外壳
+* date：2021-05-17
+* author：lauheeliu（刘诏熹）
+* email：lauheeliu@tencent.com
+*/
+@import "../../base/layout.scss";
+@import "../../base/mixin.scss";
+
+.tip-match-bottom-popup-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 99;
+}
+
+.tip-match-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.tip-match-popup-content {
+  position: relative;
+  width: 100%;
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+  background-color: #fff;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow: hidden;
+}
+
+.tip-match-popup-title-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.44rem;
+  padding: .24rem 0;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    content: '';
+    width: 6.86rem;
+    height: .24rem;
+    background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/popup-line.png) no-repeat center;
+    background-size: contain;
+  }
+}
+
+.tip-match-popup-title-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: .16rem;
+  margin: auto;
+  width: .64rem;
+  height: .08rem;
+  border-radius: .08rem;
+  background: $color-gray-2;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -.14rem;
+    content: '';
+    height: .16rem;
+  }
+
+  &::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: .06rem;
+    content: '';
+    height: .16rem;
+  }
+}
+
+.tip-match-popup-title {
+  font-size: $font-l;
+  color: $color-black;
+}
+
+.tip-match-popup-close {
+  position: absolute;
+  left: 0;
+  top: .24rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.04rem;
+  height: .96rem;
+  font-size: $font-xxl;
+  color: $color-gray;
+}
+
+.tip-match-popup-arrow {
+  position: absolute;
+  left: 0;
+  top: .24rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.04rem;
+  height: .96rem;
+  font-size: $font-xxl;
+  color: $color-gray;
+}
+
+.tip-match-popup-title-btn {
+  @include primary-btn(auto, auto, .28rem);
+  position: absolute;
+  top: .5rem;
+  right: .4rem;
+  padding: .04rem .24rem;
+  line-height: .44rem;
+}
+
+.tip-match-border-btn {
+  @include border-btn(auto, auto, .28rem);
+  position: absolute;
+  top: .5rem;
+  right: .4rem;
+  padding: .04rem .24rem;
+  line-height: .44rem;
+}

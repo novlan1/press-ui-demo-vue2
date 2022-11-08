@@ -13,6 +13,9 @@
       <button @click.stop="onShowPicker('children')">
         级联选择
       </button>
+      <button @click.stop="onShowPicker('async')">
+        异步确认
+      </button>
     </view>
     <press-picker
       :show="pickerOption.normal.show"
@@ -39,6 +42,12 @@
       @confirm="(args)=>onConfirm(args, 'children')"
       @change="(args)=>onChange(args, 'children')"
     />
+    <press-picker
+      :show="pickerOption.async.show"
+      :columns="pickerOption.async.columns"
+      @confirm="(args)=>onConfirm(args, 'async')"
+      @change="(args)=>onChange(args, 'async')"
+    />
   </view>
 </template>
 <script>
@@ -47,6 +56,10 @@ export default {
     return {
       pickerOption: {
         normal: {
+          show: false,
+          columns: ['中国', '美国', '日本'],
+        },
+        async: {
           show: false,
           columns: ['中国', '美国', '日本'],
         },

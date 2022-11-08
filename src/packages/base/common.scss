@@ -5,12 +5,12 @@
 * email：lauheeliu@tencent.com
 */
 
-@import "src/pages/base/reset.scss";
-@import "src/pages/base/animate.scss";
-@import "src/pages/base/press.scss";
+@import "../../base/reset.scss";
+@import "../../base/animate.scss";
+@import "../../base/press.scss";
 
 /* #ifndef H5 */
-@import "src/pages/base/reset-mp.scss";
-@import "src/pages/base/iconfont-mp.scss";
-@import "src/pages/base/reset-page-mp.scss";
+@import "../../base/reset-mp.scss";
+@import "../../base/iconfont-mp.scss";
+@import "../../base/reset-page-mp.scss";
 /* #endif */

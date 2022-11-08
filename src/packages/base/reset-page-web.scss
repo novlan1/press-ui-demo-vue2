@@ -5,8 +5,8 @@
 * email：v_lanffang@tencent.com
 */
 
-@import "src/pages/base/layout.scss";
-@import "src/pages/base/mixin.scss";
+@import "../../base/layout.scss";
+@import "../../base/mixin.scss";
 
 
 /*
@@ -14,13 +14,15 @@
 * src/pages/admin/view/match-create-new.vue
 */
 .info-wrap {
-  .uni-input-input{
+  .uni-input-input {
     text-align: center;
     font-size: $font-xl;
     color: $color-black;
     font-weight: bold;
   }
-  .uni-input-placeholder, .input-placeholder{
+
+  .uni-input-placeholder,
+  .input-placeholder {
     right: 0;
     margin: auto;
     font-weight: bold;

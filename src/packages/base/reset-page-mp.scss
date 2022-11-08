@@ -5,8 +5,8 @@
 * email：lauheeliu@tencent.com
 */
 
-@import "src/pages/base/layout.scss";
-@import "src/pages/base/mixin.scss";
+@import "../../base/layout.scss";
+@import "../../base/mixin.scss";
 
 /*  
 * 个人中心
@@ -15,21 +15,25 @@
 
 .personal-content {
   .tip-match-empty-wrap {
-    height: 3.2rem!important;
+    height: 3.2rem !important;
   }
+
   .van-tab__pane {
     padding-bottom: 40rpx;
   }
 }
+
 .tip-match-expland {
   .tip-match-popup-content {
-    height: 80vh!important;
+    height: 80vh !important;
   }
+
   .van-tabs {
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+
     // .van-tabs__content {
     //   height: 100%;
     //   overflow-y: auto;
@@ -54,6 +58,7 @@
     bottom: auto;
     padding: 0;
     background: $color-black;
+
     &::before {
       left: auto;
       top: -0.12rem;
@@ -62,10 +67,12 @@
     }
   }
 }
+
 .tip-match-mp-placeholder {
   .nav-popver {
     top: .7rem;
     right: -1.26rem;
+
     &::before {
       left: .24rem;
       right: auto;
@@ -79,14 +86,16 @@
 */
 .schedule-head-title {
   .tip-match-back {
-    background: transparent!important;
+    background: transparent !important;
     font-weight: normal;
   }
 }
+
 .icon-set {
   position: relative;
   z-index: 2;
-  .tooltip{
+
+  .tooltip {
     position: absolute;
     top: .54rem;
     right: -.14rem;
@@ -96,6 +105,7 @@
     padding: 0;
     border-radius: .08rem;
   }
+
   .tooltip.tip-match-popver-bottom::before {
     right: .2rem;
     left: auto;
@@ -106,12 +116,14 @@
 * 战队空间
 * src/pages/user/view/team-zone.vue
 */
-.page-header-mp{
-  .team-name{
-    color: $color-black!important;
+.page-header-mp {
+  .team-name {
+    color: $color-black !important;
   }
 }
+
 .team-zone {
+
   // vant组件重写
   .van-tabs ::v-deep {
     flex: 1;
@@ -164,8 +176,8 @@
       border: none;
     }
 
-    .van-tab__pane--active{
-      height: 100%!important;
+    .van-tab__pane--active {
+      height: 100% !important;
     }
   }
 
@@ -181,20 +193,23 @@
 
   //头部返回按钮
   .tip-match-back {
-    color: $color-white!important;
-    background: transparent!important;
+    color: $color-white !important;
+    background: transparent !important;
   }
+
   .tip-match-right {
-    top: .3rem!important;
+    top: .3rem !important;
   }
 }
-.icon-set{
+
+.icon-set {
   .set-popver {
     left: auto;
     right: -.14rem;
     top: .5rem;
     bottom: auto;
     padding: 0;
+
     &::before {
       left: auto;
       right: .2rem;
@@ -205,18 +220,18 @@
 /* 队员信息 */
 .tip-match-request-tip {
   position: absolute;
-  left: auto!important;
-  top: -.32rem!important;
-  right: -.12rem!important;
+  left: auto !important;
+  top: -.32rem !important;
+  right: -.12rem !important;
   width: 4.26rem;
-  line-height: .4rem!important;
-  padding: .08rem .16rem!important;
-  padding-right: .2rem!important;
+  line-height: .4rem !important;
+  padding: .08rem .16rem !important;
+  padding-right: .2rem !important;
   word-break: break-all;
-  z-index: 10!important;
+  z-index: 10 !important;
 
   &::before {
-    right: -2.76rem!important;
+    right: -2.76rem !important;
   }
 }
 
@@ -227,7 +242,7 @@
 
 .page-history {
   .tip-match-back {
-    background: transparent!important;
+    background: transparent !important;
   }
 
   .van-tabs__wrap {
@@ -235,16 +250,19 @@
   }
 
   .tip-match-empty-wrap {
-    height: calc(100vh - 2.2rem)!important;
+    height: calc(100vh - 2.2rem) !important;
   }
+
   .tip-match-tab {
     flex: 1;
     min-height: 1px;
   }
+
   .van-tabs {
     display: flex;
     flex-direction: column;
   }
+
   .van-tabs,
   .van-tabs__content,
   .van-tab__pane--active {
@@ -258,8 +276,8 @@
 */
 .popup-content {
   .tip-match-empty-wrap {
-    margin-top: 1rem!important;
-    margin-bottom: 1.2rem!important;
+    margin-top: 1rem !important;
+    margin-bottom: 1.2rem !important;
   }
 }
 
@@ -267,13 +285,14 @@
 * 规则页
 * src/pages/admin/view/dialog/rule.vue
 */
-.wrap-popup-rule{
-  .head{
+.wrap-popup-rule {
+  .head {
     font-size: $font-l;
     color: $color-black;
     font-weight: bold;
     background: transparent;
-    .tip-match-back{
+
+    .tip-match-back {
       background: transparent;
       color: $color-black;
       font-weight: normal;
@@ -300,6 +319,7 @@
       }
     }
   }
+
   .member-handle-tip {
     top: .28rem;
     left: 1.2rem;
@@ -307,7 +327,7 @@
     right: auto;
     white-space: nowrap;
     z-index: 8;
-  
+
     &::before {
       top: .22rem;
       left: -.17rem;
@@ -315,6 +335,7 @@
     }
   }
 }
+
 .wait-wrap {
   .hold-tip {
     top: auto;
@@ -322,7 +343,7 @@
     left: 0;
     right: auto;
     white-space: nowrap;
-  
+
     &::before {
       top: auto;
       left: .22rem;
@@ -331,6 +352,7 @@
     }
   }
 }
+
 .match-pk-bottom-wrap {
   .match-pk-bottom-tip-wrap {
     position: absolute;
@@ -344,12 +366,13 @@
     padding: 0 .16rem;
     background: $color-black;
     border-radius: .08rem;
-  
+
     &::before {
       bottom: -.08rem;
       border-top: 0.12rem solid $color-black;
     }
   }
+
   .match-pk-countdown {
     position: absolute;
     top: -.72rem;
@@ -361,18 +384,18 @@
     height: .56rem;
     padding: 0 .16rem;
     background: $color-black;
-  
+
     p {
       font-size: $font-xxs;
       color: $color-white;
       white-space: nowrap;
     }
-  
+
     &::before {
       bottom: -.08rem;
       border-top: 0.12rem solid $color-black;
     }
-  
+
     .icon-close {
       font-size: $font-xm;
       color: $color-white;
@@ -386,11 +409,11 @@
 */
 .tip-match-popup-no-title {
   .tip-match-popup-title-wrap {
-    height: auto!important;
-    padding: .32rem 0!important;
+    height: auto !important;
+    padding: .32rem 0 !important;
 
     &::after {
-      display: none!important;
+      display: none !important;
     }
   }
 }
@@ -404,28 +427,31 @@
   color: $color-gray-4;
   margin-left: .12rem;
   position: relative;
-  z-index: 9!important;
-  .tooltip{
-    position: absolute!important;
-    top: .56rem!important;
-    left: -1.38rem!important;
-    bottom: auto!important;
-    color: $color-white!important;
-    font-size: .24rem!important;
-    padding: .14rem .5rem .14rem .24rem!important;
-    border-radius: 0.12rem!important;
-    box-sizing: border-box!important;
-    display: flex!important;
-    align-items: center!important;
-    width: 4.74rem!important;
-    .icon-close{
+  z-index: 9 !important;
+
+  .tooltip {
+    position: absolute !important;
+    top: .56rem !important;
+    left: -1.38rem !important;
+    bottom: auto !important;
+    color: $color-white !important;
+    font-size: .24rem !important;
+    padding: .14rem .5rem .14rem .24rem !important;
+    border-radius: 0.12rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 4.74rem !important;
+
+    .icon-close {
       font-size: .3rem;
       margin-left: .24rem;
       position: absolute;
       top: .18rem;
       right: .16rem;
     }
-    &.tip-match-popver-bottom::before{
+
+    &.tip-match-popver-bottom::before {
       left: 1.42rem;
       right: auto;
     }
@@ -436,8 +462,8 @@
 * 确认小组赛成绩
 * src/local-component/ui/tip-match/tip-match-popup/tip-match-popup-confirm-score.vue
 */
-.tip-match-popup-team-group{
-  .tip-match-empty-wrap{
+.tip-match-popup-team-group {
+  .tip-match-empty-wrap {
     margin-top: 1rem;
   }
 }
@@ -446,11 +472,12 @@
 * 时间组件
 * src/local-component/ui/tip-match/tip-match-popup-datetime-picker
 */
-.tip-match-datetime-picker{
-  .van-picker-column__item{
+.tip-match-datetime-picker {
+  .van-picker-column__item {
     color: $color-black;
   }
-  .van-picker-column__item--selected{
+
+  .van-picker-column__item--selected {
     color: $color-blue-1;
     font-size: $font-xl;
   }
@@ -462,11 +489,11 @@
 */
 .team-list-header {
   .tip-match-back {
-    background: transparent!important;
+    background: transparent !important;
   }
 
   .tip-match-right {
-    top: .24rem!important;
+    top: .24rem !important;
   }
 
   .team-list-select {
@@ -485,42 +512,49 @@
     }
   }
 }
+
 .page-content {
   .tip-match-empty-wrap {
-    height: 100%!important;
+    height: 100% !important;
   }
 }
+
 .team-list-tooltip {
-  left: auto!important;
-  bottom: auto!important;
+  left: auto !important;
+  bottom: auto !important;
   top: .54rem;
-  right: -.22rem!important;
-  padding: 0!important;
+  right: -.22rem !important;
+  padding: 0 !important;
 
   &.tip-match-popver-bottom::before {
     right: 0.32rem;
     left: auto;
   }
 }
+
 /*
 * 赛事数据
 * src/pages/user/view/data/index.vue
 */
-.team-tab{
+.team-tab {
   height: 100%;
 }
+
 .team-tab .van-tabs {
   height: 100%;
   display: flex;
   flex-direction: column;
+
   .van-tabs__wrap {
     height: auto;
     background: rgba(255, 255, 255, 0.85);
   }
-  .van-tab__pane{
+
+  .van-tab__pane {
     height: 100%;
   }
-  .van-tabs__content{
+
+  .van-tabs__content {
     flex: 1;
   }
 }
@@ -529,14 +563,15 @@
 * 管理员页
 * src/pages/admin/view/match-manager.vue
 */
-.match-manager{
-  .pop-head{
-    .tip-match-header{
+.match-manager {
+  .pop-head {
+    .tip-match-header {
       font-size: $font-l;
       color: $color-black;
       font-weight: bold;
       background: $color-white;
     }
+
     .tip-match-back {
       background: transparent;
       color: $color-black;
@@ -550,7 +585,7 @@
 * src/pages/admin/view/match-create-new.vue
 */
 .flex-1 .head {
-  .tip-match-header{
+  .tip-match-header {
     font-size: $font-l;
     color: $color-black;
     font-weight: bold;
@@ -560,18 +595,19 @@
   }
 
   .tip-match-back {
-    background: transparent!important;
-    color: $color-white!important;
-    font-weight: normal!important;
+    background: transparent !important;
+    color: $color-white !important;
+    font-weight: normal !important;
   }
 }
 
 .flex-1 .normal-head {
-  .tip-match-header{
+  .tip-match-header {
     background: rgba(255, 255, 255, .85);
   }
+
   .tip-match-back {
-    color: $color-black!important;
+    color: $color-black !important;
   }
 }
 
@@ -579,34 +615,38 @@
 * 设置奖品
 * src/pages/admin/view/match-award-set.vue
 */
-.match-award-set .head{
-  .tip-match-header{
-    font-size: $font-l!important;
-    color: $color-black!important;
-    font-weight: bold!important;
-    background: transparent!important;
+.match-award-set .head {
+  .tip-match-header {
+    font-size: $font-l !important;
+    color: $color-black !important;
+    font-weight: bold !important;
+    background: transparent !important;
   }
-  .tip-match-back{
-    background: transparent!important;
-    color: $color-black!important;
-    font-weight: normal!important;
+
+  .tip-match-back {
+    background: transparent !important;
+    color: $color-black !important;
+    font-weight: normal !important;
   }
 }
+
 .award-detial-img-name {
   .tooltip {
     top: auto;
-    bottom: 1.26rem!important;
-    left: 1.2rem!important;
-    right: auto!important;
-    color: $color-white!important;
-    font-size: $font-xm!important;
-    white-space: nowrap!important;
-    display: flex!important;
-    align-items: center!important;
-    &.tip-match-popver-top::before{
+    bottom: 1.26rem !important;
+    left: 1.2rem !important;
+    right: auto !important;
+    color: $color-white !important;
+    font-size: $font-xm !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+
+    &.tip-match-popver-top::before {
       left: .4rem;
       right: auto;
     }
+
     .icon-close {
       font-size: .3rem;
       color: $color-gray;
@@ -619,23 +659,26 @@
 * 奖品排序
 * src/local-component/ui/tip-match/tip-match-rank-award
 */
-.order-group{
-  movable-area{
-    height: 100%!important;
+.order-group {
+  movable-area {
+    height: 100% !important;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
   }
-  movable-view{
+
+  movable-view {
     width: 100%;
     height: .96rem;
   }
-  .scoped-ref{
+
+  .scoped-ref {
     height: 100%;
     width: 100%;
-    background:  rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.85);
   }
+
   .order-item {
     background: rgba(255, 255, 255, 0.85);
     display: flex;
@@ -672,9 +715,10 @@
 */
 //循环赛
 .match-cycle {
-  .van-tabs .van-tabs__wrap{
+  .van-tabs .van-tabs__wrap {
     background: transparent;
   }
+
   .van-tabs__nav {
     background: transparent;
   }
@@ -683,19 +727,22 @@
     background: $color-white;
   }
 }
+
 /*
 * 更多赛程页
 * src/pages/admin/view/match-schedule-new.vue
 */
-.more-schedule-mp{
-  .tip-match-back{
-    display: none!important;
+.more-schedule-mp {
+  .tip-match-back {
+    display: none !important;
   }
-  .tip-match-middle{
-    opacity: 0!important;
+
+  .tip-match-middle {
+    opacity: 0 !important;
   }
-  .tip-match-right{
-    top: .3rem!important;
+
+  .tip-match-right {
+    top: .3rem !important;
   }
 }
 
@@ -705,7 +752,7 @@
 */
 
 // 直播列表代码
-.live-item{
+.live-item {
   margin-right: .2rem;
 }
 
@@ -713,24 +760,27 @@
 * 直播中心
 * src/local-component/ui/tip-match/tip-match-live-center/index.vue
 */
-.tip-match-popver-wrap.live-tooltip{
+.tip-match-popver-wrap.live-tooltip {
   display: flex;
   align-items: center;
-  top: -.62rem!important;
-  left: auto!important;
-  &::before{
+  top: -.62rem !important;
+  left: auto !important;
+
+  &::before {
     left: auto;
     right: .4rem;
   }
 }
+
 /*
 * 更改手机号
 * src/local-component/ui/pages/user/bind-phone/index.vue
 */
 .change-phone {
-  .head{
+  .head {
     margin-bottom: .4rem;
   }
+
   .phone-prefix {
     margin-right: .66rem;
 
@@ -743,19 +793,22 @@
     margin-top: .66rem;
   }
 }
+
 // 小程序头部二级标题靠左
-.match-header-left-mp{
+.match-header-left-mp {
   .tip-match-back {
-    display: none!important;
+    display: none !important;
   }
-  .tip-match-middle{
-    justify-content: space-between!important;
+
+  .tip-match-middle {
+    justify-content: space-between !important;
   }
 }
+
 // 小程序头部二级去掉返回按钮
-.match-header-no-back{
+.match-header-no-back {
   .tip-match-back {
-    display: none!important;
+    display: none !important;
   }
 }
 
@@ -768,6 +821,7 @@
     background: rgba(255, 255, 255, .8);
   }
 }
+
 .expland-icon {
   .status-tip {
     position: absolute;
@@ -780,25 +834,27 @@
     word-break: break-all;
     box-shadow: 0 .04rem .36rem 0 rgba(0, 0, 0, .07);
     z-index: 10;
-  
+
     &::before {
       position: absolute;
       top: -.12rem;
       left: -3.66rem;
       right: 0;
     }
-  
+
     &.status-tip-end {
       width: 6.2rem;
+
       &::before {
         position: absolute;
         top: -.12rem;
         left: -2.19rem;
       }
     }
-  
+
     &.status-tip-stage {
       width: 5.7rem;
+
       &::before {
         position: absolute;
         top: -.12rem;
@@ -807,9 +863,10 @@
     }
   }
 }
+
 .empty-fx1 {
   .tip-match-empty-wrap {
-    height: 100%!important;
+    height: 100% !important;
   }
 }
 
@@ -817,17 +874,18 @@
 * 比赛模式弹窗
 * src/local-component/ui/tip-match/tip-match-popup/tip-match-popup-match-model
 */
-.popupStartModel{
-  .tip-match-popup-title{
+.popupStartModel {
+  .tip-match-popup-title {
     transform: translateX(-.2rem);
   }
 }
 
 // 小程序样式(裁剪弹窗样式)
-.tip-crop-dialog{
+.tip-crop-dialog {
   position: relative;
   z-index: 99;
 }
+
 .image-cropper-wrap .image-cropper {
   height: 84% !important;
 }
@@ -897,6 +955,7 @@
     }
   }
 }
+
 /*
 * ob页
 * src/pages/admin/view/match-ob-room.vue
@@ -904,8 +963,8 @@
 
 .group-code {
   img {
-    width: 2.56rem!important;
-    height: 2.56rem!important;
+    width: 2.56rem !important;
+    height: 2.56rem !important;
     margin: 0 auto .24rem;
     display: block;
   }

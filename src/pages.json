@@ -377,7 +377,7 @@
 			]
 		},
 		{
-			"root": "pages/match/dialog",
+			"root": "pages/press/dialog",
 			"pages": [
 				{
 					"path": "dialog",
@@ -386,7 +386,7 @@
 			]
 		},
 		{
-			"root": "pages/match/picker",
+			"root": "pages/press/picker",
 			"pages": [
 				{
 					"path": "picker",
@@ -395,7 +395,7 @@
 			]
 		},
 		{
-			"root": "pages/match/loading",
+			"root": "pages/press/loading",
 			"pages": [
 				{
 					"path": "loading",

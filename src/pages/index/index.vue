@@ -1,6 +1,6 @@
 <template>
   <view class="home-container">
-    <!-- <match-loading /> -->
+    <!-- <press-loading /> -->
     <view class="home-header">
       <image
         class="home-header__bg"
@@ -148,13 +148,13 @@
           />
         </uni-list>
         <uni-section
-          title="match"
+          title="press"
           color="#007aff"
           type="line"
         />
         <uni-list>
           <uni-list-item
-            v-for="(navi, index) in match"
+            v-for="(navi, index) in press"
             :key="index"
             show-arrow
             :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+navi.icon+'.png'"
@@ -416,14 +416,14 @@ export default {
         icon: 'goods-nav',
       },
       ],
-      match: [
+      press: [
         {
           name: 'picker ',
-          url: 'match/picker/picker',
+          url: 'press/picker/picker',
         },
         {
           name: 'dialog ',
-          url: 'match/dialog/dialog',
+          url: 'press/dialog/dialog',
         },
       ],
       platform: 'vue',

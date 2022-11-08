@@ -3,6 +3,7 @@ module.exports = {
   extends: ['eslint-config-light'],
   globals: {
     getCurrentPages: true,
+    qq: true,
   },
   settings: {
   },

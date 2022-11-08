@@ -430,6 +430,13 @@ export default {
     };
   },
   methods: {},
+  onLoad() {
+    // #ifdef MP-QQ
+    qq.showShareMenu({
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment'],
+    });
+    // #endif
+  },
 };
 </script>
 

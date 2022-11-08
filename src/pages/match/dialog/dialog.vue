@@ -26,6 +26,13 @@ export default {
 
     };
   },
+  onLoad() {
+    // #ifdef MP-QQ
+    qq.showShareMenu({
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment'],
+    });
+    // #endif
+  },
   methods: {
     onShowDialog() {
       PressDialog.show({

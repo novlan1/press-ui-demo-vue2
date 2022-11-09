@@ -18,43 +18,41 @@
 
 ### dialog
 
-- src/local-component/module/tip-match/tip-match-comm-tips-dialog 
-
-替换为
-
-@tencent/press-ui/press-dialog
-
-删除了目录： src/local-component/module/tip-match/tip-match-comm-tips-dialog 
- 
+1. src/local-component/module/tip-match/tip-match-comm-tips-dialog 
+- 替换为 `@tencent/press-ui/press-dialog`
+- 删除原文件
 
 
-- src/local-component/ui/tip-match/tip-match-tip-popup/index.vue
-
-替换为
-
-@tencent/press-ui/press-dialog/press-dialog
+2. src/local-component/ui/tip-match/tip-match-tip-popup/index.vue
+- 替换为 `@tencent/press-ui/press-dialog/press-dialog`
+- 删除原文件，但css还在用
 
 ### picker
 
 1. src/local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
-
-替换为
-
-@tencent/press-ui/press-picker/press-picker
+- 替换为 `@tencent/press-ui/press-picker/press-picker`
+- 删除原文件
 
 
 2. src/local-component/ui/yd-component/popup-container
-
-替换为
-
-@tencent/press-ui/press-popup/press-popup
-
-TODO: src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 @tencent/press-ui/press-picker/handler
+- 替换为 `@tencent/press-ui/press-popup/press-popup`
+- 删除原文件
 
 
 
+
+
+
+### switch
+
+1. src/local-component/ui/tip-match/tip-match-switch
+- 替换为 `@tencent/press-ui/press-switch/press-switch`
+- 删除原文件
 
  ## TODO
+
+src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 `@tencent/press-ui/press-picker/handler`
+
 
 - dialog 
   - 替换

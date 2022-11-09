@@ -6,7 +6,7 @@
 */
 @import "../../base/layout.scss";
 @import "../../base/mixin.scss";
-@import '../../base//animate.scss';
+@import '../../base/animate.scss';
 
 .tip-match-bottom-popup-wrap {
   position: fixed;
@@ -18,6 +18,32 @@
   align-items: flex-end;
   justify-content: center;
   z-index: 99;
+}
+
+.tip-match-riser-slab {
+  .tip-match-popup-close {
+    left: 0;
+  }
+}
+
+.tip-match-cross-slab {
+  justify-content: flex-end;
+  align-items: stretch;
+
+  .tip-match-popup-content {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: rgba(18, 18, 31, 0.95);
+  }
+
+  .tip-match-popup-title {
+    color: $color-white;
+  }
+
+  .tip-match-popup-close {
+    right: 0;
+    color: $color-gray-4;
+  }
 }
 
 .tip-match-mask {
@@ -45,9 +71,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1.44rem;
-  padding: .24rem 0;
-  box-sizing: border-box;
+  height: tovmin(144);
+  padding: tovmin(24) 0;
 
   &::after {
     position: absolute;
@@ -56,8 +81,8 @@
     bottom: 0;
     margin: 0 auto;
     content: '';
-    width: 6.86rem;
-    height: .24rem;
+    width: tovmin(686);
+    height: tovmin(24);
     background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/popup-line.png) no-repeat center;
     background-size: contain;
   }
@@ -67,79 +92,78 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: .16rem;
+  top: tovmin(16);
   margin: auto;
-  width: .64rem;
-  height: .08rem;
-  border-radius: .08rem;
+  width: tovmin(64);
+  height: tovmin(8);
+  border-radius: tovmin(8);
   background: $color-gray-2;
 
   &::before {
     position: absolute;
     left: 0;
     right: 0;
-    top: -.14rem;
+    top: tovmin(-14);
+    height: tovmin(16);
     content: '';
-    height: .16rem;
   }
 
   &::after {
     position: absolute;
     left: 0;
     right: 0;
-    top: .06rem;
+    top: tovmin(6);
+    height: tovmin(16);
     content: '';
-    height: .16rem;
   }
 }
 
 .tip-match-popup-title {
-  font-size: $font-l;
+  font-size: tovmin(32);
   color: $color-black;
 }
 
 .tip-match-popup-close {
   position: absolute;
-  left: 0;
-  top: .24rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.04rem;
-  height: .96rem;
-  font-size: $font-xxl;
+  top: tovmin(24);
+  width: tovmin(104);
+  height: tovmin(96);
+  font-size: tovmin(40);
   color: $color-gray;
 }
 
 .tip-match-popup-arrow {
   position: absolute;
   left: 0;
-  top: .24rem;
+  top: tovmin(24);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.04rem;
-  height: .96rem;
-  font-size: $font-xxl;
+  width: tovmin(104);
+  height: tovmin(96);
+  font-size: tovmin(40);
   color: $color-gray;
 }
 
 .tip-match-popup-title-btn {
-  @include primary-btn(auto, auto, .28rem);
+  @include primary-btn(auto, auto, tovmin(28));
+  top: tovmin(50);
+  right: tovmin(40);
+  padding: tovmin(4) tovmin(24);
+  line-height: tovmin(44);
   position: absolute;
-  top: .5rem;
-  right: .4rem;
-  padding: .04rem .24rem;
-  line-height: .44rem;
 }
 
 .tip-match-border-btn {
-  @include border-btn(auto, auto, .28rem);
+  @include border-btn(auto, auto, tovmin(28));
   position: absolute;
-  top: .5rem;
-  right: .4rem;
-  padding: .04rem .24rem;
-  line-height: .44rem;
+  top: tovmin(50);
+  right: tovmin(40);
+  padding: tovmin(4) tovmin(24);
+  line-height: tovmin(44);
 }
 
 

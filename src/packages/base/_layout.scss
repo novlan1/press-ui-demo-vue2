@@ -4,6 +4,13 @@
 * author：lauheeliu（刘诏熹）
 * email：lauheeliu@tencent.com
 */
+@use "sass:math";
+
+//css函数
+@function tovmin($rpx) {
+  //$rpx为需要转换的字号
+  @return #{math.div($rpx * 100,750)}vmin;
+}
 
 /* 字号 */
 $font-xxXl: .48rem;

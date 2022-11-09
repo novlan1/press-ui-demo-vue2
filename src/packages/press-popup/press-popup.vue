@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['tip-match-bottom-popup-wrap',popupClass]"
+    :class="['tip-match-bottom-popup-wrap',popupClass ,isCrossSlab? 'tip-match-cross-slab':'tip-match-riser-slab']"
     :style="{zIndex: `${zIndex}`}"
     @touchmove.stop="preventTouchMove"
   >
@@ -12,11 +12,17 @@
     />
     <div
       :class="['tip-match-popup-content',
-               isShowPopup ? 'tip-match-bottom-enter':'tip-match-bottom-leave']"
+               isShowPopup ?
+                 isCrossSlab ? 'tip-match-right-enter':'tip-match-bottom-enter':
+                 isCrossSlab ? 'tip-match-right-leave':'tip-match-bottom-leave']"
+      :style="{width:isCrossSlab ? `${widthNumber}%` : '100%'}"
     >
-      <div class="tip-match-popup-title-wrap">
+      <div
+        v-if="isShowTitle"
+        class="tip-match-popup-title-wrap"
+      >
         <div
-          v-if="!isShowpopupClose && !showBackArrow"
+          v-if="!isShowpopupClose && !showBackArrow && !isCrossSlab"
           class="tip-match-popup-title-line"
           @click.stop="clickCancel"
         />
@@ -60,6 +66,24 @@ export default {
     PressIcon,
   },
   props: {
+    // 是否显示标题
+    isShowTitle: {
+      type: Boolean,
+      default: true,
+      required: false,
+    },
+    // 横板弹窗宽度百分比
+    widthNumber: {
+      type: Number,
+      default: 100,
+      required: false,
+    },
+    // 是否切换横板样式
+    isCrossSlab: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
     // 是否显示关闭按钮
     isShowpopupClose: {
       type: Boolean,

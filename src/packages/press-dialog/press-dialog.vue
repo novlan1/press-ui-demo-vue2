@@ -21,6 +21,17 @@
       >
         {{ content }}
       </p>
+      <div
+        v-if="src"
+        class="tip-match-popup-code-wrap"
+      >
+        <img
+          v-if="src"
+          class="tip-match-popup-code"
+          :show-menu-by-longpress="true"
+          :src="src"
+        >
+      </div>
       <div class="tip-match-popup-btn-wrap">
         <template v-if="cancelText && cancelText.length > 0">
           <div
@@ -124,7 +135,7 @@ export default {
       mShowButtonLoading: false,
 
       dialogIsShow: false,
-
+      src: '',
       dialogType: 1,
       title: '温馨提示',
       content: '',
@@ -197,7 +208,6 @@ export default {
     destroy() {
       if (isMp()) return;
       this.$destroy();
-      console.log('ddddd');
       if (document.body.contains(this.$el)) {
         document.body.removeChild(this.$el);
       }

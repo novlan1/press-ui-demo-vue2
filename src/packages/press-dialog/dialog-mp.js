@@ -20,6 +20,7 @@ Dialog.defaultOptions = {
   show: true,
   title: '温馨提示',
   content: '',
+  src: '',
   confirmText: '确认',
   cancelText: '取消',
 };

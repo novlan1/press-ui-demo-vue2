@@ -8,7 +8,7 @@
 @import "./layout";
 
 /* 主按钮 */
-@mixin primary-btn($width, $height, $fontSize, $color: $color-white, $borderRadius: .08rem, $bgColor: $color-primary-btn,$bgActive:$color-blue) {
+@mixin primary-btn($width, $height, $fontSize, $color: $color-white, $borderRadius: .08rem, $bgColor: $color-primary-btn, $bgActive: $color-blue) {
   position: relative;
   display: flex;
   align-items: center;
@@ -19,13 +19,14 @@
   color: $color;
   border-radius: $borderRadius;
   background-image: $bgColor;
-  &:active{
+
+  &:active {
     background: $bgActive;
   }
 }
 
 /* 次按钮 */
-@mixin secondary-btn($width, $height, $fontSize, $color: $color-black, $borderRadius: .08rem, $bgColor: $color-secondary-btn,$bgActive:$color-gray-3) {
+@mixin secondary-btn($width, $height, $fontSize, $color: $color-black, $borderRadius: .08rem, $bgColor: $color-secondary-btn, $bgActive: $color-gray-3) {
   position: relative;
   display: flex;
   align-items: center;
@@ -36,13 +37,14 @@
   color: $color;
   border-radius: $borderRadius;
   background: $bgColor;
-  &:active{
+
+  &:active {
     background: $bgActive;
   }
 }
 
 /* 不可点击按钮 */
-@mixin disabled-btn($width, $height, $fontSize, $color: $color-white, $borderRadius: .08rem, $bgColor: $color-primary-btn,$bgActive:$color-primary-active) {
+@mixin disabled-btn($width, $height, $fontSize, $color: $color-white, $borderRadius: .08rem, $bgColor: $color-primary-btn, $bgActive: $color-primary-active) {
   position: relative;
   display: flex;
   align-items: center;
@@ -57,7 +59,7 @@
 }
 
 /* 线框按钮 */
-@mixin border-btn($width, $height, $fontSize, $color:$color-primary, $borderColor:$color-primary, $borderRadius: .08rem, $bgColor: transparent,$bgActive:$color-bg,$borderActive:$color-blue,$textActive:$color-blue) {
+@mixin border-btn($width, $height, $fontSize, $color: $color-primary, $borderColor: $color-primary, $borderRadius: .08rem, $bgColor: transparent, $bgActive: $color-bg, $borderActive: $color-blue, $textActive: $color-blue) {
   position: relative;
   display: flex;
   align-items: center;
@@ -71,7 +73,8 @@
   border-color: $borderColor;
   border-radius: $borderRadius;
   background: $bgColor;
-  &:active{
+
+  &:active {
     background: $bgActive;
     border-color: $borderActive;
     color: $textActive;
@@ -91,6 +94,7 @@
     background-size: contain;
     pointer-events: none;
   }
+
   &::before {
     position: absolute;
     bottom: 0;
@@ -117,6 +121,7 @@
     background-size: contain;
     pointer-events: none;
   }
+
   &::before {
     position: absolute;
     bottom: 0;
@@ -143,6 +148,7 @@
     background-size: contain;
     pointer-events: none;
   }
+
   &::before {
     position: absolute;
     bottom: 0;
@@ -245,7 +251,7 @@
 }
 
 /* 红点单个数字样式 */
-@mixin red-dot-single-num($position: absolute,$top: 0,$right: 0) {
+@mixin red-dot-single-num($position: absolute, $top: 0, $right: 0) {
   position: $position;
   top: $top;
   right: $right;
@@ -263,7 +269,7 @@
 }
 
 /* 红点多个数字样式 */
-@mixin red-dot-more-num($position: absolute,$top: 0,$left: 0) {
+@mixin red-dot-more-num($position: absolute, $top: 0, $left: 0) {
   position: $position;
   top: $top;
   left: $left;
@@ -281,7 +287,7 @@
 }
 
 /* 红点提醒样式--不带数字 */
-@mixin red-dot($position: absolute,$top: 0,$right: 0) {
+@mixin red-dot($position: absolute, $top: 0, $right: 0) {
   position: $position;
   top: $top;
   right: $right;

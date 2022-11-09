@@ -402,6 +402,15 @@
 					"style": {}
 				}
 			]
+		},
+		{
+			"root": "pages/press/switch",
+			"pages": [
+				{
+					"path": "switch",
+					"style": {}
+				}
+			]
 		}
 	],
 	"globalStyle": {

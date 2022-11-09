@@ -7,7 +7,7 @@
       <button @click.stop="onShowPicker('tip')">
         顶部提示
       </button>
-      <button @click.stop="onShowPicker('multiColumn')">
+      <!-- <button @click.stop="onShowPicker('multiColumn')">
         多列
       </button>
       <button @click.stop="onShowPicker('children')">
@@ -15,7 +15,7 @@
       </button>
       <button @click.stop="onShowPicker('async')">
         异步确认
-      </button>
+      </button> -->
     </view>
     <press-picker
       v-if="pickerOption.normal.show"

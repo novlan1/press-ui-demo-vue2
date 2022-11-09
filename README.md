@@ -36,14 +36,20 @@
 
 ### picker
 
-src/local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
+1. src/local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
 
 替换为
 
 @tencent/press-ui/press-picker/press-picker
 
 
+2. src/local-component/ui/yd-component/popup-container
 
+替换为
+
+@tencent/press-ui/press-popup/press-popup
+
+TODO: src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 @tencent/press-ui/press-picker/handler
 
 
 

@@ -425,6 +425,10 @@ export default {
           name: 'dialog ',
           url: 'press/dialog/dialog',
         },
+        {
+          name: 'switch ',
+          url: 'press/switch/switch',
+        },
       ],
       platform: 'vue',
     };

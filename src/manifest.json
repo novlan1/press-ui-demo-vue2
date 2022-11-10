@@ -1,5 +1,5 @@
 {
-	"name": "uni-press-ui",
+	"name": "PRESS UI",
 	"appid": "__UNI__FD40C16",
 	"description": "",
 	"versionName": "1.0.0",
@@ -61,7 +61,7 @@
 			"mode": "hash",
 			"base": ""
 		},
-		"title": "press-ui",
+		"title": "PRESS UI",
 		"template": "template.h5.html",
 		"publicPath": "./"
 	},

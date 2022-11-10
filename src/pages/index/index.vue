@@ -9,14 +9,14 @@
       />
       <image
         class="home-header__logo"
-        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/uniui-logo.png"
+        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png"
         mode="aspectFit"
       />
       <view class="home-header__content">
         <view class="home-header__content-title">
           全端兼容 高性能
         </view>
-        <view>
+        <view class="home-header__content-info">
           <text class="home-header__content-subtitle">
             press-ui 是一套易用的、灵活的、基于uni-app的组件库
           </text>
@@ -29,7 +29,7 @@
         is-shadow
         padding="0"
       >
-        <uni-section
+        <!-- <uni-section
           title="辅助样式"
           sub-title="引入 uni-sass 后通过辅助样式提升快捷布局能力"
           color="#007aff"
@@ -146,7 +146,7 @@
             link
             :to="`/pages/${navi.url}`"
           />
-        </uni-list>
+        </uni-list> -->
         <uni-section
           title="press"
           color="#007aff"
@@ -420,18 +420,22 @@ export default {
         {
           name: 'Picker',
           url: 'press/picker/picker',
+          icon: 'drawer',
         },
         {
           name: 'Dialog',
           url: 'press/dialog/dialog',
+          icon: 'popup',
         },
         {
           name: 'Switch',
           url: 'press/switch/switch',
+          icon: 'number-box',
         },
         {
           name: 'Icon',
           url: 'press/icon/icon',
+          icon: 'icons',
         },
       ],
       platform: 'vue',
@@ -481,8 +485,8 @@ export default {
     position: absolute;
     top: 22px;
     left: 20px;
-    width: 70px;
-    height: 20px;
+    width: 112px;
+    height: 22px;
     z-index: 1;
   }
 
@@ -497,6 +501,12 @@ export default {
       font-size: 16px;
       font-weight: 600;
       color: #1f1f1f;
+    }
+
+    &-info {
+      /* #ifdef H5 */
+      line-height: 8px;
+      /* #endif */
     }
 
     &-subtitle {

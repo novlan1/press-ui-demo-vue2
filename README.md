@@ -47,7 +47,7 @@ npm run docs:deploy
 
 ## 在线DEMO
 
-<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode.png" width="1000">
+<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode.png" width="600">
 
 
 

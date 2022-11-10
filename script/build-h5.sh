@@ -1,4 +1,4 @@
-# npm run build:h5
+npm run build:h5
 cd dist/build/h5 
 git init
 git remote add origin git@github.com:novlan1/press-ui-demo.git

@@ -6,6 +6,7 @@
     "dev": "npm run serve",
     "serve": "npm run dev:h5",
     "build": "npm run build:h5",
+    "deploy": "sh script/build-h5.sh",
     "env": "node env",
     "build:mp": "npm run build:mp-weixin",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",

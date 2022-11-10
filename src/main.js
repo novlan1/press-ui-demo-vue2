@@ -9,6 +9,7 @@ import PressPicker from 'src/packages/press-picker/press-picker.vue';
 import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
 import PressIcon from 'src/packages/press-icon/press-icon.vue';
 import PressSwitch from 'src/packages/press-switch/press-switch.vue';
+import PressPopup from 'src/packages/press-popup/press-popup.vue';
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
 import UniBreadcrumb from 'src/packages/uni-breadcrumb/components/uni-breadcrumb/uni-breadcrumb.vue';
@@ -144,7 +145,7 @@ Vue.component('PressPicker', PressPicker);
 Vue.component('PressDialog', PressDialog);
 Vue.component('PressIcon', PressIcon);
 Vue.component('PressSwitch', PressSwitch);
-
+Vue.component('PressPopup', PressPopup);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

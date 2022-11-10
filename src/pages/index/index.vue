@@ -437,6 +437,11 @@ export default {
           url: 'press/icon/icon',
           icon: 'icons',
         },
+        {
+          name: 'Popup',
+          url: 'press/popup/popup',
+          icon: 'popup',
+        },
       ],
       platform: 'vue',
     };
@@ -505,7 +510,7 @@ export default {
 
     &-info {
       /* #ifdef H5 */
-      line-height: 8px;
+      font-size: 16px;
       /* #endif */
     }
 

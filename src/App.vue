@@ -15,3 +15,4 @@ export default {
 <style>
 /*每个页面公共css */
 </style>
+<style lang="scss" src="src/packages/base/reset.scss"></style>

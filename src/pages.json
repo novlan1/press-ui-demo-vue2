@@ -420,6 +420,15 @@
 					"style": {}
 				}
 			]
+		},
+		{
+			"root": "pages/press/popup",
+			"pages": [
+				{
+					"path": "popup",
+					"style": {}
+				}
+			]
 		}
 	],
 	"globalStyle": {

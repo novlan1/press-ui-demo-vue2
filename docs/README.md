@@ -1,5 +1,57 @@
 # PressUI
 
+
+## 开发
+
+### 组件开发
+
+
+```bash
+npm run dev
+# h5
+
+npm run dev:mp-weixin
+# 微信小程序
+
+npm run dev:mp-qq
+# qq小程序
+```
+
+
+### 文档开发
+
+```
+npm run docs:dev
+```
+
+### 文档构建
+
+```
+npm run docs:build
+```
+
+### 文档部署
+
+需要在.env.local中写入服务器地址和密码：
+
+```
+HOST_NAME=xxx
+HOST_PWD=xxx
+```
+
+然后执行：
+
+```
+npm run docs:deploy
+```
+
+## 在线DEMO
+
+<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode.png" width="600">
+
+
+
+
 ## 如何使用
 
 下载`src/uni_modules`到本地，即可使用。
@@ -104,4 +156,3 @@ p2
 ## 组件依赖最小原则
 
 组件不要依赖太多的外部公共文件，保持独立性
-

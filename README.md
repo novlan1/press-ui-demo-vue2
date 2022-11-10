@@ -47,20 +47,8 @@ npm run docs:deploy
 
 ## 在线DEMO
 
-<div style="display:flex;">
-  <div>
-    <img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/qrcode-h5.png" width="300">
-    <p style="text-align:center;">H5</p>
- </div>
- <div>
-    <img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/qrcode-wx-mp.png" width="300">
-    <p style="text-align:center;">微信小程序</p>
- </div>
- <!-- <div>
-    <img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/qrcode-h5.png" width="300">
-    <p style="text-align:center;">QQ小程序</p>
- </div> -->
-</div>
+<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode.png" width="1000">
+
 
 
 

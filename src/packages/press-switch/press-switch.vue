@@ -15,7 +15,10 @@ export default {
 
   },
   props: {
-    open: Boolean,
+    open: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {

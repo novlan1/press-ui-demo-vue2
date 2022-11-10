@@ -136,6 +136,7 @@ export default {
       default: '',
       required: false,
     },
+    // 是否可以点击蒙版关闭
     canTouchRemove: {
       type: Boolean,
       default: true,

@@ -27,6 +27,7 @@ export default {
       type: String,
       default: '',
     },
+    // 数据列表
     selectList: {
       type: Array,
       default: () => [], // 默认值不要给null，报错

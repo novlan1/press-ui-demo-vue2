@@ -34,7 +34,29 @@
         <div />
       </div>
     </uni-section>
-    <press-loading v-if="options.page.show" />
+
+    <uni-section
+      title="指定背景色"
+      type="line"
+    >
+      <div class="section-content">
+        <div
+          class="tip-match-primary-samll-btn"
+          style="position:relative"
+          @click.stop="onShowLoading('bg')"
+        >
+          三秒后消失
+        </div>
+        <div />
+      </div>
+    </uni-section>
+    <press-loading
+      v-if="options.page.show"
+    />
+    <press-loading
+      v-if="options.bg.show"
+      loading-bg="#eee"
+    />
   </div>
 </template>
 <script>
@@ -46,6 +68,9 @@ export default {
           show: false,
         },
         page: {
+          show: false,
+        },
+        bg: {
           show: false,
         },
       },

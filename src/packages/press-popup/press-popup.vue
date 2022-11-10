@@ -33,7 +33,8 @@
         /> -->
         <PressIcon
           v-if="isShowpopupClose && !showBackArrow"
-          class="tip-match-popup-close iconfont icon-close"
+          class="tip-match-popup-close"
+          type="close"
           @click="clickCancel"
         />
         <div

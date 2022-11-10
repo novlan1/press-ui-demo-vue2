@@ -418,16 +418,20 @@ export default {
       ],
       press: [
         {
-          name: 'picker ',
+          name: 'picker',
           url: 'press/picker/picker',
         },
         {
-          name: 'dialog ',
+          name: 'dialog',
           url: 'press/dialog/dialog',
         },
         {
-          name: 'switch ',
+          name: 'switch',
           url: 'press/switch/switch',
+        },
+        {
+          name: 'icon',
+          url: 'press/icon/icon',
         },
       ],
       platform: 'vue',

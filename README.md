@@ -51,8 +51,11 @@
 
 ## TODO
 
-src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 `@tencent/press-ui/press-picker/handler`
+1. src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 `@tencent/press-ui/press-picker/handler`
 
+2. 组件优先级
+
+p0
 
 - dialog 
   - 替换
@@ -93,6 +96,10 @@ p2
   - 依赖关系混乱，即使复制粘贴也要很长时间来梳理
   - API混乱，脱离业界标准
 - 业务库愈发臃肿，随着需求迭代，越来越难以维护
+- 业务用了很多vant组件，但是web和小程序的vant中API并不一致，导致业务中混杂大量兼容代码
+- 放在业务库中改动成本太低，有可能一个开发者随手加的一行代码，引起其他页面的雪崩
+
+
 
 ## 组件依赖最小原则
 

@@ -411,6 +411,15 @@
 					"style": {}
 				}
 			]
+		},
+		{
+			"root": "pages/press/icon",
+			"pages": [
+				{
+					"path": "icon",
+					"style": {}
+				}
+			]
 		}
 	],
 	"globalStyle": {

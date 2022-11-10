@@ -50,7 +50,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint": "eslint --ext .js,.ts.vue .",
-    "lint:fix": "eslint --fix --ext .js,.ts.vue ."
+    "lint:fix": "eslint --fix --ext .js,.ts.vue .",
+    "gen:icon:list": "node script/icon-list"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.1-alpha-36420220922001",

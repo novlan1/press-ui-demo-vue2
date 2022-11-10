@@ -73,6 +73,7 @@
   justify-content: center;
   height: tovmin(144);
   padding: tovmin(24) 0;
+  box-sizing: border-box;
 
   &::after {
     position: absolute;

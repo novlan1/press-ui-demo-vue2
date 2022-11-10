@@ -1,16 +1,90 @@
 <template>
   <div class="wrap">
-    <match-loading />
+    <uni-section
+      title="按钮模式"
+      type="line"
+    >
+      <div class="section-content">
+        <div
+          class="tip-match-primary-samll-btn"
+          style="position:relative"
+          @click.stop="onShowLoading('btn')"
+        >
+          {{ options.btn.show ? '' : "点击加载" }}
+          <press-loading
+            v-if="options.btn.show"
+            loading-scenes="btn"
+          />
+        </div>
+      </div>
+    </uni-section>
+
+    <uni-section
+      title="页面模式"
+      type="line"
+    >
+      <div class="section-content">
+        <div
+          class="tip-match-primary-samll-btn"
+          style="position:relative"
+          @click.stop="onShowLoading('page')"
+        >
+          点我查看
+        </div>
+        <div />
+      </div>
+    </uni-section>
+    <press-loading v-if="options.page.show" />
   </div>
 </template>
 <script>
 export default {
-
+  data() {
+    return {
+      options: {
+        btn: {
+          show: false,
+        },
+        page: {
+          show: false,
+        },
+      },
+    };
+  },
+  methods: {
+    onShowLoading(type) {
+      this.options[type].show = true;
+      setTimeout(() => {
+        this.options[type].show = false;
+      }, 3000);
+    },
+  },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import "src/packages/base/mixin.scss";
+
 .wrap {
   width: 100%;
   height: 100%;
+}
+
+.section-content {
+  margin: 0 10px;
+}
+
+.tip-match-primary-samll-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include primary-btn(2rem, 0.72rem, 0.32rem);
+  @include btn-default-bg;
+}
+
+.tip-match-secondary-samll-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include secondary-btn(2rem, 0.72rem, 0.32rem);
 }
 </style>

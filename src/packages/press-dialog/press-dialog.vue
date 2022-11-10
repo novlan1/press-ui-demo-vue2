@@ -68,7 +68,7 @@
   </div>
 </template>
 <script>
-import ButtonLoading from '../match-loading/match-loading.vue';
+import ButtonLoading from '../press-loading/press-loading.vue';
 function isMp() {
   return typeof getCurrentPages === 'function';
 }

@@ -423,6 +423,11 @@ export default {
           icon: 'drawer',
         },
         {
+          name: 'Loading',
+          url: 'press/loading/loading',
+          icon: 'load-more',
+        },
+        {
           name: 'Dialog',
           url: 'press/dialog/dialog',
           icon: 'popup',

@@ -4,7 +4,7 @@ import App from './App.vue';
 import Vue from 'vue';
 // import './global-comp';
 
-import MatchLoading from 'src/packages/match-loading/match-loading.vue';
+import PressLoading from 'src/packages/press-loading/press-loading.vue';
 import PressPicker from 'src/packages/press-picker/press-picker.vue';
 import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
 import PressIcon from 'src/packages/press-icon/press-icon.vue';
@@ -140,7 +140,7 @@ Vue.component('UniTooltip', UniTooltip);
 Vue.component('UniTransition', UniTransition);
 Vue.component('UniUi', UniUi);
 
-Vue.component('MatchLoading', MatchLoading);
+Vue.component('PressLoading', PressLoading);
 Vue.component('PressPicker', PressPicker);
 Vue.component('PressDialog', PressDialog);
 Vue.component('PressIcon', PressIcon);

@@ -1,52 +1,107 @@
-### [查看文档](https://uniapp.dcloud.io/component/uniui/uni-transition)
-#### 如使用过程中有任何问题，或者您对uni-ui有一些好的建议，欢迎加入 uni-ui 交流群：871950839 
+# PressUI
 
-## uni-ui产品特点
+## 如何使用
 
-### 1. 高性能
+下载`src/uni_modules`到本地，即可使用。
 
-目前为止，在小程序和混合app领域，暂时还没有比 `uni-ui` 更高性能的框架。
-- 自动差量更新数据
 
-虽然uni-app支持小程序自定义组件，所有小程序的ui库都可以用。但小程序自定义组件的ui库都需要使用setData手动更新数据，在大数据量时、或高频更新数据时，很容易产生性能问题。
 
-而 `uni-ui` 属于vue组件，uni-app引擎底层自动diff更新数据。当然其实插件市场里众多vue组件都具备这个特点。
-- 优化逻辑层和视图层通讯折损
 
-非H5，不管是小程序还是App，不管是app的webview渲染还是原生渲染，全都是逻辑层和视图层分离的。这里就有一个逻辑层和视图层通讯的折损问题。
-比如在视图层拖动一个可跟手的组件，由于通讯的损耗，用js监听很难做到实时跟手。
+## rem单位
 
-这时就需要使用css动画以及平台底层提供的wxs、bindingx等技术。不过这些技术都比较复杂，所以 `uni-ui` 里做了封装，在需要跟手式操作的ui组件，比如swiperaction列表项左滑菜单，就在底层使用了这些技术，实现了高性能的交互体验
-- 背景停止
+目前有的组件使用的单位是rem
+- 优势：h5端适配更好，更合适
+- 劣势：在小程序等其他端需要额外的插件来转换
 
-很多ui组件是会一直动的，比如轮播图、跑马灯。即便这个窗体被新窗体挡住，它在背景层仍然在消耗着硬件资源。在Android的webview版本为chrome66以上，背景操作ui会引发很严重的性能问题，造成前台界面明显卡顿。
 
-而 `uni-ui` 的组件，会自动判断自己的显示状态，在组件不再可见时，不会再消耗硬件资源。
+## 赛宝项目改动点
 
-### 2. 全端
+### dialog
 
- `uni-ui` 的组件都是多端自适应的，底层会抹平很多小程序平台的差异或bug。
+1. src/local-component/module/tip-match/tip-match-comm-tips-dialog 
+- 替换为 `@tencent/press-ui/press-dialog`
+- 删除原文件
 
-比如导航栏navbar组件，会自动处理不同端的状态栏。
-比如swiperaction组件，在app和微信小程序上会使用交互体验更好的wxs技术，但在不支持wxs的其他小程序端会使用js模拟类似效果。
 
- `uni-ui` 还支持nvue原生渲染，[详见](https://github.com/dcloudio/uni-ui/tree/nvue-uni-ui)
+2. src/local-component/ui/tip-match/tip-match-tip-popup/index.vue
+- 替换为 `@tencent/press-ui/press-dialog/press-dialog`
+- 删除原文件，但css还在用
 
-未来 `uni-ui` 还会支持pc等大屏设备。
+### picker
 
-### 3. 与uni统计自动集成实现免打点
+1. src/local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
+- 替换为 `@tencent/press-ui/press-picker/press-picker`
+- 删除原文件
 
-uni统计是优秀的多端统计平台，见[tongji.dcloud.net.cn](https://tongji.dcloud.net.cn)。
 
-除了一张报表看全端，它的另一个重要特点是免打点。
-比如使用 `uni-ui` 的navbar标题栏、收藏、购物车等组件，均可实现自动打点，统计页面标题等各种行为数据。
-当然你也可以关闭uni统计，这不是强制的。
+2. src/local-component/ui/yd-component/popup-container
+- 替换为 `@tencent/press-ui/press-popup/press-popup`
+- 删除原文件
 
-### 4. 主题扩展
 
- `uni-ui` 支持[uni.scss](https://uniapp.dcloud.io/collocation/uni-scss)，可以方便的切换App的风格。
 
-ui是一种需求非常发散的产品，DCloud官方也无意用 `uni-ui` 压制第三方ui插件的空间，但官方有义务在性能和多端方面提供一个开源的标杆给大家。
 
-我们欢迎更多优秀的ui组件出现，也欢迎更多人贡献 `uni-ui` 的主题风格，满足更多用户的需求。
+
+
+### switch
+
+1. src/local-component/ui/tip-match/tip-match-switch
+- 替换为 `@tencent/press-ui/press-switch/press-switch`
+- 删除原文件
+
+## TODO
+
+1. src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 `@tencent/press-ui/press-picker/handler`
+
+2. 组件优先级
+
+p0
+
+- dialog 
+  - 替换
+  - 变量模板定义
+- toast 
+- picker
+  - 重构 
+- datetimepicker
+- upload
+- switch
+- loading 多种loading 
+- list
+- tab
+- button
+- swiper
+- 转场动画transition
+
+p1
+
+- countdown倒计时
+- steps
+
+p2
+
+- collapse
+- form input 
+- popup 弹出层
+- 侧滑删除
+- empty
+
+## 当前痛点
+
+- 组件夹杂在业务库中，没有分离，没有抽象
+  - 难复用
+  - 缺乏文档、demo
+  - 代码规范缺失
+  - 无法沉淀
+  - 依赖关系混乱，即使复制粘贴也要很长时间来梳理
+  - API混乱，脱离业界标准
+- 业务库愈发臃肿，随着需求迭代，越来越难以维护
+- 业务用了很多vant组件，但是web和小程序的vant中API并不一致，导致业务中混杂大量兼容代码
+- 放在业务库中改动成本太低，有可能一个开发者随手加的一行代码，引起其他页面的雪崩
+
+
+
+## 组件依赖最小原则
+
+组件不要依赖太多的外部公共文件，保持独立性
 

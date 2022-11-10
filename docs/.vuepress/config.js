@@ -1,57 +1,65 @@
 module.exports = {
 	title: '',
-	description: 'uni-ui 的描述',
+	description: 'press-ui',
 	markdown: {
 		// 显示行号
 		lineNumbers: false,
 		extractHeaders: ['h2', 'h3', 'h4']
 	},
+	base:'/press-ui/',
 	themeConfig: {
 		logo: {
-			img: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-f184e7c3-1912-41b2-b81f-435d1b37c7b4/738873d6-ac99-4811-aafc-ab1ebc97a419.png',
-			link: 'https://uniapp.dcloud.io'
+			img: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png',
+			// link: 'https://uniapp.dcloud.io'
 		},
 		subLogo: {
-			img: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-f184e7c3-1912-41b2-b81f-435d1b37c7b4/055240f8-880f-4c1a-b909-c64cb4894fa0.png',
-			link: 'https://dcloud.io'
+			// img: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-f184e7c3-1912-41b2-b81f-435d1b37c7b4/055240f8-880f-4c1a-b909-c64cb4894fa0.png',
+			// link: 'https://dcloud.io'
 		},
-		nav: [{
-				text: 'uni-app官网',
-				link: 'https://uniapp.dcloud.io/'
-			},
-			{
-				text: '插件市场',
-				link: 'https://ext.dcloud.net.cn/plugin?id=55'
-			}
+		nav: [
+			// {
+			// 	text: 'uni-app官网',
+			// 	link: 'https://uniapp.dcloud.io/'
+			// },
+			// {
+			// 	text: '插件市场',
+			// 	link: 'https://ext.dcloud.net.cn/plugin?id=55'
+			// }
 
 		],
 		algolia: {
 			apiKey: '48a1bc6e7170949bb834becb9d8815e5',
 			indexName: 'dcloud_uniui'
 		},
-		base:'/uni-ui/',
-		repo: 'dcloudio/uni-ui', // git 仓库
-		repoLabel: '查看源码', // git 仓库显示文字
+		// mode: 'hash',
+		// repo: 'dcloudio/uni-ui', // git 仓库
+		// repoLabel: '查看源码', // git 仓库显示文字
 		docsDir: 'docs',
 		docsBranch: 'master',
-		editLinks: true,
-		editLinkText: '在 GitHub 上编辑此页面！',
+		// editLinks: true,
+		// editLinkText: '在 GitHub 上编辑此页面！',
 		smoothScroll: true, //开启滚动效果
 		sidebarDepth: 0, //嵌套标题深度
 		lastUpdated: '最后更新时间', // 最后更新时间
 		sidebar: [
 			'/',
-			'/quickstart',
-			'/changelog.md',
-			'/questions.md',
-			{
-				path: 'https://cn.vuejs.org/v2/style-guide/',
-				title: '风格指南',
-			},
+			// '/quickstart',
+			// '/changelog.md',
+			// '/questions.md',
+			// {
+			// 	path: 'https://cn.vuejs.org/v2/style-guide/',
+			// 	title: '风格指南',
+			// },
 			{
 				title: '基础组件', // 必要的
 				collapsable: false, // 可选的, 默认值是 true,
-				children: [{
+				children: [
+					{
+						path: '/components/press/loading.md',
+						title: '加载中',
+						subTitle: 'Loading'
+					},
+					{
 						path: '/components/badge.md',
 						title: '数字角标',
 						subTitle: 'Badge'

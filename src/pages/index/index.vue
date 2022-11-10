@@ -418,19 +418,19 @@ export default {
       ],
       press: [
         {
-          name: 'picker',
+          name: 'Picker',
           url: 'press/picker/picker',
         },
         {
-          name: 'dialog',
+          name: 'Dialog',
           url: 'press/dialog/dialog',
         },
         {
-          name: 'switch',
+          name: 'Switch',
           url: 'press/switch/switch',
         },
         {
-          name: 'icon',
+          name: 'Icon',
           url: 'press/icon/icon',
         },
       ],

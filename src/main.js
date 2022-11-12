@@ -1,7 +1,7 @@
-/* eslint-disable import/no-duplicates */
 import App from './App.vue';
 // #ifndef VUE3
 // eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-duplicates
 import Vue from 'vue';
 // import './global-comp';
 
@@ -160,6 +160,7 @@ app.$mount();
 // eslint-disable-next-line import/first
 import {
   createSSRApp,
+// eslint-disable-next-line import/no-duplicates
 } from 'vue';
 export function createApp() {
   const app = createSSRApp(App);

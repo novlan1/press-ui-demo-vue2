@@ -1,10 +1,10 @@
 @font-face {
-  font-family: "iconfont"; /* Project id  */
+  font-family: 'iconfont'; /* Project id  */
   src: url('@/static/iconfont.ttf') format('truetype');
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
+  font-family: 'iconfont'; 
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -12,21 +12,21 @@
 }
 
 .icon-link:before {
-  content: "\e772";
+  content: '\e772';
 }
 
 .icon-poweroff:before {
-  content: "\e774";
+  content: '\e774';
 }
 
 .icon-safety-certificate:before {
-  content: "\e776";
+  content: '\e776';
 }
 
 .icon-chart-pie-alt:before {
-  content: "\e78c";
+  content: '\e78c';
 }
 
 .icon-kongxincai:before {
-  content: "\e642";
+  content: '\e642';
 }

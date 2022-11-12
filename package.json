@@ -55,6 +55,8 @@
     "docs:deploy": "node script/deploy-docs",
     "lint": "eslint --ext .js,.ts.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts.vue .",
+    "lint:css": "stylelint **/*.{html,vue,css,sass,scss,less}",
+    "lint:css:fix": "stylelint --fix **/*.{html,vue,css,sass,scss,less}",
     "gen:icon:list": "node script/icon-list"
   },
   "dependencies": {
@@ -97,6 +99,7 @@
     "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.1-alpha-36420220922001",
     "@dcloudio/webpack-uni-mp-loader": "^2.0.1-alpha-36420220922001",
     "@dcloudio/webpack-uni-pages-loader": "^2.0.1-alpha-36420220922001",
+    "@tencent/stylelint-config-tencent": "^1.0.10",
     "@tencent/uni-plugin-light": "0.0.56",
     "@vue/cli-plugin-babel": "~4.5.11",
     "@vue/cli-service": "~4.5.11",
@@ -109,6 +112,9 @@
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
+    "postcss": "^8.4.19",
+    "postcss-scss": "^4.0.5",
+    "stylelint": "^14.14.1",
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.9.7",
     "vuepress-plugin-code-copy": "^1.0.6"

@@ -157,10 +157,10 @@ app.$mount();
 // #endif
 
 // #ifdef VUE3
-// eslint-disable-next-line import/first
+// eslint-disable-next-line import/no-duplicates, no-duplicate-imports, import/first
 import {
   createSSRApp,
-// eslint-disable-next-line import/no-duplicates
+// eslint-disable-next-line import/no-duplicates, no-duplicate-imports, import/first
 } from 'vue';
 export function createApp() {
   const app = createSSRApp(App);

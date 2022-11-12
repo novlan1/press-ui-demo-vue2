@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <view
     class="uni-calendar-item__weeks-box"
@@ -26,9 +27,7 @@
         class="uni-calendar-item__weeks-box-circle"
       />
       <text
-        class="uni-calendar-item__weeks-box-text
-      uni-calendar-item__weeks-box-text-disable
-					uni-calendar-item--checked-text"
+        class="uni-calendar-item__weeks-box-text uni-calendar-item__weeks-box-text-disable uni-calendar-item--checked-text"
       >
         {{ weeks.date }}
       </text>

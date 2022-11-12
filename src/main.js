@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import App from './App.vue';
 // #ifndef VUE3
 // eslint-disable-next-line import/no-unresolved

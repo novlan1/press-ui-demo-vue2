@@ -1,28 +1,53 @@
 <template>
-	<view class="uni-section">
-		<view class="uni-section-header" @click="onClick">
-				<view class="uni-section-header__decoration" v-if="type" :class="type" />
-        <slot v-else name="decoration"></slot>
+  <view class="uni-section">
+    <view
+      class="uni-section-header"
+      @click="onClick"
+    >
+      <view
+        v-if="type"
+        class="uni-section-header__decoration"
+        :class="type"
+      />
+      <slot
+        v-else
+        name="decoration"
+      />
 
-        <view class="uni-section-header__content">
-          <text :style="{'font-size':titleFontSize,'color':titleColor}" class="uni-section__content-title" :class="{'distraction':!subTitle}">{{ title }}</text>
-          <text v-if="subTitle" :style="{'font-size':subTitleFontSize,'color':subTitleColor}" class="uni-section-header__content-sub">{{ subTitle }}</text>
-        </view>
+      <view class="uni-section-header__content">
+        <text
+          :style="{'font-size':titleFontSize,'color':titleColor}"
+          class="uni-section__content-title"
+          :class="{'distraction':!subTitle}"
+        >
+          {{ title }}
+        </text>
+        <text
+          v-if="subTitle"
+          :style="{'font-size':subTitleFontSize,'color':subTitleColor}"
+          class="uni-section-header__content-sub"
+        >
+          {{ subTitle }}
+        </text>
+      </view>
 
-        <view class="uni-section-header__slot-right">
-          <slot name="right"></slot>
-        </view>
-		</view>
+      <view class="uni-section-header__slot-right">
+        <slot name="right" />
+      </view>
+    </view>
 
-		<view class="uni-section-content" :style="{padding: _padding}">
-			<slot />
-		</view>
-	</view>
+    <view
+      class="uni-section-content"
+      :style="{padding: _padding}"
+    >
+      <slot />
+    </view>
+  </view>
 </template>
 
 <script>
 
-	/**
+/**
 	 * Section 标题栏
 	 * @description 标题栏
 	 * @property {String} type = [line|circle|square] 标题装饰类型
@@ -38,68 +63,68 @@
 	 * @property {String} padding 默认插槽 padding
 	 */
 
-	export default {
-		name: 'UniSection',
-    emits:['click'],
-		props: {
-			type: {
-				type: String,
-				default: ''
-			},
-			title: {
-				type: String,
-				required: true,
-				default: ''
-			},
-      titleFontSize: {
-        type: String,
-        default: '14px'
-      },
-			titleColor:{
-				type: String,
-				default: '#333'
-			},
-			subTitle: {
-				type: String,
-				default: ''
-			},
-      subTitleFontSize: {
-        type: String,
-        default: '12px'
-      },
-      subTitleColor: {
-        type: String,
-        default: '#999'
-      },
-			padding: {
-				type: [Boolean, String],
-				default: false
-			}
-		},
-    computed:{
-      _padding(){
-        if(typeof this.padding === 'string'){
-          return this.padding
-        }
+export default {
+  name: 'UniSection',
+  props: {
+    type: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    titleFontSize: {
+      type: String,
+      default: '14px',
+    },
+    titleColor: {
+      type: String,
+      default: '#333',
+    },
+    subTitle: {
+      type: String,
+      default: '',
+    },
+    subTitleFontSize: {
+      type: String,
+      default: '12px',
+    },
+    subTitleColor: {
+      type: String,
+      default: '#999',
+    },
+    padding: {
+      type: [Boolean, String],
+      default: false,
+    },
+  },
+  emits: ['click'],
+  computed: {
+    _padding() {
+      if (typeof this.padding === 'string') {
+        return this.padding;
+      }
 
-        return this.padding?'10px':''
+      return this.padding ? '10px' : '';
+    },
+  },
+  watch: {
+    title(newVal) {
+      if (uni.report && newVal !== '') {
+        uni.report('title', newVal);
       }
     },
-		watch: {
-			title(newVal) {
-				if (uni.report && newVal !== '') {
-					uni.report('title', newVal)
-				}
-			}
-		},
-    methods: {
-			onClick() {
-				this.$emit('click')
-			}
-		}
-	}
+  },
+  methods: {
+    onClick() {
+      this.$emit('click');
+    },
+  },
+};
 </script>
-<style lang="scss" >
+<style lang="scss">
 $uni-primary: #2979ff !default;
 
 .uni-section {

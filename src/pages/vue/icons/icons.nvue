@@ -544,26 +544,25 @@
 </script>
 
 <style lang="scss">
+.icon-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 
-	.icon-content {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-		justify-content: center;
-
-		.icon-item {
-			/* #ifndef APP-NVUE */
-			display: flex;
-			box-sizing: border-box;
-			width: calc(100% / 4);
-			/* #endif */
-			/* #ifdef APP-NVUE */
-			width: 187rpx;
-			/* #endif */
-			align-items: center;
-			padding: 10px;
-			text-align: center;
-			flex-direction: column;
-		}
-	}
+  .icon-item {
+    /* #ifndef APP-NVUE */
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100% / 4);
+    /* #endif */
+    /* #ifdef APP-NVUE */
+    width: 187rpx;
+    /* #endif */
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    flex-direction: column;
+  }
+}
 </style>

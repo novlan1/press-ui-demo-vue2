@@ -114,37 +114,37 @@
 </script>
 
 <style lang="scss">
-	@mixin flex {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-	.box {
-		display: flex;
-		flex-direction: column;
-		/* #ifndef APP-NVUE */
-		min-height: 50px;
-		/* #endif */
-		font-size: 14px;
-		overflow: hidden;
+.box {
+  display: flex;
+  flex-direction: column;
+  /* #ifndef APP-NVUE */
+  min-height: 50px;
+  /* #endif */
+  font-size: 14px;
+  overflow: hidden;
 
-		.item-box {
-			@include flex;
-			flex-direction: row;
-			height: 50px;
-			overflow: hidden;
+  .item-box {
+    @include flex;
+    flex-direction: row;
+    height: 50px;
+    overflow: hidden;
 
-			.item {
-				@include flex;
-				flex: 1;
-				height: 50px;
-			}
-		}
-	}
+    .item {
+      @include flex;
+      flex: 1;
+      height: 50px;
+    }
+  }
+}
 
-	.box-base {
-		@include flex;
-		height: 50px;
-	}
+.box-base {
+  @include flex;
+  height: 50px;
+}
 </style>

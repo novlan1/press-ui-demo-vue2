@@ -158,6 +158,7 @@ export default {
       },
       maskShow: true,
       mkclick: true,
+      // eslint-disable-next-line vue/no-computed-properties-in-data
       popupstyle: this.isDesktop ? 'fixforpc-top' : 'top',
     };
   },
@@ -338,7 +339,7 @@ export default {
         type: direction,
       });
     },
-    close(type) {
+    close() {
       this.showTrans = false;
       this.$emit('change', {
         show: false,

@@ -104,48 +104,48 @@
 	}
 </script>
 <style lang="scss">
-	.header {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-	.margin {
-		display: flex;
-		height: 200px;
-		margin: 10px;
-		overflow: hidden;
-		border-radius: 5px;
-		border: 1px #eee solid;
-		/* #ifndef APP-NVUE */
-		box-sizing: border-box;
-		/* #endif */
-	}
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.margin {
+  display: flex;
+  height: 200px;
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px #eee solid;
+  /* #ifndef APP-NVUE */
+  box-sizing: border-box;
+  /* #endif */
+}
 
-	.margin-item {
-		display: flex;
-		flex: 1;
-	}
+.margin-item {
+  display: flex;
+  flex: 1;
+}
 
-	.box {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex: 1;
-	}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
 
-	.actions {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-	.action-label {
-		/* #ifndef APP-NVUE */
-		flex-shrink: 0;
-		/* #endif */
-		width: 70px;
-		margin-left: 10px;
-		margin-right: 10px;
-		font-size: 12px;
-	}
+.action-label {
+  /* #ifndef APP-NVUE */
+  flex-shrink: 0;
+  /* #endif */
+  width: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 12px;
+}
 </style>

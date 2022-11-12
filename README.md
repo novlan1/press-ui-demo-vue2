@@ -45,9 +45,9 @@ HOST_PWD=xxx
 npm run docs:deploy
 ```
 
-## 在线DEMO
+## 立即体验
 
-<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode.png" width="600">
+<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode-2.png" width="600">
 
 
 

@@ -1,5 +1,5 @@
 const path = require('path');
-const childProcess = require('child_process');
+// const childProcess = require('child_process');
 const fs = require('fs');
 
 /**
@@ -9,7 +9,7 @@ function CssHandler() {
 }
 
 
-CssHandler.prototype.run = function run(src, dst, options) {
+CssHandler.prototype.run = function run(src, dst) {
   const root = process.env.ROOT_DIR;
   console.log('root', root);
   console.log('dst', dst);
@@ -38,11 +38,12 @@ function handleRem(content) {
   // const subStrs = content.match(pattern);
   // console.log('subStrs', subStrs)
   let match = undefined;
-  const output = '';
-  const hasMatch = false;
+  // const output = '';
+  // const hasMatch = false;
 
   const records = [];
 
+  // eslint-disable-next-line no-cond-assign
   while (match = pattern.exec(content)) {
     // console.log('match', match);
     const keyword = match[0];

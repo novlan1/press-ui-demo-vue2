@@ -13,9 +13,9 @@ class CopyDirPlugin {
     });
   }
   move() {
-    const { dirs=[] } = this.options;
-    dirs.forEach(dir=>{
-      if(dir.from&&dir.to){
+    const { dirs = [] } = this.options;
+    dirs.forEach((dir) => {
+      if (dir.from && dir.to) {
         const result = childProcess.spawnSync('cp', ['-rf', dir.from, dir.to]);
         if (result.error) {
           console.log(result.error);

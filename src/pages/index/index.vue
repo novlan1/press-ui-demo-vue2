@@ -29,7 +29,23 @@
         is-shadow
         padding="0"
       >
-        <!-- <uni-section
+        <uni-section
+          title="press"
+          color="#007aff"
+          type="line"
+        />
+        <uni-list>
+          <uni-list-item
+            v-for="(navi, index) in press"
+            :key="index"
+            show-arrow
+            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+navi.icon+'.png'"
+            :title="navi.name"
+            link
+            :to="`/pages/${navi.url}`"
+          />
+        </uni-list>
+        <uni-section
           title="辅助样式"
           sub-title="引入 uni-sass 后通过辅助样式提升快捷布局能力"
           color="#007aff"
@@ -139,22 +155,6 @@
         <uni-list>
           <uni-list-item
             v-for="(navi, index) in navigations"
-            :key="index"
-            show-arrow
-            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+navi.icon+'.png'"
-            :title="navi.name"
-            link
-            :to="`/pages/${navi.url}`"
-          />
-        </uni-list> -->
-        <uni-section
-          title="press"
-          color="#007aff"
-          type="line"
-        />
-        <uni-list>
-          <uni-list-item
-            v-for="(navi, index) in press"
             :key="index"
             show-arrow
             :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+navi.icon+'.png'"

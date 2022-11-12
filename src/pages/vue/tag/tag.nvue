@@ -141,17 +141,17 @@
 </script>
 
 <style lang="scss">
-	.example-body {
-		/* #ifndef APP-PLUS-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: flex-end;
-		flex-wrap: wrap;
-	}
+.example-body {
+  /* #ifndef APP-PLUS-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
 
-	.tag-view {
-		margin-right: 10px;
-	}
+.tag-view {
+  margin-right: 10px;
+}
 </style>

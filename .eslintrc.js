@@ -5,8 +5,11 @@ module.exports = {
     getCurrentPages: true,
     qq: true,
     weex: true,
+    plus: true,
   },
   settings: {
+  },
+  rules: {
   },
 };
 

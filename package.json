@@ -114,6 +114,7 @@
     "postcss": "^7.0.39",
     "postcss-comment": "^2.0.0",
     "postcss-scss": "^3.0.5",
+    "sass": "^1.49.11",
     "stylelint": "^14.14.1",
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.9.7",

@@ -1,6 +1,7 @@
 <template>
   <div
-    class="drop-list-wrap"
+    class="press-picker-view"
+    :class="hasTip ? 'press-picker-view__tip' : ''"
     @mousedown.stop.prevent="mouseDown"
     @mouseup.stop.prevent="mouseUp"
     @touchstart.stop.prevent="handleStart"
@@ -9,15 +10,15 @@
   >
     <div
       ref="dropListMask"
-      class="drop-list-mask"
+      class="press-picker-view--mask"
     />
     <div
       ref="dropListIndicator"
-      class="drop-list-indicator"
+      class="press-picker-view--indicator"
     />
     <div
       ref="DropListContent"
-      class="drop-list-content"
+      class="press-picker-view--content"
       :style="transformStyle"
     >
       <!-- 选中添加类名drop-list-item-active -->
@@ -25,8 +26,8 @@
         v-for="(item, index) in data"
         :id="index"
         :key="index"
-        class="drop-list-item"
-        :class="[index == currentIndex ? 'drop-list-item-active':'']"
+        class="press-picker-view--item"
+        :class="[index == currentIndex ? 'press-picker-view--item__active':'']"
         @mousedown="itemDown"
         @mousemove="itemMove"
         @mouseup="itemUp"
@@ -77,6 +78,11 @@ export default {
     current: {
       type: Object,
       default: null,
+      required: false,
+    },
+    hasTip: {
+      type: Boolean,
+      default: false,
       required: false,
     },
   },

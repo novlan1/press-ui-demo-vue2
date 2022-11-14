@@ -20,3 +20,4 @@ uni-page-body {
 }
 </style>
 <style lang="scss" src="src/packages/base/reset.scss"></style>
+<style lang="scss" src="src/packages/base/iconfont-mp.scss"></style>

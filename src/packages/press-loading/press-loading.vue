@@ -1,10 +1,10 @@
 <template>
   <div
-    class="tip-match-loading-wrap"
+    class="press-loading"
     :style="{background: loadingBg}"
   >
     <img
-      :class="loadingScenes == 'btn' ? 'tip-match-btn-loading' : 'tip-match-page-loading'"
+      :class="loadingScenes == 'btn' ? 'press-loading__img--btn' : 'press-loading__img--page'"
       :src="`https://image-1251917893.file.myqcloud.com/Esports/user/img/${loadingScenes}-loading.gif`"
     >
   </div>

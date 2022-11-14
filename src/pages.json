@@ -429,6 +429,15 @@
 					"style": {}
 				}
 			]
+		},
+		{
+			"root": "pages/press/demo",
+			"pages": [
+				{
+					"path": "demo",
+					"style": {}
+				}
+			]
 		}
 	],
 	"globalStyle": {

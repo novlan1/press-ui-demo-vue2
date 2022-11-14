@@ -1,7 +1,17 @@
 # [PressUI](https://git.woa.com/pmd-mobile/support/press-ui)
 
+[TOC]
+
+## 样式规范
+
+
+BEM方式命名CSS，参考文章: https://km.woa.com/group/29321/articles/show/503041
+
+最外层结构命名为`press-组件名称`，如`press-loading`。
+
 
 ## 开发
+
 
 ### 组件开发
 
@@ -44,6 +54,22 @@ HOST_PWD=xxx
 ```
 npm run docs:deploy
 ```
+
+## 目录结构
+
+```bash
+- docs            # 文档
+- src
+  - common        # demo公共内容
+  - packages      # 对外发布的包内容
+  - pages         # demo页面内容
+  - static        # demo静态内容
+  - App.vue       # demo应用入口
+  - main.js
+  - pages.json
+```
+
+
 
 ## 立即体验
 

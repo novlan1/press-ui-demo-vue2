@@ -7,16 +7,11 @@
 @import "../../base/layout.scss";
 @import "../../base/mixin.scss";
 
-//添加提示
-.tips {
-  padding: .24rem .32rem;
-  background: rgba(204, 236, 255, 0.2);
-  font-size: $font-s;
-  color: $color-blue-1;
-}
-
-.tip-picker ::v-deep {
-  .drop-list-content {
-    padding-top: 1.2rem;
+.press-picker {
+  &--tip {
+    padding: .24rem .32rem;
+    background: rgba(204, 236, 255, 0.2);
+    font-size: $font-s;
+    color: $color-blue-1;
   }
 }

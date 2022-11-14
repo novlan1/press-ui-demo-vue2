@@ -7,60 +7,69 @@
 @import "../../base/layout.scss";
 @import "../../base/mixin.scss";
 
-.drop-list-wrap {
+.press-picker-view {
   position: relative;
   width: 100%;
   height: 5.6rem;
   overflow: hidden;
-}
 
-.drop-list-mask {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 3;
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .2)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .2));
-  background-repeat: no-repeat;
-  background-position: top, bottom;
-  background-size: 100% 2.24rem;
-  pointer-events: none;
-}
+  &__tip {
 
-.drop-list-indicator {
-  position: absolute;
-  left: 0;
-  top: 2.24rem;
-  width: 100%;
-  height: 1.12rem;
-  z-index: 3;
-}
+    // 有tip的时候，content略微向上
+    &__content {
+      padding-top: 1.2rem;
+    }
+  }
 
-.drop-list-content {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  padding: 2.24rem 0;
-  z-index: 1;
-  transition: all .3s cubic-bezier(0, 0, 0.2, 1.15) 0s;
-}
+  &--mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .2)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .2));
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+    background-size: 100% 2.24rem;
+    pointer-events: none;
+  }
 
-.drop-list-item {
-  height: 1.12rem;
-  line-height: 1.12rem;
-  font-size: $font-l;
-  color: $color-gray-5;
-  text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  touch-action: manipulation;
-  transition: all .15s ease;
+  &--indicator {
+    position: absolute;
+    left: 0;
+    top: 2.24rem;
+    width: 100%;
+    height: 1.12rem;
+    z-index: 3;
+  }
 
-  &.drop-list-item-active {
-    font-size: $font-xxl;
-    color: $color-primary;
+
+  &--content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 2.24rem 0;
+    z-index: 1;
+    transition: all .3s cubic-bezier(0, 0, 0.2, 1.15) 0s;
+  }
+
+  &--item {
+    height: 1.12rem;
+    line-height: 1.12rem;
+    font-size: $font-l;
+    color: $color-gray-5;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    touch-action: manipulation;
+    transition: all .15s ease;
+
+    &__active {
+      font-size: $font-xxl;
+      color: $color-primary;
+    }
   }
 }

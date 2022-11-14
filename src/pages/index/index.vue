@@ -447,6 +447,11 @@ export default {
           url: 'press/popup/popup',
           icon: 'popup',
         },
+        {
+          name: 'Demo',
+          url: 'press/demo/demo',
+          icon: 'popup',
+        },
       ],
       platform: 'vue',
     };

@@ -26,17 +26,17 @@
           class="tip-match-popup-title-line"
           @click.stop="clickCancel"
         />
-        <!-- <div
+        <div
           v-if="isShowpopupClose && !showBackArrow"
           class="tip-match-popup-close iconfont icon-close"
           @click.stop="clickCancel"
-        /> -->
-        <PressIcon
+        />
+        <!-- <PressIcon
           v-if="isShowpopupClose && !showBackArrow"
           class="tip-match-popup-close"
           type="close"
           @click="clickCancel"
-        />
+        /> -->
         <div
           v-if="isShowpopupClose && showBackArrow"
           class="tip-match-popup-arrow iconfont icon-back"
@@ -59,12 +59,12 @@
   </div>
 </template>
 <script>
-import PressIcon from '../press-icon/press-icon.vue';
+// import PressIcon from '../press-icon/press-icon.vue';
 
 export default {
   name: 'PopupContainer',
   components: {
-    PressIcon,
+    // PressIcon,
   },
   props: {
     // 是否显示标题

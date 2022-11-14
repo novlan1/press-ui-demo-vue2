@@ -1,4 +1,4 @@
-.tip-match-loading-wrap {
+.press-loading {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -9,14 +9,16 @@
 	align-items: center;
 	justify-content: center;
 	z-index: 999;
-}
 
-.tip-match-page-loading {
-	width: 1.06rem;
-	height: .58rem;
-}
+	&__img {
+		&--btn {
+			width: 1.2rem;
+			height: .45rem;
+		}
 
-.tip-match-btn-loading {
-	width: 1.2rem;
-	height: .45rem;
+		&--page {
+			width: 1.06rem;
+			height: .58rem;
+		}
+	}
 }

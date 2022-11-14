@@ -1,5 +1,5 @@
 <template>
-  <DropList
+  <PickerInner
     :data="selectList"
     :current="selectItem"
     :title="title"
@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import DropList from './picker-inner.vue';
+import PickerInner from './picker-inner.vue';
 export default {
   name: 'TipMatchSelectListDialog',
   components: {
-    DropList,
+    PickerInner,
   },
   props: {
     // 左上角是否显示为返回箭头

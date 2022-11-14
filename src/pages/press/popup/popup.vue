@@ -2,19 +2,19 @@
   <view>
     <view>
       <button @click.stop="onShowPopup('normal')">
-        展示
+        关闭按钮
       </button>
-      <!-- <button @click.stop="onShowPopup('default')">
-        设置默认项
+      <button @click.stop="onShowPopup('cancel')">
+        取消按钮
       </button>
-      <button @click.stop="onShowPopup('multiColumn')">
-        多列
+      <button @click.stop="onShowPopup('noClose')">
+        没有关闭/取消
       </button>
-      <button @click.stop="onShowPopup('children')">
-        级联选择
-      </button> -->
+      <button @click.stop="onShowPopup('hor')">
+        横版
+      </button>
     </view>
-    <!-- <press-dialog id="tip-match-comm-tips-dialog" /> -->
+    <!-- <press-dialog id="ti-match-comm-tips-dialog" /> -->
     <PressPopup
       v-if="popupOptions.normal.show"
       :is-showpopup-close="true"
@@ -28,10 +28,48 @@
         一些内容
       </view>
     </PressPopup>
+    <PressPopup
+      v-if="popupOptions.cancel.show"
+      :is-showpopup-close="true"
+      :show-back-arrow="true"
+      :popup-title="popupOptions.cancel.title"
+      popup-title-btn="确定"
+      @onConfirm="popupOptions.cancel.onConfirm"
+      @onCancel="popupOptions.cancel.onCancel"
+    >
+      <view class="content">
+        一些内容
+      </view>
+    </PressPopup>
+    <PressPopup
+      v-if="popupOptions.noClose.show"
+      :is-showpopup-close="false"
+      :show-back-arrow="false"
+      :popup-title="popupOptions.noClose.title"
+      popup-title-btn="确定"
+      @onConfirm="popupOptions.noClose.onConfirm"
+      @onCancel="popupOptions.noClose.onCancel"
+    >
+      <view class="content">
+        一些内容
+      </view>
+    </PressPopup>
+    <PressPopup
+      v-if="popupOptions.hor.show"
+      :is-showpopup-close="true"
+      :is-cross-slab="true"
+      :width-number="54"
+      :popup-title="popupOptions.hor.title"
+      @onConfirm="popupOptions.hor.onConfirm"
+      @onCancel="popupOptions.hor.onCancel"
+    >
+      <view class="content">
+        一些内容
+      </view>
+    </PressPopup>
   </view>
 </template>
 <script>
-// import PressDialog from 'src/packages/press-dialog';
 
 export default {
   data() {
@@ -45,6 +83,36 @@ export default {
           },
           onConfirm: () => {
             this.popupOptions.normal.show = false;
+          },
+        },
+        cancel: {
+          show: false,
+          title: '决胜方式',
+          onCancel: () => {
+            this.popupOptions.cancel.show = false;
+          },
+          onConfirm: () => {
+            this.popupOptions.cancel.show = false;
+          },
+        },
+        noClose: {
+          show: false,
+          title: '决胜方式',
+          onCancel: () => {
+            this.popupOptions.noClose.show = false;
+          },
+          onConfirm: () => {
+            this.popupOptions.noClose.show = false;
+          },
+        },
+        hor: {
+          show: false,
+          title: '决胜方式',
+          onCancel: () => {
+            this.popupOptions.hor.show = false;
+          },
+          onConfirm: () => {
+            this.popupOptions.hor.show = false;
           },
         },
       },

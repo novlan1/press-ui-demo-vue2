@@ -4,19 +4,20 @@
     :show-back-arrow="showBackArrow"
     :popup-title="title"
     popup-title-btn="确定"
-    :class="tip ? 'tip-picker':''"
+    :class="tip ? 'press-picker__tip' : ''"
     @onCancel="onCancel"
     @onConfirm="onConfirm"
   >
     <div
       v-if="tip"
-      class="tips"
+      class="press-picker--tip"
     >
       {{ tip }}
     </div>
     <PressPickerView
       ref="picker"
       :data="data"
+      :has-tip="!!tip"
       :current="current"
       @currentIndexChanged="onCurrentIndexChanged"
     />

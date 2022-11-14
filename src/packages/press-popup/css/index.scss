@@ -8,7 +8,7 @@
 @import "../../base/mixin.scss";
 @import '../../base/animate.scss';
 
-.tip-match-bottom-popup-wrap {
+.press-popup {
   position: fixed;
   left: 0;
   right: 0;
@@ -18,188 +18,152 @@
   align-items: flex-end;
   justify-content: center;
   z-index: 99;
-}
 
-.tip-match-riser-slab {
-  .tip-match-popup-close {
-    left: 0;
-  }
-}
-
-.tip-match-cross-slab {
-  justify-content: flex-end;
-  align-items: stretch;
-
-  .tip-match-popup-content {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    background: rgba(18, 18, 31, 0.95);
+  &__vert {
+    .press-popup--close {
+      left: 0;
+    }
   }
 
-  .tip-match-popup-title {
-    color: $color-white;
+  &__hor {
+    justify-content: flex-end;
+    align-items: stretch;
+
+    .press-popup--content {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      background: rgba(18, 18, 31, 0.95);
+    }
+
+    .press-popup--title {
+      color: $color-white;
+    }
+
+    .press-popup--close {
+      right: 0;
+      color: $color-gray-4;
+    }
   }
 
-  .tip-match-popup-close {
-    right: 0;
-    color: $color-gray-4;
-  }
-}
-
-.tip-match-mask {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
-}
-
-.tip-match-popup-content {
-  position: relative;
-  width: 100%;
-  border-top-left-radius: .3rem;
-  border-top-right-radius: .3rem;
-  background-color: #fff;
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: env(safe-area-inset-bottom);
-  overflow: hidden;
-}
-
-.tip-match-popup-title-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: tovmin(144);
-  padding: tovmin(24) 0;
-  box-sizing: border-box;
-
-  &::after {
+  &--mask {
     position: absolute;
     left: 0;
     right: 0;
+    top: 0;
     bottom: 0;
-    margin: 0 auto;
-    content: '';
-    width: tovmin(686);
-    height: tovmin(24);
-    background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/popup-line.png) no-repeat center;
-    background-size: contain;
+    background-color: rgba(0, 0, 0, .5);
   }
-}
 
-.tip-match-popup-title-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: tovmin(16);
-  margin: auto;
-  width: tovmin(64);
-  height: tovmin(8);
-  border-radius: tovmin(8);
-  background: $color-gray-2;
+  &--content {
+    position: relative;
+    width: 100%;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+    background-color: #fff;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow: hidden;
+  }
 
-  &::before {
+
+  &--title-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: tovmin(144);
+    padding: tovmin(24) 0;
+    box-sizing: border-box;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      content: '';
+      width: tovmin(686);
+      height: tovmin(24);
+      background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/popup-line.png) no-repeat center;
+      background-size: contain;
+    }
+  }
+
+  &--title-line {
     position: absolute;
     left: 0;
     right: 0;
-    top: tovmin(-14);
-    height: tovmin(16);
-    content: '';
+    top: tovmin(16);
+    margin: auto;
+    width: tovmin(64);
+    height: tovmin(8);
+    border-radius: tovmin(8);
+    background: $color-gray-2;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: tovmin(-14);
+      height: tovmin(16);
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: tovmin(6);
+      height: tovmin(16);
+      content: '';
+    }
   }
 
-  &::after {
+  &--title {
+    font-size: tovmin(32);
+    color: $color-black;
+  }
+
+  &--close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: tovmin(24);
+    width: tovmin(104);
+    height: tovmin(96);
+    font-size: tovmin(40);
+    color: $color-gray;
+  }
+
+  &--arrow {
     position: absolute;
     left: 0;
-    right: 0;
-    top: tovmin(6);
-    height: tovmin(16);
-    content: '';
-  }
-}
-
-.tip-match-popup-title {
-  font-size: tovmin(32);
-  color: $color-black;
-}
-
-.tip-match-popup-close {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: tovmin(24);
-  width: tovmin(104);
-  height: tovmin(96);
-  font-size: tovmin(40);
-  color: $color-gray;
-}
-
-.tip-match-popup-arrow {
-  position: absolute;
-  left: 0;
-  top: tovmin(24);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: tovmin(104);
-  height: tovmin(96);
-  font-size: tovmin(40);
-  color: $color-gray;
-}
-
-.tip-match-popup-title-btn {
-  @include primary-btn(auto, auto, tovmin(28));
-  top: tovmin(50);
-  right: tovmin(40);
-  padding: tovmin(4) tovmin(24);
-  line-height: tovmin(44);
-  position: absolute;
-}
-
-.tip-match-border-btn {
-  @include border-btn(auto, auto, tovmin(28));
-  position: absolute;
-  top: tovmin(50);
-  right: tovmin(40);
-  padding: tovmin(4) tovmin(24);
-  line-height: tovmin(44);
-}
-
-
-/*
-* desc：动效
-* date：2021-09-30
-* author：lauheeliu（刘诏熹）
-* email：lauheeliu@tencent.com
-*/
-
-/* 渐隐渐现 */
-.tip-match-fade-in {
-  animation: fade-in .3s ease-out both;
-}
-
-.tip-match-fade-out {
-  animation: fade-out .3s ease-in both;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
+    top: tovmin(24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: tovmin(104);
+    height: tovmin(96);
+    font-size: tovmin(40);
+    color: $color-gray;
   }
 
-  to {
-    opacity: 1;
+  &--title-btn {
+    @include primary-btn(auto, auto, tovmin(28));
+    top: tovmin(50);
+    right: tovmin(40);
+    padding: tovmin(4) tovmin(24);
+    line-height: tovmin(44);
+    position: absolute;
   }
-}
 
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
+  &--border-btn {
+    @include border-btn(auto, auto, tovmin(28));
+    position: absolute;
+    top: tovmin(50);
+    right: tovmin(40);
+    padding: tovmin(4) tovmin(24);
+    line-height: tovmin(44);
   }
 }

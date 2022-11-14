@@ -2,7 +2,7 @@
   <div
     class="press-switch"
     :class="[isOpen === true ? 'press-switch__act' : null]"
-    @click="handlechange"
+    @click="onSwitchChange"
   />
 </template>
 
@@ -32,7 +32,7 @@ export default {
   mounted() {
   },
   methods: {
-    handlechange() {
+    onSwitchChange() {
       this.$emit('onSwitchChange');
     },
   },

@@ -2,10 +2,10 @@
   <view>
     <view>
       <button @click.stop="onShowPopup('normal')">
-        关闭按钮
+        关闭icon
       </button>
       <button @click.stop="onShowPopup('cancel')">
-        取消按钮
+        取消icon
       </button>
       <button @click.stop="onShowPopup('noClose')">
         没有关闭/取消

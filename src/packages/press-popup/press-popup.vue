@@ -1,54 +1,48 @@
 <template>
   <div
-    :class="['tip-match-bottom-popup-wrap',popupClass ,isCrossSlab? 'tip-match-cross-slab':'tip-match-riser-slab']"
+    :class="['press-popup',popupClass ,isCrossSlab? 'press-popup__hor':'press-popup__vert']"
     :style="{zIndex: `${zIndex}`}"
     @touchmove.stop="preventTouchMove"
   >
     <!-- 透明遮罩 -->
     <div
-      :class="['tip-match-mask',
-               isShowPopup ? 'tip-match-fade-in':'tip-match-fade-out']"
+      :class="['press-popup--mask',
+               isShowPopup ? 'press--animation__fade-in':'press--animation__fade-out']"
       @click.stop="onClickTouch"
     />
     <div
-      :class="['tip-match-popup-content',
+      :class="['press-popup--content',
                isShowPopup ?
-                 isCrossSlab ? 'tip-match-right-enter':'tip-match-bottom-enter':
-                 isCrossSlab ? 'tip-match-right-leave':'tip-match-bottom-leave']"
+                 isCrossSlab ? 'press--animation__right-enter':'press--animation__bottom-enter':
+                 isCrossSlab ? 'press--animation__right-leave':'press--animation__bottom-leave']"
       :style="{width:isCrossSlab ? `${widthNumber}%` : '100%'}"
     >
       <div
         v-if="isShowTitle"
-        class="tip-match-popup-title-wrap"
+        class="press-popup--title-wrap"
       >
         <div
           v-if="!isShowpopupClose && !showBackArrow && !isCrossSlab"
-          class="tip-match-popup-title-line"
+          class="press-popup--title-line"
           @click.stop="clickCancel"
         />
         <div
           v-if="isShowpopupClose && !showBackArrow"
-          class="tip-match-popup-close iconfont icon-close"
+          class="press-popup--close iconfont icon-close"
           @click.stop="clickCancel"
         />
-        <!-- <PressIcon
-          v-if="isShowpopupClose && !showBackArrow"
-          class="tip-match-popup-close"
-          type="close"
-          @click="clickCancel"
-        /> -->
         <div
           v-if="isShowpopupClose && showBackArrow"
-          class="tip-match-popup-arrow iconfont icon-back"
+          class="press-popup--arrow iconfont icon-back"
           @click.stop="clickCancel"
         />
-        <p class="tip-match-popup-title">
+        <p class="press-popup--title">
           {{ popupTitle }}
         </p>
         <div
           v-if="popupTitleBtn"
-          :class="['tip-match-popup-title-btn',
-                   isBorderBtn ? 'tip-match-border-btn':'']"
+          :class="['press-popup--title-btn',
+                   isBorderBtn ? 'press-popup--border-btn':'']"
           @click.stop="clickConfirm"
         >
           {{ popupTitleBtn }}

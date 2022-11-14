@@ -6,7 +6,7 @@
     >
       <div class="section-content">
         <div
-          class="tip-match-primary-samll-btn"
+          class="primary-btn"
           style="position:relative"
           @click.stop="onShowLoading('btn')"
         >
@@ -25,7 +25,7 @@
     >
       <div class="section-content">
         <div
-          class="tip-match-primary-samll-btn"
+          class="primary-btn"
           style="position:relative"
           @click.stop="onShowLoading('page')"
         >
@@ -41,7 +41,7 @@
     >
       <div class="section-content">
         <div
-          class="tip-match-primary-samll-btn"
+          class="primary-btn"
           style="position:relative"
           @click.stop="onShowLoading('bg')"
         >
@@ -98,7 +98,7 @@ export default {
   margin: 0 10px;
 }
 
-.tip-match-primary-samll-btn {
+.primary-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +106,7 @@ export default {
   @include btn-default-bg;
 }
 
-.tip-match-secondary-samll-btn {
+.secondary-btn {
   display: flex;
   align-items: center;
   justify-content: center;

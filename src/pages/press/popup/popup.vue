@@ -14,7 +14,6 @@
         横版
       </button>
     </view>
-    <!-- <press-dialog id="ti-match-comm-tips-dialog" /> -->
     <PressPopup
       v-if="popupOptions.normal.show"
       :is-showpopup-close="true"
@@ -28,6 +27,7 @@
         一些内容
       </view>
     </PressPopup>
+
     <PressPopup
       v-if="popupOptions.cancel.show"
       :is-showpopup-close="true"
@@ -41,6 +41,7 @@
         一些内容
       </view>
     </PressPopup>
+
     <PressPopup
       v-if="popupOptions.noClose.show"
       :is-showpopup-close="false"
@@ -54,6 +55,7 @@
         一些内容
       </view>
     </PressPopup>
+
     <PressPopup
       v-if="popupOptions.hor.show"
       :is-showpopup-close="true"

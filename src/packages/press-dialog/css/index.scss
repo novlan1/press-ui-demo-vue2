@@ -6,7 +6,8 @@
 */
 @import "../../base/mixin.scss";
 
-.tip-match-center-popup-wrap {
+
+.press-dialog {
   position: fixed;
   left: 0;
   right: 0;
@@ -18,75 +19,95 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, .5);
   z-index: 99;
-}
 
-.tip-match-popup-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 5.6rem;
-  padding: .48rem;
-  border-radius: .16rem;
-  background-color: $color-white;
-}
-
-.tip-match-popup-title {
-  font-size: .32rem;
-  font-weight: 600;
-  color: $color-black;
-}
-
-.tip-match-popup-tip-desc {
-  max-height: 5.4rem;
-  font-size: $font-xm;
-  color: $color-gray-5;
-  line-height: .44rem;
-  margin-top: .24rem;
-}
-
-.tip-match-popup-btn-wrap {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: .48rem;
-}
-
-.tip-match-popup-form-btn {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  @include primary-btn(2.96rem, .72rem, .32rem);
-  @include btn-default-bg;
-
-  p {
-    z-index: 2;
+  &--content-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5.6rem;
+    padding: .48rem;
+    border-radius: .16rem;
+    background-color: $color-white;
   }
-}
 
-.tip-match-primary-samll-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @include primary-btn(2rem, .72rem, .32rem);
-  @include btn-default-bg;
-
-  p {
-    z-index: 2;
+  &--title {
+    font-size: .32rem;
+    font-weight: 600;
+    color: $color-black;
   }
-}
 
-.tip-match-secondary-samll-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @include secondary-btn(2rem, .72rem, .32rem);
-}
+  &--content {
+    max-height: 5.4rem;
+    font-size: $font-xm;
+    color: $color-gray-5;
+    line-height: .44rem;
+    margin-top: .24rem;
+  }
 
-.tip-match-btn-spacing {
-  margin-right: .32rem;
+  &--img-wrap {
+    width: 4rem;
+    height: 3.6rem;
+    margin: .24rem auto 0;
+    border: .02rem solid $color-gray-7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--img {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  &--btn--wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .48rem;
+  }
+
+
+  &--btn {
+    &__main {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      @include primary-btn(2.96rem, .72rem, .32rem);
+      @include btn-default-bg;
+
+      p {
+        z-index: 2;
+      }
+    }
+
+    &__primary-small {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include primary-btn(2rem, .72rem, .32rem);
+      @include btn-default-bg;
+
+      p {
+        z-index: 2;
+      }
+    }
+
+    &__secondary-small {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include secondary-btn(2rem, .72rem, .32rem);
+    }
+
+    &__spacing {
+      margin-right: .32rem;
+    }
+  }
+
+
 }

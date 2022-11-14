@@ -1,51 +1,51 @@
 <template>
   <div
     v-if="dialogIsShow"
-    class="tip-match-center-popup-wrap"
+    class="press-dialog"
     :style="{zIndex: `${zIndex}`}"
     @click.stop="touchRemove"
     @touchmove.stop="preventTouchMove"
   >
-    <div class="tip-match-popup-content">
-      <p class="tip-match-popup-title">
+    <div class="press-dialog--content-wrap">
+      <p class="press-dialog--title">
         {{ title }}
       </p>
       <p
         v-if="htmlContent"
-        class="tip-match-popup-tip-desc"
+        class="press-dialog--content"
         v-html="htmlContent"
       />
       <p
         v-if="!htmlContent"
-        class="tip-match-popup-tip-desc"
+        class="press-dialog--content"
       >
         {{ content }}
       </p>
       <div
         v-if="src"
-        class="tip-match-popup-code-wrap"
+        class="press-dialog--img-wrap"
       >
         <img
           v-if="src"
-          class="tip-match-popup-code"
+          class="press-dialog--img"
           :show-menu-by-longpress="true"
           :src="src"
         >
       </div>
-      <div class="tip-match-popup-btn-wrap">
+      <div class="press-dialog--btn--wrap">
         <template v-if="cancelText && cancelText.length > 0">
           <div
-            class="tip-match-secondary-samll-btn tip-match-btn-spacing"
+            class="press-dialog--btn__secondary-small press-dialog--btn__spacing"
             @click.stop="cancel"
           >
             {{ cancelText }}
           </div>
           <div
-            class="tip-match-primary-samll-btn"
+            class="press-dialog--btn__primary-small"
             @click.stop="confirm"
           >
             <p>{{ mShowButtonLoading ? '' : confirmText }}</p>
-            <button-loading
+            <press-loading
               v-if="mShowButtonLoading"
               loading-scenes="btn"
             />
@@ -53,11 +53,11 @@
         </template>
         <template v-else>
           <div
-            class="tip-match-popup-form-btn"
+            class="press-dialog--btn__main"
             @click.stop="confirm"
           >
             <p>{{ mShowButtonLoading ? '' : confirmText }}</p>
-            <button-loading
+            <press-loading
               v-if="mShowButtonLoading"
               loading-scenes="btn"
             />
@@ -68,7 +68,7 @@
   </div>
 </template>
 <script>
-import ButtonLoading from '../press-loading/press-loading.vue';
+import PressLoading from '../press-loading/press-loading.vue';
 function isMp() {
   return typeof getCurrentPages === 'function';
 }
@@ -76,7 +76,7 @@ function isMp() {
 export default {
   name: 'PressDialog',
   components: {
-    ButtonLoading,
+    PressLoading,
   },
   props: {
     // dialogType: { // 弹窗类型：1：普通弹窗，2：确认按钮带loading效果弹窗
@@ -160,15 +160,22 @@ export default {
         }
         this.mShowButtonLoading = true;
         if (typeof this.onConfirmClick === 'function') {
-          this.onConfirmClick(this);
+          this.onConfirmClick(this)
+            .then(() => {
+              this.resolveConfirm();
+            })
+            .catch(() => {
+            });
         }
       } else {
-        if (this.resolve) {
-          this.resolve('confirm');
-        }
-
-        this.remove();
+        this.resolveConfirm();
       }
+    },
+    resolveConfirm() {
+      if (this.resolve) {
+        this.resolve('confirm');
+      }
+      this.remove();
     },
     // 取消,将promise断定为reject状态
     cancel() {

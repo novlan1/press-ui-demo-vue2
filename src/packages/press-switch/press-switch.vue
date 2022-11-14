@@ -1,7 +1,7 @@
 <template>
   <div
-    class="btn-switch"
-    :class="[isOpen === true ? 'act' : null]"
+    class="press-switch"
+    :class="[isOpen === true ? 'press-switch__act' : null]"
     @click="handlechange"
   />
 </template>

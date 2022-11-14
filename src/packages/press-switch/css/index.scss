@@ -1,7 +1,7 @@
 @import "../../base/layout.scss";
 @import "../../base/mixin.scss";
 
-.btn-switch {
+.press-switch {
   width: .88rem;
   height: .48rem;
   background: $color-gray-3;
@@ -21,7 +21,7 @@
     transition: all .1s cubic-bezier(0, 0, 0.15, 1);
   }
 
-  &.act {
+  &__act {
     background: $color-blue-1;
 
     &::after {

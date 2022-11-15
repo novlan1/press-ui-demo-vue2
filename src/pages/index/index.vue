@@ -448,6 +448,11 @@ export default {
           icon: 'popup',
         },
         {
+          name: 'Tab',
+          url: 'press/tab/tab',
+          icon: 'popup',
+        },
+        {
           name: 'Demo',
           url: 'press/demo/demo',
           icon: 'popup',

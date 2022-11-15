@@ -11,6 +11,10 @@ import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
 import PressIcon from 'src/packages/press-icon/press-icon.vue';
 import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 import PressPopup from 'src/packages/press-popup/press-popup.vue';
+import PressInfo from 'src/packages/press-info/press-info.vue';
+import PressSticky from 'src/packages/press-sticky/press-sticky.vue';
+import PressTab from 'src/packages/press-tab/press-tab.vue';
+import PressTabs from 'src/packages/press-tabs/press-tabs.vue';
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
 import UniBreadcrumb from 'src/packages/uni-breadcrumb/components/uni-breadcrumb/uni-breadcrumb.vue';
@@ -147,6 +151,11 @@ Vue.component('PressDialog', PressDialog);
 Vue.component('PressIcon', PressIcon);
 Vue.component('PressSwitch', PressSwitch);
 Vue.component('PressPopup', PressPopup);
+Vue.component('PressInfo', PressInfo);
+Vue.component('PressSticky', PressSticky);
+Vue.component('PressTab', PressTab);
+Vue.component('PressTabs', PressTabs);
+
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

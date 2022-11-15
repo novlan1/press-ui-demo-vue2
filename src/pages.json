@@ -431,6 +431,15 @@
 			]
 		},
 		{
+			"root": "pages/press/tab",
+			"pages": [
+				{
+					"path": "tab",
+					"style": {}
+				}
+			]
+		},
+		{
 			"root": "pages/press/demo",
 			"pages": [
 				{

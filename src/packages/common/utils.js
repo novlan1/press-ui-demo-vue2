@@ -72,7 +72,7 @@ export function getAllRect(context, selector) {
   });
 }
 export function groupSetData(context, cb) {
-  if (canIUseGroupSetData()) {
+  if (canIUseGroupSetData() && context.groupSetData) {
     context.groupSetData(cb);
   } else {
     cb();

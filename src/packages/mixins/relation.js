@@ -11,19 +11,20 @@ export function ChildrenMixin(parent, options = {}) {
     },
 
     computed: {
-      parent() {
-        if (this.disableBindRelation) {
-          return null;
-        }
+      // 会造成循环引用
+      // parent() {
+      //   if (this.disableBindRelation) {
+      //     return null;
+      //   }
 
-        return this[parent];
-      },
+      //   return this[parent];
+      // },
 
       [indexKey]() {
         this.bindRelation();
 
-        if (this.parent) {
-          return this.parent.children.indexOf(this);
+        if (this[parent]) {
+          return this[parent].children.indexOf(this);
         }
 
         return null;
@@ -38,27 +39,38 @@ export function ChildrenMixin(parent, options = {}) {
       },
     },
 
+    created() {
+      // 循环引用调试代码
+      // this[parent].children.push(this);
+    },
+
     mounted() {
       this.bindRelation();
     },
 
     beforeDestroy() {
-      if (this.parent) {
-        this.parent.children = this.parent.children.filter(item => item !== this);
+      if (this[parent]) {
+        this[parent].children = this[parent].children.filter(item => item !== this);
       }
     },
 
     methods: {
       bindRelation() {
-        if (!this.parent || this.parent.children.indexOf(this) !== -1) {
+        if (!this[parent] || this[parent].children.indexOf(this) !== -1) {
           return;
         }
 
-        const children = [...this.parent.children, this];
+        const children = [...this[parent].children, this];
 
-        sortChildren(children, this.parent);
+        // #ifdef H5
+        try {
+          sortChildren(children, this[parent]);
+        } catch (err) {
 
-        this.parent.children = children;
+        }
+        // #endif
+
+        this[parent].children = children;
       },
     },
   };
@@ -74,7 +86,8 @@ export function ParentMixin(parent) {
 
     data() {
       return {
-        children: [],
+        // 会造成循环引用
+        // children: [],
       };
     },
   };

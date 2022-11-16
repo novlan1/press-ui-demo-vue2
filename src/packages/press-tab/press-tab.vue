@@ -9,12 +9,18 @@
 <script>
 import utils from '../wxs-js/utils';
 
-import { useParent } from '../common/relation';
+// import { useParent } from '../common/relation';
 import { ChildrenMixin } from '../mixins/relation';
 
+const PARENT = 'vanTabs';
+
+
 export default {
-  relation: useParent('tabs'),
-  mixins: [useParent('tabs').mixin, ChildrenMixin('vanTabs')],
+  // relation: useParent('tabs'),
+  mixins: [
+    // useParent('tabs').mixin,
+    ChildrenMixin(PARENT),
+  ],
   props: {
     dot: {
       type: Boolean,
@@ -50,6 +56,7 @@ export default {
       active: false,
       shouldShow: false,
       shouldRender: false,
+      initialled: false,
     };
   },
   computed: {
@@ -64,11 +71,11 @@ export default {
   mounted() {
   },
   methods: {
-    setData(data) {
-      Object.keys(data).forEach((key) => {
-        this[key] = data[key];
-      });
-    },
+    // setData(data) {
+    //   Object.keys(data).forEach((key) => {
+    //     this[key] = data[key];
+    //   });
+    // },
     getComputedName() {
       if (this.name !== '') {
         return this.name;
@@ -77,16 +84,13 @@ export default {
     },
     updateRender(active, parent) {
       this.initialled = this.initialled || active;
-      this.setData({
-        active,
-        shouldRender: this.initialled || !parent.lazyRender,
-        shouldShow: active || parent.animated,
-      });
+      this.active = active;
+      this.shouldRender = this.initialled || !parent.lazyRender;
+      this.shouldShow = active || parent.animated;
     },
     update() {
-      console.log('parent', this.parent.updateTabs);
-      if (this.parent) {
-        this.parent.updateTabs();
+      if (this[PARENT]) {
+        this[PARENT].updateTabs();
       }
     },
   },

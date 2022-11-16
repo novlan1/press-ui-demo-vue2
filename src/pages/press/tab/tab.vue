@@ -67,7 +67,7 @@ export default {
     // #endif
   },
   mounted() {
-    console.log('this.$refs.pressTabs.resize', this.$refs.pressTabs.resize);
+    // console.log('this.$refs.pressTabs.resize', this.$refs.pressTabs.resize);
     // setTimeout(() => {
     // this.$refs.pressTabs.resize();
     // }, 1000);

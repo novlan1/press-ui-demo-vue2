@@ -30,8 +30,27 @@
               v-for="(item,index) in (tabs)"
               :key="item.index"
               :data-index="index"
-              :class="getTabClass(item, index)"
-              :style="getTabStyle(item, index)"
+              :class="[
+                'tab-class',
+                'van-tab',
+                {
+                  'tab-active-class': index === currentIndex,
+                  'van-ellipsis': ellipsis,
+                  'van-tab--active': index === currentIndex,
+                  'van-tab--disabled': item.disabled,
+                  'van-tab--complete': !ellipsis,
+                }
+              ]"
+              :style="type === 'card'? {
+                borderColor: color,
+                backgroundColor: !disabled && active ? color : null,
+                color: (index === currentIndex ? titleActiveColor : titleInactiveColor)
+                  || (!disabled && !active ? color : null),
+                flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
+              }: {
+                color: index === currentIndex ? titleActiveColor : titleInactiveColor,
+                flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
+              }"
               @click="onTap"
             >
               <view
@@ -78,22 +97,31 @@ import { touch } from '../mixins/touch';
 
 import { getAllRect, getRect, groupSetData, nextTick, requestAnimationFrame } from '../common/utils';
 import { isDef } from '../common/validator';
-import { useChildren } from '../common/relation';
+// import { useChildren } from '../common/relation';
 import { ParentMixin } from '../mixins/relation';
 import utils from '../wxs-js/utils';
 import computed from './index.js';
 
+const PARENT = 'vanTabs';
 
 export default {
   components: {
     VanInfo,
     VanSticky,
   },
-  mixins: [useChildren('tabs').mixin, touch, ParentMixin('vanTabs')],
+  mixins: [
+    // #ifndef H5
+    // useChildren('tabs').mixin,
+    // #endif
+
+    touch,
+
+    ParentMixin(PARENT),
+  ],
   classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
-  relation: useChildren('tab', function () {
-    this.updateTabs();
-  }),
+  // relation: useChildren('tab', function () {
+  //   this.updateTabs();
+  // }),
   props: {
     sticky: {
       type: Boolean,
@@ -189,6 +217,9 @@ export default {
       skipTransition: true,
       scrollWithAnimation: false,
       lineOffsetLeft: 0,
+
+      computed,
+      utils,
     };
   },
   computed: {
@@ -224,6 +255,9 @@ export default {
       const { duration, currentIndex, animated } = this;
       return computed.trackStyle({ duration, currentIndex, animated });
     },
+    realEllipsis() {
+      return this.scrollable && this.ellipsis;
+    },
   },
   watch: {
     animated: {
@@ -238,6 +272,7 @@ export default {
     },
   },
   created() {
+    this.children = [];
   },
   mounted() {
     requestAnimationFrame(() => {
@@ -258,40 +293,18 @@ export default {
         this[key] = data[key];
       });
     },
-    getTabClass(item, index) {
-      const { currentIndex, ellipsis } = this;
-      return `${computed.tabClass(index === currentIndex, ellipsis)} ${utils.bem('tab', { active: index === currentIndex, disabled: item.disabled, complete: !ellipsis })}`;
-    },
-    getTabStyle(item, index) {
-      const {
-        currentIndex,
-        titleActiveColor,
-        titleInactiveColor,
-        swipeThreshold,
-        scrollable,
-        ellipsis,
-        color,
-        type,
-      } = this;
-      return computed.tabStyle({
-        active: index === currentIndex,
-        ellipsis,
-        color,
-        type,
-        disabled: item.disabled,
-        titleActiveColor,
-        titleInactiveColor,
-        swipeThreshold,
-        scrollable,
-      });
-    },
     updateTabs() {
       const { children = [] } = this;
-      console.log('children', children);
-      this.setData({
-        tabs: children.map(child => child),
-        scrollable: this.children.length > this.swipeThreshold || !this.ellipsis,
-      });
+      this.tabs = children.map(child => ({
+        title: child.title,
+        index: child.index,
+        disabled: child.disabled,
+        info: child.info,
+        dot: child.dot,
+        titleStyle: child.titleStyle,
+      }));
+      this.scrollable = children.length > this.swipeThreshold || !this.ellipsis;
+
       this.setCurrentIndexByName(this.active || this.getCurrentName());
     },
     trigger(eventName, child) {

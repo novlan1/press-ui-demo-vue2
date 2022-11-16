@@ -42,10 +42,16 @@ export function ChildrenMixin(parent, options = {}) {
     created() {
       // 循环引用调试代码
       // this[parent].children.push(this);
+      // #ifndef H5
+      this.bindRelation();
+      // #endif
     },
 
+
     mounted() {
+      // #ifdef H5
       this.bindRelation();
+      // #endif
     },
 
     beforeDestroy() {
@@ -66,7 +72,7 @@ export function ChildrenMixin(parent, options = {}) {
         try {
           sortChildren(children, this[parent]);
         } catch (err) {
-
+          console.log('err', err);
         }
         // #endif
 

@@ -1,17 +1,20 @@
+import Vue from 'vue';
 import { isDef, isNumber, isPlainObject, isPromise } from './validator';
-import { canIUseGroupSetData, canIUseNextTick } from './version';
+import { canIUseGroupSetData /* canIUseNextTick*/ } from './version';
 export { isDef } from './validator';
 export function range(num, min, max) {
   return Math.min(Math.max(num, min), max);
 }
 export function nextTick(cb) {
-  if (canIUseNextTick()) {
-    wx.nextTick(cb);
-  } else {
-    setTimeout(() => {
-      cb();
-    }, 1000 / 30);
-  }
+  Vue.nextTick(cb);
+  return;
+  // if (canIUseNextTick()) {
+  //   wx.nextTick(cb);
+  // } else {
+  //   setTimeout(() => {
+  //     cb();
+  //   }, 1000 / 30);
+  // }
 }
 let systemInfo;
 export function getSystemInfoSync() {
@@ -28,19 +31,23 @@ export function addUnit(value) {
   return isNumber(value) ? `${value}px` : value;
 }
 export function requestAnimationFrame(cb) {
-  const systemInfo = getSystemInfoSync();
-  if (systemInfo.platform === 'devtools') {
-    return setTimeout(() => {
-      cb();
-    }, 1000 / 30);
-  }
-  return wx
-    .createSelectorQuery()
-    .selectViewport()
-    .boundingClientRect()
-    .exec(() => {
-      cb();
-    });
+  return setTimeout(() => {
+    cb();
+  }, 1000 / 30);
+
+  // const systemInfo = getSystemInfoSync();
+  // if (systemInfo.platform === 'devtools') {
+  //   return setTimeout(() => {
+  //     cb();
+  //   }, 1000 / 30);
+  // }
+  // return wx
+  //   .createSelectorQuery()
+  //   .selectViewport()
+  //   .boundingClientRect()
+  //   .exec(() => {
+  //     cb();
+  //   });
 }
 export function pickExclude(obj, keys) {
   if (!isPlainObject(obj)) {
@@ -68,7 +75,10 @@ export function getAllRect(context, selector) {
       .in(context)
       .selectAll(selector)
       .boundingClientRect()
-      .exec((rect = []) => resolve(rect[0]));
+      .exec((rect = []) => {
+        console.log('getAllRect.resolve(rect[0])', rect);
+        resolve(rect[0]);
+      });
   });
 }
 export function groupSetData(context, cb) {

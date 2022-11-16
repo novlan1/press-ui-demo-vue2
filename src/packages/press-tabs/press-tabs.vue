@@ -43,9 +43,9 @@
               ]"
               :style="type === 'card'? {
                 borderColor: color,
-                backgroundColor: !disabled && active ? color : null,
+                backgroundColor: !item.disabled && active ? color : null,
                 color: (index === currentIndex ? titleActiveColor : titleInactiveColor)
-                  || (!disabled && !active ? color : null),
+                  || (!item.disabled && !active ? color : null),
                 flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
               }: {
                 color: index === currentIndex ? titleActiveColor : titleInactiveColor,
@@ -270,6 +270,14 @@ export default {
         this.resize();
       },
     },
+    active: {
+      handler(name) {
+        if (name !== this.getCurrentName()) {
+          this.setCurrentIndexByName(name);
+        }
+      },
+      // immediate: true,
+    },
   },
   created() {
     this.children = [];
@@ -284,6 +292,7 @@ export default {
       this.scrollIntoView();
     });
     this.$nextTick(() => {
+      // this.updateTabs();
       this.resize();
     });
   },
@@ -304,7 +313,6 @@ export default {
         titleStyle: child.titleStyle,
       }));
       this.scrollable = children.length > this.swipeThreshold || !this.ellipsis;
-
       this.setCurrentIndexByName(this.active || this.getCurrentName());
     },
     trigger(eventName, child) {
@@ -360,6 +368,9 @@ export default {
       }
       const shouldEmitChange = this.currentIndex !== null;
       this.setData({ currentIndex });
+
+      this.$forceUpdate();
+
       requestAnimationFrame(() => {
         this.resize();
         this.scrollIntoView();
@@ -387,24 +398,28 @@ export default {
         getRect(this, '.van-tabs__line'),
       ]).then(([rects = [], lineRect]) => {
         const rect = rects[currentIndex];
-        console.log('rect', rect);
         if (rect == null) {
           return;
         }
+
         let lineOffsetLeft = rects
           .slice(0, currentIndex)
           .reduce((prev, curr) => prev + curr.width, 0);
         lineOffsetLeft
                     += (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8);
+
         this.setData({ lineOffsetLeft });
+
         this.swiping = true;
         if (skipTransition) {
           nextTick(() => {
             this.setData({ skipTransition: false });
           });
         }
-        console.log('lineOffsetLeft', lineOffsetLeft);
-      });
+      })
+        .catch((err) => {
+          console.log('err', err);
+        });
     },
     // scroll active tab into view
     scrollIntoView() {
@@ -428,7 +443,10 @@ export default {
             this.setData({ scrollWithAnimation: true });
           });
         }
-      });
+      })
+        .catch((err) => {
+          console.log('error', err);
+        });
     },
     onTouchScroll(event) {
       this.$emit('scroll', event.detail);

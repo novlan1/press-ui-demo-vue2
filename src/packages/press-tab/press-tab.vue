@@ -1,10 +1,12 @@
 <template>
-  <view
-    :class="tabClass"
-    :style="shouldShow ? '' : 'display: none;'"
-  >
-    <slot v-if="shouldRender" />
-  </view>
+  <uni-shadow-root class="vant-tab-index">
+    <view
+      :class="tabClass"
+      :style="shouldShow ? '' : 'display: none;'"
+    >
+      <slot v-if="shouldRender" />
+    </view>
+  </uni-shadow-root>
 </template>
 <script>
 import utils from '../wxs-js/utils';
@@ -27,24 +29,28 @@ export default {
       observer: 'update',
     },
     info: {
-      type: null,
+      type: [String, null],
+      default: '',
       observer: 'update',
     },
     title: {
       type: String,
+      default: '',
       observer: 'update',
     },
     disabled: {
       type: Boolean,
+      default: false,
       observer: 'update',
     },
     titleStyle: {
       type: String,
+      default: '',
       observer: 'update',
     },
     name: {
-      type: null,
-      value: '',
+      type: [String, null],
+      default: '',
     },
     customClass: {
       type: String,
@@ -66,9 +72,9 @@ export default {
     },
   },
   created() {
-    this.update();
   },
   mounted() {
+    this.update();
   },
   methods: {
     // setData(data) {

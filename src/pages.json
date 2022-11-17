@@ -467,6 +467,24 @@
 			]
 		},
 		{
+			"root": "pages/press/swipe-cell",
+			"pages": [
+				{
+					"path": "swipe-cell",
+					"style": {}
+				}
+			]
+		},
+		{
+			"root": "pages/press/checkbox",
+			"pages": [
+				{
+					"path": "checkbox",
+					"style": {}
+				}
+			]
+		},
+		{
 			"root": "pages/press/demo",
 			"pages": [
 				{

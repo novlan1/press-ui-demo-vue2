@@ -18,6 +18,8 @@ import PressTabs from 'src/packages/press-tabs/press-tabs.vue';
 import PressLoadingIcon from 'src/packages/press-loading-icon/press-loading-icon.vue';
 import PressPickerPlus from 'src/packages/press-picker-plus/press-picker-plus.vue';
 import PressDatetimePicker from 'src/packages/press-datetime-picker/press-datetime-picker.vue';
+import PressSwipeCell from 'src/packages/press-swipe-cell/press-swipe-cell.vue';
+import PressCheckbox from 'src/packages/press-checkbox/press-checkbox.vue';
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
 import UniBreadcrumb from 'src/packages/uni-breadcrumb/components/uni-breadcrumb/uni-breadcrumb.vue';
@@ -161,6 +163,8 @@ Vue.component('PressTabs', PressTabs);
 Vue.component('PressLoadingIcon', PressLoadingIcon);
 Vue.component('PressPickerPlus', PressPickerPlus);
 Vue.component('PressDatetimePicker', PressDatetimePicker);
+Vue.component('PressSwipeCell', PressSwipeCell);
+Vue.component('PressCheckbox', PressCheckbox);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

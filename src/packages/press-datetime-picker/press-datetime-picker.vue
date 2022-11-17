@@ -1,6 +1,7 @@
 <template>
   <uni-shadow-root class="vant-datetime-picker-index">
     <van-picker
+      ref="pressPicker"
       class="van-datetime-picker"
       active-class="active-class"
       toolbar-class="toolbar-class"
@@ -25,6 +26,7 @@ import VanPicker from '../press-picker-plus/press-picker-plus.vue';
 import { isDef } from '../common/validator';
 import { pickerProps } from '../press-picker-plus/shared';
 // global.__wxVueOptions = { components: { 'van-picker': VanPicker } };
+import Vue from 'vue';
 
 // global.__wxRoute = 'vant/datetime-picker/index';
 const currentYear = new Date().getFullYear();
@@ -39,6 +41,7 @@ function padZero(val) {
 }
 function times(n, iteratee) {
   let index = 0;
+  console.log('times.n', n);
   const result = Array(n < 0 ? 0 : n);
 
   while (index < n) {
@@ -60,62 +63,131 @@ function getMonthEndDay(year, month) {
   return 32 - new Date(year, month - 1, 32).getDate();
 }
 const defaultFormatter = (type, value) => value;
+
+
 export default {
   classes: ['active-class', 'toolbar-class', 'column-class'],
   components: {
     VanPicker,
   },
-  props: Object.assign(Object.assign({}, pickerProps), { value: {
-    type: null,
-    observer: 'updateValue',
-  }, filter: null, type: {
-    type: String,
-    value: 'datetime',
-    observer: 'updateValue',
-  }, showToolbar: {
-    type: Boolean,
-    value: true,
-  }, formatter: {
-    type: null,
-    value: defaultFormatter,
-  }, minDate: {
-    type: Number,
-    value: new Date(currentYear - 10, 0, 1).getTime(),
-    observer: 'updateValue',
-  }, maxDate: {
-    type: Number,
-    value: new Date(currentYear + 10, 11, 31).getTime(),
-    observer: 'updateValue',
-  }, minHour: {
-    type: Number,
-    value: 0,
-    observer: 'updateValue',
-  }, maxHour: {
-    type: Number,
-    value: 23,
-    observer: 'updateValue',
-  }, minMinute: {
-    type: Number,
-    value: 0,
-    observer: 'updateValue',
-  }, maxMinute: {
-    type: Number,
-    value: 59,
-    observer: 'updateValue',
-  } }),
+  props: Object.assign(Object.assign({}, pickerProps), {
+    value: {
+      type: null,
+      // default: 0,
+      observer: 'updateValue',
+    },
+    filter: null,
+    type: {
+      type: String,
+      default: 'datetime',
+      observer: 'updateValue',
+    },
+    showToolbar: {
+      type: Boolean,
+      default: true,
+    },
+    formatter: {
+      type: null,
+      default: defaultFormatter,
+    },
+    minDate: {
+      type: Number,
+      default: new Date(currentYear - 10, 0, 1).getTime(),
+      observer: 'updateValue',
+    },
+    maxDate: {
+      type: Number,
+      default: new Date(currentYear + 10, 11, 31).getTime(),
+      observer: 'updateValue',
+    },
+    minHour: {
+      type: Number,
+      default: 0,
+      observer: 'updateValue',
+    },
+    maxHour: {
+      type: Number,
+      default: 23,
+      observer: 'updateValue',
+    },
+    minMinute: {
+      type: Number,
+      default: 0,
+      observer: 'updateValue',
+    },
+    maxMinute: {
+      type: Number,
+      default: 59,
+      observer: 'updateValue',
+    },
+  }),
   data() {
     return {
       innerValue: Date.now(),
       columns: [],
     };
   },
-  created() {
+  watch: {
+    value: {
+      handler() {
+        this.updateValue();
+      },
+    },
+    type: {
+      handler() {
+        this.updateValue();
+      },
+    },
+    minDate: {
+      handler() {
+        this.updateValue();
+      },
+    },
+    maxDate: {
+      handler() {
+        this.updateValue();
+      },
+    },
+    minHour: {
+      handler() {
+        this.updateValue();
+      },
+    },
+    maxHour: {
+      handler() {
+        this.updateValue();
+      },
+    },
+    minMinute: {
+      handler() {
+        this.updateValue();
+      },
+    },
+    maxMinute: {
+      handler() {
+        this.updateValue();
+      },
+    },
+  },
+  mounted() {
     const innerValue = this.correctValue(this.value);
     this.updateColumnValue(innerValue).then(() => {
       this.$emit('input', innerValue);
     });
   },
   methods: {
+    setData(data) {
+      Object.keys(data).forEach((key) => {
+        this[key] = data[key];
+      });
+    },
+    set(data) {
+      this.setData(data);
+      // this.data = data;
+      this.$forceUpdate();
+      // eslint-disable-next-line vue/valid-next-tick
+      return new Promise(resolve => Vue.nextTick(resolve));
+    },
     updateValue() {
       const val = this.correctValue(this.value);
       const isEqual = val === this.innerValue;
@@ -127,8 +199,8 @@ export default {
     },
     getPicker() {
       if (this.picker == null) {
-        this.picker = this.selectComponent('.van-datetime-picker');
-        console.log('this.', this, this.picker);
+        this.picker = this.$refs.pressPicker;
+        console.log('this.', this, this.picker, this.$refs);
         const { picker } = this;
         const { setColumnValues } = picker;
         picker.setColumnValues = (...args) => setColumnValues.apply(picker, [...args, false]);
@@ -140,11 +212,13 @@ export default {
       const results = this.getOriginColumns().map(column => ({
         values: column.values.map(value => formatter(column.type, value)),
       }));
+      console.log('updateColumns.results', results);
       return this.set({ columns: results });
     },
     getOriginColumns() {
       const { filter } = this;
       const results = this.getRanges().map(({ type, range }) => {
+        console.log('range', range);
         let values = times(range[1] - range[0] + 1, (index) => {
           const value = range[0] + index;
           return type === 'year' ? `${value}` : padZero(value);
@@ -195,6 +269,7 @@ export default {
       ];
       if (this.type === 'date') result.splice(3, 2);
       if (this.type === 'year-month') result.splice(2, 3);
+      console.log('getRanges.result', result);
       return result;
     },
     correctValue(value) {
@@ -206,6 +281,7 @@ export default {
         const { minHour } = this;
         value = `${padZero(minHour)}:00`;
       }
+
       // time type
       if (!isDateType) {
         let [hour, minute] = value.split(':');
@@ -213,9 +289,11 @@ export default {
         minute = padZero(range(minute, this.minMinute, this.maxMinute));
         return `${hour}:${minute}`;
       }
+
       // date type
       value = Math.max(value, this.minDate);
       value = Math.min(value, this.maxDate);
+      console.log('correctValue.value', value);
       return value;
     },
     getBoundary(type, innerValue) {
@@ -262,6 +340,7 @@ export default {
       let value;
       const picker = this.getPicker();
       const originColumns = this.getOriginColumns();
+
       if (this.type === 'time') {
         const indexes = picker.getIndexes();
         value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1]
@@ -272,10 +351,12 @@ export default {
         const year = getTrueValue(values[0]);
         const month = getTrueValue(values[1]);
         const maxDate = getMonthEndDay(year, month);
+
         let date = getTrueValue(values[2]);
         if (this.type === 'year-month') {
           date = 1;
         }
+
         date = date > maxDate ? maxDate : date;
         let hour = 0;
         let minute = 0;
@@ -285,7 +366,9 @@ export default {
         }
         value = new Date(year, month - 1, date, hour, minute);
       }
+
       value = this.correctValue(value);
+
       this.updateColumnValue(value).then(() => {
         this.$emit('input', value);
         this.$emit('change', picker);
@@ -296,6 +379,7 @@ export default {
       const { type } = this;
       const formatter = this.formatter || defaultFormatter;
       const picker = this.getPicker();
+
       if (type === 'time') {
         const pair = value.split(':');
         values = [formatter('hour', pair[0]), formatter('minute', pair[1])];
@@ -312,13 +396,14 @@ export default {
           values.push(formatter('day', padZero(date.getDate())), formatter('hour', padZero(date.getHours())), formatter('minute', padZero(date.getMinutes())));
         }
       }
+      console.log('updateColumnValue.values', values);
+
       return this.set({ innerValue: value })
         .then(() => this.updateColumns())
         .then(() => picker.setValues(values));
     },
   },
 };
-// export default global.__wxComponents['vant/datetime-picker/index'];
 </script>
 <style platform="mp-weixin">
 @import "../common/index.scss";

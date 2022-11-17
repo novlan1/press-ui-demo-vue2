@@ -464,7 +464,7 @@ export default {
         },
         {
           name: 'DateTimePicker',
-          url: 'press/date-time-picker/date-time-picker',
+          url: 'press/datetime-picker/datetime-picker',
           icon: 'drawer',
         },
         {

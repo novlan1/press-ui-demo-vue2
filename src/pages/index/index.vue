@@ -453,6 +453,16 @@ export default {
           icon: 'popup',
         },
         {
+          name: 'loading-icon',
+          url: 'press/loading-icon/loading-icon',
+          icon: 'load-more',
+        },
+        {
+          name: 'picker-plus',
+          url: 'press/picker-plus/picker-plus',
+          icon: 'drawer',
+        },
+        {
           name: 'Demo',
           url: 'press/demo/demo',
           icon: 'popup',

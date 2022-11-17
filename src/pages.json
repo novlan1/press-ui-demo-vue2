@@ -440,6 +440,24 @@
 			]
 		},
 		{
+			"root": "pages/press/loading-icon",
+			"pages": [
+				{
+					"path": "loading-icon",
+					"style": {}
+				}
+			]
+		},
+		{
+			"root": "pages/press/picker-plus",
+			"pages": [
+				{
+					"path": "picker-plus",
+					"style": {}
+				}
+			]
+		},
+		{
 			"root": "pages/press/demo",
 			"pages": [
 				{

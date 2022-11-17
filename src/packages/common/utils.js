@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import { isDef, isNumber, isPlainObject, isPromise } from './validator';
 import { canIUseGroupSetData /* canIUseNextTick*/ } from './version';
-export { isDef } from './validator';
 export function range(num, min, max) {
   return Math.min(Math.max(num, min), max);
 }
@@ -98,3 +97,4 @@ export function getCurrentPage() {
   const pages = getCurrentPages();
   return pages[pages.length - 1];
 }
+

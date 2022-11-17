@@ -15,6 +15,8 @@ import PressInfo from 'src/packages/press-info/press-info.vue';
 import PressSticky from 'src/packages/press-sticky/press-sticky.vue';
 import PressTab from 'src/packages/press-tab/press-tab.vue';
 import PressTabs from 'src/packages/press-tabs/press-tabs.vue';
+import PressLoadingIcon from 'src/packages/press-loading-icon/press-loading-icon.vue';
+import PressPickerPlus from 'src/packages/press-picker-plus/press-picker-plus.vue';
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
 import UniBreadcrumb from 'src/packages/uni-breadcrumb/components/uni-breadcrumb/uni-breadcrumb.vue';
@@ -155,7 +157,8 @@ Vue.component('PressInfo', PressInfo);
 Vue.component('PressSticky', PressSticky);
 Vue.component('PressTab', PressTab);
 Vue.component('PressTabs', PressTabs);
-
+Vue.component('PressLoadingIcon', PressLoadingIcon);
+Vue.component('PressPickerPlus', PressPickerPlus);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

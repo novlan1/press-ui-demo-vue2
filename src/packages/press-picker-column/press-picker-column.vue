@@ -38,8 +38,14 @@ import { range } from '../common/utils';
 import { isObj } from '../common/validator';
 
 const DEFAULT_DURATION = 200;
+const PARENT = 'pressPicker';
 
 export default {
+  inject: {
+    [PARENT]: {
+      default: null,
+    },
+  },
   props: {
     activeClass: { type: String, default: '' },
     valueKey: { type: String, default: '' },
@@ -104,6 +110,7 @@ export default {
     }).then(() => {
       this.setIndex(defaultIndex);
     });
+    this[PARENT].children.push(this);
   },
   methods: {
     setData(data) {

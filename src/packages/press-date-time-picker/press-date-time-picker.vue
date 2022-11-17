@@ -110,16 +110,15 @@ export default {
     };
   },
   created() {
-    const innerValue = this.correctValue(this.data.value);
+    const innerValue = this.correctValue(this.value);
     this.updateColumnValue(innerValue).then(() => {
       this.$emit('input', innerValue);
     });
   },
   methods: {
     updateValue() {
-      const { data } = this;
-      const val = this.correctValue(data.value);
-      const isEqual = val === data.innerValue;
+      const val = this.correctValue(this.value);
+      const isEqual = val === this.innerValue;
       this.updateColumnValue(val).then(() => {
         if (!isEqual) {
           this.$emit('input', val);
@@ -137,14 +136,14 @@ export default {
       return this.picker;
     },
     updateColumns() {
-      const { formatter = defaultFormatter } = this.data;
+      const { formatter = defaultFormatter } = this;
       const results = this.getOriginColumns().map(column => ({
         values: column.values.map(value => formatter(column.type, value)),
       }));
       return this.set({ columns: results });
     },
     getOriginColumns() {
-      const { filter } = this.data;
+      const { filter } = this;
       const results = this.getRanges().map(({ type, range }) => {
         let values = times(range[1] - range[0] + 1, (index) => {
           const value = range[0] + index;
@@ -158,21 +157,20 @@ export default {
       return results;
     },
     getRanges() {
-      const { data } = this;
-      if (data.type === 'time') {
+      if (this.type === 'time') {
         return [
           {
             type: 'hour',
-            range: [data.minHour, data.maxHour],
+            range: [this.minHour, this.maxHour],
           },
           {
             type: 'minute',
-            range: [data.minMinute, data.maxMinute],
+            range: [this.minMinute, this.maxMinute],
           },
         ];
       }
-      const { maxYear, maxDate, maxMonth, maxHour, maxMinute } = this.getBoundary('max', data.innerValue);
-      const { minYear, minDate, minMonth, minHour, minMinute } = this.getBoundary('min', data.innerValue);
+      const { maxYear, maxDate, maxMonth, maxHour, maxMinute } = this.getBoundary('max', this.innerValue);
+      const { minYear, minDate, minMonth, minHour, minMinute } = this.getBoundary('min', this.innerValue);
       const result = [
         {
           type: 'year',
@@ -195,35 +193,34 @@ export default {
           range: [minMinute, maxMinute],
         },
       ];
-      if (data.type === 'date') result.splice(3, 2);
-      if (data.type === 'year-month') result.splice(2, 3);
+      if (this.type === 'date') result.splice(3, 2);
+      if (this.type === 'year-month') result.splice(2, 3);
       return result;
     },
     correctValue(value) {
-      const { data } = this;
       // validate value
-      const isDateType = data.type !== 'time';
+      const isDateType = this.type !== 'time';
       if (isDateType && !isValidDate(value)) {
-        value = data.minDate;
+        value = this.minDate;
       } else if (!isDateType && !value) {
-        const { minHour } = data;
+        const { minHour } = this;
         value = `${padZero(minHour)}:00`;
       }
       // time type
       if (!isDateType) {
         let [hour, minute] = value.split(':');
-        hour = padZero(range(hour, data.minHour, data.maxHour));
-        minute = padZero(range(minute, data.minMinute, data.maxMinute));
+        hour = padZero(range(hour, this.minHour, this.maxHour));
+        minute = padZero(range(minute, this.minMinute, this.maxMinute));
         return `${hour}:${minute}`;
       }
       // date type
-      value = Math.max(value, data.minDate);
-      value = Math.min(value, data.maxDate);
+      value = Math.max(value, this.minDate);
+      value = Math.min(value, this.maxDate);
       return value;
     },
     getBoundary(type, innerValue) {
       const value = new Date(innerValue);
-      const boundary = new Date(this.data[`${type}Date`]);
+      const boundary = new Date(this[`${type}Date`]);
       const year = boundary.getFullYear();
       let month = 1;
       let date = 1;
@@ -259,14 +256,13 @@ export default {
       this.$emit('cancel');
     },
     onConfirm() {
-      this.$emit('confirm', this.data.innerValue);
+      this.$emit('confirm', this.innerValue);
     },
     onChange() {
-      const { data } = this;
       let value;
       const picker = this.getPicker();
       const originColumns = this.getOriginColumns();
-      if (data.type === 'time') {
+      if (this.type === 'time') {
         const indexes = picker.getIndexes();
         value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1]
           .values[indexes[1]]}`;
@@ -277,13 +273,13 @@ export default {
         const month = getTrueValue(values[1]);
         const maxDate = getMonthEndDay(year, month);
         let date = getTrueValue(values[2]);
-        if (data.type === 'year-month') {
+        if (this.type === 'year-month') {
           date = 1;
         }
         date = date > maxDate ? maxDate : date;
         let hour = 0;
         let minute = 0;
-        if (data.type === 'datetime') {
+        if (this.type === 'datetime') {
           hour = getTrueValue(values[3]);
           minute = getTrueValue(values[4]);
         }
@@ -297,8 +293,8 @@ export default {
     },
     updateColumnValue(value) {
       let values = [];
-      const { type } = this.data;
-      const formatter = this.data.formatter || defaultFormatter;
+      const { type } = this;
+      const formatter = this.formatter || defaultFormatter;
       const picker = this.getPicker();
       if (type === 'time') {
         const pair = value.split(':');

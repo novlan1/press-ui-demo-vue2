@@ -23,7 +23,7 @@
         @touchmove.stop.prevent="noop"
       >
         <picker-column
-          v-for="(item,index) in (computed.columns(columns))"
+          v-for="(item,index) in computedColumns"
           ref="pickerColumn"
           :key="index"
           class="van-picker__column"
@@ -59,14 +59,21 @@ import Loading from '../press-loading-icon/press-loading-icon.vue';
 import ToolBar from './toolbar.vue';
 
 import computed from './index.js';
+const PARENT = 'pressPicker';
 
 export default {
-  classes: ['active-class', 'toolbar-class', 'column-class'],
   components: {
     PickerColumn,
     Loading,
     ToolBar,
   },
+  provide() {
+    return {
+      [PARENT]: this,
+    };
+  },
+
+  classes: ['active-class', 'toolbar-class', 'column-class'],
   props: {
     title: String,
     showToolbar: Boolean,
@@ -112,7 +119,7 @@ export default {
   },
   data() {
     return {
-      computed,
+      simple: true,
     };
   },
   computed: {
@@ -128,13 +135,17 @@ export default {
       const { itemHeight } = this;
       return computed.frameStyle({ itemHeight });
     },
+    computedColumns() {
+      const { columns } = this;
+      return computed.columns(columns);
+    },
   },
   watch: {
     columns: {
       handler(columns = []) {
         console.log('watch.columns', columns);
         this.simple = columns.length && !columns[0].values;
-        console.log('children', this.children, this.$refs);
+        // console.log('children', this.children, this.$refs);
         if (Array.isArray(this.children) && this.children.length) {
           this.setColumns().catch(() => { });
         }
@@ -143,10 +154,13 @@ export default {
     },
   },
   beforeCreate() {
-    Object.defineProperty(this, 'children', {
-      // get: () => this.selectAllComponents('.van-picker__column') || [],
-      get: () => this.$refs.pickerColumn,
-    });
+    // Object.defineProperty(this, 'children', {
+    //   // get: () => this.selectAllComponents('.van-picker__column') || [],
+    //   get: () => this.$refs.pickerColumn,
+    // });
+  },
+  created() {
+    this.children = [];
   },
   mounted() {
     if (Array.isArray(this.children) && this.children.length) {
@@ -262,7 +276,6 @@ export default {
     },
   },
 };
-// export default global.__wxComponents['vant/picker/index'];
 </script>
 <style platform="mp-weixin">
 @import "../common/index.scss";
@@ -274,33 +287,7 @@ export default {
   -webkit-user-select: none;
   user-select: none;
 }
-.van-picker__toolbar {
-  display: flex;
-  height: var(--picker-toolbar-height, 44px);
-  justify-content: space-between;
-  line-height: var(--picker-toolbar-height, 44px);
-}
-.van-picker__cancel,
-.van-picker__confirm {
-  font-size: var(--picker-action-font-size, 14px);
-  padding: var(--picker-action-padding, 0 16px);
-}
-.van-picker__cancel--hover,
-.van-picker__confirm--hover {
-  opacity: 0.7;
-}
-.van-picker__confirm {
-  color: var(--picker-confirm-action-color, #576b95);
-}
-.van-picker__cancel {
-  color: var(--picker-cancel-action-color, #969799);
-}
-.van-picker__title {
-  font-size: var(--picker-option-font-size, 16px);
-  font-weight: var(--font-weight-bold, 500);
-  max-width: 50%;
-  text-align: center;
-}
+
 .van-picker__columns {
   display: flex;
   position: relative;

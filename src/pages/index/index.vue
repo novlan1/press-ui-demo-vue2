@@ -463,6 +463,11 @@ export default {
           icon: 'drawer',
         },
         {
+          name: 'DateTimePicker',
+          url: 'press/date-time-picker/date-time-picker',
+          icon: 'drawer',
+        },
+        {
           name: 'Demo',
           url: 'press/demo/demo',
           icon: 'popup',

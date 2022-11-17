@@ -17,6 +17,7 @@ import PressTab from 'src/packages/press-tab/press-tab.vue';
 import PressTabs from 'src/packages/press-tabs/press-tabs.vue';
 import PressLoadingIcon from 'src/packages/press-loading-icon/press-loading-icon.vue';
 import PressPickerPlus from 'src/packages/press-picker-plus/press-picker-plus.vue';
+import PressDateTimePicker from 'src/packages/press-date-time-picker/press-date-time-picker.vue';
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
 import UniBreadcrumb from 'src/packages/uni-breadcrumb/components/uni-breadcrumb/uni-breadcrumb.vue';
@@ -159,6 +160,7 @@ Vue.component('PressTab', PressTab);
 Vue.component('PressTabs', PressTabs);
 Vue.component('PressLoadingIcon', PressLoadingIcon);
 Vue.component('PressPickerPlus', PressPickerPlus);
+Vue.component('PressDateTimePicker', PressDateTimePicker);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

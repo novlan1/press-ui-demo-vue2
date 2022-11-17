@@ -194,13 +194,13 @@ export default {
       console.log(' this.getValues()',  this.getValues());
       if (this.simple) {
         this.$emit('change', {
-          picker: this,
+          // picker: this,
           value: this.getColumnValue(0),
           index: this.getColumnIndex(0),
         });
       } else {
         this.$emit('change', {
-          picker: this,
+          // picker: this,
           value: this.getValues(),
           index: event, // event.currentTarget.dataset.index,
         });
@@ -277,7 +277,7 @@ export default {
   },
 };
 </script>
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
 .van-picker {
   -webkit-text-size-adjust: 100%;
@@ -336,5 +336,6 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  position: absolute !important; // TODO: to delete
 }
 </style>

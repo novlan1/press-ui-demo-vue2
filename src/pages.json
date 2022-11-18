@@ -440,10 +440,10 @@
 			]
 		},
 		{
-			"root": "pages/press/loading-icon",
+			"root": "pages/press/loading-plus",
 			"pages": [
 				{
-					"path": "loading-icon",
+					"path": "loading-plus",
 					"style": {}
 				}
 			]

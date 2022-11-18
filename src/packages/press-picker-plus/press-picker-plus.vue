@@ -55,7 +55,7 @@
 </template>
 <script>
 import PickerColumn from '../press-picker-column/press-picker-column.vue';
-import Loading from '../press-loading-icon/press-loading-icon.vue';
+import Loading from '../press-loading-plus/press-loading-plus.vue';
 import ToolBar from './toolbar.vue';
 
 import computed from './index.js';

@@ -35,8 +35,8 @@ export const PRESS_PAGE_LIST = [
     icon: 'popup',
   },
   {
-    name: 'loading-icon',
-    url: 'press/loading-icon/loading-icon',
+    name: 'loading-plus',
+    url: 'press/loading-plus/loading-plus',
     icon: 'load-more',
   },
   {

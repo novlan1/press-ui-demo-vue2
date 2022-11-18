@@ -55,7 +55,7 @@
 
 <script>
 import VanIcon from '../press-icon-plus/press-icon-plus.vue';
-import VanLoading from '../press-loading-icon/press-loading-icon.vue';
+import VanLoading from '../press-loading-plus/press-loading-plus.vue';
 import VanOverlay from '../press-overlay/press-overlay.vue';
 import VanTransition from '../press-transition/press-transition.vue';
 

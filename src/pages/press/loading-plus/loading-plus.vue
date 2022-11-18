@@ -1,29 +1,29 @@
 <template>
   <view class="wrap">
     <view>
-      <press-loading-icon /> <press-loading-icon type="spinner" />
+      <press-loading-plus /> <press-loading-plus type="spinner" />
     </view>
     <view>
-      <press-loading-icon color="#1989fa" />
-      <press-loading-icon
+      <press-loading-plus color="#1989fa" />
+      <press-loading-plus
         type="spinner"
         color="#1989fa"
       />
     </view>
 
     <view>
-      <press-loading-icon size="24px">
+      <press-loading-plus size="24px">
         加载中...
-      </press-loading-icon>
+      </press-loading-plus>
     </view>
 
     <view>
-      <press-loading-icon
+      <press-loading-plus
         size="24px"
         vertical
       >
         加载中...
-      </press-loading-icon>
+      </press-loading-plus>
     </view>
   </view>
 </template>

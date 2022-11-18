@@ -34,7 +34,7 @@
 
     <press-checkbox
       :value="checked"
-      icon-size="25px"
+      :icon-size="25"
       @change="onChange"
     >
       复选框

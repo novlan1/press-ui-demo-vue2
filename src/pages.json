@@ -485,6 +485,33 @@
 			]
 		},
 		{
+			"root": "pages/press/transition",
+			"pages": [
+				{
+					"path": "transition",
+					"style": {}
+				}
+			]
+		},
+		{
+			"root": "pages/press/overlay",
+			"pages": [
+				{
+					"path": "overlay",
+					"style": {}
+				}
+			]
+		},
+		{
+			"root": "pages/press/toast",
+			"pages": [
+				{
+					"path": "toast",
+					"style": {}
+				}
+			]
+		},
+		{
 			"root": "pages/press/demo",
 			"pages": [
 				{

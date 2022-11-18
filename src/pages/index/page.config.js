@@ -60,6 +60,21 @@ export const PRESS_PAGE_LIST = [
     icon: 'drawer',
   },
   {
+    name: 'Transition',
+    url: 'press/transition/transition',
+    icon: 'drawer',
+  },
+  {
+    name: 'Overlay',
+    url: 'press/overlay/overlay',
+    icon: 'drawer',
+  },
+  {
+    name: 'Toast',
+    url: 'press/toast/toast',
+    icon: 'drawer',
+  },
+  {
     name: 'Demo',
     url: 'press/demo/demo',
     icon: 'popup',

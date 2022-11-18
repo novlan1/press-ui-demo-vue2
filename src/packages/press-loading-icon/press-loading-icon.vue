@@ -1,6 +1,9 @@
 <template>
   <uni-shadow-root class="vant-loading-index">
-    <view :class="loadingClass">
+    <view
+      :class="loadingClass"
+      :style="customStyle"
+    >
       <view
         :class="'van-loading__spinner van-loading__spinner--'+(type)"
         :style="spinnerStyle"
@@ -32,6 +35,7 @@ import computed from './index.js';
 // global.__wxRoute = 'vant/loading/index';
 export default {
   props: {
+    customStyle: { type: String, default: '' },
     color: { type: String, default: '' },
     vertical: { type: Boolean, default: false },
     type: {

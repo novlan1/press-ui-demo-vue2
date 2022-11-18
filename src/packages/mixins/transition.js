@@ -9,44 +9,58 @@ const getClassNames = name => ({
 });
 export function transition(showDefaultValue) {
   return {
-    properties: {
+    props: {
       customStyle: String,
-      // @ts-ignore
       show: {
         type: Boolean,
-        value: showDefaultValue,
-        observer: 'observeShow',
+        default: showDefaultValue,
+        // observer: 'observeShow',
       },
       // @ts-ignore
       duration: {
         type: null,
-        value: 300,
-        observer: 'observeDuration',
+        default: 300,
+        // observer: 'observeDuration',
       },
       name: {
         type: String,
-        value: 'fade',
+        default: 'fade',
       },
     },
-    data: {
-      type: '',
-      inited: false,
-      display: false,
+    data() {
+      return {
+        type: '',
+        inited: false,
+        display: false,
+      };
     },
-    ready() {
-      if (this.data.show === true) {
+    watch: {
+      show: {
+        handler(...args) {
+          this.observeShow(...args);
+        },
+      },
+      duration: {
+        handler(...args) {
+          this.observeDuration(...args);
+        },
+      },
+    },
+    mounted() {
+      if (this.show === true) {
         this.observeShow(true, false);
       }
     },
     methods: {
       observeShow(value, old) {
+        console.log('observeShow', value, old);
         if (value === old) {
           return;
         }
         value ? this.enter() : this.leave();
       },
       enter() {
-        const { duration, name } = this.data;
+        const { duration, name } = this;
         const classNames = getClassNames(name);
         const currentDuration = isObj(duration) ? duration.enter : duration;
         this.status = 'enter';
@@ -72,14 +86,15 @@ export function transition(showDefaultValue) {
         });
       },
       leave() {
-        if (!this.data.display) {
+        if (!this.display) {
           return;
         }
-        const { duration, name } = this.data;
+        const { duration, name } = this;
         const classNames = getClassNames(name);
         const currentDuration = isObj(duration) ? duration.leave : duration;
         this.status = 'leave';
         this.$emit('before-leave');
+
         requestAnimationFrame(() => {
           if (this.status !== 'leave') {
             return;
@@ -100,12 +115,13 @@ export function transition(showDefaultValue) {
         });
       },
       onTransitionEnd() {
+        console.log('onTransitionEnd', this.transitionEnded, this.show, this.display);
         if (this.transitionEnded) {
           return;
         }
         this.transitionEnded = true;
         this.$emit(`after-${this.status}`);
-        const { show, display } = this.data;
+        const { show, display } = this;
         if (!show && display) {
           this.setData({ display: false });
         }

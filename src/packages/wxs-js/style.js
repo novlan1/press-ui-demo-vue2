@@ -11,13 +11,16 @@ function kebabCase(word) {
 }
 
 function style(styles) {
+  console.log('ssss', styles);
   if (array.isArray(styles)) {
     return styles
       .filter(item => item != null && item !== '')
       .map(item => style(item))
       .join(';');
   }
-
+  if (typeof styles === 'string') {
+    return styles;
+  }
   // if ('Object' === styles.constructor) {
   return object
     .keys(styles)

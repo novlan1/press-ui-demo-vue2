@@ -143,9 +143,7 @@ export default {
   watch: {
     columns: {
       handler(columns = []) {
-        console.log('watch.columns', columns);
         this.simple = columns.length && !columns[0].values;
-        // console.log('children', this.children, this.$refs);
         if (Array.isArray(this.children) && this.children.length) {
           this.setColumns().catch(() => { });
         }
@@ -170,7 +168,6 @@ export default {
   methods: {
     noop() { },
     setColumns() {
-      console.log('setColumns');
       const columns = this.simple ? [{ values: this.columns }] : this.columns;
       const stack = columns.map((column, index) => this.setColumnValues(index, column.values));
       return Promise.all(stack);
@@ -190,8 +187,6 @@ export default {
       }
     },
     onChange(event) {
-      console.log('event', event);
-      console.log(' this.getValues()',  this.getValues());
       if (this.simple) {
         this.$emit('change', {
           // picker: this,
@@ -242,7 +237,6 @@ export default {
     // set options of column by index
     setColumnValues(index, options, needReset = true) {
       const column = this.children[index];
-      console.log('setColumnValues', index, options, column);
       if (column == null) {
         return Promise.reject(new Error('setColumnValues: 对应列不存在'));
       }

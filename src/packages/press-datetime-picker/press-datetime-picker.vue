@@ -41,7 +41,6 @@ function padZero(val) {
 }
 function times(n, iteratee) {
   let index = 0;
-  console.log('times.n', n);
   const result = Array(n < 0 ? 0 : n);
 
   while (index < n) {
@@ -200,7 +199,6 @@ export default {
     getPicker() {
       if (this.picker == null) {
         this.picker = this.$refs.pressPicker;
-        console.log('this.', this, this.picker, this.$refs);
         const { picker } = this;
         const { setColumnValues } = picker;
         picker.setColumnValues = (...args) => setColumnValues.apply(picker, [...args, false]);
@@ -212,13 +210,11 @@ export default {
       const results = this.getOriginColumns().map(column => ({
         values: column.values.map(value => formatter(column.type, value)),
       }));
-      console.log('updateColumns.results', results);
       return this.set({ columns: results });
     },
     getOriginColumns() {
       const { filter } = this;
       const results = this.getRanges().map(({ type, range }) => {
-        console.log('range', range);
         let values = times(range[1] - range[0] + 1, (index) => {
           const value = range[0] + index;
           return type === 'year' ? `${value}` : padZero(value);
@@ -269,7 +265,6 @@ export default {
       ];
       if (this.type === 'date') result.splice(3, 2);
       if (this.type === 'year-month') result.splice(2, 3);
-      console.log('getRanges.result', result);
       return result;
     },
     correctValue(value) {
@@ -293,7 +288,6 @@ export default {
       // date type
       value = Math.max(value, this.minDate);
       value = Math.min(value, this.maxDate);
-      console.log('correctValue.value', value);
       return value;
     },
     getBoundary(type, innerValue) {
@@ -396,7 +390,6 @@ export default {
           values.push(formatter('day', padZero(date.getDate())), formatter('hour', padZero(date.getHours())), formatter('minute', padZero(date.getMinutes())));
         }
       }
-      console.log('updateColumnValue.values', values);
 
       return this.set({ innerValue: value })
         .then(() => this.updateColumns())

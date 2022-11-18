@@ -329,7 +329,6 @@ export default {
     },
     onTap(event) {
       const { index } = event.currentTarget.dataset;
-      console.log('onTap.index', index, this.children);
       const child = this.children[index];
       if (child.disabled) {
         this.trigger('disabled', child);

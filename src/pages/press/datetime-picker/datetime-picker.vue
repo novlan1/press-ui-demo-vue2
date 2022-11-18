@@ -3,6 +3,8 @@
     <press-datetime-picker
       type="datetime"
       :value="currentDate"
+      :formatter="formatter"
+      :filter="filter"
       @input="onInput"
     />
 
@@ -10,6 +12,7 @@
       type="date"
       :value="currentDate"
       :min-date="minDate"
+      :filter="filter"
       :formatter="formatter"
       @input="onInput"
     />
@@ -27,14 +30,24 @@ export default {
       maxDate: new Date(2019, 10, 1).getTime(),
       currentDate: new Date().getTime(),
 
-      formatter(type, value) {
+      formatter(type, val) {
         if (type === 'year') {
-          return `${value}年`;
+          return `${val}年`;
+        } if (type === 'month') {
+          return `${val}月`;
+        } if (type === 'day') {
+          return `${val}日`;
+        } if (type === 'hour') {
+          return `${val}时`;
+        } if (type === 'minute') {
+          return `${val}分`;
         }
-        if (type === 'month') {
-          return `${value}月`;
+      },
+      filter(type, options) {
+        if (type === 'minute') {
+          return options.filter(option => option % 5 === 0);
         }
-        return value;
+        return options;
       },
     };
   },

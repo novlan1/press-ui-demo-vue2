@@ -28,7 +28,6 @@ function Toast(toastOptions) {
     console.warn('未找到 van-toast 节点，请确认 selector 及 context 是否正确');
     return;
   }
-  console.log('=======toast=====', toast);
   delete options.context;
   delete options.selector;
   toast.clear = () => {

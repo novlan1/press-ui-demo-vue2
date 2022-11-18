@@ -10,7 +10,6 @@
 <script>
 import utils from '../wxs-js/utils';
 
-console.log('utils', utils);
 export default {
   props: {
     dot: {
@@ -33,7 +32,6 @@ export default {
   computed: {
     infoClass() {
       const { dot, customClass } = this;
-      console.log('customClass', customClass);
       return `van-info ${utils.bem('info', { dot })} ${customClass}`;
     },
   },

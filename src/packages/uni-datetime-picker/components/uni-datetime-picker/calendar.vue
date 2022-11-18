@@ -426,7 +426,6 @@ export default {
         if (!this.range) {
           this.time = newVal;
         } else {
-          // console.log('-----', newVal);
           this.timeRange.startTime = newVal.start;
           this.timeRange.endTime = newVal.end;
         }

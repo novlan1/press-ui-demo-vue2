@@ -1,7 +1,6 @@
 const style = require('../wxs-js/style.js');
 
 function rootStyle(data) {
-  console.log('display', data.display);
   return style([
     {
       '-webkit-transition-duration': `${data.currentDuration}ms`,

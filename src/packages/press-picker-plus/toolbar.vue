@@ -54,7 +54,6 @@ export default {
   },
   methods: {
     emit(...args) {
-      console.log('emit.args', args);
       this.$emit('emit', ...args);
     },
   },

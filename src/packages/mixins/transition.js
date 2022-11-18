@@ -53,7 +53,6 @@ export function transition(showDefaultValue) {
     },
     methods: {
       observeShow(value, old) {
-        console.log('observeShow', value, old);
         if (value === old) {
           return;
         }
@@ -115,7 +114,6 @@ export function transition(showDefaultValue) {
         });
       },
       onTransitionEnd() {
-        console.log('onTransitionEnd', this.transitionEnded, this.show, this.display);
         if (this.transitionEnded) {
           return;
         }

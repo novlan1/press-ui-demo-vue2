@@ -11,7 +11,6 @@ function kebabCase(word) {
 }
 
 function style(styles) {
-  console.log('ssss', styles);
   if (array.isArray(styles)) {
     return styles
       .filter(item => item != null && item !== '')

@@ -95,7 +95,6 @@ export default {
     },
     initialOptions: {
       handler(val) {
-        console.log('watch.initialOptions');
         this.options = val;
         this.setIndex(this.defaultIndex);
       },
@@ -150,7 +149,6 @@ export default {
       }
     },
     onClickItem(event) {
-      console.log('onClickItem.event', event);
       const { index } = event.currentTarget.dataset;
       this.setIndex(index, true);
     },
@@ -177,7 +175,6 @@ export default {
       const offset = -index * this.itemHeight;
       if (index !== this.currentIndex) {
         return this.set({ offset, currentIndex: index }).then(() => {
-          console.log('====then');
           userAction && this.$emit('change', index);
         });
       }

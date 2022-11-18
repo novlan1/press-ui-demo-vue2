@@ -88,7 +88,6 @@ const formatKey = key => key.replace(/^(\w)/, (a, b) => `data${b.toUpperCase()}`
 const watchProps = Object.keys(props).reduce((acc, item) => {
   acc[item] = {
     handler(val) {
-      console.log('=====', item, val);
       this[formatKey(item)] = val;
     },
   };
@@ -104,8 +103,6 @@ const watchProps = Object.keys(props).reduce((acc, item) => {
 //   return acc;
 // }, {});
 
-
-console.log('watchProps', watchProps);
 
 export default {
   components: {
@@ -152,7 +149,6 @@ export default {
   methods: {
     setData(data) {
       Object.keys(data).forEach((key) => {
-        console.log('formatKey(key)', formatKey(key), data[key]);
         this[formatKey(key)] = data[key];
       });
     },

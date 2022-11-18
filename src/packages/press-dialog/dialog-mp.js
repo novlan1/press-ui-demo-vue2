@@ -2,17 +2,12 @@ let instance;
 
 function getContext() {
   const pages = getCurrentPages();
-  console.log('pages', pages);
   return pages[pages.length - 1];
 }
 
 function Dialog() {
   instance = getContext().selectComponent('#tip-match-comm-tips-dialog');
-  // console.log('instance', instance, options);
-  // instance.setData(options);
-  // Object.keys(options).forEach((key) => {
-  //   instance.$vm.$set(instance.$vm.$data, key, options[key]);
-  // });
+
   instance = instance.$vm;
 }
 
@@ -40,12 +35,10 @@ Dialog.show = (options) => {
     ...options,
   });
   return instance.showDialog(options).then((val) => {
-    // console.log('Dialog.show.resolve', val);
     instance = null;
     return Promise.resolve(val);
   })
     .catch((err) => {
-      // console.log('Dialog.show.err', err);
       instance = null;
       return Promise.reject(err);
     });

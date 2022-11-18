@@ -44,7 +44,6 @@ function createInstance() {
   }
 
   queue = queue.filter(item => !item.$el.parentNode || isInDocument(item.$el));
-  console.log('queue', queue);
 
   if (!queue.length || multiple) {
     const dialogId = 'van-toast';
@@ -61,7 +60,6 @@ function createInstance() {
     const toast = new (Vue.extend(VueToast))({
       el: dialogRootDiv,
     });
-    console.log('=====toast', toast);
 
     toast.$on('input', (value) => {
       toast.value = value;
@@ -108,7 +106,6 @@ function Toast(options = {}) {
     }
   };
   const transformedOptions = transformOptions(options);
-  console.log('transformedOptions', transformedOptions);
   Object.assign(toast, transformedOptions);
   clearTimeout(toast.timer);
   toast.setData({ show: true });

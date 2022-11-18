@@ -62,7 +62,6 @@ export default {
   },
   mounted() {
     this.showDialog();
-    console.log('this.selectList', this.selectList);
   },
   methods: {
     // 弹出messageBox,并创建promise对象

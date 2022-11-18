@@ -73,7 +73,6 @@ export default {
     rootStyle() {
       const { currentDuration, display, customStyle } = this;
       const res = computed.rootStyle({ currentDuration, display, customStyle });
-      console.log('rootStyle.res', res);
       return res;
     },
     transitionClass() {

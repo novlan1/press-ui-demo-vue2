@@ -16,12 +16,10 @@ export default {
       let parent = this.$parent;
       let parentName = parent.$options.name;
       while (parentName !== name) {
-        console.log('parent', parent, parentName);
         parent = parent.$parent;
         if (!parent) return false;
         parentName = parent.$options.name;
       }
-      console.log('res', parent);
       return parent;
     },
   },

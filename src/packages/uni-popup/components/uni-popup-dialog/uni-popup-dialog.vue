@@ -158,7 +158,6 @@ export default {
   },
   created() {
     // 对话框遮罩不可点击
-    console.log('this.popup', this.popup);
     this.popup.disableMask();
     // this.popup.closeMask()
     if (this.mode === 'input') {

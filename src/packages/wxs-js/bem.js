@@ -3,7 +3,6 @@ const object = require('./object.js');
 const PREFIX = 'van-';
 
 function join(name, mods) {
-  console.log('mods', mods);
   name = PREFIX + name;
   mods = mods.map(mod => `${name}--${mod}`);
   mods.unshift(name);

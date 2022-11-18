@@ -29,7 +29,6 @@ function columns(columns) {
   if (columns.length && !columns[0].values) {
     return [{ values: columns }];
   }
-  console.log('columns', columns);
   return columns;
 }
 

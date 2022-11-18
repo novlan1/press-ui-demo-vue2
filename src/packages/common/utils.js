@@ -75,7 +75,6 @@ export function getAllRect(context, selector) {
       .selectAll(selector)
       .boundingClientRect()
       .exec((rect = []) => {
-        console.log('getAllRect.resolve(rect[0])', rect);
         resolve(rect[0]);
       });
   });

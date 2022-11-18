@@ -236,7 +236,6 @@ export default {
     },
     // 兼容老版本表单组件
     setValue() {
-      // console.log('setValue 方法已经弃用，请使用最新版本的 uni-forms 表单组件以及其他关联组件。');
     },
     /**
 			 * 外部调用方法

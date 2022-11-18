@@ -22,7 +22,6 @@ export function on(target, event, handler, passive) {
   }
 
   if (!isServer) {
-    console.log('target', target);
     target.addEventListener(event, handler, supportsPassive ? {
       capture: false,
       passive,

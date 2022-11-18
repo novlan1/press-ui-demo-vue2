@@ -15,7 +15,7 @@ export const pickerProps = {
     default: 6,
   },
   itemHeight: {
-    type: Number,
+    type: [Number, String],
     default: 44,
   },
 };

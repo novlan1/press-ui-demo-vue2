@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     onClick() {
-      console.log('=====');
       this.$emit('click');
     },
     // for prevent touchmove

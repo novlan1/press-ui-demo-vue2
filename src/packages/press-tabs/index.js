@@ -57,9 +57,7 @@ function trackStyle(data) {
 }
 
 function lineStyle(data) {
-  console.log('data', data);
   const width = utils.addUnit(data.lineWidth);
-  console.log('width', width);
   return style({
     width,
     transform: `translateX(${data.lineOffsetLeft}px)`,

@@ -26,27 +26,28 @@ export default {
   props: {
     dot: {
       type: Boolean,
-      observer: 'update',
+      default: false,
+      // observer: 'update',
     },
     info: {
       type: [String, null],
       default: '',
-      observer: 'update',
+      // observer: 'update',
     },
     title: {
       type: String,
       default: '',
-      observer: 'update',
+      // observer: 'update',
     },
     disabled: {
       type: Boolean,
       default: false,
-      observer: 'update',
+      // observer: 'update',
     },
     titleStyle: {
       type: String,
       default: '',
-      observer: 'update',
+      // observer: 'update',
     },
     name: {
       type: [String, null],
@@ -70,6 +71,34 @@ export default {
       const { active, customClass } = this;
       return `${utils.bem('tab__pane', { active, inactive: !active })} ${customClass}`;
     },
+  },
+  watch: {
+    dot: {
+      handler() {
+        this.update();
+      },
+    },
+    info: {
+      handler() {
+        this.update();
+      },
+    },
+    title: {
+      handler() {
+        this.update();
+      },
+    },
+    disabled: {
+      handler() {
+        this.update();
+      },
+    },
+    titleStyle: {
+      handler() {
+        this.update();
+      },
+    },
+
   },
   created() {
   },

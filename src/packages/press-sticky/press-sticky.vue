@@ -58,23 +58,23 @@ export default {
     offsetTop: {
       type: Number,
       default: 0,
-      observer: 'onScroll',
+      // observer: 'onScroll',
     },
     disabled: {
       type: Boolean,
-      observer: 'onScroll',
+      // observer: 'onScroll',
     },
     container: {
       type: [Function, null],
       default: null,
-      observer: 'onScroll',
+      // observer: 'onScroll',
     },
     scrollTop: {
       type: [Number, null],
       default: null,
-      observer(val) {
-        this.onScroll({ scrollTop: val });
-      },
+      // observer(val) {
+      //   this.onScroll({ scrollTop: val });
+      // },
     },
   },
   data() {

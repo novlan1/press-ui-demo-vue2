@@ -22,13 +22,10 @@
 
 <script>
 import VanPicker from '../press-picker-plus/press-picker-plus.vue';
-// import { VantComponent } from '../common/component';
 import { isDef } from '../common/validator';
 import { pickerProps } from '../press-picker-plus/shared';
-// global.__wxVueOptions = { components: { 'van-picker': VanPicker } };
 import Vue from 'vue';
 
-// global.__wxRoute = 'vant/datetime-picker/index';
 const currentYear = new Date().getFullYear();
 function isValidDate(date) {
   return isDef(date) && !isNaN(new Date(date).getTime());
@@ -73,13 +70,13 @@ export default {
     value: {
       type: null,
       // default: 0,
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
     filter: null,
     type: {
       type: String,
       default: 'datetime',
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
     showToolbar: {
       type: Boolean,
@@ -92,32 +89,32 @@ export default {
     minDate: {
       type: Number,
       default: new Date(currentYear - 10, 0, 1).getTime(),
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
     maxDate: {
       type: Number,
       default: new Date(currentYear + 10, 11, 31).getTime(),
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
     minHour: {
       type: Number,
       default: 0,
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
     maxHour: {
       type: Number,
       default: 23,
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
     minMinute: {
       type: Number,
       default: 0,
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
     maxMinute: {
       type: Number,
       default: 59,
-      observer: 'updateValue',
+      // observer: 'updateValue',
     },
   }),
   data() {

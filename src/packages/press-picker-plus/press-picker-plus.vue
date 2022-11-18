@@ -75,8 +75,8 @@ export default {
 
   classes: ['active-class', 'toolbar-class', 'column-class'],
   props: {
-    title: String,
-    showToolbar: Boolean,
+    title: { type: String, default: '' },
+    showToolbar: { type: Boolean, default: false },
     cancelButtonText: {
       type: String,
       default: '取消',

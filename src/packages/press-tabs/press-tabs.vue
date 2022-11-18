@@ -154,7 +154,7 @@ export default {
     lineWidth: {
       type: [Number, null],
       default: 40,
-      observer: 'resize',
+      // observer: 'resize',
     },
     lineHeight: {
       type: [Number, null],
@@ -163,11 +163,11 @@ export default {
     active: {
       type: [Number, null],
       default: 0,
-      observer(name) {
-        if (name !== this.getCurrentName()) {
-          this.setCurrentIndexByName(name);
-        }
-      },
+      // observer(name) {
+      //   if (name !== this.getCurrentName()) {
+      //     this.setCurrentIndexByName(name);
+      //   }
+      // },
     },
     type: {
       type: String,
@@ -188,11 +188,11 @@ export default {
     swipeThreshold: {
       type: Number,
       default: 5,
-      observer(value) {
-        this.setData({
-          scrollable: this.children.length > value || !this.ellipsis,
-        });
-      },
+      // observer(value) {
+      //   this.setData({
+      //     scrollable: this.children.length > value || !this.ellipsis,
+      //   });
+      // },
     },
     offsetTop: {
       type: Number,
@@ -277,6 +277,13 @@ export default {
         }
       },
       // immediate: true,
+    },
+    swipeThreshold: {
+      handler(value) {
+        this.setData({
+          scrollable: this.children.length > value || !this.ellipsis,
+        });
+      },
     },
   },
   created() {

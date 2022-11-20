@@ -26,19 +26,23 @@
           class="press-popup--title-line"
           @click.stop="clickCancel"
         />
+
         <div
           v-if="isShowpopupClose && !showBackArrow"
           class="press-popup--close iconfont icon-close"
           @click.stop="clickCancel"
         />
+
         <div
           v-if="isShowpopupClose && showBackArrow"
           class="press-popup--arrow iconfont icon-back"
           @click.stop="clickCancel"
         />
+
         <p class="press-popup--title">
           {{ popupTitle }}
         </p>
+
         <div
           v-if="popupTitleBtn"
           :class="['press-popup--title-btn',

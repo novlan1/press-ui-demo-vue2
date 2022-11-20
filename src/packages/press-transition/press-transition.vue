@@ -28,10 +28,6 @@ export default {
   ],
   mixins: [transition(true)],
   props: {
-    customClass: {
-      type: String,
-      default: '',
-    },
     overlay: {
       type: Boolean,
       default: false,

@@ -54,10 +54,6 @@ export default {
         return {};
       },
     },
-    customClass: {
-      type: String,
-      default: '',
-    },
     onceRender: {
       type: Boolean,
       default: false,

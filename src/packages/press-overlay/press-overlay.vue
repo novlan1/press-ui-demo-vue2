@@ -27,10 +27,8 @@
 
 <script>
 import VanTransition from '../press-transition/press-transition.vue';
-// import { VantComponent } from '../common/component';
-// global.__wxVueOptions = { components: { 'van-transition': VanTransition } };
 
-// global.__wxRoute = 'vant/overlay/index';
+
 export default {
   components: {
     VanTransition,
@@ -65,17 +63,4 @@ export default {
 </script>
 <style lang="scss">
 @import "../common/index.scss";
-// .vant-overlay-index {
-//   color: red;
-
-//   ::v-deep .van-overlay,
-//   ::v-deep .van-transition {
-//     background-color: var(--overlay-background-color, rgba(0, 0, 0, 0.7));
-//     height: 100%;
-//     left: 0;
-//     position: fixed;
-//     top: 0;
-//     width: 100%;
-//   }
-// }
 </style>

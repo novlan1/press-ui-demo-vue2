@@ -2,7 +2,8 @@
   <uni-shadow-root class="vant-swipe-cell-index">
     <!-- @touchmove.stop.prevent="catchMove?noop:noop" -->
     <view
-      class="van-swipe-cell custom-class"
+      class="van-swipe-cell"
+      :class="customClass"
       data-key="cell"
       @click.stop.prevent="onClick"
       @touchstart="startDrag"

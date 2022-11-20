@@ -24,3 +24,6 @@ yarn-error.log*
 
 /log/
 package-lock.json 
+
+# 文档地址
+docs/components/press

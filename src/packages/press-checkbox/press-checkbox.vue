@@ -96,8 +96,8 @@ export default {
       return `label-class ${utils.bem('checkbox__label', [labelPosition, { disabled: disabled || parentDisabled }])}`;
     },
     checkboxClass() {
-      const { direction } = this;
-      return `${utils.bem('checkbox', [{ horizontal: direction === 'horizontal' }])} custom-class`;
+      const { direction, customClass } = this;
+      return `${utils.bem('checkbox', [{ horizontal: direction === 'horizontal' }])} ${customClass}`;
     },
     iconStyle() {
       const { checkedColor, value, disabled, parentDisabled, iconSize } = this;

@@ -24,10 +24,6 @@ export default {
       type: String,
       default: '',
     },
-    customClass: {
-      type: String,
-      default: '',
-    },
   },
   computed: {
     infoClass() {
@@ -39,39 +35,36 @@ export default {
 </script>
 <style lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-info {
-  align-items: center;
-  background-color: var(--info-background-color, #ee0a24);
-  border: var(--info-border-width, 1px) solid #fff;
-  border-radius: var(--info-size, 16px);
-  box-sizing: border-box;
-  color: var(--info-color, #fff);
-  display: inline-flex;
-  font-family: var(
-    --info-font-family,
-    -apple-system-font,
-    Helvetica Neue,
-    Arial,
-    sans-serif
-  );
-  font-size: var(--info-font-size, 12px);
-  font-weight: var(--info-font-weight, 500);
-  height: var(--info-size, 16px);
-  justify-content: center;
-  min-width: var(--info-size, 16px);
-  padding: var(--info-padding, 0 3px);
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
   transform: translate(50%, -50%);
   transform-origin: 100%;
-  white-space: nowrap;
-}
-.van-info--dot {
-  background-color: var(--info-dot-color, #ee0a24);
-  border-radius: 100%;
-  height: var(--info-dot-size, 8px);
-  min-width: 0;
-  width: var(--info-dot-size, 8px);
+  height: var(--info-size, $info-size);
+  min-width: var(--info-size, $info-size);
+  padding: var(--info-padding, $info-padding);
+  color: var(--info-color, $info-color);
+  font-weight: var(--info-font-weight, $info-font-weight);
+  font-size: var(--info-font-size, $info-font-size);
+  font-family: var(--info-font-family, $info-font-family);
+  background-color: var(--info-background-color, $info-background-color);
+  border: var(--info-border-width, $info-border-width) solid $white;
+  border-radius: var(--info-size, $info-size);
+
+  &--dot {
+    min-width: 0;
+    border-radius: 100%;
+    width: var(--info-dot-size, $info-dot-size);
+    height: var(--info-dot-size, $info-dot-size);
+    background-color: var(--info-dot-color, $info-dot-color);
+  }
 }
 </style>

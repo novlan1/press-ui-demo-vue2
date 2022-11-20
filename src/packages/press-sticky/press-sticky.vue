@@ -1,7 +1,8 @@
 <template>
   <view
     ref="sticky"
-    class="custom-class van-sticky"
+    class="van-sticky"
+    :class="customClass"
     :style="containerStyle"
   >
     <view
@@ -225,12 +226,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../common/index.scss";
+
 .van-sticky {
   position: relative;
-}
-.van-sticky-wrap--fixed {
-  left: 0;
-  position: fixed;
-  right: 0;
+
+  &-wrap {
+    &--fixed {
+      position: fixed;
+      right: 0;
+      left: 0;
+    }
+  }
 }
 </style>

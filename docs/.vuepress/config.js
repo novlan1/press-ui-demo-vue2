@@ -1,3 +1,11 @@
+const fs = require('fs')
+const SIDEBAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json'
+
+function getSidebarConfig() {
+	const data = fs.readFileSync(SIDEBAR_CONFIG_PATH)
+	return JSON.parse(data)
+}
+
 module.exports = {
 	title: '',
 	description: 'press-ui',
@@ -50,40 +58,7 @@ module.exports = {
 			// 	path: 'https://cn.vuejs.org/v2/style-guide/',
 			// 	title: '风格指南',
 			// },
-			{
-				title: '基础组件', // 必要的
-				collapsable: false, // 可选的, 默认值是 true,
-				children: [
-					{
-						path: '/components/press/loading.md',
-						title: '加载中',
-						subTitle: 'Loading'
-					},
-					{
-						path: '/components/press/popup.md',
-						title: '弹出层',
-						subTitle: 'Popup'
-					},
-					{
-						path: '/components/press/dialog.md',
-						title: '弹窗',
-						subTitle: 'Dialog'
-					},
-					{
-						path: '/components/press/picker.md',
-						title: '选择器',
-						subTitle: 'Picker'
-					},
-					{
-						path: '/components/press/switch.md',
-						title: '切换',
-						subTitle: 'Switch'
-					},
-					{
-						path: '/components/press/icon.md',
-						title: '图标',
-						subTitle: 'Icon'
-					},
+			...getSidebarConfig().sidebar,
 					// {
 					// 	path: '/components/badge.md',
 					// 	title: '数字角标',
@@ -124,8 +99,6 @@ module.exports = {
 					// 	title: '过度动画',
 					// 	subTitle: 'Transition'
 					// }
-				]
-			},
 			// {
 			// 	title: '布局组件',
 			// 	collapsable: false, // 可选的, 默认值是 true,

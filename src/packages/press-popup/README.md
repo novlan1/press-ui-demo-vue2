@@ -1,5 +1,7 @@
 ---
 url : pages/press/popup/popup
+title: 弹出层
+subTitle: Popup
 ---
 
 ## Popup 弹出层
@@ -33,13 +35,13 @@ url : pages/press/popup/popup
 </template>
 
 <script>
-  import PressPopup from '@tencent/press-ui/press-popup/press-popup';
+import PressPopup from '@tencent/press-ui/press-popup/press-popup';
 
-  export default {
-    component: {
-      PressPopup,
-		}
-	}
+export default {
+  component: {
+    PressPopup,
+  },
+};
 </script>
 ```
 

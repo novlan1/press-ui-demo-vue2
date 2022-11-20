@@ -1,7 +1,8 @@
 <template>
   <uni-shadow-root class="vant-picker-column-index">
     <view
-      class="van-picker-column custom-class"
+      class="van-picker-column"
+      :class="customClass"
       :style="columnStyle"
       @touchstart="onTouchStart"
       @touchmove.stop.prevent="onTouchMove"

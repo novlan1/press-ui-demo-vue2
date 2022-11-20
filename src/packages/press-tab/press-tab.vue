@@ -53,10 +53,6 @@ export default {
       type: [String, null],
       default: '',
     },
-    customClass: {
-      type: String,
-      default: '',
-    },
   },
   data() {
     return {

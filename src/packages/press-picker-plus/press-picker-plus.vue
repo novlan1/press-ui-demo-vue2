@@ -1,6 +1,9 @@
 <template>
   <uni-shadow-root class="vant-picker-index">
-    <view class="van-picker custom-class">
+    <view
+      class="van-picker"
+      :class="customClass"
+    >
       <ToolBar
         v-if="toolbarPosition === 'top'"
         :title="title"
@@ -28,7 +31,7 @@
           :key="index"
           class="van-picker__column"
           :data-index="index"
-          custom-class="column-class"
+          :custom-class="customClass"
           :value-key="valueKey"
           :initial-options="item.values"
           :default-index="item.defaultIndex || defaultIndex"

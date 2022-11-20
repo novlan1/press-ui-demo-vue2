@@ -202,10 +202,6 @@ export default {
       type: Boolean,
       default: true,
     },
-    customClass: {
-      type: String,
-      default: '',
-    },
   },
   data() {
     return {

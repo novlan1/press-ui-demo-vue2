@@ -1,8 +1,11 @@
 ---
 url : pages/press/dialog/dialog
+title: 弹窗
+subTitle: Dialog
 ---
 
 ## Dialog 弹窗
+
 ::: tip 组件名：press-dialog
 代码块： `press-dialog`
 :::
@@ -12,7 +15,6 @@ url : pages/press/dialog/dialog
 ### 基本用法
 
 **示例**
-
 
 ```vue
 <template>
@@ -28,7 +30,7 @@ import PressDialog from 'src/packages/press-dialog/press-dialog';
 
 export default {
   component: {
-    PressDialog
+    PressDialog,
   },
   methods: {
     onShowDialog() {
@@ -40,25 +42,24 @@ export default {
       }).then(() => {})
         .catch(() => {});
     },
-  }
-},
+  },
+};
 </script>
 ```
-
 
 ## API
 
 ### Props
 
-|属性名				|类型		|默认值	|说明																																														|
-|:-:					|:-:		|:-:		|:-:																																														|
-|title					|String	|温馨提示			|标题																																												|
-|htmlContent					|String	|-|html内容|
-|content					|String	|-|内容|
-|confirmText					|String	|确定|确认按钮文案|
-|cancelText					|String	|-|取消按钮文案|
+|   属性名    |  类型  |  默认值  |     说明     |
+| :---------: | :----: | :------: | :----------: |
+|    title    | String | 温馨提示 |     标题     |
+| htmlContent | String |    -     |   html内容   |
+|   content   | String |    -     |     内容     |
+| confirmText | String |   确定   | 确认按钮文案 |
+| cancelText  | String |    -     | 取消按钮文案 |
 
 
+{{1+1}}
 
-
-
+<!-- props -->

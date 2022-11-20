@@ -18,6 +18,7 @@
           />
         </template>
       </view>
+
       <view
         class="van-loading__text"
         :style="textStyle"
@@ -30,10 +31,10 @@
 <script>
 import utils from '../wxs-js/utils';
 import computed from './index.js';
+import { PressComponent } from '../common/press-component';
 
-// import { VantComponent } from '../common/component';
-// global.__wxRoute = 'vant/loading/index';
-export default {
+
+export default PressComponent({
   props: {
     customStyle: { type: String, default: '' },
     color: { type: String, default: '' },
@@ -52,8 +53,8 @@ export default {
   },
   computed: {
     loadingClass() {
-      const { vertical } = this;
-      return `custom-class ${utils.bem('loading', { vertical })}`;
+      const { vertical, customClass } = this;
+      return `${customClass} ${utils.bem('loading', { vertical })}`;
     },
     spinnerStyle() {
       const { color, size  } = this;
@@ -64,119 +65,96 @@ export default {
       return computed.textStyle({ textSize });
     },
   },
-};
+});
 
-// export default global.__wxComponents['vant/loading/index'];
 </script>
-<style platform="mp-weixin">
+
+<style lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .vant-loading-index {
   font-size: 0;
   line-height: 1;
 }
+
 .van-loading {
-  align-items: center;
-  color: var(--loading-spinner-color, #c8c9cc);
   display: inline-flex;
+  align-items: center;
   justify-content: center;
+  color: var(--loading-spinner-color, $loading-spinner-color);
+
+  &__spinner {
+    position: relative;
+    box-sizing: border-box;
+    width: var(--loading-spinner-size, $loading-spinner-size);
+    // compatible for 0.x, users may set width or height in root element
+    max-width: 100%;
+    max-height: 100%;
+    height: var(--loading-spinner-size, $loading-spinner-size);
+    animation: van-rotate
+      var(
+        --loading-spinner-animation-duration,
+        $loading-spinner-animation-duration
+      )
+      linear infinite;
+
+    &--spinner {
+      animation-timing-function: steps(12);
+    }
+
+    &--circular {
+      border: 1px solid transparent;
+      border-top-color: currentColor;
+      border-radius: 100%;
+    }
+  }
+
+  &__text {
+    margin-left: var(--padding-xs, $padding-xs);
+    color: var(--loading-text-color, $loading-text-color);
+    font-size: var(--loading-text-font-size, $loading-text-font-size);
+    line-height: var(--loading-text-line-height, $loading-text-line-height);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+
+    .van-loading__text {
+      margin: var(--padding-xs, $padding-xs) 0 0;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      display: block;
+      width: 2px;
+      height: 25%;
+      margin: 0 auto;
+      background-color: currentColor;
+      border-radius: 40%;
+      content: " ";
+    }
+  }
 }
-.van-loading__spinner {
-  animation: van-rotate var(--loading-spinner-animation-duration, 0.8s) linear
-    infinite;
-  box-sizing: border-box;
-  height: var(--loading-spinner-size, 30px);
-  max-height: 100%;
-  max-width: 100%;
-  position: relative;
-  width: var(--loading-spinner-size, 30px);
+
+@for $i from 1 through 12 {
+  .van-loading__dot:nth-of-type(#{$i}) {
+    transform: rotate($i * 30deg);
+    opacity: 1 - (0.75 / 12) * ($i - 1);
+  }
 }
-.van-loading__spinner--spinner {
-  animation-timing-function: steps(12);
-}
-.van-loading__spinner--circular {
-  border: 1px solid transparent;
-  border-radius: 100%;
-  border-top-color: initial;
-}
-.van-loading__text {
-  color: var(--loading-text-color, #969799);
-  font-size: var(--loading-text-font-size, 14px);
-  line-height: var(--loading-text-line-height, 20px);
-  margin-left: var(--padding-xs, 8px);
-}
-.van-loading__text:empty {
-  display: none;
-}
-.van-loading--vertical {
-  flex-direction: column;
-}
-.van-loading--vertical .van-loading__text {
-  margin: var(--padding-xs, 8px) 0 0;
-}
-.van-loading__dot {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.van-loading__dot:before {
-  background-color: currentColor;
-  border-radius: 40%;
-  content: " ";
-  display: block;
-  height: 25%;
-  margin: 0 auto;
-  width: 2px;
-}
-.van-loading__dot:first-of-type {
-  opacity: 1;
-  transform: rotate(30deg);
-}
-.van-loading__dot:nth-of-type(2) {
-  opacity: 0.9375;
-  transform: rotate(60deg);
-}
-.van-loading__dot:nth-of-type(3) {
-  opacity: 0.875;
-  transform: rotate(90deg);
-}
-.van-loading__dot:nth-of-type(4) {
-  opacity: 0.8125;
-  transform: rotate(120deg);
-}
-.van-loading__dot:nth-of-type(5) {
-  opacity: 0.75;
-  transform: rotate(150deg);
-}
-.van-loading__dot:nth-of-type(6) {
-  opacity: 0.6875;
-  transform: rotate(180deg);
-}
-.van-loading__dot:nth-of-type(7) {
-  opacity: 0.625;
-  transform: rotate(210deg);
-}
-.van-loading__dot:nth-of-type(8) {
-  opacity: 0.5625;
-  transform: rotate(240deg);
-}
-.van-loading__dot:nth-of-type(9) {
-  opacity: 0.5;
-  transform: rotate(270deg);
-}
-.van-loading__dot:nth-of-type(10) {
-  opacity: 0.4375;
-  transform: rotate(300deg);
-}
-.van-loading__dot:nth-of-type(11) {
-  opacity: 0.375;
-  transform: rotate(330deg);
-}
-.van-loading__dot:nth-of-type(12) {
-  opacity: 0.3125;
-  transform: rotate(1turn);
-}
+
 @keyframes van-rotate {
   0% {
     transform: rotate(0deg);

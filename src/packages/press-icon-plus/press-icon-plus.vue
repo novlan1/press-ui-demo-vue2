@@ -23,11 +23,9 @@
 <script>
 import computed from './index.js';
 import VanInfo from '../press-info/press-info.vue';
-// import { VantComponent } from '../common/component';
-// global.__wxVueOptions = { components: { 'van-info': VanInfo } };
+import { PressComponent } from '../common/press-component';
 
-// global.__wxRoute = 'vant/icon/index';
-export default {
+export default PressComponent({
   components: {
     VanInfo,
   },
@@ -67,7 +65,7 @@ export default {
       this.$emit('click');
     },
   },
-};
+});
 // export default global.__wxComponents['vant/icon/index'];
 </script>
 <style platform="mp-weixin">

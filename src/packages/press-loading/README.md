@@ -1,5 +1,7 @@
 ---
 url : pages/press/loading/loading
+title: 加载中
+subTitle: Loading
 ---
 
 ## Loading 加载中
@@ -18,17 +20,20 @@ url : pages/press/loading/loading
 <template>
   <press-loading />
   <press-loading loading-scenes="btn" />
-  <press-loading loading-scenes="page" loading-bg="#eee"/>
+  <press-loading
+    loading-scenes="page"
+    loading-bg="#eee"
+  />
 </template>
 
 <script>
-  import PressLoading from '@tencent/press-ui/press-loading/press-loading';
+import PressLoading from '@tencent/press-ui/press-loading/press-loading';
 
-  export default {
-		component: {
-			PressLoading
-		}
-	}
+export default {
+  component: {
+    PressLoading,
+  },
+};
 
 </script>
 ```

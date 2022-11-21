@@ -27,3 +27,6 @@ package-lock.json
 
 # 文档地址
 docs/components/press
+
+# demo地址
+src/pages/press

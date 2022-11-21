@@ -6,6 +6,7 @@
     >
       显示遮罩层
     </button>
+
     <press-overlay
       :show="options.normal"
       @click="onClickHide('normal')"
@@ -17,6 +18,7 @@
     >
       嵌入内容
     </button>
+
     <press-overlay
       :show="options.content"
       @click="onClickHide('content')"

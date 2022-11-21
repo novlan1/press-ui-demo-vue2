@@ -51,14 +51,14 @@
     "test:mp-baidu": "cross-env UNI_PLATFORM=mp-baidu jest -i",
     "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i",
     "docs:dev": "vuepress dev docs",
+    "docs:watch": "node script/docs/md",
     "docs:build": "vuepress build docs",
     "docs:deploy": "node script/deploy-docs",
     "lint": "eslint --ext .js,.ts.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts.vue .",
     "lint:css": "stylelint **/*.{html,vue,css,sass,scss,less}",
     "lint:css:fix": "stylelint --fix **/*.{html,vue,css,sass,scss,less}",
-    "gen:icon:list": "node script/icon-list",
-    "docs:watch": "node script/docs/md"
+    "gen:icon:list": "node script/icon-list"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.1-alpha-36420220922001",

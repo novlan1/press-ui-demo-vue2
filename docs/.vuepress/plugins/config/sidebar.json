@@ -20,6 +20,16 @@
           "path": "/components/press/press-loading.md"
         },
         {
+          "title": "加载中",
+          "subTitle": "Loading Plus",
+          "path": "/components/press/press-loading-plus.md"
+        },
+        {
+          "title": "遮罩层",
+          "subTitle": "Overlay",
+          "path": "/components/press/press-overlay.md"
+        },
+        {
           "title": "选择器",
           "subTitle": "Picker",
           "path": "/components/press/press-picker.md"

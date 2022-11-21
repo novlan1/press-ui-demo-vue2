@@ -3,7 +3,10 @@
     :title="title"
     type="line"
   >
-    <div class="section-content">
+    <div
+      class="section-content"
+      :style="sectionStyle"
+    >
       <slot />
     </div>
   </uni-section>
@@ -12,6 +15,10 @@
 export default {
   props: {
     title: {
+      type: String,
+      default: '',
+    },
+    sectionStyle: {
       type: String,
       default: '',
     },

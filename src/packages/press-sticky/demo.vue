@@ -1,6 +1,9 @@
 <template>
   <div class="wrap">
-    <demo-block title="基础用法">
+    <demo-block
+      title="基础用法"
+      section-style="margin: 0;"
+    >
       <press-sticky>
         <view class="btn1">
           基础用法
@@ -8,7 +11,10 @@
       </press-sticky>
     </demo-block>
 
-    <demo-block title="吸顶距离">
+    <demo-block
+      title="吸顶距离"
+      section-style="margin: 0;"
+    >
       <press-sticky
         :offset-top="50"
       >
@@ -20,8 +26,11 @@
       </press-sticky>
     </demo-block>
 
-    <demo-block title="指定容器">
-      <view
+    <demo-block
+      title="指定容器"
+      section-style="margin: 0;"
+    >
+      <div
         id="container"
         ref="container"
         style="height: 150px;background: #eee;"
@@ -31,7 +40,7 @@
             指定容器
           </view>
         </press-sticky>
-      </view>
+      </div>
     </demo-block>
 
     <!-- #ifdef H5 -->
@@ -48,13 +57,25 @@
 <script>
 export default {
   data() {
+    const that = this;
     return {
-      container: null,
+      container() {
+        let res;
+
+        // #ifdef H5
+        res = that.$refs.container;
+        // #endif
+
+        // #ifndef H5
+        res = uni.createSelectorQuery().select('#container');
+        // #endif
+
+        return res;
+      },
       showHeader: true,
     };
   },
   mounted() {
-    this.container = () => uni.createSelectorQuery().select('#container');
   },
   methods: {
     onToggleShowHeader() {

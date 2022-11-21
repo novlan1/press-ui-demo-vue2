@@ -36,7 +36,10 @@ const scrollMixin = pageScrollMixin(function (event) {
 
 export default PressComponent({
   mixins: [
+    // #ifndef H5
     scrollMixin,
+    // #endif
+
     // #ifdef H5
     BindEventMixin(function (bind, isBind) {
       if (!this.scroller) {
@@ -62,23 +65,17 @@ export default PressComponent({
     offsetTop: {
       type: Number,
       default: 0,
-      // observer: 'onScroll',
     },
     disabled: {
       type: Boolean,
-      // observer: 'onScroll',
     },
     container: {
       type: [Function, null],
       default: null,
-      // observer: 'onScroll',
     },
     scrollTop: {
       type: [Number, null],
       default: null,
-      // observer(val) {
-      //   this.onScroll({ scrollTop: val });
-      // },
     },
   },
   data() {
@@ -111,43 +108,25 @@ export default PressComponent({
       handler() {
         this.onScroll();
       },
-      // immediate: true,
     },
     disabled: {
       handler() {
         this.onScroll();
       },
-      // immediate: true,
     },
     container: {
       handler() {
         this.onScroll();
       },
-      // immediate: true,
     },
     scrollTop: {
       handler(val) {
         this.onScroll({ scrollTop: val });
         this.scrollTopData = val;
       },
-      // immediate: true,
     },
   },
   created() {
-    // #ifdef H5
-    // if (window.IntersectionObserver) {
-    //   this.observer = new IntersectionObserver(
-    //     (/* entries */) => {
-    //       // trigger scroll when visibility changed
-    //       // if (entries[0].intersectionRatio > 0) {
-    //       console.log('=========');
-    //       this.onScroll();
-    //       // }
-    //     },
-    //     { root: document.body },
-    //   );
-    // }
-    // #endif
   },
   mounted() {
     this.scrollTopData = this.scrollTop;
@@ -171,7 +150,7 @@ export default PressComponent({
 
       this.scrollTopData = scrollTop || this.scrollTopData;
 
-      if (typeof container === 'function') {
+      if (typeof container === 'function' && container()) {
         Promise.all([
           getRect(this, ROOT_ELEMENT, 'sticky'),
           this.getContainerRect(),
@@ -190,12 +169,14 @@ export default PressComponent({
           } else {
             this.setDataAfterDiff({ fixed: false, transform: 0 });
           }
-        });
+        })
+          .catch((error) => {
+            console.log('error', error);
+          });
         return;
       }
 
       getRect(this, ROOT_ELEMENT, 'sticky').then((root) => {
-        console.log('root', root);
         if (!isDef(root)) {
           return;
         }
@@ -227,7 +208,17 @@ export default PressComponent({
     },
     getContainerRect() {
       const nodesRef = this.container();
-      return new Promise(resolve => nodesRef.boundingClientRect(resolve).exec());
+      let res;
+
+      // #ifdef H5
+      const rect = nodesRef.getBoundingClientRect();
+      res = Promise.resolve(rect);
+      // #endif
+
+      // #ifndef H5
+      res = new Promise(resolve => nodesRef.boundingClientRect(resolve).exec());
+      // #endif
+      return res;
     },
   },
 });

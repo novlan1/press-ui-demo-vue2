@@ -18,4 +18,9 @@ export default {
   },
 };
 </script>
+<style scoped lang="scss">
+.section-content {
+  margin: 0 12px;
+}
+</style>
 

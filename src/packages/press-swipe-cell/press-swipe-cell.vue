@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { PressComponent } from '../common/press-component';
 
 // import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
@@ -46,7 +47,7 @@ const THRESHOLD = 0.3;
 
 let ARRAY = [];
 
-export default {
+export default PressComponent({
   mixins: [touch],
   props: {
     disabled: {
@@ -204,8 +205,7 @@ export default {
       }
     },
   },
-};
-// export default global.__wxComponents['vant/swipe-cell/index'];
+});
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";

@@ -27,6 +27,13 @@ npm run dev:mp-qq
 # qq小程序
 ```
 
+**新增一个组件**
+
+```bash
+npm run gen:comp compName
+# compName为你想增加的组件名称，英文名，比如button、loading
+```
+
 
 ### 文档开发
 

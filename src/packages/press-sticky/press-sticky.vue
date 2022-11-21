@@ -22,6 +22,7 @@ import { isDef } from '../common/validator';
 import { pageScrollMixin } from '../mixins/page-scroll';
 import { BindEventMixin } from '../mixins/bind-event';
 import { getScroller } from '../common/dom/scroll';
+import { PressComponent } from '../common/press-component';
 
 const ROOT_ELEMENT = '.van-sticky';
 
@@ -33,7 +34,7 @@ const scrollMixin = pageScrollMixin(function (event) {
 });
 
 
-export default {
+export default PressComponent({
   mixins: [
     scrollMixin,
     // #ifdef H5
@@ -222,7 +223,7 @@ export default {
       return new Promise(resolve => nodesRef.boundingClientRect(resolve).exec());
     },
   },
-};
+});
 </script>
 <style lang="scss" scoped>
 @import "../common/index.scss";

@@ -7,7 +7,9 @@
 </template>
 
 <script>
-export default {
+import { PressComponent } from '../common/press-component';
+
+export default PressComponent({
   options: {
     virtualHost: true,
   },
@@ -36,7 +38,7 @@ export default {
       this.$emit('onSwitchChange');
     },
   },
-};
+});
 
 </script>
 

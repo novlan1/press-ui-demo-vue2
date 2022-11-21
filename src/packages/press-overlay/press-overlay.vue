@@ -27,9 +27,10 @@
 
 <script>
 import VanTransition from '../press-transition/press-transition.vue';
+import { PressComponent } from '../common/press-component';
 
 
-export default {
+export default PressComponent({
   components: {
     VanTransition,
   },
@@ -59,7 +60,7 @@ export default {
     // for prevent touchmove
     noop() { },
   },
-};
+});
 </script>
 <style lang="scss">
 @import "../common/index.scss";

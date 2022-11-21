@@ -19,6 +19,11 @@ function genNewComp() {
   const fullName = getFullCompName(compName);
   const pureName = getPureCompName(compName);
   const targetDir = path.resolve(COMP_TARGET_PATH, fullName);
+
+
+  if (fs.existsSync(targetDir)) {
+    throw new Error(`${compName} 已经存在，请移除后重试`);
+  }
   copyDir(TEMPLATE_PATH, targetDir, () => {
     console.log(`[NEW] ${fullName} 拷贝成功`);
   });

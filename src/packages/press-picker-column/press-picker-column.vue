@@ -37,11 +37,12 @@ import computed from './index.js';
 import Vue from 'vue';
 import { range } from '../common/utils';
 import { isObj } from '../common/validator';
+import { PressComponent } from '../common/press-component';
 
 const DEFAULT_DURATION = 200;
 const PARENT = 'pressPicker';
 
-export default {
+export default PressComponent({
   inject: {
     [PARENT]: {
       default: null,
@@ -194,9 +195,7 @@ export default {
       return this.options[this.currentIndex];
     },
   },
-};
-// });
-// export default global.__wxComponents['vant/picker-column/index'];
+});
 </script>
 <style platform="mp-weixin">
 @import "../common/index.scss";

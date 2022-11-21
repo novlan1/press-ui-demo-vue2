@@ -10,9 +10,14 @@
           "path": "/components/press/press-button.md"
         },
         {
-          "title": "TITLE",
-          "subTitle": "SUBTITLE",
-          "path": "/components/press/press-cell.md"
+          "title": "复选框",
+          "subTitle": "Checkbox",
+          "path": "/components/press/press-checkbox.md"
+        },
+        {
+          "title": "时间选择",
+          "subTitle": "Datetime Picker",
+          "path": "/components/press/press-datetime-picker.md"
         },
         {
           "title": "弹窗",

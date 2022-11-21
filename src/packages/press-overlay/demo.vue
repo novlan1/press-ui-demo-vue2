@@ -1,23 +1,27 @@
 <template>
   <view class="wrap">
-    <button
-      type="primary"
-      @click="onClickShow('normal')"
-    >
-      显示遮罩层
-    </button>
+    <demo-block title="基础用法">
+      <button
+        type="primary"
+        @click="onClickShow('normal')"
+      >
+        显示遮罩层
+      </button>
+    </demo-block>
+
+    <demo-block title="嵌入内容">
+      <button
+        type="primary"
+        @click="onClickShow('content')"
+      >
+        嵌入内容
+      </button>
+    </demo-block>
 
     <press-overlay
       :show="options.normal"
       @click="onClickHide('normal')"
     />
-
-    <button
-      type="primary"
-      @click="onClickShow('content')"
-    >
-      嵌入内容
-    </button>
 
     <press-overlay
       :show="options.content"
@@ -37,8 +41,6 @@
 export default {
   data() {
     return {
-      isOpen: false,
-      show: false,
       options: {
         normal: false,
         content: false,
@@ -53,17 +55,11 @@ export default {
     // #endif
   },
   methods: {
-    onShow() {
-
-    },
     onClickShow(type) {
       this.options[type] = true;
     },
     onClickHide(type) {
       this.options[type] = false;
-    },
-    onSwitchChange() {
-      this.isOpen = !this.isOpen;
     },
     noop() {},
   },
@@ -71,9 +67,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.wrap {
-  padding: 20px;
-}
+// .wrap {
+//   padding: 20px;
+// }
 .wrapper {
   display: flex;
   align-items: center;

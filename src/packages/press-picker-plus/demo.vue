@@ -1,26 +1,52 @@
 <template>
   <view class="wrap">
-    <press-picker-plus
-      :columns="columns"
-      show-toolbar
-      @change="onChange"
-    />
-    <press-picker-plus
-      :columns="columns"
-      :default-index="2"
-      @change="onChange"
-    />
-    <press-picker-plus
-      show-toolbar
-      title="标题"
-      :columns="columns"
-      @cancel="onCancel"
-      @confirm="onConfirm"
-    />
-    <press-picker-plus
-      :columns="cColumns"
-      @change="onChange"
-    />
+    <demo-block title="基础用法">
+      <press-picker-plus
+        :columns="columns"
+        @change="onChange"
+      />
+    </demo-block>
+
+    <demo-block title="默认选中项">
+      <press-picker-plus
+        :columns="columns"
+        :default-index="2"
+        @change="onChange"
+      />
+    </demo-block>
+
+    <demo-block title="展示顶部栏">
+      <press-picker-plus
+        show-toolbar
+        title="标题"
+        :columns="columns"
+        @cancel="onCancel"
+        @confirm="onConfirm"
+      />
+    </demo-block>
+
+    <demo-block title="多列联动">
+      <press-picker-plus
+        ref="picker"
+        :columns="cColumns"
+        @change="onChangePicker"
+      />
+    </demo-block>
+
+    <demo-block title="禁用选项">
+      <press-picker-plus
+        :columns="dColumns"
+        @change="onChange"
+      />
+    </demo-block>
+
+    <demo-block title="加载状态">
+      <press-picker-plus
+        :columns="dColumns"
+        loading
+        @change="onChange"
+      />
+    </demo-block>
   </view>
 </template>
 <script>
@@ -33,7 +59,6 @@ const citys = {
 export default {
   data() {
     return {
-      isOpen: false,
       columns: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
       cColumns: [
         {
@@ -45,6 +70,11 @@ export default {
           className: 'column2',
           defaultIndex: 2,
         },
+      ],
+      dColumns: [
+        { text: '杭州', disabled: true },
+        { text: '宁波' },
+        { text: '温州' },
       ],
     };
   },
@@ -58,6 +88,11 @@ export default {
   methods: {
     onShow() {
 
+    },
+    onChangePicker(val) {
+      console.log('onChangePicker.val', val);
+      const { value } = val;
+      this.$refs.picker.setColumnValues(1, citys[value[0]]);
     },
     onChange(val) {
       console.log('onChange.val', val);
@@ -73,8 +108,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.wrap {
-  padding: 20px;
-}
+// .wrap {
+//   padding: 20px;
+// }
 </style>
 

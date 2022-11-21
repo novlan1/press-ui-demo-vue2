@@ -1,5 +1,5 @@
 ---
-url : pages/press/loading/loading
+url : pages/press/overlay/overlay
 title: 遮罩层
 subTitle: Overlay
 ---
@@ -12,24 +12,38 @@ subTitle: Overlay
 ### 基础用法
 
 ```html
-<van-button type="primary" bind:click="onClickShow">显示遮罩层</van-button>
-<van-overlay show="{{ show }}" bind:click="onClickHide" />
+<button
+  type="primary"
+  @click="onClickShow('normal')"
+>
+  显示遮罩层
+</button>
+
+<press-overlay
+  :show="options.normal"
+  @click="onClickHide('normal')"
+/>
 ```
 
 ```js
-Page({
-  data: {
-    show: false,
+export default {
+  data() {
+    return {
+      options: {
+        normal: false,
+        content: false,
+      },
+    };
   },
-
-  onClickShow() {
-    this.setData({ show: true });
+  methods: {
+    onClickShow(type) {
+      this.options[type] = true;
+    },
+    onClickHide(type) {
+      this.options[type] = false;
+    },
   },
-
-  onClickHide() {
-    this.setData({ show: false });
-  },
-});
+};
 ```
 
 ### 嵌入内容
@@ -37,30 +51,46 @@ Page({
 通过默认插槽可以在遮罩层上嵌入任意内容。
 
 ```html
-<van-button type="primary" bind:click="onClickShow">嵌入内容</van-button>
-<van-overlay show="{{ show }}" bind:click="onClickHide">
+<button
+  type="primary"
+  @click="onClickShow('content')"
+>
+  嵌入内容
+</button>
+
+<press-overlay
+  :show="options.content"
+  @click="onClickHide('content')"
+>
   <view class="wrapper">
-    <view class="block" catch:tap="noop" />
+    <view
+      class="block"
+      catch:tap="noop"
+    />
   </view>
-</van-overlay>
+</press-overlay>
 ```
 
 ```js
-Page({
-  data: {
-    show: false,
+export default {
+  data() {
+    return {
+      options: {
+        normal: false,
+        content: false,
+      },
+    };
   },
-
-  onClickShow() {
-    this.setData({ show: true });
+  methods: {
+    onClickShow(type) {
+      this.options[type] = true;
+    },
+    onClickHide(type) {
+      this.options[type] = false;
+    },
+    noop() {},
   },
-
-  onClickHide() {
-    this.setData({ show: false });
-  },
-
-  noop() {},
-});
+};
 ```
 
 ```css

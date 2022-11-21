@@ -1,5 +1,5 @@
 ---
-url : pages/press/loading/loading
+url : pages/press/loading-plus/loading-plus
 title: 加载中
 subTitle: Loading Plus
 ---
@@ -26,6 +26,14 @@ subTitle: Loading Plus
 <press-loading-plus color="#1989fa" /> 
 
 <press-loading-plus type="spinner" color="#1989fa" />
+```
+
+### 自定义大小
+
+```html
+<press-loading-plus size="10" /> 
+
+<press-loading-plus type="spinner" size="50" />
 ```
 
 ### 加载文案

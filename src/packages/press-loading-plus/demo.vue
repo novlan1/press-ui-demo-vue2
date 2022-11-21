@@ -1,30 +1,52 @@
 <template>
   <view class="wrap">
-    <view>
-      <press-loading-plus /> <press-loading-plus type="spinner" />
-    </view>
-    <view>
-      <press-loading-plus color="#1989fa" />
-      <press-loading-plus
-        type="spinner"
-        color="#1989fa"
-      />
-    </view>
+    <demo-block title="加载类型">
+      <view>
+        <press-loading-plus />
+      </view>
+      <view>
+        <press-loading-plus type="spinner" />
+      </view>
+    </demo-block>
 
-    <view>
+    <demo-block title="自定义颜色">
+      <view>
+        <press-loading-plus color="#1989fa" />
+      </view>
+      <view>
+        <press-loading-plus
+          type="spinner"
+          color="#1989fa"
+        />
+      </view>
+    </demo-block>
+
+    <demo-block title="自定义大小">
+      <view>
+        <press-loading-plus size="10" />
+      </view>
+      <view>
+        <press-loading-plus
+          type="spinner"
+          size="50"
+        />
+      </view>
+    </demo-block>
+
+    <demo-block title="加载文案">
       <press-loading-plus size="24px">
         加载中...
       </press-loading-plus>
-    </view>
+    </demo-block>
 
-    <view>
+    <demo-block title="垂直排列">
       <press-loading-plus
         size="24px"
         vertical
       >
         加载中...
       </press-loading-plus>
-    </view>
+    </demo-block>
   </view>
 </template>
 <script>
@@ -55,7 +77,13 @@ export default {
 
 <style scoped lang="scss">
 .wrap {
-  padding: 20px;
+  ::v-deep .section-content {
+    display: flex;
+    align-items: center;
+    & > uni-view {
+      margin-left: 20px;
+    }
+  }
 }
 </style>
 

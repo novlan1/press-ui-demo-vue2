@@ -6,9 +6,6 @@ subTitle: Dialog
 
 ## Dialog 弹窗
 
-::: tip 组件名：press-dialog
-代码块： `press-dialog`
-:::
 
 弹窗组件，支持函数式调用
 

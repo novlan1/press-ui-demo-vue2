@@ -5,9 +5,7 @@ subTitle: Popup
 ---
 
 ## Popup 弹出层
-::: tip 组件名：press-popup
-代码块： `press-popup`
-:::
+
 
 弹出层组件，在应用中弹出一个消息提示窗口、提示框等
 

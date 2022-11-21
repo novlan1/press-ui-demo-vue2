@@ -5,9 +5,7 @@ subTitle: Checkbox
 ---
 
 ## Checkbox 复选框
-::: tip 组件名：press-checkbox
-代码块： `press-checkbox`
-:::
+
 
 在一组备选项中进行多选。
 

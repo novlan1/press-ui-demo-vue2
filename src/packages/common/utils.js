@@ -59,9 +59,17 @@ export function pickExclude(obj, keys) {
     return prev;
   }, {});
 }
-export function getRect(context, selector) {
+export function getRect(context, selector, ref) {
   return new Promise((resolve) => {
-    wx.createSelectorQuery()
+    // #ifdef H5
+    if (ref && context.$refs) {
+      const rect =  context.$refs[ref].getBoundingClientRect();
+      resolve(rect);
+      return;
+    }
+    // #endif
+
+    uni.createSelectorQuery()
       .in(context)
       .select(selector)
       .boundingClientRect()
@@ -70,7 +78,7 @@ export function getRect(context, selector) {
 }
 export function getAllRect(context, selector) {
   return new Promise((resolve) => {
-    wx.createSelectorQuery()
+    uni.createSelectorQuery()
       .in(context)
       .selectAll(selector)
       .boundingClientRect()

@@ -22,7 +22,6 @@
       >
         点我查看
       </div>
-      <div />
     </demo-block>
 
     <demo-block title="指定背景色">

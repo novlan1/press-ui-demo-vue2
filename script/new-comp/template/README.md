@@ -6,9 +6,7 @@ subTitle: SUBTITLE
 
 ## SUBTITLE TITLE
 
-::: tip 组件名：press-{{COMP}}
-代码块： `press-{{COMP}}`
-:::
+
 
 {{COMP_DESC}}
 

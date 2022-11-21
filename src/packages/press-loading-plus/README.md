@@ -5,9 +5,7 @@ subTitle: Loading Plus
 ---
 
 ## Loading Plus 加载中
-::: tip 组件名：press-loading-plus
-代码块： `press-loading-plus`
-:::
+
 
 加载中，分为circular和spinner两种
 

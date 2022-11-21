@@ -5,9 +5,7 @@ subTitle: Picker
 ---
 
 ## Picker 选择器
-::: tip 组件名：press-picker
-代码块： `press-picker`
-:::
+
 
 选择器组件，用于表单
 

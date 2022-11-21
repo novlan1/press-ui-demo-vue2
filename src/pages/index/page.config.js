@@ -35,6 +35,11 @@ export const PRESS_PAGE_LIST = [
     icon: 'popup',
   },
   {
+    name: 'Sticky',
+    url: 'press/sticky/sticky',
+    icon: 'popup',
+  },
+  {
     name: 'loading-plus',
     url: 'press/loading-plus/loading-plus',
     icon: 'load-more',

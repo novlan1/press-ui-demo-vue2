@@ -55,6 +55,11 @@
           "path": "/components/press/press-popup.md"
         },
         {
+          "title": "粘性布局",
+          "subTitle": "Sticky",
+          "path": "/components/press/press-sticky.md"
+        },
+        {
           "title": "切换",
           "subTitle": "Switch",
           "path": "/components/press/press-switch.md"

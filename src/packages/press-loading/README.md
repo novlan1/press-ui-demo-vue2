@@ -5,9 +5,6 @@ subTitle: Loading
 ---
 
 ## Loading 加载中
-::: tip 组件名：press-loading
-代码块： `press-loading`
-:::
 
 加载中，分为图片模式和页面模式两种
 

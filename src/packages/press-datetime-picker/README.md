@@ -5,9 +5,6 @@ subTitle: Datetime Picker
 ---
 
 ## Datetime Picker 时间选择
-::: tip 组件名：press-datetime-picker
-代码块： `press-datetime-picker`
-:::
 
 用于选择时间，支持日期、时分等时间维度，通常与 弹出层 组件配合使用。
 

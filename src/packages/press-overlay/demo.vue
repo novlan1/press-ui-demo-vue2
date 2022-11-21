@@ -67,9 +67,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// .wrap {
-//   padding: 20px;
-// }
 .wrapper {
   display: flex;
   align-items: center;

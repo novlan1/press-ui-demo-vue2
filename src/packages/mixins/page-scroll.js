@@ -1,5 +1,6 @@
 import { getCurrentPage } from '../common/utils';
 import { isDef } from '../common/validator';
+
 function onPageScroll(event) {
   const { vanPageScroller = [] } = getCurrentPage();
   vanPageScroller.forEach((scroller) => {
@@ -8,6 +9,8 @@ function onPageScroll(event) {
     }
   });
 }
+
+
 export const pageScrollMixin = scroller => ({
   created() {
     const page = getCurrentPage();

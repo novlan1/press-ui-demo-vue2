@@ -519,6 +519,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/sticky",
+      "pages": [
+        {
+          "path": "sticky",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

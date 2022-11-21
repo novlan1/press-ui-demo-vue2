@@ -1,5 +1,5 @@
 <template>
-  <view
+  <div
     ref="sticky"
     class="van-sticky"
     :class="customClass"
@@ -11,7 +11,7 @@
     >
       <slot />
     </view>
-  </view>
+  </div>
 </template>
 <script>
 import utils from '../wxs-js/utils';
@@ -42,12 +42,14 @@ export default PressComponent({
       if (!this.scroller) {
         this.scroller = getScroller(this.$el);
       }
+
       if (this.observer) {
         const method = isBind ? 'observe' : 'unobserve';
         this.observer[method](this.$el);
       }
 
       bind(this.scroller, 'scroll', this.onScroll, true);
+      bind(this.scroller, 'touchmove', this.onScroll, true);
       this.onScroll();
     }),
     // #endif
@@ -133,17 +135,18 @@ export default PressComponent({
   },
   created() {
     // #ifdef H5
-    if (window.IntersectionObserver) {
-      this.observer = new IntersectionObserver(
-        (/* entries */) => {
-          // trigger scroll when visibility changed
-          // if (entries[0].intersectionRatio > 0) {
-          this.onScroll();
-          // }
-        },
-        { root: document.body },
-      );
-    }
+    // if (window.IntersectionObserver) {
+    //   this.observer = new IntersectionObserver(
+    //     (/* entries */) => {
+    //       // trigger scroll when visibility changed
+    //       // if (entries[0].intersectionRatio > 0) {
+    //       console.log('=========');
+    //       this.onScroll();
+    //       // }
+    //     },
+    //     { root: document.body },
+    //   );
+    // }
     // #endif
   },
   mounted() {
@@ -165,10 +168,12 @@ export default PressComponent({
         });
         return;
       }
+
       this.scrollTopData = scrollTop || this.scrollTopData;
+
       if (typeof container === 'function') {
         Promise.all([
-          getRect(this, ROOT_ELEMENT),
+          getRect(this, ROOT_ELEMENT, 'sticky'),
           this.getContainerRect(),
         ]).then(([root, container]) => {
           if (root && container && offsetTop + root.height > container.height + container.top) {
@@ -189,10 +194,12 @@ export default PressComponent({
         return;
       }
 
-      getRect(this, ROOT_ELEMENT).then((root) => {
+      getRect(this, ROOT_ELEMENT, 'sticky').then((root) => {
+        console.log('root', root);
         if (!isDef(root)) {
           return;
         }
+
         if (offsetTop >= root.top) {
           this.setDataAfterDiff({ fixed: true, height: root.height });
           this.transform = 0;

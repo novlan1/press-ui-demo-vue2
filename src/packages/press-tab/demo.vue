@@ -20,9 +20,9 @@
     </view>
     <view>
       <press-sticky>
-        <view class="text">
+        <button class="text">
           基础用法
-        </view>
+        </button>
       </press-sticky>
     </view>
     <view>

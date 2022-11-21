@@ -5,6 +5,16 @@
       "collapsable": false,
       "children": [
         {
+          "title": "TITLE",
+          "subTitle": "SUBTITLE",
+          "path": "/components/press/press-button.md"
+        },
+        {
+          "title": "TITLE",
+          "subTitle": "SUBTITLE",
+          "path": "/components/press/press-cell.md"
+        },
+        {
           "title": "弹窗",
           "subTitle": "Dialog",
           "path": "/components/press/press-dialog.md"

@@ -5,6 +5,8 @@ import App from './App.vue';
 import Vue from 'vue';
 // import './global-comp';
 
+import DemoBlock from 'src/pages/demo-block/demo-block.vue';
+
 import PressLoading from 'src/packages/press-loading/press-loading.vue';
 import PressPicker from 'src/packages/press-picker/press-picker.vue';
 import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
@@ -89,6 +91,7 @@ import UniTitle from 'src/packages/uni-title/components/uni-title/uni-title.vue'
 import UniTooltip from 'src/packages/uni-tooltip/components/uni-tooltip/uni-tooltip.vue';
 import UniTransition from 'src/packages/uni-transition/components/uni-transition/uni-transition.vue';
 import UniUi from 'src/packages/uni-ui/components/uni-ui/uni-ui.vue';
+
 Vue.component('UniBadge', UniBadge);
 Vue.component('UniBreadcrumb', UniBreadcrumb);
 Vue.component('UniBreadcrumbItem', UniBreadcrumbItem);
@@ -152,6 +155,8 @@ Vue.component('UniTitle', UniTitle);
 Vue.component('UniTooltip', UniTooltip);
 Vue.component('UniTransition', UniTransition);
 Vue.component('UniUi', UniUi);
+
+Vue.component('DemoBlock', DemoBlock);
 
 Vue.component('PressLoading', PressLoading);
 Vue.component('PressPicker', PressPicker);

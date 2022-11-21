@@ -1,0 +1,20 @@
+<template>
+  <div class="wrap">
+    demo
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+  },
+};
+</script>
+<style scoped lang="scss">
+@import "src/packages/base/mixin.scss";
+</style>

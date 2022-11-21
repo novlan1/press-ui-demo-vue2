@@ -1,55 +1,40 @@
 <template>
   <div class="wrap">
-    <uni-section
-      title="按钮模式"
-      type="line"
-    >
-      <div class="section-content">
-        <div
-          class="primary-btn"
-          style="position:relative"
-          @click.stop="onShowLoading('btn')"
-        >
-          {{ options.btn.show ? '' : "点击加载" }}
-          <press-loading
-            v-if="options.btn.show"
-            loading-scenes="btn"
-          />
-        </div>
+    <demo-block title="按钮模式">
+      <div
+        class="primary-btn"
+        style="position:relative;margin-left: 10px;"
+        @click.stop="onShowLoading('btn')"
+      >
+        {{ options.btn.show ? '' : "点击加载" }}
+        <press-loading
+          v-if="options.btn.show"
+          loading-scenes="btn"
+        />
       </div>
-    </uni-section>
+    </demo-block>
 
-    <uni-section
-      title="页面模式"
-      type="line"
-    >
-      <div class="section-content">
-        <div
-          class="primary-btn"
-          style="position:relative"
-          @click.stop="onShowLoading('page')"
-        >
-          点我查看
-        </div>
-        <div />
+    <demo-block title="页面模式">
+      <div
+        class="primary-btn"
+        style="position:relative;margin-left: 10px;"
+        @click.stop="onShowLoading('page')"
+      >
+        点我查看
       </div>
-    </uni-section>
+      <div />
+    </demo-block>
 
-    <uni-section
-      title="指定背景色"
-      type="line"
-    >
-      <div class="section-content">
-        <div
-          class="primary-btn"
-          style="position:relative"
-          @click.stop="onShowLoading('bg')"
-        >
-          三秒后消失
-        </div>
-        <div />
+    <demo-block title="指定背景色">
+      <div
+        class="primary-btn"
+        style="position:relative;margin-left: 10px;"
+        @click.stop="onShowLoading('bg')"
+      >
+        三秒后消失
       </div>
-    </uni-section>
+    </demo-block>
+
     <press-loading
       v-if="options.page.show"
     />

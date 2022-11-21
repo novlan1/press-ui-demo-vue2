@@ -1,37 +1,35 @@
 const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
+const { getPureCompName } = require('../new-comp/utils');
 
-const COMPONENT_DIR = './src/packages';
 const LOCAL_DOC_NAME = 'README.md';
 const LOCAL_DEMO_NAME = 'demo.vue';
+
+const COMPONENT_DIR = './src/packages';
+
 const DOC_PATH = './docs/components/press';
-const DOC_PREFIX = '/components/press/';
-const SIDEBAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
 const DEMO_PATH = './src/pages/press';
 
-function getPureCompName(name) {
-  return name.replace(/^press-/, '');
-}
+const DOC_PREFIX = '/components/press/';
+const SIDEBAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
+
 
 /**
  * 获取组件文件夹
  */
 function getComps() {
   const dirs = fs.readdirSync(COMPONENT_DIR);
-  // console.log('dirs', dirs);
 
   const comps = dirs
     .filter((dir) => {
       const vuePath = path.resolve(COMPONENT_DIR, dir, `${dir}.vue`);
-      // console.log('vuePath', vuePath);
       return fs.existsSync(vuePath);
     })
     .map(dir => ({
       path: path.resolve(COMPONENT_DIR, dir),
       name: dir,
     }));
-  // console.log('comps', comps);
   return comps;
 }
 
@@ -41,7 +39,6 @@ function getComps() {
 function getDocConfig(md = '', name) {
   const reg = /^\s*---([\s\S]+?)---/m;
   const match = md.match(reg);
-  // console.log('match', match[1]);
 
   if (match && match[1]) {
     const props = match[1]
@@ -94,7 +91,6 @@ function mvDocs() {
   const comps = getComps();
   const docs = getLocalDocOrDemo(comps, LOCAL_DOC_NAME);
   const docConfig = [];
-  // console.log('docs', docs);
 
   for (const doc of docs) {
     const { path: dir, name } = doc;
@@ -103,7 +99,6 @@ function mvDocs() {
     });
 
     const config = getDocConfig(data, name);
-    // console.log('config', config);
     if (!config) {
       continue;
     }
@@ -112,7 +107,6 @@ function mvDocs() {
     writeCompDoc(data, name);
   }
 
-  // console.log('docConfig', docConfig);
   writeSidebarConfig(docConfig);
 }
 
@@ -137,6 +131,7 @@ function mvDocs() {
  * 将文档写入docs目录
  */
 function writeCompDoc(data, name) {
+  console.log(`[AUTO] 正在写入 ${name} 文档...`);
   fs.writeFileSync(path.resolve(DOC_PATH, `${name}.md`), data, {
     encoding: 'utf-8',
   });
@@ -148,8 +143,10 @@ function writeCompDoc(data, name) {
  */
 function writeCompDemo(data, name) {
   const pureName = getPureCompName(name);
-  console.log('pureName', pureName);
+  console.log(`[AUTO] 正在写入 ${pureName} demo...`);
+
   const dir = path.resolve(DEMO_PATH, pureName);
+
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
@@ -175,33 +172,24 @@ function writeSidebarConfig(config) {
   fs.writeFileSync(SIDEBAR_CONFIG_PATH, JSON.stringify(data, null, 2));
 }
 
-// function getLocalDemo(comps) {
-
-// }
 
 function moveDemo() {
   const comps = getComps();
   const demos = getLocalDocOrDemo(comps, LOCAL_DEMO_NAME);
-  // const demoConfig = [];
+
+
   for (const doc of demos) {
     const { path: dir, name } = doc;
     const data = fs.readFileSync(dir, {
       encoding: 'utf-8',
     });
 
-    // const config = getDocConfig(data, name);
-    // console.log('config', config);
-    // if (!config) {
-    //   continue;
-    // }
-
-    // demoConfig.push(config);
     writeCompDemo(data, name);
   }
 }
 
 
-function watchMd() {
+function watchPackages() {
   const watcher = gulp.watch('./src/packages/**/*');
   watcher.on('change', (path) => {
     console.log(`[GULP] File ${path} was changed`);
@@ -227,5 +215,5 @@ function watchMd() {
 
 mvDocs();
 moveDemo();
-watchMd();
+watchPackages();
 

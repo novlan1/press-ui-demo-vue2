@@ -16,6 +16,7 @@
 <script>
 import utils from '../wxs-js/utils';
 import computed from './index.js';
+import Vue from 'vue';
 
 import { getRect } from '../common/utils';
 import { isDef } from '../common/validator';
@@ -25,6 +26,7 @@ import { getScroller } from '../common/dom/scroll';
 import { PressComponent } from '../common/press-component';
 
 const ROOT_ELEMENT = '.van-sticky';
+const ROOT_REF = 'sticky';
 
 const scrollMixin = pageScrollMixin(function (event) {
   if (this.scrollTop !== null) {
@@ -41,15 +43,15 @@ export default PressComponent({
     // #endif
 
     // #ifdef H5
-    BindEventMixin(function (bind, isBind) {
+    BindEventMixin(function (bind /* isBind*/) {
       if (!this.scroller) {
         this.scroller = getScroller(this.$el);
       }
 
-      if (this.observer) {
-        const method = isBind ? 'observe' : 'unobserve';
-        this.observer[method](this.$el);
-      }
+      // if (this.observer) {
+      //   const method = isBind ? 'observe' : 'unobserve';
+      //   this.observer[method](this.$el);
+      // }
 
       bind(this.scroller, 'scroll', this.onScroll, true);
       bind(this.scroller, 'touchmove', this.onScroll, true);
@@ -152,7 +154,7 @@ export default PressComponent({
 
       if (typeof container === 'function' && container()) {
         Promise.all([
-          getRect(this, ROOT_ELEMENT, 'sticky'),
+          getRect(this, ROOT_ELEMENT, ROOT_REF),
           this.getContainerRect(),
         ]).then(([root, container]) => {
           if (root && container && offsetTop + root.height > container.height + container.top) {
@@ -171,12 +173,12 @@ export default PressComponent({
           }
         })
           .catch((error) => {
-            console.log('error', error);
+            console.warn('error', error);
           });
         return;
       }
 
-      getRect(this, ROOT_ELEMENT, 'sticky').then((root) => {
+      getRect(this, ROOT_ELEMENT, ROOT_REF).then((root) => {
         if (!isDef(root)) {
           return;
         }
@@ -190,16 +192,18 @@ export default PressComponent({
       });
     },
     setDataAfterDiff(data) {
-      wx.nextTick(() => {
+      Vue.nextTick(() => {
         const diff = Object.keys(data).reduce((prev, key) => {
           if (data[key] !== this[key]) {
             prev[key] = data[key];
           }
           return prev;
         }, {});
+
         if (Object.keys(diff).length > 0) {
           this.setData(diff);
         }
+
         this.$emit('scroll', {
           scrollTop: this.scrollTopData,
           isFixed: data.fixed || this.fixed,

@@ -1,6 +1,13 @@
 const style = require('../wxs-js/style.js');
 const addUnit = require('../wxs-js/add-unit.js');
 
+function containerStyle(data) {
+  return style({
+    height: data.fixed ? addUnit(data.height) : '',
+    'z-index': data.zIndex,
+  });
+}
+
 function wrapStyle(data) {
   return style({
     transform: data.transform
@@ -11,14 +18,8 @@ function wrapStyle(data) {
   });
 }
 
-function containerStyle(data) {
-  return style({
-    height: data.fixed ? addUnit(data.height) : '',
-    'z-index': data.zIndex,
-  });
-}
 
 module.exports = {
-  wrapStyle,
   containerStyle,
+  wrapStyle,
 };

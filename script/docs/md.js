@@ -90,6 +90,7 @@ function mvDocs() {
   const comps = getComps();
   const docs = getLocalDocOrDemo(comps, LOCAL_DOC_NAME);
   const docConfig = [];
+  console.log('docs', docs);
 
   for (const doc of docs) {
     const { path: dir, name } = doc;
@@ -98,6 +99,7 @@ function mvDocs() {
     });
 
     const config = getDocConfig(data, name);
+    console.log('config', config);
     if (!config) {
       continue;
     }

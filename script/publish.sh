@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -ex
 
 SOURCE_DIR_OR_FILE=$1
 TARGET_DIR=$2

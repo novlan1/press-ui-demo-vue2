@@ -13,6 +13,7 @@ import utils from '../wxs-js/utils';
 
 // import { useParent } from '../common/relation';
 import { ChildrenMixin } from '../mixins/relation';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 const PARENT = 'vanTabs';
 
@@ -24,9 +25,11 @@ export default {
     ChildrenMixin(PARENT),
   ],
   options: {
+    ...defaultOptions,
     virtualHost: true,
   },
   props: {
+    ...defaultProps,
     dot: {
       type: Boolean,
       default: false,

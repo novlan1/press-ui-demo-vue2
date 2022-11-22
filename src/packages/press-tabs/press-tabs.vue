@@ -20,16 +20,16 @@
           :class="tabScrollClass"
           :style="color ? 'border-color: ' + color : ''"
         >
-          <div
+          <view
             :class="navClass"
             :style="navStyle"
           >
-            <div
+            <view
               v-if="type === 'line'"
               class="van-tabs__line"
               :style="lineStyle"
             />
-            <div
+            <view
               v-for="(item,index) in (tabs)"
               :key="item.index"
               :data-index="index"
@@ -44,19 +44,19 @@
                   'van-tab--complete': !ellipsis,
                 }
               ]"
-              :style="type === 'card'? getString({
+              :style="type === 'card'? {
                 borderColor: color,
                 backgroundColor: !item.disabled && active ? color : null,
                 color: (index === currentIndex ? titleActiveColor : titleInactiveColor)
                   || (!item.disabled && !active ? color : null),
                 flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
-              }): getString({
+              }: {
                 color: index === currentIndex ? titleActiveColor : titleInactiveColor,
                 flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
-              })"
+              }"
               @click="onTap"
             >
-              <div
+              <view
                 :class="ellipsis ? 'van-ellipsis' : ''"
                 :style="item.titleStyle"
               >
@@ -67,9 +67,9 @@
                   :dot="item.dot"
                   custom-class="van-tab__title__info"
                 />
-              </div>
-            </div>
-          </div>
+              </view>
+            </view>
+          </view>
         </scroll-view>
 
         <slot name="nav-right" />
@@ -104,10 +104,14 @@ import { isDef } from '../common/validator';
 import { ParentMixin } from '../mixins/relation';
 import utils from '../wxs-js/utils';
 import computed from './index.js';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 const PARENT = 'vanTabs';
 
 export default {
+  options: {
+    ...defaultOptions,
+  },
   components: {
     VanInfo,
     VanSticky,
@@ -126,6 +130,7 @@ export default {
   //   this.updateTabs();
   // }),
   props: {
+    ...defaultProps,
     sticky: {
       type: Boolean,
       default: false,
@@ -308,11 +313,6 @@ export default {
     });
   },
   methods: {
-    getString(item) {
-      // cns
-      // return computed.tabStyle(data)
-      return 'color: red;';
-    },
     setData(data) {
       Object.keys(data).forEach((key) => {
         this[key] = data[key];
@@ -549,6 +549,9 @@ export default {
   position: relative;
   -webkit-user-select: none;
   user-select: none;
+
+  // 解决H5下tab贴顶的问题
+  height: var(--tabs-line-height, 44px);
 }
 .van-tabs__nav--card {
   box-sizing: border-box;

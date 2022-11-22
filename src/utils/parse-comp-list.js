@@ -10,7 +10,6 @@ export function parseCompList(compList) {
       };
     })
     .filter(item => !!item.list.length);
-  console.log('res', res, JSON.stringify(res));
   return res;
 }
 

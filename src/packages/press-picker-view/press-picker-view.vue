@@ -43,7 +43,7 @@
 
 <script>
 function isMp() {
-  return typeof getCurrentPages === 'function';
+  return process.env.UNI_PLATFORM === 'mp-weixin' || process.env.UNI_PLATFORM === 'mp-qq';
 }
 
 
@@ -104,11 +104,12 @@ export default {
       lastMove: 0, // 上一次滚动距离，用于计算滑动距离
       lastTime: 0, // 上一次滚动回调时间，用于计算滑动距离
       speed: 0, // 当前滑动速度
+      hasClick: false, // 记录是否触发item点击，已触发不走最后的滚动逻辑
     };
   },
   computed: {
     transformStyle() {
-      if (process.env.UNI_PLATFORM === 'mp-weixin') {
+      if (isMp()) {
         return `transform: translate3d(0rpx,${this.currentScroll * 2}rpx,0rpx);`;
       }
       return `transform: translate3d(0px,${this.currentScroll * 2 / 100}rem,0px);`;
@@ -184,6 +185,10 @@ export default {
     },
     // 结束
     handleEnd() {
+      if (this.hasClick) {
+        this.hasClick = false;
+        return;
+      }
       let slideDistance = 0;
       // 结束前一小段时间内有速度，需要加上滑动距离
       if (new Date().getTime() - this.lastTime < this.slideTimeThreshold) {
@@ -228,8 +233,11 @@ export default {
         { x: this.upX, y: this.upY },
       );
       if (distance < 10) {
-        this.currentIndex = this.getElementIndex(e.target);
+        this.currentIndex = this.getElementIndex(
+          isMp() ? e.target : e.currentTarget
+        );
         this.currentScroll = -this.currentIndex * this.itemHeight;
+        this.hasClick = true;
       }
     },
     twoPointDistance(p1, p2) {
@@ -237,14 +245,7 @@ export default {
       return dep;
     },
     getElementIndex(element) {
-      if (isMp) {
-        return parseInt(element.id, 10);
-      }
-      let  i = 0;
-      while ((element = element.previousSibling) != null) {
-        i = i + 1;
-      }
-      return i;
+      return parseInt(element.id, 10);
     },
   },
 };

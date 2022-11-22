@@ -26,25 +26,33 @@
 
     <view class="home-content">
       <uni-card
-        is-shadow
         padding="0"
       >
-        <uni-section
-          title="press"
-          color="#007aff"
-          type="line"
-        />
-        <uni-list>
-          <uni-list-item
-            v-for="(navi, index) in press"
-            :key="index"
-            show-arrow
-            :title="navi.name"
-            link
-            :to="`/pages/${navi.url}`"
+        <template v-for="(item, index) of pages">
+          <uni-section
+            :key="`section-${index}`"
+            :title="item.title"
+            color="#007aff"
+            type="line"
+            header-style="font-weight: 500;margin-bottom: 6px;"
           />
-        </uni-list>
-        <uni-section
+          <uni-list
+            :key="`list-${index}`"
+            :border="false"
+          >
+            <uni-list-item
+              v-for="(navi, idx) in item.list"
+              :key="`nav-${idx}`"
+              custom-class="list-item"
+              :border="false"
+              show-arrow
+              :title="navi.name"
+              link
+              :to="`/pages/${navi.url}`"
+            />
+          </uni-list>
+        </template>
+        <!-- <uni-section
           title="辅助样式"
           sub-title="引入 uni-sass 后通过辅助样式提升快捷布局能力"
           color="#007aff"
@@ -161,18 +169,22 @@
             link
             :to="`/pages/${navi.url}`"
           />
-        </uni-list>
+        </uni-list> -->
       </uni-card>
     </view>
   </view>
 </template>
 <script>
 import { PRESS_PAGE_LIST } from './page.config';
+import { parseCompList } from '../../utils/parse-comp-list';
 
+
+console.log('parse: ', parseCompList(PRESS_PAGE_LIST));
 export default {
   components: {},
   data() {
     return {
+      pages: parseCompList(PRESS_PAGE_LIST),
       styles: [{
         name: '字体',
         url: 'vue/font/font',
@@ -501,5 +513,12 @@ export default {
 .home-content {
   margin-top: 170px;
   overflow: hidden;
+
+  .list-item {
+    background: #f7f8fa;
+    border-radius: 99px;
+    margin: 0 0 12px;
+    padding-left: 20px;
+  }
 }
 </style>

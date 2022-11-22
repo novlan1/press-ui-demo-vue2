@@ -4,7 +4,7 @@
     <!-- #endif -->
 
     <view
-      :class="{ 'uni-list-item--disabled': disabled }"
+      :class="[{'uni-list-item--disabled': disabled,}, customClass]"
       :hover-class="(!clickable && !link) || disabled || showSwitch ? '' : 'uni-list-item--hover'"
       class="uni-list-item"
       @click="onClick"
@@ -139,7 +139,14 @@
 	 */
 export default {
   name: 'UniListItem',
+  options: {
+    addGlobalClass: true,
+  },
   props: {
+    customClass: {
+      type: String,
+      default: '',
+    },
     direction: {
       type: String,
       default: 'row',

@@ -29,6 +29,7 @@
               class="van-tabs__line"
               :style="lineStyle"
             />
+            <!-- TODO: 下面的style/class可以提取到方法中，否则小程序不易查看[object object] -->
             <view
               v-for="(item,index) in (tabs)"
               :key="item.index"

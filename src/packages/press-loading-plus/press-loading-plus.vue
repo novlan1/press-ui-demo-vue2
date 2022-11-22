@@ -155,7 +155,7 @@ export default {
 @for $i from 1 through 12 {
   .van-loading__dot:nth-of-type(#{$i}) {
     transform: rotate($i * 30deg);
-    opacity: 1 - (0.75 / 12) * ($i - 1);
+    opacity: 1 - calc(0.75 / 12) * ($i - 1);
   }
 }
 

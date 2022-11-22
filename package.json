@@ -1,6 +1,6 @@
 {
   "name": "my-project",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "dev": "npm run serve",
@@ -136,5 +136,10 @@
   },
   "uni-app": {
     "scripts": {}
+  },
+  "standard-version": {
+    "scripts": {
+      "precommit": "node script/version/pre-commit"
+    }
   }
 }

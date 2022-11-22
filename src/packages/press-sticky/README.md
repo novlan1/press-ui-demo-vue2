@@ -15,10 +15,10 @@ Sticky 组件与 CSS 中position: sticky属性实现的效果一致，当组件�
 将内容包裹在`Sticky`组件内即可。
 
 ```html
- <press-sticky>
-  <button class="text">
+<press-sticky>
+  <view class="btn1">
     基础用法
-  </button>
+  </view>
 </press-sticky>
 ```
 
@@ -28,13 +28,13 @@ Sticky 组件与 CSS 中position: sticky属性实现的效果一致，当组件�
 
 ```html
 <press-sticky
-  :offset-top="200"
+  :offset-top="50"
 >
-  <button
-    class="text"
+  <view
+    class="btn2"
   >
     吸顶距离
-  </button>
+  </view>
 </press-sticky>
 ```
 
@@ -43,65 +43,40 @@ Sticky 组件与 CSS 中position: sticky属性实现的效果一致，当组件�
 通过`container`属性可以指定组件的容器，页面滚动时，组件会始终保持在容器范围内，当组件即将超出容器底部时，会返回原位置。
 
 ```html
-<view id="container" style="height: 150px;">
-  <van-sticky container="{{ container }}">
-    <van-button type="warning">指定容器</van-button>
-  </van-sticky>
-</view>
-```
-
-```js
-Page({
-  data: {
-    container: null,
-  },
-
-  onReady() {
-    this.setData({
-      container: () => wx.createSelectorQuery().select('#container'),
-    });
-  },
-});
-```
-
-### 嵌套在 scroll-view 内使用
-
-通过 `scroll-top` 与 `offset-top` 属性可以实现在 scroll-view 内嵌套使用。
-
-```html
-<scroll-view
-  bind:scroll="onScroll"
-  scroll-y
-  id="scroller"
-  style="height: 200px;"
+<div
+  id="container"
+  ref="container"
+  style="height: 150px;background: #eee;"
 >
-  <view style="height: 400px; padding-top: 50px;">
-    <van-sticky scroll-top="{{ scrollTop }}" offset-top="{{ offsetTop }}">
-      <van-button type="warning">嵌套在 scroll-view 内</van-button>
-    </van-sticky>
-  </view>
-</scroll-view>
+  <press-sticky :container="container">
+    <view class="btn3">
+      指定容器
+    </view>
+  </press-sticky>
+</div>
 ```
 
 ```js
-Page({
-  data: {
-    scrollTop: 0,
-    offsetTop: 0,
-  },
+export default {
+  data() {
+    const that = this;
+    return {
+      container() {
+        let res;
 
-  onScroll(event) {
-    wx.createSelectorQuery()
-      .select('#scroller')
-      .boundingClientRect((res) => {
-        this.setData({
-          scrollTop: event.detail.scrollTop,
-          offsetTop: res.top,
-        });
-      })
-      .exec();
+        // #ifdef H5
+        res = that.$refs.container;
+        // #endif
+
+        // #ifndef H5
+        res = uni.createSelectorQuery().select('#container');
+        // #endif
+
+        return res;
+      },
+    };
   },
-});
+};
 ```
 
 ## API

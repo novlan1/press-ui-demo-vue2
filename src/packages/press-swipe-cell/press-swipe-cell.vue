@@ -39,10 +39,9 @@
 <script>
 import { PressComponent } from '../common/press-component';
 
-// import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
 import { range } from '../common/utils';
-// global.__wxRoute = 'vant/swipe-cell/index';
+
 const THRESHOLD = 0.3;
 
 let ARRAY = [];
@@ -57,20 +56,10 @@ export default PressComponent({
     leftWidth: {
       type: Number,
       default: 0,
-      // observer(leftWidth = 0) {
-      //   if (this.offset > 0) {
-      //     this.swipeMove(leftWidth);
-      //   }
-      // },
     },
     rightWidth: {
       type: Number,
       default: 0,
-      // observer(rightWidth = 0) {
-      //   if (this.offset < 0) {
-      //     this.swipeMove(-rightWidth);
-      //   }
-      // },
     },
     asyncClose: {
       type: Boolean,

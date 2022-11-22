@@ -1,9 +1,11 @@
 <template>
   <view class="wrap">
-    <press-switch
-      :open="isOpen"
-      @onSwitchChange="onSwitchChange"
-    />
+    <demo-block title="基础用法">
+      <press-switch
+        :open="isOpen"
+        @onSwitchChange="onSwitchChange"
+      />
+    </demo-block>
   </view>
 </template>
 <script>
@@ -22,9 +24,6 @@ export default {
     // #endif
   },
   methods: {
-    onShow() {
-
-    },
     onSwitchChange() {
       this.isOpen = !this.isOpen;
     },
@@ -33,8 +32,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.wrap {
-  padding: 20px;
-}
 </style>
 

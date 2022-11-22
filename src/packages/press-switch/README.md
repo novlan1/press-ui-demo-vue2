@@ -5,9 +5,7 @@ subTitle: Switch
 ---
 
 ## Switch 切换选择器
-::: tip 组件名：press-switch
-代码块： `press-switch`
-:::
+
 
 切换选择器
 
@@ -16,21 +14,15 @@ subTitle: Switch
 **示例**
 
 
-```vue
-<template>
-  <press-switch
-    :open="isOpen"
-    @onSwitchChange="onSwitchChange"
-  />
-</template>
+```html
+<press-switch
+  :open="isOpen"
+  @onSwitchChange="onSwitchChange"
+/>
+```
 
-<script>
-import PressSwitch from 'src/packages/press-switch/press-switch';
-
+```js
 export default {
-  component: {
-    PressSwitch
-  },
   data() {
     return {
       isOpen: false,
@@ -42,7 +34,6 @@ export default {
     },
   }
 },
-</script>
 ```
 
 

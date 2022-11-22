@@ -60,9 +60,19 @@
           "path": "/components/press/press-sticky.md"
         },
         {
+          "title": "滑动单元格",
+          "subTitle": "SwipeCell",
+          "path": "/components/press/press-swipe-cell.md"
+        },
+        {
           "title": "切换",
           "subTitle": "Switch",
           "path": "/components/press/press-switch.md"
+        },
+        {
+          "title": "标签页",
+          "subTitle": "Tab",
+          "path": "/components/press/press-tab.md"
         }
       ]
     }

@@ -1,26 +1,27 @@
 <template>
   <view class="wrap">
-    <press-swipe-cell
-      :right-width="65"
-      :left-width="65"
-      @click="onClick"
-      @close="onClose"
-      @open="onOpen"
+    <demo-block
+      title="基础用法"
+      section-style="margin:0;"
     >
-      <view slot="left">
-        选择
-      </view>
-      123
-      <!-- <van-cell-group>
-        <van-cell
-          title="单元格"
-          value="内容"
-        />
-      </van-cell-group> -->
-      <view slot="right">
-        删除
-      </view>
-    </press-swipe-cell>
+      <press-swipe-cell
+        :right-width="65"
+        :left-width="65"
+        @click="onClick"
+        @close="onClose"
+        @open="onOpen"
+      >
+        <div slot="left">
+          选择
+        </div>
+        <div class="content">
+          一些内容
+        </div>
+        <div slot="right">
+          删除
+        </div>
+      </press-swipe-cell>
+    </demo-block>
   </view>
 </template>
 <script>
@@ -28,7 +29,6 @@
 export default {
   data() {
     return {
-      isOpen: false,
     };
   },
   onLoad() {
@@ -39,9 +39,6 @@ export default {
     // #endif
   },
   methods: {
-    onShow() {
-
-    },
     onClick(...args) {
       console.log('onClick.args', args);
     },
@@ -51,16 +48,16 @@ export default {
     onOpen(...args) {
       console.log('onOpen.args', args);
     },
-    onSwitchChange() {
-      this.isOpen = !this.isOpen;
-    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.wrap {
-  padding: 20px;
+.content {
+  height: 44px;
+  line-height: 44px;
+  padding-left: 20px;
+  background: #f7f8fa;
 }
 </style>
 

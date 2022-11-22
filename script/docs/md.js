@@ -131,6 +131,9 @@ function mvDocs() {
  */
 function writeCompDoc(data, name) {
   console.log(`[AUTO] 正在写入 ${name} 文档...`);
+  if (!fs.existsSync(DOC_PATH)) {
+    fs.mkdirSync(DOC_PATH);
+  }
   fs.writeFileSync(path.resolve(DOC_PATH, `${name}.md`), data, {
     encoding: 'utf-8',
   });
@@ -143,7 +146,9 @@ function writeCompDoc(data, name) {
 function writeCompDemo(data, name) {
   const pureName = getPureCompName(name);
   console.log(`[AUTO] 正在写入 ${pureName} demo...`);
-
+  if (!fs.existsSync(DEMO_PATH)) {
+    fs.mkdirSync(DEMO_PATH);
+  }
   const dir = path.resolve(DEMO_PATH, pureName);
 
   if (!fs.existsSync(dir)) {

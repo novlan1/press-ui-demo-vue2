@@ -1,6 +1,6 @@
 {
   "name": "my-project",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "dev": "npm run serve",
@@ -139,7 +139,7 @@
   },
   "standard-version": {
     "scripts": {
-      "precommit": "node script/version/pre-commit"
+      "postchangelog": "node script/version/pre-commit"
     }
   }
 }

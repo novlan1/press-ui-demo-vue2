@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 import { touch } from '../mixins/touch';
 import { range } from '../common/utils';
@@ -46,7 +46,8 @@ const THRESHOLD = 0.3;
 
 let ARRAY = [];
 
-export default PressComponent({
+export default {
+  options: { ...defaultOptions },
   mixins: [touch],
   props: {
     disabled: {
@@ -69,6 +70,7 @@ export default PressComponent({
       type: [String, null],
       default: '',
     },
+    ...defaultProps,
   },
   data() {
     return {
@@ -194,7 +196,7 @@ export default PressComponent({
       }
     },
   },
-});
+};
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";

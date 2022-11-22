@@ -23,24 +23,26 @@
 <script>
 import computed from './index.js';
 import VanInfo from '../press-info/press-info.vue';
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
-export default PressComponent({
+export default {
   components: {
     VanInfo,
   },
   props: {
     dot: Boolean,
-    info: null,
-    size: null,
-    color: String,
-    customStyle: String,
+    info: { type: String, default: '' },
+    size: { type: String, default: '' },
+    color: { type: String, default: '' },
+    customStyle: { type: String, default: '' },
     classPrefix: {
       type: String,
       default: 'van-icon',
     },
-    name: String,
+    name: { type: String, default: '' },
+    ...defaultProps,
   },
+  options: { ...defaultOptions },
   data() {
     return {
 
@@ -65,9 +67,9 @@ export default PressComponent({
       this.$emit('click');
     },
   },
-});
-// export default global.__wxComponents['vant/icon/index'];
+};
 </script>
+
 <style platform="mp-weixin">
 @import "../common/index.scss";
 .van-icon {

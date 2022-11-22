@@ -1,6 +1,7 @@
 <template>
   <uni-section
     :title="title"
+    :header-style="headerStyle"
     type="line"
   >
     <div
@@ -19,6 +20,10 @@ export default {
       default: '',
     },
     sectionStyle: {
+      type: String,
+      default: '',
+    },
+    headerStyle: {
       type: String,
       default: '',
     },

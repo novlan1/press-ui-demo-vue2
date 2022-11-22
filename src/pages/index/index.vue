@@ -39,7 +39,6 @@
             v-for="(navi, index) in press"
             :key="index"
             show-arrow
-            :thumb="'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/icon/'+navi.icon+'.png'"
             :title="navi.name"
             link
             :to="`/pages/${navi.url}`"

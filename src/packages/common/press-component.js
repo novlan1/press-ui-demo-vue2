@@ -4,13 +4,26 @@ export function PressComponent(options = {}) {
     options: {
       multipleSlots: true,
       addGlobalClass: true,
+      ...(options.options || {}),
     },
     props: {
-      ...(options.props),
       customClass: {
         type: String,
         default: '',
       },
+      ...(options.props || {}),
     },
   };
 }
+
+export const defaultProps = {
+  customClass: {
+    type: String,
+    default: '',
+  },
+};
+
+export const defaultOptions = {
+  multipleSlots: true,
+  addGlobalClass: true,
+};

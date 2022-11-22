@@ -37,18 +37,22 @@ import computed from './index.js';
 import Vue from 'vue';
 import { range } from '../common/utils';
 import { isObj } from '../common/validator';
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 const DEFAULT_DURATION = 200;
 const PARENT = 'pressPicker';
 
-export default PressComponent({
+export default {
+  options: {
+    ...defaultOptions,
+  },
   inject: {
     [PARENT]: {
       default: null,
     },
   },
   props: {
+    ...defaultProps,
     activeClass: { type: String, default: '' },
     valueKey: { type: String, default: '' },
     className: { type: String, default: '' },
@@ -195,7 +199,7 @@ export default PressComponent({
       return this.options[this.currentIndex];
     },
   },
-});
+};
 </script>
 <style platform="mp-weixin">
 @import "../common/index.scss";
@@ -207,6 +211,7 @@ export default PressComponent({
 }
 .van-picker-column__item {
   padding: 0 5px;
+  text-align: center;
 }
 .van-picker-column__item--selected {
   color: var(--picker-option-selected-text-color, #323233);

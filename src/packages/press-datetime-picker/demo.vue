@@ -90,6 +90,7 @@ export default {
     // #endif
   },
   methods: {
+
     onInput(event) {
       console.log('onInput.event', event);
       this.currentDate = event;

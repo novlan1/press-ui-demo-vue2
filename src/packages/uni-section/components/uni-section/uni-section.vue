@@ -2,6 +2,7 @@
   <view class="uni-section">
     <view
       class="uni-section-header"
+      :style="headerStyle"
       @click="onClick"
     >
       <view
@@ -98,6 +99,10 @@ export default {
     padding: {
       type: [Boolean, String],
       default: false,
+    },
+    headerStyle: {
+      type: String,
+      default: '',
     },
   },
   emits: ['click'],

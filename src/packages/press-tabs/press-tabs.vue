@@ -1,5 +1,8 @@
 <template>
-  <view :class="tabsClass">
+  <div
+    ref="vanTabs"
+    :class="tabsClass"
+  >
     <van-sticky
       :disabled="(!sticky)"
       :z-index="zIndex"
@@ -17,16 +20,16 @@
           :class="tabScrollClass"
           :style="color ? 'border-color: ' + color : ''"
         >
-          <view
+          <div
             :class="navClass"
             :style="navStyle"
           >
-            <view
+            <div
               v-if="type === 'line'"
               class="van-tabs__line"
               :style="lineStyle"
             />
-            <view
+            <div
               v-for="(item,index) in (tabs)"
               :key="item.index"
               :data-index="index"
@@ -41,19 +44,19 @@
                   'van-tab--complete': !ellipsis,
                 }
               ]"
-              :style="type === 'card'? {
+              :style="type === 'card'? getString({
                 borderColor: color,
                 backgroundColor: !item.disabled && active ? color : null,
                 color: (index === currentIndex ? titleActiveColor : titleInactiveColor)
                   || (!item.disabled && !active ? color : null),
                 flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
-              }: {
+              }): getString({
                 color: index === currentIndex ? titleActiveColor : titleInactiveColor,
                 flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
-              }"
+              })"
               @click="onTap"
             >
-              <view
+              <div
                 :class="ellipsis ? 'van-ellipsis' : ''"
                 :style="item.titleStyle"
               >
@@ -64,9 +67,9 @@
                   :dot="item.dot"
                   custom-class="van-tab__title__info"
                 />
-              </view>
-            </view>
-          </view>
+              </div>
+            </div>
+          </div>
         </scroll-view>
 
         <slot name="nav-right" />
@@ -87,7 +90,7 @@
         <slot />
       </view>
     </view>
-  </view>
+  </div>
 </template>
 <script>
 import VanInfo from '../press-info/press-info.vue';
@@ -161,7 +164,7 @@ export default {
       default: -1,
     },
     active: {
-      type: [Number, null],
+      type: [Number, String, null],
       default: 0,
       // observer(name) {
       //   if (name !== this.getCurrentName()) {
@@ -288,7 +291,12 @@ export default {
   mounted() {
     requestAnimationFrame(() => {
       this.swiping = true;
+      // #ifdef H5
+      this.container = () => this.$refs.vanTabs;
+      // #endif
+      // #ifndef H5
       this.container = () => this.createSelectorQuery().select('.van-tabs');
+      // #endif
 
       this.updateTabs();
       this.resize();
@@ -300,6 +308,11 @@ export default {
     });
   },
   methods: {
+    getString(item) {
+      // cns
+      // return computed.tabStyle(data)
+      return 'color: red;';
+    },
     setData(data) {
       Object.keys(data).forEach((key) => {
         this[key] = data[key];
@@ -594,6 +607,10 @@ export default {
   padding: 0 5px;
   position: relative;
   text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .van-tab--active {
   color: var(--tab-active-text-color, #323233);

@@ -1,192 +1,176 @@
 <template>
   <view class="wrap">
-    <press-switch
-      :open="isOpen"
-      @onSwitchChange="onSwitchChange"
-    />
-    <view class="info-outer">
-      <view class="info-wrap">
-        <press-info
-          :dot="true"
-          custom-class="cccc"
-        />
-      </view>
-      <view class="info-wrap">
-        <press-info
-          info="123"
-          custom-class="cccc"
-        />
-      </view>
-    </view>
-    <view>
-      <press-sticky>
-        <button class="text">
-          基础用法
-        </button>
-      </press-sticky>
-    </view>
-    <view>
-      <press-sticky :offset-top="120">
-        <view class="text">
-          指定offsetTop
-        </view>
-      </press-sticky>
-    </view>
-    <press-tabs
-      ref="pressTabs"
-      custom-class="press-tabs-demo"
-      @change="onChange"
+    <demo-block
+      title="基础用法"
+      header-style="background: #f7f8fa;"
     >
-      <press-tab title="标签 1">
-        内容 1
-      </press-tab>
-      <press-tab title="标签 2">
-        内容 2
-      </press-tab>
-      <press-tab title="标签 3">
-        内容 3
-      </press-tab>
-      <press-tab title="标签 4">
-        内容 4
-      </press-tab>
-    </press-tabs>
-
-    <view>默认值</view>
-    <press-tabs
-      custom-class="press-tabs-demo"
-      :active="active"
-      animated
-      @change="onChange"
-    >
-      <press-tab title="标签 1">
-        内容 1
-      </press-tab>
-      <press-tab title="标签 2">
-        内容 2
-      </press-tab>
-      <press-tab title="标签 3">
-        内容 3
-      </press-tab>
-      <press-tab title="标签 4">
-        内容 4
-      </press-tab>
-    </press-tabs>
-
-    <press-tabs
-      custom-class="press-tabs-demo"
-      :active="active"
-      swipeable
-      @change="onChange"
-    >
-      <press-tab title="标签 1">
-        内容 1
-      </press-tab>
-      <press-tab title="标签 2">
-        内容 2
-      </press-tab>
-      <press-tab title="标签 3">
-        内容 3
-      </press-tab>
-      <press-tab title="标签 4">
-        内容 4
-      </press-tab>
-    </press-tabs>
-
-    <press-tabs
-      custom-class="press-tabs-demo"
-    >
-      <press-tab
-        title="标签 1"
-        name="a"
+      <press-tabs
+        :active="active"
+        @change="onChange"
       >
-        内容 1
-      </press-tab>
-      <press-tab
-        title="标签 2"
-        name="b"
-      >
-        内容 2
-      </press-tab>
-      <press-tab
-        title="标签 3"
-        name="c"
-      >
-        内容 3
-      </press-tab>
-    </press-tabs>
+        <press-tab
+          v-for="(item,index) of tabs4"
+          :key="index"
+          :title="`标签 ${index+1}`"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
 
-
-    <press-tabs
-      ref="pressTabs"
-      custom-class="press-tabs-demo"
-      :active="6"
-      @change="onChange"
+    <demo-block
+      title="通过名称匹配"
+      header-style="background: #f7f8fa;"
     >
-      <press-tab title="标签 1">
-        内容 1
-      </press-tab>
-      <press-tab title="标签 2">
-        内容 2
-      </press-tab>
-      <press-tab title="标签 3">
-        内容 3
-      </press-tab>
-      <press-tab title="标签 4">
-        内容 4
-      </press-tab>
-      <press-tab title="标签 5">
-        内容 5
-      </press-tab>
-      <press-tab title="标签 6">
-        内容 6
-      </press-tab>
-      <press-tab title="标签 7">
-        内容 7
-      </press-tab>
-    </press-tabs>
-
-    <press-tabs
-      ref="pressTabs"
-      custom-class="press-tabs-demo"
-      @change="onChange"
-    >
-      <press-tab title="标签 1">
-        内容 1
-      </press-tab>
-      <press-tab title="标签 2">
-        内容 2
-      </press-tab>
-      <press-tab
-        title="标签 3"
-        disabled
+      <press-tabs
+        :active="activeName"
       >
-        内容 3
-      </press-tab>
-      <press-tab title="标签 4">
-        内容 4
-      </press-tab>
-    </press-tabs>
+        <press-tab
+          v-for="(item, index) of tabsWithName"
+          :key="index"
+          :title="`标签 ${index+1}`"
+          :name="item.name"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
 
-    <press-tabs
-      custom-class="press-tabs-demo"
-      type="card"
-      @change="onChange"
+    <demo-block
+      title="横向滚动"
+      header-style="background: #f7f8fa;"
     >
-      <press-tab title="标签 1">
-        内容 1
-      </press-tab>
-      <press-tab title="标签 2">
-        内容 2
-      </press-tab>
-      <press-tab
-        title="标签 3"
+      <press-tabs>
+        <press-tab
+          v-for="(item,index) of tabs7"
+          :key="index"
+          :title="`标签 ${index+1}`"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
+
+    <demo-block
+      title="禁用标签"
+      header-style="background: #f7f8fa;"
+    >
+      <press-tabs
+        @disabled="onClickDisabled"
       >
-        内容 3
-      </press-tab>
-      <press-tab title="标签 4">
-        内容 4
-      </press-tab>
-    </press-tabs>
+        <press-tab
+          v-for="(item,index) of tabsDisabled"
+          :key="index"
+          :title="`标签 ${index+1}`"
+          :disabled="!!item.disabled"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
+
+    <demo-block
+      title="样式风格"
+      header-style="background: #f7f8fa;"
+    >
+      <press-tabs
+        type="card"
+      >
+        <press-tab
+          v-for="(item,index) of tabs4"
+          :key="index"
+          :title="`标签 ${index+1}`"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
+
+    <demo-block
+      title="点击事件"
+      header-style="background: #f7f8fa;"
+    >
+      <press-tabs
+        @click="onClick"
+      >
+        <press-tab
+          v-for="(item,index) of tabs2"
+          :key="index"
+          :title="`标签 ${index+1}`"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
+
+    <demo-block
+      title="粘性布局"
+      header-style="background: #f7f8fa;"
+    >
+      <press-tabs
+        sticky
+      >
+        <press-tab
+          v-for="(item,index) of tabs4"
+          :key="index"
+          :title="`标签 ${index+1}`"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
+
+    <demo-block
+      title="切换动画"
+      header-style="background: #f7f8fa;"
+    >
+      <press-tabs
+        animated
+      >
+        <press-tab
+          v-for="(item,index) of tabs4"
+          :key="index"
+          :title="`标签 ${index+1}`"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
+
+    <demo-block
+      title="滑动切换"
+      header-style="background: #f7f8fa;"
+    >
+      <press-tabs
+        swipeable
+      >
+        <press-tab
+          v-for="(item,index) of tabs4"
+          :key="index"
+          :title="`标签 ${index+1}`"
+        >
+          <div class="content">
+            内容 {{ index+1 }}
+          </div>
+        </press-tab>
+      </press-tabs>
+    </demo-block>
   </view>
 </template>
 <script>
@@ -194,8 +178,17 @@
 export default {
   data() {
     return {
-      isOpen: false,
       active: 2,
+      activeName: 'c',
+      tabs2: [1, 2],
+      tabs4: [1, 2, 3, 4],
+      tabs7: [1, 2, 3, 4, 5, 6, 7],
+      tabsDisabled: [{}, {}, { disabled: true }, {}],
+      tabsWithName: [
+        { name: 'a' },
+        { name: 'b' },
+        { name: 'c' },
+      ],
     };
   },
   onLoad() {
@@ -206,23 +199,19 @@ export default {
     // #endif
   },
   mounted() {
-    // console.log('this.$refs.pressTabs.resize', this.$refs.pressTabs.resize);
-    // setTimeout(() => {
-    //   this.$refs.pressTabs.resize();
-    // }, 0);
     this.$nextTick(() => {
-      this.$refs.pressTabs.resize();
+      // this.$refs.pressTabs.resize();
     });
   },
   methods: {
-    onShow() {
-
-    },
-    onSwitchChange() {
-      this.isOpen = !this.isOpen;
-    },
     onChange(val) {
       console.log('onChange.val', val);
+    },
+    onClickDisabled(val) {
+      console.log('onClickDisabled.val', val);
+    },
+    onClick(val) {
+      console.log('onClick.val', val);
     },
   },
 };
@@ -230,24 +219,12 @@ export default {
 
 <style scoped lang="scss">
 .wrap {
-  padding: 20px;
   font-size: 16px;
   height: 1000px;
-  background: #fff;
   overflow: scroll;
-  .info-outer {
-    display: flex;
-    align-items: center;
-    .info-wrap {
-      position: relative;
-      width: 50px;
-    }
-  }
-  .text {
-    font-size: 16px;
-  }
-  ::v-deep .press-tabs-demo {
-    margin-top: 50px;
+
+  .content {
+    padding: 20px;
   }
 }
 </style>

@@ -31,11 +31,15 @@
 <script>
 import utils from '../wxs-js/utils';
 import computed from './index.js';
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 
-export default PressComponent({
+export default {
+  options: {
+    ...defaultOptions,
+  },
   props: {
+    ...defaultProps,
     customStyle: { type: String, default: '' },
     color: { type: String, default: '' },
     vertical: { type: Boolean, default: false },
@@ -65,7 +69,7 @@ export default PressComponent({
       return computed.textStyle({ textSize });
     },
   },
-});
+};
 
 </script>
 

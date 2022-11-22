@@ -23,7 +23,7 @@ import { isDef } from '../common/validator';
 import { pageScrollMixin } from '../mixins/page-scroll';
 import { BindEventMixin } from '../mixins/bind-event';
 import { getScroller } from '../common/dom/scroll';
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 const ROOT_ELEMENT = '.van-sticky';
 const ROOT_REF = 'sticky';
@@ -36,7 +36,10 @@ const scrollMixin = pageScrollMixin(function (event) {
 });
 
 
-export default PressComponent({
+export default {
+  options: {
+    ...defaultOptions,
+  },
   mixins: [
     // #ifndef H5
     scrollMixin,
@@ -60,6 +63,7 @@ export default PressComponent({
     // #endif
   ],
   props: {
+    ...defaultProps,
     zIndex: {
       type: Number,
       default: 99,
@@ -225,7 +229,7 @@ export default PressComponent({
       return res;
     },
   },
-});
+};
 </script>
 <style lang="scss" scoped>
 @import "../common/index.scss";

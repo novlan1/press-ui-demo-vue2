@@ -7,16 +7,18 @@
 </template>
 
 <script>
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
-export default PressComponent({
+export default {
   options: {
+    ...defaultOptions,
     virtualHost: true,
   },
   components: {
 
   },
   props: {
+    ...defaultProps,
     open: {
       type: Boolean,
       default: false,
@@ -38,7 +40,7 @@ export default PressComponent({
       this.$emit('onSwitchChange');
     },
   },
-});
+};
 
 </script>
 

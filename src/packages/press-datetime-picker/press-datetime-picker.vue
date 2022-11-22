@@ -25,7 +25,7 @@ import VanPicker from '../press-picker-plus/press-picker-plus.vue';
 import { isDef } from '../common/validator';
 import { pickerProps } from '../press-picker-plus/shared';
 import Vue from 'vue';
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 const currentYear = new Date().getFullYear();
 function isValidDate(date) {
@@ -62,12 +62,16 @@ function getMonthEndDay(year, month) {
 const defaultFormatter = (type, value) => value;
 
 
-export default PressComponent({
+export default {
+  options: {
+    ...defaultOptions,
+  },
   classes: ['active-class', 'toolbar-class', 'column-class'],
   components: {
     VanPicker,
   },
   props: Object.assign(Object.assign({}, pickerProps), {
+    ...defaultProps,
     value: {
       type: null,
       // default: 0,
@@ -204,7 +208,7 @@ export default PressComponent({
       return this.picker;
     },
     updateColumns() {
-      const { formatter = defaultFormatter } = this;
+      const formatter = this.formatter || defaultFormatter;
       const results = this.getOriginColumns().map(column => ({
         values: column.values.map(value => formatter(column.type, value)),
       }));
@@ -394,7 +398,8 @@ export default PressComponent({
         .then(() => picker.setValues(values));
     },
   },
-});
+};
+
 </script>
 <style platform="mp-weixin">
 @import "../common/index.scss";

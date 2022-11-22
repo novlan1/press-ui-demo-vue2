@@ -23,6 +23,9 @@ export default {
     // useParent('tabs').mixin,
     ChildrenMixin(PARENT),
   ],
+  options: {
+    virtualHost: true,
+  },
   props: {
     dot: {
       type: Boolean,
@@ -64,7 +67,7 @@ export default {
   },
   computed: {
     tabClass() {
-      const { active, customClass } = this;
+      const { active, customClass = '' } = this;
       return `${utils.bem('tab__pane', { active, inactive: !active })} ${customClass}`;
     },
   },

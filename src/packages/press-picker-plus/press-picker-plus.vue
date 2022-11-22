@@ -60,12 +60,15 @@
 import PickerColumn from '../press-picker-column/press-picker-column.vue';
 import Loading from '../press-loading-plus/press-loading-plus.vue';
 import ToolBar from './toolbar.vue';
-import { PressComponent } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 import computed from './index.js';
 const PARENT = 'pressPicker';
 
-export default PressComponent({
+export default {
+  options: {
+    ...defaultOptions,
+  },
   components: {
     PickerColumn,
     Loading,
@@ -79,6 +82,7 @@ export default PressComponent({
 
   classes: ['active-class', 'toolbar-class', 'column-class'],
   props: {
+    ...defaultProps,
     title: { type: String, default: '' },
     showToolbar: { type: Boolean, default: false },
     cancelButtonText: {
@@ -273,7 +277,7 @@ export default PressComponent({
       return Promise.all(stack);
     },
   },
-});
+};
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";

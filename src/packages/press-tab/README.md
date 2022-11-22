@@ -14,12 +14,23 @@ subTitle: Tab
 通过`active`设定当前激活标签对应的索引值，默认情况下启用第一个标签。
 
 ```html
-<van-tabs active="{{ active }}" bind:change="onChange">
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-</van-tabs>
+<press-tabs
+  :active="active"
+  @change="onChange"
+>
+  <press-tab title="标签 1">
+    内容 1
+  </press-tab>
+  <press-tab title="标签 2">
+    内容 2
+  </press-tab>
+  <press-tab title="标签 3">
+    内容 3
+  </press-tab>
+  <press-tab title="标签 4">
+    内容 4
+  </press-tab>
+</press-tabs>
 ```
 
 ```js

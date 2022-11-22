@@ -10,6 +10,9 @@ repoName=press-ui-demo
 userName=novlan1
 token=$1
 
+git config user.email "1576271227@qq.com"
+git config user.name "novlan1"
+
 git remote remove origin
 git remote add origin https://${token}@github.com/${userName}/${repoName}
 

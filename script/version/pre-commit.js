@@ -31,13 +31,12 @@ function changeVersion() {
 
 function main() {
   changeVersion();
+
   execSync('git add .', {
     stdio: 'inherit',
   });
 
-  // release();
-
-  // process.exit(1);
+  release();
 }
 
 function release() {

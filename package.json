@@ -1,6 +1,6 @@
 {
   "name": "my-project",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": true,
   "scripts": {
     "dev": "npm run serve",
@@ -60,7 +60,8 @@
     "lint:css": "stylelint **/*.{html,vue,css,sass,scss,less}",
     "lint:css:fix": "stylelint --fix **/*.{html,vue,css,sass,scss,less}",
     "gen:icon:list": "node script/icon-list",
-    "gen:comp": "node script/new-comp/gen-new-comp"
+    "gen:comp": "node script/new-comp/gen-new-comp",
+    "release": " standard-version --release-as patch -a"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.1-alpha-36420220922001",
@@ -139,7 +140,7 @@
   },
   "standard-version": {
     "scripts": {
-      "precommit": "node script/version/pre-commit"
+      "postchangelog": "node script/version/pre-commit"
     }
   }
 }

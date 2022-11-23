@@ -20,7 +20,7 @@ function changeVersion() {
 
   const newVersion = getNewVersion();
 
-  console.log(`[VERSION] The new version is ${newVersion}`);
+  // console.log(`[VERSION] The new version is ${newVersion}`);
 
   pkg.version = newVersion;
 
@@ -31,13 +31,17 @@ function changeVersion() {
 
 function main() {
   changeVersion();
-  release();
+  execSync('git add .', {
+    stdio: 'inherit',
+  });
+
+  // release();
 
   // process.exit(1);
 }
 
 function release() {
-  execSync('npm publish', {
+  execSync('cd src/packages && npm publish', {
     stdio: 'inherit',
   });
 }

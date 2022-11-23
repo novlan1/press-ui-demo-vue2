@@ -1,8 +1,9 @@
-const { moveDemo, mvDocs } = require('./md');
+const { moveDemo, moveDocs } = require('./md');
 
 function main() {
   moveDemo();
-  mvDocs();
+  console.log();
+  moveDocs();
 }
 
 main();

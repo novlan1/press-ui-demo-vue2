@@ -61,7 +61,8 @@
     "lint:css:fix": "stylelint --fix **/*.{html,vue,css,sass,scss,less}",
     "gen:icon:list": "node script/icon-list",
     "gen:comp": "node script/new-comp/gen-new-comp",
-    "release": " standard-version --release-as patch -a"
+    "release": " standard-version --release-as patch -a",
+    "gen:config": "node script/comp-config/gen-comp-config"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.1-alpha-36420220922001",

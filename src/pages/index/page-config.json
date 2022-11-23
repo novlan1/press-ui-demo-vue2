@@ -1,0 +1,97 @@
+{
+  "pages": [
+    {
+      "title": "基础组件",
+      "list": [
+        {
+          "name": "Icon",
+          "url": "/press/icon/icon"
+        },
+        {
+          "name": "Popup",
+          "url": "/press/popup/popup"
+        },
+        {
+          "name": "Toast",
+          "url": "/press/toast/toast"
+        },
+        {
+          "name": "Transition",
+          "url": "/press/transition/transition"
+        }
+      ]
+    },
+    {
+      "title": "表单组件",
+      "list": [
+        {
+          "name": "Checkbox",
+          "url": "/press/checkbox/checkbox"
+        },
+        {
+          "name": "DatetimePicker",
+          "url": "/press/datetime-picker/datetime-picker"
+        },
+        {
+          "name": "Picker",
+          "url": "/press/picker/picker"
+        },
+        {
+          "name": "PickerPlus",
+          "url": "/press/picker-plus/picker-plus"
+        },
+        {
+          "name": "Switch",
+          "url": "/press/switch/switch"
+        }
+      ]
+    },
+    {
+      "title": "反馈组件",
+      "list": [
+        {
+          "name": "Dialog",
+          "url": "/press/dialog/dialog"
+        },
+        {
+          "name": "Loading",
+          "url": "/press/loading/loading"
+        },
+        {
+          "name": "LoadingPlus",
+          "url": "/press/loading-plus/loading-plus"
+        },
+        {
+          "name": "Overlay",
+          "url": "/press/overlay/overlay"
+        },
+        {
+          "name": "SwipeCell",
+          "url": "/press/swipe-cell/swipe-cell"
+        }
+      ]
+    },
+    {
+      "title": "展示组件",
+      "list": [
+        {
+          "name": "Sticky",
+          "url": "/press/sticky/sticky"
+        }
+      ]
+    },
+    {
+      "title": "导航组件",
+      "list": [
+        {
+          "name": "Tab",
+          "url": "/press/tab/tab"
+        }
+      ]
+    },
+    {
+      "title": "业务组件",
+      "list": []
+    }
+  ]
+}

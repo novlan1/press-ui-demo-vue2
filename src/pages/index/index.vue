@@ -48,7 +48,7 @@
               show-arrow
               :title="navi.name"
               link
-              :to="`/pages/${navi.url}`"
+              :to="`/pages${navi.url}`"
             />
           </uni-list>
         </template>
@@ -175,16 +175,14 @@
   </view>
 </template>
 <script>
-import { PRESS_PAGE_LIST } from './page.config';
-import { parseCompList } from '../../utils/parse-comp-list';
+const pagesConfig = require('./page-config.json');
 
 
-console.log('parse: ', parseCompList(PRESS_PAGE_LIST));
 export default {
   components: {},
   data() {
     return {
-      pages: parseCompList(PRESS_PAGE_LIST),
+      pages: pagesConfig.pages.filter(item => item.list && item.list.length),
       styles: [{
         name: '字体',
         url: 'vue/font/font',
@@ -429,7 +427,6 @@ export default {
         icon: 'goods-nav',
       },
       ],
-      press: PRESS_PAGE_LIST,
       platform: 'vue',
     };
   },

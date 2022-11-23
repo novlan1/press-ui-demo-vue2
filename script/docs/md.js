@@ -10,10 +10,6 @@ const COMPONENT_DIR = './src/packages';
 const DOC_PATH = './docs/components/press';
 const DEMO_PATH = './src/pages/press';
 
-const DOC_PREFIX = '/components/press/';
-const SIDEBAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
-
-
 /**
  * 获取组件文件夹
  */
@@ -30,37 +26,6 @@ function getComps() {
       name: dir,
     }));
   return comps;
-}
-
-/**
- * 解析文档配置
- */
-function getDocConfig(md = '', name) {
-  const reg = /^\s*---([\s\S]+?)---/m;
-  const match = md.match(reg);
-
-  if (match && match[1]) {
-    const props = match[1]
-      .split('\n')
-      .filter(item => item)
-      .reduce((acc, item) => {
-        const list = item.split(':');
-        const key = list[0].trim();
-        const value = list[1].trim();
-        acc[key] = value;
-        return acc;
-      }, {});
-
-    if (!props.title || !props.subTitle) {
-      return;
-    }
-
-    return {
-      title: props.title,
-      subTitle: props.subTitle,
-      path: `${DOC_PREFIX}${name}.md`,
-    };
-  }
 }
 
 /**
@@ -86,11 +51,10 @@ function getLocalDocOrDemo(comps, postfix) {
 /**
  * 移动文档
  */
-function mvDocs() {
+function moveDocs() {
   const comps = getComps();
   const docs = getLocalDocOrDemo(comps, LOCAL_DOC_NAME);
-  const docConfig = [];
-  console.log('docs', docs);
+  console.log(`[AUTO] 共有${docs.length}个组件文档\n`);
 
   for (const doc of docs) {
     const { path: dir, name } = doc;
@@ -98,17 +62,8 @@ function mvDocs() {
       encoding: 'utf-8',
     });
 
-    const config = getDocConfig(data, name);
-    console.log('config', config);
-    if (!config) {
-      continue;
-    }
-
-    docConfig.push(config);
     writeCompDoc(data, name);
   }
-
-  writeSidebarConfig(docConfig);
 }
 
 /**
@@ -162,27 +117,10 @@ function writeCompDemo(data, name) {
 }
 
 
-/**
- * 写入sidebar配置
- */
-function writeSidebarConfig(config) {
-  const data = {
-    sidebar: [
-      {
-        title: '基础组件',
-        collapsable: false,
-        children: config,
-      },
-    ],
-  };
-  fs.writeFileSync(SIDEBAR_CONFIG_PATH, JSON.stringify(data, null, 2));
-}
-
-
 function moveDemo() {
   const comps = getComps();
   const demos = getLocalDocOrDemo(comps, LOCAL_DEMO_NAME);
-
+  console.log(`[AUTO] 共有${demos.length}个组件demo\n`);
 
   for (const doc of demos) {
     const { path: dir, name } = doc;
@@ -196,7 +134,7 @@ function moveDemo() {
 
 
 module.exports = {
-  mvDocs,
+  moveDocs,
   moveDemo,
 };
 

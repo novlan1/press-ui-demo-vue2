@@ -35,40 +35,45 @@ function hyphenate(str) {
 }
 
 function getCompDemoPages() {
-  const list = Object.keys(COMP_TYPE_MAP).map((key) => {
-    const value = COMP_TYPE_MAP[key];
-    const { title, list } = value;
-    const newList = list.map(item => ({
-      name: item,
-      url: getCompUrl(item),
-    }));
+  const list = Object.keys(COMP_TYPE_MAP)
+    .map((key) => {
+      const value = COMP_TYPE_MAP[key];
+      const { title, list } = value;
+      const newList = list.map(item => ({
+        name: item,
+        url: getCompUrl(item),
+      }));
 
-    return {
-      title,
-      list: newList,
-    };
-  });
+      return {
+        title,
+        list: newList,
+      };
+    })
+    .filter(item => item.list.length);
+
 
   return { pages: list };
 }
 
 
 function getSidebarConfig() {
-  const list = Object.keys(COMP_TYPE_MAP).map((key) => {
-    const value = COMP_TYPE_MAP[key];
-    const { title, list } = value;
-    const newList = list.map(item => ({
-      title: COMP_TITLE_MAP[item] && COMP_TITLE_MAP[item].title,
-      subTitle: item,
-      path: `/components/press/press-${hyphenate(item)}.md`,
-    }));
+  const list = Object.keys(COMP_TYPE_MAP)
+    .map((key) => {
+      const value = COMP_TYPE_MAP[key];
+      const { title, list } = value;
+      const newList = list.map(item => ({
+        title: COMP_TITLE_MAP[item] && COMP_TITLE_MAP[item].title,
+        subTitle: item,
+        path: `/components/press/press-${hyphenate(item)}.md`,
+      }));
 
-    return {
-      title,
-      collapsable: false,
-      children: newList,
-    };
-  });
+      return {
+        title,
+        collapsable: false,
+        children: newList,
+      };
+    })
+    .filter(item => item.children.length);
 
   return { sidebar: list };
 }

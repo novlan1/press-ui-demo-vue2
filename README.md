@@ -62,6 +62,25 @@ HOST_PWD=xxx
 npm run docs:deploy
 ```
 
+
+### 监听demo/文档
+
+```
+npm run docs:watch
+```
+
+### 开发最佳实践
+
+多开几个终端
+
+```
+npm run docs:watch
+npm run dev
+npm run dev:mp-weixin
+npm run docs:dev
+```
+
+
 ## 目录结构
 
 ```bash

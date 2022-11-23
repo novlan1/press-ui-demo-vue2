@@ -1,23 +1,25 @@
 <template>
   <view class="wrap">
-    <button @click="onShowToast">
-      普通
-    </button>
-    <button @click="onShowToastLoading('normal')">
-      loading
-    </button>
-    <button @click="onShowToastLoading('custom')">
-      loading自定义图标
-    </button>
-    <button @click="onShowToastSuccess('success')">
-      成功提示
-    </button>
-    <button @click="onShowToastSuccess('fail')">
-      失败提示
-    </button>
-    <button @click="onShowDynamicToast">
-      动态更新提示
-    </button>
+    <demo-block title="toast">
+      <button @click="onShowToast">
+        普通
+      </button>
+      <button @click="onShowToastLoading('normal')">
+        loading
+      </button>
+      <button @click="onShowToastLoading('custom')">
+        loading自定义图标
+      </button>
+      <button @click="onShowToastSuccess('success')">
+        成功提示
+      </button>
+      <button @click="onShowToastSuccess('fail')">
+        失败提示
+      </button>
+      <button @click="onShowDynamicToast">
+        动态更新提示
+      </button>
+    </demo-block>
     <!-- #ifndef H5 -->
     <press-toast id="van-toast" />
     <!-- #endif -->
@@ -29,7 +31,6 @@ import Toast from 'src/packages/press-toast';
 export default {
   data() {
     return {
-      isOpen: false,
     };
   },
   onLoad() {
@@ -98,16 +99,10 @@ export default {
         }
       }, 1000);
     },
-    onSwitchChange() {
-      this.isOpen = !this.isOpen;
-    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.wrap {
-  padding: 20px;
-}
 </style>
 

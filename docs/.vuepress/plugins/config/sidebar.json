@@ -109,11 +109,6 @@
           "path": "/components/press/press-tab.md"
         }
       ]
-    },
-    {
-      "title": "业务组件",
-      "collapsable": false,
-      "children": []
     }
   ]
 }

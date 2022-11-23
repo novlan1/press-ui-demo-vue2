@@ -18,7 +18,7 @@ export function transition(showDefaultValue) {
       },
       // @ts-ignore
       duration: {
-        type: null,
+        type: [Number, null],
         default: 300,
         // observer: 'observeDuration',
       },
@@ -64,17 +64,20 @@ export function transition(showDefaultValue) {
         const currentDuration = isObj(duration) ? duration.enter : duration;
         this.status = 'enter';
         this.$emit('before-enter');
+
         requestAnimationFrame(() => {
           if (this.status !== 'enter') {
             return;
           }
           this.$emit('enter');
+
           this.setData({
             inited: true,
             display: true,
             classes: classNames.enter,
             currentDuration,
           });
+
           requestAnimationFrame(() => {
             if (this.status !== 'enter') {
               return;

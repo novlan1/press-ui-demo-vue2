@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/novlan1/uni-press-ui/compare/v0.1.10...v0.1.11) (2022-11-24)
+
+
+### Features
+
+* 优化getReact ([a7f2478](https://github.com/novlan1/uni-press-ui/commit/a7f247858f204489c0db02fe57d4e890c7a5f62e))
+
 ### [0.1.10](https://github.com/novlan1/uni-press-ui/compare/v0.1.9...v0.1.10) (2022-11-23)
 
 ### [0.1.9](https://github.com/novlan1/uni-press-ui/compare/v0.1.8...v0.1.9) (2022-11-23)

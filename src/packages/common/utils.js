@@ -17,8 +17,8 @@ export function nextTick(cb) {
 }
 let systemInfo;
 export function getSystemInfoSync() {
-  if (systemInfo == null) {
-    systemInfo = wx.getSystemInfoSync();
+  if (systemInfo == null && typeof uni.getSystemInfoSync === 'function') {
+    systemInfo = uni.getSystemInfoSync();
   }
   return systemInfo;
 }

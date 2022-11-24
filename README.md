@@ -118,7 +118,7 @@ npm run docs:dev
 - 劣势：在小程序等其他端需要额外的插件来转换
 
 
-## 赛宝项目改动点
+## 赛宝项目已改动点
 
 ### dialog
 
@@ -152,6 +152,14 @@ npm run docs:dev
 1. src/local-component/ui/tip-match/tip-match-switch
 - 替换为 `@tencent/press-ui/press-switch/press-switch`
 - 删除原文件
+
+### DatetimePicker
+
+van-datetime-picker 替换为 press-dateime-picker
+
+### Tab
+
+van-tab 替换为 press-tab
 
 ## TODO
 

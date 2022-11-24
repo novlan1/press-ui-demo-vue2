@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/novlan1/uni-press-ui/compare/v0.1.11...v0.1.12) (2022-11-24)
+
+
+### Bug Fixes
+
+* 解决微信下没有wx ([f573e4d](https://github.com/novlan1/uni-press-ui/commit/f573e4defce11ada10cbb566d52ebb2eb64a0796))
+
 ### [0.1.11](https://github.com/novlan1/uni-press-ui/compare/v0.1.10...v0.1.11) (2022-11-24)
 
 

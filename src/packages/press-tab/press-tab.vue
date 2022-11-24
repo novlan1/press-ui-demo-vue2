@@ -36,12 +36,12 @@ export default {
       // observer: 'update',
     },
     info: {
-      type: [String, null],
+      type: [String, Number, null],
       default: '',
       // observer: 'update',
     },
     title: {
-      type: String,
+      type: [String, Number, null],
       default: '',
       // observer: 'update',
     },
@@ -56,7 +56,7 @@ export default {
       // observer: 'update',
     },
     name: {
-      type: [String, null],
+      type: [String, Number, null],
       default: '',
     },
   },

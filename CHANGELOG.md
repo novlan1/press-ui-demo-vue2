@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/novlan1/uni-press-ui/compare/v0.1.12...v0.1.13) (2022-11-25)
+
+
+### Features
+
+* 优化loading、tab样式 ([f84abc6](https://github.com/novlan1/uni-press-ui/commit/f84abc6e8859159c4189035643da36045fe9ee9a))
+
 ### [0.1.12](https://github.com/novlan1/uni-press-ui/compare/v0.1.11...v0.1.12) (2022-11-24)
 
 

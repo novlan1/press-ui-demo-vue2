@@ -1,5 +1,5 @@
 <template>
-  <uni-shadow-root class="vant-tab-index">
+  <uni-shadow-root class="vant-tab-index van-tab__pane-wrapper">
     <view
       :class="tabClass"
       :style="shouldShow ? '' : 'display: none;'"

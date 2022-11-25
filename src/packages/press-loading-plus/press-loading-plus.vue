@@ -73,7 +73,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
@@ -126,6 +126,7 @@ export default {
   }
 
   &--vertical {
+    display: flex;
     flex-direction: column;
 
     .van-loading__text {

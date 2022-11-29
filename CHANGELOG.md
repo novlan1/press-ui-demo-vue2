@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.13...v0.1.14) (2022-11-29)
+
+
+### Features
+
+* 增加find-router-name ([9571ebd](https://git.woa.com/pmd-mobile/support/press-ui/commit/9571ebdb6a5a257cf4cb8cbb2bf153b9f56c6328))
+
 ### [0.1.13](https://github.com/novlan1/uni-press-ui/compare/v0.1.12...v0.1.13) (2022-11-25)
 
 

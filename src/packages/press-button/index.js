@@ -9,7 +9,6 @@ function getSizeStyle(data) {
   const { size } = data;
 
   if (size) {
-    console.log('size', size);
     if (size === 'string' && DEFAULT_SIZE_LIST.indexOf(size) <= -1) {
       properties.height = size;
       properties.width = size;

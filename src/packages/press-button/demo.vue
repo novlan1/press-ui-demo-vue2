@@ -14,7 +14,7 @@
           type="primary"
           :custom-style="customStyle"
           :size="{width: '136px', height: '36px'}"
-          custom-class="van-button--bg van-button--bg-md"
+          custom-class="e-sport-bg e-sport-bg-md"
         >
           主要按钮
         </press-button>
@@ -230,6 +230,33 @@
         color="linear-gradient(to right, #4bb0ff, #6149f6)"
       >
         渐变色按钮
+      </press-button>
+    </demo-block>
+
+    <demo-block title="背景装饰">
+      <press-button
+        type="primary"
+        :custom-style="customStyle"
+        :size="{width: '136px', height: '36px'}"
+        custom-class="e-sport-bg e-sport-bg-md"
+      >
+        MD
+      </press-button>
+      <press-button
+        type="primary"
+        :custom-style="customStyle"
+        :size="{width: '136px', height: '36px'}"
+        custom-class="e-sport-bg e-sport-bg-lg"
+      >
+        LG
+      </press-button>
+      <press-button
+        type="primary"
+        :custom-style="customStyle"
+        :size="{width: '270px', height: '52px'}"
+        custom-class="e-sport-bg e-sport-bg-xl"
+      >
+        XL
       </press-button>
     </demo-block>
   </view>

@@ -145,7 +145,6 @@ export default {
     },
     buttonStyle() {
       const { plain, color, customStyle, size } = this;
-      console.log('buttonStyle.size', size);
       return rootStyle({ plain, color, customStyle, size });
     },
     loadingColor() {
@@ -196,7 +195,7 @@ export default {
   transition: opacity $animation-duration-fast;
   border-radius: var(--button-border-radius, $button-border-radius);
 
-  &:not(&--bg) {
+  &:not(.e-sport-bg) {
     &::before {
       position: absolute;
       top: 50%;
@@ -342,45 +341,43 @@ export default {
 
   ////////////////////////////////////////
   // 增加一些额外的size
-  &--width-auto {
-    width: auto;
-  }
+  // &--width-auto {
+  //   width: auto;
+  // }
 
-  &--width-136 {
-    width: $button-width-136;
-  }
+  // &--width-136 {
+  //   width: $button-width-136;
+  // }
 
-  &--height-auto {
-    height: auto;
-  }
+  // &--height-auto {
+  //   height: auto;
+  // }
 
-  &--height-36 {
-    height: $button-height-36;
-  }
+  // &--height-36 {
+  //   height: $button-height-36;
+  // }
 
   // 增加bg
-  &--bg {
+  &.e-sport-bg {
     &::before {
       position: absolute;
       bottom: 0;
       left: 0;
       content: "";
-      width: 63px;
-      height: 15px;
-      background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/btn-bg-r.png)
-        no-repeat center;
+      width: $button-e-sport-bg-before-md-width;
+      height: $button-e-sport-bg-before-md-height;
+      background: url($button-e-sport-bg-before-md-img) no-repeat center;
       background-size: contain;
       pointer-events: none;
     }
     &::after {
       position: absolute;
-      top: 4px;
+      top: $button-e-sport-bg-after-md-top;
       right: 0;
       content: "";
-      width: 76px;
-      height: 15px;
-      background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/btn-bg-r.png)
-        no-repeat center;
+      width: $button-e-sport-bg-after-md-width;
+      height: $button-e-sport-bg-after-md-height;
+      background: url($button-e-sport-bg-after-md-img) no-repeat center;
       background-size: contain;
       pointer-events: none;
     }
@@ -388,38 +385,42 @@ export default {
     &-default,
     &-md {
       &::before {
-        width: 63px;
-        height: 15px;
+        width: $button-e-sport-bg-before-md-width;
+        height: $button-e-sport-bg-before-md-height;
       }
       &::after {
-        top: 4px;
-        width: 76px;
-        height: 15px;
+        top: $button-e-sport-bg-after-md-top;
+        width: $button-e-sport-bg-after-md-width;
+        height: $button-e-sport-bg-after-md-height;
       }
     }
 
     &-large,
     &-lg {
       &::before {
-        width: 93px;
-        height: 15px;
+        width: $button-e-sport-bg-before-lg-width;
+        height: $button-e-sport-bg-before-lg-height;
+        background-image: url($button-e-sport-bg-before-lg-img);
       }
       &::after {
-        top: 4px;
-        width: 93px;
-        height: 15px;
+        top: $button-e-sport-bg-after-lg-top;
+        width: $button-e-sport-bg-after-lg-width;
+        height: $button-e-sport-bg-after-lg-height;
+        background-image: url($button-e-sport-bg-after-lg-img);
       }
     }
 
     &-xl {
       &::before {
-        width: 105px;
-        height: 42px;
+        width: $button-e-sport-bg-before-xl-width;
+        height: $button-e-sport-bg-before-xl-height;
+        background-image: url($button-e-sport-bg-before-xl-img);
       }
       &::after {
-        top: 0;
-        width: 105px;
-        height: 42px;
+        top: $button-e-sport-bg-after-xl-top;
+        width: $button-e-sport-bg-after-xl-width;
+        height: $button-e-sport-bg-after-xl-height;
+        background-image: url($button-e-sport-bg-after-xl-img);
       }
     }
   }

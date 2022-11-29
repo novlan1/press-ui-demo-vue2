@@ -4,6 +4,10 @@
       "title": "基础组件",
       "list": [
         {
+          "name": "Button",
+          "url": "/press/button/button"
+        },
+        {
           "name": "Icon",
           "url": "/press/icon/icon"
         },

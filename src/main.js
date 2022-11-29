@@ -8,6 +8,7 @@ import Vue from 'vue';
 import DemoBlock from 'src/pages/demo-block/demo-block.vue';
 
 import PressLoading from 'src/packages/press-loading/press-loading.vue';
+import PressButton from 'src/packages/press-button/press-button.vue';
 import PressPicker from 'src/packages/press-picker/press-picker.vue';
 import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
 import PressIcon from 'src/packages/press-icon/press-icon.vue';
@@ -158,6 +159,7 @@ Vue.component('UniUi', UniUi);
 
 Vue.component('DemoBlock', DemoBlock);
 
+Vue.component('PressButton', PressButton);
 Vue.component('PressLoading', PressLoading);
 Vue.component('PressPicker', PressPicker);
 Vue.component('PressDialog', PressDialog);

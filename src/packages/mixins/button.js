@@ -1,22 +1,25 @@
 import { canIUseGetUserProfile } from '../common/version';
 export const button = {
-  externalClasses: ['hover-class'],
-  properties: {
-    id: String,
-    lang: String,
-    businessId: Number,
-    sessionFrom: String,
-    sendMessageTitle: String,
-    sendMessagePath: String,
-    sendMessageImg: String,
-    showMessageCard: Boolean,
-    appParameter: String,
-    ariaLabel: String,
-    openType: String,
-    getUserProfileDesc: String,
+  // externalClasses: ['hover-class'],
+  props: {
+    id: { type: String, default: '' },
+    lang: { type: String, default: '' },
+    businessId: { type: String, default: '' },
+    sessionFrom: { type: String, default: '' },
+    sendMessageTitle: { type: String, default: '' },
+    sendMessagePath: { type: String, default: '' },
+    sendMessageImg: { type: String, default: '' },
+    showMessageCard: { type: String, default: '' },
+    appParameter: { type: String, default: '' },
+    ariaLabel: { type: String, default: '' },
+    openType: { type: String, default: '' },
+    getUserProfileDesc: { type: String, default: '' },
+    hoverClass: { type: String, default: '' },
   },
-  data: {
-    canIUseGetUserProfile: canIUseGetUserProfile(),
+  data() {
+    return {
+      canIUseGetUserProfile: canIUseGetUserProfile(),
+    };
   },
   methods: {
     onGetUserInfo(event) {

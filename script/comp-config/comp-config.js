@@ -56,7 +56,7 @@ const COMP_TYPE_MAP = {
   base: {
     title: '基础组件',
     list: [
-      // 'Button',
+      'Button',
       // 'Cell',
       'Icon',
       // 'Image',

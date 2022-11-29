@@ -386,6 +386,15 @@
       ]
     },
     {
+      "root": "pages/press/button",
+      "pages": [
+        {
+          "path": "button",
+          "style": {}
+        }
+      ]
+    },
+    {
       "root": "pages/press/picker",
       "pages": [
         {

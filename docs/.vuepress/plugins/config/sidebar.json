@@ -5,6 +5,11 @@
       "collapsable": false,
       "children": [
         {
+          "title": "按钮",
+          "subTitle": "Button",
+          "path": "/components/press/press-button.md"
+        },
+        {
           "title": "图标",
           "subTitle": "Icon",
           "path": "/components/press/press-icon.md"

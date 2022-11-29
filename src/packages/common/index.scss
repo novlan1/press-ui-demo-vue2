@@ -68,14 +68,14 @@
   border-right-width: 1px
 }
 
-.van-hairline--bottom:after {
+.van-hairline--bottom::after {
   border-bottom-width: 1px
 }
 
-.van-hairline--top-bottom:after {
+.van-hairline--top-bottom::after {
   border-width: 1px 0
 }
 
-.van-hairline--surround:after {
+.van-hairline--surround::after {
   border-width: 1px
 }

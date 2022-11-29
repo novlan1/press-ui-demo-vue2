@@ -30,3 +30,5 @@ docs/components/press
 
 # demo地址
 src/pages/press
+
+tests/coverage

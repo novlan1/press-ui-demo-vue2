@@ -52,10 +52,8 @@ export function findRouteName(path, routes) {
     const match = isMatchPath(meta, purePath);
 
     const queryBasePath = getQueryBaseStr(queryStr);
-    console.log('queryBasePath', queryBasePath);
     if (match) {
       const { match: iMatch, keys } = match;
-      console.log('iMatch', iMatch, keys);
 
       const params = keys.reduce((acc: {[k: string]: string}, key, index) => {
         const { name } = key;

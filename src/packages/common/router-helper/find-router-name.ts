@@ -39,7 +39,7 @@ export function findRouteName(path, routes) {
   // eslint-disable-next-line @typescript-eslint/prefer-for-of
   for (let i = 0;i < routes.length;i++) {
     const item = routes[i];
-    const { name,  meta = {} } = item;
+    const { name, meta = {}, path: itemPath } = item;
 
     let purePath = path;
     let queryStr = '';
@@ -70,6 +70,7 @@ export function findRouteName(path, routes) {
           ...params,
           ...queryBasePath,
         },
+        path: itemPath,
       };
     }
   }

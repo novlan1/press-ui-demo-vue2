@@ -1,31 +1,23 @@
 <template>
-  <uni-shadow-root
+  <!-- <uni-shadow-root
     class="vant-transition-index"
+  > -->
+  <view
+    v-if="inited"
+    :class="transitionClass"
+    :style="rootStyle"
+    @transitionend="onTransitionEnd"
   >
-    <view
-      v-if="inited"
-      :class="transitionClass"
-      :style="rootStyle"
-      @transitionend="onTransitionEnd"
-    >
-      <slot />
-    </view>
-  </uni-shadow-root>
+    <slot />
+  </view>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import computed from './index';
 import { transition } from '../mixins/transition';
-
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
-  classes: [
-    'enter-class',
-    'enter-active-class',
-    'enter-to-class',
-    'leave-class',
-    'leave-active-class',
-    'leave-to-class',
-  ],
   mixins: [transition(true)],
   props: {
     overlay: {
@@ -56,6 +48,7 @@ export default {
       type: String,
       default: '',
     },
+    ...defaultProps,
   },
   data() {
     return {
@@ -63,6 +56,7 @@ export default {
     };
   },
   options: {
+    ...defaultOptions,
     // virtualHost: true,
   },
   computed: {
@@ -75,12 +69,6 @@ export default {
       const {
         customClass,
         overlay,
-        // enterClass,
-        // enterActiveClass,
-        // enterToClass,
-        // leaveClass,
-        // leaveActiveClass,
-        // leaveToClass,
         classes,
       } = this;
       return `van-transition ${classes} ${customClass} ${overlay ? 'van-overlay' : ''}`;

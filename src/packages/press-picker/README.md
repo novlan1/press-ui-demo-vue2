@@ -14,30 +14,21 @@ subTitle: Picker
 **示例**
 
 
-```vue
-<template>
-  <button @click.stop="onShowPicker('tip')">
-    顶部提示
-  </button>
-  <press-picker
-    v-if="pickerOption.tip.show"
-    :title="pickerOption.tip.title"
-    :show-back-arrow="pickerOption.tip.showBackArrow"
-    :select-list="pickerOption.tip.selectList"
-    :tip="pickerOption.tip.tip"
-    :select-item="pickerOption.tip.selectItem"
-    @onClickConfirm="pickerOption.tip.onClickConfirm"
-    @onRemove="pickerOption.tip.onRemove"
-  />
-</template>
+```html
+<press-picker
+  v-if="pickerOption.tip.show"
+  :title="pickerOption.tip.title"
+  :show-back-arrow="pickerOption.tip.showBackArrow"
+  :select-list="pickerOption.tip.selectList"
+  :tip="pickerOption.tip.tip"
+  :select-item="pickerOption.tip.selectItem"
+  @onClickConfirm="pickerOption.tip.onClickConfirm"
+  @onRemove="pickerOption.tip.onRemove"
+/>
+```
 
-<script>
-import PressPicker from 'src/packages/press-picker/press-picker';
-
+```ts
 export default {
-  component: {
-    PressPicker
-  },
   data() {
     return {
        pickerOption: {
@@ -72,7 +63,6 @@ export default {
     },
   }
 },
-</script>
 ```
 
 

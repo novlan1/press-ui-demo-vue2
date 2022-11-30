@@ -1,28 +1,19 @@
 <template>
   <view>
-    <view>
-      <button @click.stop="onShowDialog('normal')">
-        提示弹窗
-      </button>
-      <button @click.stop="onShowDialog('noCancel')">
-        没有取消按钮
-      </button>
-      <button @click.stop="onShowDialog('loading')">
-        loading
-      </button>
-      <button @click.stop="onShowDialog('noCancelLoading')">
-        没有取消按钮+loading
-      </button>
-      <button @click.stop="onShowDialog('html')">
-        html content
-      </button>
-      <button @click.stop="onShowDialog('img')">
-        图片
-      </button>
-      <button @click.stop="onShowDialog('noTouchMove')">
-        点击蒙层不可关闭
-      </button>
-    </view>
+    <demo-block
+      v-for="(item, index) of dialogTypeList"
+      :key="index"
+      :title="item.title"
+      :section-style="sectionStyle"
+    >
+      <press-button
+        type="e-sport-primary-bg"
+        @click="onShowDialog(item.name)"
+      >
+        查看
+      </press-button>
+    </demo-block>
+
     <press-dialog id="tip-match-comm-tips-dialog" />
   </view>
 </template>
@@ -40,7 +31,37 @@ const loadingConfirm = function () {
 export default {
   data() {
     return {
-
+      sectionStyle: '',
+      dialogTypeList: [
+        {
+          name: 'normal',
+          title: '基本用法',
+        },
+        {
+          name: 'noCancel',
+          title: '没有取消按钮',
+        },
+        {
+          name: 'loading',
+          title: '加载中',
+        },
+        {
+          name: 'noCancelLoading',
+          title: '没有取消+加载中',
+        },
+        {
+          name: 'img',
+          title: '图片',
+        },
+        {
+          name: 'html',
+          title: 'HTML内容',
+        },
+        {
+          name: 'noTouchMove',
+          title: '点击蒙层不可关闭',
+        },
+      ],
     };
   },
   onLoad() {
@@ -71,7 +92,7 @@ export default {
         onConfirmClick = loadingConfirm;
       } else if (type === 'html') {
         content = '',
-        htmlContent = '<div>自定义<span style="color: red;">content</span></div>';
+        htmlContent = '<div>自定义<span style="color: red;">内容</span></div>';
       } else if (type === 'img') {
         src = 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/qrcode-wx-mp.png';
       } else if (type === 'noTouchMove') {

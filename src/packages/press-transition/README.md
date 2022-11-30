@@ -34,9 +34,10 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
 
 ```html
 <press-transition
-  :show="show"
+  :show="options.custom"
+  :duration="{ enter: 1000, leave: 1000 }"
+  custom-class="block"
   name=""
-  duration="{{ { enter: 300, leave: 1000 } }}"
   enter-class="press-enter-class"
   enter-active-class="press-enter-active-class"
   leave-active-class="press-leave-active-class"

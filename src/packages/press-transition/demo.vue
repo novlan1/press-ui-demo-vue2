@@ -3,34 +3,36 @@
     <demo-block
       v-for="(item,index) of transitionList"
       :key="index"
-      title="文字提示"
+      :title="item"
     >
       <PressButton
         type="e-sport-primary"
-        :custom-style="customStyle"
-        @click="onShowTransition(item)"
-      >
-        查看
-      </PressButton>
-    </demo-block>
-
-    <demo-block title="动画">
-      <button
-        v-for="(item,index) of transitionList"
-        :key="index"
+        :custom-style="`${customStyle};padding:0;`"
         @click="onShowTransition(item)"
       >
         {{ item }}
-      </button>
+      </PressButton>
     </demo-block>
+
     <press-transition
+      v-if="curTransitionType !== 'custom'"
       :name="curTransitionType"
       :show="options[curTransitionType] || false"
-    >
-      <div class="demo-rect">
-        <div class="demo-rect--content" />
-      </div>
-    </press-transition>
+      :duration="300"
+      custom-class="block"
+    />
+
+    <press-transition
+      v-else
+      :show="options.custom || false"
+      :duration="{ enter: 1000, leave: 1000 }"
+      custom-class="block"
+      name=""
+      enter-class="press-enter-class"
+      enter-active-class="press-enter-active-class"
+      leave-active-class="press-leave-active-class"
+      leave-to-class="press-leave-to-class"
+    />
   </view>
 </template>
 <script>
@@ -50,6 +52,7 @@ export default {
       'slide-down',
       'slide-left',
       'slide-right',
+      'custom',
     ];
 
     return {
@@ -60,6 +63,7 @@ export default {
         acc[item] = false;
         return acc;
       }, {}),
+      showCustom: false,
     };
   },
   onLoad() {
@@ -74,17 +78,21 @@ export default {
       this.options[type] = true;
       this.curTransitionType = type;
       clearTimeout(timer);
+      const time = type === 'custom' ? 2000 : 1000;
       timer = setTimeout(() => {
         this.options[type] = false;
-      }, 1000);
+      }, time);
     },
   },
 };
 </script>
 
-<style scoped lang="scss">
-.demo-rect {
-  width: 100%;
+<style lang="scss">
+.wrap {
+  padding-bottom: 20px;
+  background: #fff;
+}
+.block {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -92,16 +100,17 @@ export default {
   height: 100px;
   margin: -50px 0 0 -50px;
   background-color: #1989fa;
+}
 
-  &--content {
-    // top: 50%;
-    // left: 50%;
-    // width: 100px;
-    // height: 100px;
-    // margin: 10px auto;
-    // background-color: #1989fa;
-    // border-radius: 8px;
-  }
+.press-enter-active-class,
+.press-leave-active-class {
+  transition-property: background-color, transform;
+}
+
+.press-enter-class,
+.press-leave-to-class {
+  background-color: red;
+  transform: rotate(-360deg) translate3d(-100%, -100%, 0);
 }
 </style>
 

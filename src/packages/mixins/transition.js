@@ -1,12 +1,23 @@
 // @ts-nocheck
 import { requestAnimationFrame } from '../common/utils';
 import { isObj } from '../common/validator';
-const getClassNames = name => ({
-  enter: `van-${name}-enter van-${name}-enter-active enter-class enter-active-class`,
-  'enter-to': `van-${name}-enter-to van-${name}-enter-active enter-to-class enter-active-class`,
-  leave: `van-${name}-leave van-${name}-leave-active leave-class leave-active-class`,
-  'leave-to': `van-${name}-leave-to van-${name}-leave-active leave-to-class leave-active-class`,
-});
+const getClassNames = (name, _this) => {
+  const {
+    enterClass,
+    enterActiveClass,
+    enterToClass,
+    leaveClass,
+    leaveActiveClass,
+    leaveToClass,
+  } = _this;
+
+  return {
+    enter: `van-${name}-enter van-${name}-enter-active ${enterClass} ${enterActiveClass}`,
+    'enter-to': `van-${name}-enter-to van-${name}-enter-active ${enterToClass} ${enterActiveClass}`,
+    leave: `van-${name}-leave van-${name}-leave-active ${leaveClass} ${leaveActiveClass}`,
+    'leave-to': `van-${name}-leave-to van-${name}-leave-active ${leaveToClass} ${leaveActiveClass}`,
+  };
+};
 export function transition(showDefaultValue) {
   return {
     props: {
@@ -14,13 +25,10 @@ export function transition(showDefaultValue) {
       show: {
         type: Boolean,
         default: showDefaultValue,
-        // observer: 'observeShow',
       },
-      // @ts-ignore
       duration: {
-        type: [Number, null],
+        type: [Number, Object, null],
         default: 300,
-        // observer: 'observeDuration',
       },
       name: {
         type: String,
@@ -40,11 +48,11 @@ export function transition(showDefaultValue) {
           this.observeShow(...args);
         },
       },
-      duration: {
-        handler(...args) {
-          this.observeDuration(...args);
-        },
-      },
+      // duration: {
+      // handler(...args) {
+      //   this.observeDuration(...args);
+      // },
+      // },
     },
     mounted() {
       if (this.show === true) {
@@ -60,7 +68,7 @@ export function transition(showDefaultValue) {
       },
       enter() {
         const { duration, name } = this;
-        const classNames = getClassNames(name);
+        const classNames = getClassNames(name, this);
         const currentDuration = isObj(duration) ? duration.enter : duration;
         this.status = 'enter';
         this.$emit('before-enter');
@@ -92,7 +100,7 @@ export function transition(showDefaultValue) {
           return;
         }
         const { duration, name } = this;
-        const classNames = getClassNames(name);
+        const classNames = getClassNames(name, this);
         const currentDuration = isObj(duration) ? duration.leave : duration;
         this.status = 'leave';
         this.$emit('before-leave');

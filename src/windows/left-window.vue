@@ -19,7 +19,7 @@ export default {
         if (this.matchLeftWindow) {
           if (newRoute.path === '/') {
             uni.redirectTo({
-              url: 'pages/vue/color/color',
+              url: 'pages/press/button/button',
             });
           }
           if (!newRoute.matched.length) {

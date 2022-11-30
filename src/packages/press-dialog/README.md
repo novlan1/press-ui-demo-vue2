@@ -13,22 +13,14 @@ subTitle: Dialog
 
 **示例**
 
-```vue
-<template>
-  <button @click.stop="onShowDialog()">
-    展示
-  </button>
-  <press-dialog id="tip-match-comm-tips-dialog" />
-</template>
+```html
+<press-dialog id="tip-match-comm-tips-dialog" />
+```
 
-<script>
+```ts
 import PressDialogHandler from 'src/packages/press-dialog';
-import PressDialog from 'src/packages/press-dialog/press-dialog';
 
 export default {
-  component: {
-    PressDialog,
-  },
   methods: {
     onShowDialog() {
       PressDialogHandler.show({
@@ -41,7 +33,6 @@ export default {
     },
   },
 };
-</script>
 ```
 
 ## API
@@ -56,7 +47,3 @@ export default {
 | confirmText | String |   确定   | 确认按钮文案 |
 | cancelText  | String |    -     | 取消按钮文案 |
 
-
-{{1+1}}
-
-<!-- props -->

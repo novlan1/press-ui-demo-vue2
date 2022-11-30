@@ -1,60 +1,78 @@
 <template>
   <view class="wrap">
-    <demo-block title="基础用法">
+    <demo-block
+      title="基础用法"
+      :section-style="sectionStyle"
+    >
       <press-checkbox
-        :value="checked"
-        @change="onChange"
+        :value="checkedMap.basic"
+        @change="v=>onChange(v, 'basic')"
       >
         复选框
       </press-checkbox>
     </demo-block>
 
-    <demo-block title="禁用状态">
+    <demo-block
+      title="禁用状态"
+      :section-style="sectionStyle"
+    >
       <press-checkbox
-        :value="checked"
+        :value="checkedMap.disabled"
         disabled
-        @change="onChange"
+        @change="v=>onChange(v, 'disabled')"
       >
         复选框
       </press-checkbox>
     </demo-block>
 
 
-    <demo-block title="自定义形状">
+    <demo-block
+      title="自定义形状"
+      :section-style="sectionStyle"
+    >
       <press-checkbox
         shape="square"
-        :value="checked"
-        @change="onChange"
+        :value="checkedMap.group"
+        @change="v=>onChange(v, 'group')"
       >
         复选框
       </press-checkbox>
     </demo-block>
 
-    <demo-block title="自定义颜色">
+    <demo-block
+      title="自定义颜色"
+      :section-style="sectionStyle"
+    >
       <press-checkbox
-        :value="checked"
+        :value="checkedMap.color"
         checked-color="#07c160"
-        @change="onChange"
+        @change="v=>onChange(v, 'color')"
       >
         复选框
       </press-checkbox>
     </demo-block>
 
-    <demo-block title="自定义大小">
+    <demo-block
+      title="自定义大小"
+      :section-style="sectionStyle"
+    >
       <press-checkbox
-        :value="checked"
+        :value="checkedMap.size"
         :icon-size="25"
-        @change="onChange"
+        @change="v=>onChange(v, 'size')"
       >
         复选框
       </press-checkbox>
     </demo-block>
 
-    <demo-block title="禁用文本点击">
+    <demo-block
+      title="禁用文本点击"
+      :section-style="sectionStyle"
+    >
       <press-checkbox
-        :value="checked"
+        :value="checkedMap.noLabel"
         label-disabled
-        @change="onChange"
+        @change="v=>onChange(v, 'noLabel')"
       >
         复选框
       </press-checkbox>
@@ -66,8 +84,15 @@
 export default {
   data() {
     return {
-      isOpen: false,
-      checked: true,
+      checkedMap: {
+        basic: true,
+        group: true,
+        size: true,
+        color: true,
+        noLabel: true,
+        disabled: true,
+      },
+      sectionStyle: 'margin: 5px 18px;',
     };
   },
   onLoad() {
@@ -78,15 +103,9 @@ export default {
     // #endif
   },
   methods: {
-    onShow() {
-
-    },
-    onSwitchChange() {
-      this.isOpen = !this.isOpen;
-    },
-    onChange(val) {
-      console.log('onChange.val', val);
-      this.checked = val;
+    onChange(val, type) {
+      console.log('onChange.val', val, type);
+      this.checkedMap[type] = val;
     },
   },
 };

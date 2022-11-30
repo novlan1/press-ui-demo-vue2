@@ -1,13 +1,28 @@
 <template>
   <view>
-    <view>
-      <button @click.stop="onShowPicker('normal')">
-        普通使用
-      </button>
-      <button @click.stop="onShowPicker('tip')">
-        顶部提示
-      </button>
-    </view>
+    <demo-block
+      title="基本用法"
+    >
+      <PressButton
+        type="e-sport-primary"
+        :custom-style="`${customStyle};padding:0;`"
+        @click="onShowPicker('normal')"
+      >
+        查看
+      </PressButton>
+    </demo-block>
+    <demo-block
+      title="顶部提示"
+    >
+      <PressButton
+        type="e-sport-primary"
+        :custom-style="`${customStyle};padding:0;`"
+        @click="onShowPicker('tip')"
+      >
+        查看
+      </PressButton>
+    </demo-block>
+
     <press-picker
       v-if="pickerOption.normal.show"
       :title="pickerOption.normal.title"
@@ -58,7 +73,7 @@ const bpList = [
 export default {
   data() {
     return {
-      show: false,
+      customStyle: '',
       pickerOption: {
         normal: {
           show: false,

@@ -1,5 +1,19 @@
 <template>
   <view class="wrap">
+    <demo-block
+      v-for="(item,index) of transitionList"
+      :key="index"
+      title="文字提示"
+    >
+      <PressButton
+        type="e-sport-primary"
+        :custom-style="customStyle"
+        @click="onShowTransition(item)"
+      >
+        查看
+      </PressButton>
+    </demo-block>
+
     <demo-block title="动画">
       <button
         v-for="(item,index) of transitionList"
@@ -9,14 +23,14 @@
         {{ item }}
       </button>
     </demo-block>
-    <div class="demo-rect">
-      <press-transition
-        :name="curTransitionType"
-        :show="options[curTransitionType] || false"
-      >
+    <press-transition
+      :name="curTransitionType"
+      :show="options[curTransitionType] || false"
+    >
+      <div class="demo-rect">
         <div class="demo-rect--content" />
-      </press-transition>
-    </div>
+      </div>
+    </press-transition>
   </view>
 </template>
 <script>
@@ -39,6 +53,7 @@ export default {
     ];
 
     return {
+      customStyle: '',
       curTransitionType: 'fade',
       transitionList,
       options: transitionList.reduce((acc, item) => {
@@ -70,15 +85,22 @@ export default {
 <style scoped lang="scss">
 .demo-rect {
   width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  background-color: #1989fa;
 
   &--content {
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin: 10px auto;
-    background-color: #1989fa;
-    border-radius: 8px;
+    // top: 50%;
+    // left: 50%;
+    // width: 100px;
+    // height: 100px;
+    // margin: 10px auto;
+    // background-color: #1989fa;
+    // border-radius: 8px;
   }
 }
 </style>

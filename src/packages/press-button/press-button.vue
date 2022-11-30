@@ -492,10 +492,14 @@ export default {
 
 .van-button {
   &--e-sport-primary {
+    width: 1.76rem;
+    height: 0.72rem;
     @include primaryMixin();
   }
 
   &--e-sport-secondary {
+    width: 2rem;
+    height: 0.72rem;
     font-size: $font-size-lg;
     color: $color-black;
     border-radius: $border-radius-md;
@@ -507,6 +511,8 @@ export default {
   }
 
   &--e-sport-border {
+    width: 2rem;
+    height: 0.72rem;
     font-size: $font-size-lg;
     color: $color-primary;
     border-width: $border-width-base;
@@ -522,8 +528,14 @@ export default {
   }
 
   &--e-sport-bg {
+    width: 2.72rem;
+    height: 0.72rem;
     @include bgMixin();
+
     &-lg {
+      width: 5.34rem;
+      height: 0.88rem;
+
       &::before {
         width: $button-e-sport-bg-before-lg-width;
         height: $button-e-sport-bg-before-lg-height;
@@ -538,6 +550,9 @@ export default {
     }
 
     &-xl {
+      width: 6rem;
+      height: 0.88rem;
+
       &::before {
         width: $button-e-sport-bg-before-xl-width;
         height: $button-e-sport-bg-before-xl-height;

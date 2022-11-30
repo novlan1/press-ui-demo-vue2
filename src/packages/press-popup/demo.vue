@@ -1,22 +1,55 @@
 <template>
   <view>
     <view>
-      <button @click.stop="onShowPopup('normal')">
-        关闭icon
-      </button>
-      <button @click.stop="onShowPopup('cancel')">
-        取消icon
-      </button>
-      <button @click.stop="onShowPopup('noClose')">
-        没有关闭/取消
-      </button>
-      <button @click.stop="onShowPopup('hor')">
-        横版
-      </button>
-      <button @click.stop="onShowPopup('borderBtn')">
-        border按钮
-      </button>
+      <demo-block title="关闭图标">
+        <PressButton
+          type="e-sport-primary"
+          :custom-style="customStyle"
+          @click="onShowPopup('normal')"
+        >
+          查看
+        </PressButton>
+      </demo-block>
+      <demo-block title="取消图标">
+        <PressButton
+          type="e-sport-primary"
+          :custom-style="customStyle"
+          @click="onShowPopup('cancel')"
+        >
+          查看
+        </PressButton>
+      </demo-block>
+      <demo-block title="没有关闭/取消">
+        <PressButton
+          type="e-sport-primary"
+          :custom-style="customStyle"
+          @click="onShowPopup('noClose')"
+        >
+          查看
+        </PressButton>
+      </demo-block>
+
+      <demo-block title="线框确认图标">
+        <PressButton
+          type="e-sport-primary"
+          :custom-style="customStyle"
+          @click="onShowPopup('borderBtn')"
+        >
+          查看
+        </PressButton>
+      </demo-block>
+
+      <demo-block title="横版">
+        <PressButton
+          type="e-sport-primary"
+          :custom-style="customStyle"
+          @click="onShowPopup('hor')"
+        >
+          查看
+        </PressButton>
+      </demo-block>
     </view>
+
     <PressPopup
       v-if="popupOptions.normal.show"
       :is-showpopup-close="true"
@@ -76,8 +109,8 @@
     <PressPopup
       v-if="popupOptions.borderBtn.show"
       :is-showpopup-close="true"
-      :is-border-btn="true"
       :show-back-arrow="false"
+      :is-border-btn="true"
       :popup-title="popupOptions.borderBtn.title"
       popup-title-btn="确定"
       @onConfirm="popupOptions.borderBtn.onConfirm"
@@ -94,6 +127,7 @@
 export default {
   data() {
     return {
+      customStyle: '',
       popupOptions: {
         normal: {
           show: false,

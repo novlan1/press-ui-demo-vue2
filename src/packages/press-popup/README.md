@@ -10,39 +10,143 @@ subTitle: Popup
 弹出层组件，在应用中弹出一个消息提示窗口、提示框等
 
 
-### 基本用法
+### 关闭图标
 
-**示例**
+设置`is-showpopup-close`为`true`。
 
 
-```vue
+```html
 <template>
   <PressPopup
-    v-if="popupOptions.normal.show"
+    v-if="show"
     :is-showpopup-close="true"
     :show-back-arrow="false"
-    :popup-title="popupOptions.normal.title"
+    :popup-title="title"
     popup-title-btn="确定"
-    @onConfirm="popupOptions.normal.onConfirm"
-    @onCancel="popupOptions.normal.onCancel"
+    @onConfirm="onConfirm"
+    @onCancel="onCancel"
   >
     <view class="content">
       一些内容
     </view>
   </PressPopup>
 </template>
+```
 
-<script>
-import PressPopup from '@tencent/press-ui/press-popup/press-popup';
-
+```ts
 export default {
-  component: {
-    PressPopup,
+  data() {
+    return {
+      title: '决胜方式',
+      show: false;
+    }
   },
+  methods: {
+    onCancel() {
+      this.show = false;
+    },
+    onConfirm() {
+      this.show = false;
+    },
+  }
 };
 </script>
 ```
 
+### 取消图标
+
+设置`is-showpopup-close`为`true`，`show-back-arrow`为`true`。
+
+
+```html
+<template>
+  <PressPopup
+    v-if="show"
+    :is-showpopup-close="true"
+    :show-back-arrow="true"
+    :popup-title="title"
+    popup-title-btn="确定"
+    @onConfirm="onConfirm"
+    @onCancel="onCancel"
+  >
+    <view class="content">
+      一些内容
+    </view>
+  </PressPopup>
+</template>
+```
+
+### 没有关闭/取消
+
+设置`is-showpopup-close`为`false`，`show-back-arrow`为`false`。
+
+
+```html
+<template>
+  <PressPopup
+    v-if="show"
+    :is-showpopup-close="false"
+    :show-back-arrow="false"
+    :popup-title="title"
+    popup-title-btn="确定"
+    @onConfirm="onConfirm"
+    @onCancel="onCancel"
+  >
+    <view class="content">
+      一些内容
+    </view>
+  </PressPopup>
+</template>
+```
+
+
+
+### 线框确认图标
+
+设置`is-border-btn`为`true`。
+
+
+```html
+<template>
+  <PressPopup
+    v-if="show"
+    :is-showpopup-close="true"
+    :show-back-arrow="false"
+    :is-border-btn="true"
+    :popup-title="title"
+    popup-title-btn="确定"
+    @onConfirm="onConfirm"
+    @onCancel="onCancel"
+  >
+    <view class="content">
+      一些内容
+    </view>
+  </PressPopup>
+</template>
+```
+
+### 横版
+
+设置`is-cross-slab`为`true`。
+
+
+```html
+<template>
+  <PressPopup
+    v-if="show"
+    :is-showpopup-close="true"
+    :is-cross-slab="true"
+    :width-number="54"
+    :popup-title="title"
+    @onConfirm="onConfirm"
+    @onCancel="onCancel"
+  >
+    <view class="content">
+      一些内容
+    </view>
+  </PressPopup>
+</template>
+```
 
 ## API
 

@@ -6,165 +6,205 @@ subTitle: Button
 
 ## Button 按钮
 
+按钮用于触发一个操作，如提交表单。
 
-在一组备选项中进行多选。
+## 代码演示
 
-### 基础用法
+### 按钮类型
 
-通过`value`绑定复选框的勾选状态。
+支持`default`、`primary`、`info`、`warning`、`danger`五种类型，默认为`default`。
 
 ```html
-<press-checkbox
-  :value="checked"
-  @change="onChange"
->
-  复选框
-</press-checkbox>
+<press-button type="default">默认按钮</press-button>
+<press-button type="primary">主要按钮</press-button>
+<press-button type="info">信息按钮</press-button>
+<press-button type="warning">警告按钮</press-button>
+<press-button type="danger">危险按钮</press-button>
 ```
 
-```js
-export default {
-  data() {
-    return {
-      checked: true,
-    };
-  },
-  methods: {
-    onChange(val) {
-      this.checked = val;
-    },
-  },
-};
+### 朴素按钮
+
+通过`plain`属性将按钮设置为朴素按钮，朴素按钮的文字为按钮颜色，背景为白色。
+
+```html
+<press-button plain type="primary">朴素按钮</press-button>
+<press-button plain type="info">朴素按钮</press-button>
+```
+
+### 细边框
+
+设置`hairline`属性可以开启 0.5px 边框，基于伪类实现。
+
+```html
+<press-button plain hairline type="primary">细边框按钮</press-button>
+<press-button plain hairline type="info">细边框按钮</press-button>
 ```
 
 ### 禁用状态
 
-通过设置`disabled`属性可以禁用复选框。
+通过`disabled`属性来禁用按钮，此时按钮的`click`事件不会触发。
 
 ```html
-<press-checkbox
-  :value="checked"
-  disabled
-  @change="onChange"
->
-  复选框
-</press-checkbox>
+<press-button disabled type="primary">禁用状态</press-button>
+<press-button disabled type="info">禁用状态</press-button>
 ```
 
-### 自定义形状
-
-将`shape`属性设置为`square`，复选框的形状会变成方形。
+### 加载状态
 
 ```html
-<press-checkbox
-  shape="square"
-  :value="checked"
-  @change="onChange"
->
-  复选框
-</press-checkbox>
+<press-button loading type="primary" />
+<press-button loading type="primary" loading-type="spinner" />
+<press-button loading type="info" loading-text="加载中..." />
+```
+
+### 按钮形状
+
+```html
+<press-button square type="primary">方形按钮</press-button>
+<press-button round type="info">圆形按钮</press-button>
+```
+
+### 图标按钮
+
+通过`icon`属性设置按钮图标，支持 Icon 组件里的所有图标，也可以传入图标 URL。
+
+```html
+<press-button icon="star-o" type="primary" />
+<press-button icon="star-o" type="primary">按钮</press-button>
+<press-button icon="https://img.yzcdn.cn/vant/logo.png" type="info">
+  按钮
+</press-button>
+```
+
+### 按钮尺寸
+
+支持`large`、`normal`、`small`、`mini`四种尺寸，默认为`normal`。
+
+```html
+<press-button type="primary" size="large">大号按钮</press-button>
+<press-button type="primary" size="normal">普通按钮</press-button>
+<press-button type="primary" size="small">小型按钮</press-button>
+<press-button type="primary" size="mini">迷你按钮</press-button>
+```
+
+### 块级元素
+
+通过`block`属性可以将按钮的元素类型设置为块级元素。
+
+```html
+<press-button type="primary" block>块级元素</press-button>
 ```
 
 ### 自定义颜色
 
-通过`checked-color`属性可以自定义选中状态下的图标颜色。
+通过`color`属性可以自定义按钮的颜色。
 
 ```html
- <press-checkbox
-  :value="checked"
-  checked-color="#07c160"
-  @change="onChange"
->
-  复选框
-</press-checkbox>
+<press-button color="#7232dd">单色按钮</press-button>
+<press-button color="#7232dd" plain>单色按钮</press-button>
+<press-button color="linear-gradient(to right, #4bb0ff, #6149f6)">
+  渐变色按钮
+</press-button>
 ```
 
-### 自定义大小
+### E-SPORT
 
-通过`icon-size`属性可以自定义图标的大小。
+扩充了`type`字段，可为以下几种。
 
 ```html
-<press-checkbox
-  :value="checked"
-  :icon-size="25"
-  @change="onChange"
->
-  复选框
-</press-checkbox>
+<press-button type="e-sport-primary">primary</press-button>
+<press-button type="e-sport-primary-bg">primary-bg</press-button>
+<press-button type="e-sport-primary-bg-lg">primary-bg-lg</press-button>
+<press-button type="e-sport-primary-bg-xl">primary-bg-xl</press-button>
+<press-button type="e-sport-secondary">secondary</press-button>
+<press-button type="e-sport-border">border</press-button>
 ```
 
 
-### 禁用文本点击
+### E-SPORT-DISABLE
 
-通过设置`label-disabled`属性可以禁用复选框文本点击。
+
+`E-SPORT`类型的按钮加上`disabled`，即为禁用状态。
 
 ```html
- <press-checkbox
-  :value="checked"
-  label-disabled
-  @change="onChange"
->
-  复选框
-</press-checkbox>
+<press-button disabled type="e-sport-primary">primary</press-button>
+<press-button disabled type="e-sport-primary-bg">primary-bg</press-button>
+<press-button disabled type="e-sport-primary-bg-lg">primary-bg-lg</press-button>
+<press-button disabled type="e-sport-primary-bg-xl">primary-bg-xl</press-button>
+<press-button disabled type="e-sport-secondary">secondary</press-button>
+<press-button disabled type="e-sport-border">border</press-button>
 ```
+
+### E-SPORT-LOADING
+
+
+`E-SPORT`类型的按钮加上`loading`，即为加载中状态。
+
+```html
+<press-button loading type="e-sport-primary">primary</press-button>
+<press-button loading type="e-sport-primary-bg">primary-bg</press-button>
+<press-button loading type="e-sport-primary-bg-lg">primary-bg-lg</press-button>
+<press-button loading type="e-sport-primary-bg-xl">primary-bg-xl</press-button>
+<press-button loading type="e-sport-secondary">secondary</press-button>
+<press-button loading type="e-sport-border">border</press-button>
+```
+
+
+
+
 
 ## API
 
-### Checkbox Props
+### Props
 
-| 参数           | 说明                            | 类型               | 默认值    |
-| -------------- | ------------------------------- | ------------------ | --------- |
-| name           | 标识 Checkbox 名称              | _string_           | -         |
-| shape          | 形状，可选值为 `round` `square` | _string_           | `round`   |
-| value          | 是否为选中状态                  | _boolean_          | `false`   |
-| disabled       | 是否禁用单选框                  | _boolean_          | `false`   |
-| label-disabled | 是否禁用单选框内容点击          | _boolean_          | `false`   |
-| label-position | 文本位置，可选值为 `left`       | _string_           | `right`   |
-| use-icon-slot  | 是否使用 icon slot              | _boolean_          | `false`   |
-| checked-color  | 选中状态颜色                    | _string_           | `#1989fa` |
-| icon-size      | icon 大小                       | _string \| number_ | `20px`    |
+| 参数               | 说明                                                                                                                                                                                             | 类型      | 默认值       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ------------ |
+| id                 | 标识符                                                                                                                                                                                           | _string_  | -            |
+| type               | 按钮类型，可选值为 `primary` `info` `warning` `danger` <br> 以及 `e-sport-primary`     `e-sport-primary-bg` `e-sport-primary-bg-lg` `e-sport-primary-bg-xl` `e-sport-secondary` `e-sport-border` | _string_  | `default`    |
+| size               | 按钮尺寸，可选值为 `normal` `large` `small` `mini`                                                                                                                                               | _string_  | `normal`     |
+| color `v1.0.0`     | 按钮颜色，支持传入`linear-gradient`渐变色                                                                                                                                                        | _string_  | -            |
+| icon               | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon)                                                                                                                                             | _string_  | -            |
+| class-prefix       | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/icon)                                                                                                                                         | _string_  | `press-icon` |
+| plain              | 是否为朴素按钮                                                                                                                                                                                   | _boolean_ | `false`      |
+| block              | 是否为块级元素                                                                                                                                                                                   | _boolean_ | `false`      |
+| round              | 是否为圆形按钮                                                                                                                                                                                   | _boolean_ | `false`      |
+| square             | 是否为方形按钮                                                                                                                                                                                   | _boolean_ | `false`      |
+| disabled           | 是否禁用按钮                                                                                                                                                                                     | _boolean_ | `false`      |
+| hairline           | 是否使用 0.5px 边框                                                                                                                                                                              | _boolean_ | `false`      |
+| loading            | 是否显示为加载状态                                                                                                                                                                               | _boolean_ | `false`      |
+| loading-text       | 加载状态提示文字                                                                                                                                                                                 | _string_  | -            |
+| loading-type       | 加载状态图标类型，可选值为 `spinner`                                                                                                                                                             | _string_  | `circular`   |
+| loading-size       | 加载图标大小                                                                                                                                                                                     | _string_  | `20px`       |
+| custom-style       | 自定义样式                                                                                                                                                                                       | _string_  | -            |
+| open-type          | 微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)                                                                              | _string_  | -            |
+| app-parameter      | 打开 APP 时，向 APP 传递的参数                                                                                                                                                                   | _string_  | -            |
+| lang               | 指定返回用户信息的语言，zh_CN 简体中文，<br>zh_TW 繁体中文，en 英文                                                                                                                              | _string_  | `en`         |
+| session-from       | 会话来源                                                                                                                                                                                         | _string_  | -            |
+| business-id        | 客服消息子商户 id                                                                                                                                                                                | _number_  | -            |
+| send-message-title | 会话内消息卡片标题                                                                                                                                                                               | _string_  | 当前标题     |
+| send-message-path  | 会话内消息卡片点击跳转小程序路径                                                                                                                                                                 | _string_  | 当前分享路径 |
+| send-message-img   | sendMessageImg                                                                                                                                                                                   | _string_  | 截图         |
+| show-message-card  | 显示会话内消息卡片                                                                                                                                                                               | _string_  | `false`      |
+| dataset            | 按钮 dataset，open-type 为 `share` 时，可在 onShareAppMessage 事件的 `event.target.dataset.detail` 中看到传入的值                                                                                | _any_     | -            |
+| form-type          | 用于 form 组件，可选值为`submit` `reset`，点击分别会触发 form 组件的 submit/reset 事件                                                                                                           | _string_  | -            |
 
-### CheckboxGroup Props
+### Events
 
-| 参数               | 说明                            | 类型      | 默认值        |
-| ------------------ | ------------------------------- | --------- | ------------- |
-| name               | 在表单内提交时的标识符          | _string_  | -             |
-| value              | 所有选中项的 name               | _Array_   | -             |
-| disabled           | 是否禁用所有单选框              | _boolean_ | `false`       |
-| max                | 设置最大可选数                  | _number_  | `0`（无限制） |
-| direction `v1.7.0` | 排列方向，可选值为 `horizontal` | _string_  | `vertical`    |
+| 事件名         | 说明                                                                                            | 参数 |
+| -------------- | ----------------------------------------------------------------------------------------------- | ---- |
+| click          | 点击按钮，且按钮状态不为加载或禁用时触发                                                        | -    |
+| getuserinfo    | 用户点击该按钮时，会返回获取到的用户信息，<br>从返回参数的 detail 中获取到的值同 wx.getUserInfo | -    |
+| contact        | 客服消息回调                                                                                    | -    |
+| getphonenumber | 获取用户手机号回调                                                                              | -    |
+| error          | 当使用开放能力时，发生错误的回调                                                                | -    |
+| opensetting    | 在打开授权设置页后回调                                                                          | -    |
+| chooseavatar   | 当 open-type 的值为 chooseAvatar 时，选择头像之后的回调                                         |
 
-### Checkbox Event
+> Button 提供的是 click 事件而不是原生 tap 事件，按钮禁用时，click 事件不会触发，tap 事件依然会触发。
 
-| 事件名      | 说明                     | 回调参数     |
-| ----------- | ------------------------ | ------------ |
-| bind:change | 当绑定值变化时触发的事件 | 当前组件的值 |
+### 外部样式类
 
-### Checkbox 外部样式类
-
-| 类名         | 说明           |
-| ------------ | -------------- |
-| custom-class | 根节点样式类   |
-| icon-class   | 图标样式类     |
-| label-class  | 描述信息样式类 |
-
-### CheckboxGroup Event
-
-| 事件名      | 说明                     | 回调参数     |
-| ----------- | ------------------------ | ------------ |
-| bind:change | 当绑定值变化时触发的事件 | 当前组件的值 |
-
-### Checkbox Slot
-
-| 名称 | 说明       |
-| ---- | ---------- |
-| -    | 自定义文本 |
-| icon | 自定义图标 |
-
-### Checkbox 方法
-
-通过 selectComponent 可以获取到 checkbox 实例并调用实例方法。
-
-| 方法名 | 参数 | 返回值 | 介绍         |
-| ------ | ---- | ------ | ------------ |
-| toggle | -    | -      | 切换选中状态 |
+| 类名          | 说明           |
+| ------------- | -------------- |
+| custom-class  | 根节点样式类   |
+| loading-class | 加载图标样式类 |

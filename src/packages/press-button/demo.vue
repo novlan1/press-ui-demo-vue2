@@ -236,12 +236,12 @@
       :title="index===1 ?'E-SPORT-DISABLE' : index===2 ? 'E-SPORT-LOADING' : 'E-SPORT'"
     >
       <div class="demo-button-row">
+        <!-- :size="{width: '136px', height: '36px'}" -->
         <press-button
           type="e-sport-primary"
           :disabled="index===1"
           :loading="index===2"
           :custom-style="customStyle"
-          :size="{width: '136px', height: '36px'}"
         >
           primary
         </press-button>
@@ -250,7 +250,6 @@
           :disabled="index===1"
           :loading="index===2"
           :custom-style="customStyle"
-          :size="{width: '180px', height: '36px'}"
         >
           primary-bg
         </press-button>
@@ -262,7 +261,6 @@
           :disabled="index===1"
           :loading="index===2"
           :custom-style="customStyle"
-          :size="{width: '220px', height: '36px'}"
         >
           primary-bg-lg
         </press-button>
@@ -274,7 +272,6 @@
           :disabled="index===1"
           :loading="index===2"
           :custom-style="customStyle"
-          :size="{width: '300px', height: '44px'}"
         >
           primary-bg-xl
         </press-button>
@@ -290,14 +287,10 @@
         >
           secondary
         </press-button>
-      </div>
 
-      <div
-        v-if="index!==2"
-        class="demo-button-row"
-      >
         <!-- 线框的loader图片是透明的，没效果，直接隐藏 -->
         <press-button
+          v-if="index!==2"
           type="e-sport-border"
           :disabled="index===1"
           :loading="index===2"

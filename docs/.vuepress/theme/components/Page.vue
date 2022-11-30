@@ -23,8 +23,12 @@
 <script>
 import PageEdit from '@theme/components/PageEdit.vue';
 import PageNav from '@theme/components/PageNav.vue';
-const WEB_DEMO_BASE_LINK = 'https://novlan1.github.io/press-ui-demo/#/'
 
+const WEB_DEMO_BASE_LINK_PROD = 'https://novlan1.github.io/press-ui-demo/#/'
+const WEB_DEMO_BASE_LINK_DEV = 'http://localhost:8080/#/'
+
+const WEB_DEMO_BASE_LINK = process.env.NODE_ENV === 'production' ? WEB_DEMO_BASE_LINK_PROD : WEB_DEMO_BASE_LINK_DEV
+console.log('process.env.NODE_ENV',process.env.NODE_ENV)
 export default {
 	components: { PageEdit, PageNav },
 	props: ['sidebarItems'],

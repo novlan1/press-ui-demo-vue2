@@ -40,7 +40,7 @@ function getCompDemoPages() {
       const value = COMP_TYPE_MAP[key];
       const { title, list } = value;
       const newList = list.map(item => ({
-        name: item,
+        name: `${item} ${COMP_TITLE_MAP[item] && COMP_TITLE_MAP[item].title}`,
         url: getCompUrl(item),
       }));
 

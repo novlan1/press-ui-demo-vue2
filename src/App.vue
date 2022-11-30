@@ -18,6 +18,10 @@ uni-page-body {
   height: 100%;
   background: #fff;
 }
+page {
+  min-height: 100%;
+  background: #fff !important;
+}
 </style>
 <style lang="scss" src="src/packages/base/reset.scss"></style>
 <style lang="scss" src="src/packages/base/iconfont-mp.scss"></style>

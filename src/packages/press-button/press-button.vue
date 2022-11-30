@@ -17,7 +17,7 @@
     :show-message-card="showMessageCard"
     :app-parameter="appParameter"
     :aria-label="ariaLabel"
-    @click="onFakeClick"
+    @click.stop="onFakeClick"
     @getuserinfo="onGetUserInfo"
     @contact="onContact"
     @getphonenumber="onGetPhoneNumber"

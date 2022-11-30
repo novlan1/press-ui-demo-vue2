@@ -70,39 +70,40 @@
 
 
   &--btn {
-    &__main {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      @include primary-btn(2.96rem, .72rem, .32rem);
-      @include btn-default-bg;
+    // &__main {
+    //   position: relative;
+    //   display: flex;
+    //   flex-direction: row;
+    //   align-items: center;
+    //   justify-content: center;
+    //   @include primary-btn(2.96rem, .72rem, .32rem);
+    //   @include btn-default-bg;
 
-      p {
-        z-index: 2;
-      }
-    }
+    //   p {
+    //     z-index: 2;
+    //   }
+    // }
 
-    &__primary-small {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      @include primary-btn(2rem, .72rem, .32rem);
-      @include btn-default-bg;
+    // 用press-button替换
+    // &__primary-small {
+    //   position: relative;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   @include primary-btn(2rem, .72rem, .32rem);
+    //   @include btn-default-bg;
 
-      p {
-        z-index: 2;
-      }
-    }
+    //   p {
+    //     z-index: 2;
+    //   }
+    // }
 
-    &__secondary-small {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      @include secondary-btn(2rem, .72rem, .32rem);
-    }
+    // &__secondary-small {
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   @include secondary-btn(2rem, .72rem, .32rem);
+    // }
 
     &__spacing {
       margin-right: .32rem;

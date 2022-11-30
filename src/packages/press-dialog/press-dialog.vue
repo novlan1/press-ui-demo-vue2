@@ -34,12 +34,6 @@
       </div>
       <div class="press-dialog--btn--wrap">
         <template v-if="cancelText && cancelText.length > 0">
-          <!-- <div
-            class="press-dialog--btn__secondary-small press-dialog--btn__spacing"
-            @click.stop="cancel"
-          >
-            {{ cancelText }}
-          </div> -->
           <div
             class="press-dialog--btn__spacing"
           >
@@ -52,36 +46,32 @@
             </PressButton>
           </div>
 
-
-          <div
-            class="press-dialog--btn__primary-small"
-            @click.stop="confirm"
+          <PressButton
+            type="e-sport-primary"
+            :loading="mShowButtonLoading"
+            custom-style="width: 100px;height: 36px;"
+            @click="confirm"
           >
-            <p>{{ mShowButtonLoading ? '' : confirmText }}</p>
-            <press-loading
-              v-if="mShowButtonLoading"
-              loading-scenes="btn"
-            />
-          </div>
+            {{ mShowButtonLoading ? '' : confirmText }}
+          </PressButton>
         </template>
+
         <template v-else>
-          <div
-            class="press-dialog--btn__main"
-            @click.stop="confirm"
+          <PressButton
+            type="e-sport-primary-bg"
+            :loading="mShowButtonLoading"
+            custom-style="width: 148px;height: 36px;"
+            @click="confirm"
           >
-            <p>{{ mShowButtonLoading ? '' : confirmText }}</p>
-            <press-loading
-              v-if="mShowButtonLoading"
-              loading-scenes="btn"
-            />
-          </div>
+            {{ mShowButtonLoading ? '' : confirmText }}
+          </PressButton>
         </template>
       </div>
     </div>
   </div>
 </template>
 <script>
-import PressLoading from '../press-loading/press-loading.vue';
+// import PressLoading from '../press-loading/press-loading.vue';
 import PressButton from '../press-button/press-button.vue';
 
 function isMp() {
@@ -91,7 +81,7 @@ function isMp() {
 export default {
   name: 'PressDialog',
   components: {
-    PressLoading,
+    // PressLoading,
     PressButton,
   },
   props: {

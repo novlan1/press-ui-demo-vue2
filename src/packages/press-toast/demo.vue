@@ -116,7 +116,7 @@ export default {
       const timer = setInterval(() => {
         second -= 1;
         if (second) {
-          toast.message = `倒计时 ${second} 秒`;
+          toast.set('dataMessage', `倒计时 ${second} 秒`);
         } else {
           clearInterval(timer);
           Toast.clear();

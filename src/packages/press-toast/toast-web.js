@@ -105,6 +105,11 @@ function Toast(options = {}) {
       document.body.removeChild(toast.$el);
     }
   };
+
+  toast.set = (...args) => {
+    toast.$set(toast, ...args);
+  };
+
   const transformedOptions = transformOptions(options);
   Object.assign(toast, transformedOptions);
   clearTimeout(toast.timer);

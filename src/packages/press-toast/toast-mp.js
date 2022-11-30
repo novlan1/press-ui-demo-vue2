@@ -37,8 +37,14 @@ function Toast(toastOptions) {
     }
   };
 
+  // 为了让h5和小程序的函数调用一样
+  toast.set = (...args) => {
+    toast.$vm.$set(toast.$vm, ...args);
+  };
+
   queue.push(toast);
   toast.$vm.setData(options);
+
   // Object.assign(toast, options);
   clearTimeout(toast.timer);
 

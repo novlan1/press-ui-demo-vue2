@@ -34,12 +34,25 @@
       </div>
       <div class="press-dialog--btn--wrap">
         <template v-if="cancelText && cancelText.length > 0">
-          <div
+          <!-- <div
             class="press-dialog--btn__secondary-small press-dialog--btn__spacing"
             @click.stop="cancel"
           >
             {{ cancelText }}
+          </div> -->
+          <div
+            class="press-dialog--btn__spacing"
+          >
+            <PressButton
+              type="e-sport-secondary"
+              custom-style="width: 100px;height: 36px;"
+              @click="cancel"
+            >
+              {{ cancelText }}
+            </PressButton>
           </div>
+
+
           <div
             class="press-dialog--btn__primary-small"
             @click.stop="confirm"
@@ -69,6 +82,8 @@
 </template>
 <script>
 import PressLoading from '../press-loading/press-loading.vue';
+import PressButton from '../press-button/press-button.vue';
+
 function isMp() {
   return typeof getCurrentPages === 'function';
 }
@@ -77,6 +92,7 @@ export default {
   name: 'PressDialog',
   components: {
     PressLoading,
+    PressButton,
   },
   props: {
     // dialogType: { // 弹窗类型：1：普通弹窗，2：确认按钮带loading效果弹窗

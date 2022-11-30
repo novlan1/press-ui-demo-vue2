@@ -9,12 +9,9 @@
         >
           默认按钮
         </press-button>
-        <!-- van-button--width-136 van-button--height-36 -->
         <press-button
           type="primary"
-          :custom-style="customStyle"
-          :size="{width: '136px', height: '36px'}"
-          custom-class="e-sport-bg e-sport-bg-md"
+          :custom-style="`${customStyle}`"
         >
           主要按钮
         </press-button>
@@ -233,31 +230,83 @@
       </press-button>
     </demo-block>
 
-    <demo-block title="背景装饰">
-      <press-button
-        type="primary"
-        :custom-style="customStyle"
-        :size="{width: '136px', height: '36px'}"
-        custom-class="e-sport-bg e-sport-bg-md"
+    <demo-block
+      v-for="(item,index) of [0,1,2]"
+      :key="index"
+      :title="index===1 ?'E-SPORT-DISABLE' : index===2 ? 'E-SPORT-LOADING' : 'E-SPORT'"
+    >
+      <div class="demo-button-row">
+        <press-button
+          type="e-sport-primary"
+          :disabled="index===1"
+          :loading="index===2"
+          :custom-style="customStyle"
+          :size="{width: '136px', height: '36px'}"
+        >
+          primary
+        </press-button>
+        <press-button
+          type="e-sport-primary-bg"
+          :disabled="index===1"
+          :loading="index===2"
+          :custom-style="customStyle"
+          :size="{width: '180px', height: '36px'}"
+        >
+          primary-bg
+        </press-button>
+      </div>
+
+      <div class="demo-button-row">
+        <press-button
+          type="e-sport-primary-bg-lg"
+          :disabled="index===1"
+          :loading="index===2"
+          :custom-style="customStyle"
+          :size="{width: '220px', height: '36px'}"
+        >
+          primary-bg-lg
+        </press-button>
+      </div>
+
+      <div class="demo-button-row">
+        <press-button
+          type="e-sport-primary-bg-xl"
+          :disabled="index===1"
+          :loading="index===2"
+          :custom-style="customStyle"
+          :size="{width: '300px', height: '44px'}"
+        >
+          primary-bg-xl
+        </press-button>
+      </div>
+
+      <div class="demo-button-row">
+        <press-button
+          type="e-sport-secondary"
+          :disabled="index===1"
+          :loading="index===2"
+          :custom-style="customStyle"
+          :size="{width: '136px', height: '36px'}"
+        >
+          secondary
+        </press-button>
+      </div>
+
+      <div
+        v-if="index!==2"
+        class="demo-button-row"
       >
-        MD
-      </press-button>
-      <press-button
-        type="primary"
-        :custom-style="customStyle"
-        :size="{width: '136px', height: '36px'}"
-        custom-class="e-sport-bg e-sport-bg-lg"
-      >
-        LG
-      </press-button>
-      <press-button
-        type="primary"
-        :custom-style="customStyle"
-        :size="{width: '270px', height: '52px'}"
-        custom-class="e-sport-bg e-sport-bg-xl"
-      >
-        XL
-      </press-button>
+        <!-- 线框的loader图片是透明的，没效果，直接隐藏 -->
+        <press-button
+          type="e-sport-border"
+          :disabled="index===1"
+          :loading="index===2"
+          :custom-style="customStyle"
+          :size="{width: '136px', height: '36px'}"
+        >
+          border
+        </press-button>
+      </div>
     </demo-block>
   </view>
 </template>

@@ -43,13 +43,15 @@
           {{ popupTitle }}
         </p>
 
-        <div
-          v-if="popupTitleBtn"
-          :class="['press-popup--title-btn',
-                   isBorderBtn ? 'press-popup--border-btn':'']"
-          @click.stop="clickConfirm"
-        >
-          {{ popupTitleBtn }}
+        <div class="press-popup--title-btn-wrap">
+          <PressButton
+            v-if="popupTitleBtn"
+            :type="isBorderBtn ? 'e-sport-border' : 'e-sport-primary'"
+            custom-style="width:100%;height:100%;padding:0;font-size:inherit;"
+            @click.stop="clickConfirm"
+          >
+            {{ popupTitleBtn }}
+          </PressButton>
         </div>
       </div>
       <slot />
@@ -58,10 +60,12 @@
 </template>
 <script>
 // import PressIcon from '../press-icon/press-icon.vue';
+import PressButton from '../press-button/press-button.vue';
 
 export default {
   name: 'PopupContainer',
   components: {
+    PressButton,
     // PressIcon,
   },
   props: {

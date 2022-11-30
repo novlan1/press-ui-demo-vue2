@@ -13,6 +13,9 @@
       <button @click.stop="onShowPopup('hor')">
         横版
       </button>
+      <button @click.stop="onShowPopup('borderBtn')">
+        border按钮
+      </button>
     </view>
     <PressPopup
       v-if="popupOptions.normal.show"
@@ -69,6 +72,21 @@
         一些内容
       </view>
     </PressPopup>
+
+    <PressPopup
+      v-if="popupOptions.borderBtn.show"
+      :is-showpopup-close="true"
+      :is-border-btn="true"
+      :show-back-arrow="false"
+      :popup-title="popupOptions.borderBtn.title"
+      popup-title-btn="确定"
+      @onConfirm="popupOptions.borderBtn.onConfirm"
+      @onCancel="popupOptions.borderBtn.onCancel"
+    >
+      <view class="content">
+        一些内容
+      </view>
+    </PressPopup>
   </view>
 </template>
 <script>
@@ -115,6 +133,16 @@ export default {
           },
           onConfirm: () => {
             this.popupOptions.hor.show = false;
+          },
+        },
+        borderBtn: {
+          show: false,
+          title: '决胜方式',
+          onCancel: () => {
+            this.popupOptions.borderBtn.show = false;
+          },
+          onConfirm: () => {
+            this.popupOptions.borderBtn.show = false;
           },
         },
       },

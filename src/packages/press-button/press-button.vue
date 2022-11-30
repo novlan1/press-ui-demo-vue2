@@ -1,70 +1,85 @@
 <template>
-  <uni-shadow-root class="vant-button-index">
-    <Button
-      :id="id"
-      :data-detail="dataset"
-      :class="buttonClass"
-      hover-class="van-button--active hover-class"
-      :lang="lang"
-      :form-type="formType"
-      :style="buttonStyle"
-      :open-type="disabled || loading || (canIUseGetUserProfile && openType === 'getUserInfo') ? '' : openType"
-      :business-id="businessId"
-      :session-from="sessionFrom"
-      :send-message-title="sendMessageTitle"
-      :send-message-path="sendMessagePath"
-      :send-message-img="sendMessageImg"
-      :show-message-card="showMessageCard"
-      :app-parameter="appParameter"
-      :aria-label="ariaLabel"
-      @click="onFakeClick"
-      @getuserinfo="onGetUserInfo"
-      @contact="onContact"
-      @getphonenumber="onGetPhoneNumber"
-      @error="onError"
-      @launchapp="onLaunchApp"
-      @opensetting="onOpenSetting"
-      @chooseavatar="onChooseAvatar"
-    >
-      <block v-if="loading">
-        <van-loading
-          custom-class="loading-class"
-          :size="loadingSize"
-          :type="loadingType"
-          :color="loadingColor"
-        />
-        <view
-          v-if="loadingText"
-          class="van-button__loading-text"
-        >
-          {{ loadingText }}
-        </view>
-      </block>
-      <block v-else>
-        <van-icon
-          v-if="icon"
-          size="1.2em"
-          :name="icon"
-          :class-prefix="classPrefix"
-          class="van-button__icon"
-          custom-style="line-height: inherit;"
-        />
-        <view class="van-button__text">
-          <slot />
-        </view>
-      </block>
-    </Button>
-  </uni-shadow-root>
+  <!-- <uni-shadow-root class="vant-button-index"> -->
+  <Button
+    :id="id"
+    :data-detail="dataset"
+    :class="buttonClass"
+    hover-class="van-button--active hover-class"
+    :lang="lang"
+    :form-type="formType"
+    :style="buttonStyle"
+    :open-type="disabled || loading || (canIUseGetUserProfile && openType === 'getUserInfo') ? '' : openType"
+    :business-id="businessId"
+    :session-from="sessionFrom"
+    :send-message-title="sendMessageTitle"
+    :send-message-path="sendMessagePath"
+    :send-message-img="sendMessageImg"
+    :show-message-card="showMessageCard"
+    :app-parameter="appParameter"
+    :aria-label="ariaLabel"
+    @click="onFakeClick"
+    @getuserinfo="onGetUserInfo"
+    @contact="onContact"
+    @getphonenumber="onGetPhoneNumber"
+    @error="onError"
+    @launchapp="onLaunchApp"
+    @opensetting="onOpenSetting"
+    @chooseavatar="onChooseAvatar"
+  >
+    <template v-if="isESportLoading">
+      <PressLoading
+        loading-scenes="btn"
+      />
+    </template>
+    <block v-else-if="loading">
+      <van-loading
+        custom-class="loading-class"
+        :size="loadingSize"
+        :type="loadingType"
+        :color="loadingColor"
+      />
+      <view
+        v-if="loadingText"
+        class="van-button__loading-text"
+      >
+        {{ loadingText }}
+      </view>
+    </block>
+    <block v-else>
+      <van-icon
+        v-if="icon"
+        size="1.2em"
+        :name="icon"
+        :class-prefix="classPrefix"
+        class="van-button__icon"
+        custom-style="line-height: inherit;"
+      />
+      <view class="van-button__text">
+        <slot />
+      </view>
+    </block>
+  </Button>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import VanIcon from '../press-icon-plus/press-icon-plus.vue';
 import VanLoading from '../press-loading-plus/press-loading-plus.vue';
+import PressLoading from '../press-loading/press-loading.vue';
 import { button } from '../mixins/button';
 import { canIUseFormFieldButton } from '../common/version';
 import utils from '../wxs-js/utils';
 import { DEFAULT_SIZE_LIST, rootStyle, loadingColor } from './index';
 import { defaultProps, defaultOptions } from '../common/press-component';
-// global.__wxVueOptions = { components: { 'van-icon': VanIcon, 'van-loading': VanLoading } };
+
+const eSportTypeClassMap = {
+  'e-sport-primary': ['e-sport-primary'],
+  'e-sport-primary-bg': ['e-sport-primary', 'e-sport-bg'],
+  'e-sport-primary-bg-lg': ['e-sport-primary', 'e-sport-bg', 'e-sport-bg-lg'],
+  'e-sport-primary-bg-xl': ['e-sport-primary', 'e-sport-bg', 'e-sport-bg-xl'],
+  'e-sport-secondary': ['e-sport-secondary'],
+  'e-sport-border': ['e-sport-border'],
+};
+
 
 // global.__wxRoute = 'vant/button/index';
 const mixins = [button];
@@ -79,6 +94,7 @@ export default {
   components: {
     VanIcon,
     VanLoading,
+    PressLoading,
   },
   mixins,
   classes: ['hover-class', 'loading-class'],
@@ -93,7 +109,7 @@ export default {
     block: Boolean,
     round: Boolean,
     square: Boolean,
-    loading: Boolean,
+    loading: { type: Boolean, default: false },
     hairline: Boolean,
     disabled: Boolean,
     loadingText: { type: String, default: '' },
@@ -127,6 +143,9 @@ export default {
     };
   },
   computed: {
+    isESportLoading() {
+      return this.loading && eSportTypeClassMap[this.type];
+    },
     buttonClass() {
       const {
         type,
@@ -141,7 +160,15 @@ export default {
         customClass,
       } = this;
       const classSize = DEFAULT_SIZE_LIST.indexOf(size) > -1 ? size : '';
-      return `${customClass} ${utils.bem('button', [type, classSize, { block, round, plain, square, loading, disabled, hairline, unclickable: disabled || loading }])} ${hairline ? 'van-hairline--surround' : ''}`;
+
+      let eSportClasses = [];
+      let typeClass = type;
+      if (eSportTypeClassMap[type]) {
+        eSportClasses = eSportTypeClassMap[type];
+        typeClass = '';
+      }
+
+      return `${customClass} ${utils.bem('button', [typeClass, classSize, ...eSportClasses, { block, round, plain, square, loading, disabled, hairline, unclickable: disabled || loading }])} ${hairline ? 'van-hairline--surround' : ''}`;
     },
     buttonStyle() {
       const { plain, color, customStyle, size } = this;
@@ -195,38 +222,40 @@ export default {
   transition: opacity $animation-duration-fast;
   border-radius: var(--button-border-radius, $button-border-radius);
 
-  &:not(.e-sport-bg) {
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      border: inherit;
-      border-radius: inherit; /* inherit parent's border radius */
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      content: " ";
-      background-color: $black;
-      border-color: $black;
-    }
-
-    // reset weapp default border
-    &::after {
-      border-width: 0;
-    }
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: inherit;
+    border-radius: inherit; /* inherit parent's border radius */
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    content: " ";
+    background-color: $black;
+    border-color: $black;
   }
-  &--active::before {
+
+  // reset weapp default border
+  &::after {
+    border-width: 0;
+  }
+
+  // 【修改点】unclickable状态下不用有active样式
+  &--active:not(&--unclickable)::before {
     opacity: 0.15;
   }
 
-  &:active::before {
+  // 【修改点】unclickable状态下不用有active样式
+  &:active:not(&--unclickable)::before {
     opacity: 0.15;
   }
 
-  &--unclickable::after {
-    display: none;
-  }
+  // 【修改点】unclickable状态下不隐藏after
+  // &--unclickable::after {
+  //   display: none;
+  // }
 
   &--default {
     color: var(--button-default-color, $button-default-color);
@@ -339,93 +368,6 @@ export default {
     }
   }
 
-  ////////////////////////////////////////
-  // 增加一些额外的size
-  // &--width-auto {
-  //   width: auto;
-  // }
-
-  // &--width-136 {
-  //   width: $button-width-136;
-  // }
-
-  // &--height-auto {
-  //   height: auto;
-  // }
-
-  // &--height-36 {
-  //   height: $button-height-36;
-  // }
-
-  // 增加bg
-  &.e-sport-bg {
-    &::before {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      content: "";
-      width: $button-e-sport-bg-before-md-width;
-      height: $button-e-sport-bg-before-md-height;
-      background: url($button-e-sport-bg-before-md-img) no-repeat center;
-      background-size: contain;
-      pointer-events: none;
-    }
-    &::after {
-      position: absolute;
-      top: $button-e-sport-bg-after-md-top;
-      right: 0;
-      content: "";
-      width: $button-e-sport-bg-after-md-width;
-      height: $button-e-sport-bg-after-md-height;
-      background: url($button-e-sport-bg-after-md-img) no-repeat center;
-      background-size: contain;
-      pointer-events: none;
-    }
-
-    &-default,
-    &-md {
-      &::before {
-        width: $button-e-sport-bg-before-md-width;
-        height: $button-e-sport-bg-before-md-height;
-      }
-      &::after {
-        top: $button-e-sport-bg-after-md-top;
-        width: $button-e-sport-bg-after-md-width;
-        height: $button-e-sport-bg-after-md-height;
-      }
-    }
-
-    &-large,
-    &-lg {
-      &::before {
-        width: $button-e-sport-bg-before-lg-width;
-        height: $button-e-sport-bg-before-lg-height;
-        background-image: url($button-e-sport-bg-before-lg-img);
-      }
-      &::after {
-        top: $button-e-sport-bg-after-lg-top;
-        width: $button-e-sport-bg-after-lg-width;
-        height: $button-e-sport-bg-after-lg-height;
-        background-image: url($button-e-sport-bg-after-lg-img);
-      }
-    }
-
-    &-xl {
-      &::before {
-        width: $button-e-sport-bg-before-xl-width;
-        height: $button-e-sport-bg-before-xl-height;
-        background-image: url($button-e-sport-bg-before-xl-img);
-      }
-      &::after {
-        top: $button-e-sport-bg-after-xl-top;
-        width: $button-e-sport-bg-after-xl-width;
-        height: $button-e-sport-bg-after-xl-height;
-        background-image: url($button-e-sport-bg-after-xl-img);
-      }
-    }
-  }
-  ////////////////////////////////////////
-
   &--block {
     display: flex;
     width: 100%;
@@ -486,6 +428,127 @@ export default {
 
     &.van-hairline--surround::after {
       border-width: 1px;
+    }
+  }
+}
+</style>
+<style scoped lang="scss">
+@import "../common/style/var.scss";
+
+@mixin bgMixin(
+  $beforeWidth: $button-e-sport-bg-before-md-width,
+  $beforeHeight: $button-e-sport-bg-before-md-height,
+  $beforeBg: $button-e-sport-bg-before-md-img,
+  $beforeBottom: 0,
+  $afterWidth: $button-e-sport-bg-after-md-width,
+  $afterHeight: $button-e-sport-bg-after-md-height,
+  $afterBg: $button-e-sport-bg-after-md-img,
+  $afterTop: $button-e-sport-bg-after-md-top
+) {
+  &::before {
+    position: absolute;
+    bottom: $beforeBottom;
+    left: 0;
+    content: "";
+    width: $beforeWidth;
+    height: $beforeHeight;
+    background: url($beforeBg) no-repeat center;
+    background-size: contain;
+    pointer-events: none;
+
+    transform: unset; // 去掉van-btn自带before的影响
+    top: unset;
+    right: unset;
+    opacity: 1;
+  }
+  &::after {
+    position: absolute;
+    top: $afterTop;
+    right: 0;
+    content: "";
+    width: $afterWidth;
+    height: $afterHeight;
+    background: url($afterBg) no-repeat center;
+    background-size: contain;
+    pointer-events: none;
+
+    transform: unset; // 去掉van-btn自带before的影响
+    left: unset;
+    bottom: unset;
+    opacity: 1;
+  }
+}
+
+@mixin primaryMixin() {
+  font-size: $font-size-lg;
+  color: $color-white;
+  border-radius: $border-radius-md;
+  background-image: $color-primary-btn;
+  border: none; // 没有border
+  &:not(.van-button--unclickable):active {
+    background: $color-blue;
+  }
+}
+
+.van-button {
+  &--e-sport-primary {
+    @include primaryMixin();
+  }
+
+  &--e-sport-secondary {
+    font-size: $font-size-lg;
+    color: $color-black;
+    border-radius: $border-radius-md;
+    background: $color-secondary-btn;
+    border: none; // 没有border
+    &:not(.van-button--unclickable):active {
+      background: $color-gray-3;
+    }
+  }
+
+  &--e-sport-border {
+    font-size: $font-size-lg;
+    color: $color-primary;
+    border-width: $border-width-base;
+    border-style: solid;
+    border-color: $color-primary;
+    border-radius: $border-radius-md;
+    background: transparent;
+    &:not(.van-button--unclickable):active {
+      background: $color-bg;
+      border-color: $color-blue;
+      color: $color-blue;
+    }
+  }
+
+  &--e-sport-bg {
+    @include bgMixin();
+    &-lg {
+      &::before {
+        width: $button-e-sport-bg-before-lg-width;
+        height: $button-e-sport-bg-before-lg-height;
+        background-image: url($button-e-sport-bg-before-lg-img);
+      }
+      &::after {
+        top: $button-e-sport-bg-after-lg-top;
+        width: $button-e-sport-bg-after-lg-width;
+        height: $button-e-sport-bg-after-lg-height;
+        background-image: url($button-e-sport-bg-after-lg-img);
+      }
+    }
+
+    &-xl {
+      &::before {
+        width: $button-e-sport-bg-before-xl-width;
+        height: $button-e-sport-bg-before-xl-height;
+        background-image: url($button-e-sport-bg-before-xl-img);
+      }
+      &::after {
+        top: $button-e-sport-bg-after-xl-top;
+        width: $button-e-sport-bg-after-xl-width;
+        height: $button-e-sport-bg-after-xl-height;
+        background-image: url($button-e-sport-bg-after-xl-img);
+      }
     }
   }
 }

@@ -149,21 +149,14 @@
     color: $color-gray;
   }
 
-  &--title-btn {
-    @include primary-btn(auto, auto, tovmin(28));
-    top: tovmin(50);
-    right: tovmin(40);
-    padding: tovmin(4) tovmin(24);
-    line-height: tovmin(44);
-    position: absolute;
-  }
-
-  &--border-btn {
-    @include border-btn(auto, auto, tovmin(28));
+  // 改为press-button
+  &--title-btn-wrap {
     position: absolute;
     top: tovmin(50);
     right: tovmin(40);
-    padding: tovmin(4) tovmin(24);
+    width: tovmin(104);
+    height: tovmin(52);
     line-height: tovmin(44);
+    font-size: tovmin(28);
   }
 }

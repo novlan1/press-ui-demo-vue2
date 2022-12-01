@@ -6,36 +6,36 @@
     @click.stop="touchRemove"
     @touchmove.stop="preventTouchMove"
   >
-    <div class="press-dialog--content-wrap">
-      <p class="press-dialog--title">
+    <div class="press-dialog__content-wrap">
+      <p class="press-dialog__title">
         {{ title }}
       </p>
       <p
         v-if="htmlContent"
-        class="press-dialog--content"
+        class="press-dialog__content"
         v-html="htmlContent"
       />
       <p
         v-if="!htmlContent"
-        class="press-dialog--content"
+        class="press-dialog__content"
       >
         {{ content }}
       </p>
       <div
         v-if="src"
-        class="press-dialog--img-wrap"
+        class="press-dialog__img-wrap"
       >
         <img
           v-if="src"
-          class="press-dialog--img"
+          class="press-dialog__img"
           :show-menu-by-longpress="true"
           :src="src"
         >
       </div>
-      <div class="press-dialog--btn--wrap">
+      <div class="press-dialog__btn--wrap">
         <template v-if="cancelText && cancelText.length > 0">
           <div
-            class="press-dialog--btn__spacing"
+            class="press-dialog__btn__spacing"
           >
             <PressButton
               type="e-sport-secondary"

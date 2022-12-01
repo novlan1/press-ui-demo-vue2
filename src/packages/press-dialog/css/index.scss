@@ -20,7 +20,7 @@
   background-color: rgba(0, 0, 0, .5);
   z-index: 99;
 
-  &--content-wrap {
+  &__content-wrap {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -31,13 +31,13 @@
     background-color: $color-white;
   }
 
-  &--title {
+  &__title {
     font-size: .32rem;
     font-weight: 600;
     color: $color-black;
   }
 
-  &--content {
+  &__content {
     max-height: 5.4rem;
     font-size: $font-xm;
     color: $color-gray-5;
@@ -47,7 +47,7 @@
     overflow: scroll;
   }
 
-  &--img-wrap {
+  &__img-wrap {
     width: 4rem;
     height: 3.6rem;
     margin: .24rem auto 0;
@@ -57,12 +57,12 @@
     justify-content: center;
   }
 
-  &--img {
+  &__img {
     width: 2.8rem;
     height: 2.8rem;
   }
 
-  &--btn--wrap {
+  &__btn--wrap {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,42 +71,7 @@
   }
 
 
-  &--btn {
-    // &__main {
-    //   position: relative;
-    //   display: flex;
-    //   flex-direction: row;
-    //   align-items: center;
-    //   justify-content: center;
-    //   @include primary-btn(2.96rem, .72rem, .32rem);
-    //   @include btn-default-bg;
-
-    //   p {
-    //     z-index: 2;
-    //   }
-    // }
-
-    // 用press-button替换
-    // &__primary-small {
-    //   position: relative;
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: center;
-    //   @include primary-btn(2rem, .72rem, .32rem);
-    //   @include btn-default-bg;
-
-    //   p {
-    //     z-index: 2;
-    //   }
-    // }
-
-    // &__secondary-small {
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: center;
-    //   @include secondary-btn(2rem, .72rem, .32rem);
-    // }
-
+  &__btn {
     &__spacing {
       margin-right: .32rem;
     }

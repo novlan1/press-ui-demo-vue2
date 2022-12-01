@@ -1,61 +1,55 @@
 <template>
-  <uni-shadow-root class="vant-checkbox-index">
-    <view :class="checkboxClass">
-      <view
-        v-if="labelPosition === 'left'"
-        :class="labelClass"
-        @click="onClickLabel"
-      >
-        <slot />
-      </view>
-      <view
-        class="van-checkbox__icon-wrap"
-        @click="toggle"
-      >
-        <slot
-          v-if="useIconSlot"
-          name="icon"
-        />
-        <van-icon
-          v-else
-          name="success"
-          size="0.8em"
-          :class="iconClass"
-          :style="iconStyle"
-          custom-class="icon-class"
-          custom-style="line-height: 1.25em;"
-        />
-      </view>
-      <view
-        v-if="labelPosition === 'right'"
-        :class="labelClass"
-        @click="onClickLabel"
-      >
-        <slot />
-      </view>
+  <view :class="checkboxClass">
+    <view
+      v-if="labelPosition === 'left'"
+      :class="labelClass"
+      @click="onClickLabel"
+    >
+      <slot />
     </view>
-  </uni-shadow-root>
+    <view
+      class="van-checkbox__icon-wrap"
+      @click="toggle"
+    >
+      <slot
+        v-if="useIconSlot"
+        name="icon"
+      />
+      <van-icon
+        v-else
+        name="success"
+        size="0.8em"
+        :class="cIconClass"
+        :style="iconStyle"
+        :custom-class="iconClass"
+        custom-style="line-height: 1.25em;"
+      />
+    </view>
+    <view
+      v-if="labelPosition === 'right'"
+      :class="cLabelClass"
+      @click="onClickLabel"
+    >
+      <slot />
+    </view>
+  </view>
 </template>
 
 <script>
-// import VanIcon from '../icon/index.vue';
-// global.__wxVueOptions = { components: { 'van-icon': VanIcon } };
-
-// global.__wxRoute = 'vant/checkbox/index';
-// 'use strict';
-// Object.defineProperty(exports, '__esModule', { value: true });
-// const relation_1 = require('../common/relation');
-// const component_1 = require('../common/component');
-
 import utils from '../wxs-js/utils';
 import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import { defaultProps, defaultOptions } from '../common/press-component';
 import computed from './index.js';
 
 function emit(target, value) {
   target.$emit('input', value);
   target.$emit('change', value);
 }
+
 export default {
+  options: {
+    ...defaultOptions,
+  },
   components: {
     VanIcon,
   },
@@ -83,6 +77,15 @@ export default {
       type: [Number],
       default: 20,
     },
+    iconClass: {
+      type: String,
+      default: '',
+    },
+    labelClass: {
+      type: String,
+      default: '',
+    },
+    ...defaultProps,
   },
   data() {
     return {
@@ -91,9 +94,9 @@ export default {
     };
   },
   computed: {
-    labelClass() {
-      const { labelPosition, disabled, parentDisabled } = this;
-      return `label-class ${utils.bem('checkbox__label', [labelPosition, { disabled: disabled || parentDisabled }])}`;
+    cLabelClass() {
+      const { labelClass, labelPosition, disabled, parentDisabled } = this;
+      return `${labelClass} ${utils.bem('checkbox__label', [labelPosition, { disabled: disabled || parentDisabled }])}`;
     },
     checkboxClass() {
       const { direction, customClass } = this;
@@ -103,9 +106,9 @@ export default {
       const { checkedColor, value, disabled, parentDisabled, iconSize } = this;
       return computed.iconStyle(checkedColor, value, disabled, parentDisabled, iconSize);
     },
-    iconClass() {
+    cIconClass() {
       const { shape, disabled, parentDisabled, value } = this;
-      return utils.bem('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked: value }]);
+      return `${utils.bem('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked: value }])}`;
     },
   },
   methods: {
@@ -151,67 +154,101 @@ export default {
   },
 };
 </script>
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-checkbox {
-  align-items: center;
   display: flex;
+  align-items: center;
   overflow: hidden;
-  -webkit-user-select: none;
   user-select: none;
-}
-.van-checkbox--horizontal {
-  margin-right: 12px;
-}
-.van-checkbox__icon-wrap,
-.van-checkbox__label {
-  line-height: var(--checkbox-size, 20px);
-}
-.van-checkbox__icon-wrap {
-  flex: none;
-}
-.van-checkbox__icon {
-  align-items: center;
-  border: 1px solid var(--checkbox-border-color, #c8c9cc);
-  box-sizing: border-box;
-  color: transparent;
-  display: flex;
-  font-size: var(--checkbox-size, 20px);
-  height: 1em;
-  justify-content: center;
-  text-align: center;
-  transition-duration: var(--checkbox-transition-duration, 0.2s);
-  transition-property: color, border-color, background-color;
-  width: 1em;
-}
-.van-checkbox__icon--round {
-  border-radius: 100%;
-}
-.van-checkbox__icon--checked {
-  background-color: var(--checkbox-checked-icon-color, #1989fa);
-  border-color: var(--checkbox-checked-icon-color, #1989fa);
-  color: #fff;
-}
-.van-checkbox__icon--disabled {
-  background-color: var(--checkbox-disabled-background-color, #ebedf0);
-  border-color: var(--checkbox-disabled-icon-color, #c8c9cc);
-}
-.van-checkbox__icon--disabled.van-checkbox__icon--checked {
-  color: var(--checkbox-disabled-icon-color, #c8c9cc);
-}
-.van-checkbox__label {
-  word-wrap: break-word;
-  color: var(--checkbox-label-color, #323233);
-  padding-left: var(--checkbox-label-margin, 10px);
-}
-.van-checkbox__label--left {
-  float: left;
-  margin: 0 var(--checkbox-label-margin, 10px) 0 0;
-}
-.van-checkbox__label--disabled {
-  color: var(--checkbox-disabled-label-color, #c8c9cc);
-}
-.van-checkbox__label:empty {
-  margin: 0;
+
+  &--horizontal {
+    margin-right: $padding-sm;
+  }
+
+  &__icon-wrap,
+  &__label {
+    line-height: var(--checkbox-size, $checkbox-size);
+  }
+
+  &__icon-wrap {
+    flex: none;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    color: transparent;
+    text-align: center;
+    transition-property: color, border-color, background-color;
+    font-size: var(--checkbox-size, $checkbox-size);
+    border: 1px solid var(--checkbox-border-color, $checkbox-border-color);
+    transition-duration: var(
+      --checkbox-transition-duration,
+      $checkbox-transition-duration
+    );
+
+    &--round {
+      border-radius: 100%;
+    }
+
+    &--checked {
+      color: $white;
+      background-color: var(
+        --checkbox-checked-icon-color,
+        $checkbox-checked-icon-color
+      );
+      border-color: var(
+        --checkbox-checked-icon-color,
+        $checkbox-checked-icon-color
+      );
+    }
+
+    &--disabled {
+      background-color: var(
+        --checkbox-disabled-background-color,
+        $checkbox-disabled-background-color
+      );
+      border-color: var(
+        --checkbox-disabled-icon-color,
+        $checkbox-disabled-icon-color
+      );
+
+      &.van-checkbox__icon--checked {
+        color: var(
+          --checkbox-disabled-icon-color,
+          $checkbox-disabled-icon-color
+        );
+      }
+    }
+  }
+
+  &__label {
+    word-wrap: break-word;
+    padding-left: var(--checkbox-label-margin, $checkbox-label-margin);
+    color: var(--checkbox-label-color, $checkbox-label-color);
+
+    &--left {
+      float: left;
+      margin: 0 var(--checkbox-label-margin, $checkbox-label-margin) 0 0;
+    }
+
+    &--disabled {
+      color: var(
+        --checkbox-disabled-label-color,
+        $checkbox-disabled-label-color
+      );
+    }
+
+    &:empty {
+      margin: 0;
+    }
+  }
 }
 </style>

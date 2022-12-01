@@ -58,7 +58,6 @@
       <press-button
         plain
         type="info"
-        custom-class="van-button--width-136 van-button--height-36"
       >
         朴素按钮
       </press-button>
@@ -105,7 +104,6 @@
         disabled
         type="primary"
         :custom-style="customStyle"
-        custom-class="van-button--bg van-button--bg-md van-button--width-136 van-button--height-36"
       >
         禁用状态
       </press-button>

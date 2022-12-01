@@ -35,7 +35,7 @@
       <div class="press-dialog__btn--wrap">
         <template v-if="cancelText && cancelText.length > 0">
           <div
-            class="press-dialog__btn__spacing"
+            class="press-dialog__btn--spacing"
           >
             <PressButton
               type="e-sport-secondary"

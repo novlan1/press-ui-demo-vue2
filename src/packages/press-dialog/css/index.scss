@@ -74,6 +74,7 @@
   &__btn {
     &--spacing {
       margin-right: .32rem;
+      line-height: 0; // 修复两个按钮错位的问题
     }
   }
 }

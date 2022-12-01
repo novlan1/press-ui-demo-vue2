@@ -84,16 +84,20 @@ npm run docs:dev
 ## 目录结构
 
 ```bash
-- docs            # 文档
+- docs            # 文档地址
+- plugin          # [demo]工程用到的插件
+- script          # 脚本
 - src
-  - common        # demo公共内容
+  - common        # [demo]公共内容
   - packages      # 对外发布的包内容
-  - pages         # demo页面内容
-  - static        # demo静态内容
-  - App.vue       # demo应用入口
+  - pages         # [demo]页面内容
+  - static        # [demo]静态内容
+  - App.vue       # [demo]应用入口
   - main.js
   - pages.json
 ```
+
+
 
 
 

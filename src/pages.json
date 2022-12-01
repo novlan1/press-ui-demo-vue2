@@ -528,6 +528,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/empty",
+      "pages": [
+        {
+          "path": "empty",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

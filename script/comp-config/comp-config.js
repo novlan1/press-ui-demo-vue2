@@ -44,6 +44,9 @@ const COMP_TITLE_MAP = {
   SwipeCell: {
     title: '滑动单元格',
   },
+  Empty: {
+    title: '空状态',
+  },
   Sticky: {
     title: '粘性布局',
   },
@@ -89,6 +92,7 @@ const COMP_TYPE_MAP = {
     title: '展示组件',
     list: [
       'Sticky',
+      'Empty',
     ],
   },
   nav: {

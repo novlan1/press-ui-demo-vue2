@@ -1,7 +1,5 @@
 ---
 url : pages/press/{{COMP}}/{{COMP}}
-title: TITLE
-subTitle: SUBTITLE
 ---
 
 ## SUBTITLE TITLE

@@ -81,6 +81,10 @@
         {
           "name": "Sticky 粘性布局",
           "url": "/press/sticky/sticky"
+        },
+        {
+          "name": "Empty 空状态",
+          "url": "/press/empty/empty"
         }
       ]
     },

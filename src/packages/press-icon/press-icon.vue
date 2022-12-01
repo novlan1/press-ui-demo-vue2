@@ -2,7 +2,7 @@
   <text
     :style="{ color: color, 'font-size': iconSize }"
     class="iconfont"
-    :class="['icon-'+type, customPrefix, customPrefix ? type : '']"
+    :class="['icon-'+type, customClass, customPrefix, customPrefix ? type : '']"
     @click="onClick"
   />
 </template>
@@ -39,6 +39,10 @@ export default {
       default: 16,
     },
     customPrefix: {
+      type: String,
+      default: '',
+    },
+    customClass: {
       type: String,
       default: '',
     },

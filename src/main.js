@@ -11,6 +11,7 @@ import PressLoading from 'src/packages/press-loading/press-loading.vue';
 import PressButton from 'src/packages/press-button/press-button.vue';
 import PressPicker from 'src/packages/press-picker/press-picker.vue';
 import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
+import PressEmpty from 'src/packages/press-empty/press-empty.vue';
 import PressIcon from 'src/packages/press-icon/press-icon.vue';
 import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 import PressPopup from 'src/packages/press-popup/press-popup.vue';
@@ -163,6 +164,8 @@ Vue.component('PressButton', PressButton);
 Vue.component('PressLoading', PressLoading);
 Vue.component('PressPicker', PressPicker);
 Vue.component('PressDialog', PressDialog);
+Vue.component('PressEmpty', PressEmpty);
+
 Vue.component('PressIcon', PressIcon);
 Vue.component('PressSwitch', PressSwitch);
 Vue.component('PressPopup', PressPopup);

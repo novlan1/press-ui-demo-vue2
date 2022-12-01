@@ -36,12 +36,9 @@
 
 <script>
 
-// global.__wxRoute = 'vant/picker/toolbar';
-
-// Component({});
 export default {
   props: {
-    title: String,
+    title: { type: String, default: '' },
     showToolbar: Boolean,
     cancelButtonText: {
       type: String,
@@ -58,35 +55,43 @@ export default {
     },
   },
 };
-
-// export default global.__wxComponents['vant/picker/toolbar'];
 </script>
-<style platform="mp-weixin">
-.van-picker__toolbar {
-  display: flex;
-  height: var(--picker-toolbar-height, 44px);
-  justify-content: space-between;
-  line-height: var(--picker-toolbar-height, 44px);
-}
-.van-picker__cancel,
-.van-picker__confirm {
-  font-size: var(--picker-action-font-size, 14px);
-  padding: var(--picker-action-padding, 0 16px);
-}
-.van-picker__cancel--hover,
-.van-picker__confirm--hover {
-  opacity: 0.7;
-}
-.van-picker__confirm {
-  color: var(--picker-confirm-action-color, #576b95);
-}
-.van-picker__cancel {
-  color: var(--picker-cancel-action-color, #969799);
-}
-.van-picker__title {
-  font-size: var(--picker-option-font-size, 16px);
-  font-weight: var(--font-weight-bold, 500);
-  max-width: 50%;
-  text-align: center;
+
+<style platform="mp-weixin" lang="scss">
+@import "../common/index.scss";
+@import "../common/style/var.scss";
+
+.van-picker {
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    height: var(--picker-toolbar-height, $picker-toolbar-height);
+    line-height: var(--picker-toolbar-height, $picker-toolbar-height);
+  }
+
+  &__cancel,
+  &__confirm {
+    padding: var(--picker-action-padding, $picker-action-padding);
+    font-size: var(--picker-action-font-size, $picker-action-font-size);
+
+    &--hover {
+      opacity: $active-opacity;
+    }
+  }
+
+  &__confirm {
+    color: var(--picker-confirm-action-color, $picker-confirm-action-color);
+  }
+
+  &__cancel {
+    color: var(--picker-cancel-action-color, $picker-cancel-action-color);
+  }
+
+  &__title {
+    max-width: 50%;
+    text-align: center;
+    font-weight: var(--font-weight-bold, $font-weight-bold);
+    font-size: var(--picker-option-font-size, $picker-option-font-size);
+  }
 }
 </style>

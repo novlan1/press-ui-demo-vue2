@@ -201,23 +201,33 @@ export default {
   },
 };
 </script>
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-picker-column {
-  color: var(--picker-option-text-color, #000);
-  font-size: var(--picker-option-font-size, 16px);
   overflow: hidden;
   text-align: center;
-}
-.van-picker-column__item {
-  padding: 0 5px;
-  text-align: center;
-}
-.van-picker-column__item--selected {
-  color: var(--picker-option-selected-text-color, #323233);
-  font-weight: var(--font-weight-bold, 500);
-}
-.van-picker-column__item--disabled {
-  opacity: var(--picker-option-disabled-opacity, 0.3);
+  color: var(--picker-option-text-color, $picker-option-text-color);
+  font-size: var(--picker-option-font-size, $picker-option-font-size);
+
+  &__item {
+    padding: 0 5px;
+
+    &--selected {
+      font-weight: var(--font-weight-bold, $font-weight-bold);
+      color: var(
+        --picker-option-selected-text-color,
+        $picker-option-selected-text-color
+      );
+    }
+
+    &--disabled {
+      opacity: var(
+        --picker-option-disabled-opacity,
+        $picker-option-disabled-opacity
+      );
+    }
+  }
 }
 </style>

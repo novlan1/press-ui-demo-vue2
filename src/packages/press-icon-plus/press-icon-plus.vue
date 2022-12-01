@@ -70,7 +70,7 @@ export default {
 };
 </script>
 
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
 .van-icon {
   text-rendering: auto;
@@ -823,15 +823,19 @@ export default {
   display: inline-flex;
   justify-content: center;
 }
-.van-icon--image {
-  height: 1em;
-  width: 1em;
-}
-.van-icon__image {
-  height: 100%;
-  width: 100%;
-}
-.van-icon__info {
-  z-index: 1;
+.van-icon {
+  &--image {
+    width: 1em;
+    height: 1em;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__info {
+    z-index: 1;
+  }
 }
 </style>

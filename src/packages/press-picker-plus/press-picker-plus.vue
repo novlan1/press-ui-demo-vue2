@@ -281,63 +281,69 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-picker {
-  -webkit-text-size-adjust: 100%;
-  background-color: var(--picker-background-color, #fff);
-  overflow: hidden;
-  position: relative;
-  -webkit-user-select: none;
-  user-select: none;
-}
+@import "../common/style/var.scss";
 
-.van-picker__columns {
-  display: flex;
+.van-picker {
   position: relative;
-}
-.van-picker__column {
-  flex: 1 1;
-  width: 0;
-}
-.van-picker__loading {
-  align-items: center;
-  background-color: var(--picker-loading-mask-color, hsla(0, 0%, 100%, 0.9));
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 4;
-}
-.van-picker__mask {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  background-image: linear-gradient(
-      180deg,
-      hsla(0, 0%, 100%, 0.9),
-      hsla(0, 0%, 100%, 0.4)
-    ),
-    linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.4));
-  background-position: top, bottom;
-  background-repeat: no-repeat;
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-}
-.van-picker__frame,
-.van-picker__mask {
-  pointer-events: none;
-  position: absolute;
-}
-.van-picker__frame {
-  left: 16px;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  position: absolute !important; // TODO: to delete
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%; /* avoid iOS text size adjust */
+  user-select: none;
+  background-color: var(--picker-background-color, $picker-background-color);
+
+  // 【修改点】将toolbar中的css移动到toolbar.vue中去
+  &__columns {
+    position: relative;
+    display: flex;
+  }
+
+  &__column {
+    flex: 1 1;
+    width: 0;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(
+      --picker-loading-mask-color,
+      $picker-loading-mask-color
+    );
+  }
+
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        180deg,
+        hsla(0, 0%, 100%, 0.9),
+        hsla(0, 0%, 100%, 0.4)
+      ),
+      linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.4));
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+    backface-visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__frame {
+    position: absolute !important; // 【修改点】防止选项间细线消失
+    top: 50%;
+    right: $padding-md;
+    left: $padding-md;
+    z-index: 1;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 }
 </style>

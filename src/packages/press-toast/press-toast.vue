@@ -1,13 +1,13 @@
 <template>
-  <uni-shadow-root class="vant-toast-index">
-    <van-overlay
+  <uni-shadow-root class="presst-toast-index">
+    <press-overlay
       v-if="mask || dataForbidClick"
       :show="dataShow"
       :z-index="dataZIndex"
       :custom-style="dataMask ? '' : 'background-color: transparent;'"
     />
-    <!-- custom-class="van-toast__container" -->
-    <van-transition
+    <!-- custom-class="press-toast__container" -->
+    <press-transition
       :show="dataShow"
       :custom-style="transitionStyle"
     >
@@ -27,21 +27,21 @@
 
 
         <block v-else>
-          <!-- custom-class="van-toast__loading" -->
-          <van-loading
+          <!-- custom-class="press-toast__loading" -->
+          <press-loading
             v-if="dataType === 'loading'"
             color="white"
             :type="dataLoadingType"
             custom-style="margin: 10px 0;"
           />
-          <van-icon
+          <press-icon
             v-else
-            class="van-toast__icon"
+            class="press-toast__icon"
             :name="dataType"
           />
           <text
             v-if="dataMessage"
-            class="van-toast__text"
+            class="press-toast__text"
           >
             {{ dataMessage }}
           </text>
@@ -49,16 +49,15 @@
 
         <slot />
       </view>
-    </van-transition>
+    </press-transition>
   </uni-shadow-root>
 </template>
 
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
-import VanLoading from '../press-loading-plus/press-loading-plus.vue';
-import VanOverlay from '../press-overlay/press-overlay.vue';
-import VanTransition from '../press-transition/press-transition.vue';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressLoading from '../press-loading-plus/press-loading-plus.vue';
+import PressOverlay from '../press-overlay/press-overlay.vue';
+import PressTransition from '../press-transition/press-transition.vue';
 
 const props = {
   show: Boolean,
@@ -84,9 +83,7 @@ const props = {
     type: String,
     default: 'middle',
   },
-  ...defaultProps,
 };
-
 const formatKey = key => key.replace(/^(\w)/, (a, b) => `data${b.toUpperCase()}`);
 const watchProps = Object.keys(props).reduce((acc, item) => {
   acc[item] = {
@@ -97,16 +94,22 @@ const watchProps = Object.keys(props).reduce((acc, item) => {
   return acc;
 }, {});
 
+// const dataProps = Object.keys(props).reduce((acc, item) => {
+//   acc[`data-${item}`] = {
+//     handler(val) {
+//       this[`data-${item}`] = val;
+//     },
+//   };
+//   return acc;
+// }, {});
+
 
 export default {
-  options: {
-    ...defaultOptions,
-  },
   components: {
-    VanIcon,
-    VanLoading,
-    VanOverlay,
-    VanTransition,
+    PressIcon,
+    PressLoading,
+    PressOverlay,
+    PressTransition,
   },
   props,
   data() {
@@ -124,7 +127,7 @@ export default {
   computed: {
     toastClass() {
       const { dataType, dataPosition } = this;
-      return `van-toast van-toast--${(dataType === 'text' || dataType === 'html') ? 'text' : 'icon'} van-toast--${dataPosition}`;
+      return `press-toast press-toast--${(dataType === 'text' || dataType === 'html') ? 'text' : 'icon'} press-toast--${dataPosition}`;
     },
     transitionStyle() {
       const { dataZIndex } = this;
@@ -159,7 +162,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-toast {
+.press-toast {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,11 +199,11 @@ export default {
     min-height: var(--toast-default-min-height, $toast-default-min-height);
     padding: var(--toast-default-padding, $toast-default-padding);
 
-    .van-toast__icon {
+    .press-toast__icon {
       font-size: var(--toast-icon-size, $toast-icon-size);
     }
 
-    .van-toast__text {
+    .press-toast__text {
       padding-top: $padding-xs;
     }
   }

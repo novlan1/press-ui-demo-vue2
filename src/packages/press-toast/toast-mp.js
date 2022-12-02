@@ -1,18 +1,9 @@
 import { isObj } from '../common/validator';
-const defaultOptions = {
-  type: 'text',
-  mask: false,
-  message: '',
-  show: true,
-  zIndex: 1000,
-  duration: 2000,
-  position: 'middle',
-  forbidClick: false,
-  loadingType: 'circular',
-  selector: '#van-toast',
-};
+import { DEFAULT_OPTIONS } from './default-options';
+
+
 let queue = [];
-let currentOptions = Object.assign({}, defaultOptions);
+let currentOptions = Object.assign({}, DEFAULT_OPTIONS);
 function parseOptions(message) {
   return isObj(message) ? message : { message };
 }
@@ -70,6 +61,6 @@ Toast.setDefaultOptions = (options) => {
   Object.assign(currentOptions, options);
 };
 Toast.resetDefaultOptions = () => {
-  currentOptions = Object.assign({}, defaultOptions);
+  currentOptions = Object.assign({}, DEFAULT_OPTIONS);
 };
 export default Toast;

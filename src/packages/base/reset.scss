@@ -287,26 +287,27 @@ p {
 }
 
 /* 重置vant-toast样式 */
-.van-toast {
-  max-width: 3.52rem;
-  min-height: auto;
-  font-size: .24rem;
-  padding: .16rem .32rem;
-  border-radius: .08rem;
-  background-color: #09134e;
-}
+// 去掉这些重置样式
+// .press-toast {
+//   max-width: 3.52rem;
+//   min-height: auto;
+//   font-size: .24rem;
+//   padding: .16rem .32rem;
+//   border-radius: .08rem;
+//   background-color: #09134e;
+// }
 
-.van-toast--text {
-  min-width: auto;
-  padding: .16rem .32rem;
-}
+// .press-toast--text {
+//   min-width: auto;
+//   padding: .16rem .32rem;
+// }
 
 #app {
   font-family: BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', miui, 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
 
 // 重置裁剪弹窗样式
-#tip-image-crop{
+#tip-image-crop {
   &.tip-crop-dialog-wrap {
     position: fixed;
     z-index: 9999;
@@ -390,10 +391,11 @@ p {
   }
 }
 
-/* 直播间横屏适配 */ 
+/* 直播间横屏适配 */
 @media screen and (orientation: landscape) {
+
   /*横屏 css*/
   html {
     font-size: 50px !important;
   }
- }
+}

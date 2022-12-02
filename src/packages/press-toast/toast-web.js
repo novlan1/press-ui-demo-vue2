@@ -2,19 +2,8 @@ import Vue from 'vue';
 import VueToast from './press-toast';
 import { isObject, isServer } from '../common';
 // import { removeNode } from '../common/dom/node';
+import { DEFAULT_OPTIONS } from './default-options';
 
-const defaultOptions = {
-  type: 'text',
-  mask: false,
-  message: '',
-  show: true,
-  zIndex: 1000,
-  duration: 2000, // TODO:2000
-  position: 'middle',
-  forbidClick: false,
-  loadingType: 'circular',
-  selector: '#van-toast',
-};
 
 // default options of specific type
 let defaultOptionsMap = {};
@@ -22,7 +11,7 @@ let defaultOptionsMap = {};
 let queue = [];
 let multiple = false;
 let currentOptions = {
-  ...defaultOptions,
+  ...DEFAULT_OPTIONS,
 };
 
 function parseOptions(message) {
@@ -160,7 +149,7 @@ Toast.resetDefaultOptions = (type) => {
   if (typeof type === 'string') {
     defaultOptionsMap[type] = null;
   } else {
-    currentOptions = { ...defaultOptions };
+    currentOptions = { ...DEFAULT_OPTIONS };
     defaultOptionsMap = {};
   }
 };

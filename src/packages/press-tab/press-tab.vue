@@ -140,16 +140,19 @@ export default {
   flex-shrink: 0;
   width: 100%;
 }
+
 .van-tab__pane {
-  -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
   overflow-y: auto;
-}
-.van-tab__pane--active {
-  height: auto;
-}
-.van-tab__pane--inactive {
-  height: 0;
-  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+
+  &--active {
+    height: auto;
+  }
+
+  &--inactive {
+    height: 0;
+    overflow: visible;
+  }
 }
 </style>

@@ -202,38 +202,36 @@ export default {
 @import "../common/index.scss";
 
 .van-swipe-cell {
-  overflow: hidden;
   position: relative;
-}
+  overflow: hidden;
 
-.van-swipe-cell__left,
-.van-swipe-cell__right {
-  display: inline-block;
-  width: 65px;
-  font-size: 15px;
-  color: #fff;
-  text-align: center;
-  background-color: #f44;
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-}
+  &__left,
+  &__right {
+    position: absolute;
+    top: 0;
+    height: 100%;
 
-.van-swipe-cell__left,
-.van-swipe-cell__right {
-  height: 100%;
-  position: absolute;
-  top: 0;
-}
+    // 【修改点】增加一些h5的样式
+    display: inline-block;
+    width: 65px;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    background-color: #f44;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+  }
 
-.van-swipe-cell__left {
-  left: 0;
-  transform: translate3d(-100%, 0, 0);
-}
+  &__left {
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
 
-.van-swipe-cell__right {
-  right: 0;
-  transform: translate3d(100%, 0, 0);
+  &__right {
+    right: 0;
+    transform: translate3d(100%, 0, 0);
+  }
 }
 </style>

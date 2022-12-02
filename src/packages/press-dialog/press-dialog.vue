@@ -10,11 +10,23 @@
       <p class="press-dialog__title">
         {{ title }}
       </p>
+      <scroll-view
+        v-if="useScrollView && htmlContent"
+        scroll-y="true"
+      >
+        <p
+          v-if="htmlContent"
+          class="press-dialog__content"
+          v-html="htmlContent"
+        />
+      </scroll-view>
+
       <p
-        v-if="htmlContent"
+        v-else
         class="press-dialog__content"
         v-html="htmlContent"
       />
+
       <p
         v-if="!htmlContent"
         class="press-dialog__content"
@@ -152,6 +164,7 @@ export default {
       onConfirmClick: null,
       htmlContent: '',
       zIndex: '99',
+      useScrollView: false, // 是否使用scroll-view包裹v-html
     };
   },
 

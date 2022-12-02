@@ -58,6 +58,7 @@ import VanIcon from '../press-icon-plus/press-icon-plus.vue';
 import VanLoading from '../press-loading-plus/press-loading-plus.vue';
 import VanOverlay from '../press-overlay/press-overlay.vue';
 import VanTransition from '../press-transition/press-transition.vue';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 const props = {
   show: Boolean,
@@ -83,7 +84,9 @@ const props = {
     type: String,
     default: 'middle',
   },
+  ...defaultProps,
 };
+
 const formatKey = key => key.replace(/^(\w)/, (a, b) => `data${b.toUpperCase()}`);
 const watchProps = Object.keys(props).reduce((acc, item) => {
   acc[item] = {
@@ -94,17 +97,11 @@ const watchProps = Object.keys(props).reduce((acc, item) => {
   return acc;
 }, {});
 
-// const dataProps = Object.keys(props).reduce((acc, item) => {
-//   acc[`data-${item}`] = {
-//     handler(val) {
-//       this[`data-${item}`] = val;
-//     },
-//   };
-//   return acc;
-// }, {});
-
 
 export default {
+  options: {
+    ...defaultOptions,
+  },
   components: {
     VanIcon,
     VanLoading,
@@ -156,55 +153,69 @@ export default {
     noop() { },
   },
 };
-// export default global.__wxComponents['vant/toast/index'];
 </script>
-<style platform="mp-weixin">
+
+<style  lang="scss" platform="mp-weixin">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-toast {
-  word-wrap: break-word;
-  align-items: center;
-  background-color: var(--toast-background-color, rgba(0, 0, 0, 0.7));
-  border-radius: var(--toast-border-radius, 8px);
-  box-sizing: initial;
-  color: var(--toast-text-color, #fff);
   display: flex;
   flex-direction: column;
-  font-size: var(--toast-font-size, 14px);
+  align-items: center;
   justify-content: center;
-  line-height: var(--toast-line-height, 20px);
+  box-sizing: content-box;
+  color: var(--toast-text-color, $toast-text-color);
+  font-size: var(--toast-font-size, $toast-font-size);
+  line-height: var(--toast-line-height, $toast-line-height);
+
+  // allow newline charactor
   white-space: pre-wrap;
-}
-/* .van-toast__container {
-  left: 50%;
-  max-width: var(--toast-max-width, 70%);
-  position: fixed;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: -webkit-fit-content;
-  width: fit-content;
-} */
-.van-toast--text {
-  min-width: var(--toast-text-min-width, 96px);
-  padding: var(--toast-text-padding, 8px 12px);
-}
-.van-toast--icon {
-  min-height: var(--toast-default-min-height, 88px);
-  padding: var(--toast-default-padding, 16px);
-  width: var(--toast-default-width, 88px);
-}
-.van-toast--icon .van-toast__icon {
-  font-size: var(--toast-icon-size, 36px);
-}
-.van-toast--icon .van-toast__text {
-  padding-top: 8px;
-}
-/* .van-toast__loading {
-  margin: 10px 0;
-} */
-.van-toast--top {
-  transform: translateY(-30vh);
-}
-.van-toast--bottom {
-  transform: translateY(30vh);
+  word-wrap: break-word;
+  background-color: var(--toast-background-color, $toast-background-color);
+  border-radius: var(--toast-border-radius, $toast-border-radius);
+
+  // 【修改点】此处的custom-class在小程序中无效，改为customStyle
+  // &__container {
+  //   position: fixed;
+  //   top: 50%;
+  //   left: 50%;
+  //   // hack for avoid max-width when use left & fixed
+  //   width: fit-content;
+  //   transform: translate(-50%, -50%);
+  //   max-width: var(--toast-max-width, $toast-max-width);
+  // }
+
+  &--text {
+    min-width: var(--toast-text-min-width, $toast-text-min-width);
+    padding: var(--toast-text-padding, $toast-text-padding);
+  }
+
+  &--icon {
+    width: var(--toast-default-width, $toast-default-width);
+    min-height: var(--toast-default-min-height, $toast-default-min-height);
+    padding: var(--toast-default-padding, $toast-default-padding);
+
+    .van-toast__icon {
+      font-size: var(--toast-icon-size, $toast-icon-size);
+    }
+
+    .van-toast__text {
+      padding-top: $padding-xs;
+    }
+  }
+
+  // 【修改点】此处的custom-class在小程序中无效，改为customStyle
+  // &__loading {
+  //   margin: 10px 0;
+  // }
+
+  &--top {
+    transform: translate(0, -30vh);
+  }
+
+  &--bottom {
+    transform: translate(0, 30vh);
+  }
 }
 </style>

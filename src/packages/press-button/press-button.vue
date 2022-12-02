@@ -205,6 +205,7 @@ export default {
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
 @import "../common/style/var.scss";
+
 .van-button {
   position: relative;
   display: inline-flex;

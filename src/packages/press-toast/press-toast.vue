@@ -58,6 +58,7 @@ import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import PressOverlay from '../press-overlay/press-overlay.vue';
 import PressTransition from '../press-transition/press-transition.vue';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 const props = {
   show: Boolean,
@@ -83,6 +84,7 @@ const props = {
     type: String,
     default: 'middle',
   },
+  ...defaultProps,
 };
 const formatKey = key => key.replace(/^(\w)/, (a, b) => `data${b.toUpperCase()}`);
 const watchProps = Object.keys(props).reduce((acc, item) => {
@@ -105,6 +107,9 @@ const watchProps = Object.keys(props).reduce((acc, item) => {
 
 
 export default {
+  options: {
+    ...defaultOptions,
+  },
   components: {
     PressIcon,
     PressLoading,

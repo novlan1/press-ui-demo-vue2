@@ -509,124 +509,168 @@ export default {
 </script>
 <style lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-tabs {
+  position: relative;
   -webkit-tap-highlight-color: transparent;
-  position: relative;
-}
-.van-tabs__wrap {
-  display: flex;
-  overflow: hidden;
-}
-.van-tabs__wrap--scrollable .van-tab {
-  flex: 0 0 22%;
-}
-.van-tabs__wrap--scrollable .van-tab--complete {
-  flex: 1 0 auto !important;
-  padding: 0 12px;
-}
-.van-tabs__wrap--scrollable .van-tabs__nav--complete {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.van-tabs__scroll {
-  background-color: var(--tabs-nav-background-color, #fff);
-}
-.van-tabs__scroll--line {
-  box-sizing: initial;
-  height: calc(100% + 15px);
-}
-.van-tabs__scroll--card {
-  border: 1px solid var(--tabs-default-color, #ee0a24);
-  border-radius: 2px;
-  box-sizing: border-box;
-  margin: 0 var(--padding-md, 16px);
-  width: calc(100% - var(--padding-md, 16px) * 2);
-}
-.van-tabs__scroll::-webkit-scrollbar {
-  display: none;
-}
-.van-tabs__nav {
-  display: flex;
-  position: relative;
-  -webkit-user-select: none;
-  user-select: none;
 
-  // 解决H5下tab贴顶的问题
-  height: var(--tabs-line-height, 44px);
+  &__wrap {
+    display: flex;
+    overflow: hidden;
+
+    &--scrollable {
+      .van-tab {
+        flex: 0 0 22%;
+
+        &--complete {
+          flex: 1 0 auto !important;
+          padding: 0 $padding-sm;
+        }
+      }
+
+      .van-tabs__nav {
+        &--complete {
+          padding-right: 8px;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  &__scroll {
+    background-color: var(
+      --tabs-nav-background-color,
+      $tabs-nav-background-color
+    );
+
+    &--line {
+      box-sizing: content-box;
+      // 15px padding to hide scrollbar in mobile safari
+      height: calc(100% + 15px);
+    }
+
+    &--card {
+      box-sizing: border-box;
+      margin: 0 var(--padding-md, $padding-md);
+      border: $border-width-base solid
+        var(--tabs-default-color, $tabs-default-color);
+      width: calc(100% - calc(var(--padding-md, $padding-md) * 2));
+      border-radius: $border-radius-sm;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__nav {
+    position: relative;
+    display: flex;
+    user-select: none;
+
+    // 【修改点】解决H5下tab贴顶的问题
+    height: var(--tabs-line-height, 44px);
+
+    &--card {
+      box-sizing: border-box;
+      height: var(--tabs-card-height, $tabs-card-height);
+
+      .van-tab {
+        color: var(--tabs-default-color, $tabs-default-color);
+        line-height: calc(
+          var(--tabs-card-height, $tabs-card-height) - 2 * $border-width-base
+        );
+        border-right: $border-width-base solid
+          var(--tabs-default-color, $tabs-default-color);
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &.van-tab--active {
+          color: $white;
+          background-color: var(--tabs-default-color, $tabs-default-color);
+        }
+
+        &--disabled {
+          color: var(--tab-disabled-text-color, $tab-disabled-text-color);
+        }
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: var(--tabs-bottom-bar-height, $tabs-bottom-bar-height);
+    border-radius: var(--tabs-bottom-bar-height, $tabs-bottom-bar-height);
+    background-color: var(--tabs-bottom-bar-color, $tabs-bottom-bar-color);
+  }
+
+  &__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &--animated {
+      display: flex;
+      transition-property: left;
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+  }
+
+  &--line {
+    .van-tabs__wrap {
+      height: var(--tabs-line-height, $tabs-line-height);
+    }
+  }
+
+  &--card {
+    .van-tabs__wrap {
+      height: var(--tabs-card-height, $tabs-card-height);
+    }
+  }
 }
-.van-tabs__nav--card {
-  box-sizing: border-box;
-  height: var(--tabs-card-height, 30px);
-}
-.van-tabs__nav--card .van-tab {
-  border-right: 1px solid var(--tabs-default-color, #ee0a24);
-  color: var(--tabs-default-color, #ee0a24);
-  line-height: calc(var(--tabs-card-height, 30px) - 2px);
-}
-.van-tabs__nav--card .van-tab:last-child {
-  border-right: none;
-}
-.van-tabs__nav--card .van-tab.van-tab--active {
-  background-color: var(--tabs-default-color, #ee0a24);
-  color: #fff;
-}
-.van-tabs__nav--card .van-tab--disabled {
-  color: var(--tab-disabled-text-color, #c8c9cc);
-}
-.van-tabs__line {
-  background-color: var(--tabs-bottom-bar-color, #ee0a24);
-  border-radius: var(--tabs-bottom-bar-height, 3px);
-  bottom: 0;
-  height: var(--tabs-bottom-bar-height, 3px);
-  left: 0;
-  position: absolute;
-  z-index: 1;
-}
-.van-tabs__track {
-  height: 100%;
-  position: relative;
-  width: 100%;
-}
-.van-tabs__track--animated {
-  display: flex;
-  transition-property: left;
-}
-.van-tabs__content {
-  overflow: hidden;
-}
-.van-tabs--line .van-tabs__wrap {
-  height: var(--tabs-line-height, 44px);
-}
-.van-tabs--card .van-tabs__wrap {
-  height: var(--tabs-card-height, 30px);
-}
+
 .van-tab {
-  box-sizing: border-box;
-  color: var(--tab-text-color, #646566);
-  cursor: pointer;
-  flex: 1;
-  font-size: var(--tab-font-size, 14px);
-  line-height: var(--tabs-line-height, 44px);
-  min-width: 0;
-  padding: 0 5px;
   position: relative;
+  flex: 1;
+  box-sizing: border-box;
+  min-width: 0; /* hack for flex ellipsis */
+  padding: 0 5px;
   text-align: center;
+  cursor: pointer;
+  color: var(--tab-text-color, $tab-text-color);
+  font-size: var(--tab-font-size, $tab-font-size);
+  line-height: var(--tabs-line-height, $tabs-line-height);
 
+  // 【修改点】让title水平垂直居中
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.van-tab--active {
-  color: var(--tab-active-text-color, #323233);
-  font-weight: var(--font-weight-bold, 500);
-}
-.van-tab--disabled {
-  color: var(--tab-disabled-text-color, #c8c9cc);
-}
-.van-tab__title__info {
-  display: inline-block;
-  position: relative !important;
-  top: -1px !important;
-  transform: translateX(0) !important;
+
+  &--active {
+    font-weight: var(--font-weight-bold, $font-weight-bold);
+    color: var(--tab-active-text-color, $tab-active-text-color);
+  }
+
+  &--disabled {
+    color: var(--tab-disabled-text-color, $tab-disabled-text-color);
+  }
+
+  &__title {
+    &__info {
+      position: relative !important;
+      top: -1px !important;
+      display: inline-block;
+      transform: translateX(0) !important;
+    }
+  }
 }
 </style>

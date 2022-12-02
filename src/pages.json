@@ -537,6 +537,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/message-list",
+      "pages": [
+        {
+          "path": "message-list",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

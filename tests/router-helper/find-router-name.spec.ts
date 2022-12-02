@@ -55,6 +55,7 @@ describe('findRouteName', () => {
       params: {
         battleid: '123',
       },
+      path: '/views/match-config/match-ob-room',
     });
   });
 
@@ -67,6 +68,7 @@ describe('findRouteName', () => {
         childid: '100100',
         inviteteamid: 'abcd',
       },
+      path: '/views/match/match-detail-index',
     });
   });
 
@@ -78,6 +80,7 @@ describe('findRouteName', () => {
       params: {
         childid: '100100',
       },
+      path: '/views/match/match-detail-index',
     });
   });
 
@@ -91,6 +94,7 @@ describe('findRouteName', () => {
         inviteteamid: 'xyxyxyxy',
         adtag: 'qq',
       },
+      path: '/views/match/match-detail-index',
     });
   });
 
@@ -100,6 +104,7 @@ describe('findRouteName', () => {
       name: 'login',
       params: {
       },
+      path: '/views/homepage/login',
     });
   });
 

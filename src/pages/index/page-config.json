@@ -96,6 +96,15 @@
           "url": "/press/tab/tab"
         }
       ]
+    },
+    {
+      "title": "业务组件",
+      "list": [
+        {
+          "name": "MessageList 消息列表",
+          "url": "/press/message-list/message-list"
+        }
+      ]
     }
   ]
 }

@@ -53,6 +53,9 @@ const COMP_TITLE_MAP = {
   Tab: {
     title: '标签页',
   },
+  MessageList: {
+    title: '消息列表',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -104,6 +107,7 @@ const COMP_TYPE_MAP = {
   work: {
     title: '业务组件',
     list: [
+      'MessageList',
     ],
   },
 };

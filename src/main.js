@@ -27,6 +27,8 @@ import PressCheckbox from 'src/packages/press-checkbox/press-checkbox.vue';
 import PressTransition from 'src/packages/press-transition/press-transition.vue';
 import PressOverlay from 'src/packages/press-overlay/press-overlay.vue';
 import PressToast from 'src/packages/press-toast/press-toast.vue';
+import PressMessageList from 'src/packages/press-message-list/press-message-list.vue';
+
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
 import UniBreadcrumb from 'src/packages/uni-breadcrumb/components/uni-breadcrumb/uni-breadcrumb.vue';
@@ -181,7 +183,7 @@ Vue.component('PressCheckbox', PressCheckbox);
 Vue.component('PressTransition', PressTransition);
 Vue.component('PressOverlay', PressOverlay);
 Vue.component('PressToast', PressToast);
-
+Vue.component('PressMessageList', PressMessageList);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

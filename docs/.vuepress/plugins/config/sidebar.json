@@ -119,6 +119,17 @@
           "path": "/components/press/press-tab.md"
         }
       ]
+    },
+    {
+      "title": "业务组件",
+      "collapsable": false,
+      "children": [
+        {
+          "title": "消息列表",
+          "subTitle": "MessageList",
+          "path": "/components/press/press-message-list.md"
+        }
+      ]
     }
   ]
 }

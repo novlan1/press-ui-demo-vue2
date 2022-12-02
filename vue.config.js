@@ -18,6 +18,9 @@ if (process.env.VUE_APP_PLATFORM !== 'h5') {
 
 module.exports = {
   configureWebpack: {
+    devServer: {
+      port: 9999,
+    },
     resolve: {
       alias: {
         // 添加游戏人生alias

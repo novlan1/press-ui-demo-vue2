@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-html vue/no-v-text-v-html-on-component-->
 <template>
   <div
     v-if="dialogIsShow"
@@ -13,16 +14,12 @@
       <scroll-view
         v-if="useScrollView && htmlContent"
         scroll-y="true"
-      >
-        <p
-          v-if="htmlContent"
-          class="press-dialog__content"
-          v-html="htmlContent"
-        />
-      </scroll-view>
+        class="press-dialog__content"
+        v-html="htmlContent"
+      />
 
       <p
-        v-else
+        v-else-if="htmlContent"
         class="press-dialog__content"
         v-html="htmlContent"
       />
@@ -33,6 +30,7 @@
       >
         {{ content }}
       </p>
+
       <div
         v-if="src"
         class="press-dialog__img-wrap"

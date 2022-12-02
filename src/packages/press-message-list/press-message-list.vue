@@ -1,6 +1,6 @@
 <template>
   <div
-    class="room-page-container"
+    class="press-message-list"
   >
     <div v-if="list.length">
       <div
@@ -14,33 +14,48 @@
           @close="onCloseCell"
         >
           <div
-            class="message-item"
+            class="press-message-item"
             @click.stop="onClickDetail(item)"
           >
-            <div class="message-item-img">
-              <img v-lazy="item.avatar">
+            <div class="press-message-item__img-wrap">
+              <img
+                v-if="useLazy"
+                v-lazy="item.avatar"
+                class="press-message-item__img"
+              >
+              <img
+                v-else
+                class="press-message-item__img"
+                :src="item.avatar"
+              >
+
               <div
                 v-if="item.unreadCount"
-                class="message-item-icon"
+                class="press-message-unread-wrap"
               >
-                <div>{{ item.unreadCount > 99 ? '99' : item.unreadCount }}</div>
+                <div class="press-message-unread-wrap__num">
+                  {{ item.unreadCount > 99 ? '99' : item.unreadCount }}
+                </div>
               </div>
             </div>
-            <div class="message-item-box">
-              <div class="message-item-title message-item-text-width">
+
+            <div class="press-message-item__box">
+              <div class="press-message-item__box__title press-message-item__box__title--ellipsis">
                 {{ item.nick }}
               </div>
-              <div class="message-item-text message-item-text-width">
+              <div class="press-message-item__box__content press-message-item__box__content--ellipsis">
                 {{ item.content }}
               </div>
             </div>
-            <div class="message-item-text">
+
+            <div class="press-message-item__box__right">
               {{ item.time }}
             </div>
           </div>
+
           <template #right>
             <div
-              class="message-item-delete"
+              class="press-message-item__right"
               @click.stop="e=>onDelete(item, e)"
             >
               {{ isConfirmDelete ? '确认删除' : '删除' }}
@@ -53,11 +68,13 @@
     <PressLoading
       v-else-if="firstEnter"
     />
+
     <div
       v-else
-      class="message-none"
+      class="press-message-list__empty"
     >
       <PressEmpty
+        type="e-sport"
         :html-empty-content="'暂无消息'"
       />
     </div>
@@ -78,6 +95,10 @@ export default {
     PressEmpty,
   },
   props: {
+    useLazy: {
+      type: Boolean,
+      default: true,
+    },
     firstEnter: {
       type: Boolean,
       default: false,

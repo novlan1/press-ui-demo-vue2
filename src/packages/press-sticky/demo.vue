@@ -44,13 +44,13 @@
     </demo-block>
 
     <!-- #ifdef H5 -->
-    <div
-      class="primary-btn"
-      style="position:relative;margin-left: 10px;"
-      @click.stop="onToggleShowHeader"
+    <press-button
+      type="e-sport-primary"
+      custom-style="position:relative;margin: 10px;padding: 0;"
+      @click="onToggleShowHeader"
     >
       {{ showHeader ? '隐藏' : '显示' }}头部
-    </div>
+    </press-button>
     <!-- #endif -->
   </div>
 </template>
@@ -107,15 +107,5 @@ export default {
   .btn3 {
     margin-left: 160px;
   }
-}
-
-.primary-btn {
-  margin-top: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @include primary-btn(2rem, 0.72rem, 0.32rem);
-  @include btn-default-bg;
 }
 </style>

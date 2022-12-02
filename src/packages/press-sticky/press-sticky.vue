@@ -1,16 +1,19 @@
 <template>
-  <div
-    ref="sticky"
-    class="van-sticky"
-    :class="customClass"
-    :style="containerStyle"
-  >
-    <view
-      :class="wrapClass"
-      :style="wrapStyle"
+  <!-- 需要再加一个最外层，因为this.$el.querySelector找不到最外层的元素 -->
+  <div>
+    <div
+      ref="sticky"
+      class="van-sticky"
+      :class="customClass"
+      :style="containerStyle"
     >
-      <slot />
-    </view>
+      <view
+        :class="wrapClass"
+        :style="wrapStyle"
+      >
+        <slot />
+      </view>
+    </div>
   </div>
 </template>
 <script>
@@ -26,7 +29,6 @@ import { getScroller } from '../common/dom/scroll';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
 const ROOT_ELEMENT = '.van-sticky';
-const ROOT_REF = 'sticky';
 
 const scrollMixin = pageScrollMixin(function (event) {
   if (this.scrollTop !== null) {
@@ -50,6 +52,7 @@ export default {
       if (!this.scroller) {
         this.scroller = getScroller(this.$el);
       }
+      console.log('scroller,', this.scroller);
 
       // if (this.observer) {
       //   const method = isBind ? 'observe' : 'unobserve';
@@ -158,7 +161,7 @@ export default {
 
       if (typeof container === 'function' && container()) {
         Promise.all([
-          getRect(this, ROOT_ELEMENT, ROOT_REF),
+          getRect(this, ROOT_ELEMENT),
           this.getContainerRect(),
         ]).then(([root, container]) => {
           if (root && container && offsetTop + root.height > container.height + container.top) {
@@ -182,7 +185,7 @@ export default {
         return;
       }
 
-      getRect(this, ROOT_ELEMENT, ROOT_REF).then((root) => {
+      getRect(this, ROOT_ELEMENT).then((root) => {
         if (!isDef(root)) {
           return;
         }

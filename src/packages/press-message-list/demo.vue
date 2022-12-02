@@ -2,9 +2,10 @@
   <div class="wrap">
     <PressMessageList
       :list="list"
-      :first-enter="loading"
+      :show-loading="loading"
       :use-lazy="false"
       @onClickDetail="onClickDetail"
+      @onDelete="onDelete"
     />
   </div>
 </template>
@@ -47,12 +48,13 @@ export default {
       this.loading = false;
     }, 3000);
 
-    timer = setTimeout(() => {
-      this.list = [];
-    }, 6000);
+    // timer = setTimeout(() => {
+    //   this.list = [];
+    // }, 6000);
   },
   methods: {
     onClickDetail(item) {
+      console.log('点击了: ', item);
       if (item.type === 'HOLD_LIST') {
         clearTimeout(timer);
         this.list = DEMO_LIST;
@@ -64,6 +66,9 @@ export default {
         this.list = [];
         this.loading = false;
       }
+    },
+    onDelete(item) {
+      console.log('正在删除: ', item);
     },
   },
 };

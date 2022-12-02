@@ -66,7 +66,7 @@
     </div>
 
     <PressLoading
-      v-else-if="firstEnter"
+      v-else-if="showLoading"
     />
 
     <div
@@ -99,31 +99,13 @@ export default {
       type: Boolean,
       default: true,
     },
-    firstEnter: {
+    showLoading: {
       type: Boolean,
       default: false,
     },
     list: {
       type: Array,
-      default: () => ([
-        {
-          nick: '赛宝小助手',
-          content: '这里是消息内容，这里是消息内容消息内容',
-          time: '13:02',
-        },
-        {
-          nick: '用户昵称',
-          content: '这里是消息内容，这里是消息内容消息内容',
-          time: '昨天 11:32',
-
-        },
-        {
-          nick: '用户昵称',
-          content: '这里是消息内容，这里是消息内容消息内容',
-          time: '08-20 11:32',
-
-        },
-      ]),
+      default: () => ([]),
     },
     ...defaultProps,
   },

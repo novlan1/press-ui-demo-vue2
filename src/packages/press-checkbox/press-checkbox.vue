@@ -39,7 +39,9 @@
 import utils from '../wxs-js/utils';
 import VanIcon from '../press-icon-plus/press-icon-plus.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { ChildrenMixin } from '../mixins/relation';
 import computed from './index.js';
+const PARENT = 'checkboxGroup';
 
 function emit(target, value) {
   target.$emit('input', value);
@@ -53,10 +55,17 @@ export default {
   components: {
     VanIcon,
   },
+  mixins: [
+    ChildrenMixin(PARENT),
+  ],
   field: true,
   // relation: (0, relation_1.useParent)('checkbox-group'),
   classes: ['icon-class', 'label-class'],
   props: {
+    name: {
+      type: String,
+      default: '',
+    },
     value: Boolean,
     disabled: Boolean,
     useIconSlot: Boolean,
@@ -91,6 +100,7 @@ export default {
     return {
       parentDisabled: false,
       direction: 'vertical',
+      dataValue: this.value,
     };
   },
   computed: {
@@ -107,28 +117,48 @@ export default {
       return computed.iconStyle(checkedColor, value, disabled, parentDisabled, iconSize);
     },
     cIconClass() {
-      const { shape, disabled, parentDisabled, value } = this;
-      return `${utils.bem('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked: value }])}`;
+      const { shape, disabled, parentDisabled, dataValue } = this;
+      return `${utils.bem('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked: dataValue }])}`;
     },
   },
+  watch: {
+    value: {
+      handler(val) {
+        this.dataValue = !!val;
+      },
+    },
+  },
+  mounted() {
+    this.update();
+  },
   methods: {
+    update() {
+      if (this[PARENT]) {
+        this[PARENT].updateChildren();
+      }
+    },
+    setData(data) {
+      Object.keys(data).forEach((key) => {
+        this[key] = data[key];
+      });
+    },
     emitChange(value) {
-      if (this.parent) {
-        this.setParentValue(this.parent, value);
+      if (this[PARENT]) {
+        this.setParentValue(this[PARENT], value);
       } else {
         emit(this, value);
       }
     },
     toggle() {
-      const { parentDisabled, disabled, value } = this;
+      const { parentDisabled, disabled, dataValue } = this;
       if (!disabled && !parentDisabled) {
-        this.emitChange(!value);
+        this.emitChange(!dataValue);
       }
     },
     onClickLabel() {
-      const { labelDisabled, parentDisabled, disabled, value } = this;
+      const { labelDisabled, parentDisabled, disabled, dataValue } = this;
       if (!disabled && !labelDisabled && !parentDisabled) {
-        this.emitChange(!value);
+        this.emitChange(!dataValue);
       }
     },
     setParentValue(parent, value) {

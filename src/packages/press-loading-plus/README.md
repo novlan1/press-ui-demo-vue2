@@ -29,9 +29,9 @@ subTitle: Loading Plus
 ### 自定义大小
 
 ```html
-<press-loading-plus size="10" /> 
+<press-loading-plus size="15" /> 
 
-<press-loading-plus type="spinner" size="50" />
+<press-loading-plus type="spinner" size="38" />
 ```
 
 ### 加载文案

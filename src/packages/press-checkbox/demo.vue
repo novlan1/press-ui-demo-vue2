@@ -32,8 +32,8 @@
     >
       <press-checkbox
         shape="square"
-        :value="checkedMap.group"
-        @change="v=>onChange(v, 'group')"
+        :value="checkedMap.shape"
+        @change="v=>onChange(v, 'shape')"
       >
         复选框
       </press-checkbox>
@@ -77,6 +77,26 @@
         复选框
       </press-checkbox>
     </demo-block>
+
+    <demo-block
+      title="禁用文本点击"
+      :section-style="sectionStyle"
+    >
+      <press-checkbox-group
+        :value="checkedMap.group"
+        @change="v=>onChange(v, 'group')"
+      >
+        <press-checkbox name="a">
+          复选框 a
+        </press-checkbox>
+        <press-checkbox name="b">
+          复选框 b
+        </press-checkbox>
+        <press-checkbox name="c">
+          复选框 c
+        </press-checkbox>
+      </press-checkbox-group>
+    </demo-block>
   </view>
 </template>
 <script>
@@ -86,11 +106,12 @@ export default {
     return {
       checkedMap: {
         basic: true,
-        group: true,
+        shape: true,
         size: true,
         color: true,
         noLabel: true,
         disabled: true,
+        group: ['a', 'b'],
       },
       sectionStyle: 'margin: 5px 18px;',
     };

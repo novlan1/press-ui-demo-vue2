@@ -5,7 +5,10 @@
         <press-loading-plus />
       </view>
       <view>
-        <press-loading-plus type="spinner" />
+        <press-loading-plus
+          type="spinner"
+          :custom-style="customStyle"
+        />
       </view>
     </demo-block>
 
@@ -17,18 +20,20 @@
         <press-loading-plus
           type="spinner"
           color="#1989fa"
+          :custom-style="customStyle"
         />
       </view>
     </demo-block>
 
     <demo-block title="自定义大小">
       <view>
-        <press-loading-plus size="10" />
+        <press-loading-plus size="15" />
       </view>
       <view>
         <press-loading-plus
           type="spinner"
-          size="50"
+          size="38"
+          :custom-style="customStyle"
         />
       </view>
     </demo-block>
@@ -55,6 +60,7 @@ export default {
   data() {
     return {
       isOpen: false,
+      customStyle: 'margin-left: 20px;',
     };
   },
   onLoad() {
@@ -80,9 +86,6 @@ export default {
   ::v-deep .section-content {
     display: flex;
     align-items: center;
-    & > uni-view {
-      margin-left: 20px;
-    }
   }
 }
 </style>

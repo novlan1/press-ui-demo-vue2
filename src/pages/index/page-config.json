@@ -8,6 +8,10 @@
           "url": "/press/button/button"
         },
         {
+          "name": "Cell 单元格",
+          "url": "/press/cell/cell"
+        },
+        {
           "name": "Icon 图标",
           "url": "/press/icon/icon"
         },

@@ -1,5 +1,8 @@
 <template>
-  <view :class="checkboxClass">
+  <view
+    :class="checkboxClass"
+    :style="customStyle"
+  >
     <view
       v-if="labelPosition === 'left'"
       :class="labelClass"
@@ -91,6 +94,10 @@ export default {
       default: '',
     },
     labelClass: {
+      type: String,
+      default: '',
+    },
+    customStyle: {
       type: String,
       default: '',
     },

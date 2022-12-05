@@ -79,20 +79,59 @@
     </demo-block>
 
     <demo-block
-      title="禁用文本点击"
+      title="复选框组"
       :section-style="sectionStyle"
     >
       <press-checkbox-group
         :value="checkedMap.group"
         @change="v=>onChange(v, 'group')"
       >
-        <press-checkbox name="a">
+        <press-checkbox
+          name="a"
+          :custom-style="customStyle"
+        >
           复选框 a
         </press-checkbox>
-        <press-checkbox name="b">
+        <press-checkbox
+          name="b"
+          :custom-style="customStyle"
+        >
           复选框 b
         </press-checkbox>
-        <press-checkbox name="c">
+        <press-checkbox
+          name="c"
+          :custom-style="customStyle"
+        >
+          复选框 c
+        </press-checkbox>
+      </press-checkbox-group>
+    </demo-block>
+
+    <demo-block
+      title="限制最大可选数"
+      :section-style="sectionStyle"
+    >
+      <press-checkbox-group
+        :value="checkedMap.groupMax"
+        :max="2"
+        @change="v=>onChange(v, 'groupMax')"
+      >
+        <press-checkbox
+          name="a"
+          :custom-style="customStyle"
+        >
+          复选框 a
+        </press-checkbox>
+        <press-checkbox
+          name="b"
+          :custom-style="customStyle"
+        >
+          复选框 b
+        </press-checkbox>
+        <press-checkbox
+          name="c"
+          :custom-style="customStyle"
+        >
           复选框 c
         </press-checkbox>
       </press-checkbox-group>
@@ -112,8 +151,10 @@ export default {
         noLabel: true,
         disabled: true,
         group: ['a', 'b'],
+        groupMax: [],
       },
-      sectionStyle: 'margin: 5px 18px;',
+      sectionStyle: 'margin: 1px 18px;',
+      customStyle: 'margin-bottom: 8px;',
     };
   },
   onLoad() {
@@ -133,5 +174,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.wrap {
+  padding-bottom: 20px;
+}
 </style>
 

@@ -1,20 +1,20 @@
 export const link = {
-  properties: {
-    url: String,
+  props: {
+    url: { type: String, default: '' },
     linkType: {
       type: String,
-      value: 'navigateTo',
+      default: 'navigateTo',
     },
   },
   methods: {
     jumpLink(urlKey = 'url') {
-      const url = this.data[urlKey];
+      const url = this[urlKey];
       if (url) {
-        if (this.data.linkType === 'navigateTo'
+        if (this.linkType === 'navigateTo'
                     && getCurrentPages().length > 9) {
-          wx.redirectTo({ url });
+          uni.redirectTo({ url });
         } else {
-          wx[this.data.linkType]({ url });
+          uni[this.linkType]({ url });
         }
       }
     },

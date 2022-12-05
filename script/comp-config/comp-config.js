@@ -2,6 +2,9 @@ const COMP_TITLE_MAP = {
   Button: {
     title: '按钮',
   },
+  Cell: {
+    title: '单元格',
+  },
   Icon: {
     title: '图标',
   },
@@ -63,7 +66,7 @@ const COMP_TYPE_MAP = {
     title: '基础组件',
     list: [
       'Button',
-      // 'Cell',
+      'Cell',
       'Icon',
       // 'Image',
       'Popup',

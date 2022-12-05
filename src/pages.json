@@ -539,6 +539,15 @@
       ]
     },
     {
+      "root": "pages/press/cell",
+      "pages": [
+        {
+          "path": "cell",
+          "style": {}
+        }
+      ]
+    },
+    {
       "root": "pages/press/message-list",
       "pages": [
         {

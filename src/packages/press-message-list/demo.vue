@@ -2,7 +2,7 @@
   <div class="wrap">
     <PressMessageList
       :list="list"
-      :show-loading="loading"
+      :loading="loading"
       :use-lazy="false"
       @onClickDetail="onClickDetail"
       @onDelete="onDelete"
@@ -15,21 +15,21 @@ import PressMessageList from '../../../packages/press-message-list/press-message
 
 
 const DEMO_LIST = [{
-  nick: 'HOLD LOADING',
+  nick: '显示加载中',
   content: '这里是消息内容，这里是消息内容消息内容',
   type: 'HOLD_LOADING',
   time: '13:02',
   avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
 },
 {
-  nick: 'HOLD EMPTY',
+  nick: '显示空状态',
   content: '这里是超长内容，这里是超长内容，这里是超长内容，这里是超长内容，这里是超长内容，这里是超长内容，这里是超长内容',
   type: 'HOLD_EMPTY',
   time: '昨天 11:32',
   avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
 },
 {
-  nick: 'HOLD LIST',
+  nick: '显示列表',
   content: '这里是消息内容，这里是消息内容消息内容',
   type: 'HOLD_LIST',
   time: '08-20 11:32',
@@ -53,7 +53,7 @@ export default {
     setTimeout(() => {
       this.list = DEMO_LIST;
       this.loading = false;
-    }, 3000);
+    }, 1000);
 
     // timer = setTimeout(() => {
     //   this.list = [];
@@ -61,7 +61,8 @@ export default {
   },
   methods: {
     onClickDetail(item) {
-      console.log('点击了: ', item);
+      console.log('点击了: ', item.type);
+
       if (item.type === 'HOLD_LIST') {
         clearTimeout(timer);
         this.list = DEMO_LIST;
@@ -75,7 +76,15 @@ export default {
       }
     },
     onDelete(item) {
-      console.log('正在删除: ', item);
+      let idx = -1;
+      // 正式项目应请求后台删除
+      this.list.forEach((it, index) => {
+        if (item.type === it.type) {
+          idx = index;
+        }
+      });
+      console.log('正在删除: ', item.type, idx);
+      this.list.splice(idx, 1);
     },
   },
 };

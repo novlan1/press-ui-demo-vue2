@@ -1,39 +1,37 @@
 <template>
-  <uni-shadow-root class="vant-swipe-cell-index">
-    <!-- @touchmove.stop.prevent="catchMove?noop:noop" -->
-    <view
-      class="van-swipe-cell"
-      :class="customClass"
-      data-key="cell"
-      @click.stop.prevent="onClick"
-      @touchstart="startDrag"
-      @touchmove.capture="onDrag"
-      @touchend="endDrag"
-      @touchcancel="endDrag"
-    >
-      <view :style="wrapperStyle">
-        <view
-          v-if="leftWidth"
-          class="van-swipe-cell__left"
-          data-key="left"
-          @click.stop.prevent="onClick"
-        >
-          <slot name="left" />
-        </view>
+  <!-- @touchmove.stop.prevent="catchMove?noop:noop" -->
+  <view
+    class="van-swipe-cell"
+    :class="customClass"
+    data-key="cell"
+    @click.stop.prevent="onClick"
+    @touchstart="startDrag"
+    @touchmove.capture="onDrag"
+    @touchend="endDrag"
+    @touchcancel="endDrag"
+  >
+    <view :style="wrapperStyle">
+      <view
+        v-if="leftWidth"
+        class="van-swipe-cell__left"
+        data-key="left"
+        @click.stop.prevent="onClick"
+      >
+        <slot name="left" />
+      </view>
 
-        <slot />
+      <slot />
 
-        <view
-          v-if="rightWidth"
-          class="van-swipe-cell__right"
-          data-key="right"
-          @click.stop.prevent="onClick"
-        >
-          <slot name="right" />
-        </view>
+      <view
+        v-if="rightWidth"
+        class="van-swipe-cell__right"
+        data-key="right"
+        @click.stop.prevent="onClick"
+      >
+        <slot name="right" />
       </view>
     </view>
-  </uni-shadow-root>
+  </view>
 </template>
 
 <script>

@@ -11,7 +11,7 @@ url : pages/press/message-list/message-list
 ```html
 <PressMessageList
   :list="list"
-  :show-loading="loading"
+  :loading="loading"
   :use-lazy="false"
   @onClickDetail="onClickDetail"
 />
@@ -59,11 +59,11 @@ export default {
 ### Props
 
 
-| 参数        | 说明               | 类型                                   | 默认值  |
-| ----------- | ------------------ | -------------------------------------- | ------- |
-| list        | 消息列表           | _Array<{nick, content, time, avatar}>_ | `[]`    |
-| showLoading | 是否显示加载中     | _boolean_                              | `false` |
-| useLazy     | 头像是否使用v-lazy | _boolean_                              | `false` |
+| 参数    | 说明               | 类型                                   | 默认值  |
+| ------- | ------------------ | -------------------------------------- | ------- |
+| list    | 消息列表           | _Array<{nick, content, time, avatar}>_ | `[]`    |
+| loading | 是否显示加载中     | _boolean_                              | `false` |
+| useLazy | 头像是否使用v-lazy | _boolean_                              | `false` |
 
 
 ### Event

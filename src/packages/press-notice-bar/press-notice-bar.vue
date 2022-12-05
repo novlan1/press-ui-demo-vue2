@@ -198,7 +198,6 @@ export default {
       if (this.mode === 'closeable') {
         this.timer && clearTimeout(this.timer);
         this.timer = null;
-        // this.setData({ show: false });
         this.show = false;
         this.$emit('close', event.detail);
       }

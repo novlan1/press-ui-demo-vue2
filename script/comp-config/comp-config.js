@@ -77,6 +77,9 @@ const COMP_TITLE_MAP = {
   Area: {
     title: '省市区选择',
   },
+  Circle: {
+    title: '环形进度条',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -116,6 +119,7 @@ const COMP_TYPE_MAP = {
   show: {
     title: '展示组件',
     list: [
+      'Circle',
       'Divider',
       'Empty',
       'NoticeBar',

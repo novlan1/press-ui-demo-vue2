@@ -609,6 +609,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/circle",
+      "pages": [
+        {
+          "path": "circle",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

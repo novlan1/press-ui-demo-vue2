@@ -87,6 +87,10 @@
       "title": "展示组件",
       "list": [
         {
+          "name": "Circle 环形进度条",
+          "url": "/press/circle/circle"
+        },
+        {
           "name": "Divider 分割线",
           "url": "/press/divider/divider"
         },

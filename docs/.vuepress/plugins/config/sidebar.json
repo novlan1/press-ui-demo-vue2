@@ -103,14 +103,29 @@
       "collapsable": false,
       "children": [
         {
-          "title": "粘性布局",
-          "subTitle": "Sticky",
-          "path": "/components/press/press-sticky.md"
+          "title": "分割线",
+          "subTitle": "Divider",
+          "path": "/components/press/press-divider.md"
         },
         {
           "title": "空状态",
           "subTitle": "Empty",
           "path": "/components/press/press-empty.md"
+        },
+        {
+          "title": "通知栏",
+          "subTitle": "NoticeBar",
+          "path": "/components/press/press-notice-bar.md"
+        },
+        {
+          "title": "粘性布局",
+          "subTitle": "Sticky",
+          "path": "/components/press/press-sticky.md"
+        },
+        {
+          "title": "标签",
+          "subTitle": "Tag",
+          "path": "/components/press/press-tag.md"
         }
       ]
     },

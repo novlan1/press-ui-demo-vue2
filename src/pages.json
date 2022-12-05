@@ -548,6 +548,33 @@
       ]
     },
     {
+      "root": "pages/press/tag",
+      "pages": [
+        {
+          "path": "tag",
+          "style": {}
+        }
+      ]
+    },
+    {
+      "root": "pages/press/divider",
+      "pages": [
+        {
+          "path": "divider",
+          "style": {}
+        }
+      ]
+    },
+    {
+      "root": "pages/press/notice-bar",
+      "pages": [
+        {
+          "path": "notice-bar",
+          "style": {}
+        }
+      ]
+    },
+    {
       "root": "pages/press/message-list",
       "pages": [
         {

@@ -10,6 +10,10 @@ import DemoBlock from 'src/pages/demo-block/demo-block.vue';
 import PressLoading from 'src/packages/press-loading/press-loading.vue';
 import PressCell from 'src/packages/press-cell/press-cell.vue';
 import PressCellGroup from 'src/packages/press-cell-group/press-cell-group.vue';
+import PressTag from 'src/packages/press-tag/press-tag.vue';
+import PressDivider from 'src/packages/press-divider/press-divider.vue';
+import PressNoticeBar from 'src/packages/press-notice-bar/press-notice-bar.vue';
+
 
 import PressButton from 'src/packages/press-button/press-button.vue';
 import PressPicker from 'src/packages/press-picker/press-picker.vue';
@@ -174,6 +178,8 @@ Vue.component('PressCellGroup', PressCellGroup);
 Vue.component('PressPicker', PressPicker);
 Vue.component('PressDialog', PressDialog);
 Vue.component('PressEmpty', PressEmpty);
+Vue.component('PressDivider', PressDivider);
+Vue.component('PressNoticeBar', PressNoticeBar);
 
 Vue.component('PressIcon', PressIcon);
 Vue.component('PressIconPlus', PressIconPlus);
@@ -193,7 +199,7 @@ Vue.component('PressTransition', PressTransition);
 Vue.component('PressOverlay', PressOverlay);
 Vue.component('PressToast', PressToast);
 Vue.component('PressMessageList', PressMessageList);
-
+Vue.component('PressTag', PressTag);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

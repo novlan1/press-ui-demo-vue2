@@ -83,12 +83,24 @@
       "title": "展示组件",
       "list": [
         {
-          "name": "Sticky 粘性布局",
-          "url": "/press/sticky/sticky"
+          "name": "Divider 分割线",
+          "url": "/press/divider/divider"
         },
         {
           "name": "Empty 空状态",
           "url": "/press/empty/empty"
+        },
+        {
+          "name": "NoticeBar 通知栏",
+          "url": "/press/notice-bar/notice-bar"
+        },
+        {
+          "name": "Sticky 粘性布局",
+          "url": "/press/sticky/sticky"
+        },
+        {
+          "name": "Tag 标签",
+          "url": "/press/tag/tag"
         }
       ]
     },

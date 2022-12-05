@@ -5,6 +5,9 @@ const COMP_TITLE_MAP = {
   Cell: {
     title: '单元格',
   },
+  Divider: {
+    title: '分割线',
+  },
   Icon: {
     title: '图标',
   },
@@ -56,8 +59,14 @@ const COMP_TITLE_MAP = {
   Tab: {
     title: '标签页',
   },
+  Tag: {
+    title: '标签',
+  },
   MessageList: {
     title: '消息列表',
+  },
+  NoticeBar: {
+    title: '通知栏',
   },
 };
 
@@ -97,8 +106,11 @@ const COMP_TYPE_MAP = {
   show: {
     title: '展示组件',
     list: [
-      'Sticky',
+      'Divider',
       'Empty',
+      'NoticeBar',
+      'Sticky',
+      'Tag',
     ],
   },
   nav: {

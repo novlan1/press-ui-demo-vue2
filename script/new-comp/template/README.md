@@ -1,12 +1,9 @@
 ---
-url : pages/press/{{COMP}}/{{COMP}}
+url : pages/press/comp/comp
 ---
 
 ## SUBTITLE TITLE
 
-
-
-{{COMP_DESC}}
 
 ### 基本用法
 

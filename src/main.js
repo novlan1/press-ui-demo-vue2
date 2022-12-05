@@ -14,7 +14,6 @@ import PressTag from 'src/packages/press-tag/press-tag.vue';
 import PressDivider from 'src/packages/press-divider/press-divider.vue';
 import PressNoticeBar from 'src/packages/press-notice-bar/press-notice-bar.vue';
 import PressNavBar from 'src/packages/press-nav-bar/press-nav-bar.vue';
-import PressArea from 'src/packages/press-area/press-area.vue';
 
 
 import PressButton from 'src/packages/press-button/press-button.vue';
@@ -39,7 +38,6 @@ import PressCheckboxGroup from 'src/packages/press-checkbox-group/press-checkbox
 import PressTransition from 'src/packages/press-transition/press-transition.vue';
 import PressOverlay from 'src/packages/press-overlay/press-overlay.vue';
 import PressToast from 'src/packages/press-toast/press-toast.vue';
-import PressMessageList from 'src/packages/press-message-list/press-message-list.vue';
 
 
 import UniBadge from 'src/packages/uni-badge/components/uni-badge/uni-badge.vue';
@@ -201,11 +199,9 @@ Vue.component('PressCheckboxGroup', PressCheckboxGroup);
 Vue.component('PressTransition', PressTransition);
 Vue.component('PressOverlay', PressOverlay);
 Vue.component('PressToast', PressToast);
-Vue.component('PressMessageList', PressMessageList);
 Vue.component('PressTag', PressTag);
 Vue.component('PressNavBar', PressNavBar);
 Vue.component('PressPopupPlus', PressPopupPlus);
-Vue.component('PressArea', PressArea);
 
 
 Vue.config.productionTip = false;

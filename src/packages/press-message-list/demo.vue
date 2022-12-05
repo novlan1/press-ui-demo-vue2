@@ -10,6 +10,10 @@
   </div>
 </template>
 <script>
+// eslint-disable-next-line import/no-unresolved
+import PressMessageList from '../../../packages/press-message-list/press-message-list.vue';
+
+
 const DEMO_LIST = [{
   nick: 'HOLD LOADING',
   content: '这里是消息内容，这里是消息内容消息内容',
@@ -35,6 +39,9 @@ const DEMO_LIST = [{
 let timer;
 
 export default {
+  components: {
+    PressMessageList,
+  },
   data() {
     return {
       list: [],

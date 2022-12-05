@@ -74,6 +74,9 @@ const COMP_TITLE_MAP = {
   NavBar: {
     title: '导航栏',
   },
+  Area: {
+    title: '省市区选择',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -130,6 +133,7 @@ const COMP_TYPE_MAP = {
   work: {
     title: '业务组件',
     list: [
+      'Area',
       'MessageList',
     ],
   },

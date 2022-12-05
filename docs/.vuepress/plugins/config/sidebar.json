@@ -155,6 +155,11 @@
       "collapsable": false,
       "children": [
         {
+          "title": "省市区选择",
+          "subTitle": "Area",
+          "path": "/components/press/press-area.md"
+        },
+        {
           "title": "消息列表",
           "subTitle": "MessageList",
           "path": "/components/press/press-message-list.md"

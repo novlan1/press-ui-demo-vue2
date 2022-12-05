@@ -600,6 +600,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/area",
+      "pages": [
+        {
+          "path": "area",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

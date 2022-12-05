@@ -13,6 +13,7 @@ import PressCellGroup from 'src/packages/press-cell-group/press-cell-group.vue';
 import PressTag from 'src/packages/press-tag/press-tag.vue';
 import PressDivider from 'src/packages/press-divider/press-divider.vue';
 import PressNoticeBar from 'src/packages/press-notice-bar/press-notice-bar.vue';
+import PressNavBar from 'src/packages/press-nav-bar/press-nav-bar.vue';
 
 
 import PressButton from 'src/packages/press-button/press-button.vue';
@@ -23,6 +24,7 @@ import PressIcon from 'src/packages/press-icon/press-icon.vue';
 import PressIconPlus from 'src/packages/press-icon-plus/press-icon-plus.vue';
 import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 import PressPopup from 'src/packages/press-popup/press-popup.vue';
+import PressPopupPlus from 'src/packages/press-popup-plus/press-popup-plus.vue';
 import PressInfo from 'src/packages/press-info/press-info.vue';
 import PressSticky from 'src/packages/press-sticky/press-sticky.vue';
 import PressTab from 'src/packages/press-tab/press-tab.vue';
@@ -200,6 +202,9 @@ Vue.component('PressOverlay', PressOverlay);
 Vue.component('PressToast', PressToast);
 Vue.component('PressMessageList', PressMessageList);
 Vue.component('PressTag', PressTag);
+Vue.component('PressNavBar', PressNavBar);
+Vue.component('PressPopupPlus', PressPopupPlus);
+
 
 Vue.config.productionTip = false;
 App.mpType = 'app';

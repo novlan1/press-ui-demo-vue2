@@ -20,6 +20,10 @@
           "url": "/press/popup/popup"
         },
         {
+          "name": "PopupPlus 弹出层",
+          "url": "/press/popup-plus/popup-plus"
+        },
+        {
           "name": "Toast 轻提示",
           "url": "/press/toast/toast"
         },
@@ -107,6 +111,10 @@
     {
       "title": "导航组件",
       "list": [
+        {
+          "name": "NavBar 导航栏",
+          "url": "/press/nav-bar/nav-bar"
+        },
         {
           "name": "Tab 标签页",
           "url": "/press/tab/tab"

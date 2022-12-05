@@ -14,6 +14,9 @@ const COMP_TITLE_MAP = {
   Popup: {
     title: '弹出层',
   },
+  PopupPlus: {
+    title: '弹出层',
+  },
   Toast: {
     title: '轻提示',
   },
@@ -68,6 +71,9 @@ const COMP_TITLE_MAP = {
   NoticeBar: {
     title: '通知栏',
   },
+  NavBar: {
+    title: '导航栏',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -79,6 +85,7 @@ const COMP_TYPE_MAP = {
       'Icon',
       // 'Image',
       'Popup',
+      'PopupPlus',
       'Toast',
       'Transition',
     ],
@@ -116,6 +123,7 @@ const COMP_TYPE_MAP = {
   nav: {
     title: '导航组件',
     list: [
+      'NavBar',
       'Tab',
     ],
   },

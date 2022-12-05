@@ -40,12 +40,19 @@ export function transition(showDefaultValue) {
         type: '',
         inited: false,
         display: false,
+
+        dataName: this.name,
       };
     },
     watch: {
       show: {
         handler(...args) {
           this.observeShow(...args);
+        },
+      },
+      name: {
+        handler(val) {
+          this.dataName = val;
         },
       },
       // duration: {
@@ -67,8 +74,8 @@ export function transition(showDefaultValue) {
         value ? this.enter() : this.leave();
       },
       enter() {
-        const { duration, name } = this;
-        const classNames = getClassNames(name, this);
+        const { duration, dataName } = this;
+        const classNames = getClassNames(dataName, this);
         const currentDuration = isObj(duration) ? duration.enter : duration;
         this.status = 'enter';
         this.$emit('before-enter');
@@ -99,8 +106,8 @@ export function transition(showDefaultValue) {
         if (!this.display) {
           return;
         }
-        const { duration, name } = this;
-        const classNames = getClassNames(name, this);
+        const { duration, dataName } = this;
+        const classNames = getClassNames(dataName, this);
         const currentDuration = isObj(duration) ? duration.leave : duration;
         this.status = 'leave';
         this.$emit('before-leave');

@@ -25,6 +25,11 @@
           "path": "/components/press/press-popup.md"
         },
         {
+          "title": "弹出层",
+          "subTitle": "PopupPlus",
+          "path": "/components/press/press-popup-plus.md"
+        },
+        {
           "title": "轻提示",
           "subTitle": "Toast",
           "path": "/components/press/press-toast.md"
@@ -133,6 +138,11 @@
       "title": "导航组件",
       "collapsable": false,
       "children": [
+        {
+          "title": "导航栏",
+          "subTitle": "NavBar",
+          "path": "/components/press/press-nav-bar.md"
+        },
         {
           "title": "标签页",
           "subTitle": "Tab",

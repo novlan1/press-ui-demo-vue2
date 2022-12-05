@@ -575,6 +575,24 @@
       ]
     },
     {
+      "root": "pages/press/nav-bar",
+      "pages": [
+        {
+          "path": "nav-bar",
+          "style": {}
+        }
+      ]
+    },
+    {
+      "root": "pages/press/popup-plus",
+      "pages": [
+        {
+          "path": "popup-plus",
+          "style": {}
+        }
+      ]
+    },
+    {
       "root": "pages/press/message-list",
       "pages": [
         {

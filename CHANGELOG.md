@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.20...v0.1.21) (2022-12-05)
+
+
+### Features
+
+* 删除没有用到的press-picker-2和press-toolbar ([8bebd88](https://git.woa.com/pmd-mobile/support/press-ui/commit/8bebd88c171bb9cb414776371e9539da02a292e1))
+* **cell:** 增加cell ([aabefe9](https://git.woa.com/pmd-mobile/support/press-ui/commit/aabefe945ded4261b100d44f08a5ecb73316359e))
+* **checkbox-group:** 增加checkbox-group ([55e9693](https://git.woa.com/pmd-mobile/support/press-ui/commit/55e969344e75610b2ac8e614203297578ceefca9))
+* **dialog:** 使用scroll-view包裹v-html ([078115e](https://git.woa.com/pmd-mobile/support/press-ui/commit/078115ea2a406e78c18b8228eb804b0f2e723c95))
+* **dialog:** 真机dialog的scroll-view优化 ([06b9629](https://git.woa.com/pmd-mobile/support/press-ui/commit/06b96295eb70fe216e5bba2dce43db49f5c52f00))
+* **empty:** 增加空状态 ([81ff008](https://git.woa.com/pmd-mobile/support/press-ui/commit/81ff008861cb652ac1feb4fae866845ce9a39507))
+* **message-list:** 优化message-list ([1fa574a](https://git.woa.com/pmd-mobile/support/press-ui/commit/1fa574ace1733b0ac589abf79874b2f80f8a212c))
+* **message-list:** 增加业务组件message-list ([98e27af](https://git.woa.com/pmd-mobile/support/press-ui/commit/98e27af03d92f6f01a2f794efecd8ff159dfe9c8))
+* **tag+notice-bar+divider:** 增加几个组件 ([11b826e](https://git.woa.com/pmd-mobile/support/press-ui/commit/11b826e1435c5003805d95b493967917f36fda08))
+
+
+### Bug Fixes
+
+* **sticky:** 修复h5下sticky失效问题 ([bd5f719](https://git.woa.com/pmd-mobile/support/press-ui/commit/bd5f71999cf8f35474443362ee02a4e85eeff1e6))
+
 ### [0.1.20](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.19...v0.1.20) (2022-12-01)
 
 ### [0.1.19](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.18...v0.1.19) (2022-12-01)

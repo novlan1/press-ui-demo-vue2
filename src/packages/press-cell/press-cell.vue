@@ -149,106 +149,126 @@ export default {
 };
 
 </script>
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+@import "../common/style/mixins/hairline.scss";
+
 .van-cell {
-  background-color: var(--cell-background-color, #fff);
-  box-sizing: border-box;
-  color: var(--cell-text-color, #323233);
-  display: flex;
-  font-size: var(--cell-font-size, 14px);
-  line-height: var(--cell-line-height, 24px);
-  padding: var(--cell-vertical-padding, 10px)
-    var(--cell-horizontal-padding, 16px);
   position: relative;
-  width: 100%;
-}
-.van-cell:after {
-  border-bottom: 1px solid #ebedf0;
-  bottom: 0;
-  box-sizing: border-box;
-  content: " ";
-  left: 16px;
-  pointer-events: none;
-  position: absolute;
-  right: 16px;
-  transform: scaleY(0.5);
-  transform-origin: center;
-}
-.van-cell--borderless:after {
-  display: none;
-}
-.van-cell-group {
-  background-color: var(--cell-background-color, #fff);
-}
-.van-cell__label {
-  color: var(--cell-label-color, #969799);
-  font-size: var(--cell-label-font-size, 12px);
-  line-height: var(--cell-label-line-height, 18px);
-  margin-top: var(--cell-label-margin-top, 3px);
-}
-.van-cell__value {
-  color: var(--cell-value-color, #969799);
-  overflow: hidden;
-  text-align: right;
-  vertical-align: middle;
-}
-.van-cell__title,
-.van-cell__value {
-  flex: 1;
-}
-.van-cell__title:empty,
-.van-cell__value:empty {
-  display: none;
-}
-.van-cell__left-icon-wrap,
-.van-cell__right-icon-wrap {
-  align-items: center;
   display: flex;
-  font-size: var(--cell-icon-size, 16px);
-  height: var(--cell-line-height, 24px);
-}
-.van-cell__left-icon-wrap {
-  margin-right: var(--padding-base, 4px);
-}
-.van-cell__right-icon-wrap {
-  color: var(--cell-right-icon-color, #969799);
-  margin-left: var(--padding-base, 4px);
-}
-.van-cell__left-icon {
-  vertical-align: middle;
-}
-.van-cell__left-icon,
-.van-cell__right-icon {
-  line-height: var(--cell-line-height, 24px);
-}
-.van-cell--clickable.van-cell--hover {
-  background-color: var(--cell-active-color, #f2f3f5);
-}
-.van-cell--required {
-  overflow: visible;
-}
-.van-cell--required:before {
-  color: var(--cell-required-color, #ee0a24);
-  content: "*";
-  font-size: var(--cell-font-size, 14px);
-  left: var(--padding-xs, 8px);
-  position: absolute;
-}
-.van-cell--center {
-  align-items: center;
-}
-.van-cell--large {
-  padding-bottom: var(--cell-large-vertical-padding, 12px);
-  padding-top: var(--cell-large-vertical-padding, 12px);
-}
-.van-cell--large .van-cell__title {
-  font-size: var(--cell-large-title-font-size, 16px);
-}
-.van-cell--large .van-cell__value {
-  font-size: var(--cell-large-value-font-size, 16px);
-}
-.van-cell--large .van-cell__label {
-  font-size: var(--cell-large-label-font-size, 14px);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--cell-vertical-padding, $cell-vertical-padding)
+    var(--cell-horizontal-padding, $cell-horizontal-padding);
+  font-size: var(--cell-font-size, $cell-font-size);
+  line-height: var(--cell-line-height, $cell-line-height);
+  color: var(--cell-text-color, $cell-text-color);
+  background-color: var(--cell-background-color, $cell-background-color);
+
+  ::after {
+    @include hairline-bottom($border-color, $padding-md, $padding-md);
+  }
+
+  &--borderless::after {
+    display: none;
+  }
+
+  &-group {
+    background-color: var(--cell-background-color, $cell-background-color);
+  }
+
+  &__label {
+    margin-top: var(--cell-label-margin-top, $cell-label-margin-top);
+    font-size: var(--cell-label-font-size, $cell-label-font-size);
+    line-height: var(--cell-label-line-height, $cell-label-line-height);
+    color: var(--cell-label-color, $cell-label-color);
+  }
+
+  &__value {
+    overflow: hidden;
+    text-align: right;
+    vertical-align: middle;
+    color: var(--cell-value-color, $cell-value-color);
+  }
+
+  &__title,
+  &__value {
+    flex: 1;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__left-icon-wrap,
+  &__right-icon-wrap {
+    display: flex;
+    align-items: center;
+    height: var(--cell-line-height, $cell-line-height);
+    font-size: var(--cell-icon-size, $cell-icon-size);
+  }
+
+  &__left-icon-wrap {
+    margin-right: var(--padding-base, $padding-base);
+  }
+
+  &__right-icon-wrap {
+    margin-left: var(--padding-base, $padding-base);
+    color: var(--cell-right-icon-color, $cell-right-icon-color);
+  }
+
+  &__left-icon {
+    vertical-align: middle;
+    line-height: var(--cell-line-height, $cell-line-height);
+  }
+
+  &__right-icon {
+    line-height: var(--cell-line-height, $cell-line-height);
+  }
+
+  // 【修改点】 &--clickable&--hover不能用
+  &--clickable.van-cell--hover {
+    background-color: var(--cell-active-color, $cell-active-color);
+  }
+
+  &--required {
+    overflow: visible;
+
+    &::before {
+      position: absolute;
+      content: "*";
+      left: var(--padding-xs, $padding-xs);
+      font-size: var(--cell-font-size, $cell-font-size);
+      color: var(--cell-required-color, $cell-required-color);
+    }
+  }
+
+  &--center {
+    align-items: center;
+  }
+
+  &--large {
+    padding-top: var(
+      --cell-large-vertical-padding,
+      $cell-large-vertical-padding
+    );
+    padding-bottom: var(
+      --cell-large-vertical-padding,
+      $cell-large-vertical-padding
+    );
+
+    .van-cell__title {
+      font-size: var(--cell-large-title-font-size, $cell-large-title-font-size);
+    }
+
+    .van-cell__value {
+      font-size: var(--cell-large-value-font-size, $cell-large-value-font-size);
+    }
+
+    .van-cell__label {
+      font-size: var(--cell-large-label-font-size, $cell-large-label-font-size);
+    }
+  }
 }
 </style>

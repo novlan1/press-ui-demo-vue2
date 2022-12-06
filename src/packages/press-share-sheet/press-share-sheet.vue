@@ -1,0 +1,211 @@
+<template>
+  <uni-shadow-root class="vant-share-sheet-index">
+    <van-popup
+      round
+      class="van-share-sheet"
+      :show="show"
+      position="bottom"
+      :overlay="overlay"
+      :duration="duration"
+      :z-index="zIndex"
+      :overlay-style="overlayStyle"
+      :close-on-click-overlay="closeOnClickOverlay"
+      :safe-area-inset-bottom="safeAreaInsetBottom"
+      @close="onClose"
+      @click-overlay="onClickOverlay"
+    >
+      <view class="van-share-sheet__header">
+        <view class="van-share-sheet__title">
+          <slot name="title" />
+        </view>
+        <view
+          v-if="title"
+          class="van-share-sheet__title"
+        >
+          {{ title }}
+        </view>
+
+        <view class="van-share-sheet__description">
+          <slot name="description" />
+        </view>
+        <view
+          v-if="description"
+          class="van-share-sheet__description"
+        >
+          {{ description }}
+        </view>
+      </view>
+
+      <block v-if="computed.isMulti(options)">
+        <options
+          v-for="(item,index) in (options)"
+          :key="item.index"
+          :show-border="index !== 0"
+          :options="item"
+          @select="onSelect"
+        />
+      </block>
+
+      <options
+        v-else
+        :options="options"
+        @select="onSelect"
+      />
+
+      <button
+        type="button"
+        class="van-share-sheet__cancel"
+        @click="onCancel"
+      >
+        {{ cancelText }}
+      </button>
+    </van-popup>
+  </uni-shadow-root>
+</template>
+<script>
+import VanPopup from '../press-popup-plus/press-popup-plus.vue';
+import Options from './options.vue';
+import { defaultProps, defaultOptions } from '../common/press-component';
+import computed from './computed';
+
+export default {
+  options: {
+    ...defaultOptions,
+  },
+  components: {
+    VanPopup,
+    Options,
+  },
+  props: {
+    // whether to show popup
+    show: Boolean,
+    // overlay custom style
+    overlayStyle: { type: String, default: '' },
+    // z-index
+    zIndex: {
+      type: Number,
+      default: 100,
+    },
+    title: { type: String, default: '' },
+    cancelText: {
+      type: String,
+      default: '取消',
+    },
+    description: { type: String, default: '' },
+    options: {
+      type: Array,
+      default: () => [],
+    },
+    overlay: {
+      type: Boolean,
+      default: true,
+    },
+    safeAreaInsetBottom: {
+      type: Boolean,
+      default: true,
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+    duration: {
+      type: Number,
+      default: 300,
+    },
+    ...defaultProps,
+  },
+  data() {
+    return {
+      computed,
+    };
+  },
+  methods: {
+    onClickOverlay() {
+      this.$emit('click-overlay');
+    },
+    onCancel() {
+      this.onClose();
+      this.$emit('cancel');
+    },
+    onSelect(event) {
+      this.$emit('select', event.detail);
+    },
+    onClose() {
+      this.$emit('close');
+    },
+  },
+};
+
+</script>
+<style platform="mp-weixin" lang="scss">
+@import "../common/index.scss";
+@import "../common/style/var.scss";
+// @import "../common/style/mixins/hairline.scss";
+
+.van-share-sheet {
+  &__header {
+    padding: $share-sheet-header-padding;
+    text-align: center;
+  }
+
+  &__title {
+    margin-top: $padding-xs;
+    color: $share-sheet-title-color;
+    font-weight: normal;
+    font-size: $share-sheet-title-font-size;
+    line-height: $share-sheet-title-line-height;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__title:not(:empty) + &__title {
+    display: none;
+  }
+
+  &__description {
+    display: block;
+    margin-top: $padding-xs;
+    color: $share-sheet-description-color;
+    font-size: $share-sheet-description-font-size;
+    line-height: $share-sheet-description-line-height;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__description:not(:empty) + &__description {
+    display: none;
+  }
+
+  &__cancel {
+    display: block;
+    box-sizing: content-box;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    font-size: $share-sheet-cancel-button-font-size;
+    line-height: $share-sheet-cancel-button-height;
+    text-align: center;
+    background: $share-sheet-cancel-button-background;
+    border: none;
+
+    &::before {
+      display: block;
+      height: $padding-xs;
+      background-color: $background-color;
+      content: " ";
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &:active {
+      background-color: $active-color;
+    }
+  }
+}
+</style>

@@ -645,6 +645,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/share-sheet",
+      "pages": [
+        {
+          "path": "share-sheet",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

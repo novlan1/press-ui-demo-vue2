@@ -89,6 +89,9 @@ const COMP_TITLE_MAP = {
   ActionSheet: {
     title: '动作面板',
   },
+  ShareSheet: {
+    title: '分享面板',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -123,6 +126,7 @@ const COMP_TYPE_MAP = {
       'Loading',
       'LoadingPlus',
       'Overlay',
+      'ShareSheet',
       'SwipeCell',
     ],
   },

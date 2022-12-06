@@ -70,33 +70,38 @@ export default {
     PressActionSheet,
   },
   data() {
+    const  demoList = [
+      {
+        title: '基础用法',
+        type: 'basic',
+      },
+      {
+        title: '选项状态',
+        type: 'status',
+      },
+      {
+        title: '展示取消状态',
+        type: 'cancel',
+      },
+      {
+        title: '展示描述状态',
+        type: 'description',
+      },
+      {
+        title: '展示标题栏',
+        type: 'title',
+      },
+
+    ];
+    if (process.env.UNI_PLATFORM !== 'h5') {
+      demoList.push({
+        title: '微信开放能力',
+        type: 'wxOpen',
+      });
+    }
+
     return {
-      demoList: [
-        {
-          title: '基础用法',
-          type: 'basic',
-        },
-        {
-          title: '选项状态',
-          type: 'status',
-        },
-        {
-          title: '展示取消状态',
-          type: 'cancel',
-        },
-        {
-          title: '展示描述状态',
-          type: 'description',
-        },
-        {
-          title: '展示标题栏',
-          type: 'title',
-        },
-        {
-          title: '微信开放能力',
-          type: 'wxOpen',
-        },
-      ],
+      demoList,
       show: false,
       showCustom: false,
       cancelText: '',

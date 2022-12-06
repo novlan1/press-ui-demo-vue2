@@ -102,6 +102,11 @@
           "path": "/components/press/press-overlay.md"
         },
         {
+          "title": "分享面板",
+          "subTitle": "ShareSheet",
+          "path": "/components/press/press-share-sheet.md"
+        },
+        {
           "title": "滑动单元格",
           "subTitle": "SwipeCell",
           "path": "/components/press/press-swipe-cell.md"

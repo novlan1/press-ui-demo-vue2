@@ -86,6 +86,7 @@ export default {
   },
   options: {
     ...defaultOptions,
+    styleIsolation: 'shared',
   },
   // classes: [
   //   'title-class',
@@ -163,10 +164,12 @@ export default {
     var(--cell-horizontal-padding, $cell-horizontal-padding);
   font-size: var(--cell-font-size, $cell-font-size);
   line-height: var(--cell-line-height, $cell-line-height);
+  // 【修改点】增加height，默认为auto
+  height: var(--cell-height, $cell-height);
   color: var(--cell-text-color, $cell-text-color);
   background-color: var(--cell-background-color, $cell-background-color);
 
-  ::after {
+  &::after {
     @include hairline-bottom($border-color, $padding-md, $padding-md);
   }
 
@@ -190,11 +193,15 @@ export default {
     text-align: right;
     vertical-align: middle;
     color: var(--cell-value-color, $cell-value-color);
+    // 【修改点】增加value的font-size设置
+    font-size: var(--cell-value-font-size, $cell-value-font-size);
   }
 
   &__title,
   &__value {
     flex: 1;
+    // 【修改点】增加line-height，默认24px，否则h5下不会垂直居中
+    line-height: var(--cell-line-height, $cell-line-height);
 
     &:empty {
       display: none;

@@ -58,7 +58,6 @@
 
     <!-- #ifndef H5 -->
     <PressDialog
-      v-if="isMPWeixin"
       id="tip-match-comm-tips-dialog"
     />
     <!-- #endif -->

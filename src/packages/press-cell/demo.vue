@@ -206,13 +206,6 @@
             @change="onChangeSwitch"
           />
         </press-cell>
-
-        <press-cell
-          title="单元格"
-          value="内容"
-          label="描述信息"
-          :border="false"
-        />
       </div>
     </demo-block>
   </div>
@@ -252,6 +245,9 @@ page {
   --cell-height: 1.12rem;
   --cell-line-height: unset;
 
+  --cell-vertical-padding: 0.32rem;
+  --cell-horizontal-padding: 0.32rem;
+
   --cell-text-color: #09134e;
   --cell-font-size: 0.32rem;
 
@@ -260,9 +256,7 @@ page {
 
   --cell-label-font-size: 0.2rem;
   --cell-label-color: #9299c6;
-
-  --cell-vertical-padding: 0.32rem;
-  --cell-horizontal-padding: 0.32rem;
+  --cell-label-margin-top: 0;
 
   --cell-icon-size: 0.24rem;
   --cell-right-icon-color: #9299c6;

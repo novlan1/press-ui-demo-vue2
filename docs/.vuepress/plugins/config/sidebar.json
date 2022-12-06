@@ -133,6 +133,11 @@
           "path": "/components/press/press-notice-bar.md"
         },
         {
+          "title": "步骤条",
+          "subTitle": "Steps",
+          "path": "/components/press/press-steps.md"
+        },
+        {
           "title": "粘性布局",
           "subTitle": "Sticky",
           "path": "/components/press/press-sticky.md"

@@ -54,8 +54,8 @@ export default {
   },
   computed: {
     rootClass() {
-      const { classPrefix, name } = this;
-      return computed.rootClass({ classPrefix, name });
+      const { classPrefix, name, customClass } = this;
+      return computed.rootClass({ classPrefix, name, customClass });
     },
     rootStyle() {
       const { customStyle, color, size } = this;

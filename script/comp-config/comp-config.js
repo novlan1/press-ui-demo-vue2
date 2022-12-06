@@ -83,6 +83,9 @@ const COMP_TITLE_MAP = {
   Collapse: {
     title: '折叠面板',
   },
+  Steps: {
+    title: '步骤条',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -127,6 +130,7 @@ const COMP_TYPE_MAP = {
       'Divider',
       'Empty',
       'NoticeBar',
+      'Steps',
       'Sticky',
       'Tag',
     ],

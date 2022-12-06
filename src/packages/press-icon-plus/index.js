@@ -6,7 +6,7 @@ function isImage(name) {
 }
 
 function rootClass(data) {
-  const classes = ['custom-class'];
+  const classes = [data.customClass || ''];
 
   if (data.classPrefix != null) {
     classes.push(data.classPrefix);

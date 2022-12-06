@@ -627,6 +627,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/steps",
+      "pages": [
+        {
+          "path": "steps",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

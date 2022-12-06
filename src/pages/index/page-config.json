@@ -107,6 +107,10 @@
           "url": "/press/notice-bar/notice-bar"
         },
         {
+          "name": "Steps 步骤条",
+          "url": "/press/steps/steps"
+        },
+        {
           "name": "Sticky 粘性布局",
           "url": "/press/sticky/sticky"
         },

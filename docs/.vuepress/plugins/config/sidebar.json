@@ -113,6 +113,11 @@
           "path": "/components/press/press-circle.md"
         },
         {
+          "title": "折叠面板",
+          "subTitle": "Collapse",
+          "path": "/components/press/press-collapse.md"
+        },
+        {
           "title": "分割线",
           "subTitle": "Divider",
           "path": "/components/press/press-divider.md"

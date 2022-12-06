@@ -80,6 +80,9 @@ const COMP_TITLE_MAP = {
   Circle: {
     title: '环形进度条',
   },
+  Collapse: {
+    title: '折叠面板',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -120,6 +123,7 @@ const COMP_TYPE_MAP = {
     title: '展示组件',
     list: [
       'Circle',
+      'Collapse',
       'Divider',
       'Empty',
       'NoticeBar',

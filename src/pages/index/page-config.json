@@ -91,6 +91,10 @@
           "url": "/press/circle/circle"
         },
         {
+          "name": "Collapse 折叠面板",
+          "url": "/press/collapse/collapse"
+        },
+        {
           "name": "Divider 分割线",
           "url": "/press/divider/divider"
         },

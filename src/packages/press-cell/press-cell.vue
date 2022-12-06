@@ -23,9 +23,9 @@
         class="van-cell__title"
         :class="titleClass"
       >
-        <block v-if="title">
+        <template v-if="title">
           {{ title }}
-        </block>
+        </template>
         <slot
           v-else
           name="title"
@@ -40,9 +40,9 @@
             v-if="useLabelSlot"
             name="label"
           />
-          <block v-else-if="label">
+          <template v-else-if="label">
             {{ label }}
-          </block>
+          </template>
         </view>
       </view>
 
@@ -50,9 +50,9 @@
         class="van-cell__value"
         :class="valueClass"
       >
-        <block v-if="value || value === 0">
+        <template v-if="value || value === 0">
           {{ value }}
-        </block>
+        </template>
         <slot v-else />
       </view>
 

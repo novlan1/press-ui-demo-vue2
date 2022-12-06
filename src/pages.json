@@ -618,6 +618,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/collapse",
+      "pages": [
+        {
+          "path": "collapse",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

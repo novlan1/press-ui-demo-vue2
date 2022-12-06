@@ -1,24 +1,24 @@
 <template>
-  <uni-shadow-root class="vant-icon-index">
-    <view
-      :class="rootClass"
-      :style="rootStyle"
-      @click="onClick"
-    >
-      <van-info
-        v-if="info !== null || dot"
-        :dot="dot"
-        :info="info"
-        custom-class="van-icon__info"
-      />
-      <image
-        v-if="isImage"
-        :src="name"
-        mode="aspectFit"
-        class="van-icon__image"
-      />
-    </view>
-  </uni-shadow-root>
+  <!-- <uni-shadow-root class="vant-icon-index"> -->
+  <view
+    :class="rootClass"
+    :style="rootStyle"
+    @click="onClick"
+  >
+    <van-info
+      v-if="info !== null || dot"
+      :dot="dot"
+      :info="info"
+      custom-class="van-icon__info"
+    />
+    <image
+      v-if="isImage"
+      :src="name"
+      mode="aspectFit"
+      class="van-icon__image"
+    />
+  </view>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import computed from './index.js';
@@ -26,6 +26,10 @@ import VanInfo from '../press-info/press-info.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
   components: {
     VanInfo,
   },
@@ -42,7 +46,7 @@ export default {
     name: { type: String, default: '' },
     ...defaultProps,
   },
-  options: { ...defaultOptions },
+
   data() {
     return {
 
@@ -78,6 +82,11 @@ export default {
   font: normal normal normal 14px/1 vant-icon;
   font-size: inherit;
   position: relative;
+
+  // 【修改点】增加垂直水平居中
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
 }
 .van-icon,
 .van-icon:before {
@@ -818,11 +827,11 @@ export default {
     url(https://at.alicdn.com/t/font_2553510_5imfhdc20ag.ttf?t=1640074908811)
       format("truetype");
 }
-.vant-icon-index {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-}
+// .vant-icon-index {
+//   align-items: center;
+//   display: inline-flex;
+//   justify-content: center;
+// }
 .van-icon {
   &--image {
     width: 1em;

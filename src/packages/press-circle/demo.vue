@@ -80,7 +80,6 @@
   </div>
 </template>
 <script>
-
 // eslint-disable-next-line import/no-unresolved
 import PressCircle from '../../../packages/press-circle/press-circle.vue';
 

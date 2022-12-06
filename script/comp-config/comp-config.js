@@ -86,6 +86,9 @@ const COMP_TITLE_MAP = {
   Steps: {
     title: '步骤条',
   },
+  ActionSheet: {
+    title: '动作面板',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -115,6 +118,7 @@ const COMP_TYPE_MAP = {
   feedback: {
     title: '反馈组件',
     list: [
+      'ActionSheet',
       'Dialog',
       'Loading',
       'LoadingPlus',

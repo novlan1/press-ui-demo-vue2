@@ -62,6 +62,10 @@
       "title": "反馈组件",
       "list": [
         {
+          "name": "ActionSheet 动作面板",
+          "url": "/press/action-sheet/action-sheet"
+        },
+        {
           "name": "Dialog 弹出框",
           "url": "/press/dialog/dialog"
         },

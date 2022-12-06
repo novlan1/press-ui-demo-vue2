@@ -636,6 +636,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/action-sheet",
+      "pages": [
+        {
+          "path": "action-sheet",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

@@ -77,6 +77,11 @@
       "collapsable": false,
       "children": [
         {
+          "title": "动作面板",
+          "subTitle": "ActionSheet",
+          "path": "/components/press/press-action-sheet.md"
+        },
+        {
           "title": "弹出框",
           "subTitle": "Dialog",
           "path": "/components/press/press-dialog.md"

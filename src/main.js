@@ -22,7 +22,6 @@ import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
 import PressEmpty from 'src/packages/press-empty/press-empty.vue';
 import PressIcon from 'src/packages/press-icon/press-icon.vue';
 import PressIconPlus from 'src/packages/press-icon-plus/press-icon-plus.vue';
-import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 import PressPopup from 'src/packages/press-popup/press-popup.vue';
 import PressPopupPlus from 'src/packages/press-popup-plus/press-popup-plus.vue';
 import PressInfo from 'src/packages/press-info/press-info.vue';
@@ -184,7 +183,6 @@ Vue.component('PressNoticeBar', PressNoticeBar);
 
 Vue.component('PressIcon', PressIcon);
 Vue.component('PressIconPlus', PressIconPlus);
-Vue.component('PressSwitch', PressSwitch);
 Vue.component('PressPopup', PressPopup);
 Vue.component('PressInfo', PressInfo);
 Vue.component('PressSticky', PressSticky);

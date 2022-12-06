@@ -187,7 +187,9 @@
         >
           <press-switch
             slot="right-icon"
-            class="custom-icon"
+            custom-class="press-switch--e-sport"
+            :checked="switchChecked"
+            @change="onChangeSwitch"
           />
         </press-cell>
 
@@ -199,7 +201,9 @@
         >
           <press-switch
             slot="right-icon"
-            class="custom-icon"
+            custom-class="press-switch--e-sport"
+            :checked="switchChecked"
+            @change="onChangeSwitch"
           />
         </press-cell>
 
@@ -214,18 +218,24 @@
   </div>
 </template>
 <script>
-
+// eslint-disable-next-line import/no-unresolved
+import PressSwitch from '../../../packages/press-switch/press-switch.vue';
 
 export default {
+  components: {
+    PressSwitch,
+  },
   data() {
     return {
       sectionStyle: 'margin: 0;background: #f7f8fa;',
       headerStyle: 'background: #f7f8fa;',
-
+      switchChecked: false,
     };
   },
   methods: {
-
+    onChangeSwitch(value) {
+      this.switchChecked = value;
+    },
   },
 };
 </script>

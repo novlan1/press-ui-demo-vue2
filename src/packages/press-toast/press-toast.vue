@@ -59,6 +59,8 @@ import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import PressOverlay from '../press-overlay/press-overlay.vue';
 import PressTransition from '../press-transition/press-transition.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler/component-handler';
+
 
 const props = {
   show: Boolean,
@@ -86,25 +88,6 @@ const props = {
   },
   ...defaultProps,
 };
-const formatKey = key => key.replace(/^(\w)/, (a, b) => `data${b.toUpperCase()}`);
-const watchProps = Object.keys(props).reduce((acc, item) => {
-  acc[item] = {
-    handler(val) {
-      this[formatKey(item)] = val;
-    },
-  };
-  return acc;
-}, {});
-
-// const dataProps = Object.keys(props).reduce((acc, item) => {
-//   acc[`data-${item}`] = {
-//     handler(val) {
-//       this[`data-${item}`] = val;
-//     },
-//   };
-//   return acc;
-// }, {});
-
 
 export default {
   options: {
@@ -119,14 +102,7 @@ export default {
   props,
   data() {
     return {
-      dataShow: this.show,
-      dataMask: this.mask,
-      dataMessage: this.message,
-      dataForbidClick: this.forbidClick,
-      dataZIndex: this.zIndex,
-      dataType: this.type,
-      dataLoadingType: this.loadingType,
-      dataPosition: this.position,
+      ...getPropsData(this, props),
     };
   },
   computed: {
@@ -149,13 +125,11 @@ export default {
     },
   },
   watch: {
-    ...watchProps,
+    ...getPropsWatch(props),
   },
   methods: {
     setData(data) {
-      Object.keys(data).forEach((key) => {
-        this[formatKey(key)] = data[key];
-      });
+      setPropsToData.call(this, data);
     },
     // for prevent touchmove
     noop() { },

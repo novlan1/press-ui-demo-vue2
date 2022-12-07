@@ -57,6 +57,7 @@ export default {
   },
   options: {
     ...defaultOptions,
+    styleIsolation: 'shared',
     // virtualHost: true,
   },
   computed: {

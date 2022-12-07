@@ -10,3 +10,5 @@ export const DEFAULT_OPTIONS = {
   loadingType: 'circular',
   selector: '#van-toast',
 };
+
+export const DEFAULT_KEY = 'message';

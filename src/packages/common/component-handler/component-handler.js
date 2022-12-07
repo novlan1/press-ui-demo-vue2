@@ -1,10 +1,15 @@
+import Vue from 'vue';
 import { isObj } from '../validator';
+import { isServer } from '../index';
 
 function getContext() {
   const pages = getCurrentPages();
   return pages[pages.length - 1];
 }
 
+function isInDocument(element) {
+  return document.body.contains(element);
+}
 
 export function formatPropKey(key) {
   return key.replace(/^(\w)/, (a, b) => `data${b.toUpperCase()}`);
@@ -39,7 +44,7 @@ export function setPropsToData(data) {
 }
 
 
-export function parseOptions(message, defaultKey) {
+export function parseOptions(message, defaultKey = 'message') {
   return isObj(message) ? message : { [defaultKey]: message };
 }
 
@@ -50,12 +55,17 @@ export function getMPComponentHandler({
 }) {
   let queue = [];
   let currentOptions = { ...defaultOptions };
+  let defaultOptionsMap = {};
 
   function CompHandler(toastOptions) {
-    const options = {
+    let options = parseOptions(toastOptions, defaultKey);
+    console.log('defaultOptionsMap', defaultOptionsMap);
+    options = {
       ...currentOptions,
-      ...parseOptions(toastOptions, defaultKey),
+      ...defaultOptionsMap[options.type || currentOptions.type],
+      ...options,
     };
+    console.log('options', options);
 
     const context = options.context || getContext();
     const dialog = context.selectComponent(options.selector);
@@ -103,12 +113,182 @@ export function getMPComponentHandler({
     });
     queue = [];
   };
-  CompHandler.setDefaultOptions = (options) => {
-    Object.assign(currentOptions, options);
+  CompHandler.setDefaultOptions = (type, options) => {
+    if (typeof type === 'string') {
+      defaultOptionsMap[type] = options;
+    } else {
+      Object.assign(currentOptions, type);
+    }
   };
-  CompHandler.resetDefaultOptions = () => {
-    currentOptions = { ...defaultOptions };
+  CompHandler.resetDefaultOptions = (type) => {
+    if (typeof type === 'string') {
+      defaultOptionsMap[type] = null;
+    } else {
+      currentOptions = { ...defaultOptions };
+      defaultOptionsMap = {};
+    }
   };
 
   return CompHandler;
+}
+
+
+export function getH5ComponentHandler({
+  defaultOptions,
+  component,
+}) {
+  // default options of specific type
+  let defaultOptionsMap = {};
+
+  let queue = [];
+  let multiple = false;
+  let currentOptions = {
+    ...defaultOptions,
+  };
+  const dialogId = defaultOptions.selector?.slice(1) || 'component-default-id';
+
+  function createInstance({
+    multiple,
+    component,
+    dialogId,
+  }) {
+    /* istanbul ignore if */
+    if (isServer) {
+      return {};
+    }
+    console.log('queue', queue);
+    queue = queue.filter(item => !item.$el.parentNode || isInDocument(item.$el));
+    console.log('dialogId', dialogId);
+    if (!queue.length || multiple) {
+      // const dialogId = 'van-toast';
+      const oldDialog = document.getElementById(dialogId);
+      if (oldDialog) {
+        document.body.removeChild(oldDialog);
+      }
+      const dialogRootDiv = document.createElement('div');
+      dialogRootDiv.id = dialogId;
+
+      document.body.appendChild(dialogRootDiv);
+
+      const dialog = new (Vue.extend(component))({
+        el: dialogRootDiv,
+      });
+
+      dialog.$on('input', (value) => {
+        dialog.value = value;
+      });
+
+      queue.push(dialog);
+    }
+
+    return queue[queue.length - 1];
+  }
+
+  // transform toast options to popup props
+  // function transformOptions(options) {
+  //   return {
+  //     ...options,
+  //     overlay: options.mask || options.overlay,
+  //     mask: undefined,
+  //     duration: undefined,
+  //   };
+  // }
+
+  function Dialog(options = {}) {
+    const dialog = createInstance({
+      multiple,
+      component,
+      dialogId,
+    });
+    console.log('queue.2', queue);
+    // if (toast.value) {
+    //   toast.updateZIndex?.();
+    // }
+
+    options = parseOptions(options);
+    options = {
+      ...currentOptions,
+      ...defaultOptionsMap[options.type || currentOptions.type],
+      ...options,
+    };
+
+    dialog.clear = () => {
+      dialog.setData({ show: false });
+      if (options.onClose) {
+        options.onClose();
+      }
+      queue = queue.filter(item => item !== dialog);
+      if (document.body.contains(dialog.$el)) {
+        document.body.removeChild(dialog.$el);
+      }
+    };
+
+    dialog.set = (...args) => {
+      dialog.$set(dialog, ...args);
+    };
+
+    // const transformedOptions = transformOptions(options);
+    Object.assign(dialog, options);
+    clearTimeout(dialog.timer);
+    dialog.setData({ show: true });
+
+    if (options.duration > 0) {
+      dialog.timer = setTimeout(() => {
+        dialog.clear();
+      }, options.duration);
+    }
+
+    return dialog;
+  }
+
+  // const createMethod = type => options => Dialog({
+  //   type,
+  //   ...parseOptions(options),
+  // });
+
+  // ['loading', 'success', 'fail'].forEach((method) => {
+  //   Dialog[method] = createMethod(method);
+  // });
+
+  Dialog.clear = (all) => {
+    if (queue.length) {
+      if (all) {
+        queue.forEach((dialog) => {
+          dialog.clear();
+        });
+        queue = [];
+      } else if (!multiple) {
+        queue[0].clear();
+      } else {
+        queue.shift().clear();
+      }
+    }
+  };
+
+  Dialog.setDefaultOptions = (type, options) => {
+    if (typeof type === 'string') {
+      defaultOptionsMap[type] = options;
+    } else {
+      Object.assign(currentOptions, type);
+    }
+  };
+
+  Dialog.resetDefaultOptions = (type) => {
+    if (typeof type === 'string') {
+      defaultOptionsMap[type] = null;
+    } else {
+      currentOptions = { ...defaultOptions };
+      defaultOptionsMap = {};
+    }
+  };
+
+  Dialog.allowMultiple = (value = true) => {
+    multiple = value;
+  };
+
+  Dialog.install = () => {
+    Vue.use(component);
+  };
+
+  return Dialog;
 }

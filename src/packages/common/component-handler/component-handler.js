@@ -59,13 +59,12 @@ export function getMPComponentHandler({
 
   function CompHandler(toastOptions) {
     let options = parseOptions(toastOptions, defaultKey);
-    console.log('defaultOptionsMap', defaultOptionsMap);
+
     options = {
       ...currentOptions,
       ...defaultOptionsMap[options.type || currentOptions.type],
       ...options,
     };
-    console.log('options', options);
 
     const context = options.context || getContext();
     const dialog = context.selectComponent(options.selector);
@@ -137,7 +136,6 @@ export function getH5ComponentHandler({
   defaultOptions,
   component,
 }) {
-  // default options of specific type
   let defaultOptionsMap = {};
 
   let queue = [];
@@ -152,13 +150,11 @@ export function getH5ComponentHandler({
     component,
     dialogId,
   }) {
-    /* istanbul ignore if */
     if (isServer) {
       return {};
     }
-    console.log('queue', queue);
     queue = queue.filter(item => !item.$el.parentNode || isInDocument(item.$el));
-    console.log('dialogId', dialogId);
+
     if (!queue.length || multiple) {
       // const dialogId = 'van-toast';
       const oldDialog = document.getElementById(dialogId);
@@ -184,26 +180,12 @@ export function getH5ComponentHandler({
     return queue[queue.length - 1];
   }
 
-  // transform toast options to popup props
-  // function transformOptions(options) {
-  //   return {
-  //     ...options,
-  //     overlay: options.mask || options.overlay,
-  //     mask: undefined,
-  //     duration: undefined,
-  //   };
-  // }
-
   function Dialog(options = {}) {
     const dialog = createInstance({
       multiple,
       component,
       dialogId,
     });
-    console.log('queue.2', queue);
-    // if (toast.value) {
-    //   toast.updateZIndex?.();
-    // }
 
     options = parseOptions(options);
     options = {
@@ -230,7 +212,6 @@ export function getH5ComponentHandler({
       dialog.$set(dialog, ...args);
     };
 
-    // const transformedOptions = transformOptions(options);
     Object.assign(dialog, options);
     clearTimeout(dialog.timer);
     dialog.setData({ show: true });
@@ -243,15 +224,6 @@ export function getH5ComponentHandler({
 
     return dialog;
   }
-
-  // const createMethod = type => options => Dialog({
-  //   type,
-  //   ...parseOptions(options),
-  // });
-
-  // ['loading', 'success', 'fail'].forEach((method) => {
-  //   Dialog[method] = createMethod(method);
-  // });
 
   Dialog.clear = (all) => {
     if (queue.length) {

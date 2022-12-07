@@ -92,6 +92,9 @@ const COMP_TITLE_MAP = {
   ShareSheet: {
     title: '分享面板',
   },
+  Notify: {
+    title: '消息提示',
+  },
 };
 
 const COMP_TYPE_MAP = {
@@ -125,6 +128,7 @@ const COMP_TYPE_MAP = {
       'Dialog',
       'Loading',
       'LoadingPlus',
+      'Notify',
       'Overlay',
       'ShareSheet',
       'SwipeCell',

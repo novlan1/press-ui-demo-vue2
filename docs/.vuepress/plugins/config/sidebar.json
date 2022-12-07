@@ -97,6 +97,11 @@
           "path": "/components/press/press-loading-plus.md"
         },
         {
+          "title": "消息提示",
+          "subTitle": "Notify",
+          "path": "/components/press/press-notify.md"
+        },
+        {
           "title": "遮罩层",
           "subTitle": "Overlay",
           "path": "/components/press/press-overlay.md"

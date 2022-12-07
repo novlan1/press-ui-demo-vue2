@@ -654,6 +654,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/notify",
+      "pages": [
+        {
+          "path": "notify",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

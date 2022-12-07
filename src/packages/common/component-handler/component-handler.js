@@ -218,9 +218,12 @@ export function getH5ComponentHandler({
         options.onClose();
       }
       queue = queue.filter(item => item !== dialog);
-      if (document.body.contains(dialog.$el)) {
-        document.body.removeChild(dialog.$el);
-      }
+
+      setTimeout(() => {
+        if (document.body.contains(dialog.$el)) {
+          document.body.removeChild(dialog.$el);
+        }
+      }, options.animationDuration || 0);
     };
 
     dialog.set = (...args) => {

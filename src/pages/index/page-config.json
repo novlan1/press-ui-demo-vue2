@@ -78,6 +78,10 @@
           "url": "/press/loading-plus/loading-plus"
         },
         {
+          "name": "Notify 消息提示",
+          "url": "/press/notify/notify"
+        },
+        {
           "name": "Overlay 遮罩层",
           "url": "/press/overlay/overlay"
         },

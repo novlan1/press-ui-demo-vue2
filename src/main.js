@@ -210,6 +210,18 @@ const app = new Vue({
 app.$mount();
 // #endif
 
+
+Vue.mixin({
+  onShareAppMessage() {
+    return {
+      title: 'Press UI 组件库演示',
+      path: '/pages/index/index',
+      imageUrl: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui-avatar-wx-share.png',
+    };
+  },
+});
+
+
 // #ifdef VUE3
 // eslint-disable-next-line import/no-duplicates, no-duplicate-imports, import/first
 import {

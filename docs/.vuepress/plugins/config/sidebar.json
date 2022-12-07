@@ -190,6 +190,11 @@
           "path": "/components/press/press-area.md"
         },
         {
+          "title": "消息详情",
+          "subTitle": "MessageDetail",
+          "path": "/components/press/press-message-detail.md"
+        },
+        {
           "title": "消息列表",
           "subTitle": "MessageList",
           "path": "/components/press/press-message-list.md"

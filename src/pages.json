@@ -663,6 +663,15 @@
           "style": {}
         }
       ]
+    },
+    {
+      "root": "pages/press/message-detail",
+      "pages": [
+        {
+          "path": "message-detail",
+          "style": {}
+        }
+      ]
     }
   ],
   "globalStyle": {

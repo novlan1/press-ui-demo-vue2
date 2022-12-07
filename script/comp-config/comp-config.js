@@ -68,6 +68,9 @@ const COMP_TITLE_MAP = {
   MessageList: {
     title: '消息列表',
   },
+  MessageDetail: {
+    title: '消息详情',
+  },
   NoticeBar: {
     title: '通知栏',
   },
@@ -158,6 +161,7 @@ const COMP_TYPE_MAP = {
     title: '业务组件',
     list: [
       'Area',
+      'MessageDetail',
       'MessageList',
     ],
   },

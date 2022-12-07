@@ -381,7 +381,9 @@
       "pages": [
         {
           "path": "dialog",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Dialog 弹窗"
+          }
         }
       ]
     },
@@ -390,7 +392,9 @@
       "pages": [
         {
           "path": "button",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Button 按钮"
+          }
         }
       ]
     },
@@ -399,7 +403,9 @@
       "pages": [
         {
           "path": "picker",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Picker 选择器"
+          }
         }
       ]
     },
@@ -408,7 +414,9 @@
       "pages": [
         {
           "path": "loading",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Loading 加载中"
+          }
         }
       ]
     },
@@ -417,7 +425,9 @@
       "pages": [
         {
           "path": "switch",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Switch 切换"
+          }
         }
       ]
     },
@@ -426,7 +436,9 @@
       "pages": [
         {
           "path": "icon",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Icon 图标"
+          }
         }
       ]
     },
@@ -435,7 +447,9 @@
       "pages": [
         {
           "path": "popup",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Popup 弹出层"
+          }
         }
       ]
     },
@@ -444,7 +458,9 @@
       "pages": [
         {
           "path": "tab",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Tab 标签页"
+          }
         }
       ]
     },
@@ -453,7 +469,9 @@
       "pages": [
         {
           "path": "loading-plus",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "LoadingPlus 加载中"
+          }
         }
       ]
     },
@@ -462,7 +480,9 @@
       "pages": [
         {
           "path": "picker-plus",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "PickerPlus 选择器"
+          }
         }
       ]
     },
@@ -471,7 +491,9 @@
       "pages": [
         {
           "path": "datetime-picker",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "DatetimePicker 时间选择"
+          }
         }
       ]
     },
@@ -480,7 +502,9 @@
       "pages": [
         {
           "path": "swipe-cell",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "SwipeCell 滑动单元格"
+          }
         }
       ]
     },
@@ -489,7 +513,9 @@
       "pages": [
         {
           "path": "checkbox",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Checkbox 复选框"
+          }
         }
       ]
     },
@@ -498,7 +524,9 @@
       "pages": [
         {
           "path": "transition",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Transition 动画"
+          }
         }
       ]
     },
@@ -507,7 +535,9 @@
       "pages": [
         {
           "path": "overlay",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Overlay 遮罩层"
+          }
         }
       ]
     },
@@ -516,7 +546,9 @@
       "pages": [
         {
           "path": "toast",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Toast 轻提示"
+          }
         }
       ]
     },
@@ -525,7 +557,9 @@
       "pages": [
         {
           "path": "sticky",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Sticky 粘性布局"
+          }
         }
       ]
     },
@@ -534,7 +568,9 @@
       "pages": [
         {
           "path": "empty",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Empty 空状态"
+          }
         }
       ]
     },
@@ -543,7 +579,9 @@
       "pages": [
         {
           "path": "cell",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Cell 单元格"
+          }
         }
       ]
     },
@@ -552,7 +590,9 @@
       "pages": [
         {
           "path": "tag",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Tag 标签"
+          }
         }
       ]
     },
@@ -561,7 +601,9 @@
       "pages": [
         {
           "path": "divider",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Divider 分割线"
+          }
         }
       ]
     },
@@ -570,7 +612,9 @@
       "pages": [
         {
           "path": "notice-bar",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "NoticeBar 通知栏"
+          }
         }
       ]
     },
@@ -579,7 +623,9 @@
       "pages": [
         {
           "path": "nav-bar",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "NavBar 导航栏"
+          }
         }
       ]
     },
@@ -588,7 +634,9 @@
       "pages": [
         {
           "path": "popup-plus",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "PopupPlus 弹出层"
+          }
         }
       ]
     },
@@ -597,7 +645,9 @@
       "pages": [
         {
           "path": "message-list",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "MessageList 消息列表"
+          }
         }
       ]
     },
@@ -606,7 +656,9 @@
       "pages": [
         {
           "path": "area",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Area 省市区选择"
+          }
         }
       ]
     },
@@ -615,7 +667,9 @@
       "pages": [
         {
           "path": "circle",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Circle 环形进度条"
+          }
         }
       ]
     },
@@ -624,7 +678,9 @@
       "pages": [
         {
           "path": "collapse",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Collapse 折叠面板"
+          }
         }
       ]
     },
@@ -633,7 +689,9 @@
       "pages": [
         {
           "path": "steps",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Steps 步骤条"
+          }
         }
       ]
     },
@@ -642,7 +700,9 @@
       "pages": [
         {
           "path": "action-sheet",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "ActionSheet 动作面板"
+          }
         }
       ]
     },
@@ -651,7 +711,9 @@
       "pages": [
         {
           "path": "share-sheet",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "ShareSheet 分享面板"
+          }
         }
       ]
     },
@@ -660,7 +722,9 @@
       "pages": [
         {
           "path": "notify",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "Notify 消息提示"
+          }
         }
       ]
     },
@@ -669,14 +733,16 @@
       "pages": [
         {
           "path": "message-detail",
-          "style": {}
+          "style": {
+            "navigationBarTitleText": "MessageDetail 消息详情"
+          }
         }
       ]
     }
   ],
   "globalStyle": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "PRESS UI",
     "navigationBarBackgroundColor": "#007AFF",
     "backgroundColor": "#f5f5f5",
     "h5": {

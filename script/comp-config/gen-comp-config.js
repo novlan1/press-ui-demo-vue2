@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { COMP_TYPE_MAP, COMP_TITLE_MAP } = require('./comp-config');
+
+const COMP_TYPE_MAP = require('./comp-config.json');
 const DOC_SIDE_BAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
 const DEMO_INDEX_CONFIG_PATH = 'src/pages/index/page-config.json';
 const DEMO_PAGES_JSON_PATH = './src/pages.json';
+const DEMO_PAGES_JSON_LAST_INDEX = 0;
 
 // function parseCompList(compList) {
 //   const res = Object.keys(COMP_TYPE_MAP)
@@ -26,15 +28,16 @@ const DEMO_PAGES_JSON_PATH = './src/pages.json';
 //   });
 // }
 
+function hyphenate(str) {
+  const hyphenateRE = /\B([A-Z])/g;
+  return str.replace(hyphenateRE, '-$1').toLowerCase();
+}
+
 function getCompUrl(name) {
   const newName = hyphenate(name);
   return `/press/${newName}/${newName}`;
 }
 
-function hyphenate(str) {
-  const hyphenateRE = /\B([A-Z])/g;
-  return str.replace(hyphenateRE, '-$1').toLowerCase();
-}
 
 function getCompDemoPages() {
   const list = Object.keys(COMP_TYPE_MAP)
@@ -42,8 +45,8 @@ function getCompDemoPages() {
       const value = COMP_TYPE_MAP[key];
       const { title, list } = value;
       const newList = list.map(item => ({
-        name: `${item} ${COMP_TITLE_MAP[item] && COMP_TITLE_MAP[item].title}`,
-        url: getCompUrl(item),
+        name: `${item.name} ${item.title}`,
+        url: getCompUrl(item.name),
       }));
 
       return {
@@ -64,9 +67,9 @@ function getSidebarConfig() {
       const value = COMP_TYPE_MAP[key];
       const { title, list } = value;
       const newList = list.map(item => ({
-        title: COMP_TITLE_MAP[item] && COMP_TITLE_MAP[item].title,
-        subTitle: item,
-        path: `/components/press/press-${hyphenate(item)}.md`,
+        title: item.title,
+        subTitle: item.name,
+        path: `/components/press/press-${hyphenate(item.name)}.md`,
       }));
 
       return {
@@ -86,7 +89,7 @@ function getPagesJsonConfig() {
       const value = COMP_TYPE_MAP[key];
       const { list } = value;
       const newList = list.map((item) => {
-        const hyphenatedName = hyphenate(item);
+        const hyphenatedName = hyphenate(item.name);
 
         return {
           root: `pages/press/${hyphenatedName}`,
@@ -94,7 +97,7 @@ function getPagesJsonConfig() {
             {
               path: hyphenatedName,
               style: {
-                navigationBarTitleText: `${item} ${COMP_TITLE_MAP[item].title}`,
+                navigationBarTitleText: `${item.name} ${item.title}`,
               },
             },
           ],
@@ -128,10 +131,9 @@ function writeDemoPagesJson() {
   const configPath = path.resolve(process.cwd(), DEMO_PAGES_JSON_PATH);
   const json = require(configPath);
   json.subPackages = [
-    json.subPackages[0],
+    json.subPackages[DEMO_PAGES_JSON_LAST_INDEX],
     ...pagesJsonConfig,
   ];
-  console.log('json', json);
   fs.writeFileSync(configPath, JSON.stringify(json, null, 2), {
     encoding: 'utf-8',
   });

@@ -1,7 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 const { COMP_TYPE_MAP, COMP_TITLE_MAP } = require('./comp-config');
 const DOC_SIDE_BAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
-const DEMO_PAGES_CONFIG_PATH = 'src/pages/index/page-config.json';
+const DEMO_INDEX_CONFIG_PATH = 'src/pages/index/page-config.json';
+const DEMO_PAGES_JSON_PATH = './src/pages.json';
 
 // function parseCompList(compList) {
 //   const res = Object.keys(COMP_TYPE_MAP)
@@ -78,9 +80,37 @@ function getSidebarConfig() {
   return { sidebar: list };
 }
 
-function writeDemoPages() {
+function getPagesJsonConfig() {
+  const list = Object.keys(COMP_TYPE_MAP)
+    .map((key) => {
+      const value = COMP_TYPE_MAP[key];
+      const { list } = value;
+      const newList = list.map((item) => {
+        const hyphenatedName = hyphenate(item);
+
+        return {
+          root: `pages/press/${hyphenatedName}`,
+          pages: [
+            {
+              path: hyphenatedName,
+              style: {
+                navigationBarTitleText: `${item} ${COMP_TITLE_MAP[item].title}`,
+              },
+            },
+          ],
+        };
+      });
+
+      return newList;
+    })
+    .flat();
+
+  return list;
+}
+
+function writeDemoIndexConfig() {
   const pages = getCompDemoPages();
-  fs.writeFileSync(DEMO_PAGES_CONFIG_PATH, JSON.stringify(pages, null, 2), {
+  fs.writeFileSync(DEMO_INDEX_CONFIG_PATH, JSON.stringify(pages, null, 2), {
     encoding: 'utf-8',
   });
 }
@@ -93,9 +123,24 @@ function writeDocSidebar() {
 }
 
 
+function writeDemoPagesJson() {
+  const pagesJsonConfig = getPagesJsonConfig();
+  const configPath = path.resolve(process.cwd(), DEMO_PAGES_JSON_PATH);
+  const json = require(configPath);
+  json.subPackages = [
+    json.subPackages[0],
+    ...pagesJsonConfig,
+  ];
+  console.log('json', json);
+  fs.writeFileSync(configPath, JSON.stringify(json, null, 2), {
+    encoding: 'utf-8',
+  });
+}
+
 function main() {
-  writeDemoPages();
+  writeDemoIndexConfig();
   writeDocSidebar();
+  writeDemoPagesJson();
 }
 
 main();

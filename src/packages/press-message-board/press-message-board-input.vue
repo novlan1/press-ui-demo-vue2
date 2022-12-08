@@ -44,6 +44,14 @@ export default {
     styleIsolation: 'shared',
   },
   props: {
+    value: {
+      type: String,
+      default: '',
+    },
+    sendBtnEnable: {
+      type: Boolean,
+      default: false,
+    },
     inputBottom: {
       type: [Number, String],
       default: 0,
@@ -65,14 +73,6 @@ export default {
       default: false,
     },
     showConfirmBar: {
-      type: Boolean,
-      default: false,
-    },
-    value: {
-      type: String,
-      default: '',
-    },
-    sendBtnEnable: {
       type: Boolean,
       default: false,
     },

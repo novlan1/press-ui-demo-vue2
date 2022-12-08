@@ -15,7 +15,7 @@ IM聊天详情。
 ```
 
 ```ts
-const msgList = [
+const MSG_LIST = [
   {
     id: 1,
     msgType: 'TIME',

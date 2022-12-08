@@ -24,7 +24,6 @@
         </div>
         <div class="message-reply">
           <div class="message-time">
-            <!-- {{ timeFormat(item.create_time) }} -->
             {{ item.create_time }}
           </div>
           <p @click.stop="replyClick(item, index)">
@@ -76,7 +75,6 @@
           {{ item.content_info }}
         </p>
         <div class="message-time">
-          <!-- {{ timeFormat(item.create_time) }} -->
           {{ item.create_time }}
         </div>
       </div>

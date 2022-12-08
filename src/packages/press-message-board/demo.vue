@@ -1,16 +1,20 @@
 <template>
   <div class="wrap">
-    <PressMessageBoardList
-      :list="msgList"
-      custom-class="demo-message-list"
-      captain-uid="1694E79D5FB91429B98C66BF1A89BF81"
-    />
-    <PressMessageBoardInput
-      v-model="msgContent"
-      :send-btn-enable="sendBtnEnable"
-      @clickInput="clickInput"
-      @sendMsg="sendMsg"
-    />
+    <div class="demo-list-wrap">
+      <PressMessageBoardList
+        :list="msgList"
+        custom-class="demo-message-list"
+        captain-uid="good_uid"
+      />
+    </div>
+    <div class="demo-input-wrap">
+      <PressMessageBoardInput
+        v-model="msgContent"
+        :send-btn-enable="sendBtnEnable"
+        @clickInput="clickInput"
+        @sendMsg="sendMsg"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -25,7 +29,7 @@ const msgList = [
     content_info: 'ceshi',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '15:50',
@@ -38,7 +42,7 @@ const msgList = [
     content_info: '123123',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '15:46',
@@ -51,7 +55,7 @@ const msgList = [
     content_info: 'adfadf',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '15:30',
@@ -64,7 +68,7 @@ const msgList = [
     content_info: 'ceshi',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '15:20',
@@ -77,7 +81,7 @@ const msgList = [
     content_info: 'adf',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '15:10',
@@ -90,7 +94,7 @@ const msgList = [
     content_info: 'dddd',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '15:00',
@@ -101,7 +105,7 @@ const msgList = [
         content_type: 1,
         msg_id: '1670481115967648602',
         level: 1,
-        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        uid: 'good_uid',
         nick: '杨',
         head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
         create_time: '15:00',
@@ -113,10 +117,10 @@ const msgList = [
             msg_id: '1670481115967648602',
             parent_comm_id: '1670481120121557488',
             level: 2,
-            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            uid: 'good_uid',
             nick: '杨',
             head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            parent_uid: 'good_uid',
             create_time: '15:00',
             parent_nick: '杨',
           },
@@ -127,10 +131,10 @@ const msgList = [
             msg_id: '1670481115967648602',
             parent_comm_id: '1670481120121557488',
             level: 2,
-            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            uid: 'good_uid',
             nick: '杨',
             head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            parent_uid: 'good_uid',
             create_time: '15:00',
             parent_nick: '杨',
           },
@@ -141,10 +145,10 @@ const msgList = [
             msg_id: '1670481115967648602',
             parent_comm_id: '1670481120121557488',
             level: 2,
-            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            uid: 'good_uid',
             nick: '杨',
             head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            parent_uid: 'good_uid',
             create_time: '15:00',
             parent_nick: '杨',
           },
@@ -155,10 +159,10 @@ const msgList = [
             msg_id: '1670481115967648602',
             parent_comm_id: '1670481120121557488',
             level: 2,
-            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            uid: 'good_uid',
             nick: '杨',
             head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            parent_uid: 'good_uid',
             create_time: '15:00',
             parent_nick: '杨',
           },
@@ -171,10 +175,10 @@ const msgList = [
         msg_id: '1670481115967648602',
         parent_comm_id: '1670481120121557488',
         level: 2,
-        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        uid: 'good_uid',
         nick: '杨',
         head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        parent_uid: 'good_uid',
         create_time: '14:50',
         parent_nick: '杨',
       },
@@ -185,10 +189,10 @@ const msgList = [
         msg_id: '1670481115967648602',
         parent_comm_id: '1670481120121557488',
         level: 2,
-        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        uid: 'good_uid',
         nick: '杨',
         head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        parent_uid: 'good_uid',
         create_time: '14:30',
         parent_nick: '杨',
       },
@@ -199,10 +203,10 @@ const msgList = [
         msg_id: '1670481115967648602',
         parent_comm_id: '1670481120121557488',
         level: 2,
-        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        uid: 'good_uid',
         nick: '杨',
         head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        parent_uid: 'good_uid',
         create_time: '14:20',
         parent_nick: '杨',
       },
@@ -213,10 +217,10 @@ const msgList = [
         msg_id: '1670481115967648602',
         parent_comm_id: '1670481120121557488',
         level: 2,
-        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        uid: 'good_uid',
         nick: '杨',
         head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
-        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        parent_uid: 'good_uid',
         create_time: '14:10',
         parent_nick: '杨',
       },
@@ -227,7 +231,7 @@ const msgList = [
     content_info: '123',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '14:00',
@@ -240,7 +244,7 @@ const msgList = [
     content_info: '123123',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '13:50',
@@ -253,7 +257,7 @@ const msgList = [
     content_info: '123',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '13:40',
@@ -266,7 +270,7 @@ const msgList = [
     content_info: '123',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '13:30',
@@ -279,7 +283,7 @@ const msgList = [
     content_info: '123123',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '13:20',
@@ -292,7 +296,7 @@ const msgList = [
     content_info: '123',
     content_type: 1,
     msg_type: 1,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '13:10',
@@ -305,7 +309,7 @@ const msgList = [
     content_info: '欢迎 杨 进入房间',
     content_type: 1,
     msg_type: 2,
-    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    uid: 'good_uid',
     nick: '杨',
     head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
     create_time: '13:00',
@@ -355,7 +359,10 @@ export default {
 </script>
 <style  lang="scss">
 @import "src/packages/base/mixin.scss";
-.wrap {
-  padding: 20px;
+.demo-list-wrap {
+  padding: 0 20px;
+}
+.demo-input-wrap {
+  padding-bottom: 20px;
 }
 </style>

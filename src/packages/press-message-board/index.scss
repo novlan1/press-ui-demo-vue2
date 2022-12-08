@@ -1,0 +1,748 @@
+@import "../base/layout.scss";
+@import "../base/mixin.scss";
+
+.page-contain {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-header {
+  position: relative;
+  height: 2.76rem;
+  background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/team-zone-header-bg.png) no-repeat 0 0;
+  background-size: 100% auto;
+
+  &::v-deep {
+    .tip-match-back {
+      color: $color-white;
+      background: transparent;
+    }
+
+    .tip-match-right {
+      top: .3rem;
+      display: flex;
+    }
+  }
+
+  .team-info {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+  }
+
+  .img-wrap {
+    background: $color-black;
+    height: .48rem;
+    width: .48rem;
+    border-radius: 50%;
+    margin-right: .16rem;
+    margin-bottom: .02rem;
+  }
+
+  .team-avator {
+    height: .48rem;
+    width: .48rem;
+    border: .02rem solid $color-gray-7;
+    border-radius: 50%;
+  }
+
+  .team-name {
+    flex: 1;
+    color: $color-white;
+    font-size: $font-xm;
+    line-height: .4rem;
+    @include single-line-ellipsis;
+  }
+
+  .header-right {
+    display: flex;
+  }
+
+  .icon-share-new {
+    position: relative;
+    margin-left: .2rem;
+    z-index: 3;
+    color: $color-white;
+    font-size: .36rem;
+  }
+
+  .icon-set {
+    position: relative;
+    margin-left: .2rem;
+    z-index: 3;
+    color: $color-white;
+    font-size: .36rem;
+  }
+
+  .set-disabled {
+    opacity: .5;
+  }
+
+  .set-join-icon {
+    position: relative;
+    top: -.02rem;
+    width: .4rem;
+    height: .4rem;
+    background: url(https://image-1251917893.file.myqcloud.com/Esports/user/img/join-member.png) no-repeat center center;
+    background-size: contain;
+    z-index: 3;
+  }
+
+  .team-member-list {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    overflow-x: auto;
+    padding: .24rem .32rem .24rem;
+
+    .team-member {
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      align-items: center;
+      width: 1.16rem;
+      color: $color-white;
+      font-size: $font-s;
+      margin-right: .2rem;
+
+      .icon-flag {
+        display: none;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .btn-add {
+        width: .88rem;
+        height: .88rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $color-blue-3;
+
+        .icon-add {
+          color: $color-blue-6;
+          font-size: .46rem;
+        }
+      }
+
+      img {
+        width: .88rem;
+        height: .88rem;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      p {
+        margin-top: .08rem;
+        width: 1.16rem;
+        text-align: center;
+        line-height: .4rem;
+        @include single-line-ellipsis;
+      }
+
+      .member-empty-text {
+        color: $color-white;
+      }
+    }
+
+    .team-member:nth-child(1) {
+      position: relative;
+      overflow-y: visible;
+
+      .icon-flag {
+        display: block;
+        position: absolute;
+        width: .28rem;
+        height: .27rem;
+        top: -.08rem;
+        left: .06rem;
+        background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cap-tag.png) no-repeat;
+        background-size: 100%;
+        z-index: 2;
+      }
+
+      .member-cap {
+        &::before {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: .46rem;
+          margin: auto;
+          content: '';
+          width: .74rem;
+          height: .24rem;
+          background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cap-icon.png) no-repeat center;
+          background-size: contain;
+          z-index: 2;
+        }
+      }
+    }
+  }
+
+  .team-member-list-one {
+    position: relative;
+    z-index: 2;
+    overflow-x: auto;
+    padding-top: .2rem;
+    justify-content: center;
+
+    .team-member {
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      align-items: center;
+      color: $color-white;
+      font-size: $font-s;
+
+      .icon-flag {
+        display: none;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .btn-add {
+        width: .88rem;
+        height: .88rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $color-blue-3;
+
+        .icon-add {
+          color: $color-blue-6;
+          font-size: .46rem;
+        }
+      }
+
+      img {
+        width: .88rem;
+        height: .88rem;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+    }
+
+    p {
+      margin-top: .08rem;
+      text-align: center;
+      height: .48rem;
+      line-height: .48rem;
+      color: #FFFFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .member-empty-text {
+      color: $color-white;
+    }
+
+    .team-member:nth-child(1) {
+      position: relative;
+      overflow-y: visible;
+
+      .icon-flag {
+        display: block;
+        position: absolute;
+        width: .28rem;
+        height: .27rem;
+        top: -.08rem;
+        left: calc(50% - .44rem);
+        background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cap-tag.png) no-repeat;
+        background-size: 100%;
+        z-index: 2;
+      }
+
+      .member-cap {
+        &::before {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: .46rem;
+          margin: auto;
+          content: '';
+          width: .74rem;
+          height: .24rem;
+          background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cap-icon.png) no-repeat center;
+          background-size: contain;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+
+.set-arrow {
+  position: absolute;
+  bottom: -.32rem;
+  right: .07rem;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: .12rem solid transparent;
+  border-right: .12rem solid transparent;
+  border-bottom: .12rem solid rgba(0, 0, 0, .95);
+}
+
+.set-popver {
+  left: auto;
+  right: -.14rem;
+  top: .5rem;
+  bottom: auto;
+  padding: 0;
+
+  &::before {
+    left: auto;
+    right: .2rem;
+  }
+}
+
+.set-item {
+  position: relative;
+  width: 100%;
+  height: .72rem;
+  font-size: $font-xm;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 .16rem 0 .28rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  z-index: 9;
+
+  .iconfont {
+    font-size: .28rem;
+    margin-right: .2rem;
+  }
+
+  .icon-edit {
+    font-size: .32rem;
+    margin-right: .24rem;
+    margin-left: .04rem;
+  }
+
+  .icon-add-member {
+    font-size: .3rem;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+}
+
+// 比赛信息-邀请队员
+.match-info-tips {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.16rem;
+  padding: .16rem .32rem;
+  background-color: $color-white;
+  margin-bottom: .08rem;
+
+  .warnning-text {
+    color: $color-red;
+    font-size: $font-xm;
+    line-height: .44rem;
+  }
+
+  .normal-text {
+    color: $color-black;
+    font-size: $font-xm;
+    line-height: .44rem;
+  }
+
+  .match-deadline {
+    color: $color-gray;
+    font-size: $font-s;
+
+    span {
+      font-family: 'DINCond-Bold';
+      font-size: $font-l;
+      line-height: .4rem;
+      color: $color-black;
+      position: relative;
+      top: .02rem;
+      margin-right: .05rem;
+    }
+  }
+
+  .invite-virtual-member {
+    @include primary-btn(2.64rem, .72rem, $font-l);
+    @include btn-default-bg;
+
+    p {
+      z-index: 2;
+    }
+  }
+
+  .invite-teammate-btn {
+    @include primary-btn(2rem, .72rem, $font-l);
+    @include btn-default-bg;
+
+    p {
+      z-index: 2;
+    }
+  }
+}
+
+// vant组件重写
+.van-tabs ::v-deep {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .van-tabs__wrap {
+    height: auto !important;
+    background-color: $color-white;
+  }
+
+  .van-tabs__content {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .van-tab__pane-wrapper {
+    overflow-y: auto;
+    background-color: $color-white;
+  }
+
+  .van-tabs__track {
+    .van-tab__pane-wrapper {
+      &:first-child {
+        padding: 0 .32rem;
+      }
+
+      &:last-child {
+        background: rgba(255, 255, 255, 0.85);
+      }
+    }
+  }
+
+  .van-tab__pane .message-list-item {
+    position: relative;
+    // border-bottom: 1px solid rgba(223, 226, 234, .3);
+  }
+
+  .message-list-item .message-join-tips::after,
+  .message-list-item .message-palyer-comment::after {
+    @include halfBottomBorder($color-gray-3)
+  }
+
+  .van-tab__pane .message-list-item:last-child {
+    border: none;
+  }
+
+}
+
+// tab自适应模块
+.tab-content {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.tab-content .van-tabs {
+  border-style: none;
+}
+
+// 玩家评论
+.message-palyer-comment {
+  font-size: $font-l;
+  color: $color-gray-5;
+  padding: .24rem 0;
+  // border-top: .02rem solid $color-gray-3;
+  overflow-x: hidden;
+
+  .comment-content {
+    display: inline;
+    font-size: $font-xm;
+    // padding-top: .24rem;
+    // padding-left: .8rem;
+    color: $color-gray-5;
+    line-height: .44rem;
+    word-break: break-all;
+  }
+
+  .replay-content {
+    // margin-left: .8rem;
+    margin-top: .08rem;
+    padding: .12rem .16rem .12rem;
+    background-color: $color-gray-7;
+    border-radius: .08rem;
+    font-size: $font-s;
+    overflow: hidden;
+
+    .replay-content-item {
+      // margin-bottom: .12rem;
+      text-align: justify;
+
+      p {
+        display: inline;
+        width: 100%;
+        word-break: break-all;
+        vertical-align: middle;
+        line-height: .44rem;
+      }
+    }
+
+    img {
+      display: inline-block;
+      height: .32rem;
+      width: .58rem;
+      margin-right: .08rem;
+      vertical-align: middle;
+    }
+
+    span {
+      color: $color-gray;
+      display: inline;
+      line-height: .44rem;
+      vertical-align: middle;
+
+      p {
+        color: $color-black;
+      }
+    }
+  }
+
+  .conment-flod {
+    height: .4rem;
+    // margin-bottom: .12rem;
+    // color: $color-primary;
+    color: $color-gray;
+    font-size: $font-s;
+    line-height: .4rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+
+    .icon-back {
+      color: $color-gray;
+      font-size: $font-xs;
+      transform: rotate(-90deg);
+      margin-left: .1rem;
+    }
+  }
+
+  .conment-unflod {
+    width: 2rem;
+    height: .4rem;
+    // margin-bottom: .12rem;
+    // color: $color-primary;
+    color: $color-gray;
+    font-size: $font-s;
+    line-height: .44rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+
+    .icon-back {
+      color: $color-gray;
+      font-size: $font-xs;
+      transform: rotate(90deg);
+      margin-left: .1rem;
+    }
+  }
+
+}
+
+.message-time {
+  color: $color-gray;
+  line-height: .44rem;
+  font-size: $font-xm;
+}
+
+.player-info {
+  display: flex;
+  display: inline;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    display: none;
+    height: .64rem;
+    width: .64rem;
+    border-radius: 50%;
+    border: .02rem solid $color-gray-3;
+    margin-right: .16rem;
+  }
+
+  p {
+    display: inline;
+    line-height: .44rem;
+    // color: $color-black;
+    color: $color-gray;
+    font-size: $font-xm;
+    // font-weight: bold;
+    @include single-line-ellipsis;
+  }
+}
+
+.message-reply {
+  display: flex;
+  justify-content: space-between;
+  margin-top: .08rem;
+
+  .message-time {
+    font-size: $font-s;
+  }
+
+  p {
+    width: .8rem;
+    height: .4rem;
+    // color: $color-primary;
+    color: $color-gray-5;
+    font-size: $font-s;
+    line-height: .4rem;
+    text-align: right;
+  }
+}
+
+// 加入提示
+.message-join-tips {
+  // height: 1.72rem;
+  line-height: .4rem;
+  font-size: $font-xm;
+  padding: .16rem 0 .18rem;
+  // border-top: .02rem solid $color-gray-3 ;
+
+  .message-time {
+    font-size: $font-s;
+    line-height: .4rem;
+    margin-top: .08rem;
+  }
+
+  .join-team {
+    color: $color-primary;
+  }
+
+  .join-room {
+    color: $color-primary;
+  }
+
+}
+
+// 输入框
+.team-zone-input-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .32rem;
+  padding-bottom: .32rem;
+  padding-bottom: calc(constant(safe-area-inset-bottom) + .32rem);
+  padding-bottom: calc(env(safe-area-inset-bottom) + .32rem);
+  background-color: $color-white;
+  box-shadow: 0 -.04rem .08rem rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+
+  .team-zone-input ::v-deep {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    .uni-input-placeholder {
+      width: 100%;
+      @include single-line-ellipsis();
+    }
+  }
+
+  .submit-btn {
+    margin-left: .16rem;
+    @include primary-btn(2rem, .72rem, $font-l);
+    @include btn-default-bg;
+
+    p {
+      z-index: 3;
+    }
+  }
+
+  .disabled {
+    @include disabled-btn(2rem, .72rem, $font-l);
+
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  input {
+    display: inline-block;
+    width: 100%;
+    min-height: .72rem;
+    height: .72rem;
+    margin: 0 auto;
+    border-left: .16rem solid #eef0f6;
+    border-right: .16rem solid #eef0f6;
+    flex: 1;
+    border-radius: .08rem;
+    background-color: #eef0f6;
+    font-size: $font-xm;
+    caret-color: $color-black;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: $color-gray;
+  }
+}
+
+
+/* 热门赛程 */
+.hot-schedule-item {
+  margin-bottom: .08rem;
+  padding-top: .24rem;
+  border-bottom: .08rem solid $color-bg;
+}
+
+.hot-schedule-title {
+  font-size: $font-s;
+  color: $color-gray;
+  padding: 0 .32rem .08rem;
+}
+
+.schedule-info {
+  border-radius: .08rem;
+}
+
+.schedule-item {}
+
+// 赛程为空
+.tip-match-empty-wrap {
+  margin-top: 1.3rem;
+}
+
+//添加公众号订阅引导按钮
+.wrap-book {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-book {
+  position: absolute !important;
+  top: .32rem;
+  right: .34rem;
+  @include border-btn(auto, .52rem, $font-s);
+  padding: 0 .2rem;
+}
+
+.btn-booked {
+  position: absolute !important;
+  top: .32rem;
+  right: .34rem;
+  @include secondary-btn(auto, .52rem, $font-s);
+  padding: 0 .2rem;
+}

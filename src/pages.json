@@ -738,6 +738,17 @@
           }
         }
       ]
+    },
+    {
+      "root": "pages/press/message-board",
+      "pages": [
+        {
+          "path": "message-board",
+          "style": {
+            "navigationBarTitleText": "MessageBoard 留言板"
+          }
+        }
+      ]
     }
   ],
   "globalStyle": {

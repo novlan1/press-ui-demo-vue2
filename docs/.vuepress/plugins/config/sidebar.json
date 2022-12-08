@@ -198,6 +198,11 @@
           "title": "消息列表",
           "subTitle": "MessageList",
           "path": "/components/press/press-message-list.md"
+        },
+        {
+          "title": "留言板",
+          "subTitle": "MessageBoard",
+          "path": "/components/press/press-message-board.md"
         }
       ]
     }

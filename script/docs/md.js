@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { getPureCompName } = require('../new-comp/utils');
+const { getPureCompName } = require('../utils/utils');
 
 const LOCAL_DOC_NAME = 'README.md';
 const LOCAL_DEMO_NAME = 'demo.vue';

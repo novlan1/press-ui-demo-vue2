@@ -158,6 +158,10 @@
       {
         "name": "MessageList",
         "title": "消息列表"
+      },
+      {
+        "name": "MessageBoard",
+        "title": "留言板"
       }
     ]
   }

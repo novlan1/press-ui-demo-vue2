@@ -5,7 +5,7 @@ url : pages/press/message-list/message-list
 ## MessageList 消息列表
 
 
-可用于TIM消息列表的展示。
+可用于IM消息列表的展示。
 
 ### 基本用法
 

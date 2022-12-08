@@ -115,8 +115,8 @@ export default {
 
   },
   methods: {
-    replyClick() {
-
+    replyClick(...args) {
+      this.$emit('replyClick', ...args);
     },
   },
 };

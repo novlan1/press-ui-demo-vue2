@@ -12,7 +12,7 @@
     >
       <input
         id="msg-footer-textarea"
-        v-model="msgContent"
+        :value="value"
         placeholder-style="color:#596297"
         :show-confirm-bar="showConfirmBar"
         :placeholder="placeholder"
@@ -20,6 +20,7 @@
         :auto-height="textAreaIsAutoHeight"
         :adjust-position="adjustPosition"
         :focus="textAreaIsFocus"
+        @input="onInput"
         @blur="onBlur"
         @keyboardheightchange="keyboardheightchange"
       >
@@ -37,7 +38,7 @@
 export default {
   props: {
     inputBottom: {
-      type: Number,
+      type: [Number, String],
       default: 0,
     },
     placeholder: {
@@ -45,7 +46,7 @@ export default {
       default: '说点什么...',
     },
     textAreaIsAutoHeight: {
-      type: Boolean,
+      type: [Boolean, String],
       default: false,
     },
     adjustPosition: {
@@ -60,28 +61,35 @@ export default {
       type: Boolean,
       default: false,
     },
+    value: {
+      type: String,
+      default: '',
+    },
+    sendBtnEnable: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      msgContent: '',
     };
   },
   computed: {
-    sendBtnEnable() {
-      return this.msgContent && this.msgContent.trim().length > 0;
-    },
+
   },
   mounted() {
   },
   methods: {
+    onInput(e) {
+      this.$emit('input', e.target.value);
+    },
     clickInput() {
       this.$emit('clickInput');
     },
     sendMsg() {
-      this.$emit('sendMsg', this.msgContent);
+      this.$emit('sendMsg', this.value);
     },
     keyboardheightchange(e) {
-      console.log('keyboardheightchange.e', e);
       this.$emit('keyboardheightchange', e);
     },
     onBlur() {

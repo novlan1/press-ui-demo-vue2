@@ -35,7 +35,14 @@
   </div>
 </template>
 <script>
+import { defaultProps, defaultOptions } from '../common/press-component';
+
+
 export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
   props: {
     inputBottom: {
       type: [Number, String],
@@ -69,6 +76,7 @@ export default {
       type: Boolean,
       default: false,
     },
+    ...defaultProps,
   },
   data() {
     return {

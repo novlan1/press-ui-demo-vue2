@@ -1,5 +1,10 @@
 <template>
   <div class="wrap">
+    <PressMessageBoardList
+      :list="msgList"
+      custom-class="demo-message-list"
+      captain-uid="1694E79D5FB91429B98C66BF1A89BF81"
+    />
     <PressMessageBoardInput
       v-model="msgContent"
       :send-btn-enable="sendBtnEnable"
@@ -12,17 +17,313 @@
 // eslint-disable-next-line import/no-unresolved
 import PressMessageBoardInput from '../../../packages/press-message-board/press-message-board-input.vue';
 // eslint-disable-next-line import/no-unresolved
-// import PressMessageBoardList from '../../../packages/press-message-board/press-message-board-list.vue';
+import PressMessageBoardList from '../../../packages/press-message-board/press-message-board-list.vue';
 
+const msgList = [
+  {
+    msg_id: '1670485673629351213',
+    content_info: 'ceshi',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '15:50',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670485668576858426',
+    content_info: '123123',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '15:46',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670485588505754223',
+    content_info: 'adfadf',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '15:30',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670485583523443686',
+    content_info: 'ceshi',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '15:20',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481134496246346',
+    content_info: 'adf',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '15:10',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481115967648602',
+    content_info: 'dddd',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '15:00',
+    comm_list: [
+      {
+        comm_id: '1670481120121557488',
+        content_info: 'adf',
+        content_type: 1,
+        msg_id: '1670481115967648602',
+        level: 1,
+        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        nick: '杨',
+        head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+        create_time: '15:00',
+        comm_list: [
+          {
+            comm_id: '1670481123933696154',
+            content_info: 'adfaf',
+            content_type: 1,
+            msg_id: '1670481115967648602',
+            parent_comm_id: '1670481120121557488',
+            level: 2,
+            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            nick: '杨',
+            head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            create_time: '15:00',
+            parent_nick: '杨',
+          },
+          {
+            comm_id: '1670481131496864773',
+            content_info: 'adf',
+            content_type: 1,
+            msg_id: '1670481115967648602',
+            parent_comm_id: '1670481120121557488',
+            level: 2,
+            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            nick: '杨',
+            head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            create_time: '15:00',
+            parent_nick: '杨',
+          },
+          {
+            comm_id: '1670485592609623296',
+            content_info: 'adf',
+            content_type: 1,
+            msg_id: '1670481115967648602',
+            parent_comm_id: '1670481120121557488',
+            level: 2,
+            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            nick: '杨',
+            head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            create_time: '15:00',
+            parent_nick: '杨',
+          },
+          {
+            comm_id: '1670485595478648922',
+            content_info: 'adfadf',
+            content_type: 1,
+            msg_id: '1670481115967648602',
+            parent_comm_id: '1670481120121557488',
+            level: 2,
+            uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            nick: '杨',
+            head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+            parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+            create_time: '15:00',
+            parent_nick: '杨',
+          },
+        ],
+      },
+      {
+        comm_id: '1670481123933696154',
+        content_info: 'adfaf',
+        content_type: 1,
+        msg_id: '1670481115967648602',
+        parent_comm_id: '1670481120121557488',
+        level: 2,
+        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        nick: '杨',
+        head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        create_time: '14:50',
+        parent_nick: '杨',
+      },
+      {
+        comm_id: '1670481131496864773',
+        content_info: 'adf',
+        content_type: 1,
+        msg_id: '1670481115967648602',
+        parent_comm_id: '1670481120121557488',
+        level: 2,
+        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        nick: '杨',
+        head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        create_time: '14:30',
+        parent_nick: '杨',
+      },
+      {
+        comm_id: '1670485592609623296',
+        content_info: 'adf',
+        content_type: 1,
+        msg_id: '1670481115967648602',
+        parent_comm_id: '1670481120121557488',
+        level: 2,
+        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        nick: '杨',
+        head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        create_time: '14:20',
+        parent_nick: '杨',
+      },
+      {
+        comm_id: '1670485595478648922',
+        content_info: 'adfadf',
+        content_type: 1,
+        msg_id: '1670481115967648602',
+        parent_comm_id: '1670481120121557488',
+        level: 2,
+        uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        nick: '杨',
+        head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+        parent_uid: '1694E79D5FB91429B98C66BF1A89BF81',
+        create_time: '14:10',
+        parent_nick: '杨',
+      },
+    ],
+  },
+  {
+    msg_id: '1670481108894319571',
+    content_info: '123',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '14:00',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481104059792043',
+    content_info: '123123',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '13:50',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481102986754195',
+    content_info: '123',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '13:40',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481101621544612',
+    content_info: '123',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '13:30',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481099293567941',
+    content_info: '123123',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '13:20',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481098433932835',
+    content_info: '123',
+    content_type: 1,
+    msg_type: 1,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '13:10',
+    comm_list: [
+
+    ],
+  },
+  {
+    msg_id: '1670481095713238877',
+    content_info: '欢迎 杨 进入房间',
+    content_type: 1,
+    msg_type: 2,
+    uid: '1694E79D5FB91429B98C66BF1A89BF81',
+    nick: '杨',
+    head: 'http://thirdqq.qlogo.cn/g?b=oidb&k=DMw9RHADUy5CzogZZ0w2qg&kti=Y5GEvAAAAAE&s=640&t=1556998035',
+    create_time: '13:00',
+    comm_list: [
+
+    ],
+  },
+];
 
 export default {
   components: {
     PressMessageBoardInput,
-    // PressMessageBoardList,
+    PressMessageBoardList,
   },
   data() {
     return {
       msgContent: '',
+      msgList,
     };
   },
   computed: {
@@ -34,7 +335,7 @@ export default {
   watch: {
     msgContent: {
       handler(val) {
-        console.log('val', val);
+        console.log('watch.msgContent', val);
       },
     },
   },
@@ -43,15 +344,18 @@ export default {
 
     },
     onChange(value) {
-      console.log('onChange.ee', value);
+      console.log('onChange.value', value);
       this.msgContent = value;
     },
     sendMsg() {
-      console.log('dd', this.msgContent);
+      console.log('sendMsg', this.msgContent);
     },
   },
 };
 </script>
-<style scoped lang="scss">
+<style  lang="scss">
 @import "src/packages/base/mixin.scss";
+.wrap {
+  padding: 20px;
+}
 </style>

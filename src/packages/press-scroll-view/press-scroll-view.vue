@@ -23,22 +23,26 @@
 </template>
 
 <script>
-/* eslint-disable import/first */
-let PlatScrollView;
-
 // #ifndef H5
 import ScrollViewMp from './scroll-view-mp';
-PlatScrollView = ScrollViewMp;
 // #endif
 
 // #ifdef H5
 import ScrollViewWeb from './scroll-view-web';
-PlatScrollView = ScrollViewWeb;
 // #endif
 
 
 export default {
-  components: { PlatScrollView },
+  components: {
+    // #ifndef H5
+    PlatScrollView: ScrollViewMp,
+    // #endif
+
+    // #ifdef H5
+    // eslint-disable-next-line no-dupe-keys
+    PlatScrollView: ScrollViewWeb,
+    // #endif
+  },
   props: {
     scrollOffset: {
       type: Number,

@@ -5,7 +5,7 @@
     style="height: 100%"
   >
     <div
-      v-for="(item, index) in msgList"
+      v-for="(item, index) in list"
       :id="item.msg_id"
       :key="index"
       class="message-list-item"
@@ -24,7 +24,8 @@
         </div>
         <div class="message-reply">
           <div class="message-time">
-            {{ timeFormat(item.create_time) }}
+            <!-- {{ timeFormat(item.create_time) }} -->
+            {{ item.create_time }}
           </div>
           <p @click.stop="replyClick(item, index)">
             回复
@@ -43,7 +44,7 @@
             @click.stop="replyClick(comment, index)"
           >
             <img
-              v-if="teamInfo.captainInfo && comment.uid === teamInfo.captainInfo.uid"
+              v-if="captainUid && comment.uid === captainUid"
               src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
             >
             <span
@@ -75,7 +76,8 @@
           {{ item.content_info }}
         </p>
         <div class="message-time">
-          {{ timeFormat(item.create_time) }}
+          <!-- {{ timeFormat(item.create_time) }} -->
+          {{ item.create_time }}
         </div>
       </div>
     </div>
@@ -83,16 +85,26 @@
 </template>
 <script>
 import PressScrollView from '../press-scroll-view/press-scroll-view.vue';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
   components: {
     PressScrollView,
   },
   props: {
-    msgList: {
+    list: {
       type: Array,
       default: () => [],
     },
+    captainUid: {
+      type: String,
+      default: '',
+    },
+    ...defaultProps,
   },
   data() {
     return {

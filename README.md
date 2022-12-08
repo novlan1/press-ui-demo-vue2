@@ -30,10 +30,10 @@ npm run dev:mp-qq
 **新增一个组件**
 
 ```bash
-npm run gen:comp compName
-# compName为你想增加的组件名称，英文名，比如button、loading
+npm run new:comp
 ```
 
+然后交互式的输入组件英文名、中文名等内容即可。
 
 ### 文档开发
 
@@ -73,8 +73,8 @@ npm run docs:watch
 
 多开几个终端
 
-```
-npm run docs:watch
+```bash
+npm run docs:watch # 必须
 npm run dev
 npm run dev:mp-weixin
 npm run docs:dev

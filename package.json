@@ -75,7 +75,7 @@
     "lint:css": "stylelint **/*.{html,vue,css,sass,scss,less}",
     "lint:css:fix": "stylelint --fix **/*.{html,vue,css,sass,scss,less}",
     "gen:icon:list": "node script/icon-list",
-    "gen:comp": "node script/new-comp/gen-new-comp",
+    "new:comp": "node script/new-comp/gen-new-comp/gen-new-comp",
     "release": " standard-version --release-as patch -a && npm run version:tip",
     "gen:config": "node script/comp-config/gen-comp-config",
     "test": "jest --coverage --verbose -u",

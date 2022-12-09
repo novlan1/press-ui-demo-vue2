@@ -7,28 +7,30 @@
       v-for="(item, index) in list"
       :id="item.msg_id"
       :key="index"
-      class="press-message-board-list-item"
+      class="press-message-board__list-item"
     >
       <!-- 玩家留言 -->
       <div
         v-if="item.msg_type ===1"
-        class="press-message-board-normal-comment"
+        class="press-message-board__normal-comment"
       >
-        <div class="press-message-board-user">
+        <div class="press-message-board__user">
           <!-- <img class="press-message-board-avatar" v-lazy="item.head"> -->
-          <p class="press-message-board-nick">
+          <p class="press-message-board__nick">
             {{ item.nick }}：
           </p>
         </div>
-        <div class="press-message-board-comment-content">
+
+        <div class="press-message-board__comment-content">
           {{ item.content_info }}
         </div>
-        <div class="press-message-board-info">
-          <div class="press-message-board-comment-time">
+
+        <div class="press-message-board__info">
+          <div class="press-message-board__comment-time">
             {{ item.create_time }}
           </div>
           <p
-            class="press-message-board-reply-btn"
+            class="press-message-board__reply-btn"
             @click.stop="replyClick(item, index)"
           >
             回复
@@ -43,30 +45,32 @@
           <div
             v-for="(comment, index2) in item.comm_list"
             :key="index2"
-            class="press-message-board-reply-item"
+            class="press-message-board__reply-item"
             @click.stop="replyClick(comment, index)"
           >
             <img
               v-if="captainUid && comment.uid === captainUid"
-              class="press-message-board-reply__avatar"
+              class="press-message-board__reply-avatar"
               src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
             >
+
             <span
               v-if="comment.parent_comm_id"
-              class="press-message-board-reply__nick"
+              class="press-message-board__reply-nick"
             >
               {{ comment.nick }}
               <p
-                class="press-message-board-reply__btn"
+                class="press-message-board__reply-word"
               >回复</p>
               {{ comment.parent_nick }}：
             </span>
+
             <span
               v-else
-              class="press-message-board-reply__nick"
+              class="press-message-board__reply-nick"
             >{{ comment.nick }}：</span>
             <p
-              class="press-message-board-reply__content"
+              class="press-message-board__reply-content"
             >
               {{ comment.content_info }}
             </p>
@@ -82,14 +86,14 @@
       <!-- 欢迎 xx 加入战队/进入房间 -->
       <div
         v-else
-        class="press-message-board-system-comment"
+        class="press-message-board__system-comment"
       >
         <p
-          class="press-message-board-comment-content"
+          class="press-message-board__comment-content"
         >
           {{ item.content_info }}
         </p>
-        <div class="press-message-board-comment-time">
+        <div class="press-message-board__comment-time">
           {{ item.create_time }}
         </div>
       </div>
@@ -134,4 +138,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped src="./index.scss"></style>
+<style lang="scss" scoped src="./press-message-board-list.scss"></style>

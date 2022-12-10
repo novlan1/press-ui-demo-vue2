@@ -55,6 +55,10 @@
         {
           "name": "Switch 切换",
           "url": "/press/switch/switch"
+        },
+        {
+          "name": "Slider 滑块",
+          "url": "/press/slider/slider"
         }
       ]
     },

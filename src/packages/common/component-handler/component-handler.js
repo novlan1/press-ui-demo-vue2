@@ -128,6 +128,10 @@ export function getMPComponentHandler({
     }
   };
 
+  CompHandler.install = () => {
+    // Vue.use(CompHandler);
+  };
+
   return CompHandler;
 }
 
@@ -262,7 +266,7 @@ export function getH5ComponentHandler({
   };
 
   Dialog.install = () => {
-    Vue.use(component);
+    // Vue.use(component);
   };
 
   return Dialog;

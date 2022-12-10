@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { DEFAULT_OPTIONS, DEFAULT_KEY } from './default-options';
 import { getMPComponentHandler, parseOptions } from '../common/component-handler/component-handler';
 
@@ -11,5 +12,7 @@ const createMethod = type => options => Toast(Object.assign({ type }, parseOptio
 Toast.loading = createMethod('loading');
 Toast.success = createMethod('success');
 Toast.fail = createMethod('fail');
+
+Vue.prototype.$toast = Toast;
 
 export default Toast;

@@ -54,6 +54,10 @@
       {
         "name": "Switch",
         "title": "切换"
+      },
+      {
+        "name": "Slider",
+        "title": "滑块"
       }
     ]
   },

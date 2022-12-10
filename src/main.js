@@ -1,4 +1,8 @@
 import App from './App.vue';
+
+import Toast from 'src/packages/press-toast/index';
+
+
 // #ifndef VUE3
 // eslint-disable-next-line import/no-unresolved
 // eslint-disable-next-line import/no-duplicates
@@ -207,6 +211,9 @@ Vue.component('PressPopupPlus', PressPopupPlus);
 
 Vue.config.productionTip = false;
 App.mpType = 'app';
+Vue.use(Toast);
+
+
 const app = new Vue({
   ...App,
 });
@@ -238,3 +245,5 @@ export function createApp() {
   };
 }
 // #endif
+
+

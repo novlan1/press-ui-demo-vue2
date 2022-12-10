@@ -509,6 +509,17 @@
       ]
     },
     {
+      "root": "pages/press/slider",
+      "pages": [
+        {
+          "path": "slider",
+          "style": {
+            "navigationBarTitleText": "Slider 滑块"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/action-sheet",
       "pages": [
         {

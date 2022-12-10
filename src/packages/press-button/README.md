@@ -208,3 +208,8 @@ subTitle: Button
 | ------------- | -------------- |
 | custom-class  | 根节点样式类   |
 | loading-class | 加载图标样式类 |
+
+
+## 主题定制
+
+<theme-config/>

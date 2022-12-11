@@ -18,10 +18,9 @@
         name="icon"
       />
 
-
       <!-- 【修改点】:empty在小程序下失效，用$slots判断 -->
       <view
-        v-if="title || $slots.title || label || useLabelSlot"
+        v-if="title || useTitleSlot || label || useLabelSlot"
         :style="cTitleStyle"
         class="van-cell__title"
         :class="titleClass"
@@ -30,7 +29,7 @@
           {{ title }}
         </template>
         <slot
-          v-else
+          v-else-if="useTitleSlot"
           name="title"
         />
 
@@ -119,6 +118,7 @@ export default {
     titleWidth: { type: String, default: '' },
     customStyle: { type: String, default: '' },
     arrowDirection: { type: String, default: '' },
+    useTitleSlot: Boolean, // 【修改点】新增，使用title-slot，必须同时设置为true
     useLabelSlot: Boolean,
     border: {
       type: Boolean,

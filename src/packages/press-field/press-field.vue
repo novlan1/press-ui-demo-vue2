@@ -9,6 +9,7 @@
       :required="required"
       :clickable="clickable"
       :title-width="titleWidth"
+      :use-title-slot="useLabelSlot || label"
       title-style="margin-right: 12px;"
       :custom-style="customStyle"
       :arrow-direction="arrowDirection"
@@ -26,7 +27,7 @@
           {{ label }}
         </view>
         <slot
-          v-else
+          v-else-if="useLabelSlot"
           name="label"
         />
       </template>
@@ -189,6 +190,7 @@ export default {
     arrowDirection: { type: String, default: '' },
     showWordLimit: Boolean,
     errorMessageAlign: { type: String, default: '' },
+    useLabelSlot: Boolean, // 【修改点】解决小程序下cell中传递title问题
     readonly: {
       type: Boolean,
       observer: 'setShowClear',

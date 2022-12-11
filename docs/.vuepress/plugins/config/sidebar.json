@@ -74,6 +74,11 @@
           "title": "滑块",
           "subTitle": "Slider",
           "path": "/components/press/press-slider.md"
+        },
+        {
+          "title": "输入框",
+          "subTitle": "Field",
+          "path": "/components/press/press-field.md"
         }
       ]
     },

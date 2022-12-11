@@ -58,6 +58,10 @@
       {
         "name": "Slider",
         "title": "滑块"
+      },
+      {
+        "name": "Field",
+        "title": "输入框"
       }
     ]
   },

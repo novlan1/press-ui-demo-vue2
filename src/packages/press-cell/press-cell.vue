@@ -18,7 +18,10 @@
         name="icon"
       />
 
+
+      <!-- 【修改点】:empty在小程序下失效，用$slots判断 -->
       <view
+        v-if="title || $slots.title || label || useLabelSlot"
         :style="cTitleStyle"
         class="van-cell__title"
         :class="titleClass"
@@ -47,6 +50,7 @@
       </view>
 
       <view
+        v-if="value || value === 0 || $slots.default"
         class="van-cell__value"
         :class="valueClass"
       >
@@ -140,6 +144,9 @@ export default {
       const {  titleWidth, titleStyle } = this;
       return computed.titleStyle({ titleWidth, titleStyle });
     },
+  },
+  mounted() {
+    // console.log('slots', this.$slots);
   },
   methods: {
     onClick(event) {

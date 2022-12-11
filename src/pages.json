@@ -520,6 +520,17 @@
       ]
     },
     {
+      "root": "pages/press/field",
+      "pages": [
+        {
+          "path": "field",
+          "style": {
+            "navigationBarTitleText": "Field 输入框"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/action-sheet",
       "pages": [
         {

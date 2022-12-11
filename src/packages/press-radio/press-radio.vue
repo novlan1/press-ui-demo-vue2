@@ -156,66 +156,90 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-radio {
-  align-items: center;
   display: flex;
+  align-items: center;
   overflow: hidden;
-  -webkit-user-select: none;
   user-select: none;
-}
-.van-radio__icon-wrap {
-  flex: none;
-}
-.van-radio--horizontal {
-  margin-right: var(--padding-sm, 12px);
-}
-.van-radio__icon {
-  align-items: center;
-  border: 1px solid var(--radio-border-color, #c8c9cc);
-  box-sizing: border-box;
-  color: transparent;
-  display: flex;
-  font-size: var(--radio-size, 20px);
-  height: 1em;
-  justify-content: center;
-  text-align: center;
-  transition-duration: var(--radio-transition-duration, 0.2s);
-  transition-property: color, border-color, background-color;
-  width: 1em;
-}
-.van-radio__icon--round {
-  border-radius: 100%;
-  .van-icon {
-    // 【修改点】
-    border-radius: 100%;
+
+  &__icon-wrap {
+    flex: none;
   }
-}
-.van-radio__icon--checked {
-  background-color: var(--radio-checked-icon-color, #1989fa);
-  border-color: var(--radio-checked-icon-color, #1989fa);
-  color: #fff;
-}
-.van-radio__icon--disabled {
-  background-color: var(--radio-disabled-background-color, #ebedf0);
-  border-color: var(--radio-disabled-icon-color, #c8c9cc);
-}
-.van-radio__icon--disabled.van-radio__icon--checked {
-  color: var(--radio-disabled-icon-color, #c8c9cc);
-}
-.van-radio__label {
-  word-wrap: break-word;
-  color: var(--radio-label-color, #323233);
-  line-height: var(--radio-size, 20px);
-  padding-left: var(--radio-label-margin, 10px);
-}
-.van-radio__label--left {
-  float: left;
-  margin: 0 var(--radio-label-margin, 10px) 0 0;
-}
-.van-radio__label--disabled {
-  color: var(--radio-disabled-label-color, #c8c9cc);
-}
-.van-radio__label:empty {
-  margin: 0;
+
+  &--horizontal {
+    margin-right: var(--padding-sm, $padding-sm);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    color: transparent;
+    text-align: center;
+    transition-property: color, border-color, background-color;
+    border: 1px solid var(--radio-border-color, $radio-border-color);
+    font-size: var(--radio-size, $radio-size);
+    transition-duration: var(
+      --radio-transition-duration,
+      $radio-transition-duration
+    );
+
+    &--round {
+      border-radius: 100%;
+      .van-icon {
+        // 【修改点】
+        border-radius: 100%;
+      }
+    }
+
+    &--checked {
+      color: $white;
+      background-color: var(
+        --radio-checked-icon-color,
+        $radio-checked-icon-color
+      );
+      border-color: var(--radio-checked-icon-color, $radio-checked-icon-color);
+    }
+
+    &--disabled {
+      background-color: var(
+        --radio-disabled-background-color,
+        $radio-disabled-background-color
+      );
+      border-color: var(
+        --radio-disabled-icon-color,
+        $radio-disabled-icon-color
+      );
+    }
+
+    &--disabled.van-radio__icon--checked {
+      color: var(--radio-disabled-icon-color, $radio-disabled-icon-color);
+    }
+  }
+
+  &__label {
+    word-wrap: break-word;
+    padding-left: var(--radio-label-margin, $radio-label-margin);
+    color: var(--radio-label-color, $radio-label-color);
+    line-height: var(--radio-size, $radio-size);
+
+    &--left {
+      float: left;
+      margin: 0 var(--radio-label-margin, $radio-label-margin) 0 0;
+    }
+
+    &--disabled {
+      color: var(--radio-disabled-label-color, $radio-disabled-label-color);
+    }
+
+    &:empty {
+      margin: 0;
+    }
+  }
 }
 </style>

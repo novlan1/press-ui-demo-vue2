@@ -233,6 +233,7 @@ export default {
   }
   img {
     height: 20px;
+    width: 25px;
   }
 }
 </style>

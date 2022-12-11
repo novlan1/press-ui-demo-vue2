@@ -2,12 +2,6 @@ export const commonProps = {
   value: {
     type: String,
     default: '',
-    observer(value) {
-      if (value !== this.value) {
-        this.setData({ innerValue: value });
-        this.value = value;
-      }
-    },
   },
   placeholder: { type: String, default: '' },
   placeholderStyle: { type: String, default: '' },

@@ -553,6 +553,17 @@
       ]
     },
     {
+      "root": "pages/press/search",
+      "pages": [
+        {
+          "path": "search",
+          "style": {
+            "navigationBarTitleText": "Search 搜索"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/action-sheet",
       "pages": [
         {

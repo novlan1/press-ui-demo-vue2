@@ -71,6 +71,10 @@
         {
           "name": "Rate 评分",
           "url": "/press/rate/rate"
+        },
+        {
+          "name": "Search 搜索",
+          "url": "/press/search/search"
         }
       ]
     },

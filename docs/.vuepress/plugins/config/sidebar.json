@@ -89,6 +89,11 @@
           "title": "评分",
           "subTitle": "Rate",
           "path": "/components/press/press-rate.md"
+        },
+        {
+          "title": "搜索",
+          "subTitle": "Search",
+          "path": "/components/press/press-search.md"
         }
       ]
     },

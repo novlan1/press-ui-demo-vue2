@@ -70,6 +70,10 @@
       {
         "name": "Rate",
         "title": "评分"
+      },
+      {
+        "name": "Search",
+        "title": "搜索"
       }
     ]
   },

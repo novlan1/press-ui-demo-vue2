@@ -228,6 +228,20 @@ export default {
       dataValue: this.value,
     };
   },
+  watch: {
+    value: {
+      // observer(value) {
+      //   if (value !== this.value) {
+      //     this.setData({ innerValue: value });
+      //     this.value = value;
+      //   }
+      // },
+      handler(val) {
+        this.innerValue = val;
+        this.dataValue = val;
+      },
+    },
+  },
   created() {
     this.dataValue = this.value;
     this.innerValue = this.value;

@@ -225,7 +225,7 @@ export default {
 
       utils,
       computed,
-      dataValue: this.value,
+      // dataValue: this.value,
     };
   },
   watch: {
@@ -238,19 +238,20 @@ export default {
       // },
       handler(val) {
         this.innerValue = val;
-        this.dataValue = val;
+        // this.dataValue = val;
       },
     },
   },
   created() {
-    this.dataValue = this.value;
+    // this.dataValue = this.value;
     this.innerValue = this.value;
     // this.setData({ innerValue: this.value });
   },
   methods: {
     onInput(event) {
       const { value = '' } = event.detail || {};
-      this.dataValue = value;
+      this.innerValue = value;
+      // this.dataValue = value;
       this.setShowClear();
       this.emitChange();
     },
@@ -273,7 +274,7 @@ export default {
     onClear() {
       this.innerValue = '';
       // this.setData({ innerValue: '' });
-      this.dataValue = '';
+      // this.dataValue = '';
       this.setShowClear();
       nextTick(() => {
         this.emitChange();
@@ -282,12 +283,14 @@ export default {
     },
     onConfirm(event) {
       const { value = '' } = event.detail || {};
-      this.dataValue = value;
+      this.innerValue = value;
+      // this.dataValue = value;
       this.setShowClear();
       this.$emit('confirm', value);
     },
     setValue(value) {
-      this.dataValue = value;
+      // this.dataValue = value;
+      this.innerValue = value;
       this.setShowClear();
       if (value === '') {
         this.innerValue = '';
@@ -305,16 +308,16 @@ export default {
       // this.value = this.dataValue; // 去掉
       // this.setData({ value: this.dataValue });
       nextTick(() => {
-        this.$emit('input', this.dataValue);
-        this.$emit('change', this.dataValue);
+        this.$emit('input', this.innerValue);
+        this.$emit('change', this.innerValue);
       });
     },
     setShowClear() {
       const { clearable, readonly, clearTrigger } = this;
-      const { focused, dataValue } = this;
+      const { focused, innerValue } = this;
       let showClear = false;
       if (clearable && !readonly) {
-        const hasValue = !!dataValue;
+        const hasValue = !!innerValue;
         const trigger = clearTrigger === 'always' || (clearTrigger === 'focus' && focused);
         showClear = hasValue && trigger;
       }

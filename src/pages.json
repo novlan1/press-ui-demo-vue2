@@ -542,6 +542,17 @@
       ]
     },
     {
+      "root": "pages/press/rate",
+      "pages": [
+        {
+          "path": "rate",
+          "style": {
+            "navigationBarTitleText": "Rate 评分"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/action-sheet",
       "pages": [
         {

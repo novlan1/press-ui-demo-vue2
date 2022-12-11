@@ -84,6 +84,11 @@
           "title": "单选框",
           "subTitle": "Radio",
           "path": "/components/press/press-radio.md"
+        },
+        {
+          "title": "评分",
+          "subTitle": "Rate",
+          "path": "/components/press/press-rate.md"
         }
       ]
     },

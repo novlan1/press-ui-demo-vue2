@@ -67,6 +67,10 @@
         {
           "name": "Radio 单选框",
           "url": "/press/radio/radio"
+        },
+        {
+          "name": "Rate 评分",
+          "url": "/press/rate/rate"
         }
       ]
     },

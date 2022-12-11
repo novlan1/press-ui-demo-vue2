@@ -66,6 +66,10 @@
       {
         "name": "Radio",
         "title": "单选框"
+      },
+      {
+        "name": "Rate",
+        "title": "评分"
       }
     ]
   },

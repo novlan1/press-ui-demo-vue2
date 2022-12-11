@@ -79,6 +79,11 @@
           "title": "输入框",
           "subTitle": "Field",
           "path": "/components/press/press-field.md"
+        },
+        {
+          "title": "单选框",
+          "subTitle": "Radio",
+          "path": "/components/press/press-radio.md"
         }
       ]
     },

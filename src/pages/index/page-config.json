@@ -63,6 +63,10 @@
         {
           "name": "Field 输入框",
           "url": "/press/field/field"
+        },
+        {
+          "name": "Radio 单选框",
+          "url": "/press/radio/radio"
         }
       ]
     },

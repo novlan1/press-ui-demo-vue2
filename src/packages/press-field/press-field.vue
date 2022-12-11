@@ -9,7 +9,7 @@
       :required="required"
       :clickable="clickable"
       :title-width="titleWidth"
-      :use-title-slot="useLabelSlot || label"
+      :use-title-slot="!!(useLabelSlot || label)"
       title-style="margin-right: 12px;"
       :custom-style="customStyle"
       :arrow-direction="arrowDirection"

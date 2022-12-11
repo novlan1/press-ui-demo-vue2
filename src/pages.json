@@ -531,6 +531,17 @@
       ]
     },
     {
+      "root": "pages/press/radio",
+      "pages": [
+        {
+          "path": "radio",
+          "style": {
+            "navigationBarTitleText": "Radio 单选框"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/action-sheet",
       "pages": [
         {

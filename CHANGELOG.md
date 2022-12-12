@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.30](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.29...v0.1.30) (2022-12-12)
+
+
+### Features
+
+* **sidebar:** 增加sidebar ([1d4b9a1](https://git.woa.com/pmd-mobile/support/press-ui/commit/1d4b9a1abc8336c6f84bcbc655f16c75cea5413d))
+
+
+### Bug Fixes
+
+* **loading-plus:** 修复loading样式问题 ([cb6963d](https://git.woa.com/pmd-mobile/support/press-ui/commit/cb6963d90c106ca4150b260d55abe937e64d4f46))
+
 ### [0.1.29](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.27...v0.1.29) (2022-12-12)
 
 

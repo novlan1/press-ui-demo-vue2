@@ -1,6 +1,6 @@
 <template>
   <!-- @touchmove.stop.prevent="catchMove?noop:noop" -->
-  <view
+  <div
     class="van-swipe-cell"
     :class="customClass"
     data-key="cell"
@@ -10,28 +10,28 @@
     @touchend="endDrag"
     @touchcancel="endDrag"
   >
-    <view :style="wrapperStyle">
-      <view
+    <div :style="wrapperStyle">
+      <div
         v-if="leftWidth"
         class="van-swipe-cell__left"
         data-key="left"
         @click.stop.prevent="onClick"
       >
         <slot name="left" />
-      </view>
+      </div>
 
       <slot />
 
-      <view
+      <div
         v-if="rightWidth"
         class="van-swipe-cell__right"
         data-key="right"
         @click.stop.prevent="onClick"
       >
         <slot name="right" />
-      </view>
-    </view>
-  </view>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

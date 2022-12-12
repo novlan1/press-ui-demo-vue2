@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { DEFAULT_OPTIONS, DEFAULT_KEY } from './default-options';
-import { getMPComponentHandler, parseOptions } from '../common/component-handler/component-handler';
+import { getMPComponentHandler, makeExtraMethods } from '../common/component-handler';
 
 
 const Toast = getMPComponentHandler({
@@ -8,10 +8,7 @@ const Toast = getMPComponentHandler({
   name: 'van-toast',
 });
 
-const createMethod = type => options => Toast(Object.assign({ type }, parseOptions(options, DEFAULT_KEY)));
-Toast.loading = createMethod('loading');
-Toast.success = createMethod('success');
-Toast.fail = createMethod('fail');
+makeExtraMethods(Toast, ['loading', 'success', 'fail'], DEFAULT_KEY);
 
 Vue.prototype.$toast = Toast;
 

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueToast from './press-toast';
 import { DEFAULT_OPTIONS, DEFAULT_KEY } from './default-options';
-import { getH5ComponentHandler, parseOptions } from '../common/component-handler/component-handler';
+import { getH5ComponentHandler, makeExtraMethods } from '../common/component-handler';
 
 
 const Toast = getH5ComponentHandler({
@@ -9,14 +9,8 @@ const Toast = getH5ComponentHandler({
   component: VueToast,
 });
 
-const createMethod = type => options => Toast({
-  type,
-  ...parseOptions(options, DEFAULT_KEY),
-});
 
-['loading', 'success', 'fail'].forEach((method) => {
-  Toast[method] = createMethod(method);
-});
+makeExtraMethods(Toast, ['loading', 'success', 'fail'], DEFAULT_KEY);
 
 Vue.prototype.$toast = Toast;
 

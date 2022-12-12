@@ -74,6 +74,10 @@
       {
         "name": "Search",
         "title": "搜索"
+      },
+      {
+        "name": "Stepper",
+        "title": "步进器"
       }
     ]
   },

@@ -111,7 +111,6 @@ export default {
         message: '倒计时 3 秒',
         // selector: '#custom-selector',
       });
-
       let second = 3;
       const timer = setInterval(() => {
         second -= 1;

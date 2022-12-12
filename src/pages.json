@@ -564,6 +564,17 @@
       ]
     },
     {
+      "root": "pages/press/stepper",
+      "pages": [
+        {
+          "path": "stepper",
+          "style": {
+            "navigationBarTitleText": "Stepper 步进器"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/action-sheet",
       "pages": [
         {

@@ -59,7 +59,7 @@ import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import PressOverlay from '../press-overlay/press-overlay.vue';
 import PressTransition from '../press-transition/press-transition.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
-import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler/component-handler';
+import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
 
 
 const props = {

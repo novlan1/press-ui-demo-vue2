@@ -94,6 +94,11 @@
           "title": "搜索",
           "subTitle": "Search",
           "path": "/components/press/press-search.md"
+        },
+        {
+          "title": "步进器",
+          "subTitle": "Stepper",
+          "path": "/components/press/press-stepper.md"
         }
       ]
     },

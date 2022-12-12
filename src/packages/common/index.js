@@ -29,7 +29,7 @@ export function get(object, path) {
   let result = object;
 
   keys.forEach((key) => {
-    result = isObject(result) ? result[key] ?? '' : '';
+    result = isObject(result) ? (result[key] ||  '') : '';
   });
 
   return result;

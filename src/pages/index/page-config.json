@@ -166,6 +166,10 @@
         {
           "name": "Tab 标签页",
           "url": "/press/tab/tab"
+        },
+        {
+          "name": "Tabbar 标签栏",
+          "url": "/press/tabbar/tabbar"
         }
       ]
     },

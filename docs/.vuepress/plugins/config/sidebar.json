@@ -207,6 +207,11 @@
           "title": "标签页",
           "subTitle": "Tab",
           "path": "/components/press/press-tab.md"
+        },
+        {
+          "title": "标签栏",
+          "subTitle": "Tabbar",
+          "path": "/components/press/press-tabbar.md"
         }
       ]
     },

@@ -773,6 +773,17 @@
       ]
     },
     {
+      "root": "pages/press/tabbar",
+      "pages": [
+        {
+          "path": "tabbar",
+          "style": {
+            "navigationBarTitleText": "Tabbar 标签栏"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/area",
       "pages": [
         {

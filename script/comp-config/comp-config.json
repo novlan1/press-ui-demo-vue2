@@ -165,6 +165,10 @@
       {
         "name": "Tab",
         "title": "标签页"
+      },
+      {
+        "name": "Tabbar",
+        "title": "标签栏"
       }
     ]
   },

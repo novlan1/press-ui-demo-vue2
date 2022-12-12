@@ -106,8 +106,8 @@ import { ParentMixin } from '../mixins/relation';
 import utils from '../wxs-js/utils';
 import computed from './index.js';
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { PARENT_TABS as PARENT } from '../common/parent-map';
 
-const PARENT = 'vanTabs';
 
 export default {
   options: {

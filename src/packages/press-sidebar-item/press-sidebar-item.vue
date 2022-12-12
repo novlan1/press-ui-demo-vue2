@@ -29,8 +29,7 @@ import VanInfo from '../press-info/press-info.vue';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
-
-const PARENT = 'sidebar';
+import { PARENT_SIDEBAR as PARENT } from '../common/parent-map';
 
 
 export default {

@@ -11,8 +11,7 @@
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
-
-const PARENT = 'radioGroup';
+import { PARENT_RADIO_GROUP as PARENT } from '../common/parent-map';
 
 
 export default {

@@ -21,8 +21,8 @@ import utils from '../wxs-js/utils';
 import { getRect } from '../common/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
+import { PARENT_TABBAR  as PARENT } from '../common/parent-map';
 
-const PARENT = 'tabbar';
 
 export default {
   options: {

@@ -38,9 +38,9 @@ import Vue from 'vue';
 import { range } from '../common/utils';
 import { isObj } from '../common/validator';
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { PARENT_PICKER as PARENT } from '../common/parent-map';
 
 const DEFAULT_DURATION = 200;
-const PARENT = 'pressPicker';
 
 export default {
   options: {

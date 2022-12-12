@@ -67,8 +67,8 @@ import { setContentAnimate } from './animate';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import utils from '../wxs-js/utils';
 import { ChildrenMixin } from '../mixins/relation';
+import { PARENT_COLLAPSE as PARENT } from '../common/parent-map';
 
-const PARENT = 'pressCollapse';
 
 export default {
   options: {

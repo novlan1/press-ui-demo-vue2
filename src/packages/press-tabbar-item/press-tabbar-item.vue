@@ -41,8 +41,7 @@ import VanInfo from '../press-info/press-info.vue';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
-
-const PARENT = 'tabbar';
+import { PARENT_TABBAR  as PARENT } from '../common/parent-map';
 
 
 export default {

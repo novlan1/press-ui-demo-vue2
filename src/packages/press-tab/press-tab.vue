@@ -14,8 +14,7 @@ import utils from '../wxs-js/utils';
 // import { useParent } from '../common/relation';
 import { ChildrenMixin } from '../mixins/relation';
 import { defaultProps, defaultOptions } from '../common/press-component';
-
-const PARENT = 'vanTabs';
+import { PARENT_TABS as PARENT } from '../common/parent-map';
 
 
 export default {

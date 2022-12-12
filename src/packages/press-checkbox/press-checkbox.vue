@@ -44,7 +44,7 @@ import VanIcon from '../press-icon-plus/press-icon-plus.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
 import computed from './index.js';
-const PARENT = 'checkboxGroup';
+import { PARENT_CHECKBOX_GROUP as PARENT } from '../common/parent-map';
 
 function emit(target, value) {
   target.$emit('input', value);

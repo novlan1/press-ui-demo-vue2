@@ -11,9 +11,8 @@
 // import { useChildren } from '../common/relation';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
+import { PARENT_COLLAPSE as PARENT } from '../common/parent-map';
 
-
-const PARENT = 'pressCollapse';
 
 export default {
   options: {

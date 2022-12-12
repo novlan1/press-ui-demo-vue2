@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.29](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.27...v0.1.29) (2022-12-12)
+
+
+### Bug Fixes
+
+* **swipe-cell:** 修复swipe-cell问题 ([d9ddc61](https://git.woa.com/pmd-mobile/support/press-ui/commit/d9ddc611c6d50cd06f92e420d0d25038aa10da94))
+
+### [0.1.28](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.27...v0.1.28) (2022-12-12)
+
+
+### Bug Fixes
+
+* **swipe-cell:** 修复swipe-cell问题 ([d9ddc61](https://git.woa.com/pmd-mobile/support/press-ui/commit/d9ddc611c6d50cd06f92e420d0d25038aa10da94))
+
 ### [0.1.27](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.26...v0.1.27) (2022-12-12)
 
 

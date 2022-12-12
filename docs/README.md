@@ -1,7 +1,23 @@
 # [PressUI](https://git.woa.com/pmd-mobile/support/press-ui)
 
+[TOC]
+
+press-ui是一套易用的、灵活的，基于uni-app的跨端组件库。
+
+
+也可用于普通h5项目，需要加一个loader去掉条件编译部分。
+
+
+## 样式规范
+
+
+BEM方式命名CSS，参考文章: https://km.woa.com/group/29321/articles/show/503041
+
+最外层结构命名为`press-组件名称`，如`press-loading`。
+
 
 ## 开发
+
 
 ### 组件开发
 
@@ -17,6 +33,13 @@ npm run dev:mp-qq
 # qq小程序
 ```
 
+**新增一个组件**
+
+```bash
+npm run new:comp
+```
+
+然后交互式的输入组件英文名、中文名等内容即可。
 
 ### 文档开发
 
@@ -45,6 +68,45 @@ HOST_PWD=xxx
 npm run docs:deploy
 ```
 
+
+### 监听demo/文档
+
+```
+npm run docs:watch
+```
+
+### 开发最佳实践
+
+多开几个终端
+
+```bash
+npm run docs:watch # 必须
+npm run dev
+npm run dev:mp-weixin
+npm run docs:dev
+```
+
+
+## 目录结构
+
+```bash
+- docs            # 文档地址
+- plugin          # [demo]工程用到的插件
+- script          # 脚本
+- src
+  - common        # [demo]公共内容
+  - packages      # 对外发布的包内容
+  - pages         # [demo]页面内容
+  - static        # [demo]静态内容
+  - App.vue       # [demo]应用入口
+  - main.js
+  - pages.json
+```
+
+
+
+
+
 ## 立即体验
 
 <img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode-2.png" width="600">
@@ -54,10 +116,30 @@ npm run docs:deploy
 
 ## 如何使用
 
-下载`src/uni_modules`到本地，即可使用。
+1. 安装npm包
 
 
+```bash
+npm i @tencent/press-ui
+```
 
+
+2. 在页面中正常引入并使用
+
+比如 `message-detail` 组件：
+
+```js
+<template>
+  <PressMessageDetail />
+</template>
+import PressMessageDetail from '@tencent/press-ui/press-message-detail/press-message-detail.vue'
+
+export default {
+  components: {
+    PressMessageDetail, 
+  }
+}
+```
 
 ## rem单位
 
@@ -66,7 +148,7 @@ npm run docs:deploy
 - 劣势：在小程序等其他端需要额外的插件来转换
 
 
-## 赛宝项目改动点
+## 赛宝项目已改动点
 
 ### dialog
 
@@ -100,6 +182,14 @@ npm run docs:deploy
 1. src/local-component/ui/tip-match/tip-match-switch
 - 替换为 `@tencent/press-ui/press-switch/press-switch`
 - 删除原文件
+
+### DatetimePicker
+
+van-datetime-picker 替换为 press-dateime-picker
+
+### Tab
+
+van-tab 替换为 press-tab
 
 ## TODO
 

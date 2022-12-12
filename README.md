@@ -116,10 +116,30 @@ npm run docs:dev
 
 ## 如何使用
 
-下载`src/uni_modules`到本地，即可使用。
+1. 安装npm包
 
 
+```bash
+npm i @tencent/press-ui
+```
 
+
+2. 在页面中正常引入并使用
+
+比如 `message-detail` 组件：
+
+```js
+<template>
+  <PressMessageDetail />
+</template>
+import PressMessageDetail from '@tencent/press-ui/press-message-detail/press-message-detail.vue'
+
+export default {
+  components: {
+    PressMessageDetail, 
+  }
+}
+```
 
 ## rem单位
 

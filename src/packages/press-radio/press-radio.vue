@@ -1,14 +1,14 @@
 <template>
   <uni-shadow-root class="vant-radio-index">
-    <view :class="'' + (utils.bem('radio', [direction]))+' custom-class'">
-      <view
+    <div :class="'' + (utils.bem('radio', [direction]))+' custom-class'">
+      <div
         v-if="labelPosition === 'left'"
         :class="radioLabelClass"
         @click="onClickLabel"
       >
         <slot />
-      </view>
-      <view
+      </div>
+      <div
         class="van-radio__icon-wrap"
         :style="'font-size: '+(utils.addUnit(iconSize))"
         @click="onChange"
@@ -26,15 +26,15 @@
           :custom-style="'' +
             computed.iconCustomStyle({ iconSize, checkedColor, disabled, parentDisabled, value: dataValue, name })"
         />
-      </view>
-      <view
+      </div>
+      <div
         v-if="labelPosition === 'right'"
         :class="'label-class '+(utils.bem('radio__label', [labelPosition, { disabled: disabled || parentDisabled }]))"
         @click="onClickLabel"
       >
         <slot />
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

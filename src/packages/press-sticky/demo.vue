@@ -5,9 +5,9 @@
       section-style="margin: 0;"
     >
       <press-sticky>
-        <view class="btn1">
+        <div class="btn1">
           基础用法
-        </view>
+        </div>
       </press-sticky>
     </demo-block>
 
@@ -18,11 +18,11 @@
       <press-sticky
         :offset-top="50"
       >
-        <view
+        <div
           class="btn2"
         >
           吸顶距离
-        </view>
+        </div>
       </press-sticky>
     </demo-block>
 
@@ -36,9 +36,9 @@
         style="height: 150px;background: #eee;"
       >
         <press-sticky :container="container">
-          <view class="btn3">
+          <div class="btn3">
             指定容器
-          </view>
+          </div>
         </press-sticky>
       </div>
     </demo-block>

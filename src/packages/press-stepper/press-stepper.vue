@@ -1,7 +1,7 @@
 <template>
   <uni-shadow-root class="vant-stepper-index">
-    <view :class="(utils.bem('stepper', [theme]))+' custom-class'">
-      <view
+    <div :class="(utils.bem('stepper', [theme]))+' custom-class'">
+      <div
         v-if="showMinus"
         data-type="minus"
         :style="'' + computed.buttonStyle({ buttonSize })"
@@ -14,7 +14,7 @@
         @touchend="onTouchEnd"
       >
         <slot name="minus" />
-      </view>
+      </div>
       <input
         :always-embed="false"
         :type="integer ? 'number' : 'digit'"
@@ -28,7 +28,7 @@
         @focus="onFocus"
         @blur="onBlur"
       >
-      <view
+      <div
         v-if="showPlus"
         data-type="plus"
         :style="'' + computed.buttonStyle({ buttonSize })"
@@ -41,8 +41,8 @@
         @touchend="onTouchEnd"
       >
         <slot name="plus" />
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

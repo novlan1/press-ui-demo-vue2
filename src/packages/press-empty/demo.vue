@@ -31,7 +31,7 @@
     >
       <press-empty
         custom-class="custom-image"
-        image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+        image="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-empty-image.png"
         image-custom-style="width:90px;height:90px"
         description="描述文字"
       />
@@ -63,7 +63,15 @@
   </div>
 </template>
 <script>
+import PressTabs from 'src/packages/press-tabs/press-tabs.vue';
+import PressTab from 'src/packages/press-tab/press-tab.vue';
+
+
 export default {
+  components: {
+    PressTabs,
+    PressTab,
+  },
   data() {
     return {
       sectionStyle: '',

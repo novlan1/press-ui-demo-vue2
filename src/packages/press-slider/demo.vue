@@ -90,7 +90,7 @@
       title="垂直方向"
       :section-style="sectionStyle"
     >
-      <view style="height: 150px;">
+      <div style="height: 150px;">
         <press-slider
           value="50"
           vertical
@@ -103,7 +103,7 @@
           style="margin-left: 100px;"
           @change="onChange"
         />
-      </view>
+      </div>
     </demo-block>
 
     <!-- #ifndef H5 -->

@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block
       v-for="(item, index) of dialogTypeList"
       :key="index"
@@ -15,7 +15,7 @@
     </demo-block>
 
     <press-dialog id="tip-match-comm-tips-dialog" />
-  </view>
+  </div>
 </template>
 <script>
 import PressDialog from 'src/packages/press-dialog';
@@ -99,7 +99,7 @@ export default {
       let htmlContent = '';
       let src = '';
       let canTouchRemove = true;
-      let useScrollView = false;
+      let useScrolldiv = false;
 
       if (type === 'noCancel') {
         cancelText = '';
@@ -120,7 +120,7 @@ export default {
       } else if (type === 'longText') {
         content = '';
         htmlContent = `<div style="max-height:100%;overflow:scroll;">${LONG_TEXT}</div>`;
-        useScrollView = true;
+        useScrolldiv = true;
       }
 
       PressDialog.show({
@@ -133,7 +133,7 @@ export default {
         dialogType,
         onConfirmClick,
         canTouchRemove,
-        useScrollView,
+        useScrolldiv,
       }).then(() => {})
         .catch(() => {});
     },

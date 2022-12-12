@@ -1,8 +1,8 @@
 <template>
   <uni-shadow-root class="vant-steps-index">
-    <view :class="stepsClass">
-      <view class="van-step__wrapper">
-        <view
+    <div :class="stepsClass">
+      <div class="van-step__wrapper">
+        <div
           v-for="(item,index) in (steps)"
           :key="item.index"
           :data-index="index"
@@ -10,16 +10,16 @@
           :style="true ? getStepStyle(index) : ''"
           @click="onClick"
         >
-          <view
+          <div
             class="van-step__title"
             :style="index === active ? 'color: ' + activeColor : ''"
           >
-            <view>{{ item.text }}</view>
-            <view class="desc-class">
+            <div>{{ item.text }}</div>
+            <div class="desc-class">
               {{ item.desc }}
-            </view>
-          </view>
-          <view class="van-step__circle-container">
+            </div>
+          </div>
+          <div class="van-step__circle-container">
             <template v-if="index !== active">
               <van-icon
                 v-if="item.inactiveIcon || inactiveIcon"
@@ -27,7 +27,7 @@
                 :name="item.inactiveIcon || inactiveIcon"
                 custom-class="van-step__icon"
               />
-              <view
+              <div
                 v-else
                 class="van-step__circle"
                 :style="'background-color: ' + (index < active ? activeColor : inactiveColor)"
@@ -40,15 +40,15 @@
               :color="activeColor"
               custom-class="van-step__icon"
             />
-          </view>
-          <view
+          </div>
+          <div
             v-if="index !== steps.length - 1"
             class="van-step__line"
             :style="'background-color: ' + (index < active ? activeColor : inactiveColor)"
           />
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

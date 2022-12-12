@@ -1,11 +1,11 @@
 <template>
   <uni-shadow-root class="vant-switch-index">
-    <view
+    <div
       :class="switchClass"
       :style="switchStyle"
       @click="onClick"
     >
-      <view
+      <div
         class="van-switch__node "
         :class="nodeClass"
       >
@@ -14,8 +14,8 @@
           :color="loadingColor"
           custom-class="van-switch__loading"
         />
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

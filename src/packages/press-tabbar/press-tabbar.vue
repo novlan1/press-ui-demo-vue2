@@ -1,14 +1,14 @@
 <template>
   <uni-shadow-root class="vant-tabbar-index">
-    <view
+    <div
       :class="(border ? 'van-hairline--top-bottom' : '')+
         ' '+(utils.bem('tabbar', { fixed, safe: safeAreaInsetBottom }))+' custom-class'"
       :style="zIndex ? 'z-index: ' + zIndex : ''"
     >
       <slot />
-    </view>
+    </div>
 
-    <view
+    <div
       v-if="fixed && placeholder"
       :style="'height: '+(height)+'px;'"
     />

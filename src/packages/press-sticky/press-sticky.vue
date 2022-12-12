@@ -7,12 +7,12 @@
       :class="customClass"
       :style="containerStyle"
     >
-      <view
+      <div
         :class="wrapClass"
         :style="wrapStyle"
       >
         <slot />
-      </view>
+      </div>
     </div>
   </div>
 </template>

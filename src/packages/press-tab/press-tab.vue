@@ -1,11 +1,11 @@
 <template>
   <uni-shadow-root class="vant-tab-index van-tab__pane-wrapper">
-    <view
+    <div
       :class="tabClass"
       :style="shouldShow ? '' : 'display: none;'"
     >
       <slot v-if="shouldRender" />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>
@@ -120,6 +120,7 @@ export default {
     },
     updateRender(active, parent) {
       this.initialled = this.initialled || active;
+      console.log('updateRender.active', active);
       this.active = active;
       this.shouldRender = this.initialled || !parent.lazyRender;
       this.shouldShow = active || parent.animated;

@@ -1,10 +1,10 @@
 <template>
   <uni-shadow-root class="vant-rate-index">
-    <view
+    <div
       :class="'' + (utils.bem('rate'))+' custom-class'"
       @touchmove="onTouchMove"
     >
-      <view
+      <div
         v-for="(item,index) in (innerCountArray)"
         :key="index"
         :class="'' + utils.bem('rate__item')"
@@ -30,8 +30,8 @@
           :color="disabled ? disabledColor : index + 0.5 <= innerValue ? color : voidColor"
           @click="onSelect(index - 0.5)"
         />
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

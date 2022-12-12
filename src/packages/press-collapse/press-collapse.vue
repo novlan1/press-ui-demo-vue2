@@ -1,8 +1,8 @@
 <template>
   <uni-shadow-root class="vant-collapse-index">
-    <view :class="'custom-class van-collapse '+(border ? 'van-hairline--top-bottom' : '')">
+    <div :class="'custom-class van-collapse '+(border ? 'van-hairline--top-bottom' : '')">
       <slot />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 

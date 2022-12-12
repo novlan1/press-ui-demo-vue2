@@ -1,26 +1,26 @@
 <template>
   <uni-shadow-root class="vant-sidebar-item-index">
-    <view
+    <div
       :class="sidebarItemClass"
       hover-class="van-sidebar-item--hover"
       hover-stay-time="70"
       @click="onClick"
     >
-      <view class="van-sidebar-item__text">
+      <div class="van-sidebar-item__text">
         <van-info
           v-if="badge != null || info !== null || dot"
           :dot="dot"
           :info="badge != null ? badge : info"
         />
-        <view v-if="title">
+        <div v-if="title">
           {{ title }}
-        </view>
+        </div>
         <slot
           v-else
           name="title"
         />
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

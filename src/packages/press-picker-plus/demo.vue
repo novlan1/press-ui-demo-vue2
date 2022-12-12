@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block title="基础用法">
       <press-picker-plus
         :columns="columns"
@@ -47,7 +47,7 @@
         @change="onChange"
       />
     </demo-block>
-  </view>
+  </div>
 </template>
 <script>
 

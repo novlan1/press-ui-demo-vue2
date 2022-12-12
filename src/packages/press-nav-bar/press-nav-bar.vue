@@ -1,16 +1,16 @@
 <template>
   <uni-shadow-root class="vant-nav-bar-index">
-    <view
+    <div
       v-if="fixed && placeholder"
       :style="'height: '+(height)+'px;'"
     />
 
-    <view
+    <div
       :class="navBarClass"
       :style="navBarStyle"
     >
-      <view class="van-nav-bar__content">
-        <view
+      <div class="van-nav-bar__content">
+        <div
           class="van-nav-bar__left"
           @click="onClickLeft"
         >
@@ -21,21 +21,21 @@
               name="arrow-left"
               custom-class="van-nav-bar__arrow"
             />
-            <view
+            <div
               v-if="leftText"
               class="van-nav-bar__text"
               hover-class="van-nav-bar__text--hover"
               hover-stay-time="70"
             >
               {{ leftText }}
-            </view>
+            </div>
           </block>
           <slot
             v-else
             name="left"
           />
-        </view>
-        <view class="van-nav-bar__title title-class van-ellipsis">
+        </div>
+        <div class="van-nav-bar__title title-class van-ellipsis">
           <block v-if="title">
             {{ title }}
           </block>
@@ -43,26 +43,26 @@
             v-else
             name="title"
           />
-        </view>
-        <view
+        </div>
+        <div
           class="van-nav-bar__right"
           @click="onClickRight"
         >
-          <view
+          <div
             v-if="rightText"
             class="van-nav-bar__text"
             hover-class="van-nav-bar__text--hover"
             hover-stay-time="70"
           >
             {{ rightText }}
-          </view>
+          </div>
           <slot
             v-else
             name="right"
           />
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

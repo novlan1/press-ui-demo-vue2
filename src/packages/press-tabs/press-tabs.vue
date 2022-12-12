@@ -10,7 +10,7 @@
       :container="container"
       @scroll="onTouchScroll"
     >
-      <view :class="tabsWrapClass">
+      <div :class="tabsWrapClass">
         <slot name="nav-left" />
 
         <scroll-view
@@ -20,17 +20,17 @@
           :class="tabScrollClass"
           :style="color ? 'border-color: ' + color : ''"
         >
-          <view
+          <div
             :class="navClass"
             :style="navStyle"
           >
-            <view
+            <div
               v-if="type === 'line'"
               class="van-tabs__line"
               :style="lineStyle"
             />
             <!-- TODO: 下面的style/class可以提取到方法中，否则小程序不易查看[object object] -->
-            <view
+            <div
               v-for="(item,index) in (tabs)"
               :key="item.index"
               :data-index="index"
@@ -57,7 +57,7 @@
               }"
               @click="onTap"
             >
-              <view
+              <div
                 :class="ellipsis ? 'van-ellipsis' : ''"
                 :style="item.titleStyle"
               >
@@ -68,29 +68,29 @@
                   :dot="item.dot"
                   custom-class="van-tab__title__info"
                 />
-              </view>
-            </view>
-          </view>
+              </div>
+            </div>
+          </div>
         </scroll-view>
 
         <slot name="nav-right" />
-      </view>
+      </div>
     </van-sticky>
 
-    <view
+    <div
       class="van-tabs__content"
       @touchstart="onTouchStart"
       @touchmove="onTouchMove"
       @touchend="onTouchEnd"
       @touchcancel="onTouchEnd"
     >
-      <view
+      <div
         :class="trackClass"
         :style="trackStyle"
       >
         <slot />
-      </view>
-    </view>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -333,6 +333,7 @@ export default {
       this.setCurrentIndexByName(this.active || this.getCurrentName());
     },
     trigger(eventName, child) {
+      console.log('currentIndex', currentIndex);
       const { currentIndex } = this;
       const currentChild = child || this.children[currentIndex];
       if (!isDef(currentChild)) {
@@ -345,7 +346,9 @@ export default {
       });
     },
     onTap(event) {
-      const { index } = event.currentTarget.dataset;
+      console.log('event', event);
+      const index = +event.currentTarget.dataset.index;
+      console.log('index', index, typeof index);
       const child = this.children[index];
       if (child.disabled) {
         this.trigger('disabled', child);
@@ -365,6 +368,8 @@ export default {
       }
     },
     setCurrentIndex(currentIndex) {
+      // debugger;
+      console.log('setCurrentIndex.currentIndex', currentIndex);
       const { children = [] } = this;
       if (!isDef(currentIndex)
                 || currentIndex >= children.length
@@ -372,8 +377,10 @@ export default {
         return;
       }
       groupSetData(this, () => {
+        console.log('groupSetData.currentIndex', currentIndex);
         children.forEach((item, index) => {
           const active = index === currentIndex;
+          console.log('active', active, item, index);
           if (active !== item.active || !item.initialled) {
             item.updateRender(active, this);
           }

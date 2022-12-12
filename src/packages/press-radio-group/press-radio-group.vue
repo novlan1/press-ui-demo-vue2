@@ -1,8 +1,8 @@
 <template>
   <uni-shadow-root class="vant-radio-group-index">
-    <view :class="'' + utils.bem('radio-group', [direction])">
+    <div :class="'' + utils.bem('radio-group', [direction])">
       <slot />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

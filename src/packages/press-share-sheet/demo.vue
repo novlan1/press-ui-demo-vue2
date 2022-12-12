@@ -50,15 +50,15 @@ const multiLineOptions = [
 const customIconOptions = [
   {
     name: '名称',
-    icon: 'https://img.yzcdn.cn/vant/custom-icon-fire.png',
+    icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-fire.png',
   },
   {
     name: '名称',
-    icon: 'https://img.yzcdn.cn/vant/custom-icon-light.png',
+    icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-light.png',
   },
   {
     name: '名称',
-    icon: 'https://img.yzcdn.cn/vant/custom-icon-water.png',
+    icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-water.png',
   },
 ];
 

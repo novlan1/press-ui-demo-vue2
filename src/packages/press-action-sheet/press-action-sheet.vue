@@ -11,7 +11,7 @@
       :close-on-click-overlay="closeOnClickOverlay"
       @close="onClickOverlay"
     >
-      <view
+      <div
         v-if="title"
         class="van-action-sheet__header"
       >
@@ -21,14 +21,14 @@
           custom-class="van-action-sheet__close"
           @click="onClose"
         />
-      </view>
-      <view
+      </div>
+      <div
         v-if="description"
         class="van-action-sheet__description van-hairline--bottom"
       >
         {{ description }}
-      </view>
-      <view v-if="actions && actions.length">
+      </div>
+      <div v-if="actions && actions.length">
         <button
           v-for="(item,index) in (actions)"
           :key="item.index"
@@ -54,12 +54,12 @@
         >
           <block v-if="(!item.loading)">
             {{ item.name }}
-            <view
+            <div
               v-if="item.subname"
               class="van-action-sheet__subname"
             >
               {{ item.subname }}
-            </view>
+            </div>
           </block>
           <van-loading
             v-else
@@ -67,18 +67,18 @@
             size="22px"
           />
         </button>
-      </view>
+      </div>
       <slot />
       <block v-if="cancelText">
-        <view class="van-action-sheet__gap" />
-        <view
+        <div class="van-action-sheet__gap" />
+        <div
           class="van-action-sheet__cancel"
           hover-class="van-action-sheet__cancel--hover"
           hover-stay-time="70"
           @click="onCancel"
         >
           {{ cancelText }}
-        </view>
+        </div>
       </block>
     </van-popup>
   </uni-shadow-root>

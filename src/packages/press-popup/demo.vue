@@ -1,6 +1,6 @@
 <template>
-  <view>
-    <view>
+  <div>
+    <div>
       <demo-block title="关闭图标">
         <PressButton
           type="e-sport-primary"
@@ -48,7 +48,7 @@
           查看
         </PressButton>
       </demo-block>
-    </view>
+    </div>
 
     <PressPopup
       v-if="popupOptions.normal.show"
@@ -59,9 +59,9 @@
       @onConfirm="popupOptions.normal.onConfirm"
       @onCancel="popupOptions.normal.onCancel"
     >
-      <view class="content">
+      <div class="content">
         一些内容
-      </view>
+      </div>
     </PressPopup>
 
     <PressPopup
@@ -73,9 +73,9 @@
       @onConfirm="popupOptions.cancel.onConfirm"
       @onCancel="popupOptions.cancel.onCancel"
     >
-      <view class="content">
+      <div class="content">
         一些内容
-      </view>
+      </div>
     </PressPopup>
 
     <PressPopup
@@ -87,9 +87,9 @@
       @onConfirm="popupOptions.noClose.onConfirm"
       @onCancel="popupOptions.noClose.onCancel"
     >
-      <view class="content">
+      <div class="content">
         一些内容
-      </view>
+      </div>
     </PressPopup>
 
     <PressPopup
@@ -101,9 +101,9 @@
       @onConfirm="popupOptions.hor.onConfirm"
       @onCancel="popupOptions.hor.onCancel"
     >
-      <view class="content">
+      <div class="content">
         一些内容
-      </view>
+      </div>
     </PressPopup>
 
     <PressPopup
@@ -116,11 +116,11 @@
       @onConfirm="popupOptions.borderBtn.onConfirm"
       @onCancel="popupOptions.borderBtn.onCancel"
     >
-      <view class="content">
+      <div class="content">
         一些内容
-      </view>
+      </div>
     </PressPopup>
-  </view>
+  </div>
 </template>
 <script>
 

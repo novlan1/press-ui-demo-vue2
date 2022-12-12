@@ -129,14 +129,14 @@
         value="内容"
         is-link
       >
-        <view slot="title">
-          <view class="press-cell-text">
+        <div slot="title">
+          <div class="press-cell-text">
             单元格
-          </view>
+          </div>
           <press-tag type="danger">
             标签
           </press-tag>
-        </view>
+        </div>
       </press-cell>
       <press-cell
         title="单元格"

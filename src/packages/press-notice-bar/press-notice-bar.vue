@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-notice-bar-index">
-    <view
+    <div
       v-if="show"
       :class="noticeBarClass"
       :style="noticeBarStyle"
@@ -16,15 +16,15 @@
         name="left-icon"
       />
 
-      <view class="van-notice-bar__wrap">
-        <view
+      <div class="van-notice-bar__wrap">
+        <div
           :class="'van-notice-bar__content '+(scrollable === false && !wrapable ? 'van-ellipsis' : '')"
           :animation="animationData"
         >
           {{ text }}
           <slot v-if="(!text)" />
-        </view>
-      </view>
+        </div>
+      </div>
 
       <van-icon
         v-if="mode === 'closeable'"
@@ -46,7 +46,7 @@
         v-else
         name="right-icon"
       />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

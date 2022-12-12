@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-tag-index">
-    <view
+    <div
       :class="tagClass"
       :style="tagStyle"
     >
@@ -11,7 +11,7 @@
         custom-class="van-tag__close"
         @click="onClose"
       />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

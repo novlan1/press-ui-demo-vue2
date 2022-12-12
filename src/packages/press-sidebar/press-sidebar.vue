@@ -1,8 +1,8 @@
 <template>
   <uni-shadow-root class="vant-sidebar-index">
-    <view class="van-sidebar custom-class">
+    <div class="van-sidebar custom-class">
       <slot />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 

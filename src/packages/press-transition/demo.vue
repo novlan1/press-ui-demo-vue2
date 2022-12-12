@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block
       v-for="(item,index) of transitionList"
       :key="index"
@@ -33,7 +33,7 @@
       leave-active-class="press-leave-active-class"
       leave-to-class="press-leave-to-class"
     />
-  </view>
+  </div>
 </template>
 <script>
 

@@ -1,16 +1,16 @@
 <template>
-  <view
+  <div
     :class="checkboxClass"
     :style="customStyle"
   >
-    <view
+    <div
       v-if="labelPosition === 'left'"
       :class="labelClass"
       @click="onClickLabel"
     >
       <slot />
-    </view>
-    <view
+    </div>
+    <div
       class="van-checkbox__icon-wrap"
       @click="toggle"
     >
@@ -27,15 +27,15 @@
         :custom-class="iconClass"
         custom-style="line-height: 1.25em;"
       />
-    </view>
-    <view
+    </div>
+    <div
       v-if="labelPosition === 'right'"
       :class="cLabelClass"
       @click="onClickLabel"
     >
       <slot />
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script>

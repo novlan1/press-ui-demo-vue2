@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-picker-column-index">
-    <view
+    <div
       class="van-picker-column"
       :class="customClass"
       :style="columnStyle"
@@ -9,8 +9,8 @@
       @touchend="onTouchEnd"
       @touchcancel="onTouchEnd"
     >
-      <view :style="wrapperStyle">
-        <view
+      <div :style="wrapperStyle">
+        <div
           v-for="(option,index) in (options)"
           :key="option.index"
           :data-index="index"
@@ -27,9 +27,9 @@
           @click="onClickItem"
         >
           {{ computed.optionText(option, valueKey) }}
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

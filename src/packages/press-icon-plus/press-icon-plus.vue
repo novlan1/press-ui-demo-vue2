@@ -1,6 +1,6 @@
 <template>
   <!-- <uni-shadow-root class="vant-icon-index"> -->
-  <view
+  <div
     :class="rootClass"
     :style="rootStyle"
     @click="onClick"
@@ -17,7 +17,7 @@
       mode="aspectFit"
       class="van-icon__image"
     />
-  </view>
+  </div>
   <!-- </uni-shadow-root> -->
 </template>
 <script>

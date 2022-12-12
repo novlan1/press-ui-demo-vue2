@@ -38,12 +38,12 @@
         :type="loadingType"
         :color="loadingColor"
       />
-      <view
+      <div
         v-if="loadingText"
         class="van-button__loading-text"
       >
         {{ loadingText }}
-      </view>
+      </div>
     </block>
     <block v-else>
       <van-icon
@@ -54,9 +54,9 @@
         class="van-button__icon"
         custom-style="line-height: inherit;"
       />
-      <view class="van-button__text">
+      <div class="van-button__text">
         <slot />
-      </view>
+      </div>
     </block>
   </Button>
   <!-- </uni-shadow-root> -->

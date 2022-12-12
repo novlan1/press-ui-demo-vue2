@@ -1,7 +1,7 @@
 <template>
   <uni-shadow-root class="vant-share-sheet-options">
-    <view :class="optionsClass">
-      <view
+    <div :class="optionsClass">
+      <div
         v-for="(item,index) in (options)"
         :key="item.index"
         class="van-share-sheet__option"
@@ -16,21 +16,21 @@
             :src="computed.getIconURL(item.icon)"
             class="van-share-sheet__icon"
           />
-          <view
+          <div
             v-if="item.name"
             class="van-share-sheet__name"
           >
             {{ item.name }}
-          </view>
-          <view
+          </div>
+          <div
             v-if="item.description"
             class="van-share-sheet__option-description"
           >
             {{ item.description }}
-          </view>
+          </div>
         </button>
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

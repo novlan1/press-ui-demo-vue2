@@ -1,6 +1,7 @@
 <template>
   <div
     class="press-message-list"
+    :class="customClass"
   >
     <div v-if="list.length">
       <press-swipe-cell
@@ -86,6 +87,7 @@ import { defaultProps, defaultOptions } from '../common/press-component';
 export default {
   options: {
     ...defaultOptions,
+    styleIsolation: 'shared',
   },
   components: {
     PressLoading,

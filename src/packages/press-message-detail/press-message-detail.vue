@@ -2,6 +2,7 @@
   <!-- :style="{backgroundPositionY:mpHeaderHeightStr}" -->
   <div
     class="room-page-container"
+    :class="customClass"
   >
     <scroll-view
       id="tipMatchMsgWrap"
@@ -131,8 +132,13 @@
 <script>
 import PressLoadingPlus from '../press-loading-plus/press-loading-plus';
 import { isH5 } from '../common/validate/system';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
   components: {
     PressLoadingPlus,
   },
@@ -149,6 +155,7 @@ export default {
       type: Boolean,
       default: true,
     },
+    ...defaultProps,
   },
   data() {
     return {

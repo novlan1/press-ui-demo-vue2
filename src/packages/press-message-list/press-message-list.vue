@@ -79,6 +79,7 @@
 <script>
 import PressLoading from '../press-loading/press-loading.vue';
 import PressEmpty from '../press-empty/press-empty.vue';
+import PressSwipeCell from '../press-swipe-cell/press-swipe-cell.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
 
@@ -89,6 +90,7 @@ export default {
   components: {
     PressLoading,
     PressEmpty,
+    PressSwipeCell,
   },
   props: {
     useLazy: {

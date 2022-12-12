@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.26](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.25...v0.1.26) (2022-12-12)
+
+
+### Features
+
+* **field:** 删除dataValue ([2b5a27b](https://git.woa.com/pmd-mobile/support/press-ui/commit/2b5a27bffe74422d8ba5a0babeaac8a2b7872a1b))
+* **field:** 增加field ([6c8172a](https://git.woa.com/pmd-mobile/support/press-ui/commit/6c8172a32a5141fe885a5c552c2a0fca358d7531))
+* **radio:** 增加radio ([0f80f19](https://git.woa.com/pmd-mobile/support/press-ui/commit/0f80f19eec36d2b6160f69bdbe5d13f2f8c7cd72))
+* **radio:** 重构css ([b872501](https://git.woa.com/pmd-mobile/support/press-ui/commit/b872501d74cc1862afa1e2b67f294d8f2de3a619))
+* **rate:** 增加rate ([b07c88e](https://git.woa.com/pmd-mobile/support/press-ui/commit/b07c88eb0597c17db8f6344e2845365e2e803762))
+* **search:** 增加search ([1a3e4e5](https://git.woa.com/pmd-mobile/support/press-ui/commit/1a3e4e5b8f4f92c3302880bff8e1fe709adedc9d))
+* **slider:** 增加slider ([4c1e42d](https://git.woa.com/pmd-mobile/support/press-ui/commit/4c1e42d3c7802d6679fc61625662f372cd297164))
+* **stpper:** 增加stepper ([d1a5f07](https://git.woa.com/pmd-mobile/support/press-ui/commit/d1a5f0736f207b6621e826d33bbd33d965a0a9aa))
+* **tabbar:** 增加tabbar ([7646131](https://git.woa.com/pmd-mobile/support/press-ui/commit/76461313b258009d5affe5529329d01177386958))
+
+
+### Bug Fixes
+
+* 修复swipe-cell ([5b2a968](https://git.woa.com/pmd-mobile/support/press-ui/commit/5b2a968030219f2a8ffdb1c655f08ae4f4d1e29c))
+* **field:** 解决cell中title问题 ([4090c9e](https://git.woa.com/pmd-mobile/support/press-ui/commit/4090c9ee64c1a3311aef3c65b77c241587dc73ec))
+
 ### [0.1.25](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.24...v0.1.25) (2022-12-08)
 
 

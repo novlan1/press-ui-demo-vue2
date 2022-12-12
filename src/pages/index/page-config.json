@@ -170,6 +170,10 @@
         {
           "name": "Tabbar 标签栏",
           "url": "/press/tabbar/tabbar"
+        },
+        {
+          "name": "Sidebar 侧边导航",
+          "url": "/press/sidebar/sidebar"
         }
       ]
     },

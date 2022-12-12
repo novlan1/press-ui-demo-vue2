@@ -784,6 +784,17 @@
       ]
     },
     {
+      "root": "pages/press/sidebar",
+      "pages": [
+        {
+          "path": "sidebar",
+          "style": {
+            "navigationBarTitleText": "Sidebar 侧边导航"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/area",
       "pages": [
         {

@@ -22,7 +22,7 @@ import { getRect } from '../common/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
 
-const PARENT = 'radioGroup';
+const PARENT = 'tabbar';
 
 export default {
   options: {

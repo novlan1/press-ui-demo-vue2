@@ -42,7 +42,7 @@ import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
 
-const PARENT = 'radioGroup';
+const PARENT = 'tabbar';
 
 
 export default {

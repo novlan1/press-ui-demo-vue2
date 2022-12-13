@@ -34,18 +34,18 @@ subTitle: Tab
 ```
 
 ```js
-Page({
-  data: {
-    active: 1,
+export default {
+  data() {
+    return {
+      active: 1,
+    }
   },
-
-  onChange(event) {
-    wx.showToast({
-      title: `切换到标签 ${event.detail.name}`,
-      icon: 'none',
-    });
-  },
-});
+  methods: {
+    onChange(value) {
+      console.log('value', value);
+    },
+  }
+};
 ```
 
 ### 通过名称匹配
@@ -53,11 +53,11 @@ Page({
 在标签指定`name`属性的情况下，`active`的值为当前标签的`name`（此时无法通过索引值来匹配标签）。
 
 ```html
-<van-tabs active="a">
-  <van-tab title="标签 1" name="a">内容 1</van-tab>
-  <van-tab title="标签 2" name="b">内容 2</van-tab>
-  <van-tab title="标签 3" name="c">内容 3</van-tab>
-</van-tabs>
+<press-tabs active="a">
+  <press-tab title="标签 1" name="a">内容 1</press-tab>
+  <press-tab title="标签 2" name="b">内容 2</press-tab>
+  <press-tab title="标签 3" name="c">内容 3</press-tab>
+</press-tabs>
 ```
 
 ### 横向滚动
@@ -65,84 +65,65 @@ Page({
 多于 5 个标签时，Tab 可以横向滚动。
 
 ```html
-<van-tabs active="{{ active }}">
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-  <van-tab title="标签 5">内容 5</van-tab>
-  <van-tab title="标签 6">内容 6</van-tab>
-</van-tabs>
+<press-tabs active="{{ active }}">
+  <press-tab title="标签 1">内容 1</press-tab>
+  <press-tab title="标签 2">内容 2</press-tab>
+  <press-tab title="标签 3">内容 3</press-tab>
+  <press-tab title="标签 4">内容 4</press-tab>
+  <press-tab title="标签 5">内容 5</press-tab>
+  <press-tab title="标签 6">内容 6</press-tab>
+</press-tabs>
 ```
 
 ### 禁用标签
 
-设置`disabled`属性即可禁用标签。如果需要监听禁用标签的点击事件，可以在`van-tabs`上监听`disabled`事件。
+设置`disabled`属性即可禁用标签。如果需要监听禁用标签的点击事件，可以在`press-tabs`上监听`disabled`事件。
 
 ```html
-<van-tabs bind:disabled="onClickDisabled">
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2" disabled>内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-</van-tabs>
+<press-tabs bind:disabled="onClickDisabled">
+  <press-tab title="标签 1">内容 1</press-tab>
+  <press-tab title="标签 2" disabled>内容 2</press-tab>
+  <press-tab title="标签 3">内容 3</press-tab>
+</press-tabs>
 ```
 
-```javascript
-Page({
-  onClickDisabled(event) {
-    wx.showToast({
-      title: `标签 ${event.detail.name} 已被禁用`,
-      icon: 'none',
-    });
-  },
-});
-```
 
 ### 样式风格
 
 `Tab`支持两种样式风格：`line`和`card`，默认为`line`样式，可以通过`type`属性修改样式风格。
 
 ```html
-<van-tabs type="card">
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-</van-tabs>
+<press-tabs type="card">
+  <press-tab title="标签 1">内容 1</press-tab>
+  <press-tab title="标签 2">内容 2</press-tab>
+  <press-tab title="标签 3">内容 3</press-tab>
+</press-tabs>
 ```
 
 ### 点击事件
 
-可以在`van-tabs`上绑定`click`事件，在回调参数的`event.detail`中可以取得被点击标签的标题和标识符。
+可以在`press-tabs`上绑定`click`事件，在回调参数的`event.detail`中可以取得被点击标签的标题和标识符。
 
 ```html
-<van-tabs bind:click="onClick">
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-</van-tabs>
+<press-tabs bind:click="onClick">
+  <press-tab title="标签 1">内容 1</press-tab>
+  <press-tab title="标签 2">内容 2</press-tab>
+</press-tabs>
 ```
 
-```javascript
-Page({
-  onClick(event) {
-    wx.showToast({
-      title: `点击标签 ${event.detail.name}`,
-      icon: 'none',
-    });
-  },
-});
-```
+
 
 ### 粘性布局
 
 通过`sticky`属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶。
 
 ```html
-<van-tabs sticky>
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-</van-tabs>
+<press-tabs sticky>
+  <press-tab title="标签 1">内容 1</press-tab>
+  <press-tab title="标签 2">内容 2</press-tab>
+  <press-tab title="标签 3">内容 3</press-tab>
+  <press-tab title="标签 4">内容 4</press-tab>
+</press-tabs>
 ```
 
 ### 切换动画
@@ -150,12 +131,12 @@ Page({
 可以通过`animated`来设置是否启用切换 tab 时的动画。
 
 ```html
-<van-tabs animated>
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-</van-tabs>
+<press-tabs animated>
+  <press-tab title="标签 1">内容 1</press-tab>
+  <press-tab title="标签 2">内容 2</press-tab>
+  <press-tab title="标签 3">内容 3</press-tab>
+  <press-tab title="标签 4">内容 4</press-tab>
+</press-tabs>
 ```
 
 ### 滑动切换
@@ -163,29 +144,29 @@ Page({
 通过`swipeable`属性可以开启滑动切换标签页。
 
 ```html
-<van-tabs swipeable>
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-</van-tabs>
+<press-tabs swipeable>
+  <press-tab title="标签 1">内容 1</press-tab>
+  <press-tab title="标签 2">内容 2</press-tab>
+  <press-tab title="标签 3">内容 3</press-tab>
+  <press-tab title="标签 4">内容 4</press-tab>
+</press-tabs>
 ```
 
 ### 嵌套 popup
 
-如果将 van-tabs 嵌套在 van-popup 等会隐藏内容的组件或节点内，当 van-tabs 显示时下划线将不会正常显示。
+如果将 press-tabs 嵌套在 press-popup 等会隐藏内容的组件或节点内，当 press-tabs 显示时下划线将不会正常显示。
 
-此时可以通过使用 `wx:if` 手动控制 van-tabs 的渲染来规避这种场景。
+此时可以通过使用 `wx:if` 手动控制 press-tabs 的渲染来规避这种场景。
 
 ```html
-<van-popup show="{{ show }}">
-  <van-tabs wx:if="{{ show }}">
-    <van-tab title="标签 1">内容 1</van-tab>
-    <van-tab title="标签 2">内容 2</van-tab>
-    <van-tab title="标签 3">内容 3</van-tab>
-    <van-tab title="标签 4">内容 4</van-tab>
-  </van-tabs>
-</van-popup>
+<press-popup show="{{ show }}">
+  <press-tabs wx:if="{{ show }}">
+    <press-tab title="标签 1">内容 1</press-tab>
+    <press-tab title="标签 2">内容 2</press-tab>
+    <press-tab title="标签 3">内容 3</press-tab>
+    <press-tab title="标签 4">内容 4</press-tab>
+  </press-tabs>
+</press-popup>
 ```
 
 ## API
@@ -273,13 +254,13 @@ Tabs 组件在挂载时，会获取自身的宽度，并计算出底部条的位
 方法一，使用 `wx:if` 来控制组件展示，使组件重新初始化。
 
 ```html
-<van-tabs wx:if="show" />
+<press-tabs wx:if="show" />
 ```
 
 方法二，调用组件的 resize 方法来主动触发重绘。
 
 ```html
-<van-tabs id="tabs" />
+<press-tabs id="tabs" />
 ```
 
 ```js

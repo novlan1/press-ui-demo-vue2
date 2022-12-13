@@ -795,6 +795,17 @@
       ]
     },
     {
+      "root": "pages/press/index-bar",
+      "pages": [
+        {
+          "path": "index-bar",
+          "style": {
+            "navigationBarTitleText": "IndexBar 索引栏"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/area",
       "pages": [
         {

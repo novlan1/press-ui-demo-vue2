@@ -5,3 +5,4 @@ export const PARENT_RADIO_GROUP = 'radioGroup';
 export const PARENT_SIDEBAR = 'sidebar';
 export const PARENT_TABBAR = 'tabbar';
 export const PARENT_TABS = 'tabs';
+export const PARENT_INDEX_BAR = 'indexBar';

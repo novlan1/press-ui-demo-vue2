@@ -65,6 +65,7 @@ export function getRect(context, selector) {
     const el = context.$el;
     if (el) {
       const child =  el.querySelector(selector);
+      console.log('child', child);
       if (!child) {
         resolve({});
       }

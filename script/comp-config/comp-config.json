@@ -173,6 +173,10 @@
       {
         "name": "Sidebar",
         "title": "侧边导航"
+      },
+      {
+        "name": "IndexBar",
+        "title": "索引栏"
       }
     ]
   },

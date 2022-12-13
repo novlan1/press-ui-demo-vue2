@@ -806,6 +806,17 @@
       ]
     },
     {
+      "root": "pages/press/tree-select",
+      "pages": [
+        {
+          "path": "tree-select",
+          "style": {
+            "navigationBarTitleText": "TreeSelect 分类选择"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/area",
       "pages": [
         {

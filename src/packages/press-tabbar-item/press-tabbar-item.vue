@@ -47,6 +47,7 @@ import { PARENT_TABBAR  as PARENT } from '../common/parent-map';
 export default {
   options: {
     ...defaultOptions,
+    virtualHost: true,
     styleIsolation: 'shared',
   },
   components: {

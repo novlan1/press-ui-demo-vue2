@@ -196,7 +196,8 @@ export default {
       height: 100%;
     }
 
-    --sidebar-padding: $tree-select-nav-item-padding;
+    --sidebar-padding: 12px 8px 12px 12px;
+    // --sidebar-padding: $tree-select-nav-item-padding;
   }
 
   &__content {

@@ -211,8 +211,7 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressSwitch from '../../../packages/press-switch/press-switch.vue';
+import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 
 export default {
   components: {

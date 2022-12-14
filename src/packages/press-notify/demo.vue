@@ -81,10 +81,8 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressNotify from '../../../packages/press-notify/press-notify.vue';
-// eslint-disable-next-line import/no-unresolved
-import PressNotifyHandler from '../../../packages/press-notify/';
+import PressNotify from 'src/packages/press-notify/press-notify.vue';
+import PressNotifyHandler from 'src/packages/press-notify/';
 
 
 export default {

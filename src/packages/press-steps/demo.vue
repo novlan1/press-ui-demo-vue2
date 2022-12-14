@@ -42,10 +42,8 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressSteps from '../../../packages/press-steps/press-steps.vue';
-// eslint-disable-next-line import/no-unresolved
-import PressButton from '../../../packages/press-button/press-button.vue';
+import PressSteps from 'src/packages/press-steps/press-steps.vue';
+import PressButton from 'src/packages/press-button/press-button.vue';
 
 export default {
   components: {

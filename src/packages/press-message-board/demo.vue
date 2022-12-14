@@ -18,10 +18,8 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressMessageBoardInput from '../../../packages/press-message-board/press-message-board-input.vue';
-// eslint-disable-next-line import/no-unresolved
-import PressMessageBoardList from '../../../packages/press-message-board/press-message-board-list.vue';
+import PressMessageBoardInput from 'src/packages/press-message-board/press-message-board-input.vue';
+import PressMessageBoardList from 'src/packages/press-message-board/press-message-board-list.vue';
 
 const msgList = [
   {

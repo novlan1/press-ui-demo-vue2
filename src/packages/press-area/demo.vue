@@ -29,8 +29,7 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressArea from '../../../packages/press-area/press-area.vue';
+import PressArea from 'src/packages/press-area/press-area.vue';
 
 
 const AREA_DATA_URL = 'https://tip-components-1251917893.cos.ap-guangzhou.myqcloud.com/rb/front-open-config__match__default__area_data.json';

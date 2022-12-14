@@ -7,8 +7,7 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressMessageDetail from '../../../packages/press-message-detail/press-message-detail.vue';
+import PressMessageDetail from 'src/packages/press-message-detail/press-message-detail.vue';
 
 const MSG_LIST = [
   {

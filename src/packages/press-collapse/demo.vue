@@ -124,10 +124,8 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressCollapseItem from '../../../packages/press-collapse-item/press-collapse-item.vue';
-// eslint-disable-next-line import/no-unresolved
-import PressCollapse from '../../../packages/press-collapse/press-collapse.vue';
+import PressCollapseItem from 'src/packages/press-collapse-item/press-collapse-item.vue';
+import PressCollapse from 'src/packages/press-collapse/press-collapse.vue';
 
 
 export default {

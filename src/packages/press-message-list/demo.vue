@@ -10,8 +10,7 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressMessageList from '../../../packages/press-message-list/press-message-list.vue';
+import PressMessageList from 'src/packages/press-message-list/press-message-list.vue';
 
 
 const DEMO_LIST = [{

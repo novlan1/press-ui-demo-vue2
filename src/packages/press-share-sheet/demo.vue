@@ -25,8 +25,7 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressShareSheet from '../../../packages/press-share-sheet/press-share-sheet.vue';
+import PressShareSheet from 'src/packages/press-share-sheet/press-share-sheet.vue';
 
 const options = [
   { name: '微信', icon: 'wechat', openType: 'share' },

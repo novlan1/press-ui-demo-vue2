@@ -64,12 +64,9 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressSwitch from '../../../packages/press-switch/press-switch.vue';
-// eslint-disable-next-line import/no-unresolved
-import PressDialog from '../../../packages/press-dialog/press-dialog.vue';
-// eslint-disable-next-line import/no-unresolved
-import PressDialogHandler from '../../../packages/press-dialog';
+import PressSwitch from 'src/packages/press-switch/press-switch.vue';
+import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
+import PressDialogHandler from 'src/packages/press-dialog';
 
 export default {
   components: {

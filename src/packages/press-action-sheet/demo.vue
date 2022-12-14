@@ -39,8 +39,7 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line import/no-unresolved
-import PressActionSheet from '../../../packages/press-action-sheet/press-action-sheet.vue';
+import PressActionSheet from 'src/packages/press-action-sheet/press-action-sheet.vue';
 
 const actions = [
   {

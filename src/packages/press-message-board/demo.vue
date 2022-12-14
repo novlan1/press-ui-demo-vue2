@@ -10,6 +10,7 @@
           :key="index"
           :item="item"
           captain-uid="good_uid"
+          :caption-badge-at-right="true"
         />
       </PressMessageBoardList>
     </div>

@@ -10,13 +10,15 @@
       <div class="press-message-board-item__user">
         <!-- <img class="press-message-board-avatar" v-lazy="item.head"> -->
         <p class="press-message-board-item__nick">
-          {{ item.nick }}：
+          {{ item.nick }}
         </p>
       </div>
 
       <div class="press-message-board-item__comment-content">
-        {{ item.content_info }}
+        ：{{ item.content_info }}
       </div>
+
+      <slot name="right-up-corner" />
 
       <div class="press-message-board-item__info">
         <div class="press-message-board-item__comment-time">
@@ -24,7 +26,7 @@
         </div>
         <p
           class="press-message-board-item__reply-btn"
-          @click.stop="replyClick(item, index)"
+          @click.stop="replyClick(item)"
         >
           回复
         </p>
@@ -39,10 +41,10 @@
           v-for="(comment, index2) in item.comm_list"
           :key="index2"
           class="press-message-board-item__reply-item"
-          @click.stop="replyClick(comment, index)"
+          @click.stop="replyClick(comment)"
         >
           <img
-            v-if="captainUid && comment.uid === captainUid"
+            v-if="captainUid && comment.uid === captainUid && !captionBadgeAtRight"
             class="press-message-board-item__reply-avatar"
             src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
           >
@@ -52,20 +54,33 @@
             class="press-message-board-item__reply-nick"
           >
             {{ comment.nick }}
+
+            <img
+              v-if="captainUid && comment.uid === captainUid && captionBadgeAtRight"
+              class="press-message-board-item__reply-avatar 123"
+              src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
+            >
+
             <p
               class="press-message-board-item__reply-word"
             >回复</p>
-            {{ comment.parent_nick }}：
+            {{ comment.parent_nick }}
           </span>
 
           <span
             v-else
             class="press-message-board-item__reply-nick"
-          >{{ comment.nick }}：</span>
+          >{{ comment.nick }}</span>
+
+          <img
+            v-if="captainUid && comment.uid === captainUid && captionBadgeAtRight"
+            class="press-message-board-item__reply-avatar 123"
+            src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
+          >
           <p
             class="press-message-board-item__reply-content"
           >
-            {{ comment.content_info }}
+            ：{{ comment.content_info }}
           </p>
         </div>
 
@@ -81,6 +96,7 @@
       v-else
       class="press-message-board-item__system-comment"
     >
+      <slot name="system-comment-left" />
       <p
         class="press-message-board-item__comment-content"
       >
@@ -110,6 +126,10 @@ export default {
     captainUid: {
       type: String,
       default: '',
+    },
+    captionBadgeAtRight: {
+      type: Boolean,
+      default: false,
     },
     ...defaultProps,
   },

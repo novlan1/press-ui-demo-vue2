@@ -44,4 +44,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped src="./press-message-board-list.scss"></style>
+<style lang="scss" scoped></style>

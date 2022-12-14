@@ -19,7 +19,8 @@ function getComps() {
   const comps = dirs
     .filter((dir) => {
       const vuePath = path.resolve(COMPONENT_DIR, dir, `${dir}.vue`);
-      return fs.existsSync(vuePath);
+      const vueListPath = path.resolve(COMPONENT_DIR, dir, `${dir}-list.vue`);
+      return fs.existsSync(vuePath) || fs.existsSync(vueListPath);
     })
     .map(dir => ({
       path: path.resolve(COMPONENT_DIR, dir),

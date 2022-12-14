@@ -2,11 +2,18 @@
   <div class="wrap">
     <div class="demo-list-wrap">
       <PressMessageBoardList
-        :list="msgList"
         custom-class="demo-message-list"
         captain-uid="good_uid"
-      />
+      >
+        <PressMessageBoardItem
+          v-for="(item,index) of msgList"
+          :key="index"
+          :item="item"
+          captain-uid="good_uid"
+        />
+      </PressMessageBoardList>
     </div>
+
     <div class="demo-input-wrap">
       <PressMessageBoardInput
         v-model="msgContent"
@@ -20,6 +27,7 @@
 <script>
 import PressMessageBoardInput from 'src/packages/press-message-board/press-message-board-input.vue';
 import PressMessageBoardList from 'src/packages/press-message-board/press-message-board-list.vue';
+import PressMessageBoardItem from 'src/packages/press-message-board/press-message-board-item.vue';
 
 const msgList = [
   {
@@ -299,6 +307,7 @@ export default {
   components: {
     PressMessageBoardInput,
     PressMessageBoardList,
+    PressMessageBoardItem,
   },
   data() {
     return {

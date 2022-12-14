@@ -112,4 +112,74 @@ export default {
 };
 
 </script>
-<style lang="scss" scoped src="./press-message-board-input.scss"></style>
+<style lang="scss" scoped>
+@import "../base/layout.scss";
+@import "../base/mixin.scss";
+
+.press-message-board-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.32rem;
+  padding-bottom: 0.32rem;
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 0.32rem);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.32rem);
+  background-color: $color-white;
+  box-shadow: 0 -0.04rem 0.08rem rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+
+  &__wrap ::v-deep {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    .uni-input-placeholder {
+      width: 100%;
+      @include single-line-ellipsis();
+    }
+  }
+
+  &__input {
+    display: inline-block;
+    width: 100%;
+    min-height: 0.72rem;
+    height: 0.72rem;
+    margin: 0 auto;
+    border-left: 0.16rem solid #eef0f6;
+    border-right: 0.16rem solid #eef0f6;
+    flex: 1;
+    border-radius: 0.08rem;
+    background-color: #eef0f6;
+    font-size: $font-xm;
+    caret-color: $color-black;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: $color-gray;
+    }
+  }
+
+  &__btn {
+    margin-left: 0.16rem;
+    @include primary-btn(2rem, 0.72rem, $font-l);
+    @include btn-default-bg;
+
+    &--disabled {
+      @include disabled-btn(2rem, 0.72rem, $font-l);
+
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__send {
+      z-index: 3;
+    }
+  }
+}
+</style>

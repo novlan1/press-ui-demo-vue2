@@ -1,0 +1,324 @@
+<template>
+  <div
+    class="press-message-board-item"
+  >
+    <!-- 玩家留言 -->
+    <div
+      v-if="item.msg_type ===1"
+      class="press-message-board-item__normal-comment"
+    >
+      <div class="press-message-board-item__user">
+        <!-- <img class="press-message-board-avatar" v-lazy="item.head"> -->
+        <p class="press-message-board-item__nick">
+          {{ item.nick }}：
+        </p>
+      </div>
+
+      <div class="press-message-board-item__comment-content">
+        {{ item.content_info }}
+      </div>
+
+      <div class="press-message-board-item__info">
+        <div class="press-message-board-item__comment-time">
+          {{ item.create_time }}
+        </div>
+        <p
+          class="press-message-board-item__reply-btn"
+          @click.stop="replyClick(item, index)"
+        >
+          回复
+        </p>
+      </div>
+
+      <!-- 回复内容 -->
+      <div
+        v-if="item.comm_list && item.comm_list.length > 0"
+        class="press-message-board-item-reply"
+      >
+        <div
+          v-for="(comment, index2) in item.comm_list"
+          :key="index2"
+          class="press-message-board-item__reply-item"
+          @click.stop="replyClick(comment, index)"
+        >
+          <img
+            v-if="captainUid && comment.uid === captainUid"
+            class="press-message-board-item__reply-avatar"
+            src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
+          >
+
+          <span
+            v-if="comment.parent_comm_id"
+            class="press-message-board-item__reply-nick"
+          >
+            {{ comment.nick }}
+            <p
+              class="press-message-board-item__reply-word"
+            >回复</p>
+            {{ comment.parent_nick }}：
+          </span>
+
+          <span
+            v-else
+            class="press-message-board-item__reply-nick"
+          >{{ comment.nick }}：</span>
+          <p
+            class="press-message-board-item__reply-content"
+          >
+            {{ comment.content_info }}
+          </p>
+        </div>
+
+        <!-- 回复条数大于2时折叠,点击展开 -->
+        <!-- <div class="press-message-board-item__fold">
+                更多
+              </div> -->
+      </div>
+      <div :id="item.msg_id" />
+    </div>
+    <!-- 欢迎 xx 加入战队/进入房间 -->
+    <div
+      v-else
+      class="press-message-board-item__system-comment"
+    >
+      <p
+        class="press-message-board-item__comment-content"
+      >
+        {{ item.content_info }}
+      </p>
+      <div class="press-message-board-item__comment-time">
+        {{ item.create_time }}
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import { defaultProps, defaultOptions } from '../common/press-component';
+
+export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
+  components: {
+  },
+  props: {
+    item: {
+      type: Object,
+      default: () => ({}),
+    },
+    captainUid: {
+      type: String,
+      default: '',
+    },
+    ...defaultProps,
+  },
+  data() {
+    return {
+    };
+  },
+  mounted() {
+
+  },
+  methods: {
+    replyClick(...args) {
+      this.$emit('replyClick', ...args);
+    },
+  },
+};
+</script>
+<style scoped lang="scss">
+@import "../base/layout.scss";
+@import "../base/mixin.scss";
+
+.press-message-board-item {
+  // &__list-item {
+  position: relative;
+
+  &:last-child {
+    border: none;
+  }
+  // }
+
+  &__system-comment::after,
+  &__normal-comment::after {
+    @include halfBottomBorder($color-gray-3);
+  }
+
+  // 加入提示
+  &__system-comment {
+    // height: 1.72rem;
+    line-height: 0.4rem;
+    font-size: $font-xm;
+    padding: 0.16rem 0 0.18rem;
+    // border-top: .02rem solid $color-gray-3 ;
+
+    .press-message-board-item__comment-time {
+      font-size: $font-s;
+      line-height: 0.4rem;
+      margin-top: 0.08rem;
+    }
+
+    .press-message-board-item__comment-content {
+      color: $color-primary;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.08rem;
+
+    .press-message-board-item__comment-time {
+      font-size: $font-s;
+    }
+
+    .press-message-board-item__reply-btn {
+      width: 0.8rem;
+      height: 0.4rem;
+      // color: $color-primary;
+      color: $color-gray-5;
+      font-size: $font-s;
+      line-height: 0.4rem;
+      text-align: right;
+    }
+  }
+
+  &__user {
+    display: flex;
+    display: inline;
+    align-items: center;
+    justify-content: space-between;
+
+    .press-message-board-item__avatar {
+      display: none;
+      height: 0.64rem;
+      width: 0.64rem;
+      border-radius: 50%;
+      border: 0.02rem solid $color-gray-3;
+      margin-right: 0.16rem;
+    }
+
+    .press-message-board-item__nick {
+      display: inline;
+      line-height: 0.44rem;
+      // color: $color-black;
+      color: $color-gray;
+      font-size: $font-xm;
+      // font-weight: bold;
+      @include single-line-ellipsis;
+    }
+  }
+
+  &__comment-time {
+    color: $color-gray;
+    line-height: 0.44rem;
+    font-size: $font-xm;
+  }
+
+  // 玩家评论
+  &__normal-comment {
+    font-size: $font-l;
+    color: $color-gray-5;
+    padding: 0.24rem 0;
+    // border-top: .02rem solid $color-gray-3;
+    overflow-x: hidden;
+
+    .press-message-board-item__comment-content {
+      display: inline;
+      font-size: $font-xm;
+      // padding-top: .24rem;
+      // padding-left: .8rem;
+      color: $color-gray-5;
+      line-height: 0.44rem;
+      word-break: break-all;
+    }
+
+    .press-message-board-item-reply {
+      // margin-left: .8rem;
+      margin-top: 0.08rem;
+      padding: 0.12rem 0.16rem 0.12rem;
+      background-color: $color-gray-7;
+      border-radius: 0.08rem;
+      font-size: $font-s;
+      overflow: hidden;
+
+      .press-message-board-item__reply-item {
+        // margin-bottom: .12rem;
+        text-align: justify;
+
+        .press-message-board-item__reply-content {
+          display: inline;
+          width: 100%;
+          word-break: break-all;
+          vertical-align: middle;
+          line-height: 0.44rem;
+        }
+      }
+
+      .press-message-board-item__reply-avatar {
+        display: inline-block;
+        height: 0.32rem;
+        width: 0.58rem;
+        margin-right: 0.08rem;
+        vertical-align: middle;
+      }
+
+      .press-message-board-item__reply-nick {
+        color: $color-gray;
+        display: inline;
+        line-height: 0.44rem;
+        vertical-align: middle;
+
+        .press-message-board-item__reply-word {
+          display: inline;
+          width: 100%;
+          word-break: break-all;
+          vertical-align: middle;
+          line-height: 0.44rem;
+          color: $color-black;
+        }
+      }
+    }
+
+    .press-message-board-item__fold {
+      height: 0.4rem;
+      // margin-bottom: .12rem;
+      // color: $color-primary;
+      color: $color-gray;
+      font-size: $font-s;
+      line-height: 0.4rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+
+      .icon-back {
+        color: $color-gray;
+        font-size: $font-xs;
+        transform: rotate(-90deg);
+        margin-left: 0.1rem;
+      }
+    }
+
+    .press-message-board-item__unfold {
+      width: 2rem;
+      height: 0.4rem;
+      // margin-bottom: .12rem;
+      // color: $color-primary;
+      color: $color-gray;
+      font-size: $font-s;
+      line-height: 0.44rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+
+      .icon-back {
+        color: $color-gray;
+        font-size: $font-xs;
+        transform: rotate(90deg);
+        margin-left: 0.1rem;
+      }
+    }
+  }
+}
+</style>

@@ -333,7 +333,6 @@ export default {
       this.setCurrentIndexByName(this.active || this.getCurrentName());
     },
     trigger(eventName, child) {
-      console.log('currentIndex', currentIndex);
       const { currentIndex } = this;
       const currentChild = child || this.children[currentIndex];
       if (!isDef(currentChild)) {
@@ -346,9 +345,7 @@ export default {
       });
     },
     onTap(event) {
-      console.log('event', event);
       const index = +event.currentTarget.dataset.index;
-      console.log('index', index, typeof index);
       const child = this.children[index];
       if (child.disabled) {
         this.trigger('disabled', child);
@@ -369,7 +366,6 @@ export default {
     },
     setCurrentIndex(currentIndex) {
       // debugger;
-      console.log('setCurrentIndex.currentIndex', currentIndex);
       const { children = [] } = this;
       if (!isDef(currentIndex)
                 || currentIndex >= children.length
@@ -377,10 +373,8 @@ export default {
         return;
       }
       groupSetData(this, () => {
-        console.log('groupSetData.currentIndex', currentIndex);
         children.forEach((item, index) => {
           const active = index === currentIndex;
-          console.log('active', active, item, index);
           if (active !== item.active || !item.initialled) {
             item.updateRender(active, this);
           }

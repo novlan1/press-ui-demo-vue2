@@ -28,7 +28,7 @@ const WEB_DEMO_BASE_LINK_PROD = 'https://novlan1.github.io/press-ui-demo/#/'
 const WEB_DEMO_BASE_LINK_DEV = 'http://localhost:9999/#/'
 
 const WEB_DEMO_BASE_LINK = process.env.NODE_ENV === 'production' ? WEB_DEMO_BASE_LINK_PROD : WEB_DEMO_BASE_LINK_DEV
-console.log('process.env.NODE_ENV',process.env.NODE_ENV)
+
 export default {
 	components: { PageEdit, PageNav },
 	props: ['sidebarItems'],

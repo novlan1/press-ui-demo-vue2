@@ -61,10 +61,8 @@ export default {
     scroll(e) {
       this.old.scrollTop = e.detail.scrollTop;
       this.$emit('scroll', e);
-      // console.log('3=====>', e.detail.scrollTop);
     },
     scrolltolower() {
-      // console.log('===?>lower');
       this.$emit('scrolltolower');
     },
   },

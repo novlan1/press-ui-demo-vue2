@@ -222,7 +222,6 @@ export default {
       const keyHeight = res.height;
       // - (systemInfo.screenHeight - systemInfo.windowHeight + systemInfo.safeAreaInsets.bottom);
 
-      console.log('keyHeight: ', keyHeight);
       this.inputBottom = `${keyHeight > 0 ? keyHeight : 0}`;
     });
   },
@@ -309,8 +308,6 @@ export default {
         view
           .node()
           .exec((res) => {
-            console.log('node.res', res);
-
             const scrollView = res[0]?.node;
             if (!scrollView) return;
             if (!this.list || this.list.length < 1) {
@@ -323,11 +320,9 @@ export default {
       }
       const dom = document.querySelector('#tipMatchMsgWrap');
       if (!dom) return;
-      console.log('dom.scrollHeight', dom.scrollHeight, dom.clientHeight);
       dom.scrollTop = dom.scrollHeight - dom.clientHeight;
     },
     tGoBack() {
-      console.log('tGoBack');
       this.$goBack();
       this.$emit('setMessageRead');
     },

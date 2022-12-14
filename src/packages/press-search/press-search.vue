@@ -146,17 +146,12 @@ export default {
   watch: {
     value: {
       handler(val) {
-        console.log('watch.value', val);
         this.innerValue = val;
       },
     },
   },
   methods: {
     onChange(value) {
-      // if (canIUseModel()) {
-      //   this.setData({ value: event.detail });
-      // }
-      // console.log('onChange.value', value);
       this.innerValue = value;
       this.$emit('change', value);
     },
@@ -166,33 +161,25 @@ export default {
        * https://github.com/vant-ui/vant-weapp/issues/1768
        */
       setTimeout(() => {
-        // if (canIUseModel()) {
-        //   this.setData({ value: '' });
-        // }
         this.$emit('cancel');
         this.$emit('change', '');
       }, 200);
     },
     onSearch(value) {
-      // console.log('onSearch.event', value);
       this.$emit('search', value);
     },
     onFocus() {
-      // console.log('onFocus.event', event);
       this.$emit('focus');
     },
     onBlur() {
-      // console.log('onBlur.event', event);
       this.$emit('blur');
     },
     onClear() {
-      // console.log('onClear.event', event);
       this.innerValue = '';
       this.onChange(this.innerValue);
       this.$emit('clear');
     },
     onClickInput() {
-      // console.log('onClickInput.event', event);
       this.$emit('click-input');
     },
   },

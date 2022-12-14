@@ -52,7 +52,6 @@ export default {
       if (!this.scroller) {
         this.scroller = getScroller(this.$el);
       }
-      console.log('scroller,', this.scroller);
 
       // if (this.observer) {
       //   const method = isBind ? 'observe' : 'unobserve';

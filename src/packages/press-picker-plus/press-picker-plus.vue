@@ -195,7 +195,6 @@ export default {
       }
     },
     onChange(event, index) {
-      console.log('simple', this.simple, event);
       if (this.simple) {
         this.$emit('change', {
           // picker: this,

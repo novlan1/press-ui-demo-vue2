@@ -124,8 +124,7 @@ export default {
       },
     },
     mainActiveIndex: {
-      handler(val) {
-        console.log('hhhhhhh', val);
+      handler() {
         this.updateSubItems();
       },
     },
@@ -136,13 +135,11 @@ export default {
   methods: {
     treeSelectItemClass(item) {
       const { activeId } = this;
-      console.log('item', item, activeId);
       return `van-ellipsis content-item-class ${utils.bem('tree-select__item', { active: computed.isActive(activeId, item.id), disabled: item.disabled })} ${computed.isActive(activeId, item.id) ? 'content-active-class' : ''} ${item.disabled ? 'content-disabled-class' : ''}`;
     },
     // 当一个子项被选择时
     onSelectItem(event) {
       const { item } = event.currentTarget.dataset;
-      console.log('event', event, item);
       const isArray = Array.isArray(this.activeId);
       // 判断有没有超出右侧选择的最大数
       const isOverMax = isArray && this.activeId.length >= this.max;
@@ -156,8 +153,6 @@ export default {
     },
     // 当一个导航被点击时
     onClickNav(index) {
-      // console.log('onClickNav.event', event);
-      // const index = event.detail;
       const item = this.items[index];
       if (!item.disabled) {
         this.$emit('click-nav', +index);
@@ -168,7 +163,6 @@ export default {
       const { items, mainActiveIndex } = this;
       const { children = [] } = items[mainActiveIndex] || {};
       // this.setData({ subItems: children });
-      console.log('cccc', children);
       this.subItems = children;
     },
   },

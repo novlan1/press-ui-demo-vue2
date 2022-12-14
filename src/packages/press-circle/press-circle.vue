@@ -173,7 +173,6 @@ export default {
           .node()
           .exec((res) => {
             const canvas = res[0].node;
-            console.log('canvas', canvas);
             const ctx = canvas.getContext(type);
             if (!this.inited) {
               this.inited = true;

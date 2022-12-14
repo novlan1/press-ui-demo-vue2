@@ -113,15 +113,8 @@ export default {
   },
   methods: {
     onSelect(score) {
-      // console.log('event', event);
-      // const { data } = this;
-      // const { score } = event.currentTarget.dataset;
       if (!this.disabled && !this.readonly) {
         this.innerValue = score + 1;
-        // this.setData({ innerValue: score + 1 });
-        // if (canIUseModel()) {
-        //   this.setData({ value: score + 1 });
-        // }
         wx.nextTick(() => {
           this.$emit('input', score + 1);
           this.$emit('change', score + 1);
@@ -133,14 +126,12 @@ export default {
       if (!touchable) return;
       const { clientX } = event.touches[0];
       getAllRect(this, '.van-rate__icon').then((list) => {
-        console.log('list', list);
         const target = list
           // .sort((cur, next) => cur.dataset.score - next.dataset.score)
           .sort((cur, next) => cur.x - next.x)
           .find(item => clientX >= item.left && clientX <= item.right);
         const index = list.indexOf(target);
         if (target != null) {
-          console.log('target', index + 1);
           this.onSelect(index);
           // this.onSelect(Object.assign(Object.assign({}, event), { currentTarget: target }));
         }

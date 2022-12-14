@@ -146,7 +146,6 @@ export default {
     },
   },
   mounted() {
-    // console.log('slots', this.$slots);
   },
   methods: {
     onClick(event) {

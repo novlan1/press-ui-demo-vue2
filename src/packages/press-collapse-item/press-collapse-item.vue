@@ -133,7 +133,6 @@ export default {
       const { name } = this;
       const index = children.indexOf(this);
       const currentName = name == null ? index : name;
-      console.log('accordion', accordion);
       const expanded = accordion
         ? value === currentName
         : (value || []).some(name => name === currentName);

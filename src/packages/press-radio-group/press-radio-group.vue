@@ -59,7 +59,6 @@ export default {
   },
   methods: {
     updateChildren() {
-      console.log('children', this.children);
       this.children.forEach(child => child.updateFromParent());
     },
   },

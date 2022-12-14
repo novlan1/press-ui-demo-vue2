@@ -97,8 +97,10 @@
     }
 
     &__right {
-      height: .36rem;
-      line-height: .36rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
       color: $color-gray;
       font-size: $font-xxs;
     }

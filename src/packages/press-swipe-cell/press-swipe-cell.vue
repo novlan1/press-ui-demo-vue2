@@ -210,16 +210,12 @@ export default {
     height: 100%;
 
     // 【修改点】增加一些h5的样式
-    display: inline-block;
-    width: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 65px;
     font-size: 15px;
     color: #fff;
-    text-align: center;
-    background-color: #f44;
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
   }
 
   &__left {

@@ -79,3 +79,8 @@
 .van-hairline--surround::after {
   border-width: 1px
 }
+press-tab {
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing:border-box;
+}

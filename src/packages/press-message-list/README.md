@@ -22,6 +22,7 @@ url : pages/press/message-list/message-list
 const DEMO_LIST = [{
   nick: 'HOLD LOADING',
   content: '这里是消息内容，这里是消息内容消息内容',
+  unreadCount: '99',
   time: '13:02',
   avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
 },

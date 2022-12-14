@@ -391,6 +391,11 @@ export default {
 
   &__text {
     display: inline;
+
+    // 修复文字太多换行问题
+    white-space: nowrap;
+    // 修复文字被背景图片遮挡问题
+    position: relative;
   }
 
   &__loading-text,

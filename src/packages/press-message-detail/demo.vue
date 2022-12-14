@@ -2,6 +2,7 @@
   <div class="wrap">
     <PressMessageDetail
       :list="msgList"
+      :is-show-solo="isSolo"
     />
   </div>
 </template>
@@ -45,10 +46,26 @@ const MSG_LIST = [
   {
     id: 5,
     msgType: 'MESSAGE_TEXT',
+    teamInvite: true,
+    avatar: 'https://dummyimage.com/44x44',
+  },
+  {
+    id: 6,
+    msgType: 'MESSAGE_TEXT',
+    teamInvite: false,
+    isSolo: true,
+    isMine: true,
     avatar: 'https://dummyimage.com/44x44',
     content: {
-      text: '123123',
+      text: '来一局1V1看看操作',
     },
+  },
+  {
+    id: 7,
+    msgType: 'MESSAGE_TEXT',
+    teamInvite: true,
+    isMine: true,
+    avatar: 'https://dummyimage.com/44x44',
   },
 ];
 
@@ -59,6 +76,7 @@ export default {
   data() {
     return {
       msgList: MSG_LIST,
+      isSolo: true,
     };
   },
   methods: {

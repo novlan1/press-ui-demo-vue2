@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="demo-wrap">
     <demo-block
       title="基础用法"
       header-style="background: #f7f8fa;"
@@ -218,10 +218,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.wrap {
+.demo-wrap {
   font-size: 16px;
   height: 1000px;
   overflow: scroll;
+  padding-bottom: 30px;
 
   .content {
     padding: 20px;

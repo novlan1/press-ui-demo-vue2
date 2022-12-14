@@ -1,6 +1,9 @@
 <template>
   <uni-shadow-root class="vant-sidebar-index">
-    <div class="van-sidebar custom-class">
+    <div
+      class="van-sidebar"
+      :class="customClass"
+    >
       <slot />
     </div>
   </uni-shadow-root>
@@ -35,8 +38,8 @@ export default {
   },
   watch: {
     activeKey: {
-      handler() {
-        this.setActive();
+      handler(val) {
+        this.setActive(val);
       },
     },
   },

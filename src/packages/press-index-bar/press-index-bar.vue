@@ -73,8 +73,6 @@ export default {
       if (!this.scroller) {
         this.scroller = getScroller(this.$el);
       }
-      console.log('scroller,', this.scroller);
-
       // if (this.observer) {
       //   const method = isBind ? 'observe' : 'unobserve';
       //   this.observer[method](this.$el);
@@ -170,7 +168,6 @@ export default {
         if (!isDef(rect)) {
           return;
         }
-        console.log('setListRect.res', rect);
         Object.assign(this, {
           height: rect.height,
           top: rect.top + this.scrollTop,
@@ -182,7 +179,6 @@ export default {
         if (!isDef(res)) {
           return;
         }
-        console.log('setSiderbarRect.res', res);
         this.sidebar = {
           height: res.height,
           top: res.top,
@@ -209,7 +205,6 @@ export default {
     getActiveAnchorIndex() {
       const { children, scrollTop } = this;
       const { sticky, stickyOffsetTop } = this;
-      console.log('tt', this.children, scrollTop, stickyOffsetTop);
       for (let i = this.children.length - 1; i >= 0; i--) {
         const preAnchorHeight = i > 0 ? children[i - 1].height : 0;
         const reachTop = sticky ? preAnchorHeight + stickyOffsetTop : 0;
@@ -223,14 +218,12 @@ export default {
       if (event && event.target) {
         this.scrollTop = event.target.scrollTop;
       }
-      console.log('onScroll', event, event?.scrollTop, event?.target?.scrollTop);
       const { children = [], scrollTop } = this;
       if (!children.length) {
         return;
       }
       const { sticky, stickyOffsetTop, zIndex, highlightColor } = this;
       const active = this.getActiveAnchorIndex();
-      console.log('active', active);
       this.setDiffData({
         target: this,
         data: {
@@ -302,7 +295,6 @@ export default {
       }
     },
     onClick(event) {
-      console.log('event', event);
       this.scrollToAnchor(+event.target.dataset.index);
     },
     onTouchMove(event) {
@@ -315,20 +307,17 @@ export default {
       } else if (index > sidebarLength - 1) {
         index = sidebarLength - 1;
       }
-      console.log('index----', index, sidebarLength);
       this.scrollToAnchor(index);
     },
     onTouchStop() {
       this.scrollToAnchorIndex = null;
     },
     scrollToAnchor(index) {
-      console.log('index', index, typeof index, this.scrollToAnchorIndex);
       if (typeof index !== 'number' || this.scrollToAnchorIndex === index) {
         return;
       }
       this.scrollToAnchorIndex = index;
       const anchor = this.children.find(item => item.index === this.indexList[index]);
-      console.log('anchor', anchor);
       if (anchor) {
         // #ifdef H5
         anchor.$el.scrollIntoView(this.scrollTop);

@@ -52,6 +52,8 @@ export default {
     title: { type: String, default: '' },
     disabled: Boolean,
     ...defaultProps,
+    activeClass: { type: String, default: '' },
+    disabledClass: { type: String, default: '' },
   },
   data() {
     return {
@@ -66,8 +68,10 @@ export default {
         selected,
         disabled,
         customClass,
+        activeClass,
+        disabledClass,
       } = this;
-      return `${utils.bem('sidebar-item', { selected, disabled })} ${selected ? 'active-class' : ''} ${disabled ? 'disabled-class' : ''} ${customClass}`;
+      return `${utils.bem('sidebar-item', { selected, disabled })} ${selected ? activeClass : ''} ${disabled ? disabledClass : ''} ${customClass}`;
     },
   },
   mounted() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="demo-wrap">
     <demo-block title="基础用法">
       <press-sidebar :active-key="activeKey">
         <press-sidebar-item title="标签名1" />
@@ -80,7 +80,7 @@ export default {
 </script>
 <style scoped lang="scss">
 @import "src/packages/base/mixin.scss";
-.wrap {
+.demo-wrap {
   padding-bottom: 30px;
 }
 </style>

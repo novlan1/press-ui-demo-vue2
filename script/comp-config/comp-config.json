@@ -177,6 +177,10 @@
       {
         "name": "IndexBar",
         "title": "索引栏"
+      },
+      {
+        "name": "TreeSelect",
+        "title": "分类选择"
       }
     ]
   },

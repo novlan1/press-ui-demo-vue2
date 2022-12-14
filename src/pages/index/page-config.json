@@ -178,6 +178,10 @@
         {
           "name": "IndexBar 索引栏",
           "url": "/press/index-bar/index-bar"
+        },
+        {
+          "name": "TreeSelect 分类选择",
+          "url": "/press/tree-select/tree-select"
         }
       ]
     },

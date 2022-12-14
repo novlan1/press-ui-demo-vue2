@@ -39,8 +39,10 @@
         </p>
         <div
           v-else-if="item.msgType === 'MESSAGE_TEXT'"
-          class="message-item-box"
-          :class="item.isMine ? 'message-item-right' : ''"
+          :class="['message-item-box',
+                   item.isMine ? 'message-item-right':'',
+                   item.teamInvite ? 'message-item-invite':'',
+                   item.isSolo ? 'message-item-solo':'' ]"
         >
           <!-- <img
             v-if="item.avatar"
@@ -57,30 +59,66 @@
             :class="item.isMine ? 'message-popover-right' : 'message-popover-left'"
             @click.stop="onReSendMsg(item)"
           >
+            <!-- 战队邀请 -->
             <div
-              v-if="item.content.title"
-              class="message-popover-title"
+              v-if="item.teamInvite"
+              class="message-team-invite"
             >
-              {{ item.content.title }}
-            </div>
-            <div class="message-popover-text">
-              <div class="main-text">
-                {{ item.content.text }}
+              <div class="message-team-info">
+                <div class="message-team-tip">
+                  邀请你加入TA的战队
+                </div>
+                <div class="message-team-name">
+                  战队名称最多八字
+                </div>
+                <div class="iconfont icon-back" />
               </div>
-              <span
-                v-if="item.content.link"
-                @click.stop="onCheckDetail(item.content.link)"
+              <div class="message-team-btn">
+                <p>同意加入</p>
+              </div>
+            </div>
+            <!-- 正常文本消息 -->
+            <div
+              v-else
+              class="message-popover-info"
+            >
+              <div
+                v-if="item.content.title"
+                class="message-popover-title"
               >
-                查看详情
-              </span>
+                {{ item.content.title }}
+              </div>
+              <div
+                v-if="item.content.text"
+                class="message-popover-text"
+              >
+                <div class="main-text">
+                  {{ item.content.text }}
+                </div>
+                <span
+                  v-if="item.content.link"
+                  @click.stop="onCheckDetail(item.content.link)"
+                >
+                  查看详情
+                </span>
+                <!-- 1v1 solo -->
+                <div
+                  v-if="item.isSolo"
+                  class="message-popover-btn"
+                >
+                  点击进入 09:59
+                </div>
+              </div>
             </div>
           </div>
+          <!-- 消息发送失败 -->
           <p
             v-if="item.isCustomFail"
             @click.stop="onReSendMsg(item)"
           >
             ❗️
           </p>
+          <!-- 消息是否已读 -->
           <p
             v-else-if="item.isMine"
             :class="item.isPeerRead ? 'message-popover-read' : 'message-popover-unread'"
@@ -99,6 +137,11 @@
       <div
         class="team-zone-input-wrap"
       >
+        <!-- 全国大赛solo -->
+        <div
+          v-if="isShowSolo"
+          class="team-solo"
+        />
         <!-- div模拟输入框 -->
         <div
           id="msg-footer-input"
@@ -154,6 +197,10 @@ export default {
     showInput: {
       type: Boolean,
       default: true,
+    },
+    isShowSolo: {
+      type: Boolean,
+      default: false,
     },
     ...defaultProps,
   },

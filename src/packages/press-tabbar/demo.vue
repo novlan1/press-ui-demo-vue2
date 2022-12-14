@@ -5,6 +5,7 @@
       :section-style="sectionStyle"
     >
       <press-tabbar
+        :fixed="false"
         :active="active"
         @change="onChange"
       >
@@ -29,6 +30,7 @@
     >
       <press-tabbar
         :active="activeName"
+        :fixed="false"
         @change="onChangeName"
       >
         <press-tabbar-item
@@ -64,6 +66,7 @@
     >
       <press-tabbar
         :active="active"
+        :fixed="false"
         @change="onChange"
       >
         <press-tabbar-item icon="home-o">
@@ -95,6 +98,7 @@
       :section-style="sectionStyle"
     >
       <press-tabbar
+        :fixed="false"
         :active="active"
         @change="onChange"
       >
@@ -124,11 +128,11 @@
 
     <demo-block
       title="自定义颜色"
-
       :section-style="sectionStyle"
     >
       <press-tabbar
         :active="active"
+        :fixed="false"
         active-color="#07c160"
         inactive-color="#000"
         @change="onChange"

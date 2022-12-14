@@ -1,0 +1,239 @@
+<template>
+  <uni-shadow-root class="vant-tree-select-index">
+    <view
+      class="van-tree-select"
+      :style="'height: '+(utils.addUnit(height))"
+    >
+      <scroll-view
+        scroll-y
+        class="van-tree-select__nav"
+      >
+        <van-sidebar
+          :active-key="mainActiveIndex"
+          custom-class="van-tree-select__nav__inner"
+          @change="onClickNav"
+        >
+          <van-sidebar-item
+            v-for="(item) in (items)"
+            :key="item.index"
+            custom-class="main-item-class"
+            active-class="main-active-class"
+            disabled-class="main-disabled-class"
+            :badge="item.badge"
+            :dot="item.dot"
+            :title="item.text"
+            :disabled="item.disabled"
+          />
+        </van-sidebar>
+      </scroll-view>
+      <scroll-view
+        scroll-y
+        class="van-tree-select__content"
+      >
+        <slot name="content" />
+        <view
+          v-for="(item) in (subItems)"
+          :key="item.id"
+          :class="'' + treeSelectItemClass(item)"
+          :data-item="item"
+          @click="onSelectItem"
+        >
+          {{ item.text }}
+          <van-icon
+            v-if="computed.isActive(activeId, item.id)"
+            :name="selectedIcon"
+            size="16px"
+            class="van-tree-select__selected"
+          />
+        </view>
+      </scroll-view>
+    </view>
+  </uni-shadow-root>
+</template>
+<script>
+import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import VanSidebar from '../press-sidebar/press-sidebar.vue';
+import VanSidebarItem from '../press-sidebar-item/press-sidebar-item.vue';
+import { defaultOptions, defaultProps } from '../common/press-component';
+
+import utils from '../wxs-js/utils';
+import computed from './computed';
+
+export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
+  components: {
+    VanIcon,
+    VanSidebar,
+    VanSidebarItem,
+  },
+  classes: [
+    'main-item-class',
+    'content-item-class',
+    'main-active-class',
+    'content-active-class',
+    'main-disabled-class',
+    'content-disabled-class',
+  ],
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+      // observer: 'updateSubItems',
+    },
+    activeId: {
+      type: [Number, String, null, Array],
+      default: '',
+    },
+    mainActiveIndex: {
+      type: [Number, String, Array, null],
+      default: 0,
+      // observer: 'updateSubItems',
+    },
+    height: {
+      type: [Number, String],
+      default: 300,
+    },
+    max: {
+      type: Number,
+      default: Infinity,
+    },
+    selectedIcon: {
+      type: String,
+      default: 'success',
+    },
+    ...defaultProps,
+  },
+  data() {
+    return {
+      subItems: [],
+
+      utils,
+      computed,
+    };
+  },
+  computed: {
+
+  },
+  watch: {
+    items: {
+      handler() {
+        this.updateSubItems();
+      },
+    },
+    mainActiveIndex: {
+      handler(val) {
+        console.log('hhhhhhh', val);
+        this.updateSubItems();
+      },
+    },
+  },
+  mounted() {
+    this.updateSubItems();
+  },
+  methods: {
+    treeSelectItemClass(item) {
+      const { activeId } = this;
+      console.log('item', item, activeId);
+      return `van-ellipsis content-item-class ${utils.bem('tree-select__item', { active: computed.isActive(activeId, item.id), disabled: item.disabled })} ${computed.isActive(activeId, item.id) ? 'content-active-class' : ''} ${item.disabled ? 'content-disabled-class' : ''}`;
+    },
+    // 当一个子项被选择时
+    onSelectItem(event) {
+      const { item } = event.currentTarget.dataset;
+      console.log('event', event, item);
+      const isArray = Array.isArray(this.activeId);
+      // 判断有没有超出右侧选择的最大数
+      const isOverMax = isArray && this.activeId.length >= this.max;
+      // 判断该项有没有被选中, 如果有被选中，则忽视是否超出的条件
+      const isSelected = isArray
+        ? this.activeId.indexOf(item.id) > -1
+        : this.activeId === item.id;
+      if (!item.disabled && (!isOverMax || isSelected)) {
+        this.$emit('click-item', item);
+      }
+    },
+    // 当一个导航被点击时
+    onClickNav(index) {
+      // console.log('onClickNav.event', event);
+      // const index = event.detail;
+      const item = this.items[index];
+      if (!item.disabled) {
+        this.$emit('click-nav', +index);
+      }
+    },
+    // 更新子项列表
+    updateSubItems() {
+      const { items, mainActiveIndex } = this;
+      const { children = [] } = items[mainActiveIndex] || {};
+      // this.setData({ subItems: children });
+      console.log('cccc', children);
+      this.subItems = children;
+    },
+  },
+};
+</script>
+<style platform="mp-weixin" lang="scss">
+@import "../common/index.scss";
+@import "../common/style/var.scss";
+
+.van-tree-select {
+  position: relative;
+  display: flex;
+  user-select: none;
+  font-size: var(--tree-select-font-size, $tree-select-font-size);
+
+  &__nav {
+    flex: 1;
+    background-color: var(
+      --tree-select-nav-background-color,
+      $tree-select-nav-background-color
+    );
+
+    &__inner {
+      width: 100% !important;
+      height: 100%;
+    }
+
+    --sidebar-padding: 12px 8px 12px 12px;
+    // --sidebar-padding: $tree-select-nav-item-padding;
+  }
+
+  &__content {
+    flex: 2;
+    background-color: var(
+      --tree-select-content-background-color,
+      $tree-select-content-background-color
+    );
+  }
+
+  &__item {
+    position: relative;
+    font-weight: bold;
+    padding: 0 32px 0 var(--padding-md, $padding-md);
+    line-height: var(--tree-select-item-height, $tree-select-item-height);
+
+    &--active {
+      color: var(
+        --tree-select-item-active-color,
+        $tree-select-item-active-color
+      );
+    }
+
+    &--disabled {
+      color: var(
+        --tree-select-item-disabled-color,
+        $tree-select-item-disabled-color
+      );
+    }
+  }
+
+  &__selected {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: var(--padding-md, $padding-md);
+  }
+}
+</style>

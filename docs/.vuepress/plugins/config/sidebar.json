@@ -222,6 +222,11 @@
           "title": "索引栏",
           "subTitle": "IndexBar",
           "path": "/components/press/press-index-bar.md"
+        },
+        {
+          "title": "分类选择",
+          "subTitle": "TreeSelect",
+          "path": "/components/press/press-tree-select.md"
         }
       ]
     },

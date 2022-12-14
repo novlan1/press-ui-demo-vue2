@@ -57,7 +57,7 @@
 
             <img
               v-if="captainUid && comment.uid === captainUid && captionBadgeAtRight"
-              class="press-message-board-item__reply-avatar 123"
+              class="press-message-board-item__reply-avatar"
               src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
             >
 
@@ -74,7 +74,7 @@
 
           <img
             v-if="captainUid && comment.uid === captainUid && captionBadgeAtRight"
-            class="press-message-board-item__reply-avatar 123"
+            class="press-message-board-item__reply-avatar"
             src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
           >
           <p

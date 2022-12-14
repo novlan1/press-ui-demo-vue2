@@ -10,6 +10,7 @@
         left-text="返回"
         right-text="按钮"
         left-arrow
+        :safe-area-inset-top="false"
         @click-left="onClickLeft"
         @click-right="onClickRight"
       />
@@ -24,6 +25,7 @@
         title="标题"
         left-text="返回"
         left-arrow
+        :safe-area-inset-top="false"
       >
         <press-icon-plus
           slot="right"

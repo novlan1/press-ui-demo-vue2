@@ -7,6 +7,7 @@
       <press-tabbar
         :fixed="false"
         :active="active"
+        :safe-area-inset-bottom="false"
         @change="onChange"
       >
         <press-tabbar-item icon="home-o">
@@ -31,6 +32,7 @@
       <press-tabbar
         :active="activeName"
         :fixed="false"
+        :safe-area-inset-bottom="false"
         @change="onChangeName"
       >
         <press-tabbar-item
@@ -67,6 +69,7 @@
       <press-tabbar
         :active="active"
         :fixed="false"
+        :safe-area-inset-bottom="false"
         @change="onChange"
       >
         <press-tabbar-item icon="home-o">
@@ -100,6 +103,7 @@
       <press-tabbar
         :fixed="false"
         :active="active"
+        :safe-area-inset-bottom="false"
         @change="onChange"
       >
         <press-tabbar-item info="3">
@@ -135,6 +139,7 @@
         :fixed="false"
         active-color="#07c160"
         inactive-color="#000"
+        :safe-area-inset-bottom="false"
         @change="onChange"
       >
         <press-tabbar-item icon="home-o">

@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block title="选择完整时间">
       <press-datetime-picker
         type="datetime"
@@ -47,7 +47,7 @@
         @input="onInputTime"
       />
     </demo-block>
-  </view>
+  </div>
 </template>
 <script>
 

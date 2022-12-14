@@ -7,16 +7,16 @@
       :custom-style="computed.rootStyle({ zIndex: dataZIndex, top: dataTop })"
       @click.native="onTap"
     >
-      <view
+      <div
         :class="'van-notify van-notify--'+(dataType)"
         :style="true ? computed.notifyStyle({ background: dataBackground, color: dataColor }) : ''"
       >
-        <view
+        <div
           v-if="dataSafeAreaInsetTop"
           :style="'height: '+(statusBarHeight)+'px'"
         />
         <text>{{ dataMessage }}</text>
-      </view>
+      </div>
     </van-transition>
   </uni-shadow-root>
 </template>

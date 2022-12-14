@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-collapse-item-index">
-    <view :class="'van-collapse-item custom-class '+(index !== 0 ? 'van-hairline--top' : '')">
+    <div :class="'van-collapse-item custom-class '+(index !== 0 ? 'van-hairline--top' : '')">
       <!-- 【修改点】cell增加center，垂直居中 -->
       <van-cell
         :size="size"
@@ -48,16 +48,16 @@
           name="right-icon"
         />
       </van-cell>
-      <view
+      <div
         :class="wrapperClass"
         style="height: 0;"
         :animation="animation"
       >
-        <view class="van-collapse-item__content content-class">
+        <div class="van-collapse-item__content content-class">
           <slot />
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>
@@ -67,8 +67,8 @@ import { setContentAnimate } from './animate';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import utils from '../wxs-js/utils';
 import { ChildrenMixin } from '../mixins/relation';
+import { PARENT_COLLAPSE as PARENT } from '../common/parent-map';
 
-const PARENT = 'pressCollapse';
 
 export default {
   options: {

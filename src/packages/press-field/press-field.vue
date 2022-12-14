@@ -20,25 +20,25 @@
         name="left-icon"
       />
       <template #title>
-        <view
+        <div
           v-if="label"
           :class="'label-class '+(utils.bem('field__label', { disabled }))"
         >
           {{ label }}
-        </view>
+        </div>
         <slot
           v-else-if="useLabelSlot"
           name="label"
         />
       </template>
 
-      <view :class="'' + utils.bem('field__body', [type])">
-        <view
+      <div :class="'' + utils.bem('field__body', [type])">
+        <div
           :class="'' + utils.bem('field__control', [inputAlign, 'custom'])"
           @click="onClickInput"
         >
           <slot name="input" />
-        </view>
+        </div>
         <textarea
           v-if="type === 'textarea'"
           :class="'' + (utils.bem('field__control', [inputAlign, type, { disabled, error }]))+' input-class'"
@@ -114,7 +114,7 @@
           class="van-field__clear-root van-field__icon-root"
           @touchstart.native.stop.prevent="onClear"
         />
-        <view
+        <div
           class="van-field__icon-container"
           @click="onClickIcon"
         >
@@ -126,25 +126,25 @@
           />
           <slot name="right-icon" />
           <slot name="icon" />
-        </view>
-        <view class="van-field__button">
+        </div>
+        <div class="van-field__button">
           <slot name="button" />
-        </view>
-      </view>
-      <view
+        </div>
+      </div>
+      <div
         v-if="showWordLimit && maxlength"
         class="van-field__word-limit"
       >
-        <view :class="'' + utils.bem('field__word-num', { full: value.length >= maxlength })">
+        <div :class="'' + utils.bem('field__word-num', { full: value.length >= maxlength })">
           {{ value.length >= maxlength ? maxlength : value.length }}
-        </view>/{{ maxlength }}
-      </view>
-      <view
+        </div>/{{ maxlength }}
+      </div>
+      <div
         v-if="errorMessage"
         :class="'' + utils.bem('field__error-message', [errorMessageAlign, { disabled, error }])"
       >
         {{ errorMessage }}
-      </view>
+      </div>
     </van-cell>
   </uni-shadow-root>
 </template>

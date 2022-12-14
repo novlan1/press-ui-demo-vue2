@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block
       title="基础用法"
       section-style="margin:0;"
@@ -22,7 +22,7 @@
         </div>
       </press-swipe-cell>
     </demo-block>
-  </view>
+  </div>
 </template>
 <script>
 

@@ -1,15 +1,15 @@
 <template>
   <uni-shadow-root class="vant-slider-index">
-    <view
+    <div
       :class="'custom-class '+(utils.bem('slider', { disabled, vertical }))"
       :style="wrapperStyle"
       @click="onClick"
     >
-      <view
+      <div
         :class="'' + utils.bem('slider__bar')"
         :style="(barStyle)+'; '+(style({ backgroundColor: activeColor }))"
       >
-        <view
+        <div
           v-if="range"
           :class="'' + utils.bem('slider__button-wrapper-left')"
           :data-index="0"
@@ -22,12 +22,12 @@
             v-if="useButtonSlot"
             name="left-button"
           />
-          <view
+          <div
             v-else
             :class="'' + utils.bem('slider__button')"
           />
-        </view>
-        <view
+        </div>
+        <div
           v-if="range"
           :class="'' + utils.bem('slider__button-wrapper-right')"
           :data-index="1"
@@ -40,13 +40,13 @@
             v-if="useButtonSlot"
             name="right-button"
           />
-          <view
+          <div
             v-else
             :class="'' + utils.bem('slider__button')"
           />
-        </view>
+        </div>
 
-        <view
+        <div
           v-if="(!range)"
           :class="'' + utils.bem('slider__button-wrapper')"
           @touchstart="onTouchStart"
@@ -58,13 +58,13 @@
             v-if="useButtonSlot"
             name="button"
           />
-          <view
+          <div
             v-else
             :class="'' + utils.bem('slider__button')"
           />
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

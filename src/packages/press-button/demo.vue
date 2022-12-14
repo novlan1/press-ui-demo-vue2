@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block title="按钮类型">
       <div class="demo-button-row">
         <press-button
@@ -159,8 +159,7 @@
         按钮
       </press-button>
       <press-button
-        icon="https://img.yzcdn.cn/vant/logo.png"
-        type="info"
+        icon="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fpress-ui-avatar-transparent-2.png"
       >
         按钮
       </press-button>
@@ -299,7 +298,7 @@
         </press-button>
       </div>
     </demo-block>
-  </view>
+  </div>
 </template>
 <script>
 

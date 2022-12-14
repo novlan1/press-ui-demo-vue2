@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <div>
     <demo-block
       title="基本用法"
     >
@@ -43,7 +43,7 @@
       @onClickConfirm="pickerOption.tip.onClickConfirm"
       @onRemove="pickerOption.tip.onRemove"
     />
-  </view>
+  </div>
 </template>
 <script>
 const pickerBoList = [

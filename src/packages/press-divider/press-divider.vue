@@ -1,11 +1,11 @@
 <template>
   <uni-shadow-root class="vant-divider-index">
-    <view
+    <div
       :class="dividerClass"
       :style="dividerStyle"
     >
       <slot />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

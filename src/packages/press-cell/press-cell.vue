@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-cell-index">
-    <view
+    <div
       :class="cellClass"
       hover-class="van-cell--hover hover-class"
       hover-stay-time="70"
@@ -19,7 +19,7 @@
       />
 
       <!-- 【修改点】:empty在小程序下失效，用$slots判断 -->
-      <view
+      <div
         v-if="title || useTitleSlot || label || useLabelSlot"
         :style="cTitleStyle"
         class="van-cell__title"
@@ -33,7 +33,7 @@
           name="title"
         />
 
-        <view
+        <div
           v-if="label || useLabelSlot"
           class="van-cell__label"
           :class="labelClass"
@@ -45,10 +45,10 @@
           <template v-else-if="label">
             {{ label }}
           </template>
-        </view>
-      </view>
+        </div>
+      </div>
 
-      <view
+      <div
         v-if="value || value === 0 || $slots.default"
         class="van-cell__value"
         :class="valueClass"
@@ -57,7 +57,7 @@
           {{ value }}
         </template>
         <slot v-else />
-      </view>
+      </div>
 
       <van-icon
         v-if="isLink"
@@ -72,7 +72,7 @@
       />
 
       <slot name="extra" />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

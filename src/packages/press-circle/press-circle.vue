@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-circle-index">
-    <view class="van-circle">
+    <div class="van-circle">
       <!-- #ifdef H5 -->
       <canvas
         :id="canvasId"
@@ -22,19 +22,19 @@
       />
       <!-- #endif -->
 
-      <view
+      <div
         v-if="(!text)"
         class="van-circle__text"
       >
         <slot />
-      </view>
+      </div>
       <cover-view
         v-else
         class="van-circle__text"
       >
         {{ text }}
       </cover-view>
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

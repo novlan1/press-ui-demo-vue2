@@ -1,16 +1,16 @@
 <template>
-  <view>
-    <view>
+  <div>
+    <div>
       <text style="font-size: 25px;color: #333;">
         404 Page Not Found
       </text>
-    </view>
-    <view>
+    </div>
+    <div>
       <text style="font-size: 18px;color: #999;">
         {{ errMsg }}
       </text>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script>

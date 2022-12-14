@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-picker-column-index">
-    <view
+    <div
       class="van-picker-column"
       :class="customClass"
       :style="columnStyle"
@@ -9,8 +9,8 @@
       @touchend="onTouchEnd"
       @touchcancel="onTouchEnd"
     >
-      <view :style="wrapperStyle">
-        <view
+      <div :style="wrapperStyle">
+        <div
           v-for="(option,index) in (options)"
           :key="option.index"
           :data-index="index"
@@ -27,9 +27,9 @@
           @click="onClickItem"
         >
           {{ computed.optionText(option, valueKey) }}
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>
@@ -38,9 +38,9 @@ import Vue from 'vue';
 import { range } from '../common/utils';
 import { isObj } from '../common/validator';
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { PARENT_PICKER as PARENT } from '../common/parent-map';
 
 const DEFAULT_DURATION = 200;
-const PARENT = 'pressPicker';
 
 export default {
   options: {

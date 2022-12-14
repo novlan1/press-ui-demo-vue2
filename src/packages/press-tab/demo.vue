@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block
       title="基础用法"
       header-style="background: #f7f8fa;"
@@ -171,7 +171,7 @@
         </press-tab>
       </press-tabs>
     </demo-block>
-  </view>
+  </div>
 </template>
 <script>
 

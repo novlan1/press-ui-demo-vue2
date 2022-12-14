@@ -170,6 +170,18 @@
         {
           "name": "Tabbar 标签栏",
           "url": "/press/tabbar/tabbar"
+        },
+        {
+          "name": "Sidebar 侧边导航",
+          "url": "/press/sidebar/sidebar"
+        },
+        {
+          "name": "IndexBar 索引栏",
+          "url": "/press/index-bar/index-bar"
+        },
+        {
+          "name": "TreeSelect 分类选择",
+          "url": "/press/tree-select/tree-select"
         }
       ]
     },

@@ -1,11 +1,11 @@
 <template>
-  <view
+  <div
     v-if="info !== null && info !== '' || dot"
     :class="infoClass"
     :style="customStyle"
   >
     {{ dot ? '' : info }}
-  </view>
+  </div>
 </template>
 <script>
 import utils from '../wxs-js/utils';

@@ -1,5 +1,5 @@
 <template>
-  <view
+  <div
     class="van-empty"
     :class="customClass"
   >
@@ -12,31 +12,31 @@
     />
 
     <template v-else>
-      <view class="van-empty__image">
+      <div class="van-empty__image">
         <slot name="image" />
-      </view>
-      <view class="van-empty__image">
+      </div>
+      <div class="van-empty__image">
         <img
           v-if="image"
           class="van-empty__image__img"
           :src="computed.imageUrl(image)"
           :style="imageCustomStyle"
         >
-      </view>
+      </div>
     </template>
 
-    <view class="van-empty__description">
+    <div class="van-empty__description">
       <slot name="description" />
-    </view>
+    </div>
 
-    <view class="van-empty__description">
+    <div class="van-empty__description">
       {{ description }}
-    </view>
+    </div>
 
-    <view class="van-empty__bottom">
+    <div class="van-empty__bottom">
       <slot />
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 <script>
 import computed from './computed';

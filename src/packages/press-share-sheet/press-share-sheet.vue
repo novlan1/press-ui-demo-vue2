@@ -14,27 +14,27 @@
       @close="onClose"
       @click-overlay="onClickOverlay"
     >
-      <view class="van-share-sheet__header">
-        <view class="van-share-sheet__title">
+      <div class="van-share-sheet__header">
+        <div class="van-share-sheet__title">
           <slot name="title" />
-        </view>
-        <view
+        </div>
+        <div
           v-if="title"
           class="van-share-sheet__title"
         >
           {{ title }}
-        </view>
+        </div>
 
-        <view class="van-share-sheet__description">
+        <div class="van-share-sheet__description">
           <slot name="description" />
-        </view>
-        <view
+        </div>
+        <div
           v-if="description"
           class="van-share-sheet__description"
         >
           {{ description }}
-        </view>
-      </view>
+        </div>
+      </div>
 
       <block v-if="computed.isMulti(options)">
         <options

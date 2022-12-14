@@ -1,31 +1,31 @@
 <template>
   <uni-shadow-root class="vant-loading-index">
-    <view
+    <div
       :class="loadingClass"
       :style="customStyle"
     >
-      <view
+      <div
         :class="'van-loading__spinner van-loading__spinner--'+(type)"
         :style="spinnerStyle"
       >
         <template
           v-if="type === 'spinner'"
         >
-          <view
+          <div
             v-for="(item,index) in (array12)"
             :key="index"
             class="van-loading__dot"
           />
         </template>
-      </view>
+      </div>
 
-      <view
+      <div
         class="van-loading__text"
         :style="textStyle"
       >
         <slot />
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>
@@ -156,7 +156,7 @@ export default {
 @for $i from 1 through 12 {
   .van-loading__dot:nth-of-type(#{$i}) {
     transform: rotate($i * 30deg);
-    opacity: 1 - calc(0.75 / 12) * ($i - 1);
+    opacity: 1 - calc((0.75 / 12) * ($i - 1));
   }
 }
 

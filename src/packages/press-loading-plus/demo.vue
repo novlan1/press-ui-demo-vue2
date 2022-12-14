@@ -1,41 +1,41 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block title="加载类型">
-      <view>
+      <div>
         <press-loading-plus />
-      </view>
-      <view>
+      </div>
+      <div>
         <press-loading-plus
           type="spinner"
           :custom-style="customStyle"
         />
-      </view>
+      </div>
     </demo-block>
 
     <demo-block title="自定义颜色">
-      <view>
+      <div>
         <press-loading-plus color="#1989fa" />
-      </view>
-      <view>
+      </div>
+      <div>
         <press-loading-plus
           type="spinner"
           color="#1989fa"
           :custom-style="customStyle"
         />
-      </view>
+      </div>
     </demo-block>
 
     <demo-block title="自定义大小">
-      <view>
+      <div>
         <press-loading-plus size="15" />
-      </view>
-      <view>
+      </div>
+      <div>
         <press-loading-plus
           type="spinner"
           size="38"
           :custom-style="customStyle"
         />
-      </view>
+      </div>
     </demo-block>
 
     <demo-block title="加载文案">
@@ -52,7 +52,7 @@
         加载中...
       </press-loading-plus>
     </demo-block>
-  </view>
+  </div>
 </template>
 <script>
 

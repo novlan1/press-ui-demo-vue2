@@ -1,5 +1,5 @@
 <template>
-  <view class="container">
+  <div class="container">
     <uni-card
       :is-shadow="false"
       is-full
@@ -13,15 +13,15 @@
       type="line"
     >
       <!-- <template #right>
-        <view>
+        <div>
           <switch
             :checked="checked"
             @change="change"
           />
-        </view>
+        </div>
       </template> -->
-      <view class="icon-content">
-        <view
+      <div class="icon-content">
+        <div
           v-for="(item,index) in pressIconList"
           :key="index"
           class="icon-item"
@@ -38,10 +38,10 @@
           >
             {{ checked? item.unicode: item.name }}
           </text>
-        </view>
-      </view>
+        </div>
+      </div>
     </uni-section>
-  </view>
+  </div>
 </template>
 
 <script>

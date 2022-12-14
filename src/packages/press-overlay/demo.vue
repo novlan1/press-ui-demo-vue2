@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block title="基础用法">
       <button
         type="primary"
@@ -27,14 +27,14 @@
       :show="options.content"
       @click="onClickHide('content')"
     >
-      <view class="wrapper">
-        <view
+      <div class="wrapper">
+        <div
           class="block"
           catch:tap="noop"
         />
-      </view>
+      </div>
     </press-overlay>
-  </view>
+  </div>
 </template>
 <script>
 

@@ -1,8 +1,8 @@
 <template>
   <uni-shadow-root class="vant-collapse-index">
-    <view :class="'custom-class van-collapse '+(border ? 'van-hairline--top-bottom' : '')">
+    <div :class="'custom-class van-collapse '+(border ? 'van-hairline--top-bottom' : '')">
       <slot />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 
@@ -11,9 +11,8 @@
 // import { useChildren } from '../common/relation';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
+import { PARENT_COLLAPSE as PARENT } from '../common/parent-map';
 
-
-const PARENT = 'pressCollapse';
 
 export default {
   options: {

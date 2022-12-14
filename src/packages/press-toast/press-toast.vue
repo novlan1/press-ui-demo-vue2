@@ -11,7 +11,7 @@
       :show="dataShow"
       :custom-style="transitionStyle"
     >
-      <view
+      <div
         :class="toastClass"
         @touchmove.stop.prevent="noop"
       >
@@ -48,7 +48,7 @@
         </block>
 
         <slot />
-      </view>
+      </div>
     </press-transition>
   </uni-shadow-root>
 </template>

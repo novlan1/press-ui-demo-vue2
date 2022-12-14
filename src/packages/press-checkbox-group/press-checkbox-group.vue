@@ -1,15 +1,14 @@
 <template>
   <uni-shadow-root class="vant-checkbox-group-index">
-    <view :class="groupClass">
+    <div :class="groupClass">
       <slot />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>
 import utils from '../wxs-js/utils';
 import { ParentMixin } from '../mixins/relation';
-
-const PARENT = 'checkboxGroup';
+import { PARENT_CHECKBOX_GROUP as PARENT } from '../common/parent-map';
 
 export default {
   mixins: [

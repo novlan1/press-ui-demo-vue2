@@ -212,6 +212,21 @@
           "title": "标签栏",
           "subTitle": "Tabbar",
           "path": "/components/press/press-tabbar.md"
+        },
+        {
+          "title": "侧边导航",
+          "subTitle": "Sidebar",
+          "path": "/components/press/press-sidebar.md"
+        },
+        {
+          "title": "索引栏",
+          "subTitle": "IndexBar",
+          "path": "/components/press/press-index-bar.md"
+        },
+        {
+          "title": "分类选择",
+          "subTitle": "TreeSelect",
+          "path": "/components/press/press-tree-select.md"
         }
       ]
     },

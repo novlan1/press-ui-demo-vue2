@@ -2,14 +2,14 @@
   <!-- <uni-shadow-root
     class="vant-transition-index"
   > -->
-  <view
+  <div
     v-if="inited"
     :class="transitionClass"
     :style="rootStyle"
     @transitionend="onTransitionEnd"
   >
     <slot />
-  </view>
+  </div>
   <!-- </uni-shadow-root> -->
 </template>
 <script>

@@ -9,7 +9,7 @@
       :lock-scroll="lockScroll"
       @click="onClickOverlay"
     />
-    <view
+    <div
       v-if="inited"
       :class="popupClass"
       :style="popupStyle"
@@ -22,7 +22,7 @@
         :class="cCloseIconClass"
         @click.native="onClickCloseIcon"
       />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

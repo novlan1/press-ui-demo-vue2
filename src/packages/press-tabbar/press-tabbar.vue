@@ -1,14 +1,14 @@
 <template>
   <uni-shadow-root class="vant-tabbar-index">
-    <view
+    <div
       :class="(border ? 'van-hairline--top-bottom' : '')+
         ' '+(utils.bem('tabbar', { fixed, safe: safeAreaInsetBottom }))+' custom-class'"
       :style="zIndex ? 'z-index: ' + zIndex : ''"
     >
       <slot />
-    </view>
+    </div>
 
-    <view
+    <div
       v-if="fixed && placeholder"
       :style="'height: '+(height)+'px;'"
     />
@@ -21,8 +21,8 @@ import utils from '../wxs-js/utils';
 import { getRect } from '../common/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
+import { PARENT_TABBAR  as PARENT } from '../common/parent-map';
 
-const PARENT = 'radioGroup';
 
 export default {
   options: {

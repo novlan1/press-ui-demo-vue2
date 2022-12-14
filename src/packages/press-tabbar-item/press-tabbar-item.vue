@@ -1,11 +1,11 @@
 <template>
   <uni-shadow-root class="vant-tabbar-item-index">
-    <view
+    <div
       :class="'' + (utils.bem('tabbar-item', { active }))+' custom-class'"
       :style="'color: '+(active ? activeColor : inactiveColor)"
       @click="onClick"
     >
-      <view class="van-tabbar-item__icon">
+      <div class="van-tabbar-item__icon">
         <van-icon
           v-if="icon"
           :name="icon"
@@ -27,11 +27,11 @@
           :info="info"
           custom-class="van-tabbar-item__info"
         />
-      </view>
-      <view class="van-tabbar-item__text">
+      </div>
+      <div class="van-tabbar-item__text">
         <slot />
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>
@@ -41,13 +41,13 @@ import VanInfo from '../press-info/press-info.vue';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
-
-const PARENT = 'radioGroup';
+import { PARENT_TABBAR  as PARENT } from '../common/parent-map';
 
 
 export default {
   options: {
     ...defaultOptions,
+    virtualHost: true,
     styleIsolation: 'shared',
   },
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block
       title="基础用法"
       :section-style="sectionStyle"
@@ -136,7 +136,7 @@
         </press-checkbox>
       </press-checkbox-group>
     </demo-block>
-  </view>
+  </div>
 </template>
 <script>
 

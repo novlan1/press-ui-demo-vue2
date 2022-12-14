@@ -1,25 +1,21 @@
 # [PressUI](https://git.woa.com/pmd-mobile/support/press-ui)
 
-[TOC]
 
 press-ui是一套易用的、灵活的，基于uni-app的跨端组件库。
 
-
-也可用于普通h5项目，需要加一个loader去掉条件编译部分。
-
-
-## 样式规范
+也可用于普通h5项目，需要加一个[loader](https://git.woa.com/pmd-mobile/support/uni-plugin-light/tree/master/loader/ifdef-loader)去掉条件编译部分。
 
 
-BEM方式命名CSS，参考文章: https://km.woa.com/group/29321/articles/show/503041
-
-最外层结构命名为`press-组件名称`，如`press-loading`。
+[TOC]
 
 
-## 开发
 
 
-### 组件开发
+
+## 1. 开发
+
+
+### 1.1. 组件开发
 
 
 ```bash
@@ -41,19 +37,19 @@ npm run new:comp
 
 然后交互式的输入组件英文名、中文名等内容即可。
 
-### 文档开发
+### 1.2. 文档开发
 
 ```
 npm run docs:dev
 ```
 
-### 文档构建
+### 1.3. 文档构建
 
 ```
 npm run docs:build
 ```
 
-### 文档部署
+### 1.4. 文档部署
 
 需要在.env.local中写入服务器地址和密码：
 
@@ -69,13 +65,13 @@ npm run docs:deploy
 ```
 
 
-### 监听demo/文档
+### 1.5. 监听demo/文档
 
 ```
 npm run docs:watch
 ```
 
-### 开发最佳实践
+### 1.6. 开发最佳实践
 
 多开几个终端
 
@@ -87,7 +83,15 @@ npm run docs:dev
 ```
 
 
-## 目录结构
+
+### 1.7. 样式规范
+
+
+BEM方式命名CSS，参考文章: https://km.woa.com/group/29321/articles/show/503041
+
+最外层结构命名为`press-组件名称`，如`press-loading`。
+
+## 2. 目录结构
 
 ```bash
 - docs            # 文档地址
@@ -107,14 +111,14 @@ npm run docs:dev
 
 
 
-## 立即体验
+## 3. 立即体验
 
 <img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/qrcode/press-ui-demo-qrcode-2.png" width="600">
 
 
 
 
-## 如何使用
+## 4. 如何使用
 
 1. 安装npm包
 
@@ -141,16 +145,26 @@ export default {
 }
 ```
 
-## rem单位
+3. 配置`vue.config.js`
+
+注意，需要在`vue.config.js`中配置下 `transpileDependencies`：
+
+```js
+module.exports = {
+  transpileDependencies: ['@tencent/press-ui'],
+}
+```
+
+## 5. rem单位
 
 目前有的组件使用的单位是rem
 - 优势：h5端适配更好，更合适
 - 劣势：在小程序等其他端需要额外的插件来转换
 
 
-## 赛宝项目已改动点
+## 6. 赛宝项目已改动点
 
-### dialog
+### 6.1. dialog
 
 1. src/local-component/module/tip-match/tip-match-comm-tips-dialog 
 - 替换为 `@tencent/press-ui/press-dialog`
@@ -161,7 +175,7 @@ export default {
 - 替换为 `@tencent/press-ui/press-dialog/press-dialog`
 - 删除原文件，但css还在用
 
-### picker
+### 6.2. picker
 
 1. src/local-component/module/tip-match/tip-match-select-list-dialog/tip-match-select-list-dialog
 - 替换为 `@tencent/press-ui/press-picker/press-picker`
@@ -177,21 +191,21 @@ export default {
 
 
 
-### switch
+### 6.3. switch
 
 1. src/local-component/ui/tip-match/tip-match-switch
 - 替换为 `@tencent/press-ui/press-switch/press-switch`
 - 删除原文件
 
-### DatetimePicker
+### 6.4. DatetimePicker
 
 van-datetime-picker 替换为 press-dateime-picker
 
-### Tab
+### 6.5. Tab
 
 van-tab 替换为 press-tab
 
-## TODO
+## 7. TODO
 
 1. src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 `@tencent/press-ui/press-picker/handler`
 
@@ -228,7 +242,7 @@ p2
 - 侧滑删除
 - empty
 
-## 当前痛点
+## 8. 当前痛点
 
 - 组件夹杂在业务库中，没有分离，没有抽象
   - 难复用
@@ -243,6 +257,6 @@ p2
 
 
 
-## 组件依赖最小原则
+## 9. 组件依赖最小原则
 
 组件不要依赖太多的外部公共文件，保持独立性

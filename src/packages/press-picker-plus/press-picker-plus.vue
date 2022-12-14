@@ -1,6 +1,6 @@
 <template>
   <uni-shadow-root class="vant-picker-index">
-    <view
+    <div
       class="van-picker"
       :class="customClass"
     >
@@ -13,14 +13,14 @@
         @emit="emit"
       />
 
-      <view
+      <div
         v-if="loading"
         class="van-picker__loading"
       >
         <loading color="#1989fa" />
-      </view>
+      </div>
 
-      <view
+      <div
         class="van-picker__columns"
         :style="columnStyle"
         @touchmove.stop.prevent="noop"
@@ -40,20 +40,20 @@
           active-class="active-class"
           @change="value=>onChange(value, index)"
         />
-        <view
+        <div
           class="van-picker__mask"
           :style="maskStyle"
         />
-        <view
+        <div
           class="van-picker__frame van-hairline--top-bottom"
           :style="frameStyle"
         />
-      </view>
+      </div>
 
       <ToolBar
         v-if="toolbarPosition === 'bottom'"
       />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>
@@ -61,9 +61,9 @@ import PickerColumn from '../press-picker-column/press-picker-column.vue';
 import Loading from '../press-loading-plus/press-loading-plus.vue';
 import ToolBar from './toolbar.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { PARENT_PICKER as PARENT } from '../common/parent-map';
 
 import computed from './index.js';
-const PARENT = 'pressPicker';
 
 export default {
   options: {

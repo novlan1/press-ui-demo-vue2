@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block title="基础用法">
       <PressSwitch
         :checked="checkedMap.basic"
@@ -61,7 +61,7 @@
       id="tip-match-comm-tips-dialog"
     />
     <!-- #endif -->
-  </view>
+  </div>
 </template>
 <script>
 // eslint-disable-next-line import/no-unresolved

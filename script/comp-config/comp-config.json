@@ -169,6 +169,18 @@
       {
         "name": "Tabbar",
         "title": "标签栏"
+      },
+      {
+        "name": "Sidebar",
+        "title": "侧边导航"
+      },
+      {
+        "name": "IndexBar",
+        "title": "索引栏"
+      },
+      {
+        "name": "TreeSelect",
+        "title": "分类选择"
       }
     ]
   },

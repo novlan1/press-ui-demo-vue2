@@ -1,7 +1,7 @@
 <template>
-  <view class="home-container">
+  <div class="home-container">
     <!-- <press-loading /> -->
-    <view class="home-header">
+    <div class="home-header">
       <image
         class="home-header__bg"
         src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/uniui-header-bg.png"
@@ -12,19 +12,19 @@
         src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png"
         mode="aspectFit"
       />
-      <view class="home-header__content">
-        <view class="home-header__content-title">
+      <div class="home-header__content">
+        <div class="home-header__content-title">
           全端兼容 高性能
-        </view>
-        <view class="home-header__content-info">
+        </div>
+        <div class="home-header__content-info">
           <text class="home-header__content-subtitle">
             press-ui 是一套易用的、灵活的、基于uni-app的组件库
           </text>
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
 
-    <view class="home-content">
+    <div class="home-content">
       <uni-card
         padding="0"
       >
@@ -53,8 +53,8 @@
           </uni-list>
         </template>
       </uni-card>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 <script>
 const pagesConfig = require('./page-config.json');

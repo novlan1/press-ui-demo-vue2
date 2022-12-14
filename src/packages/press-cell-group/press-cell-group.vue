@@ -1,14 +1,14 @@
 <template>
   <uni-shadow-root class="vant-cell-group-index">
-    <view
+    <div
       v-if="title"
       :class="titleClass"
     >
       {{ title }}
-    </view>
-    <view :class="groupClass">
+    </div>
+    <div :class="groupClass">
       <slot />
-    </view>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

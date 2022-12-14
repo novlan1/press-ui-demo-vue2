@@ -139,7 +139,7 @@
       >
         <!-- 全国大赛solo -->
         <div
-          v-if=""
+          v-if="isShowSolo"
           class="team-solo"
         />
         <!-- div模拟输入框 -->
@@ -175,8 +175,13 @@
 <script>
 import PressLoadingPlus from '../press-loading-plus/press-loading-plus';
 import { isH5 } from '../common/validate/system';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
   components: {
     PressLoadingPlus,
   },
@@ -197,10 +202,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    customClass: {
-      type: String,
-      default: '',
-    },
+    ...defaultProps,
   },
   data() {
     return {

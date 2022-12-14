@@ -1,6 +1,7 @@
 <template>
   <div
     class="press-message-list"
+    :class="customClass"
   >
     <div v-if="list.length">
       <press-swipe-cell
@@ -79,16 +80,19 @@
 <script>
 import PressLoading from '../press-loading/press-loading.vue';
 import PressEmpty from '../press-empty/press-empty.vue';
+import PressSwipeCell from '../press-swipe-cell/press-swipe-cell.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
 
 export default {
   options: {
     ...defaultOptions,
+    styleIsolation: 'shared',
   },
   components: {
     PressLoading,
     PressEmpty,
+    PressSwipeCell,
   },
   props: {
     useLazy: {

@@ -71,7 +71,7 @@ subTitle: Button
 ```html
 <press-button icon="star-o" type="primary" />
 <press-button icon="star-o" type="primary">按钮</press-button>
-<press-button icon="https://img.yzcdn.cn/vant/logo.png" type="info">
+<press-button icon="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fpress-ui-avatar.png" type="info">
   按钮
 </press-button>
 ```

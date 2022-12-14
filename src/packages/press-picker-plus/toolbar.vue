@@ -1,10 +1,10 @@
 <template>
   <uni-shadow-root class="vant-picker-toolbar">
-    <view
+    <div
       v-if="showToolbar"
       class="van-picker__toolbar toolbar-class"
     >
-      <view
+      <div
         class="van-picker__cancel"
         hover-class="van-picker__cancel--hover"
         hover-stay-time="70"
@@ -12,16 +12,16 @@
         @click="emit"
       >
         {{ cancelButtonText }}
-      </view>
-      <view
+      </div>
+      <div
         v-if="title"
         class="van-picker__title van-ellipsis"
       >
         {{
           title
         }}
-      </view>
-      <view
+      </div>
+      <div
         class="van-picker__confirm"
         hover-class="van-picker__confirm--hover"
         hover-stay-time="70"
@@ -29,8 +29,8 @@
         @click="emit"
       >
         {{ confirmButtonText }}
-      </view>
-    </view>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 

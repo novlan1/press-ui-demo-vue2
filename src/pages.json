@@ -784,6 +784,39 @@
       ]
     },
     {
+      "root": "pages/press/sidebar",
+      "pages": [
+        {
+          "path": "sidebar",
+          "style": {
+            "navigationBarTitleText": "Sidebar 侧边导航"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/press/index-bar",
+      "pages": [
+        {
+          "path": "index-bar",
+          "style": {
+            "navigationBarTitleText": "IndexBar 索引栏"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/press/tree-select",
+      "pages": [
+        {
+          "path": "tree-select",
+          "style": {
+            "navigationBarTitleText": "TreeSelect 分类选择"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/area",
       "pages": [
         {

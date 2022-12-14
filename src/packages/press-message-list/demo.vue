@@ -35,7 +35,71 @@ const DEMO_LIST = [{
   type: 'HOLD_LIST',
   time: '08-20 11:32',
   avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
-}];
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+{
+  nick: '显示列表',
+  content: '这里是消息内容，这里是消息内容消息内容',
+  type: 'HOLD_LIST',
+  time: '08-20 11:32',
+  avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/wechat_avatar.png',
+},
+];
 
 let timer;
 

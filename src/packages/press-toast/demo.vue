@@ -1,5 +1,5 @@
 <template>
-  <view class="wrap">
+  <div class="wrap">
     <demo-block title="文字提示">
       <PressButton
         type="e-sport-primary"
@@ -57,7 +57,7 @@
     <!-- #ifndef H5 -->
     <press-toast id="van-toast" />
     <!-- #endif -->
-  </view>
+  </div>
 </template>
 <script>
 import Toast from 'src/packages/press-toast';

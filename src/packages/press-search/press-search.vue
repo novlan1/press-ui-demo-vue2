@@ -1,16 +1,16 @@
 <template>
   <uni-shadow-root class="vant-search-index">
-    <view
+    <div
       :class="'custom-class ' + (utils.bem('search', { withaction: showAction || useActionSlot }))"
       :style="'background: '+(background)"
     >
-      <view :class="'' + utils.bem('search__content', [shape])">
-        <view
+      <div :class="'' + utils.bem('search__content', [shape])">
+        <div
           v-if="label"
           class="van-search__label"
         >
           {{ label }}
-        </view>
+        </div>
         <slot
           v-else
           name="label"
@@ -55,9 +55,9 @@
             name="right-icon"
           />
         </van-field>
-      </view>
+      </div>
 
-      <view
+      <div
         v-if="showAction || useActionSlot"
         class="van-search__action"
         hover-class="van-search__action--hover"
@@ -67,15 +67,15 @@
           v-if="useActionSlot"
           name="action"
         />
-        <view
+        <div
           v-else
           class="cancel-class"
           @click="onCancel"
         >
           {{ actionText }}
-        </view>
-      </view>
-    </view>
+        </div>
+      </div>
+    </div>
   </uni-shadow-root>
 </template>
 <script>

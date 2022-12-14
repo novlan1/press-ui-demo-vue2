@@ -1,6 +1,7 @@
 <template>
   <div
     class="press-message-board-input"
+    :custom-class="customClass"
     :style="{ paddingBottom: `${inputBottom}px` }"
   >
     <!-- div模拟输入框 -->

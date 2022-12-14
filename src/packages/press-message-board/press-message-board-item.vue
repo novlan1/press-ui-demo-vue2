@@ -1,6 +1,7 @@
 <template>
   <div
     class="press-message-board-item"
+    :custom-class="customClass"
   >
     <!-- 玩家留言 -->
     <div

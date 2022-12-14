@@ -2,6 +2,7 @@
   <scroll-view
     scroll-y="true"
     style="height: 100%"
+    :class="customClass"
     :lower-threshold="lowerThreshold"
     :scroll-top="scrollTop"
     :scroll-into-view="scrollToElementById"
@@ -13,7 +14,13 @@
 </template>
 
 <script>
+import { defaultProps, defaultOptions } from '../common/press-component';
+
+
 export default {
+  options: {
+    ...defaultOptions,
+  },
   name: 'ScrollViewMp',
   components: {},
   props: {
@@ -26,6 +33,7 @@ export default {
       default: () => 0,
     },
     scrollToElementById: { type: String, default: '' },
+    ...defaultProps,
   },
   data() {
     return {

@@ -2,6 +2,7 @@
   <div
     :id="randomId"
     style="height: 100%;overflow-y: auto"
+    :class="customClass"
     @scroll="onScroll"
   >
     <slot />
@@ -9,7 +10,13 @@
 </template>
 
 <script>
+import { defaultProps, defaultOptions } from '../common/press-component';
+
+
 export default {
+  options: {
+    ...defaultOptions,
+  },
   name: 'ScrollViewWeb',
   components: {},
   props: {
@@ -22,6 +29,7 @@ export default {
       type: Number,
       default: () => 50,
     },
+    ...defaultProps,
   },
   data() {
     const randomId = `__scrollView_${new Date().getDate()}${Math.random()}`;

@@ -637,6 +637,13 @@ export default {
       height: var(--tabs-card-height, $tabs-card-height);
     }
   }
+
+  // 适配不支持virtualHost的小程序
+  ::v-deep press-tab {
+    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
 }
 
 .van-tab {

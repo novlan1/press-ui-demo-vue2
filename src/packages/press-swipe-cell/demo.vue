@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="demo-wrap">
     <demo-block
       title="基础用法"
       section-style="margin:0;"
@@ -11,13 +11,19 @@
         @close="onClose"
         @open="onOpen"
       >
-        <div slot="left">
+        <div
+          slot="left"
+          class="left"
+        >
           选择
         </div>
         <div class="content">
           一些内容
         </div>
-        <div slot="right">
+        <div
+          slot="right"
+          class="right"
+        >
           删除
         </div>
       </press-swipe-cell>
@@ -53,11 +59,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.content {
-  height: 44px;
-  line-height: 44px;
-  padding-left: 20px;
-  background: #f7f8fa;
+.demo-wrap {
+  ::v-deep .van-swipe-cell__left,
+  ::v-deep .van-swipe-cell__right {
+    background-color: #f44;
+  }
+
+  .content {
+    height: 44px;
+    line-height: 44px;
+    padding-left: 20px;
+    background: #f7f8fa;
+  }
 }
 </style>
 

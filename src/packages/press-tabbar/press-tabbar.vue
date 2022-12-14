@@ -32,33 +32,25 @@ export default {
   mixins: [
     ParentMixin(PARENT),
   ],
-  // relation: useChildren('tabbar-item', function () {
-  //   this.updateChildren();
-  // }),
   props: {
     active: {
       type: [String, Number],
       default: '',
-      // observer: 'updateChildren',
     },
     activeColor: {
       type: String,
       default: '',
-      // observer: 'updateChildren',
     },
     inactiveColor: {
       type: String,
       default: '',
-      // observer: 'updateChildren',
     },
     fixed: {
       type: Boolean,
       default: true,
-      // observer: 'setHeight',
     },
     placeholder: {
       type: Boolean,
-      // observer: 'setHeight',
     },
     border: {
       type: Boolean,
@@ -153,6 +145,10 @@ export default {
   &--safe {
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  ::v-deep press-tabbar-item {
+    flex: 1;
   }
 }
 </style>

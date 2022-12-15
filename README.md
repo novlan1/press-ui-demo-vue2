@@ -205,6 +205,12 @@ van-datetime-picker 替换为 press-dateime-picker
 
 van-tab 替换为 press-tab
 
+### popover
+
+src/local-component/ui/tip-match/tip-match-popver 替换为 press-popover
+
+之前 isShowPopper 属性改为 show，因为 show 简单明了、容易记忆、容易维护。
+
 ## 7. TODO
 
 1. src/local-component/module/tip-match/tip-match-select-list-dialog 替换为 `@tencent/press-ui/press-picker/handler`

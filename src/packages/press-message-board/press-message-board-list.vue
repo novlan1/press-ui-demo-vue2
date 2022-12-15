@@ -19,14 +19,6 @@ export default {
     PressScrollView,
   },
   props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
-    captainUid: {
-      type: String,
-      default: '',
-    },
     ...defaultProps,
   },
   data() {

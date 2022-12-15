@@ -3,7 +3,6 @@
     <div class="demo-list-wrap">
       <PressMessageBoardList
         custom-class="demo-message-list"
-        captain-uid="good_uid"
       >
         <PressMessageBoardItem
           v-for="(item,index) of msgList"

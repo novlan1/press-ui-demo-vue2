@@ -145,6 +145,11 @@
           "title": "滑动单元格",
           "subTitle": "SwipeCell",
           "path": "/components/press/press-swipe-cell.md"
+        },
+        {
+          "title": "弹出框",
+          "subTitle": "Popover",
+          "path": "/components/press/press-popover.md"
         }
       ]
     },

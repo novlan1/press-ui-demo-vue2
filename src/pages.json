@@ -663,6 +663,17 @@
       ]
     },
     {
+      "root": "pages/press/popover",
+      "pages": [
+        {
+          "path": "popover",
+          "style": {
+            "navigationBarTitleText": "Popover 弹出框"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/circle",
       "pages": [
         {

@@ -115,6 +115,10 @@
       {
         "name": "SwipeCell",
         "title": "滑动单元格"
+      },
+      {
+        "name": "Popover",
+        "title": "弹出框"
       }
     ]
   },

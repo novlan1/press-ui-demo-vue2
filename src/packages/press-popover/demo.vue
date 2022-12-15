@@ -57,8 +57,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "src/packages/base/mixin.scss";
-$GAP: 56px;
-
 .demo-wrap {
   padding-bottom: 20px;
 }
@@ -68,6 +66,7 @@ $GAP: 56px;
   align-items: center;
   justify-content: center;
 }
+
 .demo-block {
   width: 50px;
   height: 50px;

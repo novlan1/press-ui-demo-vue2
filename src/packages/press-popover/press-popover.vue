@@ -70,12 +70,12 @@ export default {
 
 .press-popover {
   position: absolute;
-  font-size: tovmin(24);
-  color: $color-white;
-  padding: tovmin(8) tovmin(24);
-  border-radius: tovmin(8);
-  background: rgba(0, 0, 37, 0.95);
-  z-index: 8;
+  font-size: var(--popover-font-size, tovmin(24));
+  color: var(--popover-color, $color-white);
+  padding: var(--popover-padding, tovmin(8) tovmin(24));
+  border-radius: var(--popover-border-radius, tovmin(8));
+  background: var(--popover-background, rgba(0, 0, 37, 0.95));
+  z-index: var(--popover-z-index, 8);
 
   &::before {
     position: absolute;
@@ -84,7 +84,7 @@ export default {
     height: 0;
     border-left: tovmin(12) solid transparent;
     border-right: tovmin(12) solid transparent;
-    border-top: tovmin(12) solid rgba(0, 0, 37, 0.95);
+    border-top: tovmin(12) solid var(--popover-background, rgba(0, 0, 37, 0.95));
   }
 
   &--top {

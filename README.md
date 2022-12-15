@@ -3,12 +3,10 @@
 
 press-ui是一套易用的、灵活的，基于uni-app的跨端组件库。
 
-也可用于普通h5项目，需要加一个[loader](https://git.woa.com/pmd-mobile/support/uni-plugin-light/tree/master/loader/ifdef-loader)去掉条件编译部分。
+也可用于普通h5项目，需要加一个 [loader](https://git.woa.com/pmd-mobile/support/uni-plugin-light/tree/master/loader/ifdef-loader) 去掉条件编译部分。
 
 
 [TOC]
-
-
 
 
 
@@ -87,7 +85,7 @@ npm run docs:dev
 ### 1.7. 样式规范
 
 
-BEM方式命名CSS，参考文章: https://km.woa.com/group/29321/articles/show/503041
+BEM方式命名CSS，参考[这篇文章](https://km.woa.com/group/29321/articles/show/503041)。
 
 最外层结构命名为`press-组件名称`，如`press-loading`。
 
@@ -205,7 +203,7 @@ van-datetime-picker 替换为 press-dateime-picker
 
 van-tab 替换为 press-tab
 
-### popover
+### 6.6. popover
 
 src/local-component/ui/tip-match/tip-match-popver 替换为 press-popover
 

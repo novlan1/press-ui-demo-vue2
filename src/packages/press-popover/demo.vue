@@ -1,81 +1,34 @@
 <template>
   <div class="demo-wrap">
-    <div class="popover-wrap">
-      <PressPopover
-        :show="true"
-        placement="bottom"
-        custom-class="demo-nav-popover demo-nav-popover--bottom"
+    <demo-block
+      v-for="(item,index) of list"
+      :key="index"
+      :title="item"
+    >
+      <press-button
+        type="e-sport-primary"
+        @click.stop="onShowPopover(item)"
       >
-        <div
-          v-for="(item,index) of list"
-          :key="index"
-          class="demo-nav-item"
-        >
-          选项{{ item }}
-        </div>
-        <div
-          class="demo-nav-item"
-        >
-          bottom
-        </div>
-      </PressPopover>
+        点击查看
+      </press-button>
+    </demo-block>
 
-      <PressPopover
-        :show="true"
-        placement="top"
-        custom-class="demo-nav-popover demo-nav-popover--top"
-      >
-        <div
-          v-for="(item,index) of list"
-          :key="index"
-          class="demo-nav-item"
+    <div class="demo-block-wrap">
+      <div class="demo-block">
+        <PressPopover
+          :show="true"
+          :placement="direction"
+          :custom-class="`demo-nav-popover demo-nav-popover--${direction}`"
         >
-          选项{{ item }}
-        </div>
-        <div
-          class="demo-nav-item"
-        >
-          top
-        </div>
-      </PressPopover>
-
-      <PressPopover
-        :show="true"
-        placement="right"
-        custom-class="demo-nav-popover demo-nav-popover--right"
-      >
-        <div
-          v-for="(item,index) of list"
-          :key="index"
-          class="demo-nav-item"
-        >
-          选项{{ item }}
-        </div>
-        <div
-          class="demo-nav-item"
-        >
-          right
-        </div>
-      </PressPopover>
-
-      <PressPopover
-        :show="true"
-        placement="left"
-        custom-class="demo-nav-popover demo-nav-popover--left"
-      >
-        <div
-          v-for="(item,index) of list"
-          :key="index"
-          class="demo-nav-item"
-        >
-          选项{{ item }}
-        </div>
-        <div
-          class="demo-nav-item"
-        >
-          left
-        </div>
-      </PressPopover>
+          <div
+            v-for="(item,index) of dataList"
+            :key="index"
+            class="demo-nav-item"
+          >
+            选项{{ item }}
+          </div>
+        </PressPopover>
+      </div>
     </div>
   </div>
 </template>
@@ -89,12 +42,16 @@ export default {
   },
   data() {
     return {
-      list: [1, 2, 3],
+      list: ['top', 'bottom', 'left', 'right'],
+      dataList: [1, 2, 3],
+      direction: 'top',
 
     };
   },
   methods: {
-
+    onShowPopover(direction) {
+      this.direction = direction;
+    },
   },
 };
 </script>
@@ -102,43 +59,62 @@ export default {
 @import "src/packages/base/mixin.scss";
 $GAP: 56px;
 
-.popover-wrap {
+.demo-wrap {
+  padding-bottom: 20px;
+}
+
+.demo-block-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-block {
+  width: 50px;
+  height: 50px;
+  background: #eee;
+  margin-top: 100px;
   position: relative;
-  width: 100%;
-  height: 10px;
 
   ::v-deep .demo-nav-popover {
-    top: 30px;
-    bottom: auto;
     padding: 0;
     background: #09134e;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+
+    &--top {
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--bottom {
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     &--left {
-      left: auto;
-      right: $GAP;
-      top: 238px;
+      right: calc(100% + 10px);
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     &--right {
-      left: $GAP;
-      right: auto;
-      top: 238px;
+      left: calc(100% + 10px);
+      top: 50%;
+      transform: translateY(-50%);
     }
+  }
+}
 
-    &--top {
-      left: $GAP;
-      right: auto;
-    }
-    &--bottom {
-      left: auto;
-      right: $GAP;
-    }
-  }
-  .demo-nav-item {
-    display: flex;
-    align-items: center;
-    padding: 0 22px;
-    height: 40px;
-    color: #fff;
-  }
+.demo-nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 70px;
+  height: 40px;
 }
 </style>

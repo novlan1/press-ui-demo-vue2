@@ -98,7 +98,7 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import "src/packages/base/mixin.scss";
 $GAP: 56px;
 
@@ -107,7 +107,7 @@ $GAP: 56px;
   width: 100%;
   height: 10px;
 
-  .demo-nav-popover {
+  ::v-deep .demo-nav-popover {
     top: 30px;
     bottom: auto;
     padding: 0;

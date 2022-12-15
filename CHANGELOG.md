@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.35](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.31...v0.1.35) (2022-12-15)
+
+
+### Features
+
+* 优化一些页面 ([b23d27e](https://git.woa.com/pmd-mobile/support/press-ui/commit/b23d27e4aecf7814727a1b97314ccaa63ca19f6d))
+* 优化demo样式 ([610402c](https://git.woa.com/pmd-mobile/support/press-ui/commit/610402c4c9fd9c273fdaefa72f6b6396ca177d5d))
+* 优化demo样式 ([fb9865d](https://git.woa.com/pmd-mobile/support/press-ui/commit/fb9865d671f2c0c81d214c36d926200e350161a8))
+* 优化message-board ([302da3d](https://git.woa.com/pmd-mobile/support/press-ui/commit/302da3d09540aae6319c08732bbc22451a8abf1b))
+* 优化message-board ([3bfc260](https://git.woa.com/pmd-mobile/support/press-ui/commit/3bfc260fc5e51611ed6579f1f845dd2e42898592))
+* 增加customClass ([346724c](https://git.woa.com/pmd-mobile/support/press-ui/commit/346724c327e52e29f154bba2830c9a80f9bb1113))
+* div替换view ([97fb661](https://git.woa.com/pmd-mobile/support/press-ui/commit/97fb66192527d20ddcd806823c2ddb14739b01ee))
+* **index-bar:** 增加indexBar ([7912712](https://git.woa.com/pmd-mobile/support/press-ui/commit/79127123848cc6b71bbec03dd1449a212d21e450))
+* **popover:** 增加popover ([88eb1da](https://git.woa.com/pmd-mobile/support/press-ui/commit/88eb1dae7bc402bdc5a60dc0caebd5ad4d3f9f18))
+* **tree-select:** 增加tree-select ([805149d](https://git.woa.com/pmd-mobile/support/press-ui/commit/805149d58abad18dc0e186fefea7ef29eec2628f))
+
+
+### Bug Fixes
+
+* **button:** 修复button文字换行和背景图片遮挡问题 ([072d1a1](https://git.woa.com/pmd-mobile/support/press-ui/commit/072d1a1b9e1d558b8c3cc9e2c6c72267e619e75e))
+
 ### [0.1.34](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.33...v0.1.34) (2022-12-14)
 
 ### [0.1.33](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.32...v0.1.33) (2022-12-14)

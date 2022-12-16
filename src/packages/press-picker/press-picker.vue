@@ -88,10 +88,13 @@ export default {
     },
     destroy() {
       this.$destroy();
+
+      // #ifdef H5
       if (document.body.contains(this.$el)) {
         this.$el?.parentElement?.removeChild?.(this.$el);
         // document.body.removeChild(this.$el);
       }
+      // #endif
     },
 
   },

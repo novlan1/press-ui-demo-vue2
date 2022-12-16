@@ -109,10 +109,13 @@ export default {
   },
   computed: {
     transformStyle() {
-      if (isMp()) {
-        return `transform: translate3d(0rpx,${this.currentScroll * 2}rpx,0rpx);`;
-      }
-      return `transform: translate3d(0px,${this.currentScroll * 2 / 100}rem,0px);`;
+      let res = `transform: translate3d(0rpx, ${this.currentScroll * 2}rpx, 0rpx);`;
+
+      // #ifdef H5
+      res = `transform: translate3d(0px, ${this.currentScroll * 2 / 100}rem, 0px);`;
+      // #endif
+
+      return res;
     },
   },
   watch: {
@@ -233,9 +236,7 @@ export default {
         { x: this.upX, y: this.upY },
       );
       if (distance < 10) {
-        this.currentIndex = this.getElementIndex(
-          isMp() ? e.target : e.currentTarget
-        );
+        this.currentIndex = this.getElementIndex(isMp() ? e.target : e.currentTarget);
         this.currentScroll = -this.currentIndex * this.itemHeight;
         this.hasClick = true;
       }

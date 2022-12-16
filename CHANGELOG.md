@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.37](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.36...v0.1.37) (2022-12-16)
+
+
+### Features
+
+* **picker:** 优化picker在qq小程序滚动问题 ([6e57cb8](https://git.woa.com/pmd-mobile/support/press-ui/commit/6e57cb800b63521e5acbc9f9436f6fefedb35ec5))
+
+
+### Bug Fixes
+
+* 用el.parentElement替换document.body.removeChild ([5c5b288](https://git.woa.com/pmd-mobile/support/press-ui/commit/5c5b288a1ff8ca5c46c9e13c1568f33a60de5b44))
+
 ### [0.1.36](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.35...v0.1.36) (2022-12-16)
 
 

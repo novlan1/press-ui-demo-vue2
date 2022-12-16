@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="innerShow"
     :class="['press-popup',popupClass ,isCrossSlab? 'press-popup__hor':'press-popup__vert']"
     :style="{zIndex: `${zIndex}`}"
     @touchmove.stop="preventTouchMove"
@@ -61,6 +62,7 @@
 <script>
 // import PressIcon from '../press-icon/press-icon.vue';
 import PressButton from '../press-button/press-button.vue';
+const ANIMATION_TIME = 400;
 
 export default {
   name: 'PopupContainer',
@@ -150,12 +152,20 @@ export default {
   data() {
     return {
       isShowPopup: true,
+      innerShow: true,
       timer: 0,
     };
   },
   watch: {
     isShow(val) {
       this.isShowPopup = val;
+      if (!val) {
+        setTimeout(() => {
+          this.innerShow = false;
+        }, ANIMATION_TIME);
+      } else {
+        this.innerShow = true;
+      }
     },
     // #ifdef H5
     isShowPopup: {
@@ -190,7 +200,7 @@ export default {
       this.isShowPopup = false;
       this.timer = setTimeout(() => {
         this.$emit('onCancel');
-      }, 400);
+      }, ANIMATION_TIME);
     },
     clickConfirm() {
       if (this.$parent.validateConfirm && !this.$parent.validateConfirm()) {
@@ -199,7 +209,7 @@ export default {
       this.isShowPopup = false;
       this.timer = setTimeout(() => {
         this.$emit('onConfirm');
-      }, 400);
+      }, ANIMATION_TIME);
     },
   },
 };

@@ -16,7 +16,7 @@
     <div class="demo-block-wrap">
       <div class="demo-block">
         <PressPopover
-          :show="true"
+          :show="!!direction"
           :placement="direction"
           :custom-class="`demo-nav-popover demo-nav-popover--${direction}`"
         >
@@ -44,7 +44,7 @@ export default {
     return {
       list: ['top', 'bottom', 'left', 'right'],
       dataList: [1, 2, 3],
-      direction: 'top',
+      direction: '',
 
     };
   },

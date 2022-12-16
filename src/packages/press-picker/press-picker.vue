@@ -89,7 +89,8 @@ export default {
     destroy() {
       this.$destroy();
       if (document.body.contains(this.$el)) {
-        document.body.removeChild(this.$el);
+        this.$el?.parentElement?.removeChild?.(this.$el);
+        // document.body.removeChild(this.$el);
       }
     },
 

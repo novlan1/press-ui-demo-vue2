@@ -81,8 +81,8 @@
   </div>
 </template>
 <script>
-// import PressLoading from '../press-loading/press-loading.vue';
 import PressButton from '../press-button/press-button.vue';
+
 
 function isMp() {
   return typeof getCurrentPages === 'function';
@@ -91,54 +91,9 @@ function isMp() {
 export default {
   name: 'PressDialog',
   components: {
-    // PressLoading,
     PressButton,
   },
   props: {
-    // dialogType: { // 弹窗类型：1：普通弹窗，2：确认按钮带loading效果弹窗
-    //   type: Number,
-    //   default: 1,
-    //   required: false,
-    // },
-    // title: {
-    //   type: String,
-    //   default: '温馨提示',
-    //   required: false,
-    // },
-    // content: {
-    //   type: String,
-    //   default: '',
-    //   required: false,
-    // },
-    // canTouchRemove: { // 是否可以触摸蒙层隐藏
-    //   type: Boolean,
-    //   default: true,
-    //   required: false,
-    // },
-    // confirmText: {
-    //   type: String,
-    //   default: '确定',
-    //   required: false,
-    // },
-    // cancelText: {
-    //   type: String,
-    //   default: '',
-    //   required: false,
-    // },
-    // onClickCancel: {
-    //   type: [Function, null],
-    //   default: null,
-    //   required: false,
-    // },
-    // onConfirmClick: {
-    //   type: [Function, null],
-    //   default: null,
-    //   required: false,
-    // },
-    // htmlContent: {
-    //   type: String,
-    //   default: '',
-    // },
   },
   options: {
     virtualHost: true,

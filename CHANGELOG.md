@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.36](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.35...v0.1.36) (2022-12-16)
+
+
+### Features
+
+* **popover:** 替换一些变量 ([ffd3c0a](https://git.woa.com/pmd-mobile/support/press-ui/commit/ffd3c0a12347892d90faad4ba9aa8d3988a1e944))
+* **popup:** popup在show为false时销毁 ([c6034fe](https://git.woa.com/pmd-mobile/support/press-ui/commit/c6034fe0df5950483b745156dc170ad3939149db))
+
 ### [0.1.35](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.31...v0.1.35) (2022-12-15)
 
 

@@ -196,6 +196,11 @@
           "title": "标签",
           "subTitle": "Tag",
           "path": "/components/press/press-tag.md"
+        },
+        {
+          "title": "悬浮按钮",
+          "subTitle": "Fab",
+          "path": "/components/press/press-fab.md"
         }
       ]
     },

@@ -762,6 +762,17 @@
       ]
     },
     {
+      "root": "pages/press/fab",
+      "pages": [
+        {
+          "path": "fab",
+          "style": {
+            "navigationBarTitleText": "Fab 悬浮按钮"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/nav-bar",
       "pages": [
         {

@@ -3,7 +3,7 @@ const path = require('path');
 const { copyDir } = require('t-comm');
 const { getFullCompName, getPureCompName } = require('../../utils/utils');
 
-const TEMPLATE_PATH = './script/new-comp/template';
+const TEMPLATE_PATH = './script/new/template';
 const COMP_TARGET_PATH = './src/packages';
 const DEFAULT_COMP_NAME = 'press.vue';
 

@@ -1,19 +1,13 @@
 const gulp = require('gulp');
-const { moveDemo, moveDocs } = require('./md');
 
-function cb() {
-  moveDemo();
-  console.log();
-  moveDocs();
-}
-
-function watchPackages() {
+function watchPackages(cb) {
   const watcher = gulp.watch('./src/packages/**/*');
+  console.log('[GULP] 正在监听 packages 文件夹...');
+
   watcher.on('change', (path) => {
     console.log(`[GULP] File ${path} was changed`);
     cb();
   });
-  console.log('[GULP] 正在监听 packages 文件夹...');
 
   watcher.on('add', (path) => {
     console.log(`[GULP] File ${path} was added`);
@@ -27,6 +21,6 @@ function watchPackages() {
   // watcher.close();
 }
 
-cb();
-watchPackages();
-
+module.exports = {
+  watchPackages,
+};

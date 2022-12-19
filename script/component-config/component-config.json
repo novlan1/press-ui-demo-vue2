@@ -44,24 +44,16 @@
         "title": "时间选择"
       },
       {
+        "name": "Field",
+        "title": "输入框"
+      },
+      {
         "name": "Picker",
         "title": "选择器"
       },
       {
         "name": "PickerPlus",
         "title": "选择器"
-      },
-      {
-        "name": "Switch",
-        "title": "切换"
-      },
-      {
-        "name": "Slider",
-        "title": "滑块"
-      },
-      {
-        "name": "Field",
-        "title": "输入框"
       },
       {
         "name": "Radio",
@@ -76,8 +68,16 @@
         "title": "搜索"
       },
       {
+        "name": "Slider",
+        "title": "滑块"
+      },
+      {
         "name": "Stepper",
         "title": "步进器"
+      },
+      {
+        "name": "Switch",
+        "title": "切换"
       }
     ]
   },
@@ -109,16 +109,16 @@
         "title": "遮罩层"
       },
       {
+        "name": "Popover",
+        "title": "弹出框"
+      },
+      {
         "name": "ShareSheet",
         "title": "分享面板"
       },
       {
         "name": "SwipeCell",
         "title": "滑动单元格"
-      },
-      {
-        "name": "Popover",
-        "title": "弹出框"
       }
     ]
   },
@@ -142,6 +142,10 @@
         "title": "空状态"
       },
       {
+        "name": "Fab",
+        "title": "悬浮按钮"
+      },
+      {
         "name": "NoticeBar",
         "title": "通知栏"
       },
@@ -156,10 +160,6 @@
       {
         "name": "Tag",
         "title": "标签"
-      },
-      {
-        "name": "Fab",
-        "title": "悬浮按钮"
       }
     ]
   },
@@ -167,8 +167,16 @@
     "title": "导航组件",
     "list": [
       {
+        "name": "IndexBar",
+        "title": "索引栏"
+      },
+      {
         "name": "NavBar",
         "title": "导航栏"
+      },
+      {
+        "name": "Sidebar",
+        "title": "侧边导航"
       },
       {
         "name": "Tab",
@@ -177,14 +185,6 @@
       {
         "name": "Tabbar",
         "title": "标签栏"
-      },
-      {
-        "name": "Sidebar",
-        "title": "侧边导航"
-      },
-      {
-        "name": "IndexBar",
-        "title": "索引栏"
       },
       {
         "name": "TreeSelect",
@@ -200,16 +200,16 @@
         "title": "省市区选择"
       },
       {
+        "name": "MessageBoard",
+        "title": "留言板"
+      },
+      {
         "name": "MessageDetail",
         "title": "消息详情"
       },
       {
         "name": "MessageList",
         "title": "消息列表"
-      },
-      {
-        "name": "MessageBoard",
-        "title": "留言板"
       }
     ]
   }

@@ -1,32 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const COMP_TYPE_MAP = require('./comp-config.json');
+const COMP_TYPE_MAP = require('./component-config.json');
 const DOC_SIDE_BAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
 const DEMO_INDEX_CONFIG_PATH = 'src/pages/index/page-config.json';
 const DEMO_PAGES_JSON_PATH = './src/pages.json';
 const DEMO_PAGES_JSON_LAST_INDEX = 0;
 
-// function parseCompList(compList) {
-//   const res = Object.keys(COMP_TYPE_MAP)
-//     .map((type) => {
-//       const { title, list } = COMP_TYPE_MAP[type];
-//       return {
-//         list: findTwoListIntersection(list, compList),
-//         title,
-//       };
-//     })
-//     .filter(item => !!item.list.length);
-//   return res;
-// }
-
-// function findTwoListIntersection(listA, listB) {
-//   return listB.filter(item => listA.indexOf(item.name) > -1).sort((a, b) => {
-//     if (a.name > b.name) return 1;
-//     if (b.name > a.name) return -1;
-//     return 0;
-//   });
-// }
 
 function hyphenate(str) {
   const hyphenateRE = /\B([A-Z])/g;

@@ -45,24 +45,16 @@
           "url": "/press/datetime-picker/datetime-picker"
         },
         {
+          "name": "Field 输入框",
+          "url": "/press/field/field"
+        },
+        {
           "name": "Picker 选择器",
           "url": "/press/picker/picker"
         },
         {
           "name": "PickerPlus 选择器",
           "url": "/press/picker-plus/picker-plus"
-        },
-        {
-          "name": "Switch 切换",
-          "url": "/press/switch/switch"
-        },
-        {
-          "name": "Slider 滑块",
-          "url": "/press/slider/slider"
-        },
-        {
-          "name": "Field 输入框",
-          "url": "/press/field/field"
         },
         {
           "name": "Radio 单选框",
@@ -77,8 +69,16 @@
           "url": "/press/search/search"
         },
         {
+          "name": "Slider 滑块",
+          "url": "/press/slider/slider"
+        },
+        {
           "name": "Stepper 步进器",
           "url": "/press/stepper/stepper"
+        },
+        {
+          "name": "Switch 切换",
+          "url": "/press/switch/switch"
         }
       ]
     },
@@ -110,16 +110,16 @@
           "url": "/press/overlay/overlay"
         },
         {
+          "name": "Popover 弹出框",
+          "url": "/press/popover/popover"
+        },
+        {
           "name": "ShareSheet 分享面板",
           "url": "/press/share-sheet/share-sheet"
         },
         {
           "name": "SwipeCell 滑动单元格",
           "url": "/press/swipe-cell/swipe-cell"
-        },
-        {
-          "name": "Popover 弹出框",
-          "url": "/press/popover/popover"
         }
       ]
     },
@@ -143,6 +143,10 @@
           "url": "/press/empty/empty"
         },
         {
+          "name": "Fab 悬浮按钮",
+          "url": "/press/fab/fab"
+        },
+        {
           "name": "NoticeBar 通知栏",
           "url": "/press/notice-bar/notice-bar"
         },
@@ -157,10 +161,6 @@
         {
           "name": "Tag 标签",
           "url": "/press/tag/tag"
-        },
-        {
-          "name": "Fab 悬浮按钮",
-          "url": "/press/fab/fab"
         }
       ]
     },
@@ -168,8 +168,16 @@
       "title": "导航组件",
       "list": [
         {
+          "name": "IndexBar 索引栏",
+          "url": "/press/index-bar/index-bar"
+        },
+        {
           "name": "NavBar 导航栏",
           "url": "/press/nav-bar/nav-bar"
+        },
+        {
+          "name": "Sidebar 侧边导航",
+          "url": "/press/sidebar/sidebar"
         },
         {
           "name": "Tab 标签页",
@@ -178,14 +186,6 @@
         {
           "name": "Tabbar 标签栏",
           "url": "/press/tabbar/tabbar"
-        },
-        {
-          "name": "Sidebar 侧边导航",
-          "url": "/press/sidebar/sidebar"
-        },
-        {
-          "name": "IndexBar 索引栏",
-          "url": "/press/index-bar/index-bar"
         },
         {
           "name": "TreeSelect 分类选择",
@@ -201,16 +201,16 @@
           "url": "/press/area/area"
         },
         {
+          "name": "MessageBoard 留言板",
+          "url": "/press/message-board/message-board"
+        },
+        {
           "name": "MessageDetail 消息详情",
           "url": "/press/message-detail/message-detail"
         },
         {
           "name": "MessageList 消息列表",
           "url": "/press/message-list/message-list"
-        },
-        {
-          "name": "MessageBoard 留言板",
-          "url": "/press/message-board/message-board"
         }
       ]
     }

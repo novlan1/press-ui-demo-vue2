@@ -56,6 +56,11 @@
           "path": "/components/press/press-datetime-picker.md"
         },
         {
+          "title": "输入框",
+          "subTitle": "Field",
+          "path": "/components/press/press-field.md"
+        },
+        {
           "title": "选择器",
           "subTitle": "Picker",
           "path": "/components/press/press-picker.md"
@@ -64,21 +69,6 @@
           "title": "选择器",
           "subTitle": "PickerPlus",
           "path": "/components/press/press-picker-plus.md"
-        },
-        {
-          "title": "切换",
-          "subTitle": "Switch",
-          "path": "/components/press/press-switch.md"
-        },
-        {
-          "title": "滑块",
-          "subTitle": "Slider",
-          "path": "/components/press/press-slider.md"
-        },
-        {
-          "title": "输入框",
-          "subTitle": "Field",
-          "path": "/components/press/press-field.md"
         },
         {
           "title": "单选框",
@@ -96,9 +86,19 @@
           "path": "/components/press/press-search.md"
         },
         {
+          "title": "滑块",
+          "subTitle": "Slider",
+          "path": "/components/press/press-slider.md"
+        },
+        {
           "title": "步进器",
           "subTitle": "Stepper",
           "path": "/components/press/press-stepper.md"
+        },
+        {
+          "title": "切换",
+          "subTitle": "Switch",
+          "path": "/components/press/press-switch.md"
         }
       ]
     },
@@ -137,6 +137,11 @@
           "path": "/components/press/press-overlay.md"
         },
         {
+          "title": "弹出框",
+          "subTitle": "Popover",
+          "path": "/components/press/press-popover.md"
+        },
+        {
           "title": "分享面板",
           "subTitle": "ShareSheet",
           "path": "/components/press/press-share-sheet.md"
@@ -145,11 +150,6 @@
           "title": "滑动单元格",
           "subTitle": "SwipeCell",
           "path": "/components/press/press-swipe-cell.md"
-        },
-        {
-          "title": "弹出框",
-          "subTitle": "Popover",
-          "path": "/components/press/press-popover.md"
         }
       ]
     },
@@ -178,6 +178,11 @@
           "path": "/components/press/press-empty.md"
         },
         {
+          "title": "悬浮按钮",
+          "subTitle": "Fab",
+          "path": "/components/press/press-fab.md"
+        },
+        {
           "title": "通知栏",
           "subTitle": "NoticeBar",
           "path": "/components/press/press-notice-bar.md"
@@ -196,11 +201,6 @@
           "title": "标签",
           "subTitle": "Tag",
           "path": "/components/press/press-tag.md"
-        },
-        {
-          "title": "悬浮按钮",
-          "subTitle": "Fab",
-          "path": "/components/press/press-fab.md"
         }
       ]
     },
@@ -209,9 +209,19 @@
       "collapsable": false,
       "children": [
         {
+          "title": "索引栏",
+          "subTitle": "IndexBar",
+          "path": "/components/press/press-index-bar.md"
+        },
+        {
           "title": "导航栏",
           "subTitle": "NavBar",
           "path": "/components/press/press-nav-bar.md"
+        },
+        {
+          "title": "侧边导航",
+          "subTitle": "Sidebar",
+          "path": "/components/press/press-sidebar.md"
         },
         {
           "title": "标签页",
@@ -222,16 +232,6 @@
           "title": "标签栏",
           "subTitle": "Tabbar",
           "path": "/components/press/press-tabbar.md"
-        },
-        {
-          "title": "侧边导航",
-          "subTitle": "Sidebar",
-          "path": "/components/press/press-sidebar.md"
-        },
-        {
-          "title": "索引栏",
-          "subTitle": "IndexBar",
-          "path": "/components/press/press-index-bar.md"
         },
         {
           "title": "分类选择",
@@ -250,6 +250,11 @@
           "path": "/components/press/press-area.md"
         },
         {
+          "title": "留言板",
+          "subTitle": "MessageBoard",
+          "path": "/components/press/press-message-board.md"
+        },
+        {
           "title": "消息详情",
           "subTitle": "MessageDetail",
           "path": "/components/press/press-message-detail.md"
@@ -258,11 +263,6 @@
           "title": "消息列表",
           "subTitle": "MessageList",
           "path": "/components/press/press-message-list.md"
-        },
-        {
-          "title": "留言板",
-          "subTitle": "MessageBoard",
-          "path": "/components/press/press-message-board.md"
         }
       ]
     }

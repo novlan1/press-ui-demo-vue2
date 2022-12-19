@@ -77,7 +77,7 @@
     "gen:icon:list": "node script/icon-list",
     "new:comp": "node script/new-comp/gen-new-comp/gen-new-comp",
     "release": " standard-version --release-as patch -a && npm run version:tip",
-    "gen:config": "node script/comp-config/gen-comp-config",
+    "gen:config": "node script/component-config/generate-component-config",
     "test": "jest --coverage --verbose -u",
     "version:tip": "node script/version-tip"
   },

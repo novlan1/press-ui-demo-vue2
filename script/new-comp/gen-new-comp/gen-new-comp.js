@@ -4,7 +4,7 @@ const inquirer = require('inquirer');
 const { execSync } = require('child_process');
 const { copyComponentDir } = require('./comp-dir');
 
-const COMPONENT_CONFIG_PATH = path.resolve(process.cwd(), './script/comp-config/comp-config.json');
+const COMPONENT_CONFIG_PATH = path.resolve(process.cwd(), './script/component-config/component-config.json');
 
 
 function getTypeMap() {

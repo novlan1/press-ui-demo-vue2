@@ -476,6 +476,17 @@
       ]
     },
     {
+      "root": "pages/press/field",
+      "pages": [
+        {
+          "path": "field",
+          "style": {
+            "navigationBarTitleText": "Field 输入框"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/picker",
       "pages": [
         {
@@ -493,39 +504,6 @@
           "path": "picker-plus",
           "style": {
             "navigationBarTitleText": "PickerPlus 选择器"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/press/switch",
-      "pages": [
-        {
-          "path": "switch",
-          "style": {
-            "navigationBarTitleText": "Switch 切换"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/press/slider",
-      "pages": [
-        {
-          "path": "slider",
-          "style": {
-            "navigationBarTitleText": "Slider 滑块"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/press/field",
-      "pages": [
-        {
-          "path": "field",
-          "style": {
-            "navigationBarTitleText": "Field 输入框"
           }
         }
       ]
@@ -564,12 +542,34 @@
       ]
     },
     {
+      "root": "pages/press/slider",
+      "pages": [
+        {
+          "path": "slider",
+          "style": {
+            "navigationBarTitleText": "Slider 滑块"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/stepper",
       "pages": [
         {
           "path": "stepper",
           "style": {
             "navigationBarTitleText": "Stepper 步进器"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/press/switch",
+      "pages": [
+        {
+          "path": "switch",
+          "style": {
+            "navigationBarTitleText": "Switch 切换"
           }
         }
       ]
@@ -641,6 +641,17 @@
       ]
     },
     {
+      "root": "pages/press/popover",
+      "pages": [
+        {
+          "path": "popover",
+          "style": {
+            "navigationBarTitleText": "Popover 弹出框"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/share-sheet",
       "pages": [
         {
@@ -658,17 +669,6 @@
           "path": "swipe-cell",
           "style": {
             "navigationBarTitleText": "SwipeCell 滑动单元格"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/press/popover",
-      "pages": [
-        {
-          "path": "popover",
-          "style": {
-            "navigationBarTitleText": "Popover 弹出框"
           }
         }
       ]
@@ -718,6 +718,17 @@
       ]
     },
     {
+      "root": "pages/press/fab",
+      "pages": [
+        {
+          "path": "fab",
+          "style": {
+            "navigationBarTitleText": "Fab 悬浮按钮"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/notice-bar",
       "pages": [
         {
@@ -762,12 +773,12 @@
       ]
     },
     {
-      "root": "pages/press/fab",
+      "root": "pages/press/index-bar",
       "pages": [
         {
-          "path": "fab",
+          "path": "index-bar",
           "style": {
-            "navigationBarTitleText": "Fab 悬浮按钮"
+            "navigationBarTitleText": "IndexBar 索引栏"
           }
         }
       ]
@@ -779,6 +790,17 @@
           "path": "nav-bar",
           "style": {
             "navigationBarTitleText": "NavBar 导航栏"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/press/sidebar",
+      "pages": [
+        {
+          "path": "sidebar",
+          "style": {
+            "navigationBarTitleText": "Sidebar 侧边导航"
           }
         }
       ]
@@ -806,28 +828,6 @@
       ]
     },
     {
-      "root": "pages/press/sidebar",
-      "pages": [
-        {
-          "path": "sidebar",
-          "style": {
-            "navigationBarTitleText": "Sidebar 侧边导航"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/press/index-bar",
-      "pages": [
-        {
-          "path": "index-bar",
-          "style": {
-            "navigationBarTitleText": "IndexBar 索引栏"
-          }
-        }
-      ]
-    },
-    {
       "root": "pages/press/tree-select",
       "pages": [
         {
@@ -850,6 +850,17 @@
       ]
     },
     {
+      "root": "pages/press/message-board",
+      "pages": [
+        {
+          "path": "message-board",
+          "style": {
+            "navigationBarTitleText": "MessageBoard 留言板"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/message-detail",
       "pages": [
         {
@@ -867,17 +878,6 @@
           "path": "message-list",
           "style": {
             "navigationBarTitleText": "MessageList 消息列表"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/press/message-board",
-      "pages": [
-        {
-          "path": "message-board",
-          "style": {
-            "navigationBarTitleText": "MessageBoard 留言板"
           }
         }
       ]

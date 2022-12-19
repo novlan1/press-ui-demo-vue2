@@ -202,7 +202,7 @@ export default {
   },
 };
 </script>
-<style platform="mp-weixin" lang="scss">
+<style platform="mp-weixin" lang="scss" scoped>
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 

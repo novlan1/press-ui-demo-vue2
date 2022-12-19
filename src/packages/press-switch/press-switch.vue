@@ -1,25 +1,23 @@
 <template>
-  <uni-shadow-root class="vant-switch-index">
+  <div
+    :class="switchClass"
+    :style="switchStyle"
+    @click="onClick"
+  >
     <div
-      :class="switchClass"
-      :style="switchStyle"
-      @click="onClick"
+      class="press-switch__node "
+      :class="nodeClass"
     >
-      <div
-        class="van-switch__node "
-        :class="nodeClass"
-      >
-        <van-loading
-          v-if="loading"
-          :color="loadingColor"
-          custom-class="van-switch__loading"
-        />
-      </div>
+      <press-loading
+        v-if="loading"
+        :color="loadingColor"
+        custom-class="press-switch__loading"
+      />
     </div>
-  </uni-shadow-root>
+  </div>
 </template>
 <script>
-import VanLoading from '../press-loading-plus/press-loading-plus.vue';
+import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import utils from '../wxs-js/utils';
 import computed from './computed';
 import { defaultProps, defaultOptions } from '../common/press-component';
@@ -30,7 +28,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanLoading,
+    PressLoading,
   },
   field: true,
   // classes: ['node-class'],
@@ -66,7 +64,7 @@ export default {
     },
     switchClass() {
       const { realChecked, activeValue, disabled, customClass } = this;
-      return `${utils.bem('switch', { on: realChecked === activeValue, disabled })} ${customClass}`;
+      return `${utils.bem2('switch', { on: realChecked === activeValue, disabled })} ${customClass}`;
     },
     switchStyle() {
       const { size, realChecked, activeColor, inactiveColor, activeValue } = this;
@@ -100,7 +98,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-switch {
+.press-switch {
   position: relative;
   display: inline-block;
   box-sizing: content-box;
@@ -143,7 +141,7 @@ export default {
       $switch-on-background-color
     );
 
-    .van-switch__node {
+    .press-switch__node {
       transform: translateX(
         calc(
           var(--switch-width, $switch-width) -

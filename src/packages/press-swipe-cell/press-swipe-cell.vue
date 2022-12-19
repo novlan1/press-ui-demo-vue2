@@ -1,7 +1,7 @@
 <template>
   <!-- @touchmove.stop.prevent="catchMove?noop:noop" -->
   <div
-    class="van-swipe-cell"
+    class="press-swipe-cell"
     :class="customClass"
     data-key="cell"
     @click.stop.prevent="onClick"
@@ -13,7 +13,7 @@
     <div :style="wrapperStyle">
       <div
         v-if="leftWidth"
-        class="van-swipe-cell__left"
+        class="press-swipe-cell__left"
         data-key="left"
         @click.stop.prevent="onClick"
       >
@@ -24,7 +24,7 @@
 
       <div
         v-if="rightWidth"
-        class="van-swipe-cell__right"
+        class="press-swipe-cell__right"
         data-key="right"
         @click.stop.prevent="onClick"
       >
@@ -199,7 +199,7 @@ export default {
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
 
-.van-swipe-cell {
+.press-swipe-cell {
   position: relative;
   overflow: hidden;
 

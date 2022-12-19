@@ -60,8 +60,8 @@ export default {
 
 <style scoped lang="scss">
 .demo-wrap {
-  ::v-deep .van-swipe-cell__left,
-  ::v-deep .van-swipe-cell__right {
+  ::v-deep .press-swipe-cell__left,
+  ::v-deep .press-swipe-cell__right {
     background-color: #f44;
   }
 

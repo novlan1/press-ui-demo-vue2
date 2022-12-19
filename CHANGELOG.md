@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.38](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.37...v0.1.38) (2022-12-19)
+
+
+### Features
+
+* **fab:** 优化fab ([08a76b3](https://git.woa.com/pmd-mobile/support/press-ui/commit/08a76b31b003ba463d551441d33db548b987ceba))
+* **fab:** 增加fab ([4a226c2](https://git.woa.com/pmd-mobile/support/press-ui/commit/4a226c2a59cf7fd04536b8a3bde5236107d10a35))
+* **msg-board:** 优化留言板 ([2b38190](https://git.woa.com/pmd-mobile/support/press-ui/commit/2b38190682cf2583bf6a0c1275c6b8ab93a55071))
+
 ### [0.1.37](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.36...v0.1.37) (2022-12-16)
 
 

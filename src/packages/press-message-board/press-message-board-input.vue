@@ -35,7 +35,7 @@
       <p
         class="press-message-board-input__btn__send"
       >
-        发送
+        {{ sendBtnText }}
       </p>
     </div>
   </div>
@@ -81,6 +81,10 @@ export default {
     showConfirmBar: {
       type: Boolean,
       default: false,
+    },
+    sendBtnText: {
+      type: String,
+      default: '发送',
     },
     ...defaultProps,
   },

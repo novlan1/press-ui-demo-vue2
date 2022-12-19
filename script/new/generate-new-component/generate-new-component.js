@@ -2,7 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { execSync } = require('child_process');
-const { copyComponentDir } = require('./comp-dir');
+const { copyComponentDir } = require('./copy-dir');
+const { sortComponentConfig } = require('./sort');
 
 const COMPONENT_CONFIG_PATH = path.resolve(process.cwd(), './script/component-config/component-config.json');
 
@@ -107,7 +108,8 @@ function writeCompConfig(config) {
     title,
   });
 
-  fs.writeFileSync(COMPONENT_CONFIG_PATH, JSON.stringify(json, null, 2));
+  const sortedJson = sortComponentConfig(json);
+  fs.writeFileSync(COMPONENT_CONFIG_PATH, JSON.stringify(sortedJson, null, 2));
 }
 
 function genDocsAndDemoConfig() {

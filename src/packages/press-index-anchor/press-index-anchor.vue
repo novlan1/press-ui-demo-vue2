@@ -1,16 +1,18 @@
 <template>
-  <div
-    class="press-index-anchor-wrapper"
-    :style="wrapperStyle"
-  >
+  <div>
     <div
-      :class="'press-index-anchor '+(active ? 'press-index-anchor--active press-hairline--bottom' : '')"
-      :style="anchorStyle"
+      class="press-index-anchor-wrapper"
+      :style="wrapperStyle"
     >
-      <slot v-if="useSlot" />
-      <block v-else>
-        <text>{{ index }}</text>
-      </block>
+      <div
+        :class="'press-index-anchor '+(active ? 'press-index-anchor--active press-hairline--bottom' : '')"
+        :style="anchorStyle"
+      >
+        <slot v-if="useSlot" />
+        <block v-else>
+          <text>{{ index }}</text>
+        </block>
+      </div>
     </div>
   </div>
 </template>

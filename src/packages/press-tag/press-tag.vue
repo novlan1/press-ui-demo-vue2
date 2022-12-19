@@ -1,21 +1,19 @@
 <template>
-  <uni-shadow-root class="vant-tag-index">
-    <div
-      :class="tagClass"
-      :style="tagStyle"
-    >
-      <slot />
-      <van-icon
-        v-if="closeable"
-        name="cross"
-        custom-class="van-tag__close"
-        @click="onClose"
-      />
-    </div>
-  </uni-shadow-root>
+  <div
+    :class="tagClass"
+    :style="tagStyle"
+  >
+    <slot />
+    <press-icon
+      v-if="closeable"
+      name="cross"
+      custom-class="press-tag__close"
+      @click="onClose"
+    />
+  </div>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import utils from '../wxs-js/utils';
 import computed from './computed';
 import { defaultProps, defaultOptions } from '../common/press-component';
@@ -23,9 +21,10 @@ import { defaultProps, defaultOptions } from '../common/press-component';
 export default {
   options: {
     ...defaultOptions,
+    styleIsolation: 'shared',
   },
   components: {
-    VanIcon,
+    PressIcon,
   },
   props: {
     size: { type: String, default: '' },
@@ -44,7 +43,7 @@ export default {
   computed: {
     tagClass() {
       const { type, size, mark, plain, round, customClass } = this;
-      return `${customClass} ${utils.bem('tag', [type, size, { mark, plain, round }])}`;
+      return `${customClass} ${utils.bem2('tag', [type, size, { mark, plain, round }])}`;
     },
     tagStyle() {
       const { plain, color, textColor } = this;
@@ -59,10 +58,9 @@ export default {
 };
 </script>
 <style platform="mp-weixin" lang="scss">
-@import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-tag {
+.press-tag {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -75,7 +73,7 @@ export default {
   &--default {
     background-color: var(--tag-default-color, $tag-default-color);
 
-    &.van-tag--plain {
+    &.press-tag--plain {
       color: var(--tag-default-color, $tag-default-color);
     }
   }
@@ -83,7 +81,7 @@ export default {
   &--danger {
     background-color: var(--tag-danger-color, $tag-danger-color);
 
-    &.van-tag--plain {
+    &.press-tag--plain {
       color: var(--tag-danger-color, $tag-danger-color);
     }
   }
@@ -91,7 +89,7 @@ export default {
   &--primary {
     background-color: var(--tag-primary-color, $tag-primary-color);
 
-    &.van-tag--plain {
+    &.press-tag--plain {
       color: var(--tag-primary-color, $tag-primary-color);
     }
   }
@@ -99,7 +97,7 @@ export default {
   &--success {
     background-color: var(--tag-success-color, $tag-success-color);
 
-    &.van-tag--plain {
+    &.press-tag--plain {
       color: var(--tag-success-color, $tag-success-color);
     }
   }
@@ -107,7 +105,7 @@ export default {
   &--warning {
     background-color: var(--tag-warning-color, $tag-warning-color);
 
-    &.van-tag--plain {
+    &.press-tag--plain {
       color: var(--tag-warning-color, $tag-warning-color);
     }
   }

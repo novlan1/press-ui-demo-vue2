@@ -157,6 +157,10 @@
         {
           "name": "Tag 标签",
           "url": "/press/tag/tag"
+        },
+        {
+          "name": "Fab 悬浮按钮",
+          "url": "/press/fab/fab"
         }
       ]
     },

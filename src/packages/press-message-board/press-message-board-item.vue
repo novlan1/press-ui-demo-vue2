@@ -16,7 +16,10 @@
       </div>
 
       <div class="press-message-board-item__comment-content">
-        ：{{ item.content_info }}
+        <template v-if="colon">
+          ：
+        </template>
+        {{ item.content_info }}
       </div>
 
       <slot name="right-up-corner" />
@@ -44,11 +47,10 @@
           class="press-message-board-item__reply-item"
           @click.stop="replyClick(comment)"
         >
-          <img
+          <div
             v-if="captainUid && comment.uid === captainUid && !captionBadgeAtRight"
             class="press-message-board-item__reply-avatar"
-            src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
-          >
+          />
 
           <span
             v-if="comment.parent_comm_id"
@@ -56,15 +58,18 @@
           >
             {{ comment.nick }}
 
-            <img
+            <div
               v-if="captainUid && comment.uid === captainUid && captionBadgeAtRight"
               class="press-message-board-item__reply-avatar"
-              src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
-            >
+            />
 
             <p
               class="press-message-board-item__reply-word"
-            >回复</p>
+            >回复
+              <template v-if="replyColon">
+                ：
+              </template>
+            </p>
             {{ comment.parent_nick }}
           </span>
 
@@ -73,15 +78,17 @@
             class="press-message-board-item__reply-nick"
           >{{ comment.nick }}</span>
 
-          <img
+          <div
             v-if="captainUid && comment.uid === captainUid && captionBadgeAtRight"
             class="press-message-board-item__reply-avatar"
-            src="https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png"
-          >
+          />
           <p
             class="press-message-board-item__reply-content"
           >
-            ：{{ comment.content_info }}
+            <template v-if="replyColon">
+              ：
+            </template>
+            {{ comment.content_info }}
           </p>
         </div>
 
@@ -131,6 +138,14 @@ export default {
     captionBadgeAtRight: {
       type: Boolean,
       default: false,
+    },
+    colon: {
+      type: Boolean,
+      default: true,
+    },
+    replyColon: {
+      type: Boolean,
+      default: true,
     },
     ...defaultProps,
   },
@@ -283,6 +298,9 @@ export default {
         width: 0.58rem;
         margin-right: 0.08rem;
         vertical-align: middle;
+        background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png)
+          no-repeat;
+        background-size: 100%;
       }
 
       .press-message-board-item__reply-nick {

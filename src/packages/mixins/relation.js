@@ -57,6 +57,8 @@ export function ChildrenMixin(parent, options = {}) {
     beforeDestroy() {
       if (this[parent]) {
         this[parent].children = this[parent].children.filter(item => item !== this);
+
+        this?.destroyCallback?.();
       }
     },
 

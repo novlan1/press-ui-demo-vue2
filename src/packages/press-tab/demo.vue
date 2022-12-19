@@ -178,7 +178,7 @@
 export default {
   data() {
     return {
-      active: 2,
+      active: 3,
       activeName: 'c',
       tabs2: [1, 2],
       tabs4: [1, 2, 3, 4],
@@ -202,6 +202,11 @@ export default {
     this.$nextTick(() => {
       // this.$refs.pressTabs.resize();
     });
+
+    setTimeout(() => {
+      this.tabs4 = [1, 2, 3];
+      this.active = 2;
+    }, 3000);
   },
   methods: {
     onChange(val) {

@@ -120,6 +120,12 @@ export default {
         this[PARENT].updateTabs();
       }
     },
+    destroyCallback() {
+      this[PARENT].updateTabs();
+      this.$nextTick(() => {
+        this[PARENT].resize();
+      });
+    },
   },
 };
 </script>

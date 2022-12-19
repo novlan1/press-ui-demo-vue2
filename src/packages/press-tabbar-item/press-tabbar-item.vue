@@ -1,16 +1,16 @@
 <template>
-  <uni-shadow-root class="vant-tabbar-item-index">
+  <div class="press-tabbar-item-index">
     <div
-      :class="'' + (utils.bem('tabbar-item', { active }))+' custom-class'"
+      :class="'' + (utils.bem2('tabbar-item', { active }))+' custom-class'"
       :style="'color: '+(active ? activeColor : inactiveColor)"
       @click="onClick"
     >
-      <div class="van-tabbar-item__icon">
-        <van-icon
+      <div class="press-tabbar-item__icon">
+        <press-icon
           v-if="icon"
           :name="icon"
           :class-prefix="iconPrefix"
-          custom-class="van-tabbar-item__icon__inner"
+          custom-class="press-tabbar-item__icon__inner"
         />
         <block v-else>
           <slot
@@ -22,22 +22,21 @@
             name="icon"
           />
         </block>
-        <van-info
+        <press-info
           :dot="dot"
           :info="info"
-          custom-class="van-tabbar-item__info"
+          custom-class="press-tabbar-item__info"
         />
       </div>
-      <div class="van-tabbar-item__text">
+      <div class="press-tabbar-item__text">
         <slot />
       </div>
     </div>
-  </uni-shadow-root>
+  </div>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
-import VanInfo from '../press-info/press-info.vue';
-// import { useParent } from '../common/relation';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressInfo from '../press-info/press-info.vue';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
@@ -50,8 +49,8 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanIcon,
-    VanInfo,
+    PressIcon,
+    PressInfo,
   },
   mixins: [
     ChildrenMixin(PARENT),
@@ -126,11 +125,12 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.vant-tabbar-item-index {
+.press-tabbar-item-index {
   flex: 1;
+  height: 100%;
 }
 
-.van-tabbar-item {
+.press-tabbar-item {
   display: flex;
   flex-direction: column;
   align-items: center;

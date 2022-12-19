@@ -1,8 +1,8 @@
 <template>
-  <uni-shadow-root class="vant-tabbar-index">
+  <div>
     <div
-      :class="(border ? 'van-hairline--top-bottom' : '')+
-        ' '+(utils.bem('tabbar', { fixed, safe: safeAreaInsetBottom }))+' custom-class'"
+      :class="(border ? 'press-hairline--top-bottom' : '')+
+        ' '+(utils.bem2('tabbar', { fixed, safe: safeAreaInsetBottom }))+' custom-class'"
       :style="zIndex ? 'z-index: ' + zIndex : ''"
     >
       <slot />
@@ -12,12 +12,11 @@
       v-if="fixed && placeholder"
       :style="'height: '+(height)+'px;'"
     />
-  </uni-shadow-root>
+  </div>
 </template>
 <script>
 import utils from '../wxs-js/utils';
 
-// import { useChildren } from '../common/relation';
 import { getRect } from '../common/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
@@ -115,9 +114,8 @@ export default {
         return;
       }
       this.$nextTick(() => {
-        getRect(this, '.van-tabbar').then((res) => {
+        getRect(this, '.press-tabbar').then((res) => {
           this.height = res.height;
-          // this.setData({ height: res.height });
         });
       });
     },
@@ -129,7 +127,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-tabbar {
+.press-tabbar {
   display: flex;
   box-sizing: content-box;
   width: 100%;

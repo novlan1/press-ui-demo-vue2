@@ -1,59 +1,56 @@
 <template>
-  <uni-shadow-root class="vant-tree-select-index">
-    <view
-      class="van-tree-select"
-      :style="'height: '+(utils.addUnit(height))"
+  <div
+    class="press-tree-select"
+    :style="'height: '+(utils.addUnit(height))"
+  >
+    <scroll-view
+      scroll-y
+      class="press-tree-select__nav"
     >
-      <scroll-view
-        scroll-y
-        class="van-tree-select__nav"
+      <press-sidebar
+        :active-key="mainActiveIndex"
+        custom-class="press-tree-select__nav__inner"
+        @change="onClickNav"
       >
-        <van-sidebar
-          :active-key="mainActiveIndex"
-          custom-class="van-tree-select__nav__inner"
-          @change="onClickNav"
-        >
-          <van-sidebar-item
-            v-for="(item) in (items)"
-            :key="item.index"
-            custom-class="main-item-class"
-            active-class="main-active-class"
-            disabled-class="main-disabled-class"
-            :badge="item.badge"
-            :dot="item.dot"
-            :title="item.text"
-            :disabled="item.disabled"
-          />
-        </van-sidebar>
-      </scroll-view>
-      <scroll-view
-        scroll-y
-        class="van-tree-select__content"
+        <press-sidebar-item
+          v-for="(item) in (items)"
+          :key="item.index"
+          custom-class="main-item-class"
+          active-class="main-active-class"
+          disabled-class="main-disabled-class"
+          :badge="item.badge"
+          :dot="item.dot"
+          :title="item.text"
+          :disabled="item.disabled"
+        />
+      </press-sidebar>
+    </scroll-view>
+    <scroll-view
+      scroll-y
+      class="press-tree-select__content"
+    >
+      <slot name="content" />
+      <div
+        v-for="(item) in (subItems)"
+        :key="item.id"
+        :class="'' + treeSelectItemClass(item)"
+        @click="onSelectItem(item)"
       >
-        <slot name="content" />
-        <view
-          v-for="(item) in (subItems)"
-          :key="item.id"
-          :class="'' + treeSelectItemClass(item)"
-          :data-item="item"
-          @click="onSelectItem"
-        >
-          {{ item.text }}
-          <van-icon
-            v-if="computed.isActive(activeId, item.id)"
-            :name="selectedIcon"
-            size="16px"
-            class="van-tree-select__selected"
-          />
-        </view>
-      </scroll-view>
-    </view>
-  </uni-shadow-root>
+        {{ item.text }}
+        <press-icon
+          v-if="computed.isActive(activeId, item.id)"
+          :name="selectedIcon"
+          size="16px"
+          class="press-tree-select__selected"
+        />
+      </div>
+    </scroll-view>
+  </div>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
-import VanSidebar from '../press-sidebar/press-sidebar.vue';
-import VanSidebarItem from '../press-sidebar-item/press-sidebar-item.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressSidebar from '../press-sidebar/press-sidebar.vue';
+import PressSidebarItem from '../press-sidebar-item/press-sidebar-item.vue';
 import { defaultOptions, defaultProps } from '../common/press-component';
 
 import utils from '../wxs-js/utils';
@@ -65,9 +62,9 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanIcon,
-    VanSidebar,
-    VanSidebarItem,
+    PressIcon,
+    PressSidebar,
+    PressSidebarItem,
   },
   classes: [
     'main-item-class',
@@ -133,11 +130,10 @@ export default {
   methods: {
     treeSelectItemClass(item) {
       const { activeId } = this;
-      return `van-ellipsis content-item-class ${utils.bem('tree-select__item', { active: computed.isActive(activeId, item.id), disabled: item.disabled })} ${computed.isActive(activeId, item.id) ? 'content-active-class' : ''} ${item.disabled ? 'content-disabled-class' : ''}`;
+      return `press-ellipsis content-item-class ${utils.bem2('tree-select__item', { active: computed.isActive(activeId, item.id), disabled: item.disabled })} ${computed.isActive(activeId, item.id) ? 'content-active-class' : ''} ${item.disabled ? 'content-disabled-class' : ''}`;
     },
     // 当一个子项被选择时
-    onSelectItem(event) {
-      const { item } = event.currentTarget.dataset;
+    onSelectItem(item) {
       const isArray = Array.isArray(this.activeId);
 
       // 判断有没有超出右侧选择的最大数
@@ -172,7 +168,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-tree-select {
+.press-tree-select {
   position: relative;
   display: flex;
   user-select: none;
@@ -204,7 +200,8 @@ export default {
 
   &__item {
     position: relative;
-    font-weight: bold;
+    // 【修改点】font-weight改成正常
+    font-weight: normal;
     padding: 0 32px 0 var(--padding-md, $padding-md);
     line-height: var(--tree-select-item-height, $tree-select-item-height);
 

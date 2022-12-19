@@ -99,44 +99,60 @@ export default {
 
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
 
 .van-sidebar-item {
-  background-color: var(--sidebar-background-color, #f7f8fa);
-  border-left: 3px solid transparent;
-  box-sizing: border-box;
-  color: var(--sidebar-text-color, #323233);
   display: block;
-  font-size: var(--sidebar-font-size, 14px);
-  line-height: var(--sidebar-line-height, 20px);
+  box-sizing: border-box;
   overflow: hidden;
-  padding: var(--sidebar-padding, 20px 12px 20px 8px);
-  -webkit-user-select: none;
+  border-left: 3px solid transparent;
   user-select: none;
-}
-.van-sidebar-item__text {
-  display: inline-block;
-  position: relative;
-  word-break: break-all;
-}
-.van-sidebar-item--hover:not(.van-sidebar-item--disabled) {
-  background-color: var(--sidebar-active-color, #f2f3f5);
-}
-.van-sidebar-item:after {
-  border-bottom-width: 1px;
-}
-.van-sidebar-item--selected {
-  border-color: var(--sidebar-selected-border-color, #ee0a24);
-  color: var(--sidebar-selected-text-color, #323233);
-  font-weight: var(--sidebar-selected-font-weight, 500);
-}
-.van-sidebar-item--selected:after {
-  border-right-width: 1px;
-}
-.van-sidebar-item--selected,
-.van-sidebar-item--selected.van-sidebar-item--hover {
-  background-color: var(--sidebar-selected-background-color, #fff);
-}
-.van-sidebar-item--disabled {
-  color: var(--sidebar-disabled-text-color, #c8c9cc);
+  padding: var(--sidebar-padding, $sidebar-padding);
+  font-size: var(--sidebar-font-size, $sidebar-font-size);
+  line-height: var(--sidebar-line-height, $sidebar-line-height);
+  color: var(--sidebar-text-color, $sidebar-text-color);
+  background-color: var(--sidebar-background-color, $sidebar-background-color);
+
+  &__text {
+    position: relative;
+    display: inline-block;
+    word-break: break-all;
+  }
+
+  &--hover:not(&--disabled) {
+    background-color: var(--sidebar-active-color, $sidebar-active-color);
+  }
+
+  &::after {
+    border-bottom-width: 1px;
+  }
+
+  &--selected {
+    color: var(--sidebar-selected-text-color, $sidebar-selected-text-color);
+    font-weight: var(
+      --sidebar-selected-font-weight,
+      $sidebar-selected-font-weight
+    );
+    border-color: var(
+      --sidebar-selected-border-color,
+      $sidebar-selected-border-color
+    );
+
+    &::after {
+      border-right-width: 1px;
+    }
+  }
+
+  &--selected,
+  &--selected.van-sidebar-item--hover {
+    background-color: var(
+      --sidebar-selected-background-color,
+      $sidebar-selected-background-color
+    );
+  }
+
+  &--disabled {
+    color: var(--sidebar-disabled-text-color, $sidebar-disabled-text-color);
+  }
 }
 </style>

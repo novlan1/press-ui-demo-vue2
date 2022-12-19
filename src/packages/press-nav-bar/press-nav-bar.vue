@@ -168,69 +168,80 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-nav-bar {
-  background-color: var(--nav-bar-background-color, #fff);
-  box-sizing: initial;
-  height: var(--nav-bar-height, 46px);
-  line-height: var(--nav-bar-height, 46px);
   position: relative;
   text-align: center;
-  -webkit-user-select: none;
   user-select: none;
-}
-.van-nav-bar__content {
-  height: 100%;
-  position: relative;
+  height: var(--nav-bar-height, $nav-bar-height);
+  line-height: var(--nav-bar-height, $nav-bar-height);
+  background-color: var(--nav-bar-background-color, $nav-bar-background-color);
+  box-sizing: content-box;
 
-  // 【修改点】垂直居中
-  display: flex;
-  align-items: center;
-}
-.van-nav-bar__text {
-  color: var(--nav-bar-text-color, #1989fa);
-  display: inline-block;
-  margin: 0 calc(var(--padding-md, 16px) * -1);
-  padding: 0 var(--padding-md, 16px);
-  vertical-align: middle;
-}
-.van-nav-bar__text--hover {
-  background-color: #f2f3f5;
-}
-.van-nav-bar__arrow {
-  color: var(--nav-bar-icon-color, #1989fa) !important;
-  font-size: var(--nav-bar-arrow-size, 16px) !important;
-  vertical-align: middle;
-}
-.van-nav-bar__arrow + .van-nav-bar__text {
-  margin-left: -20px;
-  padding-left: 25px;
-}
-.van-nav-bar--fixed {
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-.van-nav-bar__title {
-  color: var(--nav-bar-title-text-color, #323233);
-  font-size: var(--nav-bar-title-font-size, 16px);
-  font-weight: var(--font-weight-bold, 500);
-  margin: 0 auto;
-  max-width: 60%;
-}
-.van-nav-bar__left,
-.van-nav-bar__right {
-  align-items: center;
-  bottom: 0;
-  display: flex;
-  font-size: var(--font-size-md, 14px);
-  position: absolute;
-  top: 0;
-}
-.van-nav-bar__left {
-  left: var(--padding-md, 16px);
-}
-.van-nav-bar__right {
-  right: var(--padding-md, 16px);
+  &__content {
+    position: relative;
+    height: 100%;
+
+    // 【修改点】垂直居中
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 calc(-1 * var(--padding-md, $padding-md));
+    padding: 0 var(--padding-md, $padding-md);
+    color: var(--nav-bar-text-color, $nav-bar-text-color);
+
+    &--hover {
+      background-color: $active-color;
+    }
+  }
+
+  &__arrow {
+    vertical-align: middle;
+    font-size: var(--nav-bar-arrow-size, $nav-bar-arrow-size) !important;
+    color: var(--nav-bar-icon-color, $nav-bar-icon-color) !important;
+
+    + .van-nav-bar__text {
+      margin-left: -20px;
+      padding-left: 25px;
+    }
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__title {
+    max-width: 60%;
+    margin: 0 auto;
+    color: var(--nav-bar-title-text-color, $nav-bar-title-text-color);
+    font-weight: var(--font-weight-bold, $font-weight-bold);
+    font-size: var(--nav-bar-title-font-size, $nav-bar-title-font-size);
+  }
+
+  &__left,
+  &__right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-md, $font-size-md);
+  }
+
+  &__left {
+    left: var(--padding-md, $padding-md);
+  }
+
+  &__right {
+    right: var(--padding-md, $padding-md);
+  }
 }
 </style>

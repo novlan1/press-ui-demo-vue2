@@ -157,29 +157,65 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-collapse-item__title ::v-deep .van-cell__right-icon {
-  transform: rotate(90deg);
-  transition: transform var(--collapse-item-transition-duration, 0.3s);
-}
-.van-collapse-item__title--expanded ::v-deep .van-cell__right-icon {
-  transform: rotate(-90deg);
-}
-.van-collapse-item__title--disabled ::v-deep .van-cell,
-.van-collapse-item__title--disabled ::v-deep .van-cell__right-icon {
-  color: var(--collapse-item-title-disabled-color, #c8c9cc) !important;
-}
-.van-collapse-item__title--disabled .van-cell--hover {
-  background-color: #fff !important;
-}
-.van-collapse-item__wrapper {
-  overflow: hidden;
-  // position: relative;
-}
-.van-collapse-item__content {
-  background-color: var(--collapse-item-content-background-color, #fff);
-  color: var(--collapse-item-content-text-color, #969799);
-  font-size: var(--collapse-item-content-font-size, 13px);
-  line-height: var(--collapse-item-content-line-height, 1.5);
-  padding: var(--collapse-item-content-padding, 15px);
+@import "../common/style/var.scss";
+
+.van-collapse-item {
+  &__title {
+    .van-cell__right-icon {
+      transform: rotate(90deg);
+      transition: transform
+        var(
+          --collapse-item-transition-duration,
+          $collapse-item-transition-duration
+        );
+    }
+
+    &--expanded {
+      .van-cell__right-icon {
+        transform: rotate(-90deg);
+      }
+    }
+
+    &--disabled {
+      .van-cell,
+      .van-cell__right-icon {
+        color: var(
+          --collapse-item-title-disabled-color,
+          $collapse-item-title-disabled-color
+        ) !important;
+      }
+
+      .van-cell--hover {
+        background-color: $white !important;
+      }
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__content {
+    padding: var(
+      --collapse-item-content-padding,
+      $collapse-item-content-padding
+    );
+    color: var(
+      --collapse-item-content-text-color,
+      $collapse-item-content-text-color
+    );
+    font-size: var(
+      --collapse-item-content-font-size,
+      $collapse-item-content-font-size
+    );
+    line-height: var(
+      --collapse-item-content-line-height,
+      $collapse-item-content-line-height
+    );
+    background-color: var(
+      --collapse-item-content-background-color,
+      $collapse-item-content-background-color
+    );
+  }
 }
 </style>

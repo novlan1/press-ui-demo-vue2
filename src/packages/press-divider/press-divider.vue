@@ -39,52 +39,73 @@ export default {
   },
 };
 </script>
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-divider {
-  align-items: center;
-  border: 0 solid var(--divider-border-color, #ebedf0);
-  color: var(--divider-text-color, #969799);
   display: flex;
-  font-size: var(--divider-font-size, 14px);
-  line-height: var(--divider-line-height, 24px);
-  margin: var(--divider-margin, 16px 0);
-}
-.van-divider:after,
-.van-divider:before {
-  border-color: inherit;
-  border-style: inherit;
-  border-width: 1px 0 0;
-  box-sizing: border-box;
-  display: block;
-  flex: 1;
-  height: 1px;
-}
-.van-divider:before {
-  content: "";
-}
-.van-divider--hairline:after,
-.van-divider--hairline:before {
-  transform: scaleY(0.5);
-}
-.van-divider--dashed {
-  border-style: dashed;
-}
-.van-divider--center:before,
-.van-divider--left:before,
-.van-divider--right:before {
-  margin-right: var(--divider-content-padding, 16px);
-}
-.van-divider--center:after,
-.van-divider--left:after,
-.van-divider--right:after {
-  content: "";
-  margin-left: var(--divider-content-padding, 16px);
-}
-.van-divider--left:before {
-  max-width: var(--divider-content-left-width, 10%);
-}
-.van-divider--right:after {
-  max-width: var(--divider-content-right-width, 10%);
+  align-items: center;
+  border-style: solid;
+  border-width: 0;
+  margin: var(--divider-margin, $divider-margin);
+  color: var(--divider-text-color, $divider-text-color);
+  font-size: var(--divider-font-size, $divider-font-size);
+  line-height: var(--divider-line-height, $divider-line-height);
+  border-color: var(--divider-border-color, $divider-border-color);
+
+  &::before,
+  &::after {
+    display: block;
+    flex: 1;
+    box-sizing: border-box;
+    height: 1px;
+    border-color: inherit;
+    border-style: inherit;
+    border-width: 1px 0 0;
+  }
+
+  &::before {
+    content: "";
+  }
+
+  &--hairline {
+    &::before,
+    &::after {
+      transform: scaleY(0.5);
+    }
+  }
+
+  &--dashed {
+    border-style: dashed;
+  }
+
+  &--center,
+  &--left,
+  &--right {
+    &::before {
+      margin-right: var(--divider-content-padding, $divider-content-padding);
+    }
+
+    &::after {
+      content: "";
+      margin-left: var(--divider-content-padding, $divider-content-padding);
+    }
+  }
+
+  &--left {
+    &::before {
+      max-width: var(--divider-content-left-width, $divider-content-left-width);
+    }
+  }
+
+  &--right {
+    &::after {
+      max-width: var(
+        --divider-content-right-width,
+        $divider-content-right-width
+      );
+    }
+  }
 }
 </style>

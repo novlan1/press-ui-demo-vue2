@@ -69,19 +69,30 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
 
 .van-index-anchor {
-  background-color: var(--index-anchor-background-color, transparent);
-  color: var(--index-anchor-text-color, #323233);
-  font-size: var(--index-anchor-font-size, 14px);
-  font-weight: var(--index-anchor-font-weight, 500);
-  line-height: var(--index-anchor-line-height, 32px);
-  padding: var(--index-anchor-padding, 0 16px);
-}
-.van-index-anchor--active {
-  background-color: var(--index-anchor-active-background-color, #fff);
-  color: var(--index-anchor-active-text-color, #07c160);
-  left: 0;
-  right: 0;
+  padding: var(--index-anchor-padding, $index-anchor-padding);
+  color: var(--index-anchor-text-color, $index-anchor-text-color);
+  font-weight: var(--index-anchor-font-weight, $index-anchor-font-weight);
+  font-size: var(--index-anchor-font-size, $index-anchor-font-size);
+  line-height: var(--index-anchor-line-height, $index-anchor-line-height);
+  background-color: var(
+    --index-anchor-background-color,
+    $index-anchor-background-color
+  );
+
+  &--active {
+    right: 0;
+    left: 0;
+    color: var(
+      --index-anchor-active-text-color,
+      $index-anchor-active-text-color
+    );
+    background-color: var(
+      --index-anchor-active-background-color,
+      $index-anchor-active-background-color
+    );
+  }
 }
 </style>

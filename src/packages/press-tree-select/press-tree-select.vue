@@ -81,7 +81,6 @@ export default {
     items: {
       type: Array,
       default: () => [],
-      // observer: 'updateSubItems',
     },
     activeId: {
       type: [Number, String, null, Array],
@@ -90,7 +89,6 @@ export default {
     mainActiveIndex: {
       type: [Number, String, Array, null],
       default: 0,
-      // observer: 'updateSubItems',
     },
     height: {
       type: [Number, String],
@@ -141,12 +139,15 @@ export default {
     onSelectItem(event) {
       const { item } = event.currentTarget.dataset;
       const isArray = Array.isArray(this.activeId);
+
       // 判断有没有超出右侧选择的最大数
       const isOverMax = isArray && this.activeId.length >= this.max;
+
       // 判断该项有没有被选中, 如果有被选中，则忽视是否超出的条件
       const isSelected = isArray
         ? this.activeId.indexOf(item.id) > -1
         : this.activeId === item.id;
+
       if (!item.disabled && (!isOverMax || isSelected)) {
         this.$emit('click-item', item);
       }
@@ -162,7 +163,6 @@ export default {
     updateSubItems() {
       const { items, mainActiveIndex } = this;
       const { children = [] } = items[mainActiveIndex] || {};
-      // this.setData({ subItems: children });
       this.subItems = children;
     },
   },

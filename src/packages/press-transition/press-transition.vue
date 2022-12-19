@@ -130,6 +130,7 @@ export default {
   opacity: 0;
   transform: translate3d(100%, 0, 0);
 }
+
 .van-slide-down-enter-active,
 .van-slide-down-leave-active,
 .van-slide-left-enter-active,
@@ -140,22 +141,27 @@ export default {
 .van-slide-up-leave-active {
   transition-property: transform;
 }
+
 .van-slide-up-enter,
 .van-slide-up-leave-to {
   transform: translate3d(0, 100%, 0);
 }
+
 .van-slide-down-enter,
 .van-slide-down-leave-to {
   transform: translate3d(0, -100%, 0);
 }
+
 .van-slide-left-enter,
 .van-slide-left-leave-to {
   transform: translate3d(-100%, 0, 0);
 }
+
 .van-slide-right-enter,
 .van-slide-right-leave-to {
   transform: translate3d(100%, 0, 0);
 }
+
 .van-overlay {
   background-color: var(--overlay-background-color, rgba(0, 0, 0, 0.7));
   height: 100%;

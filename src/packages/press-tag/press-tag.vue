@@ -58,85 +58,115 @@ export default {
   },
 };
 </script>
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-tag {
-  align-items: center;
-  border-radius: var(--tag-border-radius, 2px);
-  color: var(--tag-text-color, #fff);
-  display: inline-flex;
-  font-size: var(--tag-font-size, 12px);
-  line-height: var(--tag-line-height, 16px);
-  padding: var(--tag-padding, 0 4px);
   position: relative;
-}
-.van-tag--default {
-  background-color: var(--tag-default-color, #969799);
-}
-.van-tag--default.van-tag--plain {
-  color: var(--tag-default-color, #969799);
-}
-.van-tag--danger {
-  background-color: var(--tag-danger-color, #ee0a24);
-}
-.van-tag--danger.van-tag--plain {
-  color: var(--tag-danger-color, #ee0a24);
-}
-.van-tag--primary {
-  background-color: var(--tag-primary-color, #1989fa);
-}
-.van-tag--primary.van-tag--plain {
-  color: var(--tag-primary-color, #1989fa);
-}
-.van-tag--success {
-  background-color: var(--tag-success-color, #07c160);
-}
-.van-tag--success.van-tag--plain {
-  color: var(--tag-success-color, #07c160);
-}
-.van-tag--warning {
-  background-color: var(--tag-warning-color, #ff976a);
-}
-.van-tag--warning.van-tag--plain {
-  color: var(--tag-warning-color, #ff976a);
-}
-.van-tag--plain {
-  background-color: var(--tag-plain-background-color, #fff);
-}
-.van-tag--plain:before {
-  border: 1px solid;
-  border-radius: inherit;
-  bottom: 0;
-  content: "";
-  left: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.van-tag--medium {
-  padding: var(--tag-medium-padding, 2px 6px);
-}
-.van-tag--large {
-  border-radius: var(--tag-large-border-radius, 4px);
-  font-size: var(--tag-large-font-size, 14px);
-  padding: var(--tag-large-padding, 4px 8px);
-}
-.van-tag--mark {
-  border-radius: 0
-    var(--tag-round-border-radius, var(--tag-round-border-radius, 999px))
-    var(--tag-round-border-radius, var(--tag-round-border-radius, 999px)) 0;
-}
-.van-tag--mark:after {
-  content: "";
-  display: block;
-  width: 2px;
-}
-.van-tag--round {
-  border-radius: var(--tag-round-border-radius, 999px);
-}
-.van-tag__close {
-  margin-left: 2px;
-  min-width: 1em;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--tag-padding, $tag-padding);
+  color: var(--tag-text-color, $tag-text-color);
+  font-size: var(--tag-font-size, $tag-font-size);
+  line-height: var(--tag-line-height, $tag-line-height);
+  border-radius: var(--tag-border-radius, $tag-border-radius);
+
+  &--default {
+    background-color: var(--tag-default-color, $tag-default-color);
+
+    &.van-tag--plain {
+      color: var(--tag-default-color, $tag-default-color);
+    }
+  }
+
+  &--danger {
+    background-color: var(--tag-danger-color, $tag-danger-color);
+
+    &.van-tag--plain {
+      color: var(--tag-danger-color, $tag-danger-color);
+    }
+  }
+
+  &--primary {
+    background-color: var(--tag-primary-color, $tag-primary-color);
+
+    &.van-tag--plain {
+      color: var(--tag-primary-color, $tag-primary-color);
+    }
+  }
+
+  &--success {
+    background-color: var(--tag-success-color, $tag-success-color);
+
+    &.van-tag--plain {
+      color: var(--tag-success-color, $tag-success-color);
+    }
+  }
+
+  &--warning {
+    background-color: var(--tag-warning-color, $tag-warning-color);
+
+    &.van-tag--plain {
+      color: var(--tag-warning-color, $tag-warning-color);
+    }
+  }
+
+  &--plain {
+    background-color: var(
+      --tag-plain-background-color,
+      $tag-plain-background-color
+    );
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 1px solid currentColor;
+      border-radius: inherit;
+      content: "";
+      pointer-events: none;
+    }
+  }
+
+  &--medium {
+    padding: var(--tag-medium-padding, $tag-medium-padding);
+  }
+
+  &--large {
+    padding: var(--tag-large-padding, $tag-large-padding);
+    font-size: var(--tag-large-font-size, $tag-large-font-size);
+    border-radius: var(--tag-large-border-radius, $tag-large-border-radius);
+  }
+
+  &--mark {
+    border-radius: 0
+      var(
+        --tag-round-border-radius,
+        var(--tag-round-border-radius, $tag-round-border-radius)
+      )
+      var(
+        --tag-round-border-radius,
+        var(--tag-round-border-radius, $tag-round-border-radius)
+      )
+      0;
+
+    &::after {
+      display: block;
+      width: 2px;
+      content: "";
+    }
+  }
+
+  &--round {
+    border-radius: var(--tag-round-border-radius, $tag-round-border-radius);
+  }
+
+  &__close {
+    min-width: 1em;
+    margin-left: 2px;
+  }
 }
 </style>

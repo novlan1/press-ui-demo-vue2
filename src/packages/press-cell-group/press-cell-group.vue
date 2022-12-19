@@ -38,20 +38,35 @@ export default {
   },
 };
 </script>
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-cell-group--inset {
-  border-radius: var(--cell-group-inset-border-radius, 8px);
-  margin: var(--cell-group-inset-padding, 0 16px);
-  overflow: hidden;
-}
-.van-cell-group__title {
-  color: var(--cell-group-title-color, #969799);
-  font-size: var(--cell-group-title-font-size, 14px);
-  line-height: var(--cell-group-title-line-height, 16px);
-  padding: var(--cell-group-title-padding, 16px 16px 8px);
-}
-.van-cell-group__title--inset {
-  padding: var(--cell-group-inset-title-padding, 16px 16px 8px 32px);
+@import "../common/style/var.scss";
+
+.van-cell-group {
+  &--inset {
+    margin: var(--cell-group-inset-padding, $cell-group-inset-padding);
+    border-radius: var(
+      --cell-group-inset-border-radius,
+      $cell-group-inset-border-radius
+    );
+    overflow: hidden;
+  }
+
+  &__title {
+    padding: var(--cell-group-title-padding, $cell-group-title-padding);
+    font-size: var(--cell-group-title-font-size, $cell-group-title-font-size);
+    line-height: var(
+      --cell-group-title-line-height,
+      $cell-group-title-line-height
+    );
+    color: var(--cell-group-title-color, $cell-group-title-color);
+
+    &--inset {
+      padding: var(
+        --cell-group-inset-title-padding,
+        $cell-group-inset-title-padding
+      );
+    }
+  }
 }
 </style>

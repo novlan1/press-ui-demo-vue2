@@ -2,24 +2,24 @@
   <div class="demo-wrap">
     <demo-block title="基础用法">
       <press-sidebar :active-key="activeKey">
-        <press-sidebar-item title="标签名1" />
-        <press-sidebar-item title="标签名2" />
-        <press-sidebar-item title="标签名3" />
+        <press-sidebar-item title="标签名" />
+        <press-sidebar-item title="标签名" />
+        <press-sidebar-item title="标签名" />
       </press-sidebar>
     </demo-block>
 
     <demo-block title="徽标提示">
       <press-sidebar :active-key="activeKey">
         <press-sidebar-item
-          title="标签名1"
+          title="标签名"
           dot
         />
         <press-sidebar-item
-          title="标签名2"
+          title="标签名"
           badge="5"
         />
         <press-sidebar-item
-          title="标签名3"
+          title="标签名"
           badge="99+"
         />
       </press-sidebar>
@@ -27,12 +27,12 @@
 
     <demo-block title="禁用选项">
       <press-sidebar :active-key="activeKey">
-        <press-sidebar-item title="标签名1" />
+        <press-sidebar-item title="标签名" />
         <press-sidebar-item
-          title="标签名2"
+          title="标签名"
           disabled
         />
-        <press-sidebar-item title="标签名3" />
+        <press-sidebar-item title="标签名" />
       </press-sidebar>
     </demo-block>
 

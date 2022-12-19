@@ -210,62 +210,77 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-notice-bar {
-  align-items: center;
-  background-color: var(--notice-bar-background-color, #fffbe8);
-  color: var(--notice-bar-text-color, #ed6a0c);
-  display: flex;
-  font-size: var(--notice-bar-font-size, 14px);
-  height: var(--notice-bar-height, 40px);
-  line-height: var(--notice-bar-line-height, 24px);
-  padding: var(--notice-bar-padding, 0 16px);
-}
-.van-notice-bar--withicon {
-  padding-right: 40px;
-  position: relative;
-}
-.van-notice-bar--wrapable {
-  height: auto;
-  padding: var(--notice-bar-wrapable-padding, 8px 16px);
-}
-.van-notice-bar--wrapable .van-notice-bar__wrap {
-  height: auto;
-}
-.van-notice-bar--wrapable .van-notice-bar__content {
-  position: relative;
-  white-space: normal;
-}
-.van-notice-bar__left-icon {
-  align-items: center;
-  display: flex;
-  margin-right: 4px;
-  vertical-align: middle;
-}
-.van-notice-bar__left-icon,
-.van-notice-bar__right-icon {
-  font-size: var(--notice-bar-icon-size, 16px);
-  min-width: var(--notice-bar-icon-min-width, 22px);
-}
-.van-notice-bar__right-icon {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-}
-.van-notice-bar__wrap {
-  flex: 1;
-  height: var(--notice-bar-line-height, 24px);
-  overflow: hidden;
-  position: relative;
+@import "../common/style/var.scss";
 
-  // 【修改点】增加垂直居中
+.van-notice-bar {
   display: flex;
   align-items: center;
-}
-.van-notice-bar__content {
-  position: absolute;
-  white-space: nowrap;
-}
-.van-notice-bar__content.van-ellipsis {
-  max-width: 100%;
+  height: var(--notice-bar-height, $notice-bar-height);
+  padding: var(--notice-bar-padding, $notice-bar-padding);
+  font-size: var(--notice-bar-font-size, $notice-bar-font-size);
+  color: var(--notice-bar-text-color, $notice-bar-text-color);
+  line-height: var(--notice-bar-line-height, $notice-bar-line-height);
+  background-color: var(
+    --notice-bar-background-color,
+    $notice-bar-background-color
+  );
+
+  &--withicon {
+    position: relative;
+    padding-right: 40px;
+  }
+
+  &--wrapable {
+    height: auto;
+    padding: var(--notice-bar-wrapable-padding, $notice-bar-wrapable-padding);
+
+    .van-notice-bar {
+      &__wrap {
+        height: auto;
+      }
+
+      &__content {
+        position: relative;
+        white-space: normal;
+      }
+    }
+  }
+
+  &__left-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+    vertical-align: middle;
+    font-size: var(--notice-bar-icon-size, $notice-bar-icon-size);
+    min-width: var(--notice-bar-icon-min-width, $notice-bar-icon-min-width);
+  }
+
+  &__right-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: var(--notice-bar-icon-size, $notice-bar-icon-size);
+    min-width: var(--notice-bar-icon-min-width, $notice-bar-icon-min-width);
+  }
+
+  &__wrap {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    height: var(--notice-bar-line-height, $notice-bar-line-height);
+
+    // 【修改点】增加垂直居中
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    position: absolute;
+    white-space: nowrap;
+
+    &.van-ellipsis {
+      max-width: 100%;
+    }
+  }
 }
 </style>

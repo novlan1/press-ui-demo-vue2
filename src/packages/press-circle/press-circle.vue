@@ -276,19 +276,22 @@ export default {
 };
 </script>
 
-<style platform="mp-weixin">
+<style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .van-circle {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   text-align: center;
-}
-.van-circle__text {
-  color: var(--circle-text-color, #323233);
-  left: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    color: var(--circle-text-color, $circle-text-color);
+  }
 }
 </style>

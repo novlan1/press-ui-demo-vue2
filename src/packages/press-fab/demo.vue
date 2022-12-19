@@ -1,14 +1,5 @@
 <template>
   <view class="container">
-    <uni-card
-      :is-shadow="false"
-      is-full
-    >
-      <text class="uni-h6">
-        uni-ui 规范颜色色板，通过内置样式快速指定元素前景和背景色。
-      </text>
-    </uni-card>
-
     <uni-section
       title="基本功能"
       sub-title="点击按钮,切换 fab 不同状态"
@@ -22,7 +13,7 @@
         >
           切换菜单方向({{ directionStr }})
         </button>
-        <button
+        <!--<button
           class="button"
           type="primary"
           @click="switchBtn('left', 'bottom')"
@@ -56,7 +47,7 @@
           @click="switchBtn('right', 'top')"
         >
           右上角显示
-        </button>
+        </button> -->
         <button
           class="button"
           type="primary"
@@ -90,7 +81,7 @@ export default {
     return {
       title: 'press-fab',
       directionStr: '垂直',
-      horizontal: 'left',
+      horizontal: 'right',
       vertical: 'bottom',
       direction: 'horizontal',
       pattern: {
@@ -178,6 +169,7 @@ export default {
 <style lang="scss">
 .warp {
   padding: 10px;
+  height: 1000px;
 }
 
 .button {

@@ -62,7 +62,7 @@
       @click="onClick"
       @touchstart="onTouchStart"
       @touchend="onTouchEnd"
-      @touchmove="onTouchMove"
+      @touchmove.stop.prevent="onTouchMove"
     >
       <uni-icons
         class="fab-circle-icon"
@@ -95,27 +95,8 @@ const switchPos = {
 };
 
 
-/**
-	 * Fab 悬浮按钮
-	 * @description 点击可展开一个图形按钮菜单
-	 * @tutorial https://ext.dcloud.net.cn/plugin?id=144
-	 * @property {Object} pattern 可选样式配置项
-	 * @property {Object} horizontal = [left | right] 水平对齐方式
-	 * 	@value left 左对齐
-	 * 	@value right 右对齐
-	 * @property {Object} vertical = [bottom | top] 垂直对齐方式
-	 * 	@value bottom 下对齐
-	 * 	@value top 上对齐
-	 * @property {Object} direction = [horizontal | vertical] 展开菜单显示方式
-	 * 	@value horizontal 水平显示
-	 * 	@value vertical 垂直显示
-	 * @property {Array} content 展开菜单内容配置项
-	 * @property {Boolean} popMenu 是否使用弹出菜单
-	 * @event {Function} trigger 展开菜单点击事件，返回点击信息
-	 * @event {Function} fabClick 悬浮按钮点击事件
-	 */
 export default {
-  name: 'UniFab',
+  name: 'PressFab',
   props: {
     pattern: {
       type: Object,
@@ -125,7 +106,7 @@ export default {
     },
     horizontal: {
       type: String,
-      default: 'left',
+      default: 'right',
     },
     vertical: {
       type: String,
@@ -185,29 +166,37 @@ export default {
     },
     // 计算左下位置
     leftBottom() {
+      // return false;
       return this.getPosition(0, 'left', 'bottom');
     },
     // 计算右下位置
     rightBottom() {
+      // return true;
       return this.getPosition(0, 'right', 'bottom');
     },
     // 计算左上位置
     leftTop() {
+      // return false;
       return this.getPosition(0, 'left', 'top');
     },
     rightTop() {
+      // return false;
       return this.getPosition(0, 'right', 'top');
     },
     flexDirectionStart() {
+      // return false;
       return this.getPosition(1, 'vertical', 'top');
     },
     flexDirectionEnd() {
+      // return true;
       return this.getPosition(1, 'vertical', 'bottom');
     },
     horizontalLeft() {
+      // return false;
       return this.getPosition(2, 'horizontal', 'left');
     },
     horizontalRight() {
+      // return true;
       return this.getPosition(2, 'horizontal', 'right');
     },
   },
@@ -226,14 +215,14 @@ export default {
     }
     // 初始化样式
     this.styles = Object.assign({}, this.styles, this.pattern);
-    if (this.leftBottom) {
-      this.btnSwitchPos = {
-        x: 15,
-        y: 30,
-      };
-      switchPos.x = this.btnSwitchPos.x;
-      switchPos.y = this.btnSwitchPos.y;
-    }
+    // if (this.rightBottom) {
+    this.btnSwitchPos = {
+      x: 15,
+      y: 30,
+    };
+    switchPos.x = this.btnSwitchPos.x;
+    switchPos.y = this.btnSwitchPos.y;
+    // }
   },
   mounted() {
     getRect(this, '.uni-fab__plus').then((rect) => {
@@ -329,6 +318,7 @@ export default {
       switchPos.endY = y;
       switchPos.hasMoved = true;
       e.preventDefault();
+      e.stopPropagation();
     },
     setSwitchPosition(switchX, switchY) {
       [switchX, switchY] = this.getSwitchButtonSafeAreaXY(switchX, switchY);

@@ -1,34 +1,31 @@
 <template>
-  <uni-shadow-root class="vant-index-bar-index">
-    <view class="van-index-bar">
-      <slot />
+  <div class="press-index-bar">
+    <slot />
 
-      <view
-        v-if="showSidebar"
-        class="van-index-bar__sidebar"
-        @click.stop.prevent="onClick"
-        @touchmove.stop.prevent="onTouchMove"
-        @touchend.stop.prevent="onTouchStop"
-        @touchcancel.stop.prevent="onTouchStop"
+    <div
+      v-if="showSidebar"
+      class="press-index-bar__sidebar"
+      @click.stop.prevent="onClick"
+      @touchmove.stop.prevent="onTouchMove"
+      @touchend.stop.prevent="onTouchStop"
+      @touchcancel.stop.prevent="onTouchStop"
+    >
+      <div
+        v-for="(item,index) in (indexList)"
+        :key="item.index"
+        class="press-index-bar__index"
+        :style="'z-index: '+(zIndex + 1)+'; color: '+(activeAnchorIndex === index ? highlightColor : '')"
+        :data-index="index"
       >
-        <view
-          v-for="(item,index) in (indexList)"
-          :key="item.index"
-          class="van-index-bar__index"
-          :style="'z-index: '+(zIndex + 1)+'; color: '+(activeAnchorIndex === index ? highlightColor : '')"
-          :data-index="index"
-        >
-          {{ item }}
-        </view>
-      </view>
-    </view>
-  </uni-shadow-root>
+        {{ item }}
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 
 import { GREEN } from '../common/color';
-// import { useChildren } from '../common/relation';
 import { getRect } from '../common/utils';
 import { isDef } from '../common/validator';
 import { pageScrollMixin } from '../mixins/page-scroll';
@@ -54,16 +51,10 @@ export default {
     ...defaultOptions,
     styleIsolation: 'shared',
   },
-  // mixins: [
-  // ],
-  // relation: useChildren('index-anchor', function () {
-  //   this.updateData();
-  // }),
   mixins: [
     // #ifndef H5
     pageScrollMixin(function (event) {
       this.scrollTop = event ? event.scrollTop : 0;
-      // this.scrollTop = (event === null || event === void 0 ? void 0 : event.scrollTop) || 0;
       this.onScroll();
     }),
     // #endif
@@ -73,10 +64,6 @@ export default {
       if (!this.scroller) {
         this.scroller = getScroller(this.$el);
       }
-      // if (this.observer) {
-      //   const method = isBind ? 'observe' : 'unobserve';
-      //   this.observer[method](this.$el);
-      // }
 
       bind(this.scroller, 'scroll', this.onScroll, true);
       bind(this.scroller, 'touchmove', this.onScroll, true);
@@ -137,9 +124,6 @@ export default {
         }
         this.timer = setTimeout(() => {
           this.showSidebar = !!this.children.length;
-          // this.setData({
-          //   showSidebar: !!this.children.length,
-          // });
           this.$nextTick(() => {
             this.setRect().then(() => {
               this.onScroll();
@@ -156,7 +140,7 @@ export default {
       ]);
     },
     setAnchorsRect() {
-      return Promise.all(this.children.map(anchor => getRect(anchor, '.van-index-anchor-wrapper').then((rect) => {
+      return Promise.all(this.children.map(anchor => getRect(anchor, '.press-index-anchor-wrapper').then((rect) => {
         Object.assign(anchor, {
           height: rect.height,
           top: rect.top + this.scrollTop,
@@ -164,7 +148,7 @@ export default {
       })));
     },
     setListRect() {
-      return getRect(this, '.van-index-bar').then((rect) => {
+      return getRect(this, '.press-index-bar').then((rect) => {
         if (!isDef(rect)) {
           return;
         }
@@ -175,7 +159,7 @@ export default {
       });
     },
     setSiderbarRect() {
-      return getRect(this, '.van-index-bar__sidebar').then((res) => {
+      return getRect(this, '.press-index-bar__sidebar').then((res) => {
         if (!isDef(res)) {
           return;
         }
@@ -197,7 +181,7 @@ export default {
       }
     },
     getAnchorRect(anchor) {
-      return getRect(anchor, '.van-index-anchor-wrapper').then(rect => ({
+      return getRect(anchor, '.press-index-anchor-wrapper').then(rect => ({
         height: rect.height,
         top: rect.top,
       }));
@@ -338,7 +322,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-index-bar {
+.press-index-bar {
   position: relative;
 
   &__sidebar {

@@ -1,26 +1,23 @@
 <template>
-  <uni-shadow-root class="vant-index-anchor-index">
-    <view
-      class="van-index-anchor-wrapper"
-      :style="wrapperStyle"
+  <div
+    class="press-index-anchor-wrapper"
+    :style="wrapperStyle"
+  >
+    <div
+      :class="'press-index-anchor '+(active ? 'press-index-anchor--active press-hairline--bottom' : '')"
+      :style="anchorStyle"
     >
-      <view
-        :class="'van-index-anchor '+(active ? 'van-index-anchor--active van-hairline--bottom' : '')"
-        :style="anchorStyle"
-      >
-        <slot v-if="useSlot" />
-        <block v-else>
-          <text>{{ index }}</text>
-        </block>
-      </view>
-    </view>
-  </uni-shadow-root>
+      <slot v-if="useSlot" />
+      <block v-else>
+        <text>{{ index }}</text>
+      </block>
+    </div>
+  </div>
 </template>
 
 <script>
 
 import { getRect } from '../common/utils';
-// import { useParent } from '../common/relation';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
 import { PARENT_INDEX_BAR  as PARENT } from '../common/parent-map';
@@ -34,7 +31,6 @@ export default {
   mixins: [
     ChildrenMixin(PARENT, { indexKey: 'tIndex' }),
   ],
-  // relation: useParent('index-bar'),
   props: {
     useSlot: Boolean,
     index: {
@@ -57,7 +53,7 @@ export default {
       });
     },
     scrollIntoView(scrollTop) {
-      getRect(this, '.van-index-anchor-wrapper').then((rect) => {
+      getRect(this, '.press-index-anchor-wrapper').then((rect) => {
         wx.pageScrollTo({
           duration: 0,
           scrollTop: scrollTop + rect.top - this[PARENT].stickyOffsetTop,
@@ -71,7 +67,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-index-anchor {
+.press-index-anchor {
   padding: var(--index-anchor-padding, $index-anchor-padding);
   color: var(--index-anchor-text-color, $index-anchor-text-color);
   font-weight: var(--index-anchor-font-weight, $index-anchor-font-weight);

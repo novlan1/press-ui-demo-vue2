@@ -12,10 +12,10 @@ const getClassNames = (name, _this) => {
   } = _this;
 
   return {
-    enter: `van-${name}-enter van-${name}-enter-active ${enterClass} ${enterActiveClass}`,
-    'enter-to': `van-${name}-enter-to van-${name}-enter-active ${enterToClass} ${enterActiveClass}`,
-    leave: `van-${name}-leave van-${name}-leave-active ${leaveClass} ${leaveActiveClass}`,
-    'leave-to': `van-${name}-leave-to van-${name}-leave-active ${leaveToClass} ${leaveActiveClass}`,
+    enter: `press-${name}-enter press-${name}-enter-active ${enterClass} ${enterActiveClass}`,
+    'enter-to': `press-${name}-enter-to press-${name}-enter-active ${enterToClass} ${enterActiveClass}`,
+    leave: `press-${name}-leave press-${name}-leave-active ${leaveClass} ${leaveActiveClass}`,
+    'leave-to': `press-${name}-leave-to press-${name}-leave-active ${leaveToClass} ${leaveActiveClass}`,
   };
 };
 export function transition(showDefaultValue) {

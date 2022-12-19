@@ -1,6 +1,6 @@
 <template>
-  <uni-shadow-root class="vant-popup-index">
-    <van-overlay
+  <div>
+    <press-overlay
       v-if="overlay"
       :show="show"
       :z-index="zIndex"
@@ -16,18 +16,18 @@
       @transitionend="onTransitionEnd"
     >
       <slot />
-      <van-icon
+      <press-icon
         v-if="closeable"
         :name="closeIcon"
         :class="cCloseIconClass"
         @click.native="onClickCloseIcon"
       />
     </div>
-  </uni-shadow-root>
+  </div>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
-import VanOverlay from '../press-overlay/press-overlay.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressOverlay from '../press-overlay/press-overlay.vue';
 import { transition } from '../mixins/transition';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -38,8 +38,8 @@ export default {
     ...defaultOptions,
   },
   components: {
-    VanIcon,
-    VanOverlay,
+    PressIcon,
+    PressOverlay,
   },
   // classes: [
   //   'enter-class',
@@ -145,7 +145,7 @@ export default {
 
         classes,
       } = this;
-      return `${customClass} ${classes} ${utils.bem('popup', [position, { round, safe: safeAreaInsetBottom, safeTop: safeAreaInsetTop }])}`;
+      return `${customClass} ${classes} ${utils.bem2('popup', [position, { round, safe: safeAreaInsetBottom, safeTop: safeAreaInsetTop }])}`;
     },
     popupStyle() {
       const { zIndex, currentDuration, display, customStyle } = this;
@@ -153,7 +153,7 @@ export default {
     },
     cCloseIconClass() {
       const { closeIconClass, closeIconPosition } = this;
-      return `${closeIconClass} van-popup__close-icon van-popup__close-icon--${closeIconPosition}`;
+      return `${closeIconClass} press-popup__close-icon press-popup__close-icon--${closeIconPosition}`;
     },
   },
   watch: {
@@ -201,13 +201,12 @@ export default {
     },
   },
 };
-// export default global.__wxComponents['vant/popup/index'];
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-popup {
+.press-popup {
   position: fixed;
   box-sizing: border-box;
   max-height: 100%;
@@ -222,7 +221,7 @@ export default {
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
 
-    &.van-popup--round {
+    &.press-popup--round {
       border-radius: var(
         --popup-round-border-radius,
         $popup-round-border-radius
@@ -235,7 +234,7 @@ export default {
     left: 0;
     width: 100%;
 
-    &.van-popup--round {
+    &.press-popup--round {
       border-radius: 0 0
         var(
           --popup-round-border-radius,
@@ -253,7 +252,7 @@ export default {
     right: 0;
     transform: translate3d(0, -50%, 0);
 
-    &.van-popup--round {
+    &.press-popup--round {
       border-radius: var(
           --popup-round-border-radius,
           var(--popup-round-border-radius, $popup-round-border-radius)
@@ -271,7 +270,7 @@ export default {
     left: 0;
     width: 100%;
 
-    &.van-popup--round {
+    &.press-popup--round {
       border-radius: var(
           --popup-round-border-radius,
           var(--popup-round-border-radius, $popup-round-border-radius)
@@ -289,7 +288,7 @@ export default {
     left: 0;
     transform: translate3d(0, -50%, 0);
 
-    &.van-popup--round {
+    &.press-popup--round {
       border-radius: 0
         var(
           --popup-round-border-radius,
@@ -303,7 +302,7 @@ export default {
     }
   }
 
-  &--bottom.van-popup--safe {
+  &--bottom.press-popup--safe {
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
@@ -345,65 +344,65 @@ export default {
   }
 }
 
-.van-scale-enter-active,
-.van-scale-leave-active {
+.press-scale-enter-active,
+.press-scale-leave-active {
   transition-property: opacity, transform;
 }
 
-.van-scale-enter,
-.van-scale-leave-to {
+.press-scale-enter,
+.press-scale-leave-to {
   transform: translate3d(-50%, -50%, 0) scale(0.7);
   opacity: 0;
 }
 
-.van-fade-enter-active,
-.van-fade-leave-active {
+.press-fade-enter-active,
+.press-fade-leave-active {
   transition-property: opacity;
 }
 
-.van-fade-enter,
-.van-fade-leave-to {
+.press-fade-enter,
+.press-fade-leave-to {
   opacity: 0;
 }
 
-.van-center-enter-active,
-.van-center-leave-active {
+.press-center-enter-active,
+.press-center-leave-active {
   transition-property: opacity;
 }
 
-.van-center-enter,
-.van-center-leave-to {
+.press-center-enter,
+.press-center-leave-to {
   opacity: 0;
 }
 
-.van-bottom-enter-active,
-.van-bottom-leave-active,
-.van-top-enter-active,
-.van-top-leave-active,
-.van-left-enter-active,
-.van-left-leave-active,
-.van-right-enter-active,
-.van-right-leave-active {
+.press-bottom-enter-active,
+.press-bottom-leave-active,
+.press-top-enter-active,
+.press-top-leave-active,
+.press-left-enter-active,
+.press-left-leave-active,
+.press-right-enter-active,
+.press-right-leave-active {
   transition-property: transform;
 }
 
-.van-bottom-enter,
-.van-bottom-leave-to {
+.press-bottom-enter,
+.press-bottom-leave-to {
   transform: translate3d(0, 100%, 0);
 }
 
-.van-top-enter,
-.van-top-leave-to {
+.press-top-enter,
+.press-top-leave-to {
   transform: translate3d(0, -100%, 0);
 }
 
-.van-left-enter,
-.van-left-leave-to {
+.press-left-enter,
+.press-left-leave-to {
   transform: translate3d(-100%, -50%, 0);
 }
 
-.van-right-enter,
-.van-right-leave-to {
+.press-right-enter,
+.press-right-leave-to {
   transform: translate3d(100%, -50%, 0);
 }
 </style>

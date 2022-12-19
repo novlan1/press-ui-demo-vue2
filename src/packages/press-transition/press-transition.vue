@@ -1,7 +1,4 @@
 <template>
-  <!-- <uni-shadow-root
-    class="vant-transition-index"
-  > -->
   <div
     v-if="inited"
     :class="transitionClass"
@@ -10,10 +7,9 @@
   >
     <slot />
   </div>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
-import computed from './index';
+import computed from './computed';
 import { transition } from '../mixins/transition';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
@@ -58,7 +54,6 @@ export default {
   options: {
     ...defaultOptions,
     styleIsolation: 'shared',
-    // virtualHost: true,
   },
   computed: {
     rootStyle() {
@@ -72,7 +67,7 @@ export default {
         overlay,
         classes,
       } = this;
-      return `van-transition ${classes} ${customClass} ${overlay ? 'van-overlay' : ''}`;
+      return `press-transition ${classes} ${customClass} ${overlay ? 'press-overlay' : ''}`;
     },
   },
   methods: {
@@ -89,80 +84,80 @@ export default {
 </script>
 <style platform="mp-weixin">
 @import "../common/index.scss";
-.van-transition {
+.press-transition {
   transition-timing-function: ease;
 }
-.van-fade-enter-active,
-.van-fade-leave-active {
+.press-fade-enter-active,
+.press-fade-leave-active {
   transition-property: opacity;
 }
-.van-fade-enter,
-.van-fade-leave-to {
+.press-fade-enter,
+.press-fade-leave-to {
   opacity: 0;
 }
-.van-fade-down-enter-active,
-.van-fade-down-leave-active,
-.van-fade-left-enter-active,
-.van-fade-left-leave-active,
-.van-fade-right-enter-active,
-.van-fade-right-leave-active,
-.van-fade-up-enter-active,
-.van-fade-up-leave-active {
+.press-fade-down-enter-active,
+.press-fade-down-leave-active,
+.press-fade-left-enter-active,
+.press-fade-left-leave-active,
+.press-fade-right-enter-active,
+.press-fade-right-leave-active,
+.press-fade-up-enter-active,
+.press-fade-up-leave-active {
   transition-property: opacity, transform;
 }
-.van-fade-up-enter,
-.van-fade-up-leave-to {
+.press-fade-up-enter,
+.press-fade-up-leave-to {
   opacity: 0;
   transform: translate3d(0, 100%, 0);
 }
-.van-fade-down-enter,
-.van-fade-down-leave-to {
+.press-fade-down-enter,
+.press-fade-down-leave-to {
   opacity: 0;
   transform: translate3d(0, -100%, 0);
 }
-.van-fade-left-enter,
-.van-fade-left-leave-to {
+.press-fade-left-enter,
+.press-fade-left-leave-to {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
 }
-.van-fade-right-enter,
-.van-fade-right-leave-to {
+.press-fade-right-enter,
+.press-fade-right-leave-to {
   opacity: 0;
   transform: translate3d(100%, 0, 0);
 }
 
-.van-slide-down-enter-active,
-.van-slide-down-leave-active,
-.van-slide-left-enter-active,
-.van-slide-left-leave-active,
-.van-slide-right-enter-active,
-.van-slide-right-leave-active,
-.van-slide-up-enter-active,
-.van-slide-up-leave-active {
+.press-slide-down-enter-active,
+.press-slide-down-leave-active,
+.press-slide-left-enter-active,
+.press-slide-left-leave-active,
+.press-slide-right-enter-active,
+.press-slide-right-leave-active,
+.press-slide-up-enter-active,
+.press-slide-up-leave-active {
   transition-property: transform;
 }
 
-.van-slide-up-enter,
-.van-slide-up-leave-to {
+.press-slide-up-enter,
+.press-slide-up-leave-to {
   transform: translate3d(0, 100%, 0);
 }
 
-.van-slide-down-enter,
-.van-slide-down-leave-to {
+.press-slide-down-enter,
+.press-slide-down-leave-to {
   transform: translate3d(0, -100%, 0);
 }
 
-.van-slide-left-enter,
-.van-slide-left-leave-to {
+.press-slide-left-enter,
+.press-slide-left-leave-to {
   transform: translate3d(-100%, 0, 0);
 }
 
-.van-slide-right-enter,
-.van-slide-right-leave-to {
+.press-slide-right-enter,
+.press-slide-right-leave-to {
   transform: translate3d(100%, 0, 0);
 }
 
-.van-overlay {
+.press-overlay {
   background-color: var(--overlay-background-color, rgba(0, 0, 0, 0.7));
   height: 100%;
   left: 0;

@@ -141,11 +141,11 @@ export default {
     },
     colon: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     replyColon: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     ...defaultProps,
   },
@@ -298,7 +298,8 @@ export default {
         width: 0.58rem;
         margin-right: 0.08rem;
         vertical-align: middle;
-        background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png) no-repeat;
+        background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png)
+          no-repeat;
         background-size: 100%;
       }
 

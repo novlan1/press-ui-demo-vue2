@@ -51,7 +51,7 @@ module.exports = {
 		lastUpdated: '最后更新时间', // 最后更新时间
 		sidebar: [
 			'/',
-			// '/quickstart',
+			'/quickstart',
 			// '/changelog.md',
 			// '/questions.md',
 			// {

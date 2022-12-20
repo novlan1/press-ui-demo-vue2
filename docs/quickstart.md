@@ -1,55 +1,36 @@
 # 快速开始
 
-## 使用 npm 安装
-
-在 `vue-cli` 项目中可以使用 `npm` 安装 `press-ui` 库
-
-::: danger 注意
-cli 项目默认是不编译 `node_modules` 下的组件的，导致条件编译等功能失效 ，导致组件异常
-
-需要在根目录创建 `vue.config.js` 文件 ，增加 `@tencent/press-ui` 包的编译即可正常
-
-```javascript
-// vue.config.js
-module.exports = {
-		transpileDependencies:['@tencent/press-ui']
-}
-```
-:::
+1. 安装npm包
 
 
-**准备 sass**
-
-`vue-cli` 项目请先安装 sass 及 sass-loader，如在 HBuliderX 中使用，可跳过此步。
-
-
-**安装 @tencent/press-ui**
-
-```
-npm i @tencent/press-ui   或   yarn add @tencent/press-ui
+```bash
+npm i @tencent/press-ui
 ```
 
 
+2. 在页面中正常引入并使用
 
-在 ``script`` 中引用组件：
+比如 `message-detail` 组件：
 
-```javascript
-import PressLoading from '@tencent/press-ui/press-loading/press-loading.vue' 
-import PressPopup from '@tencent/press-ui/press-popup/press-popup';
+```js
+<template>
+  <PressMessageDetail />
+</template>
+import PressMessageDetail from '@tencent/press-ui/press-message-detail/press-message-detail.vue'
+
 export default {
-    components: {
-			PressLoading,
-			PressPopup
-		}
+  components: {
+    PressMessageDetail, 
+  }
 }
 ```
 
+3. 配置`vue.config.js`
 
-在 ``template`` 中使用组件： 
+注意，需要在`vue.config.js`中配置下 `transpileDependencies`：
 
-```html
-<press-loading ></press-loading>
-<press-popup ></press-popup>
+```js
+module.exports = {
+  transpileDependencies: ['@tencent/press-ui'],
+}
 ```
-
-

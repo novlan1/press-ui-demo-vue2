@@ -169,3 +169,8 @@ url : pages/press/cell/cell
 | title-class  | 标题样式类     |
 | label-class  | 描述信息样式类 |
 | value-class  | 右侧内容样式类 |
+
+
+## 主题定制
+
+<theme-config />

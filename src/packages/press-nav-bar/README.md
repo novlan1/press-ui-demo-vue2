@@ -80,3 +80,8 @@ export default {
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
 | title-class  | 标题样式类   |
+
+
+## 主题定制
+
+<theme-config />

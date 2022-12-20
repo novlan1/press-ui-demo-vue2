@@ -211,3 +211,8 @@ export default {
 | ------------- | ------------ |
 | custom-class  | 根节点样式类 |
 | content-class | 内容样式类   |
+
+
+## 主题定制
+
+<theme-config />

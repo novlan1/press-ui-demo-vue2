@@ -171,3 +171,5 @@ export default {
 ```
 
 `index` 为一个数组，数组内包含 `columnsNum` 个数据， 每个数据对应一列选项中被选中项的序号。
+
+

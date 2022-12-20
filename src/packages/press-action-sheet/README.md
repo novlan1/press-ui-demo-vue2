@@ -202,3 +202,8 @@ export default {
 | sendMessageImg   | 会话内消息卡片图片，openType="contact"时有效                                                                                                                  | _string_  | 截图         |
 | showMessageCard  | 是否显示会话内消息卡片，设置此参数为 true，用户进入客服会话会在右下角显示"可能要发送的小程序"提示，用户点击后可以快速发送小程序消息，openType="contact"时有效 | _string_  | `false`      |
 | appParameter     | 打开 APP 时，向 APP 传递的参数，openType=launchApp 时有效                                                                                                     | _string_  | -            |
+
+
+## 主题定制
+
+<theme-config />

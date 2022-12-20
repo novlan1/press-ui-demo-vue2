@@ -141,3 +141,6 @@ url : pages/press/search/search
 | input-class  | 输入框样式类   |
 | cancel-class | 取消按钮样式类 |
 
+## 主题定制
+
+<theme-config />

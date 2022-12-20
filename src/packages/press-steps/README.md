@@ -145,3 +145,7 @@ Page({
 | desc         | 当前步骤描述信息                                         | _string_ |
 | activeIcon   | 当前步骤激活状态底部图标                                 | _string_ |
 | inactiveIcon | 当前步骤未激活状态底部图标，可选值见 [Icon 组件](#/icon) | _string_ |
+
+## 主题定制
+
+<theme-config />

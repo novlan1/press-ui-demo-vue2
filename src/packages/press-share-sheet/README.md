@@ -196,3 +196,7 @@ export default {
 | ----------- | -------------- |
 | title       | 自定义顶部标题 |
 | description | 自定义描述文字 |
+
+## 主题定制
+
+<theme-config />

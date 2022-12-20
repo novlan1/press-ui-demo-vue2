@@ -89,3 +89,6 @@ export default {
 | onClickConfirm | 点击确定 |   -    |
 
 
+## 主题定制
+
+<theme-config />

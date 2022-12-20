@@ -105,3 +105,4 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
 | slide-down  | 下滑进入 |
 | slide-left  | 左滑进入 |
 | slide-right | 右滑进入 |
+

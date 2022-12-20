@@ -238,3 +238,7 @@ export default {
 | label-class      | 左侧文本样式类 |
 | input-class      | 输入框样式类   |
 | right-icon-class | 右侧图标样式类 |
+
+## 主题定制
+
+<theme-config type="field"/>

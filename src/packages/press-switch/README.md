@@ -135,3 +135,7 @@ export default {
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
 | node-class   | 圆点样式类   |
+
+## 主题定制
+
+<theme-config />

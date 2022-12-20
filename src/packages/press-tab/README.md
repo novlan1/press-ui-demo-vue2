@@ -266,3 +266,7 @@ Tabs 组件在挂载时，会获取自身的宽度，并计算出底部条的位
 ```js
 this.selectComponent('#tabs').resize();
 ```
+
+## 主题定制
+
+<theme-config />

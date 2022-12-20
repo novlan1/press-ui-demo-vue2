@@ -159,3 +159,7 @@ export default {
 | input-class  | 输入框样式类   |
 | plus-class   | 加号按钮样式类 |
 | minus-class  | 减号按钮样式类 |
+
+## 主题定制
+
+<theme-config />

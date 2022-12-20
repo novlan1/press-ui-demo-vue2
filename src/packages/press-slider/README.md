@@ -136,3 +136,7 @@ export default {
 | button       | 自定义滑块按钮                      | _{ value: number }_ |
 | left-button  | 自定义左侧滑块按钮（双滑块模式下）  | _{ value: number }_ |
 | right-button | 自定义右侧滑块按钮 （双滑块模式下） | _{ value: number }_ |
+
+## 主题定制
+
+<theme-config />

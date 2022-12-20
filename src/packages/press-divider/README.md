@@ -71,3 +71,7 @@ url : pages/press/divider/divider
 | 名称 | 说明           |
 | ---- | -------------- |
 | 默认 | 自定义文本内容 |
+
+## 主题定制
+
+<theme-config type="divider"/>

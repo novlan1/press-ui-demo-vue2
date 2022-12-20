@@ -212,4 +212,4 @@ subTitle: Button
 
 ## 主题定制
 
-<theme-config/>
+<theme-config />

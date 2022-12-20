@@ -134,3 +134,7 @@ export default {
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
 | icon-class   | 图标样式类   |
+
+## 主题定制
+
+<theme-config />

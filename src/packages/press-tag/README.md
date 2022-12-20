@@ -143,3 +143,7 @@ export default {
 | 类名         | 说明         |
 | ------------ | ------------ |
 | custom-class | 根节点样式类 |
+
+## 主题定制
+
+<theme-config />

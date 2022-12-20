@@ -134,3 +134,7 @@ url : pages/press/notice-bar/notice-bar
 | --notice-bar-background-color | _var(--press-orange-light)_                       | -    |
 | --notice-bar-icon-size        | _16px_                                            | -    |
 | --notice-bar-icon-min-width   | _24px_                                            | -    |
+
+## 主题定制
+
+<theme-config />

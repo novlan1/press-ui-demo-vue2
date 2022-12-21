@@ -3,7 +3,7 @@
     <div class="press-color-picker">
       <div
         class="press-color-picker__trigger"
-        @click="handleTrigger"
+        @click.stop="handleTrigger"
        :style="{
             backgroundColor: displayedColor
           }"
@@ -89,8 +89,17 @@ export default {
       this.color.fromString(value);
     }
     this.popperElm = this.$refs.dropdown.$el;
+    document.addEventListener('click', this.onDocumentClick);
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.onDocumentClick);
   },
    methods: {
+    onDocumentClick(event) {
+      if (!this.$el.contains(event.target)) {
+        this.showPicker = false;
+      }
+    },
       handleTrigger() {
         if (this.colorDisabled) return;
         this.showPicker = !this.showPicker;

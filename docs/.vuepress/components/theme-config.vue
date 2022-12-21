@@ -1,57 +1,98 @@
 <template>
   <div class="config-wrap">
-    <div v-for="(item, index) of list" :key="index" class="config-item">
-      <div class="config-name">{{item.name}}：</div>
+    <div
+      v-for="(item, index) of list"
+      :key="index"
+      class="config-item"
+    >
+      <div class="config-name">
+        {{ item.name }}：
+      </div>
       <div class="config-input">
-        <input placeholder="请输入" v-model="item.value" class="input-inner"
-        :data-name="item.name"
-         @change="e=>onChangeTheme(e, item)"
+        <input
+          v-model="item.value"
+          placeholder="请输入"
+          class="input-inner"
+          :data-name="item.name"
+          @change="e=>onChangeTheme(e, item)"
+        >
+        
+      </div>
+      <div style="width: 40px;">
+        <ColorPicker
+          v-if="item.isColor"
+          v-model="item.value"
+          @change="v=>onChangeColorPicker(v, item)"
         />
       </div>
     </div>
 
     <div class="config-item">
       <div style="position: relative;">
-      <div class="config-tooltip" v-if="copied">✨ 复制已变更条目成功</div>
-      <button class="config-button config-button--primary" @click.stop="onCopy">一键复制</button>
+        <div
+          v-if="copied"
+          class="config-tooltip"
+        >
+          ✨ 复制已变更条目成功
+        </div>
+        <button
+          class="config-button config-button--primary"
+          @click.stop="onCopy"
+        >
+          一键复制
+        </button>
       </div>
-      <div style="margin-left: 16px;position: relative;">
-      <div class="config-tooltip" v-if="resumed">还原成功</div>
-      <button class="config-button config-button--default" @click.stop="onResume">还原</button>
+      <div style="margin-left: 26px;position: relative;">
+        <div
+          v-if="resumed"
+          class="config-tooltip"
+        >
+          还原成功
+        </div>
+        <button
+          class="config-button config-button--default"
+          @click.stop="onResume"
+        >
+          还原
+        </button>
       </div>
     </div>
   </div>
 </template>
 <script>
-import themeDefaultJson from './theme-default.json'
+import themeDefaultJson from './theme-default.json';
+import ColorPicker from './color-picker/color-picker.vue'
+
 const CHANGE_IFRAME_STYLE_TYPE = 'CHANGE_IFRAME_STYLE_TYPE';
 
 function copyText(text) {
-  var textareaC = document.createElement('textarea');
-    textareaC.setAttribute('readonly', 'readonly'); //设置只读属性防止手机上弹出软键盘
-    textareaC.value = text;
-    document.body.appendChild(textareaC); //将textarea添加为body子元素
-    textareaC.select();
-    var res = document.execCommand('copy');
-    document.body.removeChild(textareaC);//移除DOM元素
-    return res;
+  const textareaC = document.createElement('textarea');
+  textareaC.setAttribute('readonly', 'readonly'); // 设置只读属性防止手机上弹出软键盘
+  textareaC.value = text;
+  document.body.appendChild(textareaC); // 将textarea添加为body子元素
+  textareaC.select();
+  const res = document.execCommand('copy');
+  document.body.removeChild(textareaC);// 移除DOM元素
+  return res;
 }
 
 function getComponentTheme(type) {
   if (!type) return [];
 
   const res = Object.keys(themeDefaultJson)
-    .filter(key => {
-      return key.startsWith(`$${type}`)
-    })
-    .map(key => ({ 
-      name: key.replace(`$`, '--'),
-      value: themeDefaultJson[key]
-    }))
+    .filter(key => key.startsWith(`$${type}`))
+    .map(key => ({
+      name: key.replace('$', '--'),
+      value: themeDefaultJson[key],
+      isColor: themeDefaultJson[key].startsWith('#')
+    }));
   return res;
 }
 
 export default {
+  components: {
+    ColorPicker
+  },
   props: {
   },
   data() {
@@ -61,28 +102,27 @@ export default {
       list: [],
       url: '',
       type: '',
-    }
+    };
+  },
+  computed: {
   },
   watch: {
     $page: {
-			handler(newName) {
-				const { frontmatter } = newName;
-				this.url = frontmatter.url ? frontmatter.url : '';
+      handler(newName) {
+        const { frontmatter } = newName;
+        this.url = frontmatter.url ? frontmatter.url : '';
         if (this.url) {
-          const list = this.url.split('/')
+          const list = this.url.split('/');
           const newType = list[list.length - 1];
-          console.log('newType', newType)
+          console.log('newType', newType);
           if (newType !== this.type) {
             this.type = newType;
             this.list = getComponentTheme(newType);
           }
         }
-        
-			},
-			immediate: true
-		}
-  },
-  computed: {
+      },
+      immediate: true,
+    },
   },
   mounted() {
     this.list = getComponentTheme(this.type);
@@ -90,17 +130,25 @@ export default {
   methods: {
     onCopy() {
       this.copied = true;
+      this.resumed = false;
       setTimeout(() => {
         this.copied = false;
-      }, 2000)
-      const diff = this.getChangedStyle().map(item => `${item.name}: ${item.newValue};`)
+      }, 2000);
+      const diff = this.getChangedStyle().map(item => `${item.name}: ${item.newValue};`);
 
-      copyText(diff.join('\n'))
+      copyText(diff.join('\n'));
     },
     onChangeTheme(e, item) {
       this.changeIframe({
         name: item.name,
-        value: e.target.value
+        value: e.target.value,
+      });
+    },
+    onChangeColorPicker(value, item) {
+      console.log('value', value, item)
+      this.changeIframe({
+        name: item.name,
+        value,
       })
     },
     changeIframe(style) {
@@ -109,46 +157,47 @@ export default {
     },
     getChangedStyle() {
       const copyList = getComponentTheme(this.type);
-      const obj = this.list.reduce((acc,item) => {
+      const obj = this.list.reduce((acc, item) => {
         acc[item.name] = item.value;
         return acc;
       }, {});
-      
-      const diff = []
 
-      copyList.forEach(item => {
+      const diff = [];
+
+      copyList.forEach((item) => {
         if (item.value !== obj[item.name]) {
           diff.push({
             name: item.name,
             oldValue: item.value,
-            newValue: obj[item.name]
-          })
+            newValue: obj[item.name],
+          });
         }
-      })
+      });
       return diff;
     },
     onResume() {
       const diff = this.getChangedStyle();
 
       const list = getComponentTheme(this.type);
-      this.list = JSON.parse(JSON.stringify(list))
+      this.list = JSON.parse(JSON.stringify(list));
 
-      diff.map(item => {
+      diff.map((item) => {
         this.changeIframe({
           name: item.name,
           value: item.oldValue,
-        })
-      })
+        });
+      });
 
       this.resumed = true;
+      this.copied = false;
       setTimeout(() => {
         this.resumed = false;
-      }, 2000)
+      }, 2000);
     },
-  }
-}
+  },
+};
 </script>
-<style scoped >
+<style scoped>
 .config-wrap {
   min-height: 50px;
   padding: 20px 0;

@@ -167,6 +167,10 @@
     "title": "导航组件",
     "list": [
       {
+        "name": "Grid",
+        "title": "宫格"
+      },
+      {
         "name": "IndexBar",
         "title": "索引栏"
       },

@@ -773,6 +773,17 @@
       ]
     },
     {
+      "root": "pages/press/grid",
+      "pages": [
+        {
+          "path": "grid",
+          "style": {
+            "navigationBarTitleText": "Grid 宫格"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/index-bar",
       "pages": [
         {

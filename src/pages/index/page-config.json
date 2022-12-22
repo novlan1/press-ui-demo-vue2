@@ -168,6 +168,10 @@
       "title": "导航组件",
       "list": [
         {
+          "name": "Grid 宫格",
+          "url": "/press/grid/grid"
+        },
+        {
           "name": "IndexBar 索引栏",
           "url": "/press/index-bar/index-bar"
         },

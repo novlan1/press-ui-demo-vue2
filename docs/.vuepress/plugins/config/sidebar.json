@@ -209,6 +209,11 @@
       "collapsable": false,
       "children": [
         {
+          "title": "宫格",
+          "subTitle": "Grid",
+          "path": "/components/press/press-grid.md"
+        },
+        {
           "title": "索引栏",
           "subTitle": "IndexBar",
           "path": "/components/press/press-index-bar.md"

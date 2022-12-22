@@ -89,7 +89,12 @@ url : pages/press/cell/cell
 如以上用法不能满足你的需求，可以使用插槽来自定义内容。
 
 ```html
-<press-cell value="内容" icon="shop-o" is-link>
+<press-cell 
+  value="内容" 
+  icon="shop-o"
+  is-link
+  :use-title-slot="true"
+>
   <view slot="title">
     <view class="press-cell-text">单元格</view>
     <press-tag type="danger">标签</press-tag>

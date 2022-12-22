@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="demo-wrap">
     <demo-block
       title="基础用法"
       :header-style="headerStyle"
@@ -128,15 +128,16 @@
       <press-cell
         value="内容"
         is-link
+        :use-title-slot="true"
       >
-        <div slot="title">
-          <div class="press-cell-text">
+        <template slot="title">
+          <span class="press-cell-text">
             单元格
-          </div>
+          </span>
           <press-tag type="danger">
             标签
           </press-tag>
-        </div>
+        </template>
       </press-cell>
       <press-cell
         title="单元格"
@@ -235,6 +236,13 @@ export default {
 @import "src/packages/base/mixin.scss";
 page {
   background: #f7f8fa !important;
+}
+
+.demo-wrap {
+  .press-cell-text {
+    margin-right: 4px;
+    vertical-align: middle;
+  }
 }
 </style>
 <style lang="scss">

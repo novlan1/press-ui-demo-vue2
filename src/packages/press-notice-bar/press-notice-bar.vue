@@ -17,9 +17,10 @@
       />
 
       <div class="van-notice-bar__wrap">
+        <!-- :animation="animationData" -->
         <div
           :class="'van-notice-bar__content '+(scrollable === false && !wrapable ? 'van-ellipsis' : '')"
-          :animation="animationData"
+          :style="animationStyle"
         >
           {{ text }}
           <slot v-if="(!text)" />
@@ -32,6 +33,7 @@
         name="cross"
         @click.native.stop.prevent="onClickIcon"
       />
+
       <navigator
         v-else-if="mode === 'link'"
         :url="url"
@@ -67,7 +69,6 @@ export default {
     text: {
       type: String,
       default: '',
-      // observer: 'init',
     },
     mode: {
       type: String,
@@ -88,7 +89,6 @@ export default {
     speed: {
       type: Number,
       default: 60,
-      // observer: 'init',
     },
     scrollable: {
       type: Boolean,
@@ -108,6 +108,11 @@ export default {
     return {
       show: true,
       animationData: {}, // TODO: 纯H5模式下需要重构
+
+      duration: 0,
+      animationDuration: 0,
+      contentWidth: 0,
+      translateX: 0,
     };
   },
   computed: {
@@ -118,6 +123,16 @@ export default {
     noticeBarStyle() {
       const { color, backgroundColor, background } = this;
       return computed.rootStyle({ color, backgroundColor, background });
+    },
+    animationStyle() {
+      const { animationDuration, delay, translateX } = this;
+      const res = [
+        `transform: translateX(${translateX}px);`,
+        `transition: -webkit-transform ${animationDuration}ms linear ${delay}ms, transform ${animationDuration}ms linear ${delay}ms;`,
+        'transform-origin: 50% 50% 0px;',
+      ].join(' ');
+
+      return res;
     },
   },
   watch: {
@@ -133,7 +148,7 @@ export default {
     },
   },
   created() {
-    this.resetAnimation = wx.createAnimation({
+    this.resetAnimation = uni.createAnimation({
       duration: 0,
       timingFunction: 'linear',
     });
@@ -165,7 +180,7 @@ export default {
             this.wrapWidth = wrapRect.width;
             this.contentWidth = contentRect.width;
             this.duration = duration;
-            this.animation = wx.createAnimation({
+            this.animation = uni.createAnimation({
               duration,
               timingFunction: 'linear',
               delay,
@@ -178,18 +193,23 @@ export default {
     scroll(isInit = false) {
       this.timer && clearTimeout(this.timer);
       this.timer = null;
-      this.animationData = this.resetAnimation
-        .translateX(isInit ? 0 : this.wrapWidth)
-        .step()
-        .export();
-      // });
+
+      this.translateX = isInit ? 0 : this.wrapWidth;
+      this.animationDuration = 0;
+      // this.animationData = this.resetAnimation
+      //   .translateX(isInit ? 0 : this.wrapWidth)
+      //   .step()
+      //   .export();
+
       requestAnimationFrame(() => {
-        this.animationData = this.animation
-          .translateX(-this.contentWidth)
-          .step()
-          .export();
-        // });
+        this.translateX = -this.contentWidth;
+        this.animationDuration = this.duration;
+        // this.animationData = this.animation
+        //   .translateX(-this.contentWidth)
+        //   .step()
+        //   .export();
       });
+
       this.timer = setTimeout(() => {
         this.scroll();
       }, this.duration);

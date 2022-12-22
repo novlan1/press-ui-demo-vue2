@@ -1,92 +1,92 @@
 <template>
-  <uni-shadow-root class="vant-action-sheet-index">
-    <van-popup
-      :show="show"
-      position="bottom"
-      :round="round"
-      :z-index="zIndex"
-      :overlay="overlay"
-      custom-class="van-action-sheet"
-      :safe-area-inset-bottom="safeAreaInsetBottom"
-      :close-on-click-overlay="closeOnClickOverlay"
-      @close="onClickOverlay"
+  <!-- <uni-shadow-root class="vant-action-sheet-index"> -->
+  <press-popup
+    :show="show"
+    position="bottom"
+    :round="round"
+    :z-index="zIndex"
+    :overlay="overlay"
+    custom-class="press-action-sheet"
+    :safe-area-inset-bottom="safeAreaInsetBottom"
+    :close-on-click-overlay="closeOnClickOverlay"
+    @close="onClickOverlay"
+  >
+    <div
+      v-if="title"
+      class="press-action-sheet__header"
     >
-      <div
-        v-if="title"
-        class="van-action-sheet__header"
+      {{ title }}
+      <press-icon
+        name="cross"
+        custom-class="press-action-sheet__close"
+        @click="onClose"
+      />
+    </div>
+    <div
+      v-if="description"
+      class="press-action-sheet__description press-hairline--bottom"
+    >
+      {{ description }}
+    </div>
+    <div v-if="actions && actions.length">
+      <button
+        v-for="(item,index) in (actions)"
+        :key="item.index"
+        :open-type="getOpenType(item)"
+        :style="item.color ? 'color: ' + item.color : ''"
+        :class="true ? getActionClass(item) : ''"
+        hover-class="press-action-sheet__item--hover"
+        :data-index="index"
+        :lang="lang"
+        :session-from="sessionFrom"
+        :send-message-title="sendMessageTitle"
+        :send-message-path="sendMessagePath"
+        :send-message-img="sendMessageImg"
+        :show-message-card="showMessageCard"
+        :app-parameter="appParameter"
+        @click="()=>onFakeSelect(item,index)"
+        @getuserinfo="onGetUserInfo"
+        @contact="onContact"
+        @getphonenumber="onGetPhoneNumber"
+        @error="onError"
+        @launchapp="onLaunchApp"
+        @opensetting="onOpenSetting"
       >
-        {{ title }}
-        <van-icon
-          name="cross"
-          custom-class="van-action-sheet__close"
-          @click="onClose"
+        <block v-if="(!item.loading)">
+          {{ item.name }}
+          <div
+            v-if="item.subname"
+            class="press-action-sheet__subname"
+          >
+            {{ item.subname }}
+          </div>
+        </block>
+        <press-loading
+          v-else
+          custom-class="press-action-sheet__loading"
+          size="22px"
         />
-      </div>
+      </button>
+    </div>
+    <slot />
+    <block v-if="cancelText">
+      <div class="press-action-sheet__gap" />
       <div
-        v-if="description"
-        class="van-action-sheet__description van-hairline--bottom"
+        class="press-action-sheet__cancel"
+        hover-class="press-action-sheet__cancel--hover"
+        hover-stay-time="70"
+        @click="onCancel"
       >
-        {{ description }}
+        {{ cancelText }}
       </div>
-      <div v-if="actions && actions.length">
-        <button
-          v-for="(item,index) in (actions)"
-          :key="item.index"
-          :open-type="getOpenType(item)"
-          :style="item.color ? 'color: ' + item.color : ''"
-          :class="true ? getActionClass(item) : ''"
-          hover-class="van-action-sheet__item--hover"
-          :data-index="index"
-          :lang="lang"
-          :session-from="sessionFrom"
-          :send-message-title="sendMessageTitle"
-          :send-message-path="sendMessagePath"
-          :send-message-img="sendMessageImg"
-          :show-message-card="showMessageCard"
-          :app-parameter="appParameter"
-          @click="()=>onFakeSelect(item,index)"
-          @getuserinfo="onGetUserInfo"
-          @contact="onContact"
-          @getphonenumber="onGetPhoneNumber"
-          @error="onError"
-          @launchapp="onLaunchApp"
-          @opensetting="onOpenSetting"
-        >
-          <block v-if="(!item.loading)">
-            {{ item.name }}
-            <div
-              v-if="item.subname"
-              class="van-action-sheet__subname"
-            >
-              {{ item.subname }}
-            </div>
-          </block>
-          <van-loading
-            v-else
-            custom-class="van-action-sheet__loading"
-            size="22px"
-          />
-        </button>
-      </div>
-      <slot />
-      <block v-if="cancelText">
-        <div class="van-action-sheet__gap" />
-        <div
-          class="van-action-sheet__cancel"
-          hover-class="van-action-sheet__cancel--hover"
-          hover-stay-time="70"
-          @click="onCancel"
-        >
-          {{ cancelText }}
-        </div>
-      </block>
-    </van-popup>
-  </uni-shadow-root>
+    </block>
+  </press-popup>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
-import VanPopup from '../press-popup-plus/press-popup-plus.vue';
-import VanLoading from '../press-loading-plus/press-loading-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressPopup from '../press-popup-plus/press-popup-plus.vue';
+import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import { button } from '../mixins/button';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import utils from '../wxs-js/utils';
@@ -97,9 +97,9 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanIcon,
-    VanPopup,
-    VanLoading,
+    PressIcon,
+    PressPopup,
+    PressLoading,
   },
   mixins: [button],
   props: {
@@ -144,7 +144,7 @@ export default {
   },
   methods: {
     getActionClass(item) {
-      return `${utils.bem('action-sheet__item', { disabled: item.disabled || item.loading })} ${item.className || ''}`;
+      return `${utils.bem2('action-sheet__item', { disabled: item.disabled || item.loading })} ${item.className || ''}`;
     },
     getOpenType(item) {
       const { canIUseGetUserProfile } = this;
@@ -188,7 +188,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-action-sheet {
+.press-action-sheet {
   max-height: var(
     --action-sheet-max-height,
     $action-sheet-max-height
@@ -245,7 +245,7 @@ export default {
     );
   }
 
-  &__item--disabled.van-action-sheet__item--hover {
+  &__item--disabled.press-action-sheet__item--hover {
     background-color: var(
       --action-sheet-item-background,
       $action-sheet-item-background

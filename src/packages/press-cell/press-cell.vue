@@ -1,83 +1,83 @@
 <template>
-  <uni-shadow-root class="vant-cell-index">
+  <!-- <uni-shadow-root class="vant-cell-index"> -->
+  <div
+    :class="cellClass"
+    hover-class="press-cell--hover hover-class"
+    hover-stay-time="70"
+    :style="customStyle"
+    @click="onClick"
+  >
+    <press-icon
+      v-if="icon"
+      :name="icon"
+      class="press-cell__left-icon-wrap"
+      custom-class="press-cell__left-icon"
+    />
+    <slot
+      v-else
+      name="icon"
+    />
+
+    <!-- 【修改点】:empty在小程序下失效，用$slots判断 -->
     <div
-      :class="cellClass"
-      hover-class="van-cell--hover hover-class"
-      hover-stay-time="70"
-      :style="customStyle"
-      @click="onClick"
+      v-if="title || useTitleSlot || label || useLabelSlot"
+      :style="cTitleStyle"
+      class="press-cell__title"
+      :class="titleClass"
     >
-      <van-icon
-        v-if="icon"
-        :name="icon"
-        class="van-cell__left-icon-wrap"
-        custom-class="van-cell__left-icon"
-      />
+      <template v-if="title">
+        {{ title }}
+      </template>
       <slot
-        v-else
-        name="icon"
+        v-else-if="useTitleSlot"
+        name="title"
       />
 
-      <!-- 【修改点】:empty在小程序下失效，用$slots判断 -->
       <div
-        v-if="title || useTitleSlot || label || useLabelSlot"
-        :style="cTitleStyle"
-        class="van-cell__title"
-        :class="titleClass"
+        v-if="label || useLabelSlot"
+        class="press-cell__label"
+        :class="labelClass"
       >
-        <template v-if="title">
-          {{ title }}
-        </template>
         <slot
-          v-else-if="useTitleSlot"
-          name="title"
+          v-if="useLabelSlot"
+          name="label"
         />
-
-        <div
-          v-if="label || useLabelSlot"
-          class="van-cell__label"
-          :class="labelClass"
-        >
-          <slot
-            v-if="useLabelSlot"
-            name="label"
-          />
-          <template v-else-if="label">
-            {{ label }}
-          </template>
-        </div>
-      </div>
-
-      <div
-        v-if="value || value === 0 || $slots.default"
-        class="van-cell__value"
-        :class="valueClass"
-      >
-        <template v-if="value || value === 0">
-          {{ value }}
+        <template v-else-if="label">
+          {{ label }}
         </template>
-        <slot v-else />
       </div>
-
-      <van-icon
-        v-if="isLink"
-        :name="arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'"
-        class="van-cell__right-icon-wrap"
-        :class="rightIconClass"
-        custom-class="van-cell__right-icon"
-      />
-      <slot
-        v-else
-        name="right-icon"
-      />
-
-      <slot name="extra" />
     </div>
-  </uni-shadow-root>
+
+    <div
+      v-if="value || value === 0 || $slots.default"
+      class="press-cell__value"
+      :class="valueClass"
+    >
+      <template v-if="value || value === 0">
+        {{ value }}
+      </template>
+      <slot v-else />
+    </div>
+
+    <press-icon
+      v-if="isLink"
+      :name="arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'"
+      class="press-cell__right-icon-wrap"
+      :class="rightIconClass"
+      custom-class="press-cell__right-icon"
+    />
+    <slot
+      v-else
+      name="right-icon"
+    />
+
+    <slot name="extra" />
+  </div>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
 
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { link } from '../mixins/link';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -85,7 +85,7 @@ import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
   components: {
-    VanIcon,
+    PressIcon,
   },
   options: {
     ...defaultOptions,
@@ -138,7 +138,7 @@ export default {
         clickable,
         customClass,
       } = this;
-      return `${customClass} ${utils.bem('cell', [size, { center, required, borderless: !border, clickable: isLink || clickable }])}`;
+      return `${customClass} ${utils.bem2('cell', [size, { center, required, borderless: !border, clickable: isLink || clickable }])}`;
     },
     cTitleStyle() {
       const {  titleWidth, titleStyle } = this;
@@ -161,7 +161,7 @@ export default {
 @import "../common/style/var.scss";
 @import "../common/style/mixins/hairline.scss";
 
-.van-cell {
+.press-cell {
   position: relative;
   display: flex;
   box-sizing: border-box;
@@ -241,7 +241,7 @@ export default {
   }
 
   // 【修改点】 &--clickable&--hover不能用
-  &--clickable.van-cell--hover {
+  &--clickable.press-cell--hover {
     background-color: var(--cell-active-color, $cell-active-color);
   }
 
@@ -271,15 +271,15 @@ export default {
       $cell-large-vertical-padding
     );
 
-    .van-cell__title {
+    .press-cell__title {
       font-size: var(--cell-large-title-font-size, $cell-large-title-font-size);
     }
 
-    .van-cell__value {
+    .press-cell__value {
       font-size: var(--cell-large-value-font-size, $cell-large-value-font-size);
     }
 
-    .van-cell__label {
+    .press-cell__label {
       font-size: var(--cell-large-label-font-size, $cell-large-label-font-size);
     }
   }

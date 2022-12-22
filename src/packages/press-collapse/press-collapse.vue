@@ -7,8 +7,6 @@
 </template>
 
 <script>
-
-// import { useChildren } from '../common/relation';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
 import { PARENT_COLLAPSE as PARENT } from '../common/parent-map';
@@ -21,17 +19,14 @@ export default {
   mixins: [
     ParentMixin(PARENT),
   ],
-  // relation: useChildren('collapse-item'),
   props: {
     value: {
       type: [Array, String],
       default: () => [],
-      // observer: 'updateExpanded',
     },
     accordion: {
       type: Boolean,
       default: false,
-      // observer: 'updateExpanded',
     },
     border: {
       type: Boolean,
@@ -82,5 +77,4 @@ export default {
 };
 </script>
 <style platform="mp-weixin">
-@import "../common/index.scss";
 </style>

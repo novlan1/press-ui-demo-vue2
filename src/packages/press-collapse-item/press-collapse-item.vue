@@ -48,10 +48,10 @@
           name="right-icon"
         />
       </van-cell>
+      <!-- :animation="animation" -->
       <div
         :class="wrapperClass"
-        style="height: 0;"
-        :animation="animation"
+        :style="animationStyle"
       >
         <div class="van-collapse-item__content content-class">
           <slot />
@@ -108,6 +108,8 @@ export default {
       expanded: false,
       animation: {},
       mounted: false,
+
+      animationStyle: 'height: 0;',
     };
   },
   computed: {

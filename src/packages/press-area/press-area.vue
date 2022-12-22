@@ -1,28 +1,28 @@
 <template>
-  <uni-shadow-root class="vant-area-index">
-    <van-picker
-      ref="vanPicker"
-      class="van-area__picker"
-      active-class="active-class"
-      toolbar-class="toolbar-class"
-      column-class="column-class"
-      :show-toolbar="showToolbar"
-      value-key="name"
-      :title="title"
-      :loading="loading"
-      :columns="computedColumns"
-      :item-height="itemHeight"
-      :visible-item-count="visibleItemCount"
-      :cancel-button-text="cancelButtonText"
-      :confirm-button-text="confirmButtonText"
-      @change="onChange"
-      @confirm="onConfirm"
-      @cancel="onCancel"
-    />
-  </uni-shadow-root>
+  <!-- <uni-shadow-root class="vant-area-index"> -->
+  <press-picker
+    ref="vanPicker"
+    class="van-area__picker"
+    active-class="active-class"
+    toolbar-class="toolbar-class"
+    column-class="column-class"
+    :show-toolbar="showToolbar"
+    value-key="name"
+    :title="title"
+    :loading="loading"
+    :columns="computedColumns"
+    :item-height="itemHeight"
+    :visible-item-count="visibleItemCount"
+    :cancel-button-text="cancelButtonText"
+    :confirm-button-text="confirmButtonText"
+    @change="onChange"
+    @confirm="onConfirm"
+    @cancel="onCancel"
+  />
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
-import VanPicker from '../press-picker-plus/press-picker-plus.vue';
+import PressPicker from '../press-picker-plus/press-picker-plus.vue';
 import { pickerProps } from '../press-picker-plus/shared';
 import { requestAnimationFrame } from '../common/utils';
 import computed from './computed';
@@ -36,7 +36,7 @@ export default {
     ...defaultOptions,
   },
   components: {
-    VanPicker,
+    PressPicker,
   },
   classes: ['active-class', 'toolbar-class', 'column-class'],
   props: {

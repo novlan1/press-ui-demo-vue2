@@ -1,67 +1,67 @@
 <template>
-  <uni-shadow-root class="vant-collapse-item-index">
-    <div :class="'van-collapse-item custom-class '+(index !== 0 ? 'van-hairline--top' : '')">
-      <!-- 【修改点】cell增加center，垂直居中 -->
-      <van-cell
-        :size="size"
-        :title="title"
-        title-class="title-class"
-        :icon="icon"
-        :value="value"
-        :label="label"
-        :is-link="isLink"
-        :clickable="clickable"
-        :border="border && expanded"
-        :class="collapseItemClass"
-        right-icon-class="van-cell__right-icon"
-        custom-class="van-cell"
-        hover-class="van-cell--hover"
-        center
-        @click="onClick"
+  <!-- <uni-shadow-root class="vant-collapse-item-index"> -->
+  <div :class="'press-collapse-item custom-class '+(index !== 0 ? 'press-hairline--top' : '')">
+    <!-- 【修改点】cell增加center，垂直居中 -->
+    <press-cell
+      :size="size"
+      :title="title"
+      title-class="title-class"
+      :icon="icon"
+      :value="value"
+      :label="label"
+      :is-link="isLink"
+      :clickable="clickable"
+      :border="border && expanded"
+      :class="collapseItemClass"
+      right-icon-class="press-cell__right-icon"
+      hover-class="press-cell--hover"
+      center
+      @click="onClick"
+    >
+      <!-- #ifndef H5 -->
+      <template
+        #title
       >
-        <!-- #ifndef H5 -->
-        <template
-          #title
-        >
-          <slot
-            slot="title"
-            name="title"
-          />
-        </template>
-        <!-- #endif -->
-        <!-- #ifdef H5 -->
         <slot
           slot="title"
           name="title"
         />
-        <!-- #endif -->
+      </template>
+      <!-- #endif -->
+      <!-- #ifdef H5 -->
+      <slot
+        slot="title"
+        name="title"
+      />
+      <!-- #endif -->
 
-        <!-- <slot
+      <!-- <slot
           slot="icon"
           name="icon"
         /> -->
 
-        <slot name="value" />
+      <slot name="value" />
 
-        <slot
-          slot="right-icon"
-          name="right-icon"
-        />
-      </van-cell>
-      <!-- :animation="animation" -->
-      <div
-        :class="wrapperClass"
-        :style="animationStyle"
-      >
-        <div class="van-collapse-item__content content-class">
-          <slot />
-        </div>
+      <slot
+        slot="right-icon"
+        name="right-icon"
+      />
+    </press-cell>
+    <!-- :animation="animation" -->
+
+    <div
+      :class="wrapperClass"
+      :style="animationStyle"
+    >
+      <div class="press-collapse-item__content content-class">
+        <slot />
       </div>
     </div>
-  </uni-shadow-root>
+  </div>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
-import VanCell from '../press-cell/press-cell.vue';
+import PressCell from '../press-cell/press-cell.vue';
 import { useParent } from '../common/relation';
 import { setContentAnimate } from './animate';
 import { defaultProps, defaultOptions } from '../common/press-component';
@@ -76,7 +76,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanCell,
+    PressCell,
   },
   mixins: [
     ChildrenMixin(PARENT),
@@ -115,10 +115,10 @@ export default {
   computed: {
     collapseItemClass() {
       const { disabled, expanded } = this;
-      return utils.bem('collapse-item__title', { disabled, expanded });
+      return utils.bem2('collapse-item__title', { disabled, expanded });
     },
     wrapperClass() {
-      return utils.bem('collapse-item__wrapper');
+      return utils.bem2('collapse-item__wrapper');
     },
   },
   mounted() {
@@ -161,9 +161,9 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-collapse-item {
+.press-collapse-item {
   &__title {
-    .van-cell__right-icon {
+    .press-cell__right-icon {
       transform: rotate(90deg);
       transition: transform
         var(
@@ -173,21 +173,22 @@ export default {
     }
 
     &--expanded {
-      .van-cell__right-icon {
+      .press-cell__right-icon {
         transform: rotate(-90deg);
       }
     }
 
     &--disabled {
-      .van-cell,
-      .van-cell__right-icon {
+      // 【修改点】改变disabled状态下的title颜色
+      .press-cell__title,
+      .press-cell__right-icon {
         color: var(
           --collapse-item-title-disabled-color,
           $collapse-item-title-disabled-color
         ) !important;
       }
 
-      .van-cell--hover {
+      .press-cell--hover {
         background-color: $white !important;
       }
     }

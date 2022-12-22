@@ -19,8 +19,8 @@
     />
 
     <!-- 【修改点】:empty在小程序下失效，用$slots判断 -->
+    <!-- v-if="title || useTitleSlot || label || useLabelSlot" -->
     <div
-      v-if="title || useTitleSlot || label || useLabelSlot"
       :style="cTitleStyle"
       class="press-cell__title"
       :class="titleClass"
@@ -28,8 +28,9 @@
       <template v-if="title">
         {{ title }}
       </template>
+      <!-- v-else-if="useTitleSlot" -->
       <slot
-        v-else-if="useTitleSlot"
+        v-else
         name="title"
       />
 
@@ -63,8 +64,7 @@
       v-if="isLink"
       :name="arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'"
       class="press-cell__right-icon-wrap"
-      :class="rightIconClass"
-      custom-class="press-cell__right-icon"
+      :custom-class="`press-cell__right-icon ${rightIconClass}`"
     />
     <slot
       v-else

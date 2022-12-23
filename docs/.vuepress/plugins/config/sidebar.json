@@ -168,6 +168,11 @@
           "path": "/components/press/press-collapse.md"
         },
         {
+          "title": "倒计时",
+          "subTitle": "CountDown",
+          "path": "/components/press/press-count-down.md"
+        },
+        {
           "title": "分割线",
           "subTitle": "Divider",
           "path": "/components/press/press-divider.md"

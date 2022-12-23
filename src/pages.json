@@ -696,6 +696,17 @@
       ]
     },
     {
+      "root": "pages/press/count-down",
+      "pages": [
+        {
+          "path": "count-down",
+          "style": {
+            "navigationBarTitleText": "CountDown 倒计时"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/divider",
       "pages": [
         {

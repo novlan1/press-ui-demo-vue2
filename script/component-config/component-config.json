@@ -134,6 +134,10 @@
         "title": "折叠面板"
       },
       {
+        "name": "CountDown",
+        "title": "倒计时"
+      },
+      {
         "name": "Divider",
         "title": "分割线"
       },

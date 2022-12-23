@@ -21,6 +21,7 @@ function contentStyle(data) {
       right: addUnit(data.gutter),
       bottom: addUnit(data.gutter),
       height: 'auto',
+      position: 'absolute',
     })
     : '';
 }

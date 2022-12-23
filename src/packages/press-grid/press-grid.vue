@@ -1,12 +1,12 @@
 <template>
-  <uni-shadow-root class="vant-grid-index">
-    <view
-      :class="'van-grid custom-class '+(border && !gutter ? 'van-hairline--top' : '')"
-      :style="true ? computed.rootStyle({ gutter }) : ''"
-    >
-      <slot />
-    </view>
-  </uni-shadow-root>
+  <!-- <uni-shadow-root class="vant-grid-index"> -->
+  <div
+    :class="`press-grid ${customClass} `+(border && !gutter ? 'press-hairline--top' : '')"
+    :style="true ? computed.rootStyle({ gutter }) : ''"
+  >
+    <slot />
+  </div>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import computed from './computed';
@@ -147,7 +147,7 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-grid {
+.press-grid {
   box-sizing: border-box;
   overflow: hidden;
   position: relative;

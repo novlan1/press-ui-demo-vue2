@@ -1,51 +1,51 @@
 <template>
-  <uni-shadow-root class="vant-grid-item-index">
-    <view
-      :class="'custom-class '+(utils.bem('grid-item', { square }))"
-      :style="true ? computed.wrapperStyle({ square, gutter, columnNum, index }) : ''"
-      @click="onClick"
+  <!-- <uni-shadow-root class="vant-grid-item-index"> -->
+  <div
+    :class="`${customClass} `+(utils.bem2('grid-item', { square }))"
+    :style="true ? computed.wrapperStyle({ square, gutter, columnNum, index }) : ''"
+    @click="onClick"
+  >
+    <div
+      :class="gridContentClass"
+      :style="true ? computed.contentStyle({ square, gutter }) : ''"
     >
-      <view
-        :class="gridContentClass"
-        :style="true ? computed.contentStyle({ square, gutter }) : ''"
-      >
-        <block v-if="useSlot">
-          <slot />
-        </block>
-        <block v-else>
-          <view class="van-grid-item__icon icon-class">
-            <van-icon
-              v-if="icon"
-              :name="icon"
-              :color="iconColor"
-              :class-prefix="iconPrefix"
-              :dot="dot"
-              :info="badge || info"
-              :size="iconSize"
-            />
-            <slot
-              v-else
-              name="icon"
-            />
-          </view>
+      <template v-if="useSlot">
+        <slot />
+      </template>
+      <template v-else>
+        <div class="press-grid-item__icon icon-class">
+          <press-icon
+            v-if="icon"
+            :name="icon"
+            :color="iconColor"
+            :class-prefix="iconPrefix"
+            :dot="dot"
+            :info="badge || info"
+            :size="iconSize"
+          />
+          <slot
+            v-else
+            name="icon"
+          />
+        </div>
 
-          <view class="van-grid-item__text text-class">
-            <text v-if="text">
-              {{ text }}
-            </text>
+        <div class="press-grid-item__text text-class">
+          <text v-if="text">
+            {{ text }}
+          </text>
 
-            <slot
-              v-else
-              name="text"
-            />
-          </view>
-        </block>
-      </view>
-    </view>
-  </uni-shadow-root>
+          <slot
+            v-else
+            name="text"
+          />
+        </div>
+      </template>
+    </div>
+  </div>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 // import { useParent } from '../common/relation';
 import { link } from '../mixins/link';
 import utils from '../wxs-js/utils';
@@ -60,11 +60,12 @@ export default {
   options: {
     ...defaultOptions,
     styleIsolation: 'shared',
+    virtualHost: true,
   },
   // relation: useParent('grid'),
   classes: ['content-class', 'icon-class', 'text-class'],
   components: {
-    VanIcon,
+    PressIcon,
   },
   mixins: [ChildrenMixin(PARENT), link],
   props: {
@@ -110,7 +111,7 @@ export default {
         gutter,
       } = this;
       console.log('border', border, center);
-      return `content-class ${utils.bem('grid-item__content', [direction, { center, square, reverse, clickable, surround: border && gutter }])} ${border ? 'van-hairline--surround' : ''}`;
+      return `content-class ${utils.bem2('grid-item__content', [direction, { center, square, reverse, clickable, surround: border && gutter }])} ${border ? 'press-hairline--surround' : ''}`;
     },
   },
   mounted() {
@@ -173,74 +174,98 @@ export default {
 
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
 
-.van-grid-item {
-  box-sizing: border-box;
-  float: left;
+.press-grid-item {
   position: relative;
-}
-.van-grid-item--square {
-  height: 0;
-}
-.van-grid-item__content {
-  background-color: var(--grid-item-content-background-color, #fff);
+  float: left;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: var(--grid-item-content-padding, 16px 8px);
-}
-.van-grid-item__content:after {
-  border-width: 0 1px 1px 0;
-  z-index: 1;
-}
-.van-grid-item__content--surround:after {
-  border-width: 1px;
-}
-.van-grid-item__content--center {
-  align-items: center;
-  justify-content: center;
-}
-.van-grid-item__content--square {
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.van-grid-item__content--horizontal {
-  flex-direction: row;
-}
-.van-grid-item__content--horizontal .van-grid-item__text {
-  margin: 0 0 0 8px;
-}
-.van-grid-item__content--reverse {
-  flex-direction: column-reverse;
-}
-.van-grid-item__content--reverse .van-grid-item__text {
-  margin: 0 0 8px;
-}
-.van-grid-item__content--horizontal.van-grid-item__content--reverse {
-  flex-direction: row-reverse;
-}
-.van-grid-item__content--horizontal.van-grid-item__content--reverse
-  .van-grid-item__text {
-  margin: 0 8px 0 0;
-}
-.van-grid-item__content--clickable:active {
-  background-color: var(--grid-item-content-active-color, #f2f3f5);
-}
-.van-grid-item__icon {
-  align-items: center;
-  display: flex;
-  font-size: var(--grid-item-icon-size, 26px);
-  height: var(--grid-item-icon-size, 26px);
-}
-.van-grid-item__text {
-  word-wrap: break-word;
-  color: var(--grid-item-text-color, #646566);
-  font-size: var(--grid-item-text-font-size, 12px);
-}
-.van-grid-item__icon + .van-grid-item__text {
-  margin-top: 8px;
+
+  &--square {
+    height: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    padding: var(--grid-item-content-padding, $grid-item-content-padding);
+    background-color: var(
+      --grid-item-content-background-color,
+      $grid-item-content-background-color
+    );
+
+    &::after {
+      z-index: 1;
+      border-width: 0 $border-width-base $border-width-base 0;
+    }
+
+    &--surround {
+      &::after {
+        border-width: $border-width-base;
+      }
+    }
+
+    &--center {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--square {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    &--horizontal {
+      flex-direction: row;
+
+      .press-grid-item__text {
+        margin: 0 0 0 $padding-xs;
+      }
+    }
+
+    &--reverse {
+      flex-direction: column-reverse;
+
+      .press-grid-item__text {
+        margin: 0 0 $padding-xs;
+      }
+    }
+
+    &--horizontal.press-grid-item--reverse {
+      flex-direction: row-reverse;
+
+      .press-grid-item__text {
+        margin: 0 $padding-xs 0 0;
+      }
+    }
+
+    &--clickable:active {
+      background-color: var(
+        --grid-item-content-active-color,
+        $grid-item-content-active-color
+      );
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    font-size: var(--grid-item-icon-size, $grid-item-icon-size);
+    height: var(--grid-item-icon-size, $grid-item-icon-size);
+  }
+
+  &__text {
+    word-wrap: break-word;
+    color: var(--grid-item-text-color, $grid-item-text-color);
+    font-size: var(--grid-item-text-font-size, $grid-item-text-font-size);
+  }
+
+  &__icon + &__text {
+    margin-top: 8px;
+  }
 }
 </style>

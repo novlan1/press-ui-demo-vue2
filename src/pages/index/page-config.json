@@ -151,6 +151,10 @@
           "url": "/press/notice-bar/notice-bar"
         },
         {
+          "name": "Progress 进度条",
+          "url": "/press/progress/progress"
+        },
+        {
           "name": "Skeleton 骨架屏",
           "url": "/press/skeleton/skeleton"
         },

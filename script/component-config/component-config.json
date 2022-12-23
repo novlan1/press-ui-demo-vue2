@@ -150,6 +150,10 @@
         "title": "通知栏"
       },
       {
+        "name": "Progress",
+        "title": "进度条"
+      },
+      {
         "name": "Skeleton",
         "title": "骨架屏"
       },

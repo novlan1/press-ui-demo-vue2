@@ -188,6 +188,11 @@
           "path": "/components/press/press-notice-bar.md"
         },
         {
+          "title": "进度条",
+          "subTitle": "Progress",
+          "path": "/components/press/press-progress.md"
+        },
+        {
           "title": "骨架屏",
           "subTitle": "Skeleton",
           "path": "/components/press/press-skeleton.md"

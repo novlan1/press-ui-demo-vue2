@@ -1,48 +1,48 @@
 <template>
-  <uni-shadow-root class="vant-skeleton-index">
-    <view
+  <div>
+    <div
       v-if="loading"
-      :class="'custom-class '+(utils.bem('skeleton', [{animate}]))"
+      :class="`${customClass} `+(utils.bem2('skeleton', [{animate}]))"
     >
-      <view
+      <div
         v-if="avatar"
-        :class="'avatar-class '+(utils.bem('skeleton__avatar', [avatarShape]))"
+        :class="`${avatarClass} `+(utils.bem2('skeleton__avatar', [avatarShape]))"
         :style="'width:' + avatarSize + ';height:' + avatarSize"
       />
-      <view :class="true ? utils.bem('skeleton__content'): ''">
-        <view
+      <div :class="true ? utils.bem2('skeleton__content'): ''">
+        <div
           v-if="title"
-          :class="'title-class '+(utils.bem('skeleton__title'))"
+          :class="`${titleClass} `+(utils.bem2('skeleton__title'))"
           :style="'width:' + titleWidth"
         />
-        <view
+        <div
           v-for="(item,index) in (rowArray)"
           :key="index"
-          :class="'row-class '+(utils.bem('skeleton__row'))"
+          :class="`${rowClass} `+(utils.bem2('skeleton__row'))"
           :style="'width:' + (isArray ? rowWidth[index] : rowWidth)"
         />
-      </view>
-    </view>
-    <view
+      </div>
+    </div>
+    <div
       v-else
-      :class="true ? utils.bem('skeleton__content') : ''"
+      :class="true ? utils.bem2('skeleton__content') : ''"
     >
       <slot />
-    </view>
-  </uni-shadow-root>
+    </div>
+  </div>
 </template>
 <script>
 import utils from '../wxs-js/utils';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
-  classes: ['avatar-class', 'title-class', 'row-class'],
+  options: {
+    defaultOptions,
+  },
   props: {
     row: {
       type: Number,
       default: 0,
-      // observer(value) {
-      //   this.setData({ rowArray: Array.from({ length: value }) });
-      // },
     },
     title: Boolean,
     avatar: Boolean,
@@ -69,10 +69,20 @@ export default {
     rowWidth: {
       type: null,
       default: '100%',
-      // observer(val) {
-      //   this.setData({ isArray: val instanceof Array });
-      // },
     },
+    avatarClass: {
+      type: String,
+      default: '',
+    },
+    titleClass: {
+      type: String,
+      default: '',
+    },
+    rowClass: {
+      type: String,
+      default: '',
+    },
+    ...defaultProps,
   },
   data() {
     return {
@@ -103,44 +113,65 @@ export default {
 
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-skeleton {
-  box-sizing: border-box;
+@import "../common/style/var.scss";
+
+.press-skeleton {
   display: flex;
-  padding: var(--skeleton-padding, 0 16px);
+  box-sizing: border-box;
   width: 100%;
+  padding: var(--skeleton-padding, $skeleton-padding);
+
+  &__avatar {
+    flex-shrink: 0;
+    margin-right: var(--padding-md, $padding-md);
+    background-color: var(
+      --skeleton-avatar-background-color,
+      $skeleton-avatar-background-color
+    );
+
+    &--round {
+      border-radius: 100%;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__avatar + &__content {
+    padding-top: var(--padding-xs, $padding-xs);
+  }
+
+  &__row,
+  &__title {
+    height: var(--skeleton-row-height, $skeleton-row-height);
+    background-color: var(
+      --skeleton-row-background-color,
+      $skeleton-row-background-color
+    );
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__row {
+    &:not(:first-child) {
+      margin-top: var(--skeleton-row-margin-top, $skeleton-row-margin-top);
+    }
+  }
+
+  &__title + &__row {
+    margin-top: 20px;
+  }
+
+  &--animate {
+    animation: press-skeleton-blink $skeleton-animation-duration ease-in-out
+      infinite;
+  }
 }
-.van-skeleton__avatar {
-  background-color: var(--skeleton-avatar-background-color, #f2f3f5);
-  flex-shrink: 0;
-  margin-right: var(--padding-md, 16px);
-}
-.van-skeleton__avatar--round {
-  border-radius: 100%;
-}
-.van-skeleton__content {
-  flex: 1;
-}
-.van-skeleton__avatar + .van-skeleton__content {
-  padding-top: var(--padding-xs, 8px);
-}
-.van-skeleton__row,
-.van-skeleton__title {
-  background-color: var(--skeleton-row-background-color, #f2f3f5);
-  height: var(--skeleton-row-height, 16px);
-}
-.van-skeleton__title {
-  margin: 0;
-}
-.van-skeleton__row:not(:first-child) {
-  margin-top: var(--skeleton-row-margin-top, 12px);
-}
-.van-skeleton__title + .van-skeleton__row {
-  margin-top: 20px;
-}
-.van-skeleton--animate {
-  animation: van-skeleton-blink 1.2s ease-in-out infinite;
-}
-@keyframes van-skeleton-blink {
+
+@keyframes press-skeleton-blink {
   50% {
     opacity: 0.6;
   }

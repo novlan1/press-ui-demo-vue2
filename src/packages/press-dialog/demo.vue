@@ -99,7 +99,7 @@ export default {
       let htmlContent = '';
       let src = '';
       let canTouchRemove = true;
-      let useScrolldiv = false;
+      let useScrollView = false;
 
       if (type === 'noCancel') {
         cancelText = '';
@@ -120,7 +120,7 @@ export default {
       } else if (type === 'longText') {
         content = '';
         htmlContent = `<div style="max-height:100%;overflow:scroll;">${LONG_TEXT}</div>`;
-        useScrolldiv = true;
+        useScrollView = true;
       }
 
       PressDialog.show({
@@ -133,7 +133,7 @@ export default {
         dialogType,
         onConfirmClick,
         canTouchRemove,
-        useScrolldiv,
+        useScrollView,
       }).then(() => {})
         .catch(() => {});
     },

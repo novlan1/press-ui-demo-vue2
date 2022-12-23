@@ -36,6 +36,7 @@ import { defaultProps, defaultOptions } from '../common/press-component';
 export default {
   options: {
     ...defaultOptions,
+    styleIsolation: 'shared',
   },
   components: {
     PressIcon,

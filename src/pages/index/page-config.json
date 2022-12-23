@@ -94,6 +94,10 @@
           "url": "/press/dialog/dialog"
         },
         {
+          "name": "DialogPlus 弹窗",
+          "url": "/press/dialog-plus/dialog-plus"
+        },
+        {
           "name": "Loading 加载中",
           "url": "/press/loading/loading"
         },

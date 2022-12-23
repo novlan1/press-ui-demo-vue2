@@ -26,6 +26,7 @@ import { WHITE } from '../common/color';
 import { getSystemInfoSync } from '../common/utils';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import computed from './computed';
+import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
 
 
 const props = {
@@ -58,16 +59,6 @@ const props = {
   },
   ...defaultProps,
 };
-const formatKey = key => key.replace(/^(\w)/, (a, b) => `data${b.toUpperCase()}`);
-
-const watchProps = Object.keys(props).reduce((acc, item) => {
-  acc[item] = {
-    handler(val) {
-      this[formatKey(item)] = val;
-    },
-  };
-  return acc;
-}, {});
 
 
 export default {
@@ -80,14 +71,8 @@ export default {
   },
   props,
   data() {
-    const that = this;
-    const propsData = Object.keys(props).reduce((acc, item) => {
-      acc[formatKey(item)] = that[item];
-      return acc;
-    }, {});
-
     return {
-      ...propsData,
+      ...getPropsData(this, props),
 
       // show: false,
       onOpened: null,
@@ -97,7 +82,7 @@ export default {
     };
   },
   watch: {
-    ...watchProps,
+    ...getPropsWatch(props),
   },
   created() {
     const { statusBarHeight } = getSystemInfoSync();
@@ -106,9 +91,7 @@ export default {
   },
   methods: {
     setData(data) {
-      Object.keys(data).forEach((key) => {
-        this[formatKey(key)] = data[key];
-      });
+      setPropsToData.call(this, data);
     },
     // showNotify() {
     //   const { duration, onOpened } = this;

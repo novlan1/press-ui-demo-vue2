@@ -597,6 +597,17 @@
       ]
     },
     {
+      "root": "pages/press/dialog-plus",
+      "pages": [
+        {
+          "path": "dialog-plus",
+          "style": {
+            "navigationBarTitleText": "DialogPlus 弹窗"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/loading",
       "pages": [
         {

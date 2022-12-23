@@ -93,6 +93,10 @@
         "title": "弹出框"
       },
       {
+        "name": "DialogPlus",
+        "title": "弹窗"
+      },
+      {
         "name": "Loading",
         "title": "加载中"
       },

@@ -22,23 +22,26 @@ export const button = {
     };
   },
   methods: {
+    triggerEvent(...args) {
+      this.$emit(...args);
+    },
     onGetUserInfo(event) {
-      this.triggerEvent('getuserinfo', event.detail);
+      this.triggerEvent('getuserinfo', event);
     },
     onContact(event) {
-      this.triggerEvent('contact', event.detail);
+      this.triggerEvent('contact', event);
     },
     onGetPhoneNumber(event) {
-      this.triggerEvent('getphonenumber', event.detail);
+      this.triggerEvent('getphonenumber', event);
     },
     onError(event) {
-      this.triggerEvent('error', event.detail);
+      this.triggerEvent('error', event);
     },
     onLaunchApp(event) {
-      this.triggerEvent('launchapp', event.detail);
+      this.triggerEvent('launchapp', event);
     },
     onOpenSetting(event) {
-      this.triggerEvent('opensetting', event.detail);
+      this.triggerEvent('opensetting', event);
     },
   },
 };

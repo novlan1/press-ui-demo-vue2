@@ -740,6 +740,17 @@
       ]
     },
     {
+      "root": "pages/press/skeleton",
+      "pages": [
+        {
+          "path": "skeleton",
+          "style": {
+            "navigationBarTitleText": "Skeleton 骨架屏"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/steps",
       "pages": [
         {

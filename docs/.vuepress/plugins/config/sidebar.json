@@ -188,6 +188,11 @@
           "path": "/components/press/press-notice-bar.md"
         },
         {
+          "title": "骨架屏",
+          "subTitle": "Skeleton",
+          "path": "/components/press/press-skeleton.md"
+        },
+        {
           "title": "步骤条",
           "subTitle": "Steps",
           "path": "/components/press/press-steps.md"

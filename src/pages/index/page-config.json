@@ -151,6 +151,10 @@
           "url": "/press/notice-bar/notice-bar"
         },
         {
+          "name": "Skeleton 骨架屏",
+          "url": "/press/skeleton/skeleton"
+        },
+        {
           "name": "Steps 步骤条",
           "url": "/press/steps/steps"
         },

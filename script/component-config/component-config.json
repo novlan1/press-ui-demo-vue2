@@ -150,6 +150,10 @@
         "title": "通知栏"
       },
       {
+        "name": "Skeleton",
+        "title": "骨架屏"
+      },
+      {
         "name": "Steps",
         "title": "步骤条"
       },

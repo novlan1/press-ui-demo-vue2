@@ -602,7 +602,7 @@
         {
           "path": "dialog-plus",
           "style": {
-            "navigationBarTitleText": "DialogPlus 弹窗"
+            "navigationBarTitleText": "DialogPlus 弹出框"
           }
         }
       ]

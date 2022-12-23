@@ -2,7 +2,7 @@
 url : pages/press/dialog-plus/dialog-plus
 ---
 
-## DialogPlus 弹窗
+## DialogPlus 弹出框
 
 弹出模态框，常用于消息提示、消息确认，或在当前页面内完成特定的交互操作，支持函数调用和组件调用两种方式。
 

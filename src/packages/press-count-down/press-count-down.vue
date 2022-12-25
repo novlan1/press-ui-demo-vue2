@@ -124,9 +124,11 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
+
 .press-count-down {
-  color: var(--count-down-text-color, #323233);
-  font-size: var(--count-down-font-size, 14px);
-  line-height: var(--count-down-line-height, 20px);
+  color: var(--count-down-text-color, $count-down-text-color);
+  font-size: var(--count-down-font-size, $count-down-font-size);
+  line-height: var(--count-down-line-height, $count-down-line-height);
 }
 </style>

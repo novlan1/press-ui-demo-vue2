@@ -122,6 +122,11 @@
           "path": "/components/press/press-dialog-plus.md"
         },
         {
+          "title": "下拉菜单",
+          "subTitle": "DropdownMenu",
+          "path": "/components/press/press-dropdown-menu.md"
+        },
+        {
           "title": "加载中",
           "subTitle": "Loading",
           "path": "/components/press/press-loading.md"

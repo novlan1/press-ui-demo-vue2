@@ -97,6 +97,10 @@
         "title": "弹出框"
       },
       {
+        "name": "DropdownMenu",
+        "title": "下拉菜单"
+      },
+      {
         "name": "Loading",
         "title": "加载中"
       },

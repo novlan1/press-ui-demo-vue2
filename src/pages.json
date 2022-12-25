@@ -608,6 +608,17 @@
       ]
     },
     {
+      "root": "pages/press/dropdown-menu",
+      "pages": [
+        {
+          "path": "dropdown-menu",
+          "style": {
+            "navigationBarTitleText": "DropdownMenu 下拉菜单"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/loading",
       "pages": [
         {

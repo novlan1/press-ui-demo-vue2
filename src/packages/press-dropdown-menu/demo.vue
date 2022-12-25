@@ -1,6 +1,10 @@
 <template>
   <div class="demo-wrap">
-    <demo-block title="基础用法">
+    <demo-block
+      title="基础用法"
+      :header-style="headerStyle"
+      :section-style="sectionStyle"
+    >
       <press-dropdown-menu>
         <press-dropdown-item
           :value="value1"
@@ -13,7 +17,11 @@
       </press-dropdown-menu>
     </demo-block>
 
-    <demo-block title="自定义菜单内容">
+    <demo-block
+      title="自定义菜单内容"
+      :header-style="headerStyle"
+      :section-style="sectionStyle"
+    >
       <press-dropdown-menu>
         <press-dropdown-item
           :value="value1"
@@ -57,7 +65,11 @@
       </press-dropdown-menu>
     </demo-block>
 
-    <demo-block title="自定义选中状态颜色">
+    <demo-block
+      title="自定义选中状态颜色"
+      :header-style="headerStyle"
+      :section-style="sectionStyle"
+    >
       <press-dropdown-menu active-color="#1989fa">
         <press-dropdown-item
           :value="value1"
@@ -70,7 +82,11 @@
       </press-dropdown-menu>
     </demo-block>
 
-    <demo-block title="向上展开">
+    <demo-block
+      title="向上展开"
+      :header-style="headerStyle"
+      :section-style="sectionStyle"
+    >
       <press-dropdown-menu direction="up">
         <press-dropdown-item
           :value="value1"
@@ -83,7 +99,11 @@
       </press-dropdown-menu>
     </demo-block>
 
-    <demo-block title="禁用菜单">
+    <demo-block
+      title="禁用菜单"
+      :header-style="headerStyle"
+      :section-style="sectionStyle"
+    >
       <press-dropdown-menu>
         <press-dropdown-item
           :value="value1"
@@ -130,12 +150,9 @@ export default {
       itemTitle: '筛选',
       switch1: true,
       switch2: true,
-    // option1: [
-    //   { text: '全部商品', value: 0 },
-    //   { text: '新款商品', value: 1 },
-    //   { text: '活动商品', value: 2 },
-    // ],
-    // value1: 0,
+
+      headerStyle: 'background: #f7f8fa;',
+      sectionStyle: 'background: #f7f8fa;margin: 0 0 6px;padding: 0;',
     };
   },
   methods: {
@@ -159,4 +176,8 @@ export default {
 </script>
 <style scoped lang="scss">
 @import "src/packages/base/mixin.scss";
+page,
+.wrap {
+  background: #f7f8fa !important;
+}
 </style>

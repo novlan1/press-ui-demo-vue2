@@ -105,6 +105,7 @@ export default {
       activeColor: '',
       duration: 200,
       overlay: true,
+      wrapperStyle: '',
     };
   },
   watch: {

@@ -157,7 +157,12 @@ export default {
   },
   methods: {
     onConfirm() {
+      // #ifdef H5
       this.selectComponent('#item').toggle();
+      // #endif
+      // #ifndef H5
+      this.selectComponent('#item').$vm.toggle();
+      // #endif
     },
 
     onSwitch1Change(detail) {

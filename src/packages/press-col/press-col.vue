@@ -1,7 +1,7 @@
 <template>
   <view
     :class="'custom-class '+(utils.bem2('col', [span]))+' '+(offset ? 'press-col--offset-' + offset : '')"
-    :style="computed.rootStyle({ gutter })"
+    :style="true ? computed.rootStyle({ gutter }) : ''"
   >
     <slot />
   </view>

@@ -30,6 +30,11 @@
           "path": "/components/press/press-popup-plus.md"
         },
         {
+          "title": "布局",
+          "subTitle": "Col",
+          "path": "/components/press/press-col.md"
+        },
+        {
           "title": "轻提示",
           "subTitle": "Toast",
           "path": "/components/press/press-toast.md"

@@ -8,3 +8,4 @@ export const PARENT_TABS = 'tabs';
 export const PARENT_INDEX_BAR = 'indexBar';
 export const PARENT_GRID = 'grid';
 export const PARENT_DROPDOWN_MENU = 'dropdown-menu';
+export const PARENT_ROW = 'row';

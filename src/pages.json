@@ -432,6 +432,17 @@
       ]
     },
     {
+      "root": "pages/press/col",
+      "pages": [
+        {
+          "path": "col",
+          "style": {
+            "navigationBarTitleText": "Col 布局"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/toast",
       "pages": [
         {

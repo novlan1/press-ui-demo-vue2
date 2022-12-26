@@ -24,6 +24,10 @@
           "url": "/press/popup-plus/popup-plus"
         },
         {
+          "name": "Col 布局",
+          "url": "/press/col/col"
+        },
+        {
           "name": "Toast 轻提示",
           "url": "/press/toast/toast"
         },

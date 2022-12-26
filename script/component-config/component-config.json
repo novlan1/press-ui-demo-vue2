@@ -11,6 +11,10 @@
         "title": "单元格"
       },
       {
+        "name": "Col",
+        "title": "布局"
+      },
+      {
         "name": "Icon",
         "title": "图标"
       },
@@ -21,10 +25,6 @@
       {
         "name": "PopupPlus",
         "title": "弹出层"
-      },
-      {
-        "name": "Col",
-        "title": "布局"
       },
       {
         "name": "Toast",
@@ -39,6 +39,10 @@
   "form": {
     "title": "表单组件",
     "list": [
+      {
+        "name": "Calendar",
+        "title": "日历"
+      },
       {
         "name": "Checkbox",
         "title": "复选框"

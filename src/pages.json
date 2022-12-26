@@ -399,6 +399,17 @@
       ]
     },
     {
+      "root": "pages/press/col",
+      "pages": [
+        {
+          "path": "col",
+          "style": {
+            "navigationBarTitleText": "Col 布局"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/icon",
       "pages": [
         {
@@ -432,17 +443,6 @@
       ]
     },
     {
-      "root": "pages/press/col",
-      "pages": [
-        {
-          "path": "col",
-          "style": {
-            "navigationBarTitleText": "Col 布局"
-          }
-        }
-      ]
-    },
-    {
       "root": "pages/press/toast",
       "pages": [
         {
@@ -460,6 +460,17 @@
           "path": "transition",
           "style": {
             "navigationBarTitleText": "Transition 动画"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/press/calendar",
+      "pages": [
+        {
+          "path": "calendar",
+          "style": {
+            "navigationBarTitleText": "Calendar 日历"
           }
         }
       ]
@@ -961,9 +972,9 @@
     }
   ],
   "globalStyle": {
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "PRESS UI",
-    "navigationBarBackgroundColor": "#007AFF",
+    "navigationBarBackgroundColor": "#f7f8fa",
     "backgroundColor": "#f5f5f5",
     "h5": {
       "maxWidth": 1190

@@ -15,6 +15,11 @@
           "path": "/components/press/press-cell.md"
         },
         {
+          "title": "布局",
+          "subTitle": "Col",
+          "path": "/components/press/press-col.md"
+        },
+        {
           "title": "图标",
           "subTitle": "Icon",
           "path": "/components/press/press-icon.md"
@@ -28,11 +33,6 @@
           "title": "弹出层",
           "subTitle": "PopupPlus",
           "path": "/components/press/press-popup-plus.md"
-        },
-        {
-          "title": "布局",
-          "subTitle": "Col",
-          "path": "/components/press/press-col.md"
         },
         {
           "title": "轻提示",
@@ -50,6 +50,11 @@
       "title": "表单组件",
       "collapsable": false,
       "children": [
+        {
+          "title": "日历",
+          "subTitle": "Calendar",
+          "path": "/components/press/press-calendar.md"
+        },
         {
           "title": "复选框",
           "subTitle": "Checkbox",

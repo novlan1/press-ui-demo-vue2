@@ -12,6 +12,10 @@
           "url": "/press/cell/cell"
         },
         {
+          "name": "Col 布局",
+          "url": "/press/col/col"
+        },
+        {
           "name": "Icon 图标",
           "url": "/press/icon/icon"
         },
@@ -22,10 +26,6 @@
         {
           "name": "PopupPlus 弹出层",
           "url": "/press/popup-plus/popup-plus"
-        },
-        {
-          "name": "Col 布局",
-          "url": "/press/col/col"
         },
         {
           "name": "Toast 轻提示",
@@ -40,6 +40,10 @@
     {
       "title": "表单组件",
       "list": [
+        {
+          "name": "Calendar 日历",
+          "url": "/press/calendar/calendar"
+        },
         {
           "name": "Checkbox 复选框",
           "url": "/press/checkbox/checkbox"

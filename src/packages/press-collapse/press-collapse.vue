@@ -1,9 +1,7 @@
 <template>
-  <uni-shadow-root class="vant-collapse-index">
-    <div :class="'custom-class van-collapse '+(border ? 'van-hairline--top-bottom' : '')">
-      <slot />
-    </div>
-  </uni-shadow-root>
+  <div :class="'custom-class press-collapse '+(border ? 'press-hairline--top-bottom' : '')">
+    <slot />
+  </div>
 </template>
 
 <script>

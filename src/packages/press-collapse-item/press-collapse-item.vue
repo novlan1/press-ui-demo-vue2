@@ -1,5 +1,4 @@
 <template>
-  <!-- <uni-shadow-root class="vant-collapse-item-index"> -->
   <div :class="'press-collapse-item custom-class '+(index !== 0 ? 'press-hairline--top' : '')">
     <!-- 【修改点】cell增加center，垂直居中 -->
     <press-cell
@@ -47,7 +46,6 @@
         name="right-icon"
       />
     </press-cell>
-    <!-- :animation="animation" -->
 
     <div
       :class="wrapperClass"
@@ -58,7 +56,6 @@
       </div>
     </div>
   </div>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import PressCell from '../press-cell/press-cell.vue';

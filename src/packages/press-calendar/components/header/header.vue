@@ -1,47 +1,42 @@
 <template>
-  <!-- <uni-shadow-root class="vant-calendar-components-header-index"> -->
-  <view class="van-calendar__header">
-    <block v-if="showTitle">
+  <div class="press-calendar__header">
+    <template v-if="showTitle">
       <!-- 【修改点】小程序用empty判断无效，改成v-if/else -->
-      <view
+      <div
         v-if="title"
-        class="van-calendar__header-title"
+        class="press-calendar__header-title"
       >
         {{ title }}
-      </view>
-      <view
+      </div>
+      <div
         v-else
-        class="van-calendar__header-title"
+        class="press-calendar__header-title"
       >
         <slot name="title" />
-      </view>
-    </block>
+      </div>
+    </template>
 
-    <view
+    <div
       v-if="showSubtitle"
-      class="van-calendar__header-subtitle"
+      class="press-calendar__header-subtitle"
       @click="onClickSubtitle"
     >
       {{ subtitle }}
-    </view>
+    </div>
 
-    <view class="van-calendar__weekdays">
-      <view
+    <div class="press-calendar__weekdays">
+      <div
         v-for="(item,index) in (weekdays)"
         :key="index"
-        class="van-calendar__weekday"
+        class="press-calendar__weekday"
       >
         {{ item }}
-      </view>
-    </view>
-  </view>
-  <!-- </uni-shadow-root> -->
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-
-// import { VantComponent } from '../../../common/component';
-// global.__wxRoute = 'vant/calendar/components/header/index';
 
 
 export default {
@@ -56,7 +51,6 @@ export default {
     firstDayOfWeek: {
       type: Number,
       default: 0,
-      // observer: 'initWeekDay',
     },
   },
   data() {
@@ -82,12 +76,6 @@ export default {
         ...defaultWeeks.slice(firstDayOfWeek, 7),
         ...defaultWeeks.slice(0, firstDayOfWeek),
       ];
-      // this.setData({
-      //   weekdays: [
-      //     ...defaultWeeks.slice(firstDayOfWeek, 7),
-      //     ...defaultWeeks.slice(0, firstDayOfWeek),
-      //   ],
-      // });
     },
     onClickSubtitle(event) {
       this.$emit('click-subtitle', event);
@@ -97,35 +85,44 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../../../common/index.scss";
+@import "../../../common/style/var.scss";
 
-.van-calendar__header {
-  box-shadow: var(
-    --calendar-header-box-shadow,
-    0 2px 10px hsla(220, 1%, 50%, 0.16)
-  );
-  flex-shrink: 0;
-}
-.van-calendar__header-subtitle,
-.van-calendar__header-title {
-  font-weight: var(--font-weight-bold, 500);
-  height: var(--calendar-header-title-height, 44px);
-  line-height: var(--calendar-header-title-height, 44px);
-  text-align: center;
-}
-// .van-calendar__header-title + .van-calendar__header-title,
-// .van-calendar__header-title:empty {
-//   display: none;
-// }
-// .van-calendar__header-title:empty + .van-calendar__header-title {
-//   display: block !important;
-// }
-.van-calendar__weekdays {
-  display: flex;
-}
-.van-calendar__weekday {
-  flex: 1;
-  font-size: var(--calendar-weekdays-font-size, 12px);
-  line-height: var(--calendar-weekdays-height, 30px);
-  text-align: center;
+.press-calendar {
+  &__header {
+    flex-shrink: 0;
+    box-shadow: var(--calendar-header-box-shadow, $calendar-header-box-shadow);
+  }
+
+  &__header-title,
+  &__header-subtitle {
+    text-align: center;
+    height: var(--calendar-header-title-height, $calendar-header-title-height);
+    font-weight: var(--font-weight-bold, $font-weight-bold);
+    line-height: var(
+      --calendar-header-title-height,
+      $calendar-header-title-height
+    );
+  }
+
+  // 【修改点】去掉empty样式
+  // &__header-title:empty,
+  // &__header-title + &__header-title {
+  //   display: none;
+  // }
+
+  // &__header-title:empty + &__header-title {
+  //   display: block !important;
+  // }
+
+  &__weekdays {
+    display: flex;
+  }
+
+  &__weekday {
+    flex: 1;
+    text-align: center;
+    font-size: var(--calendar-weekdays-font-size, $calendar-weekdays-font-size);
+    line-height: var(--calendar-weekdays-height, $calendar-weekdays-height);
+  }
 }
 </style>

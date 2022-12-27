@@ -1,7 +1,6 @@
 <template>
-  <!-- <uni-shadow-root class="vant-calendar-calendar"> -->
-  <view
-    class="van-calendar"
+  <div
+    class="press-calendar"
     :style="wrapStyle"
   >
     <CalendarHeader
@@ -19,7 +18,7 @@
     </CalendarHeader>
 
     <scroll-view
-      class="van-calendar__body"
+      class="press-calendar__body"
       scroll-y
       :scroll-into-view="scrollIntoViewData"
     >
@@ -46,18 +45,18 @@
       />
     </scroll-view>
 
-    <view :class="true ? utils.bem('calendar__footer', { safeAreaInsetBottom }) : ''">
+    <div :class="true ? utils.bem2('calendar__footer', { safeAreaInsetBottom }) : ''">
       <slot name="footer" />
-    </view>
+    </div>
 
-    <view :class="true ? utils.bem('calendar__footer', { safeAreaInsetBottom }) : ''">
-      <van-button
+    <div :class="true ? utils.bem2('calendar__footer', { safeAreaInsetBottom }) : ''">
+      <press-button
         v-if="showConfirm"
         round
         block
         type="danger"
         :color="color"
-        custom-class="van-calendar__confirm"
+        custom-class="press-calendar__confirm"
         :disabled="computed.getButtonDisabled(type, currentDate)"
         native-type="text"
         @click="onConfirm"
@@ -67,16 +66,15 @@
             ? confirmDisabledText
             : confirmText
         }}
-      </van-button>
-    </view>
-  </view>
-  <!-- </uni-shadow-root> -->
+      </press-button>
+    </div>
+  </div>
 </template>
 
 <script>
 import CalendarHeader from './components/header/header.vue';
 import Month from './components/month/month.vue';
-import VanButton from '../press-button/press-button.vue';
+import PressButton from '../press-button/press-button.vue';
 import computed from './computed';
 import utils from '../wxs-js/utils';
 
@@ -92,7 +90,7 @@ export default {
   components: {
     CalendarHeader,
     Month,
-    VanButton,
+    PressButton,
   },
   props: {
     title: {
@@ -100,15 +98,6 @@ export default {
       default: '日期选择',
     },
     color: { type: String, default: '' },
-    // show: {
-    //   type: Boolean,
-    //   observer(val) {
-    //     if (val) {
-    //       this.initRect();
-    //       this.scrollIntoView();
-    //     }
-    //   },
-    // },
     formatter: { type: Function, default: null },
     confirmText: {
       type: String,
@@ -118,19 +107,6 @@ export default {
       type: String,
       default: '确定',
     },
-    // rangePrompt: { type: String, default: '' },
-    // showRangePrompt: {
-    //   type: Boolean,
-    //   default: true,
-    // },
-    // defaultDate: {
-    //   type: [String, Number],
-    //   default: '',
-    //   observer(val) {
-    //     this.setData({ currentDate: val });
-    //     this.scrollIntoView();
-    //   },
-    // },
     allowSameDay: Boolean,
     type: {
       type: String,
@@ -145,22 +121,10 @@ export default {
       type: Number,
       default: initialMaxDate,
     },
-    // position: {
-    //   type: String,
-    //   default: 'bottom',
-    // },
     rowHeight: {
       type: null,
       default: ROW_HEIGHT,
     },
-    // round: {
-    //   type: Boolean,
-    //   default: true,
-    // },
-    // poppable: {
-    //   type: Boolean,
-    //   default: true,
-    // },
     showMark: {
       type: Boolean,
       default: true,
@@ -181,19 +145,10 @@ export default {
       type: Boolean,
       default: true,
     },
-    // closeOnClickOverlay: {
-    //   type: Boolean,
-    //   default: true,
-    // },
-    // maxRange: {
-    //   type: [String, Number],
-    //   default: null,
-    // },
     firstDayOfWeek: {
       type: Number,
       default: 0,
     },
-    // readonly: Boolean,
     scrollIntoViewData: {
       type: String,
       default: '',
@@ -202,10 +157,6 @@ export default {
       type: [String, Number, Array],
       default: null,
     },
-    // subtitle: {
-    //   type: [String],
-    //   default: '',
-    // },
     poppable: {
       type: Boolean,
       default: true,
@@ -216,11 +167,6 @@ export default {
       computed,
       utils,
       subtitle: '',
-
-      // subtitle: '',
-      // currentDate: null,
-      // scrollIntoViewData: '',
-
     };
   },
   computed: {
@@ -232,7 +178,6 @@ export default {
     },
   },
   mounted() {
-    console.log('mounted');
     this.initRect();
   },
   methods: {
@@ -256,10 +201,11 @@ export default {
         thresholds: [0, 0.1, 0.9, 1],
         observeAll: true,
       });
+
       this.contentObserver = contentObserver;
-      contentObserver.relativeTo('.van-calendar__body');
+      contentObserver.relativeTo('.press-calendar__body');
+
       contentObserver.observe('.month', (res) => {
-        console.log('initRect.res', res);
         if (res.boundingClientRect.top <= res.relativeRect.top) {
           this.subtitle = formatMonthTitle(res.dataset.date);
         }
@@ -270,46 +216,47 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
 
-.van-calendar {
-  background-color: var(--calendar-background-color, #fff);
-  display: flex;
-  flex-direction: column;
-  height: var(--calendar-height, 100%);
-}
-.van-calendar__close-icon {
-  top: 11px;
-}
-.van-calendar__popup--bottom,
-.van-calendar__popup--top {
-  height: var(--calendar-popup-height, 80%);
-}
-.van-calendar__popup--left,
-.van-calendar__popup--right {
-  height: 100%;
-}
-.van-calendar__body {
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
-  overflow: auto;
-}
-.van-calendar__footer {
-  flex-shrink: 0;
-  padding: 0 var(--padding-md, 16px);
-}
-.van-calendar__footer--safe-area-inset-bottom {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-.van-calendar__footer + .van-calendar__footer,
-.van-calendar__footer:empty {
-  display: none;
-}
-.van-calendar__footer:empty + .van-calendar__footer {
-  display: block !important;
-}
-.van-calendar__confirm {
-  height: var(--calendar-confirm-button-height, 36px) !important;
-  line-height: var(--calendar-confirm-button-line-height, 34px) !important;
-  margin: var(--calendar-confirm-button-margin, 7px 0) !important;
+.press-calendar {
+  &__body {
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+    padding: 0 var(--padding-md, $padding-md);
+
+    &--safe-area-inset-bottom {
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+
+  &__footer:empty,
+  &__footer + &__footer {
+    display: none;
+  }
+
+  &__footer:empty + &__footer {
+    display: block !important;
+  }
+
+  &__confirm {
+    height: var(
+      --calendar-confirm-button-height,
+      $calendar-confirm-button-height
+    ) !important;
+    margin: var(
+      --calendar-confirm-button-margin,
+      $calendar-confirm-button-margin
+    ) !important;
+    line-height: var(
+      --calendar-confirm-button-line-height,
+      $calendar-confirm-button-line-height
+    ) !important;
+  }
 }
 </style>

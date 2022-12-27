@@ -290,5 +290,4 @@ export default {
 };
 </script>
 <style platform="mp-weixin">
-@import "../common/index.scss";
 </style>

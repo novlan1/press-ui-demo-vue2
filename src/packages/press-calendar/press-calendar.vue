@@ -1,9 +1,9 @@
 <template>
   <uni-shadow-root class="vant-calendar-index">
-    <van-popup
+    <press-popup
       v-if="poppable"
-      :custom-class="'van-calendar__popup--'+(position)"
-      close-icon-class="van-calendar__close-icon"
+      :custom-class="'press-calendar__popup--'+(position)"
+      close-icon-class="press-calendar__close-icon"
       :show="show"
       :round="round"
       :position="position"
@@ -40,7 +40,7 @@
         @scrollIntoView="scrollIntoView"
         @onClickDay="onClickDay"
       />
-    </van-popup>
+    </press-popup>
 
     <Calendar
       v-else
@@ -70,13 +70,13 @@
       @onClickDay="onClickDay"
     />
 
-    <van-toast id="press-toast" />
+    <press-toast id="press-toast" />
   </uni-shadow-root>
 </template>
 <script>
 
-import VanPopup from '../press-popup-plus/press-popup-plus.vue';
-import VanToast from '../press-toast/press-toast.vue';
+import PressPopup from '../press-popup-plus/press-popup-plus.vue';
+import PressToast from '../press-toast/press-toast.vue';
 import Calendar from './calendar.vue';
 
 import {
@@ -107,8 +107,8 @@ export default {
   },
   components: {
     Calendar,
-    VanPopup,
-    VanToast,
+    PressPopup,
+    PressToast,
   },
   props: {
     title: {
@@ -119,12 +119,6 @@ export default {
     show: {
       type: Boolean,
       default: false,
-      // observer(val) {
-      //   if (val) {
-      //     this.initRect();
-      //     this.scrollIntoView();
-      //   }
-      // },
     },
     formatter: { type: Function, default: null },
     confirmText: {
@@ -143,11 +137,6 @@ export default {
     defaultDate: {
       type: [String, Number],
       default: '',
-      // observer(val) {
-      //   // this.setData({ currentDate: val });
-      //   this.currentDate = val;
-      //   this.scrollIntoView();
-      // },
     },
     allowSameDay: Boolean,
     type: {
@@ -225,14 +214,12 @@ export default {
     show: {
       handler(val) {
         if (val) {
-          // this.initRect();
           this.scrollIntoView();
         }
       },
     },
     defaultDate: {
       handler(val) {
-        // this.setData({ currentDate: val });
         this.currentDate = val;
         this.scrollIntoView();
       },
@@ -244,42 +231,18 @@ export default {
     },
   },
   created() {
-    // this.setData({
-    //   currentDate: this.getInitialDate(this.data.defaultDate),
-    // });
     this.currentDate = this.getInitialDate(this.defaultDate);
   },
   mounted() {
     if (this.show || !this.poppable) {
-      // this.initRect();
       this.scrollIntoView();
     }
   },
   methods: {
     reset() {
-      // this.setData({ currentDate: this.getInitialDate() });
       this.currentDate = this.getInitialDate();
       this.scrollIntoView();
     },
-    // initRect() {
-    //   if (this.contentObserver != null) {
-    //     this.contentObserver.disconnect();
-    //   }
-    //   const contentObserver = uni.createIntersectionObserver({
-    //     thresholds: [0, 0.1, 0.9, 1],
-    //     observeAll: true,
-    //   });
-    //   this.contentObserver = contentObserver;
-    //   contentObserver.relativeTo('.van-calendar__body');
-    //   contentObserver.observe('.month', (res) => {
-    //     console.log('initRect.res', res);
-    //     if (res.boundingClientRect.top <= res.relativeRect.top) {
-    //       // @ts-ignore
-    //       // this.setData({ subtitle: formatMonthTitle(res.dataset.date) });
-    //       this.subtitle = formatMonthTitle(res.dataset.date);
-    //     }
-    //   });
-    // },
     limitDateRange(date, minDate = null, maxDate = null) {
       minDate = minDate || this.minDate;
       maxDate = maxDate || this.maxDate;
@@ -317,7 +280,6 @@ export default {
     scrollIntoView() {
       requestAnimationFrame(() => {
         const { currentDate, type, show, poppable, minDate, maxDate } = this;
-        // @ts-ignore
         const targetDate = type === 'single' ? currentDate : currentDate[0];
         const displayed = show || !poppable;
         if (!targetDate || !displayed) {
@@ -326,7 +288,6 @@ export default {
         const months = getMonths(minDate, maxDate);
         months.some((month, index) => {
           if (compareMonth(month, targetDate) === 0) {
-            // this.setData({ scrollIntoViewData: `month${index}` });
             this.scrollIntoViewData = `month${index}`;
             return true;
           }
@@ -352,20 +313,10 @@ export default {
       }
       const { type, currentDate, allowSameDay } = this;
       if (type === 'range') {
-        // @ts-ignore
         const [startDay, endDay] = currentDate;
         if (startDay && !endDay) {
           const compareToStart = compareDay(date, startDay);
           if (compareToStart === 1) {
-            // let vm;
-            // // #ifdef H5
-            // vm = this.selectComponent('.month');
-            // // #endif
-            // // #ifndef H5
-            // vm = this.selectComponent('.month').$vm;
-            // // #endif
-            // const { days } = vm;
-
             days.some((day, index) => {
               const isDisabled = day.type === 'disabled'
                                 && getTime(startDay) < getTime(day.date)
@@ -386,7 +337,6 @@ export default {
         }
       } else if (type === 'multiple') {
         let selectedIndex;
-        // @ts-ignore
         const selected = currentDate.some((dateItem, index) => {
           const equal = compareDay(dateItem, date) === 0;
           if (equal) {
@@ -395,13 +345,10 @@ export default {
           return equal;
         });
         if (selected) {
-          // @ts-ignore
           const cancelDate = currentDate.splice(selectedIndex, 1);
-          // this.setData({ currentDate });
           this.currentDate = currentDate;
           this.unselect(cancelDate);
         } else {
-          // @ts-ignore
           this.select([...currentDate, date]);
         }
       } else {
@@ -458,8 +405,7 @@ export default {
                 && !this.checkRange(this.currentDate)) {
         return;
       }
-      wx.nextTick(() => {
-        // @ts-ignore
+      this.$nextTick(() => {
         this.$emit('confirm', copyDates(this.currentDate));
       });
     },
@@ -471,46 +417,29 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
+@import "../common/style/var.scss";
 
-.van-calendar {
-  background-color: var(--calendar-background-color, #fff);
+.press-calendar {
   display: flex;
   flex-direction: column;
-  height: var(--calendar-height, 100%);
-}
-.van-calendar__close-icon {
-  top: 11px;
-}
-.van-calendar__popup--bottom,
-.van-calendar__popup--top {
-  height: var(--calendar-popup-height, 80%);
-}
-.van-calendar__popup--left,
-.van-calendar__popup--right {
-  height: 100%;
-}
-.van-calendar__body {
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
-  overflow: auto;
-}
-.van-calendar__footer {
-  flex-shrink: 0;
-  padding: 0 var(--padding-md, 16px);
-}
-.van-calendar__footer--safe-area-inset-bottom {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-.van-calendar__footer + .van-calendar__footer,
-.van-calendar__footer:empty {
-  display: none;
-}
-.van-calendar__footer:empty + .van-calendar__footer {
-  display: block !important;
-}
-.van-calendar__confirm {
-  height: var(--calendar-confirm-button-height, 36px) !important;
-  line-height: var(--calendar-confirm-button-line-height, 34px) !important;
-  margin: var(--calendar-confirm-button-margin, 7px 0) !important;
+  height: var(--calendar-height, $calendar-height);
+  background-color: var(
+    --calendar-background-color,
+    $calendar-background-color
+  );
+
+  &__close-icon {
+    top: 11px;
+  }
+
+  &__popup--top,
+  &__popup--bottom {
+    height: var(--calendar-popup-height, $calendar-popup-height);
+  }
+
+  &__popup--left,
+  &__popup--right {
+    height: 100%;
+  }
 }
 </style>

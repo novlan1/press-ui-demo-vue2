@@ -1,74 +1,72 @@
 <template>
-  <!-- <uni-shadow-root class="vant-calendar-components-month-index"> -->
-  <view
-    class="van-calendar__month"
+  <div
+    class="press-calendar__month"
     :style="true ? computed.getMonthStyle(visible, date, rowHeight) : ''"
   >
-    <view
+    <div
       v-if="showMonthTitle"
-      class="van-calendar__month-title"
+      class="press-calendar__month-title"
     >
       {{ computed.formatMonthTitle(date) }}
-    </view>
+    </div>
 
-    <view
+    <div
       v-if="visible"
-      class="van-calendar__days"
+      class="press-calendar__days"
     >
-      <view
+      <div
         v-if="showMark"
-        class="van-calendar__month-mark"
+        class="press-calendar__month-mark"
       >
         {{ computed.getMark(date) }}
-      </view>
+      </div>
 
-      <view
+      <div
         v-for="(item,index) in (days)"
         :key="item.index"
         :style="true ? computed.getDayStyle(item.type, index, date, rowHeight, color, firstDayOfWeek) : ''"
-        :class="true ? (utils.bem('calendar__day', [item.type]))+' '+(item.className) : ''"
+        :class="true ? (utils.bem2('calendar__day', [item.type]))+' '+(item.className) : ''"
         :data-index="index"
         @click="onClick(index)"
       >
-        <view
+        <div
           v-if="item.type === 'selected'"
-          class="van-calendar__selected-day"
+          class="press-calendar__selected-day"
           :style="'width: '+(rowHeight)+'px; height: '+(rowHeight)+'px; background: '+(color)"
         >
-          <view
+          <div
             v-if="item.topInfo"
-            class="van-calendar__top-info"
+            class="press-calendar__top-info"
           >
             {{ item.topInfo }}
-          </view>
+          </div>
           {{ item.text }}
-          <view
+          <div
             v-if="item.bottomInfo"
-            class="van-calendar__bottom-info"
+            class="press-calendar__bottom-info"
           >
             {{ item.bottomInfo }}
-          </view>
-        </view>
+          </div>
+        </div>
 
-        <view v-else>
-          <view
+        <div v-else>
+          <div
             v-if="item.topInfo"
-            class="van-calendar__top-info"
+            class="press-calendar__top-info"
           >
             {{ item.topInfo }}
-          </view>
+          </div>
           {{ item.text }}
-          <view
+          <div
             v-if="item.bottomInfo"
-            class="van-calendar__bottom-info"
+            class="press-calendar__bottom-info"
           >
             {{ item.bottomInfo }}
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- </uni-shadow-root> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import computed from './computed';
@@ -81,23 +79,19 @@ export default {
     date: {
       type: [String, Number],
       default: '',
-      // observer: 'setDays',
     },
     type: {
       type: String,
       default: '',
-      // observer: 'setDays',
     },
     color: { type: String, default: '' },
     minDate: {
       type: [String, Number],
       default: '',
-      // observer: 'setDays',
     },
     maxDate: {
       type: [String, Number],
       default: '',
-      // observer: 'setDays',
     },
     showMark: Boolean,
     rowHeight: {
@@ -107,17 +101,14 @@ export default {
     formatter: {
       type: Function,
       default: null,
-      // observer: 'setDays',
     },
     currentDate: {
       type: [String, Number, Array],
       default: '',
-      // observer: 'setDays',
     },
     firstDayOfWeek: {
       type: Number,
       default: 0,
-      // observer: 'setDays',
     },
     allowSameDay: Boolean,
     showSubtitle: Boolean,
@@ -262,7 +253,6 @@ export default {
       if (type === 'multiple') {
         return this.getMultipleDayType(day);
       }
-      /* istanbul ignore else */
       if (type === 'range') {
         return this.getRangeDayType(day);
       }
@@ -286,110 +276,145 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../../../common/index.scss";
+@import "../../../common/style/var.scss";
 
-.van-calendar {
-  background-color: var(--calendar-background-color, #fff);
+.press-calendar {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-.van-calendar__month-title {
-  font-size: var(--calendar-month-title-font-size, 14px);
-  font-weight: var(--font-weight-bold, 500);
-  height: var(--calendar-header-title-height, 44px);
-  line-height: var(--calendar-header-title-height, 44px);
-  text-align: center;
-}
-.van-calendar__days {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  -webkit-user-select: none;
-  user-select: none;
-}
-.van-calendar__month-mark {
-  color: var(--calendar-month-mark-color, rgba(242, 243, 245, 0.8));
-  font-size: var(--calendar-month-mark-font-size, 160px);
-  left: 50%;
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-}
-.van-calendar__day,
-.van-calendar__selected-day {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.van-calendar__day {
-  font-size: var(--calendar-day-font-size, 16px);
-  height: var(--calendar-day-height, 64px);
-  position: relative;
-  width: 14.285%;
-}
-.van-calendar__day--end,
-.van-calendar__day--multiple-middle,
-.van-calendar__day--multiple-selected,
-.van-calendar__day--start,
-.van-calendar__day--start-end {
-  background-color: var(--calendar-range-edge-background-color, #ee0a24);
-  color: var(--calendar-range-edge-color, #fff);
-}
-.van-calendar__day--start {
-  border-radius: 4px 0 0 4px;
-}
-.van-calendar__day--end {
-  border-radius: 0 4px 4px 0;
-}
-.van-calendar__day--multiple-selected,
-.van-calendar__day--start-end {
-  border-radius: 4px;
-}
-.van-calendar__day--middle {
-  color: var(--calendar-range-middle-color, #ee0a24);
-}
-.van-calendar__day--middle:after {
-  background-color: currentColor;
-  bottom: 0;
-  content: "";
-  left: 0;
-  opacity: var(--calendar-range-middle-background-opacity, 0.1);
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.van-calendar__day--disabled {
-  color: var(--calendar-day-disabled-color, #c8c9cc);
-  cursor: default;
-}
-.van-calendar__bottom-info,
-.van-calendar__top-info {
-  font-size: var(--calendar-info-font-size, 10px);
-  left: 0;
-  line-height: var(--calendar-info-line-height, 14px);
-  position: absolute;
-  right: 0;
-}
-@media (max-width: 350px) {
-  .van-calendar__bottom-info,
-  .van-calendar__top-info {
-    font-size: 9px;
+  background-color: var(
+    --calendar-background-color,
+    $calendar-background-color
+  );
+
+  &__month-title {
+    text-align: center;
+    height: var(--calendar-header-title-height, $calendar-header-title-height);
+    font-weight: var(--font-weight-bold, $font-weight-bold);
+    font-size: var(
+      --calendar-month-title-font-size,
+      $calendar-month-title-font-size
+    );
+    line-height: var(
+      --calendar-header-title-height,
+      $calendar-header-title-height
+    );
   }
-}
-.van-calendar__top-info {
-  top: 6px;
-}
-.van-calendar__bottom-info {
-  bottom: 6px;
-}
-.van-calendar__selected-day {
-  background-color: var(--calendar-selected-day-background-color, #ee0a24);
-  border-radius: 4px;
-  color: var(--calendar-selected-day-color, #fff);
-  height: var(--calendar-selected-day-size, 54px);
-  width: var(--calendar-selected-day-size, 54px);
+
+  &__days {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    user-select: none;
+  }
+
+  &__month-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    color: var(--calendar-month-mark-color, $calendar-month-mark-color);
+    font-size: var(
+      --calendar-month-mark-font-size,
+      $calendar-month-mark-font-size
+    );
+  }
+
+  &__day,
+  &__selected-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__day {
+    position: relative;
+    width: 14.285%;
+    height: var(--calendar-day-height, $calendar-day-height);
+    font-size: var(--calendar-day-font-size, $calendar-day-font-size);
+
+    &--end,
+    &--start,
+    &--start-end,
+    &--multiple-middle,
+    &--multiple-selected {
+      color: var(--calendar-range-edge-color, $calendar-range-edge-color);
+      background-color: var(
+        --calendar-range-edge-background-color,
+        $calendar-range-edge-background-color
+      );
+    }
+
+    &--start {
+      border-radius: $border-radius-md 0 0 $border-radius-md;
+    }
+
+    &--end {
+      border-radius: 0 $border-radius-md $border-radius-md 0;
+    }
+
+    &--start-end,
+    &--multiple-selected {
+      border-radius: $border-radius-md;
+    }
+
+    &--middle {
+      color: var(--calendar-range-middle-color, $calendar-range-middle-color);
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: currentColor;
+        content: "";
+        opacity: var(
+          --calendar-range-middle-background-opacity,
+          $calendar-range-middle-background-opacity
+        );
+      }
+    }
+
+    &--disabled {
+      cursor: default;
+      color: var(--calendar-day-disabled-color, $calendar-day-disabled-color);
+    }
+  }
+
+  &__top-info,
+  &__bottom-info {
+    position: absolute;
+    right: 0;
+    left: 0;
+    font-size: var(--calendar-info-font-size, $calendar-info-font-size);
+    line-height: var(--calendar-info-line-height, $calendar-info-line-height);
+
+    @media (max-width: 350px) {
+      font-size: 9px;
+    }
+  }
+
+  &__top-info {
+    top: 6px;
+  }
+
+  &__bottom-info {
+    bottom: 6px;
+  }
+
+  &__selected-day {
+    width: var(--calendar-selected-day-size, $calendar-selected-day-size);
+    height: var(--calendar-selected-day-size, $calendar-selected-day-size);
+    color: var(--calendar-selected-day-color, $calendar-selected-day-color);
+    background-color: var(
+      --calendar-selected-day-background-color,
+      $calendar-selected-day-background-color
+    );
+    border-radius: $border-radius-md;
+  }
 }
 </style>

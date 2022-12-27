@@ -228,5 +228,9 @@ export default {
 <style scoped lang="scss">
 .demo-wrap {
   padding-bottom: 20px;
+
+  .calendar {
+    --calendar-height: 500px;
+  }
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div
     class="press-calendar"
-    :style="wrapStyle"
   >
     <CalendarHeader
       :title="title"
@@ -170,12 +169,6 @@ export default {
     };
   },
   computed: {
-    wrapStyle() {
-      if (this.poppable) {
-        return '';
-      }
-      return 'height: 500px;';
-    },
   },
   mounted() {
     this.initRect();

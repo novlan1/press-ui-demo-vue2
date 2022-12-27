@@ -246,6 +246,10 @@ page {
 }
 </style>
 <style lang="scss">
+.demo-wrap {
+  padding-bottom: 20px;
+}
+
 .demo--e-sport-wrap {
   --cell-background-color: rgba(255, 255, 255, 0.85);
   --cell-active-color: #f5f6fa;

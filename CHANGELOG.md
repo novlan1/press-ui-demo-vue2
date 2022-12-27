@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.43](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.42...v0.1.43) (2022-12-27)
+
+
+### Features
+
+* 运行时的isMp改成条件编译 ([0535cae](https://git.woa.com/pmd-mobile/support/press-ui/commit/0535caef2f1a8de30f839baf939079c6c94e8d29))
+
 ### [0.1.42](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.41...v0.1.42) (2022-12-27)
 
 

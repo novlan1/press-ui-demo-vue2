@@ -1,69 +1,69 @@
 <template>
-  <uni-shadow-root class="vant-share-sheet-index">
-    <van-popup
-      round
-      class="van-share-sheet"
-      :show="show"
-      position="bottom"
-      :overlay="overlay"
-      :duration="duration"
-      :z-index="zIndex"
-      :overlay-style="overlayStyle"
-      :close-on-click-overlay="closeOnClickOverlay"
-      :safe-area-inset-bottom="safeAreaInsetBottom"
-      @close="onClose"
-      @click-overlay="onClickOverlay"
-    >
-      <div class="van-share-sheet__header">
-        <div class="van-share-sheet__title">
-          <slot name="title" />
-        </div>
-        <div
-          v-if="title"
-          class="van-share-sheet__title"
-        >
-          {{ title }}
-        </div>
-
-        <div class="van-share-sheet__description">
-          <slot name="description" />
-        </div>
-        <div
-          v-if="description"
-          class="van-share-sheet__description"
-        >
-          {{ description }}
-        </div>
+  <!-- <uni-shadow-root class="vant-share-sheet-index"> -->
+  <press-popup
+    round
+    class="press-share-sheet"
+    :show="show"
+    position="bottom"
+    :overlay="overlay"
+    :duration="duration"
+    :z-index="zIndex"
+    :overlay-style="overlayStyle"
+    :close-on-click-overlay="closeOnClickOverlay"
+    :safe-area-inset-bottom="safeAreaInsetBottom"
+    @close="onClose"
+    @click-overlay="onClickOverlay"
+  >
+    <div class="press-share-sheet__header">
+      <div class="press-share-sheet__title">
+        <slot name="title" />
+      </div>
+      <div
+        v-if="title"
+        class="press-share-sheet__title"
+      >
+        {{ title }}
       </div>
 
-      <template v-if="computed.isMulti(options)">
-        <options
-          v-for="(item,index) in (options)"
-          :key="item.index"
-          :show-border="index !== 0"
-          :options="item"
-          @select="onSelect"
-        />
-      </template>
+      <div class="press-share-sheet__description">
+        <slot name="description" />
+      </div>
+      <div
+        v-if="description"
+        class="press-share-sheet__description"
+      >
+        {{ description }}
+      </div>
+    </div>
 
+    <template v-if="computed.isMulti(options)">
       <options
-        v-else
-        :options="options"
+        v-for="(item,index) in (options)"
+        :key="item.index"
+        :show-border="index !== 0"
+        :options="item"
         @select="onSelect"
       />
+    </template>
 
-      <button
-        type="button"
-        class="van-share-sheet__cancel"
-        @click="onCancel"
-      >
-        {{ cancelText }}
-      </button>
-    </van-popup>
-  </uni-shadow-root>
+    <options
+      v-else
+      :options="options"
+      @select="onSelect"
+    />
+
+    <button
+      type="button"
+      class="press-share-sheet__cancel"
+      @click="onCancel"
+    >
+      {{ cancelText }}
+    </button>
+  </press-popup>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
-import VanPopup from '../press-popup-plus/press-popup-plus.vue';
+import PressPopup from '../press-popup-plus/press-popup-plus.vue';
 import Options from './options.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import computed from './computed';
@@ -73,15 +73,12 @@ export default {
     ...defaultOptions,
   },
   components: {
-    VanPopup,
+    PressPopup,
     Options,
   },
   props: {
-    // whether to show popup
     show: Boolean,
-    // overlay custom style
     overlayStyle: { type: String, default: '' },
-    // z-index
     zIndex: {
       type: Number,
       default: 100,
@@ -140,9 +137,8 @@ export default {
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
 @import "../common/style/var.scss";
-// @import "../common/style/mixins/hairline.scss";
 
-.van-share-sheet {
+.press-share-sheet {
   &__header {
     padding: $share-sheet-header-padding;
     text-align: center;

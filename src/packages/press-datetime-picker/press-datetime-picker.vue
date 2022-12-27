@@ -74,14 +74,11 @@ export default {
     ...defaultProps,
     value: {
       type: null,
-      // default: 0,
-      // observer: 'updateValue',
     },
     filter: null,
     type: {
       type: String,
       default: 'datetime',
-      // observer: 'updateValue',
     },
     showToolbar: {
       type: Boolean,
@@ -94,32 +91,26 @@ export default {
     minDate: {
       type: Number,
       default: new Date(currentYear - 10, 0, 1).getTime(),
-      // observer: 'updateValue',
     },
     maxDate: {
       type: Number,
       default: new Date(currentYear + 10, 11, 31).getTime(),
-      // observer: 'updateValue',
     },
     minHour: {
       type: Number,
       default: 0,
-      // observer: 'updateValue',
     },
     maxHour: {
       type: Number,
       default: 23,
-      // observer: 'updateValue',
     },
     minMinute: {
       type: Number,
       default: 0,
-      // observer: 'updateValue',
     },
     maxMinute: {
       type: Number,
       default: 59,
-      // observer: 'updateValue',
     },
   }),
   data() {

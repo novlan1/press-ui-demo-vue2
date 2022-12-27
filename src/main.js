@@ -8,6 +8,8 @@ import Toast from 'src/packages/press-toast/index';
 // eslint-disable-next-line import/no-duplicates
 import Vue from 'vue';
 // import './global-comp';
+import { reportAegis } from './utils/report/report';
+
 
 import DemoBlock from 'src/pages/demo-block/demo-block.vue';
 
@@ -247,3 +249,4 @@ export function createApp() {
 // #endif
 
 
+reportAegis();

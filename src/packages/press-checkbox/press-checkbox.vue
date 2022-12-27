@@ -11,14 +11,14 @@
       <slot />
     </div>
     <div
-      class="van-checkbox__icon-wrap"
+      class="press-checkbox__icon-wrap"
       @click="toggle"
     >
       <slot
         v-if="useIconSlot"
         name="icon"
       />
-      <van-icon
+      <press-icon
         v-else
         name="success"
         size="0.8em"
@@ -40,7 +40,7 @@
 
 <script>
 import utils from '../wxs-js/utils';
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
 import computed from './index.js';
@@ -56,13 +56,12 @@ export default {
     ...defaultOptions,
   },
   components: {
-    VanIcon,
+    PressIcon,
   },
   mixins: [
     ChildrenMixin(PARENT),
   ],
   field: true,
-  // relation: (0, relation_1.useParent)('checkbox-group'),
   classes: ['icon-class', 'label-class'],
   props: {
     name: {
@@ -113,11 +112,11 @@ export default {
   computed: {
     cLabelClass() {
       const { labelClass, labelPosition, disabled, parentDisabled } = this;
-      return `${labelClass} ${utils.bem('checkbox__label', [labelPosition, { disabled: disabled || parentDisabled }])}`;
+      return `${labelClass} ${utils.bem2('checkbox__label', [labelPosition, { disabled: disabled || parentDisabled }])}`;
     },
     checkboxClass() {
       const { direction, customClass } = this;
-      return `${utils.bem('checkbox', [{ horizontal: direction === 'horizontal' }])} ${customClass}`;
+      return `${utils.bem2('checkbox', [{ horizontal: direction === 'horizontal' }])} ${customClass}`;
     },
     iconStyle() {
       const { checkedColor, value, disabled, parentDisabled, iconSize } = this;
@@ -125,7 +124,7 @@ export default {
     },
     cIconClass() {
       const { shape, disabled, parentDisabled, dataValue } = this;
-      return `${utils.bem('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked: dataValue }])}`;
+      return `${utils.bem2('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked: dataValue }])}`;
     },
   },
   watch: {
@@ -195,7 +194,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-checkbox {
+.press-checkbox {
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -257,7 +256,7 @@ export default {
         $checkbox-disabled-icon-color
       );
 
-      &.van-checkbox__icon--checked {
+      &.press-checkbox__icon--checked {
         color: var(
           --checkbox-disabled-icon-color,
           $checkbox-disabled-icon-color

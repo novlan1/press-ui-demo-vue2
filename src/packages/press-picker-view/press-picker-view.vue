@@ -109,12 +109,7 @@ export default {
   },
   computed: {
     transformStyle() {
-      let res = `transform: translate3d(0rpx, ${this.currentScroll * 2}rpx, 0rpx);`;
-
-      // #ifdef H5
-      res = `transform: translate3d(0px, ${this.currentScroll * 2 / 100}rem, 0px);`;
-      // #endif
-
+      const res = `transform: translate3d(0, ${this.currentScroll}px, 0);`;
       return res;
     },
   },

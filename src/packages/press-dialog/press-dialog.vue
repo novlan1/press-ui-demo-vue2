@@ -84,10 +84,6 @@
 import PressButton from '../press-button/press-button.vue';
 
 
-function isMp() {
-  return typeof getCurrentPages === 'function';
-}
-
 export default {
   name: 'PressDialog',
   components: {
@@ -185,11 +181,12 @@ export default {
       }, 500);
     },
     destroy() {
-      if (isMp()) return;
+      // #ifdef H5
       this.$destroy();
       if (document.body.contains(this.$el)) {
         document.body.removeChild(this.$el);
       }
+      // #endif
     },
 
   },

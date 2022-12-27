@@ -44,10 +44,6 @@
 <script>
 import { getRect } from '../common/utils';
 
-function isMp() {
-  return process.env.UNI_PLATFORM === 'mp-weixin' || process.env.UNI_PLATFORM === 'mp-qq';
-}
-
 
 export default {
   props: {
@@ -237,7 +233,12 @@ export default {
         { x: this.upX, y: this.upY },
       );
       if (distance < 10) {
-        this.currentIndex = this.getElementIndex(isMp() ? e.target : e.currentTarget);
+        let { target } = e;
+        // #ifndef H5
+        target = e.currentTarget;
+        // #endif
+
+        this.currentIndex = this.getElementIndex(target);
         this.currentScroll = -this.currentIndex * this.itemHeight;
         this.hasClick = true;
       }

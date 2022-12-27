@@ -11,6 +11,7 @@
         查看
       </PressButton>
     </demo-block>
+
     <demo-block
       title="顶部提示"
     >
@@ -18,6 +19,18 @@
         type="e-sport-primary"
         :custom-style="`${customStyle};padding:0;`"
         @click="onShowPicker('tip')"
+      >
+        查看
+      </PressButton>
+    </demo-block>
+
+    <demo-block
+      title="超长列表"
+    >
+      <PressButton
+        type="e-sport-primary"
+        :custom-style="`${customStyle};padding:0;`"
+        @click="onShowPicker('long')"
       >
         查看
       </PressButton>
@@ -42,6 +55,16 @@
       :select-item="pickerOption.tip.selectItem"
       @onClickConfirm="pickerOption.tip.onClickConfirm"
       @onRemove="pickerOption.tip.onRemove"
+    />
+    <press-picker
+      v-if="pickerOption.long.show"
+      :title="pickerOption.long.title"
+      :show-back-arrow="pickerOption.long.showBackArrow"
+      :select-list="pickerOption.long.selectList"
+      :tip="pickerOption.long.tip"
+      :select-item="pickerOption.long.selectItem"
+      @onClickConfirm="pickerOption.long.onClickConfirm"
+      @onRemove="pickerOption.long.onRemove"
     />
   </div>
 </template>
@@ -69,6 +92,11 @@ const bpList = [
   { label: '各禁3英雄', value: 4 },
   { label: '各禁4英雄', value: 0 },
 ];
+
+const longList = Array.from({ length: 300 }).map((item, index) => ({
+  label: `添加${index + 1}队`,
+  value: index + 1,
+}));
 
 export default {
   data() {
@@ -103,6 +131,21 @@ export default {
           },
           onRemove: () => {
             this.pickerOption.tip.show = false;
+          },
+        },
+        long: {
+          show: false,
+          title: '添加虚拟队伍',
+          tip: '',
+          showBackArrow: false,
+          selectList: longList,
+          selectItem: { label: longList[0].label, value: 1 },
+          onClickConfirm: (boItem) => {
+            console.log('boItem', boItem);
+            this.pickerOption.long.show = false;
+          },
+          onRemove: () => {
+            this.pickerOption.long.show = false;
           },
         },
       },

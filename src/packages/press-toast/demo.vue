@@ -55,7 +55,7 @@
     </demo-block>
 
     <!-- #ifndef H5 -->
-    <press-toast id="van-toast" />
+    <press-toast id="press-toast" />
     <!-- #endif -->
   </div>
 </template>

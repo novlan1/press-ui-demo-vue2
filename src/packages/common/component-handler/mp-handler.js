@@ -7,7 +7,7 @@ function getContext() {
 
 export function getMPComponentHandler({
   defaultOptions,
-  name = 'van-toast',
+  name = 'press-toast',
   defaultKey = 'message',
 }) {
   let queue = [];

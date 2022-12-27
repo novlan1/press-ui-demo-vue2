@@ -70,7 +70,9 @@
       @onClickDay="onClickDay"
     />
 
+    <!-- #ifndef H5 -->
     <press-toast id="press-toast" />
+    <!-- #endif -->
   </uni-shadow-root>
 </template>
 <script>

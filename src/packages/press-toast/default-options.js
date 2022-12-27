@@ -8,7 +8,7 @@ export const DEFAULT_OPTIONS = {
   position: 'middle',
   forbidClick: false,
   loadingType: 'circular',
-  selector: '#van-toast',
+  selector: '#press-toast',
 };
 
 export const DEFAULT_KEY = 'message';

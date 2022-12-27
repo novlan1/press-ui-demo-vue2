@@ -32,7 +32,7 @@ export function getH5ComponentHandler({
     queue = queue.filter(item => !item.$el.parentNode || isInDocument(item.$el));
 
     if (!queue.length || multiple) {
-      // const dialogId = 'van-toast';
+      // const dialogId = 'press-toast';
       const oldDialog = document.getElementById(dialogId);
       if (oldDialog) {
         document.body.removeChild(oldDialog);

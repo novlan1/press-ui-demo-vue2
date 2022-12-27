@@ -5,7 +5,7 @@ import { getMPComponentHandler, makeExtraMethods } from '../common/component-han
 
 const Toast = getMPComponentHandler({
   defaultOptions: DEFAULT_OPTIONS,
-  name: 'van-toast',
+  name: 'press-toast',
 });
 
 makeExtraMethods(Toast, ['loading', 'success', 'fail'], DEFAULT_KEY);

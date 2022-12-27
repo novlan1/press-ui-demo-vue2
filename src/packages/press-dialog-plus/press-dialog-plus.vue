@@ -19,9 +19,9 @@
           v-if="dataUseTitleSlot"
           name="title"
         />
-        <block v-else-if="dataTitle">
+        <template v-else-if="dataTitle">
           {{ dataTitle }}
-        </block>
+        </template>
       </view>
 
       <slot v-if="dataUseSlot" />

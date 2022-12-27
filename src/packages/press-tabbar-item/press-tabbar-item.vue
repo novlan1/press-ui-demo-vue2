@@ -12,7 +12,7 @@
           :class-prefix="iconPrefix"
           custom-class="press-tabbar-item__icon__inner"
         />
-        <block v-else>
+        <template v-else>
           <slot
             v-if="active"
             name="icon-active"
@@ -21,7 +21,7 @@
             v-else
             name="icon"
           />
-        </block>
+        </template>
         <press-info
           :dot="dot"
           :info="info"

@@ -26,7 +26,7 @@
         />
 
 
-        <block v-else>
+        <template v-else>
           <!-- custom-class="press-toast__loading" -->
           <press-loading
             v-if="dataType === 'loading'"
@@ -45,7 +45,7 @@
           >
             {{ dataMessage }}
           </text>
-        </block>
+        </template>
 
         <slot />
       </div>

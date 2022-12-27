@@ -1,10 +1,9 @@
 <template>
-  <!-- <uni-shadow-root class="vant-button-index"> -->
   <Button
     :id="id"
     :data-detail="dataset"
     :class="buttonClass"
-    hover-class="van-button--active hover-class"
+    hover-class="press-button--active hover-class"
     :lang="lang"
     :form-type="formType"
     :style="buttonStyle"
@@ -31,8 +30,8 @@
         loading-scenes="btn"
       />
     </template>
-    <block v-else-if="loading">
-      <van-loading
+    <template v-else-if="loading">
+      <press-loading-plus
         custom-class="loading-class"
         :size="loadingSize"
         :type="loadingType"
@@ -40,30 +39,29 @@
       />
       <div
         v-if="loadingText"
-        class="van-button__loading-text"
+        class="press-button__loading-text"
       >
         {{ loadingText }}
       </div>
-    </block>
-    <block v-else>
-      <van-icon
+    </template>
+    <template v-else>
+      <press-icon
         v-if="icon"
         size="1.2em"
         :name="icon"
         :class-prefix="classPrefix"
-        class="van-button__icon"
+        class="press-button__icon"
         custom-style="line-height: inherit;"
       />
-      <div class="van-button__text">
+      <div class="press-button__text">
         <slot />
       </div>
-    </block>
+    </template>
   </Button>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
-import VanLoading from '../press-loading-plus/press-loading-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressLoadingPlus from '../press-loading-plus/press-loading-plus.vue';
 import PressLoading from '../press-loading/press-loading.vue';
 import { button } from '../mixins/button';
 import { canIUseFormFieldButton } from '../common/version';
@@ -81,7 +79,6 @@ const eSportTypeClassMap = {
 };
 
 
-// global.__wxRoute = 'vant/button/index';
 const mixins = [button];
 if (canIUseFormFieldButton()) {
   mixins.push('wx://form-field-button');
@@ -92,8 +89,8 @@ export default {
     ...defaultOptions,
   },
   components: {
-    VanIcon,
-    VanLoading,
+    PressIcon,
+    PressLoadingPlus,
     PressLoading,
   },
   mixins,
@@ -103,7 +100,7 @@ export default {
     icon: { type: String, default: '' },
     classPrefix: {
       type: String,
-      default: 'van-icon',
+      default: 'press-icon',
     },
     plain: Boolean,
     block: Boolean,
@@ -168,7 +165,7 @@ export default {
         typeClass = '';
       }
 
-      return `${customClass} ${utils.bem('button', [typeClass, classSize, ...eSportClasses, { block, round, plain, square, loading, disabled, hairline, unclickable: disabled || loading }])} ${hairline ? 'van-hairline--surround' : ''}`;
+      return `${customClass} ${utils.bem2('button', [typeClass, classSize, ...eSportClasses, { block, round, plain, square, loading, disabled, hairline, unclickable: disabled || loading }])} ${hairline ? 'press-hairline--surround' : ''}`;
     },
     buttonStyle() {
       const { plain, color, customStyle, size } = this;
@@ -206,7 +203,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-button {
+.press-button {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -314,25 +311,25 @@ export default {
       $button-plain-background-color
     );
 
-    &.van-button--primary {
+    &.press-button--primary {
       color: var(
         --button-primary-background-color,
         $button-primary-background-color
       );
     }
 
-    &.van-button--info {
+    &.press-button--info {
       color: var(--button-info-background-color, $button-info-background-color);
     }
 
-    &.van-button--danger {
+    &.press-button--danger {
       color: var(
         --button-danger-background-color,
         $button-danger-background-color
       );
     }
 
-    &.van-button--warning {
+    &.press-button--warning {
       color: var(
         --button-warning-background-color,
         $button-warning-background-color
@@ -364,7 +361,7 @@ export default {
     height: var(--button-mini-height, $button-mini-height);
     font-size: var(--button-mini-font-size, $button-mini-font-size);
 
-    & + .van-button--mini {
+    & + .press-button--mini {
       margin-left: 5px;
     }
   }
@@ -421,18 +418,18 @@ export default {
       );
     }
 
-    &.van-button--round::after {
+    &.press-button--round::after {
       border-radius: var(
         --button-round-border-radius,
         $button-round-border-radius
       );
     }
 
-    &.van-button--square::after {
+    &.press-button--square::after {
       border-radius: 0;
     }
 
-    &.van-hairline--surround::after {
+    &.press-hairline--surround::after {
       border-width: 1px;
     }
   }
@@ -491,12 +488,12 @@ export default {
   border-radius: $border-radius-md;
   background-image: $color-primary-btn;
   border: none; // 没有border
-  &:not(.van-button--unclickable):active {
+  &:not(.press-button--unclickable):active {
     background: $color-blue;
   }
 }
 
-.van-button {
+.press-button {
   &--e-sport-primary {
     width: 1.76rem;
     height: 0.72rem;
@@ -511,7 +508,7 @@ export default {
     border-radius: $border-radius-md;
     background: $color-secondary-btn;
     border: none; // 没有border
-    &:not(.van-button--unclickable):active {
+    &:not(.press-button--unclickable):active {
       background: $color-gray-3;
     }
   }
@@ -526,7 +523,7 @@ export default {
     border-color: $color-primary;
     border-radius: $border-radius-md;
     background: transparent;
-    &:not(.van-button--unclickable):active {
+    &:not(.press-button--unclickable):active {
       background: $color-bg;
       border-color: $color-blue;
       color: $color-blue;

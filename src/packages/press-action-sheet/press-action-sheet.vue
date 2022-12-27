@@ -52,7 +52,7 @@
         @launchapp="onLaunchApp"
         @opensetting="onOpenSetting"
       >
-        <block v-if="(!item.loading)">
+        <template v-if="(!item.loading)">
           {{ item.name }}
           <div
             v-if="item.subname"
@@ -60,7 +60,7 @@
           >
             {{ item.subname }}
           </div>
-        </block>
+        </template>
         <press-loading
           v-else
           custom-class="press-action-sheet__loading"
@@ -69,7 +69,7 @@
       </button>
     </div>
     <slot />
-    <block v-if="cancelText">
+    <template v-if="cancelText">
       <div class="press-action-sheet__gap" />
       <div
         class="press-action-sheet__cancel"
@@ -79,7 +79,7 @@
       >
         {{ cancelText }}
       </div>
-    </block>
+    </template>
   </press-popup>
   <!-- </uni-shadow-root> -->
 </template>

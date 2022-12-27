@@ -1,4 +1,5 @@
 <script>
+import { updateManager } from './utils/update-manager/update-manager';
 const CHANGE_IFRAME_STYLE_TYPE = 'CHANGE_IFRAME_STYLE_TYPE';
 
 function onMessage(e) {
@@ -17,6 +18,8 @@ export default {
     // #ifdef H5
     window.addEventListener('message', onMessage, false);
     // #endif
+
+    updateManager();
 
     console.log('App Launch');
   },

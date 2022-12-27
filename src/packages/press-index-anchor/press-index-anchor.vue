@@ -9,9 +9,9 @@
         :style="anchorStyle"
       >
         <slot v-if="useSlot" />
-        <block v-else>
+        <template v-else>
           <text>{{ index }}</text>
-        </block>
+        </template>
       </div>
     </div>
   </div>

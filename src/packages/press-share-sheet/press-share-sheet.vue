@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <block v-if="computed.isMulti(options)">
+      <template v-if="computed.isMulti(options)">
         <options
           v-for="(item,index) in (options)"
           :key="item.index"
@@ -44,7 +44,7 @@
           :options="item"
           @select="onSelect"
         />
-      </block>
+      </template>
 
       <options
         v-else

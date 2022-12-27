@@ -14,7 +14,7 @@
           class="van-nav-bar__left"
           @click="onClickLeft"
         >
-          <block v-if="leftArrow || leftText">
+          <template v-if="leftArrow || leftText">
             <van-icon
               v-if="leftArrow"
               size="16px"
@@ -29,16 +29,16 @@
             >
               {{ leftText }}
             </div>
-          </block>
+          </template>
           <slot
             v-else
             name="left"
           />
         </div>
         <div class="van-nav-bar__title title-class van-ellipsis">
-          <block v-if="title">
+          <template v-if="title">
             {{ title }}
-          </block>
+          </template>
           <slot
             v-else
             name="title"

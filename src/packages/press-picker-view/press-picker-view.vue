@@ -143,13 +143,9 @@ export default {
     getRect(this, '.press-picker-view--item__active').then((rect) => {
       console.log('rect', rect);
       this.itemHeight = rect.height;
+      this.updateCurrent();
     });
-
-    if (this.current) {
-      const item = this.data.find(i => i.value == this.current.value);
-      this.currentIndex = this.data.indexOf(item);
-      this.currentScroll = -this.currentIndex * this.itemHeight;
-    }
+    this.updateCurrent();
   },
   methods: {
     // 开始点击

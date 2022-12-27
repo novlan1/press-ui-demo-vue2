@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.40](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.39...v0.1.40) (2022-12-27)
+
+
+### Features
+
+* 更新dialog ([6b600db](https://git.woa.com/pmd-mobile/support/press-ui/commit/6b600dbaf183c13ddf4eab95e8ed179a66159b4a))
+* 强制更新 ([12a9a2b](https://git.woa.com/pmd-mobile/support/press-ui/commit/12a9a2bee15b4ff4f512617ec0be609576f8aaec))
+* 生成组件配置优化 ([27ef1e0](https://git.woa.com/pmd-mobile/support/press-ui/commit/27ef1e0fef5093f4379659bfe3489928bf02f67c))
+* 优化排序脚本 ([e1f1dc2](https://git.woa.com/pmd-mobile/support/press-ui/commit/e1f1dc283c819b67a093428721f8a884fce013c6))
+* 优化picker-view ([0cbea86](https://git.woa.com/pmd-mobile/support/press-ui/commit/0cbea8676a4435a8d9b338311af89b6a6900c54d))
+* 增加上报 ([71e7139](https://git.woa.com/pmd-mobile/support/press-ui/commit/71e713969622bc8c06c82267fb5ecd1b2123f67b))
+* 增加picker外点击事件 ([717a866](https://git.woa.com/pmd-mobile/support/press-ui/commit/717a866bb9a415b43113455d58a7855f10ecca0b))
+* **calendar:** 优化样式 ([b3bedd1](https://git.woa.com/pmd-mobile/support/press-ui/commit/b3bedd1ae9611c56052f9f3bc508857072540af6))
+* **calendar:** 优化calendar ([ceb2261](https://git.woa.com/pmd-mobile/support/press-ui/commit/ceb22619f3c2f9eb502c6cf5be045a2b4415b724))
+* **calendar:** 优化calendar命名 ([89198b4](https://git.woa.com/pmd-mobile/support/press-ui/commit/89198b48e7993bf0fc929fb1b2326ee9ace50472))
+* **calendar:** 增加calendar ([e0c2c15](https://git.woa.com/pmd-mobile/support/press-ui/commit/e0c2c15c22844718782b9f345617d1c3af48d26d))
+* **col:** 增加row和col ([071f6d2](https://git.woa.com/pmd-mobile/support/press-ui/commit/071f6d2f74fda4f15c4247d90c766d1257c4391c))
+* **collapse:** 优化collapse ([6a0b80c](https://git.woa.com/pmd-mobile/support/press-ui/commit/6a0b80c9a9152a4ccce56bc05b07038dcef1e825))
+* **collapse:** 优化collapse-item ([4e728e0](https://git.woa.com/pmd-mobile/support/press-ui/commit/4e728e07842b1d9d3259a78d0bd221b6b7553e3f))
+* **collapse:** 优化collapse动画 ([1e21499](https://git.woa.com/pmd-mobile/support/press-ui/commit/1e2149944d74efcc6b332971ea3be649b38b0a11))
+* **color-picker:** 增加color-picker ([ca39cb2](https://git.woa.com/pmd-mobile/support/press-ui/commit/ca39cb25b83ebdb6e3e86d67ae0325ef9af3eccd))
+* **count-down:** 增加count-down ([42988a3](https://git.woa.com/pmd-mobile/support/press-ui/commit/42988a3220023e2a755ee985034036d1697fe5db))
+* **dialog-plus:** 增加dialog-plus ([d77b07a](https://git.woa.com/pmd-mobile/support/press-ui/commit/d77b07a15fa93af170ff3d4a368e6aa9d73ac018))
+* **dropdown-menu:** 优化命名 ([2a3eda8](https://git.woa.com/pmd-mobile/support/press-ui/commit/2a3eda8d6da0744632af42a1245f3f1df73ed56a))
+* **dropdown-menu:** 优化dropdown-menu ([34b3a13](https://git.woa.com/pmd-mobile/support/press-ui/commit/34b3a13b7e5f0adb99f18a308424e2e470868493))
+* **dropdown-menu:** 增加dropdown-menu ([b99563e](https://git.woa.com/pmd-mobile/support/press-ui/commit/b99563e132b665b383a1b7011ecbcee37efcb379))
+* **grid:** 优化命名 ([5a68150](https://git.woa.com/pmd-mobile/support/press-ui/commit/5a68150d12949e7d8e80d839b1ba305fb483a87c))
+* **grid:** 增加grid ([d08ef52](https://git.woa.com/pmd-mobile/support/press-ui/commit/d08ef52e6bc3a275800907f72d566b8242fa91a2))
+* **notice-bar:** 原生动画 ([ee313eb](https://git.woa.com/pmd-mobile/support/press-ui/commit/ee313eb85310641aead168366a38a8fb21793bf2))
+* **progress:** 增加progress ([a548bbb](https://git.woa.com/pmd-mobile/support/press-ui/commit/a548bbb1f9206d302bb4b3f775707117178b3b0c))
+* **skeleton:** 优化skeleton ([69e0c60](https://git.woa.com/pmd-mobile/support/press-ui/commit/69e0c60f369fcfd11bf893a559565731b082e422))
+* **skeleton:** 增加skeleton ([0a7c07e](https://git.woa.com/pmd-mobile/support/press-ui/commit/0a7c07eaf78ac27ae66c1d378f2499acfe8c8586))
+* **switch:** 命名优化 ([4361c90](https://git.woa.com/pmd-mobile/support/press-ui/commit/4361c90c316a85b4dec2cf3358a9b7ab6bcf26e2))
+* **tag:** 替换tag的一些命名 ([86425b9](https://git.woa.com/pmd-mobile/support/press-ui/commit/86425b93329ae018d79e781e8d2cf1c78be29a1a))
+* **transition:** 优化组件命名 ([3b1b941](https://git.woa.com/pmd-mobile/support/press-ui/commit/3b1b9413fd6584c16a30fb02f168cb951a6a55bc))
+* **tree-select:** 命名优化 ([f90f8cc](https://git.woa.com/pmd-mobile/support/press-ui/commit/f90f8cccbeef0fcd48adfef7d917731acf0ec4d9))
+* van-toast改为press-toast ([ccab393](https://git.woa.com/pmd-mobile/support/press-ui/commit/ccab39399f95da96bb9fc051ef9341482a375094))
+
+
+### Bug Fixes
+
+* **dialog:** 弹窗优化 ([ffe0dae](https://git.woa.com/pmd-mobile/support/press-ui/commit/ffe0dae93bfeeddc8f0faadac002f1868be3ee02))
+
 ### [0.1.39](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.38...v0.1.39) (2022-12-19)
 
 

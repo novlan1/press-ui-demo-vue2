@@ -13,7 +13,8 @@ const ROW_HEIGHT = 64;
 function getDayStyle(type, index, date, rowHeight, color, firstDayOfWeek) {
   const style = [];
   const current = getDate(date).getDay() || 7;
-  const offset = current < firstDayOfWeek ? (7 - firstDayOfWeek + current)
+  const offset = current < firstDayOfWeek
+    ? (7 - firstDayOfWeek + current)
     : current === 7 && firstDayOfWeek === 0 ? 0
       : (current - firstDayOfWeek);
 

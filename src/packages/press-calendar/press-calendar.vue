@@ -34,6 +34,7 @@
         :scroll-into-view-data="scrollIntoViewData"
         :current-date="currentDate"
         :subtitle="subtitle"
+        :poppable="poppable"
         @onConfirm="onConfirm"
         @onClickSubtitle="onClickSubtitle"
         @scrollIntoView="scrollIntoView"
@@ -62,6 +63,7 @@
       :scroll-into-view-data="scrollIntoViewData"
       :current-date="currentDate"
       :subtitle="subtitle"
+      :poppable="poppable"
       @onConfirm="onConfirm"
       @onClickSubtitle="onClickSubtitle"
       @scrollIntoView="scrollIntoView"
@@ -85,7 +87,6 @@ import {
   compareDay,
   copyDates,
   calcDateNum,
-  formatMonthTitle,
   compareMonth,
   getMonths,
   getDayByOffset,
@@ -94,11 +95,16 @@ import {
 } from './utils';
 import Toast from '../press-toast/handler';
 import { requestAnimationFrame } from '../common/utils';
+import { defaultProps, defaultOptions } from '../common/press-component';
 
 
 const getTime = date => (date instanceof Date ? date.getTime() : date);
 
 export default {
+  options: {
+    ...defaultOptions,
+    styleIsolation: 'shared',
+  },
   components: {
     Calendar,
     VanPopup,
@@ -120,7 +126,7 @@ export default {
       //   }
       // },
     },
-    formatter: { type: [String, Function], default: '' },
+    formatter: { type: Function, default: null },
     confirmText: {
       type: String,
       default: '确定',
@@ -206,6 +212,7 @@ export default {
       default: 0,
     },
     readonly: Boolean,
+    ...defaultProps,
   },
   data() {
     return {
@@ -218,7 +225,7 @@ export default {
     show: {
       handler(val) {
         if (val) {
-          this.initRect();
+          // this.initRect();
           this.scrollIntoView();
         }
       },
@@ -244,7 +251,7 @@ export default {
   },
   mounted() {
     if (this.show || !this.poppable) {
-      this.initRect();
+      // this.initRect();
       this.scrollIntoView();
     }
   },
@@ -254,24 +261,25 @@ export default {
       this.currentDate = this.getInitialDate();
       this.scrollIntoView();
     },
-    initRect() {
-      if (this.contentObserver != null) {
-        this.contentObserver.disconnect();
-      }
-      const contentObserver = this.createIntersectionObserver({
-        thresholds: [0, 0.1, 0.9, 1],
-        observeAll: true,
-      });
-      this.contentObserver = contentObserver;
-      contentObserver.relativeTo('.van-calendar__body');
-      contentObserver.observe('.month', (res) => {
-        if (res.boundingClientRect.top <= res.relativeRect.top) {
-          // @ts-ignore
-          // this.setData({ subtitle: formatMonthTitle(res.dataset.date) });
-          this.subtitle = formatMonthTitle(res.dataset.date);
-        }
-      });
-    },
+    // initRect() {
+    //   if (this.contentObserver != null) {
+    //     this.contentObserver.disconnect();
+    //   }
+    //   const contentObserver = uni.createIntersectionObserver({
+    //     thresholds: [0, 0.1, 0.9, 1],
+    //     observeAll: true,
+    //   });
+    //   this.contentObserver = contentObserver;
+    //   contentObserver.relativeTo('.van-calendar__body');
+    //   contentObserver.observe('.month', (res) => {
+    //     console.log('initRect.res', res);
+    //     if (res.boundingClientRect.top <= res.relativeRect.top) {
+    //       // @ts-ignore
+    //       // this.setData({ subtitle: formatMonthTitle(res.dataset.date) });
+    //       this.subtitle = formatMonthTitle(res.dataset.date);
+    //     }
+    //   });
+    // },
     limitDateRange(date, minDate = null, maxDate = null) {
       minDate = minDate || this.minDate;
       maxDate = maxDate || this.maxDate;
@@ -338,7 +346,7 @@ export default {
     onClosed() {
       this.$emit('closed');
     },
-    onClickDay({ date }) {
+    onClickDay({ date }, days) {
       if (this.readonly) {
         return;
       }
@@ -349,7 +357,15 @@ export default {
         if (startDay && !endDay) {
           const compareToStart = compareDay(date, startDay);
           if (compareToStart === 1) {
-            const { days } = this.selectComponent('.month');
+            // let vm;
+            // // #ifdef H5
+            // vm = this.selectComponent('.month');
+            // // #endif
+            // // #ifndef H5
+            // vm = this.selectComponent('.month').$vm;
+            // // #endif
+            // const { days } = vm;
+
             days.some((day, index) => {
               const isDisabled = day.type === 'disabled'
                                 && getTime(startDay) < getTime(day.date)
@@ -421,10 +437,6 @@ export default {
     },
     emit(date) {
       this.currentDate = Array.isArray(date) ? date.map(getTime) : getTime(date);
-      console.log('currentDate', this.currentDate);
-      // this.setData({
-      //   currentDate: Array.isArray(date) ? date.map(getTime) : getTime(date),
-      // });
       this.$emit('select', copyDates(date));
     },
     checkRange(date) {
@@ -452,7 +464,6 @@ export default {
       });
     },
     onClickSubtitle(event) {
-      console.log('onClickSubtitle.event', event);
       this.$emit('click-subtitle', event);
     },
   },

@@ -69,7 +69,7 @@
         is-link
         :value="rangeValue"
         @click="onDisplay('range', true, {
-          formatter: tFormatter,
+          formatter: 'tFormatter',
         })"
       />
       <press-cell
@@ -108,7 +108,7 @@
       :max-date="maxDate"
       :confirm-text="confirmText"
       :confirm-disabled-text="confirmDisabledText"
-      :formatter="formatter"
+      :formatter="useFormatter ? tFormatter : null"
       :position="position"
       :max-range="maxRange"
       :first-day-of-week="firstDayOfWeek"
@@ -116,12 +116,14 @@
       @confirm="onConfirm"
     />
 
-    <press-calendar
-      title="日历"
-      :poppable="false"
-      :show-confirm="false"
-      class="calendar"
-    />
+    <demo-block title="平铺展示">
+      <press-calendar
+        title="日历"
+        :poppable="false"
+        :show-confirm="false"
+        class="calendar"
+      />
+    </demo-block>
   </div>
 </template>
 <script>
@@ -129,6 +131,28 @@ import PressCalendar from 'src/packages/press-calendar/press-calendar.vue';
 import PressCell from 'src/packages/press-cell/press-cell.vue';
 import { initialMinDate, initialMaxDate } from 'src/packages/press-calendar/utils';
 
+function tFormatter(day) {
+  const month = day.date.getMonth() + 1;
+  const date = day.date.getDate();
+
+  if (month === 5) {
+    if (date === 1) {
+      day.topInfo = '劳动节';
+    } else if (date === 4) {
+      day.topInfo = '五四青年节';
+    } else if (date === 11) {
+      day.text = '今天';
+    }
+  }
+
+  if (day.type === 'start') {
+    day.bottomInfo = '入住';
+  } else if (day.type === 'end') {
+    day.bottomInfo = '离店';
+  }
+
+  return day;
+}
 export default {
   components: {
     PressCalendar,
@@ -149,32 +173,11 @@ export default {
       color: '',
       confirmText: '确定',
       confirmDisabledText: '确定',
-      formatter: '',
+      useFormatter: false,
       position: 'bottom',
       maxRange: null,
       firstDayOfWeek: 0,
-      tFormatter(day) {
-        const month = day.date.getMonth() + 1;
-        const date = day.date.getDate();
 
-        if (month === 5) {
-          if (date === 1) {
-            day.topInfo = '劳动节';
-          } else if (date === 4) {
-            day.topInfo = '五四青年节';
-          } else if (date === 11) {
-            day.text = '今天';
-          }
-        }
-
-        if (day.type === 'start') {
-          day.bottomInfo = '入住';
-        } else if (day.type === 'end') {
-          day.bottomInfo = '离店';
-        }
-
-        return day;
-      },
     };
   },
   methods: {
@@ -187,7 +190,7 @@ export default {
       this.maxDate = options.maxDate || initialMaxDate;
       this.confirmText = options.confirmText || '确定';
       this.confirmDisabledText = options.confirmDisabledText || '确定';
-      this.formatter = options.formatter || '';
+      this.useFormatter = !!options.formatter;
       this.position = options.position || 'bottom';
       this.maxRange = options.maxRange || null;
       this.firstDayOfWeek = options.firstDayOfWeek || 0;
@@ -201,6 +204,7 @@ export default {
         this.ifShow = false;
       }, 500);
     },
+    tFormatter,
     formatDate(date) {
       date = new Date(date);
       return `${date.getMonth() + 1}/${date.getDate()}`;
@@ -222,5 +226,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "src/packages/base/mixin.scss";
+.demo-wrap {
+  padding-bottom: 20px;
+}
 </style>

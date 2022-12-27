@@ -1,74 +1,74 @@
 <template>
-  <uni-shadow-root class="vant-calendar-components-month-index">
+  <!-- <uni-shadow-root class="vant-calendar-components-month-index"> -->
+  <view
+    class="van-calendar__month"
+    :style="true ? computed.getMonthStyle(visible, date, rowHeight) : ''"
+  >
     <view
-      class="van-calendar__month"
-      :style="true ? computed.getMonthStyle(visible, date, rowHeight) : ''"
+      v-if="showMonthTitle"
+      class="van-calendar__month-title"
+    >
+      {{ computed.formatMonthTitle(date) }}
+    </view>
+
+    <view
+      v-if="visible"
+      class="van-calendar__days"
     >
       <view
-        v-if="showMonthTitle"
-        class="van-calendar__month-title"
+        v-if="showMark"
+        class="van-calendar__month-mark"
       >
-        {{ computed.formatMonthTitle(date) }}
+        {{ computed.getMark(date) }}
       </view>
 
       <view
-        v-if="visible"
-        class="van-calendar__days"
+        v-for="(item,index) in (days)"
+        :key="item.index"
+        :style="true ? computed.getDayStyle(item.type, index, date, rowHeight, color, firstDayOfWeek) : ''"
+        :class="true ? (utils.bem('calendar__day', [item.type]))+' '+(item.className) : ''"
+        :data-index="index"
+        @click="onClick(index)"
       >
         <view
-          v-if="showMark"
-          class="van-calendar__month-mark"
-        >
-          {{ computed.getMark(date) }}
-        </view>
-
-        <view
-          v-for="(item,index) in (days)"
-          :key="item.index"
-          :style="true ? computed.getDayStyle(item.type, index, date, rowHeight, color, firstDayOfWeek) : ''"
-          :class="true ? (utils.bem('calendar__day', [item.type]))+' '+(item.className) : ''"
-          :data-index="index"
-          @click="onClick(index)"
+          v-if="item.type === 'selected'"
+          class="van-calendar__selected-day"
+          :style="'width: '+(rowHeight)+'px; height: '+(rowHeight)+'px; background: '+(color)"
         >
           <view
-            v-if="item.type === 'selected'"
-            class="van-calendar__selected-day"
-            :style="'width: '+(rowHeight)+'px; height: '+(rowHeight)+'px; background: '+(color)"
+            v-if="item.topInfo"
+            class="van-calendar__top-info"
           >
-            <view
-              v-if="item.topInfo"
-              class="van-calendar__top-info"
-            >
-              {{ item.topInfo }}
-            </view>
-            {{ item.text }}
-            <view
-              v-if="item.bottomInfo"
-              class="van-calendar__bottom-info"
-            >
-              {{ item.bottomInfo }}
-            </view>
+            {{ item.topInfo }}
           </view>
+          {{ item.text }}
+          <view
+            v-if="item.bottomInfo"
+            class="van-calendar__bottom-info"
+          >
+            {{ item.bottomInfo }}
+          </view>
+        </view>
 
-          <view v-else>
-            <view
-              v-if="item.topInfo"
-              class="van-calendar__top-info"
-            >
-              {{ item.topInfo }}
-            </view>
-            {{ item.text }}
-            <view
-              v-if="item.bottomInfo"
-              class="van-calendar__bottom-info"
-            >
-              {{ item.bottomInfo }}
-            </view>
+        <view v-else>
+          <view
+            v-if="item.topInfo"
+            class="van-calendar__top-info"
+          >
+            {{ item.topInfo }}
+          </view>
+          {{ item.text }}
+          <view
+            v-if="item.bottomInfo"
+            class="van-calendar__bottom-info"
+          >
+            {{ item.bottomInfo }}
           </view>
         </view>
       </view>
     </view>
-  </uni-shadow-root>
+  </view>
+  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import computed from './computed';
@@ -105,8 +105,8 @@ export default {
       default: '',
     },
     formatter: {
-      type: [String, Function],
-      default: '',
+      type: Function,
+      default: null,
       // observer: 'setDays',
     },
     currentDate: {
@@ -176,7 +176,7 @@ export default {
     onClick(index) {
       const item = this.days[index];
       if (item.type !== 'disabled') {
-        this.$emit('click', item);
+        this.$emit('click', item, this.days);
       }
     },
     setDays() {
@@ -194,13 +194,12 @@ export default {
           text: day,
           bottomInfo: this.getBottomInfo(type),
         };
+
         if (this.formatter) {
           config = this.formatter(config);
         }
         days.push(config);
       }
-      console.log('days', days);
-      // this.setData({ days });
       this.days = days;
     },
     getMultipleDayType(day) {

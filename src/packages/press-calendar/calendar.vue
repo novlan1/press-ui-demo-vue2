@@ -1,73 +1,76 @@
 <template>
-  <uni-shadow-root class="vant-calendar-calendar">
-    <view class="van-calendar">
-      <CalendarHeader
-        :title="title"
-        :show-title="showTitle"
-        :subtitle="subtitle"
+  <!-- <uni-shadow-root class="vant-calendar-calendar"> -->
+  <view
+    class="van-calendar"
+    :style="wrapStyle"
+  >
+    <CalendarHeader
+      :title="title"
+      :show-title="showTitle"
+      :subtitle="subtitle"
+      :show-subtitle="showSubtitle"
+      :first-day-of-week="firstDayOfWeek"
+      @click-subtitle="onClickSubtitle"
+    >
+      <slot
+        slot="title"
+        name="title"
+      />
+    </CalendarHeader>
+
+    <scroll-view
+      class="van-calendar__body"
+      scroll-y
+      :scroll-into-view="scrollIntoViewData"
+    >
+      <month
+        v-for="(item,index) in (computed.getMonths(minDate, maxDate))"
+        :id="'month'+(index)"
+        :key="item.index"
+        class="month"
+        :data-date="item"
+        :date="item"
+        :type="type"
+        :color="color"
+        :min-date="minDate"
+        :max-date="maxDate"
+        :show-mark="showMark"
+        :formatter="formatter"
+        :row-height="rowHeight"
+        :current-date="currentDate"
         :show-subtitle="showSubtitle"
+        :allow-same-day="allowSameDay"
+        :show-month-title="index !== 0 || !showSubtitle"
         :first-day-of-week="firstDayOfWeek"
-        @click-subtitle="onClickSubtitle"
-      >
-        <slot
-          slot="title"
-          name="title"
-        />
-      </CalendarHeader>
+        @click="onClickDay"
+      />
+    </scroll-view>
 
-      <scroll-view
-        class="van-calendar__body"
-        scroll-y
-        :scroll-into-view="scrollIntoViewData"
-      >
-        <month
-          v-for="(item,index) in (computed.getMonths(minDate, maxDate))"
-          :id="'month'+(index)"
-          :key="item.index"
-          class="month"
-          :data-date="item"
-          :date="item"
-          :type="type"
-          :color="color"
-          :min-date="minDate"
-          :max-date="maxDate"
-          :show-mark="showMark"
-          :formatter="formatter"
-          :row-height="rowHeight"
-          :current-date="currentDate"
-          :show-subtitle="showSubtitle"
-          :allow-same-day="allowSameDay"
-          :show-month-title="index !== 0 || !showSubtitle"
-          :first-day-of-week="firstDayOfWeek"
-          @click="onClickDay"
-        />
-      </scroll-view>
-
-      <view :class="true ? utils.bem('calendar__footer', { safeAreaInsetBottom }) : ''">
-        <slot name="footer" />
-      </view>
-
-      <view :class="true ? utils.bem('calendar__footer', { safeAreaInsetBottom }) : ''">
-        <van-button
-          v-if="showConfirm"
-          round
-          block
-          type="danger"
-          :color="color"
-          custom-class="van-calendar__confirm"
-          :disabled="computed.getButtonDisabled(type, currentDate)"
-          native-type="text"
-          @click="onConfirm"
-        >
-          {{
-            computed.getButtonDisabled(type, currentDate)
-              ? confirmDisabledText
-              : confirmText
-          }}
-        </van-button>
-      </view>
+    <view :class="true ? utils.bem('calendar__footer', { safeAreaInsetBottom }) : ''">
+      <slot name="footer" />
     </view>
-  </uni-shadow-root>
+
+    <view :class="true ? utils.bem('calendar__footer', { safeAreaInsetBottom }) : ''">
+      <van-button
+        v-if="showConfirm"
+        round
+        block
+        type="danger"
+        :color="color"
+        custom-class="van-calendar__confirm"
+        :disabled="computed.getButtonDisabled(type, currentDate)"
+        native-type="text"
+        @click="onConfirm"
+      >
+        {{
+          computed.getButtonDisabled(type, currentDate)
+            ? confirmDisabledText
+            : confirmText
+        }}
+      </van-button>
+    </view>
+  </view>
+  <!-- </uni-shadow-root> -->
 </template>
 
 <script>
@@ -77,17 +80,12 @@ import VanButton from '../press-button/press-button.vue';
 import computed from './computed';
 import utils from '../wxs-js/utils';
 
-import { ROW_HEIGHT, getPrevDay, getNextDay,
-  getToday, compareDay, copyDates, calcDateNum, formatMonthTitle,
-  compareMonth, getMonths, getDayByOffset,
+import {
+  ROW_HEIGHT,
   initialMinDate,
   initialMaxDate,
+  formatMonthTitle,
 } from './utils';
-import Toast from '../press-toast/handler';
-import { requestAnimationFrame } from '../common/utils';
-
-
-const getTime = date => (date instanceof Date ? date.getTime() : date);
 
 
 export default {
@@ -111,7 +109,7 @@ export default {
     //     }
     //   },
     // },
-    formatter: { type: [String, Function], default: '' },
+    formatter: { type: Function, default: null },
     confirmText: {
       type: String,
       default: '确定',
@@ -204,21 +202,38 @@ export default {
       type: [String, Number, Array],
       default: null,
     },
-    subtitle: {
-      type: [String],
-      default: '',
+    // subtitle: {
+    //   type: [String],
+    //   default: '',
+    // },
+    poppable: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
     return {
       computed,
       utils,
+      subtitle: '',
 
       // subtitle: '',
       // currentDate: null,
       // scrollIntoViewData: '',
 
     };
+  },
+  computed: {
+    wrapStyle() {
+      if (this.poppable) {
+        return '';
+      }
+      return 'height: 500px;';
+    },
+  },
+  mounted() {
+    console.log('mounted');
+    this.initRect();
   },
   methods: {
     onConfirm(...args) {
@@ -232,6 +247,23 @@ export default {
     },
     onClickDay(...args) {
       this.$emit('onClickDay', ...args);
+    },
+    initRect() {
+      if (this.contentObserver != null) {
+        this.contentObserver.disconnect();
+      }
+      const contentObserver = uni.createIntersectionObserver(this, {
+        thresholds: [0, 0.1, 0.9, 1],
+        observeAll: true,
+      });
+      this.contentObserver = contentObserver;
+      contentObserver.relativeTo('.van-calendar__body');
+      contentObserver.observe('.month', (res) => {
+        console.log('initRect.res', res);
+        if (res.boundingClientRect.top <= res.relativeRect.top) {
+          this.subtitle = formatMonthTitle(res.dataset.date);
+        }
+      });
     },
   },
 };

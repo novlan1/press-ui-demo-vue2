@@ -1,34 +1,41 @@
 <template>
-  <uni-shadow-root class="vant-calendar-components-header-index">
-    <view class="van-calendar__header">
-      <block v-if="showTitle">
-        <view class="van-calendar__header-title">
-          <slot name="title" />
-        </view>
-        <view class="van-calendar__header-title">
-          {{ title }}
-        </view>
-      </block>
-
+  <!-- <uni-shadow-root class="vant-calendar-components-header-index"> -->
+  <view class="van-calendar__header">
+    <block v-if="showTitle">
+      <!-- 【修改点】小程序用empty判断无效，改成v-if/else -->
       <view
-        v-if="showSubtitle"
-        class="van-calendar__header-subtitle"
-        @click="onClickSubtitle"
+        v-if="title"
+        class="van-calendar__header-title"
       >
-        {{ subtitle }}
+        {{ title }}
       </view>
+      <view
+        v-else
+        class="van-calendar__header-title"
+      >
+        <slot name="title" />
+      </view>
+    </block>
 
-      <view class="van-calendar__weekdays">
-        <view
-          v-for="(item,index) in (weekdays)"
-          :key="index"
-          class="van-calendar__weekday"
-        >
-          {{ item }}
-        </view>
+    <view
+      v-if="showSubtitle"
+      class="van-calendar__header-subtitle"
+      @click="onClickSubtitle"
+    >
+      {{ subtitle }}
+    </view>
+
+    <view class="van-calendar__weekdays">
+      <view
+        v-for="(item,index) in (weekdays)"
+        :key="index"
+        class="van-calendar__weekday"
+      >
+        {{ item }}
       </view>
     </view>
-  </uni-shadow-root>
+  </view>
+  <!-- </uni-shadow-root> -->
 </template>
 
 <script>
@@ -105,13 +112,13 @@ export default {
   line-height: var(--calendar-header-title-height, 44px);
   text-align: center;
 }
-.van-calendar__header-title + .van-calendar__header-title,
-.van-calendar__header-title:empty {
-  display: none;
-}
-.van-calendar__header-title:empty + .van-calendar__header-title {
-  display: block !important;
-}
+// .van-calendar__header-title + .van-calendar__header-title,
+// .van-calendar__header-title:empty {
+//   display: none;
+// }
+// .van-calendar__header-title:empty + .van-calendar__header-title {
+//   display: block !important;
+// }
 .van-calendar__weekdays {
   display: flex;
 }

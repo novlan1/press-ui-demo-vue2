@@ -1,9 +1,12 @@
 const utils = require('./utils');
 
+function getDate(date) {
+  return new Date(date);
+}
+
 function getMonths(minDate, maxDate) {
   const months = [];
   const cursor = getDate(minDate);
-  console.log('cursor', cursor, minDate);
 
   cursor.setDate(1);
 
@@ -12,7 +15,6 @@ function getMonths(minDate, maxDate) {
     cursor.setMonth(cursor.getMonth() + 1);
   } while (utils.compareMonth(cursor, getDate(maxDate)) !== 1);
 
-  console.log('months', months);
   return months;
 }
 

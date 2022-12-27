@@ -1,5 +1,9 @@
 const utils = require('../../utils');
 
+function getDate(date) {
+  return new Date(date);
+}
+
 function getMark(date) {
   return getDate(date).getMonth() + 1;
 }
@@ -34,8 +38,6 @@ function getDayStyle(type, index, date, rowHeight, color, firstDayOfWeek) {
       style.push(['color', color]);
     }
   }
-
-  console.log('style', style);
 
   return style
     .map(item => item.join(':'))

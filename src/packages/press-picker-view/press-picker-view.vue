@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { getRect } from '../common/utils';
+
 function isMp() {
   return process.env.UNI_PLATFORM === 'mp-weixin' || process.env.UNI_PLATFORM === 'mp-qq';
 }
@@ -105,12 +107,18 @@ export default {
       lastTime: 0, // 上一次滚动回调时间，用于计算滑动距离
       speed: 0, // 当前滑动速度
       hasClick: false, // 记录是否触发item点击，已触发不走最后的滚动逻辑
+
+      slideLimitNum: 10,
+      slideTimeThreshold: 300,
     };
   },
   computed: {
     transformStyle() {
       const res = `transform: translate3d(0, ${this.currentScroll}px, 0);`;
       return res;
+    },
+    slideLimitDistance() {
+      return this.slideLimitNum * this.itemHeight;
     },
   },
   watch: {
@@ -130,16 +138,14 @@ export default {
     },
   },
   created() {
-    this.slideTimeThreshold = 300;
-    this.slideLimitNum = 10;
-    this.slideLimitDistance = this.slideLimitNum * this.itemHeight;
   },
   mounted() {
-    if (this.current) {
-      const item = this.data.find(i => i.value == this.current.value);
-      this.currentIndex = this.data.indexOf(item);
-      this.currentScroll = -this.currentIndex * this.itemHeight;
-    }
+    getRect(this, '.press-picker-view--item__active').then((rect) => {
+      console.log('rect', rect);
+      this.itemHeight = rect.height;
+      this.updateCurrent();
+    });
+    this.updateCurrent();
   },
   methods: {
     // 开始点击

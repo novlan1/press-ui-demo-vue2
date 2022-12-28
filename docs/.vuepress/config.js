@@ -35,10 +35,10 @@ module.exports = {
       },
 
     ],
-    algolia: {
-      apiKey: '48a1bc6e7170949bb834becb9d8815e5',
-      indexName: 'dcloud_uniui',
-    },
+    // algolia: {
+    //   apiKey: '',
+    //   indexName: '',
+    // },
     // mode: 'hash',
     // repo: '', // git 仓库
     // repoLabel: '查看源码', // git 仓库显示文字

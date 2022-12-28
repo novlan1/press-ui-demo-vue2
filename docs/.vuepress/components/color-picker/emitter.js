@@ -1,6 +1,6 @@
 function broadcast(componentName, eventName, params) {
-  this.$children.forEach(child => {
-    var name = child.$options.componentName;
+  this.$children.forEach((child) => {
+    const name = child.$options.componentName;
 
     if (name === componentName) {
       child.$emit.apply(child, [eventName].concat(params));
@@ -12,8 +12,8 @@ function broadcast(componentName, eventName, params) {
 export default {
   methods: {
     dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root;
-      var name = parent.$options.componentName;
+      let parent = this.$parent || this.$root;
+      let name = parent.$options.componentName;
 
       while (parent && (!name || name !== componentName)) {
         parent = parent.$parent;
@@ -28,6 +28,6 @@ export default {
     },
     broadcast(componentName, eventName, params) {
       broadcast.call(this, componentName, eventName, params);
-    }
-  }
+    },
+  },
 };

@@ -1,6 +1,7 @@
 unpackage
-node_modules
+node_modules/
 coverage
 static/common/*
 dist/
-log/
+/log/
+!.vuepress

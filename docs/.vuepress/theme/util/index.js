@@ -137,7 +137,6 @@ export function resolveSidebarItems(page, regularPath, site, localePath) {
 
   const sidebarConfig = localeConfig.sidebar || themeConfig.sidebar;
   if (!sidebarConfig) {
-    console.log(1);
     return [];
   }
   const {
@@ -145,7 +144,6 @@ export function resolveSidebarItems(page, regularPath, site, localePath) {
     config,
   } = resolveMatchingConfig(regularPath, sidebarConfig);
   if (config === 'auto') {
-    console.log(2);
     return resolveHeaders(page);
   }
   return config

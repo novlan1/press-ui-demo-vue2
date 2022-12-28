@@ -1,22 +1,22 @@
 <!-- fixed by mehaotian -->
 <template>
-	<span class="highlight">{{text}}</span>
+  <span class="highlight">{{ text }}</span>
 </template>
 
 <script>
 export default {
-	name: 'Highlight',
-	functional: false,
-	props: {
-		text: {
-			type: String,
-			default: '-'
-		},
-	}
+  name: 'Highlight',
+  functional: false,
+  props: {
+    text: {
+      type: String,
+      default: '-',
+    },
+  },
 };
 </script>
 
-<style lang="stylus" >
+<style lang="stylus">
 	.highlight
 		color #476582
 		background-color #1b1f230d

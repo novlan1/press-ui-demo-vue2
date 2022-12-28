@@ -3,23 +3,23 @@
     <div class="press-color-picker">
       <div
         class="press-color-picker__trigger"
+        :style="{
+          backgroundColor: displayedColor
+        }"
         @click.stop="handleTrigger"
-       :style="{
-            backgroundColor: displayedColor
-          }"
-      ></div>
+      />
     </div>
-    <PickerDropdown 
-       ref="dropdown"
-       v-show="showPicker"
-       @pick="confirmValue"
-       @clear="clearValue"
-      :color="color" 
+    <PickerDropdown
+      v-show="showPicker"
+      ref="dropdown"
+      :color="color"
+      @pick="confirmValue"
+      @clear="clearValue"
     />
-  </div>  
+  </div>
 </template>
 <script>
-import PickerDropdown from './picker-dropdown.vue'
+import PickerDropdown from './picker-dropdown.vue';
 import Color from './color';
 import Emitter from './emitter';
 
@@ -35,25 +35,24 @@ export default {
     },
   },
   data() {
-      const color = new Color({
-        // enableAlpha: false,
-        // format: this.colorFormat
-      });
-      console.log('color', color)
+    const color = new Color({
+      // enableAlpha: false,
+      // format: this.colorFormat
+    });
     return {
       color,
       showPicker: false,
-      showPanelColor: false
-    }
+      showPanelColor: false,
+    };
   },
   computed: {
     displayedColor() {
-        if (!this.value && !this.showPanelColor) {
-          return 'transparent';
-        }
+      if (!this.value && !this.showPanelColor) {
+        return 'transparent';
+      }
 
-        return this.displayedRgb(this.color, this.showAlpha);
-      },
+      return this.displayedRgb(this.color, this.showAlpha);
+    },
   },
   watch: {
     value(val) {
@@ -67,13 +66,13 @@ export default {
       deep: true,
       handler() {
         this.showPanelColor = true;
-      }
+      },
     },
     displayedColor(val) {
       if (!this.showPicker) return;
       const currentValueColor = new Color({
         enableAlpha: this.showAlpha,
-        format: this.colorFormat
+        format: this.colorFormat,
       });
       currentValueColor.fromString(this.value);
 
@@ -81,10 +80,10 @@ export default {
       if (val !== currentValueColorRgb) {
         this.$emit('active-change', val);
       }
-    }
+    },
   },
   mounted() {
-    const value = this.value;
+    const { value } = this;
     if (value) {
       this.color.fromString(value);
     }
@@ -94,59 +93,58 @@ export default {
   beforeDestroy() {
     document.removeEventListener('click', this.onDocumentClick);
   },
-   methods: {
+  methods: {
     onDocumentClick(event) {
       if (!this.$el.contains(event.target)) {
         this.showPicker = false;
       }
     },
-      handleTrigger() {
-        if (this.colorDisabled) return;
-        this.showPicker = !this.showPicker;
-      },
-      confirmValue() {
-        const value = this.color.value;
-        console.log('value', value)
-        this.$emit('input', value);
-        this.$emit('change', value);
-        this.dispatch('ElFormItem', 'el.form.change', value);
-        this.showPicker = false;
-      },
-      clearValue() {
-        this.$emit('input', null);
-        this.$emit('change', null);
-        if (this.value !== null) {
-          this.dispatch('ElFormItem', 'el.form.change', null);
-        }
-        this.showPanelColor = false;
-        this.showPicker = false;
-        this.resetColor();
-      },
-      hide() {
-        this.showPicker = false;
-        this.resetColor();
-      },
-      resetColor() {
-        this.$nextTick(_ => {
-          if (this.value) {
-            this.color.fromString(this.value);
-          } else {
-            this.showPanelColor = false;
-          }
-        });
-      },
-      displayedRgb(color, showAlpha) {
-        if (!(color instanceof Color)) {
-          throw Error('color should be instance of Color Class');
-        }
-
-        const { r, g, b } = color.toRgb();
-        return showAlpha
-          ? `rgba(${ r }, ${ g }, ${ b }, ${ color.get('alpha') / 100 })`
-          : `rgb(${ r }, ${ g }, ${ b })`;
-      }
+    handleTrigger() {
+      if (this.colorDisabled) return;
+      this.showPicker = !this.showPicker;
     },
-}
+    confirmValue() {
+      const { value } = this.color;
+      this.$emit('input', value);
+      this.$emit('change', value);
+      this.dispatch('ElFormItem', 'el.form.change', value);
+      this.showPicker = false;
+    },
+    clearValue() {
+      this.$emit('input', null);
+      this.$emit('change', null);
+      if (this.value !== null) {
+        this.dispatch('ElFormItem', 'el.form.change', null);
+      }
+      this.showPanelColor = false;
+      this.showPicker = false;
+      this.resetColor();
+    },
+    hide() {
+      this.showPicker = false;
+      this.resetColor();
+    },
+    resetColor() {
+      this.$nextTick(() => {
+        if (this.value) {
+          this.color.fromString(this.value);
+        } else {
+          this.showPanelColor = false;
+        }
+      });
+    },
+    displayedRgb(color, showAlpha) {
+      if (!(color instanceof Color)) {
+        throw Error('color should be instance of Color Class');
+      }
+
+      const { r, g, b } = color.toRgb();
+      return showAlpha
+        ? `rgba(${r}, ${g}, ${b}, ${color.get('alpha') / 100})`
+        : `rgb(${r}, ${g}, ${b})`;
+    },
+  },
+};
 </script>
 <style scoped>
 .press-color-picker {

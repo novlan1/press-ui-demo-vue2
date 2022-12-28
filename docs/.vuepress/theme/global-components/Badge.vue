@@ -1,38 +1,38 @@
 <script>
 export default {
-	functional: true,
-	props: {
-		type: {
-			type: String,
-			default: 'tip'
-		},
-		text: String,
-		vertical: {
-			type: String,
-			default: 'top'
-		},
-		right: {
-			type: String,
-			default: '0'
-		}
-	},
-	render(h, { props, slots }) {
-		return h(
-			'span',
-			{
-				class: ['badge', props.type],
-				style: {
-					verticalAlign: props.vertical,
-					marginRight: props.right + 'px'
-				}
-			},
-			props.text || slots().default
-		);
-	}
+  functional: true,
+  props: {
+    type: {
+      type: String,
+      default: 'tip',
+    },
+    text: String,
+    vertical: {
+      type: String,
+      default: 'top',
+    },
+    right: {
+      type: String,
+      default: '0',
+    },
+  },
+  render(h, { props, slots }) {
+    return h(
+      'span',
+      {
+        class: ['badge', props.type],
+        style: {
+          verticalAlign: props.vertical,
+          marginRight: `${props.right}px`,
+        },
+      },
+      props.text || slots().default,
+    );
+  },
 };
 </script>
 
-<style lang="stylus" >
+<style lang="stylus">
 .badge
 	display inline-block
 	font-size 13px

@@ -1,32 +1,35 @@
 <!-- fixed by mehaotian -->
 <template>
-	<div class="log-box">
-		<div class="log-title">
-			<span>{{title}}</span>
-			<Badge :text="date" type="warning" />
-		</div>
-		<slot><div class="children"></div></slot>
-	</div>
+  <div class="log-box">
+    <div class="log-title">
+      <span>{{ title }}</span>
+      <Badge
+        :text="date"
+        type="warning"
+      />
+    </div>
+    <slot><div class="children" /></slot>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'Log',
-	functional: false,
-	props: {
-		title:{
-			type:String,
-			default:'-'
-		},
-		date:{
-			type:String,
-			default:'-'
-		}
-	}
+  name: 'Log',
+  functional: false,
+  props: {
+    title: {
+      type: String,
+      default: '-',
+    },
+    date: {
+      type: String,
+      default: '-',
+    },
+  },
 };
 </script>
 
-<style lang="stylus" >
+<style lang="stylus">
 .log-box
 	position relative
 	width 100%

@@ -62,52 +62,52 @@
 </template>
 
 <script>
-import NavLink from '@theme/components/NavLink.vue'
-import DropdownTransition from '@theme/components/DropdownTransition.vue'
-import last from 'lodash/last'
+import NavLink from '@theme/components/NavLink.vue';
+import DropdownTransition from '@theme/components/DropdownTransition.vue';
+import last from 'lodash/last';
 
 export default {
   name: 'DropdownLink',
 
   components: {
     NavLink,
-    DropdownTransition
+    DropdownTransition,
   },
 
   props: {
     item: {
-      required: true
-    }
+      required: true,
+    },
   },
 
-  data () {
+  data() {
     return {
-      open: false
-    }
+      open: false,
+    };
   },
 
   computed: {
-    dropdownAriaLabel () {
-      return this.item.ariaLabel || this.item.text
-    }
+    dropdownAriaLabel() {
+      return this.item.ariaLabel || this.item.text;
+    },
   },
 
   watch: {
-    $route () {
-      this.open = false
-    }
+    $route() {
+      this.open = false;
+    },
   },
 
   methods: {
-    setOpen (value) {
-      this.open = value
+    setOpen(value) {
+      this.open = value;
     },
 
-    isLastItemOfArray (item, array) {
-      return last(array) === item
-    }
-  }
-}
+    isLastItemOfArray(item, array) {
+      return last(array) === item;
+    },
+  },
+};
 </script>
 
 <style lang="stylus">

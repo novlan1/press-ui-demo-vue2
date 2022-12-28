@@ -16,7 +16,6 @@
           :data-name="item.name"
           @change="e=>onChangeTheme(e, item)"
         >
-        
       </div>
       <div style="width: 40px;">
         <ColorPicker
@@ -61,7 +60,7 @@
 </template>
 <script>
 import themeDefaultJson from './theme-default.json';
-import ColorPicker from './color-picker/color-picker.vue'
+import ColorPicker from './color-picker/color-picker.vue';
 
 const CHANGE_IFRAME_STYLE_TYPE = 'CHANGE_IFRAME_STYLE_TYPE';
 
@@ -84,14 +83,14 @@ function getComponentTheme(type) {
     .map(key => ({
       name: key.replace('$', '--'),
       value: themeDefaultJson[key],
-      isColor: themeDefaultJson[key].startsWith('#')
+      isColor: themeDefaultJson[key].startsWith('#'),
     }));
   return res;
 }
 
 export default {
   components: {
-    ColorPicker
+    ColorPicker,
   },
   props: {
   },
@@ -114,7 +113,7 @@ export default {
         if (this.url) {
           const list = this.url.split('/');
           const newType = list[list.length - 1];
-          console.log('newType', newType);
+
           if (newType !== this.type) {
             this.type = newType;
             this.list = getComponentTheme(newType);
@@ -145,11 +144,10 @@ export default {
       });
     },
     onChangeColorPicker(value, item) {
-      console.log('value', value, item)
       this.changeIframe({
         name: item.name,
         value,
-      })
+      });
     },
     changeIframe(style) {
       const iframe = document.getElementsByTagName('iframe')[0];

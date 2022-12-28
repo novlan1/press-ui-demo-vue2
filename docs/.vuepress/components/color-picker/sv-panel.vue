@@ -1,16 +1,20 @@
 <template>
-  <div class="press-color-svpanel"
-      :style="{
-        backgroundColor: background
-      }">
-    <div class="press-color-svpanel__white"></div>
-    <div class="press-color-svpanel__black"></div>
-    <div class="press-color-svpanel__cursor"
+  <div
+    class="press-color-svpanel"
+    :style="{
+      backgroundColor: background
+    }"
+  >
+    <div class="press-color-svpanel__white" />
+    <div class="press-color-svpanel__black" />
+    <div
+      class="press-color-svpanel__cursor"
       :style="{
         top: cursorTop + 'px',
         left: cursorLeft + 'px'
-      }">
-      <div></div>
+      }"
+    >
+      <div />
     </div>
   </div>
 </template>
@@ -20,81 +24,79 @@ import draggable from './draggable';
 
 
 export default {
-   props: {
-      color: {
-        required: true
-      }
+  props: {
+    color: {
+      required: true,
     },
+  },
   data() {
     return {
       cursorTop: 0,
       cursorLeft: 0,
-      background: 'hsl(0, 100%, 50%)'
-    }
+      background: 'hsl(0, 100%, 50%)',
+    };
   },
-    mounted() {
-      draggable(this.$el, {
-        drag: (event) => {
-          this.handleDrag(event);
-        },
-        end: (event) => {
-          this.handleDrag(event);
-        }
-      });
+  computed: {
+    colorValue() {
+      const hue = this.color.get('hue');
+      const value = this.color.get('value');
+      return { hue, value };
+    },
+  },
 
+  watch: {
+    colorValue() {
       this.update();
     },
-  computed: {
-      colorValue() {
-        const hue = this.color.get('hue');
-        const value = this.color.get('value');
-        return { hue, value };
-      }
-    },
-
-    watch: {
-      colorValue() {
-        this.update();
-      }
-    },
-
-    methods: {
-      update() {
-        const saturation = this.color.get('saturation');
-        const value = this.color.get('value');
-
-        const el = this.$el;
-        let { clientWidth: width, clientHeight: height } = el;
-
-        this.cursorLeft = saturation * width / 100;
-        this.cursorTop = (100 - value) * height / 100;
-
-        this.background = 'hsl(' + this.color.get('hue') + ', 100%, 50%)';
+  },
+  mounted() {
+    draggable(this.$el, {
+      drag: (event) => {
+        this.handleDrag(event);
       },
+      end: (event) => {
+        this.handleDrag(event);
+      },
+    });
 
-      handleDrag(event) {
-        const el = this.$el;
-        const rect = el.getBoundingClientRect();
+    this.update();
+  },
 
-        let left = event.clientX - rect.left;
-        let top = event.clientY - rect.top;
-        left = Math.max(0, left);
-        left = Math.min(left, rect.width);
+  methods: {
+    update() {
+      const saturation = this.color.get('saturation');
+      const value = this.color.get('value');
 
-        top = Math.max(0, top);
-        top = Math.min(top, rect.height);
+      const el = this.$el;
+      const { clientWidth: width, clientHeight: height } = el;
 
-        this.cursorLeft = left;
-        this.cursorTop = top;
-        this.color.set({
-          saturation: left / rect.width * 100,
-          value: 100 - top / rect.height * 100
-        });
+      this.cursorLeft = saturation * width / 100;
+      this.cursorTop = (100 - value) * height / 100;
 
-        console.log('color', this.color.value)
-      }
+      this.background = `hsl(${this.color.get('hue')}, 100%, 50%)`;
     },
-}
+
+    handleDrag(event) {
+      const el = this.$el;
+      const rect = el.getBoundingClientRect();
+
+      let left = event.clientX - rect.left;
+      let top = event.clientY - rect.top;
+      left = Math.max(0, left);
+      left = Math.min(left, rect.width);
+
+      top = Math.max(0, top);
+      top = Math.min(top, rect.height);
+
+      this.cursorLeft = left;
+      this.cursorTop = top;
+      this.color.set({
+        saturation: left / rect.width * 100,
+        value: 100 - top / rect.height * 100,
+      });
+    },
+  },
+};
 </script>
 <style scoped>
 .press-color-svpanel {

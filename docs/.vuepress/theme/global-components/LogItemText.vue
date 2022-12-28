@@ -1,21 +1,29 @@
 <!-- fixed by mehaotian -->
 <template>
-	<div class="log-item-text" :class="{ 'text--only': only }">
-		<Badge v-if="showTag" :text="tagName" :type="tagType" right="10" />
-		<slot>-</slot>
-	</div>
+  <div
+    class="log-item-text"
+    :class="{ 'text--only': only }"
+  >
+    <Badge
+      v-if="showTag"
+      :text="tagName"
+      :type="tagType"
+      right="10"
+    />
+    <slot>-</slot>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'LogItemText',
-	functional: false,
-	props: {
-		showTag: {
-			type: Boolean,
-			default: true
-		},
-		/**
+  name: 'LogItemText',
+  functional: false,
+  props: {
+    showTag: {
+      type: Boolean,
+      default: true,
+    },
+    /**
 		 *  feat： 			新增 feature
 		 *  fix: 				修复 bug
 		 *  docs: 			仅仅修改了文档，比如 README, CHANGELOG, CONTRIBUTE等等
@@ -26,49 +34,49 @@ export default {
 		 *  chore: 			改变构建流程、或者增加依赖库、工具等
 		 *  revert: 		回滚到上一个版本
 		 */
-		tagType: {
-			type: String,
-			default: 'feat'
-		},
-		// 单独使用的情况下，左侧留空白
-		only: {
-			type: Boolean,
-			default: false
-		}
-	},
-	computed: {
-		tagName() {
-			let name = '新增';
-			switch (this.tagType) {
-				case 'feat':
-					name = '新增';
-					break;
-				case 'fix':
-					name = '修复';
-					break;
-				case 'docs':
-					name = '文档';
-					break;
-				case 'refactor':
-					name = '重构';
-					break;
-				case 'perf':
-					name = '优化';
-					break;
-				case 'test':
-					name = '测试';
-					break;
-				case 'revert':
-					name = '回滚';
-					break;
-			}
-			return name;
-		}
-	}
+    tagType: {
+      type: String,
+      default: 'feat',
+    },
+    // 单独使用的情况下，左侧留空白
+    only: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    tagName() {
+      let name = '新增';
+      switch (this.tagType) {
+        case 'feat':
+          name = '新增';
+          break;
+        case 'fix':
+          name = '修复';
+          break;
+        case 'docs':
+          name = '文档';
+          break;
+        case 'refactor':
+          name = '重构';
+          break;
+        case 'perf':
+          name = '优化';
+          break;
+        case 'test':
+          name = '测试';
+          break;
+        case 'revert':
+          name = '回滚';
+          break;
+      }
+      return name;
+    },
+  },
 };
 </script>
 
-<style lang="stylus" >
+<style lang="stylus">
 .log-item-text
 	position relative
 	padding 10px 0

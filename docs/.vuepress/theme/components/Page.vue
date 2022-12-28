@@ -1,62 +1,74 @@
 <template>
-	<main class="page">
-		<slot name="top" />
-		<div class="wrap">
-			<Content class="theme-default-content" />
-			<div ref="simulator" class="simulator-box">
-				<div class="simulator-top"><div class="simulator-top_box"></div></div>
-				<div class="simulator-content">
-					<div class="simulator-seat"></div>
-					<iframe class="simulator-iframe" :src="path"></iframe>
-				</div>
-				<div class="simulator-bottom"><div class="simulator-bottom_box"></div></div>
-			</div>
-		</div>
-		<PageEdit />
+  <main class="page">
+    <slot name="top" />
+    <div class="wrap">
+      <Content class="theme-default-content" />
+      <div
+        ref="simulator"
+        class="simulator-box"
+      >
+        <div class="simulator-top">
+          <div class="simulator-top_box" />
+        </div>
+        <div class="simulator-content">
+          <div class="simulator-seat" />
+          <iframe
+            class="simulator-iframe"
+            :src="path"
+          />
+        </div>
+        <div class="simulator-bottom">
+          <div class="simulator-bottom_box" />
+        </div>
+      </div>
+    </div>
+    <PageEdit />
 
-		<PageNav class="page-nav" v-bind="{ sidebarItems }" />
+    <PageNav
+      class="page-nav"
+      v-bind="{ sidebarItems }"
+    />
 
-		<slot name="bottom" />
-	</main>
+    <slot name="bottom" />
+  </main>
 </template>
 
 <script>
 import PageEdit from '@theme/components/PageEdit.vue';
 import PageNav from '@theme/components/PageNav.vue';
 
-const WEB_DEMO_BASE_LINK_PROD = 'https://novlan1.github.io/press-ui-demo/#/'
-const WEB_DEMO_BASE_LINK_DEV = 'http://localhost:9999/#/'
+const WEB_DEMO_BASE_LINK_PROD = 'https://novlan1.github.io/press-ui-demo/#/';
+const WEB_DEMO_BASE_LINK_DEV = 'http://localhost:9999/#/';
 
-const WEB_DEMO_BASE_LINK = process.env.NODE_ENV === 'production' ? WEB_DEMO_BASE_LINK_PROD : WEB_DEMO_BASE_LINK_DEV
+const WEB_DEMO_BASE_LINK = process.env.NODE_ENV === 'production' ? WEB_DEMO_BASE_LINK_PROD : WEB_DEMO_BASE_LINK_DEV;
 
 export default {
-	components: { PageEdit, PageNav },
-	props: ['sidebarItems'],
-	data() {
-		return {
-			url: ''
-		};
-	},
-	computed:{
-		path(){
-			return WEB_DEMO_BASE_LINK + this.url +'?v='+new Date().getTime()
-		}
-	},
-	watch: {
-		$page: {
-			handler(newName) {
-				const { frontmatter } = newName;
-				this.url = frontmatter.url ? frontmatter.url : '';
-			},
-			immediate: true
-		}
-	},
-	created() {},
-	methods: {
-		onload(err){
-			console.log('----加载完成',err);
-		}
-	}
+  components: { PageEdit, PageNav },
+  props: ['sidebarItems'],
+  data() {
+    return {
+      url: '',
+    };
+  },
+  computed: {
+    path() {
+      return `${WEB_DEMO_BASE_LINK + this.url}?v=${new Date().getTime()}`;
+    },
+  },
+  watch: {
+    $page: {
+      handler(newName) {
+        const { frontmatter } = newName;
+        this.url = frontmatter.url ? frontmatter.url : '';
+      },
+      immediate: true,
+    },
+  },
+  created() {},
+  methods: {
+    onload() {
+    },
+  },
 };
 </script>
 

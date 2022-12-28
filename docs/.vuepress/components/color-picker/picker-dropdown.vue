@@ -6,37 +6,44 @@
     </div>
     <div class="press-color-buttons">
       <div class="press-color-input">
-        <input class="press-input"
-           v-model="customInput"
-           @keyup.enter="handleConfirm"
-           @blur="handleConfirm"
-        />
+        <input
+          v-model="customInput"
+          class="press-input"
+          @keyup.enter="handleConfirm"
+          @blur="handleConfirm"
+        >
       </div>
       <div>
-        <button class="press-button press-button--text press-button--mini"
-        @click="$emit('clear')"
-        >清空</button>
-        <button class="press-button press-button--primary press-button--mini"
-         @click="confirmValue"
-        >确定</button>
+        <button
+          class="press-button press-button--text press-button--mini"
+          @click="$emit('clear')"
+        >
+          清空
+        </button>
+        <button
+          class="press-button press-button--primary press-button--mini"
+          @click="confirmValue"
+        >
+          确定
+        </button>
       </div>
     </div>
-  </div>  
+  </div>
 </template>
 <script>
-import HueSlider from './hue-slider.vue'
-import SvPanel from './sv-panel.vue'
+import HueSlider from './hue-slider.vue';
+import SvPanel from './sv-panel.vue';
 
 export default {
+  components: {
+    HueSlider,
+    SvPanel,
+  },
   props: {
     color: {
       type: Object,
       default: () => ({}),
-    }
-  },
-  components: {
-    HueSlider,
-    SvPanel,
+    },
   },
   data() {
     return {
@@ -49,7 +56,7 @@ export default {
     currentColor() {
       const parent = this.$parent;
       return !parent.value && !parent.showPanelColor ? '' : parent.color.value;
-    }
+    },
   },
   watch: {
     showPopper(val) {
@@ -67,11 +74,12 @@ export default {
       immediate: true,
       handler(val) {
         this.customInput = val;
-      }
-    }
+      },
+    },
   },
   mounted() {
-    this.$parent.popperElm = this.popperElm = this.$el;
+    this.popperElm = this.$el;
+    this.$parent.popperElm = this.popperElm;
     this.referenceElm = this.$parent.$el;
   },
   methods: {
@@ -80,11 +88,10 @@ export default {
     },
 
     handleConfirm() {
-      console.log('handleConfirm', this.customInput)
       this.color.fromString(this.customInput);
-    }
+    },
   },
-}
+};
 </script>
 <style scoped>
 .press-color-wrap {

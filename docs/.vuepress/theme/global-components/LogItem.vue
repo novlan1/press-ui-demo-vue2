@@ -1,27 +1,29 @@
 <!-- fixed by mehaotian -->
 <template>
-	<div class="log-item">
-		<div class="log-item-title">{{title}}</div>
-		<div class="log-item-content">
-			<slot>-</slot>
-		</div>
-	</div>
+  <div class="log-item">
+    <div class="log-item-title">
+      {{ title }}
+    </div>
+    <div class="log-item-content">
+      <slot>-</slot>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'LogItem',
-	functional: false,
-	props: {
-		title:{
-			type:String,
-			default:'-'
-		},
-	}
+  name: 'LogItem',
+  functional: false,
+  props: {
+    title: {
+      type: String,
+      default: '-',
+    },
+  },
 };
 </script>
 
-<style lang="stylus" >
+<style lang="stylus">
 .log-item
 	margin 10px 0
 	position relative

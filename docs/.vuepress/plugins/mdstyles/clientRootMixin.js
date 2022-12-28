@@ -8,14 +8,15 @@ export default {
   },
   methods: {
     update() {
-      console.log('执行一次');
       // 获取所有的dom，之后在所有的代码块上插入vue的组件
+      // eslint-disable-next-line no-undef
       const dom = Array.from(document.querySelectorAll(selector));
+
       dom.forEach((el) => {
         if (/md-styles-box/.test(el.parentNode.className)) {
           return;
         }
-        console.log(el.parentNode.className);
+
         const elem = document.createElement('div');
         elem.className = 'md-styles-box';
         el.parentNode.replaceChild(elem, el);
@@ -31,7 +32,6 @@ export default {
 
         elem.appendChild(mdBoxHeader);
         elem.appendChild(el);
-        console.log(elem);
       });
     },
   },

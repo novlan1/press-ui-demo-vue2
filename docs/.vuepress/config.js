@@ -18,17 +18,13 @@ module.exports = {
   themeConfig: {
     logo: {
       img: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png',
-      link: 'https://mobile.woa.com/press-ui/',
+      // link: 'https://mobile.woa.com/press-ui/',
     },
     subLogo: {
       // img: '',
       // link: ''
     },
     nav: [
-      {
-        text: 'uni-app官网',
-        link: 'https://uniapp.dcloud.io/',
-      },
       {
         text: '源码地址',
         link: 'https://git.woa.com/pmd-mobile/support/press-ui',

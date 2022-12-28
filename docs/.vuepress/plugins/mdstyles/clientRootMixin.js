@@ -16,7 +16,6 @@ export default {
         if (/md-styles-box/.test(el.parentNode.className)) {
           return;
         }
-
         const elem = document.createElement('div');
         elem.className = 'md-styles-box';
         el.parentNode.replaceChild(elem, el);

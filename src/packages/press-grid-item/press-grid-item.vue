@@ -1,5 +1,4 @@
 <template>
-  <!-- <uni-shadow-root class="vant-grid-item-index"> -->
   <div
     :class="`${customClass} `+(utils.bem2('grid-item', { square }))"
     :style="true ? computed.wrapperStyle({ square, gutter, columnNum, index }) : ''"
@@ -42,11 +41,9 @@
       </template>
     </div>
   </div>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import PressIcon from '../press-icon-plus/press-icon-plus.vue';
-// import { useParent } from '../common/relation';
 import { link } from '../mixins/link';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -116,19 +113,13 @@ export default {
   },
   mounted() {
     this.updateStyle();
-    // setTimeout(() => {
-    //   this.updateStyle();
-    //   console.log('========11===');
-    // }, 5000);
   },
   methods: {
     updateStyle() {
-      // console.log('========', this[PARENT]);
       if (!this[PARENT]) {
         return;
       }
       const {
-        // children,
         columnNum,
         border,
         square,
@@ -140,8 +131,7 @@ export default {
         iconSize,
 
       } = this[PARENT];
-      // const { columnNum, border, square, gutter, clickable, center, direction, reverse, iconSize } = data;
-      console.log('columnNum', columnNum, border);
+
       this.center = center;
       this.border = border;
       this.square = square;
@@ -151,18 +141,6 @@ export default {
       this.reverse = reverse;
       this.iconSize = iconSize;
       this.columnNum = columnNum;
-      // this.setData({
-      //   center,
-      //   border,
-      //   square,
-      //   gutter,
-      //   clickable,
-      //   direction,
-      //   reverse,
-      //   iconSize,
-      //   index: children.indexOf(this),
-      //   columnNum,
-      // });
     },
     onClick() {
       this.$emit('click');

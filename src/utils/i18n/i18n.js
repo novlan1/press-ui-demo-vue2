@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import localeEn from 'src/packages/locale/lang/en-US';
 import locale, { t } from 'src/packages/locale';
+import TITLE_I18N from './title-i18n.json';
 
 const DEFAULT_LANG = 'zh-CN';
 
@@ -32,6 +33,19 @@ if (LOCALE_MAP[LANG]) {
 
 export function demoI18n() {
   Vue.mixin({
+    onReady() {
+      const { path } = this.$route;
+      const list = path.split('/');
+      const name = list[list.length - 1];
+      if (!name) return;
+
+      const newTitle = TITLE_I18N[LANG]?.[name] || '';
+      if (!newTitle) return;
+
+      uni.setNavigationBarTitle({
+        title: newTitle,
+      });
+    },
     methods: {
       t(key, ...args) {
         const { i18n } = this.$options;

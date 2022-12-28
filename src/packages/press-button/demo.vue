@@ -316,6 +316,9 @@ export default {
       customStyle: 'margin-right: 16px;',
     };
   },
+  onReady() {
+
+  },
   onLoad() {
     // #ifdef MP-QQ
     qq.showShareMenu({

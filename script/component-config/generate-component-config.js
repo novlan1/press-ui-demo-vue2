@@ -5,6 +5,7 @@ const COMP_TYPE_MAP = require('./component-config.json');
 const DOC_SIDE_BAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
 const DEMO_INDEX_CONFIG_PATH = 'src/pages/index/page-config.json';
 const DEMO_PAGES_JSON_PATH = './src/pages.json';
+const DEMO_I18N_PATH = 'src/utils/i18n/title-i18n.json';
 const DEMO_PAGES_JSON_LAST_INDEX = 0;
 
 
@@ -77,7 +78,7 @@ function getPagesJsonConfig() {
             {
               path: hyphenatedName,
               style: {
-                navigationBarTitleText: `${item.name} ${item.title}`,
+                navigationBarTitleText: '',
               },
             },
           ],
@@ -89,6 +90,29 @@ function getPagesJsonConfig() {
     .flat();
 
   return list;
+}
+
+function getTitleI18nConfig() {
+  const res = {
+    'zh-CN': {},
+    'en-US': {},
+  };
+  // const list =
+  Object.keys(COMP_TYPE_MAP)
+    .forEach((key) => {
+      const value = COMP_TYPE_MAP[key];
+      const { list } = value;
+      const newList = list.forEach((item) => {
+        const hyphenatedName = hyphenate(item.name);
+        res['zh-CN'][hyphenatedName] = `${item.name} ${item.title}`;
+        res['en-US'][hyphenatedName] = `${item.name}`;
+      });
+
+      return newList;
+    });
+  // .flat();
+
+  return res;
 }
 
 function writeDemoIndexConfig() {
@@ -119,10 +143,19 @@ function writeDemoPagesJson() {
   });
 }
 
+function writeDemoTitleI18n() {
+  const title = getTitleI18nConfig();
+
+  fs.writeFileSync(DEMO_I18N_PATH, JSON.stringify(title, null, 2), {
+    encoding: 'utf-8',
+  });
+}
+
 function main() {
   writeDemoIndexConfig();
   writeDocSidebar();
   writeDemoPagesJson();
+  writeDemoTitleI18n();
 }
 
 main();

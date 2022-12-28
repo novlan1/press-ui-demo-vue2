@@ -116,9 +116,8 @@
       @confirm="onConfirm"
     />
 
-    <demo-block title="平铺展示">
+    <demo-block :title="t('TiledDisplay')">
       <press-calendar
-        title="日历"
         :poppable="false"
         :show-confirm="false"
         class="calendar"
@@ -130,6 +129,19 @@
 import PressCalendar from 'src/packages/press-calendar/press-calendar.vue';
 import PressCell from 'src/packages/press-cell/press-cell.vue';
 import { initialMinDate, initialMaxDate } from 'src/packages/press-calendar/utils';
+import { t } from 'src/packages/locale';
+
+const DEFAULT_DATA = {
+  color: '',
+  minDate: initialMinDate,
+  maxDate: initialMaxDate,
+  confirmText: t('calendar.confirm'),
+  confirmDisabledText: t('calendar.confirm'),
+  useFormatter: false,
+  position: 'bottom',
+  maxRange: null,
+  firstDayOfWeek: 0,
+};
 
 function tFormatter(day) {
   const month = day.date.getMonth() + 1;
@@ -154,6 +166,14 @@ function tFormatter(day) {
   return day;
 }
 export default {
+  i18n: {
+    'zh-CN': {
+      TiledDisplay: '平铺展示',
+    },
+    'en-US': {
+      TiledDisplay: 'Tiled display',
+    },
+  },
   components: {
     PressCalendar,
     PressCell,
@@ -168,16 +188,7 @@ export default {
       rangeValue: '',
       showConfirm: true,
 
-      minDate: initialMinDate,
-      maxDate: initialMaxDate,
-      color: '',
-      confirmText: '确定',
-      confirmDisabledText: '确定',
-      useFormatter: false,
-      position: 'bottom',
-      maxRange: null,
-      firstDayOfWeek: 0,
-
+      ...DEFAULT_DATA,
     };
   },
   methods: {
@@ -185,15 +196,9 @@ export default {
       this.type = type;
       this.showConfirm = showConfirm;
 
-      this.color = options.color || '';
-      this.minDate = options.minDate || initialMinDate;
-      this.maxDate = options.maxDate || initialMaxDate;
-      this.confirmText = options.confirmText || '确定';
-      this.confirmDisabledText = options.confirmDisabledText || '确定';
-      this.useFormatter = !!options.formatter;
-      this.position = options.position || 'bottom';
-      this.maxRange = options.maxRange || null;
-      this.firstDayOfWeek = options.firstDayOfWeek || 0;
+      Object.keys(DEFAULT_DATA).forEach((key) => {
+        this[key] = options[key] || DEFAULT_DATA[key];
+      });
 
       this.show = true;
       this.ifShow = true;

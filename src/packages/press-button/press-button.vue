@@ -186,7 +186,7 @@ export default {
       this.$emit('click', event);
       const { canIUseGetUserProfile, openType, getUserProfileDesc, lang } = this;
       if (openType === 'getUserInfo' && canIUseGetUserProfile) {
-        wx.getUserProfile({
+        uni.getUserProfile({
           desc: getUserProfileDesc || '  ',
           lang: lang || 'en',
           complete: (userProfile) => {

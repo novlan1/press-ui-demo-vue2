@@ -82,7 +82,6 @@ import PressToast from '../press-toast/press-toast.vue';
 import Calendar from './calendar.vue';
 
 import {
-  ROW_HEIGHT,
   getPrevDay,
   getNextDay,
   getToday,
@@ -92,12 +91,12 @@ import {
   compareMonth,
   getMonths,
   getDayByOffset,
-  initialMinDate,
-  initialMaxDate,
 } from './utils';
 import Toast from '../press-toast/handler';
 import { requestAnimationFrame } from '../common/utils';
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { SHARE_PROPS } from './share-props';
+import { t } from '../locale';
 
 
 const getTime = date => (date instanceof Date ? date.getTime() : date);
@@ -113,23 +112,10 @@ export default {
     PressToast,
   },
   props: {
-    title: {
-      type: String,
-      default: '日期选择',
-    },
-    color: { type: String, default: '' },
+    ...SHARE_PROPS,
     show: {
       type: Boolean,
       default: false,
-    },
-    formatter: { type: Function, default: null },
-    confirmText: {
-      type: String,
-      default: '确定',
-    },
-    confirmDisabledText: {
-      type: String,
-      default: '确定',
     },
     rangePrompt: { type: String, default: '' },
     showRangePrompt: {
@@ -140,53 +126,11 @@ export default {
       type: [String, Number],
       default: '',
     },
-    allowSameDay: Boolean,
-    type: {
-      type: String,
-      default: 'single',
-      observer: 'reset',
-    },
-    minDate: {
-      type: Number,
-      default: initialMinDate,
-    },
-    maxDate: {
-      type: Number,
-      default: initialMaxDate,
-    },
     position: {
       type: String,
       default: 'bottom',
     },
-    rowHeight: {
-      type: null,
-      default: ROW_HEIGHT,
-    },
     round: {
-      type: Boolean,
-      default: true,
-    },
-    poppable: {
-      type: Boolean,
-      default: true,
-    },
-    showMark: {
-      type: Boolean,
-      default: true,
-    },
-    showTitle: {
-      type: Boolean,
-      default: true,
-    },
-    showConfirm: {
-      type: Boolean,
-      default: true,
-    },
-    showSubtitle: {
-      type: Boolean,
-      default: true,
-    },
-    safeAreaInsetBottom: {
       type: Boolean,
       default: true,
     },
@@ -198,10 +142,7 @@ export default {
       type: [String, Number],
       default: null,
     },
-    firstDayOfWeek: {
-      type: Number,
-      default: 0,
-    },
+
     readonly: Boolean,
     ...defaultProps,
   },
@@ -394,7 +335,7 @@ export default {
         if (showRangePrompt) {
           Toast({
             context: this,
-            message: rangePrompt || `选择天数不能超过 ${maxRange} 天`,
+            message: rangePrompt || t('calendar.rangePrompt', maxRange),
           });
         }
         this.$emit('over-range');

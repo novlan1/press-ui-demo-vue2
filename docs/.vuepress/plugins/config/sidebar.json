@@ -178,6 +178,11 @@
       "collapsable": false,
       "children": [
         {
+          "title": "卡片",
+          "subTitle": "Card",
+          "path": "/components/press/press-card.md"
+        },
+        {
           "title": "环形进度条",
           "subTitle": "Circle",
           "path": "/components/press/press-circle.md"

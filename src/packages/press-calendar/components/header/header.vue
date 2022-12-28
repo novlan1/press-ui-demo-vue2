@@ -37,21 +37,16 @@
 </template>
 
 <script>
-
+import { SHARE_PROPS } from '../../share-props';
+import { t } from '../../../locale';
 
 export default {
   props: {
-    title: {
-      type: String,
-      default: '日期选择',
-    },
+    title: SHARE_PROPS.title,
     subtitle: { type: String, default: '' },
-    showTitle: Boolean,
-    showSubtitle: Boolean,
-    firstDayOfWeek: {
-      type: Number,
-      default: 0,
-    },
+    showTitle: SHARE_PROPS.showTitle,
+    showSubtitle: SHARE_PROPS.showSubtitle,
+    firstDayOfWeek: SHARE_PROPS.firstDayOfWeek,
   },
   data() {
     return {
@@ -70,7 +65,7 @@ export default {
   },
   methods: {
     initWeekDay() {
-      const defaultWeeks = ['日', '一', '二', '三', '四', '五', '六'];
+      const defaultWeeks = t('calendar.weekdays');
       const firstDayOfWeek = this.firstDayOfWeek || 0;
       this.weekdays = [
         ...defaultWeeks.slice(firstDayOfWeek, 7),

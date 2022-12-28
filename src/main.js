@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import { reportAegis } from 'src/utils/report/report';
+import { demoI18n } from 'src/utils/i18n/i18n';
+
 
 import DemoBlock from 'src/pages/demo-block/demo-block.vue';
 import Toast from 'src/packages/press-toast/index';
@@ -103,3 +105,4 @@ Vue.mixin({
 
 
 reportAegis();
+demoI18n();

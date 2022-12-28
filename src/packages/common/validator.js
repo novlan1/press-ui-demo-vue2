@@ -14,6 +14,11 @@ export function isObj(x) {
   const type = typeof x;
   return x !== null && (type === 'object' || type === 'function');
 }
+
+export function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
+
 export function isNumber(value) {
   return /^\d+(\.\d+)?$/.test(value);
 }

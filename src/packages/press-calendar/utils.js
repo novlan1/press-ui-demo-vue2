@@ -1,10 +1,12 @@
+import { t } from 'src/packages/locale';
+
 export const ROW_HEIGHT = 64;
 
 export function formatMonthTitle(date) {
   if (!(date instanceof Date)) {
     date = new Date(date);
   }
-  return `${date.getFullYear()}年${date.getMonth() + 1}月`;
+  return t('calendar.monthTitle', date.getFullYear(), date.getMonth() + 1);
 }
 
 export function compareMonth(date1, date2) {

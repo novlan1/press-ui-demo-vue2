@@ -41,6 +41,11 @@ const WEB_DEMO_BASE_LINK_PROD = 'https://novlan1.github.io/press-ui-demo/#/';
 const WEB_DEMO_BASE_LINK_DEV = 'http://localhost:9999/#/';
 
 const WEB_DEMO_BASE_LINK = process.env.NODE_ENV === 'production' ? WEB_DEMO_BASE_LINK_PROD : WEB_DEMO_BASE_LINK_DEV;
+const DEFAULT_LANG = 'zn-CN';
+
+const LANG_MAP = {
+  en: 'en-US',
+};
 
 export default {
   components: { PageEdit, PageNav },
@@ -48,14 +53,21 @@ export default {
   data() {
     return {
       url: '',
+      lang: DEFAULT_LANG,
     };
   },
   computed: {
     path() {
-      return `${WEB_DEMO_BASE_LINK + this.url}?v=${new Date().getTime()}`;
+      return `${WEB_DEMO_BASE_LINK + this.url}?v=${new Date().getTime()}&lang=${this.lang}`;
     },
   },
   watch: {
+    $route: {
+      handler(val) {
+        console.log('$route.val', val);
+        this.getLang();
+      },
+    },
     $page: {
       handler(newName) {
         const { frontmatter } = newName;
@@ -65,8 +77,24 @@ export default {
     },
   },
   created() {},
+  mounted() {
+    this.getLang();
+  },
   methods: {
     onload() {
+    },
+    getLang() {
+      const { fullPath } = this.$route;
+      const keys = Object.keys(LANG_MAP);
+
+      for (const key of keys) {
+        if (fullPath.startsWith(`/${key}/`)) {
+          this.lang = LANG_MAP[key];
+          return;
+        }
+      }
+
+      this.lang = DEFAULT_LANG;
     },
   },
 };

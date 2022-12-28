@@ -301,6 +301,14 @@
   </div>
 </template>
 <script>
+import Format from 'src/packages/locale/format';
+
+const format = Format();
+
+console.log('format',  format('Hello {name}, you have {count} unread messages', {
+  name: 'Robert',
+  count: 12,
+}));
 
 export default {
   data() {

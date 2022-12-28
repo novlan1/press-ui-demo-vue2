@@ -718,6 +718,17 @@
       ]
     },
     {
+      "root": "pages/press/card",
+      "pages": [
+        {
+          "path": "card",
+          "style": {
+            "navigationBarTitleText": "Card 卡片"
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/circle",
       "pages": [
         {

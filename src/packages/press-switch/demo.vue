@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="demo-wrap">
     <demo-block title="基础用法">
       <PressSwitch
         :checked="checkedMap.basic"
@@ -56,6 +56,22 @@
       />
     </demo-block>
 
+    <demo-block title="搭配单元格使用">
+      <press-cell-group>
+        <press-cell
+          title="标题"
+          clickable
+          @click="onChange(!checkedMap.cell, 'cell')"
+        >
+          <press-switch
+            slot="right-icon"
+            size="22px"
+            :checked="checkedMap.cell"
+          />
+        </press-cell>
+      </press-cell-group>
+    </demo-block>
+
     <!-- #ifndef H5 -->
     <PressDialog
       id="tip-match-comm-tips-dialog"
@@ -81,6 +97,7 @@ export default {
         color: true,
         size: true,
         async: true,
+        cell: true,
       },
     };
   },
@@ -116,5 +133,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.demo-wrap {
+  padding-bottom: 20px;
+}
 </style>
 

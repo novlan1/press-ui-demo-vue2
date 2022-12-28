@@ -72,7 +72,8 @@
 import computed from './computed';
 import utils from '../../../wxs-js/utils';
 import { getMonthEndDay, compareDay, getPrevDay, getNextDay } from '../../utils';
-
+import { SHARE_PROPS } from '../../share-props';
+import { t } from '../../../locale';
 
 export default {
   props: {
@@ -84,34 +85,19 @@ export default {
       type: String,
       default: '',
     },
-    color: { type: String, default: '' },
-    minDate: {
-      type: [String, Number],
-      default: '',
-    },
-    maxDate: {
-      type: [String, Number],
-      default: '',
-    },
-    showMark: Boolean,
-    rowHeight: {
-      type: [String, Number],
-      default: '',
-    },
-    formatter: {
-      type: Function,
-      default: null,
-    },
+    color: SHARE_PROPS.color,
+    minDate: SHARE_PROPS.minDate,
+    maxDate: SHARE_PROPS.maxDate,
+    showMark: SHARE_PROPS.showMark,
+    rowHeight: SHARE_PROPS.rowHeight,
+    formatter: SHARE_PROPS.formatter,
     currentDate: {
       type: [String, Number, Array],
       default: '',
     },
-    firstDayOfWeek: {
-      type: Number,
-      default: 0,
-    },
-    allowSameDay: Boolean,
-    showSubtitle: Boolean,
+    firstDayOfWeek: SHARE_PROPS.firstDayOfWeek,
+    allowSameDay: SHARE_PROPS.allowSameDay,
+    showSubtitle: SHARE_PROPS.showSubtitle,
     showMonthTitle: Boolean,
   },
   data() {
@@ -261,13 +247,13 @@ export default {
     getBottomInfo(type) {
       if (this.type === 'range') {
         if (type === 'start') {
-          return '开始';
+          return t('calendar.start');
         }
         if (type === 'end') {
-          return '结束';
+          return t('calendar.end');
         }
         if (type === 'start-end') {
-          return '开始/结束';
+          return t('calendar.startEnd');
         }
       }
     },

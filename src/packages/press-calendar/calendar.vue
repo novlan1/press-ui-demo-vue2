@@ -76,11 +76,9 @@ import Month from './components/month/month.vue';
 import PressButton from '../press-button/press-button.vue';
 import computed from './computed';
 import utils from '../wxs-js/utils';
+import { SHARE_PROPS } from './share-props';
 
 import {
-  ROW_HEIGHT,
-  initialMinDate,
-  initialMaxDate,
   formatMonthTitle,
 } from './utils';
 
@@ -92,62 +90,7 @@ export default {
     PressButton,
   },
   props: {
-    title: {
-      type: String,
-      default: '日期选择',
-    },
-    color: { type: String, default: '' },
-    formatter: { type: Function, default: null },
-    confirmText: {
-      type: String,
-      default: '确定',
-    },
-    confirmDisabledText: {
-      type: String,
-      default: '确定',
-    },
-    allowSameDay: Boolean,
-    type: {
-      type: String,
-      default: 'single',
-      observer: 'reset',
-    },
-    minDate: {
-      type: Number,
-      default: initialMinDate,
-    },
-    maxDate: {
-      type: Number,
-      default: initialMaxDate,
-    },
-    rowHeight: {
-      type: null,
-      default: ROW_HEIGHT,
-    },
-    showMark: {
-      type: Boolean,
-      default: true,
-    },
-    showTitle: {
-      type: Boolean,
-      default: true,
-    },
-    showConfirm: {
-      type: Boolean,
-      default: true,
-    },
-    showSubtitle: {
-      type: Boolean,
-      default: true,
-    },
-    safeAreaInsetBottom: {
-      type: Boolean,
-      default: true,
-    },
-    firstDayOfWeek: {
-      type: Number,
-      default: 0,
-    },
+    ...SHARE_PROPS,
     scrollIntoViewData: {
       type: String,
       default: '',
@@ -155,10 +98,6 @@ export default {
     currentDate: {
       type: [String, Number, Array],
       default: null,
-    },
-    poppable: {
-      type: Boolean,
-      default: true,
     },
   },
   data() {

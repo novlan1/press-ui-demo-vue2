@@ -15,6 +15,20 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4'],
   },
   base: '/press-ui/',
+  locales: {
+    // 键名是该语言所属的子路径
+    // 作为特例，默认语言可以使用 '/' 作为其路径。
+    '/': {
+      lang: 'zh-CN',
+      // title: 'VuePress',
+      // description: 'Vue 驱动的静态网站生成器',
+    },
+    '/en/': {
+      lang: 'en-US',
+      // title: 'VuePress',
+      // description: 'Vue-powered Static Site Generator',
+    },
+  },
   themeConfig: {
     logo: {
       img: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png',
@@ -45,6 +59,23 @@ module.exports = {
     smoothScroll: true, // 开启滚动效果
     sidebarDepth: 0, // 嵌套标题深度
     lastUpdated: '最后更新时间', // 最后更新时间
+    locales: {
+      '/': {
+        selectText: '中文',
+        label: '中文',
+        editLinkText: 'Edit this page on GitHub',
+        serviceWorker: {
+          updatePopup: {
+            message: 'New content is available.',
+            buttonText: 'Refresh',
+          },
+        },
+      },
+      '/en/': {
+        selectText: 'English',
+        label: 'English',
+      },
+    },
     sidebar: [
       '/',
       '/quickstart',

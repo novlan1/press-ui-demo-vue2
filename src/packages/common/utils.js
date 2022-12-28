@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { isDef, isNumber, isPlainObject, isPromise } from './validator';
+import { isDef, isNumber, isPlainObject, isPromise, isObject } from './validator';
 import { canIUseGroupSetData /* canIUseNextTick*/ } from './version';
 export function range(num, min, max) {
   return Math.min(Math.max(num, min), max);
@@ -120,3 +120,35 @@ export function getCurrentPage() {
   return pages[pages.length - 1];
 }
 
+
+const { hasOwnProperty } = Object.prototype;
+
+export function noop() {}
+
+export function hasOwn(obj, key) {
+  return hasOwnProperty.call(obj, key);
+}
+
+
+function assignKey(to, from, key) {
+  const val = from[key];
+
+  if (!isDef(val)) {
+    return;
+  }
+
+  if (!hasOwnProperty.call(to, key) || !isObject(val)) {
+    to[key] = val;
+  } else {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    to[key] = deepAssign(Object(to[key]), from[key]);
+  }
+}
+
+export function deepAssign(to, from) {
+  Object.keys(from).forEach((key) => {
+    assignKey(to, from, key);
+  });
+
+  return to;
+}

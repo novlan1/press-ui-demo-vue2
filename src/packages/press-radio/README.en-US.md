@@ -2,7 +2,7 @@
 url : pages/press/radio/radio
 ---
 
-## Radio radio button
+## Radio 
 
 Make a single choice among a set of alternatives.
 

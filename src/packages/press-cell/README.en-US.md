@@ -2,7 +2,7 @@
 url : pages/press/cell/cell
 ---
 
-## Cell cell
+## Cell 
 
 
 A cell is a single display item in a list.

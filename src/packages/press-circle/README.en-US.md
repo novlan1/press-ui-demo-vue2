@@ -2,7 +2,7 @@
 url : pages/press/circle/circle
 ---
 
-## Circle progress bar
+## Circle
 
 A circular progress bar component that supports progress gradient animation.
 

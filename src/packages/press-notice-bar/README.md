@@ -4,6 +4,7 @@ url : pages/press/notice-bar/notice-bar
 
 ## NoticeBar 通知栏
 
+用于循环播放展示一组消息通知。
 
 ## 代码演示
 

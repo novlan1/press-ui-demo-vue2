@@ -2,7 +2,7 @@
 url: pages/press/col/col
 ---
 
-## Col layout
+## Col 
 
 Basic layout components.
 

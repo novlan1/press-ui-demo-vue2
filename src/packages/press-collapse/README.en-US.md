@@ -2,7 +2,7 @@
 url : pages/press/collapse/collapse
 ---
 
-## Collapse folding panel
+## Collapse
 
 
 Place a group of content in multiple accordion panels, and click the title of a panel to expand or contract its content.

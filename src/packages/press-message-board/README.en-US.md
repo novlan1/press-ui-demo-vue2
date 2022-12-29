@@ -2,7 +2,7 @@
 url : pages/press/message-board/message-board
 ---
 
-## MessageBoard message board
+## MessageBoard 
 
 Message board function.
 

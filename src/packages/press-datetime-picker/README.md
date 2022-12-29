@@ -2,7 +2,7 @@
 url : pages/press/datetime-picker/datetime-picker
 ---
 
-## Datetime Picker 时间选择
+## DatetimePicker
 
 用于选择时间，支持日期、时分等时间维度，通常与 弹出层 组件配合使用。
 

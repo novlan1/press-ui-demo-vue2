@@ -2,7 +2,7 @@
 url : pages/press/message-detail/message-detail
 ---
 
-## MessageList 消息详情
+## MessageDetail 消息详情
 
 IM聊天详情。
 

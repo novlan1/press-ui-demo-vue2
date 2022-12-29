@@ -2,7 +2,7 @@
 url : pages/press/index-bar/index-bar
 ---
 
-## IndexBar index bar
+## IndexBar 
 
 Index classification display and quick positioning for lists.
 
@@ -71,8 +71,8 @@ export default {
 
 ### IndexBar Props
 
-| Parameter         | Description                                                                     | Type                   | Default   | Version |
-| ----------------- | ------------------------------------------------------------------------------- | ---------------------- | --------- | ------- |  |
+| Parameter | Description | Type | Default | Version |
+| --------- | ----------- | ---- | ------- | ------- ||
 | index-list        | index character list                                                            | _string[] \| number[]_ | `A-Z`     | -       |
 | z-index           | z-index level                                                                   | _number_               | `1`       | -       |
 | sticky            | Whether to enable the anchor point to automatically stick to the ceiling        | _boolean_              | `true`    | -       |

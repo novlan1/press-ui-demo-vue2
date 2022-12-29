@@ -2,7 +2,7 @@
 url : pages/press/datetime-picker/datetime-picker
 ---
 
-## Datetime Picker time selection
+## DatetimePicker 
 
 It is used to select time, supports time dimensions such as date and hour, and is usually used in conjunction with the popup layer component.
 

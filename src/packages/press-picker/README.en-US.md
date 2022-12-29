@@ -2,7 +2,7 @@
 url : pages/press/picker/picker
 ---
 
-## Picker selector
+## Picker 
 
 
 Selector component for forms

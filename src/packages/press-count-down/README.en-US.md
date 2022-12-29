@@ -2,7 +2,7 @@
 url : pages/press/count-down/count-down
 ---
 
-## CountDown countdown
+## CountDown 
 
 It is used to display the countdown value in real time and supports millisecond precision.
 
@@ -132,20 +132,20 @@ export default {
 
 ### Props
 
-| Parameter | Description | Type | Default |
-| --------- | ----------- |--------- | --------- | ---------- |
-| time | countdown duration, in milliseconds | _number_ | - |
-| format | time format, DD-day, HH-hour, mm-minute, ss-second, SSS-millisecond | _string_ | `HH:mm:ss` |
-| auto-start | Whether to automatically start the countdown | _boolean_ | `true` |
-| millisecond | Whether to enable millisecond rendering | _boolean_ | `false` |
-| use-slot | Whether to use custom style slots | _boolean_ | `false` |
+| Parameter   | Description                                                         | Type      | Default    |
+| ----------- | ------------------------------------------------------------------- | --------- | ---------- |  |
+| time        | countdown duration, in milliseconds                                 | _number_  | -          |
+| format      | time format, DD-day, HH-hour, mm-minute, ss-second, SSS-millisecond | _string_  | `HH:mm:ss` |
+| auto-start  | Whether to automatically start the countdown                        | _boolean_ | `true`     |
+| millisecond | Whether to enable millisecond rendering                             | _boolean_ | `false`    |
+| use-slot    | Whether to use custom style slots                                   | _boolean_ | `false`    |
 
 ### Events
 
-| Event Name | Description | Callback Parameters |
-| ---------- | ----------- |--- | -------- |
-| @finish | Triggered when the countdown ends | - |
-| @change | Triggered when the time changes, only triggered when `use-slot` is enabled | timeData |
+| Event Name | Description                                                                | Callback Parameters |
+| ---------- | -------------------------------------------------------------------------- | ------------------- |  |
+| @finish    | Triggered when the countdown ends                                          | -                   |
+| @change    | Triggered when the time changes, only triggered when `use-slot` is enabled | timeData            |
 
 ### timeData format
 
@@ -161,8 +161,8 @@ export default {
 
 You can get the CountDown instance and call the instance method through selectComponent.
 
-| method name | parameters | return value | description |
-| ----------- | ---------- | ------------ | ----------- |---------------------------- |
-| start | - | - | Start countdown |
-| pause | - | - | pause countdown |
-| reset | - | - | Reset the countdown, if `auto-start` is `true`, the countdown will start automatically after reset |
+| method name | parameters | return value | description                                                                                        |
+| ----------- | ---------- | ------------ | -------------------------------------------------------------------------------------------------- |  |
+| start       | -          | -            | Start countdown                                                                                    |
+| pause       | -          | -            | pause countdown                                                                                    |
+| reset       | -          | -            | Reset the countdown, if `auto-start` is `true`, the countdown will start automatically after reset |

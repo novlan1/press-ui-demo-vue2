@@ -2,7 +2,7 @@
 url : pages/press/checkbox/checkbox
 ---
 
-## Checkbox check box
+## Checkbox 
 
 
 Make multiple selections within a set of alternatives.
@@ -110,8 +110,8 @@ Checkbox text clicks can be disabled by setting the `label-disabled` property.
 
 ### Checkbox Props
 
-| Parameter      | Description                                | Type               | Default   |
-| -------------- | ------------------------------------------ | ------------------ | --------- |  |
+| Parameter | Description | Type | Default |
+| --------- | ----------- | ---- | ------- ||
 | name           | Identifier Checkbox name                   | _string_           | -         |
 | shape          | shape, optional value is `round` `square`  | _string_           | `round`   |
 | value          | Whether it is selected or not              | _boolean_          | `false`   |

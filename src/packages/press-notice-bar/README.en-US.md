@@ -2,9 +2,9 @@
 url : pages/press/notice-bar/notice-bar
 ---
 
-## NoticeBar notification bar
+## NoticeBar 
 
-
+It is used to display a group of message notifications in a loop.
 ## Code Demo
 
 ### Basic usage

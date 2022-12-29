@@ -1,146 +1,146 @@
 <template>
   <div class="demo-wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
       <press-cell-group>
         <press-cell
-          title="单元格"
-          value="内容"
+          :title="t('cell')"
+          :value="t('content')"
         />
         <press-cell
-          title="单元格"
-          value="内容"
-          label="描述信息"
+          :title="t('cell')"
+          :value="t('content')"
+          :label="t('desc')"
           :border="false"
         />
       </press-cell-group>
     </demo-block>
 
     <demo-block
-      title="卡片风格"
+      :title="t('insetGrouped')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-cell-group inset>
         <press-cell
-          title="单元格"
-          value="内容"
+          :title="t('cell')"
+          :value="t('content')"
         />
         <press-cell
-          title="单元格"
-          value="内容"
-          label="描述信息"
+          :title="t('cell')"
+          :value="t('content')"
+          :label="t('desc')"
         />
       </press-cell-group>
     </demo-block>
 
     <demo-block
-      title="单元格大小"
+      :title="t('largeSize')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-cell
-        title="单元格"
-        value="内容"
+        :title="t('cell')"
+        :value="t('content')"
         size="large"
       />
       <press-cell
-        title="单元格"
-        value="内容"
+        :title="t('cell')"
+        :value="t('content')"
         size="large"
-        label="描述信息"
+        :label="t('desc')"
       />
     </demo-block>
 
     <demo-block
-      title="展示图标"
+      :title="t('showIcon')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-cell
-        title="单元格"
+        :title="t('cell')"
         icon="location-o"
       />
     </demo-block>
 
     <demo-block
-      title="展示图标"
+      :title="t('showArrow')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-cell
-        title="单元格"
+        :title="t('cell')"
         is-link
       />
       <press-cell
-        title="单元格"
+        :title="t('cell')"
+        :value="t('content')"
         is-link
-        value="内容"
       />
       <press-cell
-        title="单元格"
+        :title="t('cell')"
+        :value="t('content')"
         is-link
-        value="内容"
         arrow-direction="down"
       />
     </demo-block>
 
     <demo-block
-      title="页面跳转"
+      :title="t('router')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-cell
         is-link
-        title="单元格"
+        :title="t('cell')"
         link-type="navigateTo"
         url="/pages/index/index"
       />
     </demo-block>
 
     <demo-block
-      title="分组标题"
+      :title="t('groupTitle')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
-      <press-cell-group title="分组1">
+      <press-cell-group :title="`${t('group')}1`">
         <press-cell
-          title="单元格"
-          value="内容"
+          :title="t('cell')"
+          :value="t('content')"
         />
       </press-cell-group>
-      <press-cell-group title="分组2">
+      <press-cell-group :title="`${t('group')}2`">
         <press-cell
-          title="单元格"
-          value="内容"
+          :title="t('cell')"
+          :value="t('content')"
         />
       </press-cell-group>
     </demo-block>
 
     <demo-block
-      title="使用插槽"
+      :title="t('useSlots')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-cell
-        value="内容"
+        :value="t('content')"
         is-link
         :use-title-slot="true"
       >
         <template slot="title">
           <span class="press-cell-text">
-            单元格
+            {{ t('cell') }}
           </span>
           <press-tag type="danger">
-            标签
+            {{ t('tag') }}
           </press-tag>
         </template>
       </press-cell>
       <press-cell
-        title="单元格"
+        :title="t('cell')"
         icon="shop-o"
       >
         <press-icon-plus
@@ -152,15 +152,15 @@
     </demo-block>
 
     <demo-block
-      title="垂直居中"
+      :title="t('verticalCenter')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-cell
         center
-        title="单元格"
-        value="内容"
-        label="描述信息"
+        :title="t('cell')"
+        :value="t('content')"
+        :label="t('desc')"
       />
     </demo-block>
 
@@ -171,40 +171,40 @@
     >
       <div class="demo--e-sport-wrap">
         <press-cell
-          title="比赛模式"
-          value="淘汰赛"
+          :title="t('matchMode')"
+          :value="t('knockout')"
           is-link
           :border="false"
         />
         <press-cell
-          title="决胜方式"
-          value="默认一局胜负"
+          :title="t('wayToWin')"
+          :value="t('defaultBo1')"
           is-link
           :border="false"
         />
         <press-cell
-          title="允许比赛中修改队名队徽"
+          :title="t('allowModifyAvatar')"
           :border="false"
         >
           <press-switch
             slot="right-icon"
             custom-class="press-switch--e-sport"
-            :checked="switchChecked"
-            @change="onChangeSwitch"
+            :checked="switchChecked[1]"
+            @change="val=>onChangeSwitch(val, 1)"
           />
         </press-cell>
 
         <press-cell
-          title="获取参赛者手机号码"
-          label="便于发放奖励和联系参赛者，可在队员信息中查看"
+          :title="t('getPhoneNumber')"
+          :label="t('getPhoneNumberDesc')"
           center
           :border="false"
         >
           <press-switch
             slot="right-icon"
             custom-class="press-switch--e-sport"
-            :checked="switchChecked"
-            @change="onChangeSwitch"
+            :checked="switchChecked[2]"
+            @change="val=>onChangeSwitch(val, 2)"
           />
         </press-cell>
       </div>
@@ -215,6 +215,52 @@
 import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      cell: '单元格',
+      valueOnly: '只设置 value',
+      showIcon: '展示图标',
+      showArrow: '展示箭头',
+      largeSize: '单元格大小',
+      group: '分组',
+      groupTitle: '分组标题',
+      router: '页面跳转',
+      urlRoute: 'URL 跳转',
+      vueRoute: '路由跳转',
+      useSlots: '使用插槽',
+      insetGrouped: '卡片风格',
+      verticalCenter: '垂直居中',
+
+      matchMode: '比赛模式',
+      knockout: '淘汰赛',
+      defaultBo1: '默认一局胜负',
+      allowModifyAvatar: '允许比赛中修改队名队徽',
+      getPhoneNumber: '获取参赛者手机号码',
+      getPhoneNumberDesc: '便于发放奖励和联系参赛者，可在队员信息中查看',
+    },
+    'en-US': {
+      cell: 'Cell title',
+      valueOnly: 'Value only',
+      showIcon: 'Left Icon',
+      showArrow: 'Link',
+      largeSize: 'Size',
+      group: 'Group',
+      groupTitle: 'Group Title',
+      router: 'Router',
+      urlRoute: 'URL',
+      vueRoute: 'Vue Router',
+      useSlots: 'Use Slots',
+      insetGrouped: 'Inset Grouped',
+      verticalCenter: 'Vertical center',
+
+      matchMode: 'Match Mode',
+      knockout: 'Knockout',
+      defaultBo1: 'Default Bo1',
+      allowModifyAvatar: 'Allow modification of team info',
+      getPhoneNumber: 'Obtain player\'s phone number',
+      getPhoneNumberDesc: 'Distribute rewards and contact participants',
+    },
+  },
   components: {
     PressSwitch,
   },
@@ -222,12 +268,15 @@ export default {
     return {
       sectionStyle: 'margin: 0;background: #f7f8fa;',
       headerStyle: 'background: #f7f8fa;',
-      switchChecked: false,
+      switchChecked: {
+        1: false,
+        2: false,
+      },
     };
   },
   methods: {
-    onChangeSwitch(value) {
-      this.switchChecked = value;
+    onChangeSwitch(value, number) {
+      this.switchChecked[number] = value;
     },
   },
 };

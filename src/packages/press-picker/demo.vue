@@ -1,38 +1,38 @@
 <template>
   <div>
     <demo-block
-      title="基本用法"
+      :title="t('basicUsage')"
     >
       <PressButton
         type="e-sport-primary"
         :custom-style="`${customStyle};padding:0;`"
         @click="onShowPicker('normal')"
       >
-        查看
+        {{ t('check') }}
       </PressButton>
     </demo-block>
 
     <demo-block
-      title="顶部提示"
+      :title="t('topTip')"
     >
       <PressButton
         type="e-sport-primary"
         :custom-style="`${customStyle};padding:0;`"
         @click="onShowPicker('tip')"
       >
-        查看
+        {{ t('check') }}
       </PressButton>
     </demo-block>
 
     <demo-block
-      title="超长列表"
+      :title="t('longList')"
     >
       <PressButton
         type="e-sport-primary"
         :custom-style="`${customStyle};padding:0;`"
         @click="onShowPicker('long')"
       >
-        查看
+        {{ t('check') }}
       </PressButton>
     </demo-block>
 
@@ -69,43 +69,62 @@
   </div>
 </template>
 <script>
-const pickerBoList = [
-  { label: '一局胜负', value: 1 },
-  { label: '三局两胜', value: 3 },
-  { label: '五局三胜', value: 5 },
-  { label: '七局四胜', value: 7 },
-];
-const boStrList = [
-  '',
-  '一局胜负',
-  '',
-  '三局两胜',
-  '',
-  '五局三胜',
-  '',
-  '七局四胜',
-];
 
-const bpList = [
-  { label: '不禁用英雄', value: 1 },
-  { label: '各禁2英雄', value: 3 },
-  { label: '各禁3英雄', value: 4 },
-  { label: '各禁4英雄', value: 0 },
-];
-
-const longList = Array.from({ length: 300 }).map((item, index) => ({
-  label: `添加${index + 1}队`,
-  value: index + 1,
-}));
 
 export default {
+  i18n: {
+    'zh-CN': {
+      topTip: '顶部提示',
+      longList: '超长列表',
+      banSet: 'Ban位设置',
+      tipContent: '创建比赛后，可按比赛轮次精确设置。',
+      addVirtualTeam: '添加虚拟队伍',
+      addTeam: num => `添加 ${num} 队`,
+    },
+    'en-US': {
+      topTip: 'Top Tips',
+      longList: 'Super Long List',
+      banSet: 'Ban Set',
+      tipContent: 'Can be set precisely according to the round of the game',
+      addVirtualTeam: 'Add Virtual Team',
+      addTeam: num => `Add ${num} Teams`,
+    },
+  },
   data() {
+    const pickerBoList = [
+      { label: this.t('bo1'), value: 1 },
+      { label: this.t('bo3'), value: 3 },
+      { label: this.t('bo5'), value: 5 },
+      { label: this.t('bo7'), value: 7 },
+    ];
+    const boStrList = [
+      '',
+      this.t('bo1'),
+      '',
+      this.t('bo3'),
+      '',
+      this.t('bo5'),
+      '',
+      this.t('bo7'),
+    ];
+    const bpList = [
+      { label: this.t('ban0'), value: 1 },
+      { label: this.t('ban2'), value: 3 },
+      { label: this.t('ban3'), value: 4 },
+      { label: this.t('ban4'), value: 0 },
+    ];
+    const longList = Array.from({ length: 800 }).map((item, index) => ({
+      label: this.t('addTeam', index + 1),
+      value: index + 1,
+    }));
+
+
     return {
       customStyle: '',
       pickerOption: {
         normal: {
           show: false,
-          title: '决胜方式',
+          title: this.t('wayToWin'),
           tip: '',
           showBackArrow: false,
           selectList: pickerBoList,
@@ -120,8 +139,8 @@ export default {
         },
         tip: {
           show: false,
-          title: 'Ban位设置',
-          tip: '创建比赛后，可按比赛轮次精确设置。',
+          title: this.t('banSet'),
+          tip: this.t('tipContent'),
           showBackArrow: false,
           selectList: bpList,
           selectItem: { label: bpList[0].label, value: 1 },
@@ -135,7 +154,7 @@ export default {
         },
         long: {
           show: false,
-          title: '添加虚拟队伍',
+          title: this.t('addVirtualTeam'),
           tip: '',
           showBackArrow: false,
           selectList: longList,

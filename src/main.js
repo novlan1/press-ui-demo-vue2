@@ -85,7 +85,8 @@ Vue.component('PressPopupPlus', PressPopupPlus);
 Vue.config.productionTip = false;
 App.mpType = 'app';
 Vue.use(Toast);
-
+reportAegis();
+demoI18n();
 
 const app = new Vue({
   ...App,
@@ -104,5 +105,3 @@ Vue.mixin({
 });
 
 
-reportAegis();
-demoI18n();

@@ -1,11 +1,31 @@
 import Vue from 'vue';
 import localeEn from 'src/packages/locale/lang/en-US';
 import locale, { t } from 'src/packages/locale';
-import TITLE_I18N from './title-i18n.json';
+
+import localeEnDemo from './lang/en-US';
+import localeZhDemo from './lang/zh-CN';
 
 const DEFAULT_LANG = 'zh-CN';
 
+const LOCALE_MAP = {
+  'en-US': localeEn,
+};
+const LOCALE_DEMO_AMP = {
+  'en-US': localeEnDemo,
+  'zh-CN': localeZhDemo,
+};
+
 const LANG = getLocale() || DEFAULT_LANG;
+
+
+if (LOCALE_MAP[LANG]) {
+  locale.use(LOCALE_MAP[LANG]);
+}
+
+
+if (LOCALE_DEMO_AMP[LANG]) {
+  locale.add(LOCALE_DEMO_AMP[LANG]);
+}
 
 function getLocale() {
   // #ifdef H5
@@ -23,13 +43,6 @@ function getLocale() {
   // #endif
 }
 
-const LOCALE_MAP = {
-  'en-US': localeEn,
-};
-
-if (LOCALE_MAP[LANG]) {
-  locale.use(LOCALE_MAP[LANG]);
-}
 
 export function demoI18n() {
   Vue.mixin({
@@ -39,7 +52,7 @@ export function demoI18n() {
       const name = list[list.length - 1];
       if (!name) return;
 
-      const newTitle = TITLE_I18N[LANG]?.[name] || '';
+      const newTitle = this.t(`titleMap.${name}`);
       if (!newTitle) return;
 
       uni.setNavigationBarTitle({

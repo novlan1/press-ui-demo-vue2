@@ -26,9 +26,19 @@ yarn-error.log*
 package-lock.json 
 
 # 文档地址
-docs/components/press
+docs/components/press/
+docs/en/components/press/
+
+# 文档sidebar配置
+docs/.vuepress/sidebar/
 
 # demo地址
-src/pages/press
+src/pages/press/
+
+# demo首页配置
+src/pages/index/page-config.json
+
+# title i18n
+src/utils/i18n/title-i18n.json
 
 tests/coverage

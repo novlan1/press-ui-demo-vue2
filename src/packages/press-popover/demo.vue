@@ -9,7 +9,7 @@
         type="e-sport-primary"
         @click.stop="onShowPopover(item)"
       >
-        点击查看
+        {{ t('check') }}
       </press-button>
     </demo-block>
 
@@ -25,7 +25,7 @@
             :key="index"
             class="demo-nav-item"
           >
-            选项{{ item }}
+            {{ t('options', item) }}
           </div>
         </PressPopover>
       </div>
@@ -37,6 +37,14 @@ import PressPopover from 'src/packages/press-popover/press-popover.vue';
 
 
 export default {
+  i18n: {
+    'zh-CN': {
+      options: num => `选项${num}`,
+    },
+    'en-US': {
+      options: num => `Options ${num}`,
+    },
+  },
   components: {
     PressPopover,
   },

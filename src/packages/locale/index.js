@@ -34,14 +34,18 @@ export const t = function (path, ...options) {
 
     if (i === j - 1) {
       // 如果没有找到value，就从第一层找
-      if (!value) return lang[property] || '';
+      if (!value) {
+        return lang[property] || '';
+      }
       if (typeof value === 'function') {
         return value(...options);
       }
       return value;
       // return format(value, options);
     }
-    if (!value) return '';
+    if (!value) {
+      return lang[array[array.length - 1]] || '';
+    }
     current = value;
   }
   return '';
@@ -59,4 +63,4 @@ export const add = function (messages = {}) {
   deepAssign(lang, messages);
 };
 
-export default { use, t, i18n };
+export default { use, t, i18n, add };

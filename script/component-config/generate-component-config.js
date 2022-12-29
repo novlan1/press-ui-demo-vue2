@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const COMP_TYPE_MAP = require('./component-config.json');
-const DOC_SIDE_BAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
+const DOC_SIDE_BAR_CONFIG_PATH = './docs/.vuepress/sidebar/sidebar.json';
+const DOC_SIDE_BAR_EN_CONFIG_PATH = './docs/.vuepress/sidebar/sidebar-en.json';
 const DEMO_INDEX_CONFIG_PATH = 'src/pages/index/page-config.json';
 const DEMO_PAGES_JSON_PATH = './src/pages.json';
 const DEMO_I18N_PATH = 'src/utils/i18n/title-i18n.json';
@@ -24,14 +25,14 @@ function getCompDemoPages() {
   const list = Object.keys(COMP_TYPE_MAP)
     .map((key) => {
       const value = COMP_TYPE_MAP[key];
-      const { title, list } = value;
+      const { name, list } = value;
       const newList = list.map(item => ({
-        name: `${item.name} ${item.title}`,
+        // name: `${item.name} ${item.title}`,
         url: getCompUrl(item.name),
       }));
 
       return {
-        title,
+        name,
         list: newList,
       };
     })
@@ -42,19 +43,22 @@ function getCompDemoPages() {
 }
 
 
-function getSidebarConfig() {
+function getSidebarConfig(isEn) {
   const list = Object.keys(COMP_TYPE_MAP)
     .map((key) => {
       const value = COMP_TYPE_MAP[key];
-      const { title, list } = value;
-      const newList = list.map(item => ({
+      const { title, name, list } = value;
+      const newList = list.map(item => (isEn ? {
+        title: item.name,
+        path: `/en/components/press/press-${hyphenate(item.name)}.md`,
+      } : {
         title: item.title,
         subTitle: item.name,
         path: `/components/press/press-${hyphenate(item.name)}.md`,
       }));
 
       return {
-        title,
+        title: isEn ? name : title,
         collapsable: false,
         children: newList,
       };
@@ -101,7 +105,11 @@ function getTitleI18nConfig() {
   Object.keys(COMP_TYPE_MAP)
     .forEach((key) => {
       const value = COMP_TYPE_MAP[key];
-      const { list } = value;
+      const { list, name, title } = value;
+
+      res['zh-CN'][name] = title;
+      res['en-US'][name] = name;
+
       const newList = list.forEach((item) => {
         const hyphenatedName = hyphenate(item.name);
         res['zh-CN'][hyphenatedName] = `${item.name} ${item.title}`;
@@ -124,7 +132,11 @@ function writeDemoIndexConfig() {
 
 function writeDocSidebar() {
   const sidebarConfig = getSidebarConfig();
+  const sidebarEnConfig = getSidebarConfig(true);
   fs.writeFileSync(DOC_SIDE_BAR_CONFIG_PATH, JSON.stringify(sidebarConfig, null, 2), {
+    encoding: 'utf-8',
+  });
+  fs.writeFileSync(DOC_SIDE_BAR_EN_CONFIG_PATH, JSON.stringify(sidebarEnConfig, null, 2), {
     encoding: 'utf-8',
   });
 }

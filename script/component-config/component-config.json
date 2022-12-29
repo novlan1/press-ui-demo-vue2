@@ -1,5 +1,6 @@
 {
-  "base": {
+  "basic": {
+    "name": "Basic Components",
     "title": "基础组件",
     "list": [
       {
@@ -37,6 +38,7 @@
     ]
   },
   "form": {
+    "name": "Form Components",
     "title": "表单组件",
     "list": [
       {
@@ -89,7 +91,8 @@
       }
     ]
   },
-  "feedback": {
+  "action": {
+    "name": "Action Components",
     "title": "反馈组件",
     "list": [
       {
@@ -138,7 +141,8 @@
       }
     ]
   },
-  "show": {
+  "display": {
+    "name": "Display Components",
     "title": "展示组件",
     "list": [
       {
@@ -195,7 +199,8 @@
       }
     ]
   },
-  "nav": {
+  "navigation": {
+    "name": "Navigation Components",
     "title": "导航组件",
     "list": [
       {
@@ -228,7 +233,8 @@
       }
     ]
   },
-  "work": {
+  "business": {
+    "name": "Business Components",
     "title": "业务组件",
     "list": [
       {

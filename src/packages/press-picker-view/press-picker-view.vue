@@ -137,7 +137,6 @@ export default {
   },
   mounted() {
     getRect(this, '.press-picker-view--item__active').then((rect) => {
-      console.log('rect', rect);
       this.itemHeight = rect.height;
       this.updateCurrent();
     });

@@ -1,8 +1,10 @@
 const fs = require('fs');
-const SIDEBAR_CONFIG_PATH = './docs/.vuepress/plugins/config/sidebar.json';
+const SIDEBAR_CONFIG_PATH = './docs/.vuepress/sidebar/sidebar.json';
+const SIDEBAR_EN_CONFIG_PATH = './docs/.vuepress/sidebar/sidebar-en.json';
 
-function getSidebarConfig() {
-  const data = fs.readFileSync(SIDEBAR_CONFIG_PATH);
+function getSidebarConfig(isEn) {
+  const path = isEn ? SIDEBAR_EN_CONFIG_PATH : SIDEBAR_CONFIG_PATH;
+  const data = fs.readFileSync(path);
   return JSON.parse(data);
 }
 
@@ -74,10 +76,34 @@ module.exports = {
       '/en/': {
         selectText: 'English',
         label: 'English',
+        lastUpdated: 'Last Updated',
+        nav: [
+          {
+            text: 'Check Source',
+            link: 'https://git.woa.com/pmd-mobile/support/press-ui',
+          },
+        ],
+        sidebar: [
+          {
+            title: 'Introduction',
+            path: '/en/',
+          },
+          '/en/quickstart',
+          // '/changelog.md',
+          // '/questions.md',
+          // {
+          // 	path: 'https://cn.vuejs.org/v2/style-guide/',
+          // 	title: '风格指南',
+          // },
+          ...getSidebarConfig(true).sidebar,
+        ],
       },
     },
     sidebar: [
-      '/',
+      {
+        title: '介绍',
+        path: '/',
+      },
       '/quickstart',
       // '/changelog.md',
       // '/questions.md',

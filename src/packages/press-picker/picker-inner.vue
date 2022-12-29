@@ -3,7 +3,7 @@
     :is-showpopup-close="true"
     :show-back-arrow="showBackArrow"
     :popup-title="title"
-    popup-title-btn="确定"
+    :popup-title-btn="t('picker.confirm')"
     :class="tip ? 'press-picker__tip' : ''"
     @onCancel="onCancel"
     @onConfirm="onConfirm"
@@ -26,6 +26,7 @@
 <script>
 import PressPopup from '../press-popup/press-popup.vue';
 import PressPickerView from '../press-picker-view/press-picker-view.vue';
+import { t } from '../locale';
 
 export default {
   components: {
@@ -94,6 +95,7 @@ export default {
   mounted() {
   },
   methods: {
+    t,
     onCurrentIndexChanged(index) {
       this.currentIndex = index;
     },

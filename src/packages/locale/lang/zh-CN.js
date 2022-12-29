@@ -22,6 +22,9 @@ export default {
     monthTitle: (year, month) => `${year}年${month}月`,
     rangePrompt: maxRange => `选择天数不能超过 ${maxRange} 天`,
   },
+  picker: {
+    confirm: '确定',
+  },
   vanCascader: {
     select: '请选择',
   },

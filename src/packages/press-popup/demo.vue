@@ -1,51 +1,51 @@
 <template>
   <div>
     <div>
-      <demo-block title="关闭图标">
+      <demo-block :title="t('closeIcon')">
         <PressButton
           type="e-sport-primary"
           :custom-style="customStyle"
           @click="onShowPopup('normal')"
         >
-          查看
+          {{ t('check') }}
         </PressButton>
       </demo-block>
-      <demo-block title="取消图标">
+      <demo-block :title="t('cancelIcon')">
         <PressButton
           type="e-sport-primary"
           :custom-style="customStyle"
           @click="onShowPopup('cancel')"
         >
-          查看
+          {{ t('check') }}
         </PressButton>
       </demo-block>
-      <demo-block title="没有关闭/取消">
+      <demo-block :title="t('noCloseOrCancel')">
         <PressButton
           type="e-sport-primary"
           :custom-style="customStyle"
           @click="onShowPopup('noClose')"
         >
-          查看
+          {{ t('check') }}
         </PressButton>
       </demo-block>
 
-      <demo-block title="线框确认图标">
+      <demo-block :title="t('plainButtonConfirm')">
         <PressButton
           type="e-sport-primary"
           :custom-style="customStyle"
           @click="onShowPopup('borderBtn')"
         >
-          查看
+          {{ t('check') }}
         </PressButton>
       </demo-block>
 
-      <demo-block title="横版">
+      <demo-block :title="t('horizontal')">
         <PressButton
           type="e-sport-primary"
           :custom-style="customStyle"
           @click="onShowPopup('hor')"
         >
-          查看
+          {{ t('check') }}
         </PressButton>
       </demo-block>
     </div>
@@ -55,12 +55,12 @@
       :is-showpopup-close="true"
       :show-back-arrow="false"
       :popup-title="popupOptions.normal.title"
-      popup-title-btn="确定"
+      :popup-title-btn="t('confirm')"
       @onConfirm="popupOptions.normal.onConfirm"
       @onCancel="popupOptions.normal.onCancel"
     >
       <div class="content">
-        一些内容
+        {{ t('SomeContent') }}
       </div>
     </PressPopup>
 
@@ -69,12 +69,12 @@
       :is-showpopup-close="true"
       :show-back-arrow="true"
       :popup-title="popupOptions.cancel.title"
-      popup-title-btn="确定"
+      :popup-title-btn="t('confirm')"
       @onConfirm="popupOptions.cancel.onConfirm"
       @onCancel="popupOptions.cancel.onCancel"
     >
       <div class="content">
-        一些内容
+        {{ t('SomeContent') }}
       </div>
     </PressPopup>
 
@@ -83,12 +83,12 @@
       :is-showpopup-close="false"
       :show-back-arrow="false"
       :popup-title="popupOptions.noClose.title"
-      popup-title-btn="确定"
+      :popup-title-btn="t('confirm')"
       @onConfirm="popupOptions.noClose.onConfirm"
       @onCancel="popupOptions.noClose.onCancel"
     >
       <div class="content">
-        一些内容
+        {{ t('SomeContent') }}
       </div>
     </PressPopup>
 
@@ -102,7 +102,7 @@
       @onCancel="popupOptions.hor.onCancel"
     >
       <div class="content">
-        一些内容
+        {{ t('SomeContent') }}
       </div>
     </PressPopup>
 
@@ -112,12 +112,12 @@
       :show-back-arrow="false"
       :is-border-btn="true"
       :popup-title="popupOptions.borderBtn.title"
-      popup-title-btn="确定"
+      :popup-title-btn="t('confirm')"
       @onConfirm="popupOptions.borderBtn.onConfirm"
       @onCancel="popupOptions.borderBtn.onCancel"
     >
       <div class="content">
-        一些内容
+        {{ t('SomeContent') }}
       </div>
     </PressPopup>
   </div>
@@ -125,13 +125,35 @@
 <script>
 
 export default {
+  i18n: {
+    'zh-CN': {
+      wayToWin: '决胜方式',
+      SomeContent: '一些内容',
+      check: '查看',
+      closeIcon: '关闭图标',
+      cancelIcon: '取消图标',
+      noCloseOrCancel: '没有关闭/取消',
+      plainButtonConfirm: '线框确认图标',
+      horizontal: '横版',
+    },
+    'en-US': {
+      wayToWin: 'Bo Number',
+      SomeContent: 'Some Content',
+      check: 'Check',
+      closeIcon: 'Close Ion',
+      cancelIcon: 'Cancel Icon',
+      noCloseOrCancel: 'No Close Or Cancel',
+      plainButtonConfirm: 'Plain Confirm Button',
+      horizontal: 'Horizontal Version',
+    },
+  },
   data() {
     return {
       customStyle: '',
       popupOptions: {
         normal: {
           show: false,
-          title: '决胜方式',
+          title: this.t('wayToWin'),
           onCancel: () => {
             this.popupOptions.normal.show = false;
           },
@@ -141,7 +163,7 @@ export default {
         },
         cancel: {
           show: false,
-          title: '决胜方式',
+          title: this.t('wayToWin'),
           onCancel: () => {
             this.popupOptions.cancel.show = false;
           },
@@ -151,7 +173,7 @@ export default {
         },
         noClose: {
           show: false,
-          title: '决胜方式',
+          title: this.t('wayToWin'),
           onCancel: () => {
             this.popupOptions.noClose.show = false;
           },
@@ -161,7 +183,7 @@ export default {
         },
         hor: {
           show: false,
-          title: '决胜方式',
+          title: this.t('wayToWin'),
           onCancel: () => {
             this.popupOptions.hor.show = false;
           },
@@ -171,7 +193,7 @@ export default {
         },
         borderBtn: {
           show: false,
-          title: '决胜方式',
+          title: this.t('wayToWin'),
           onCancel: () => {
             this.popupOptions.borderBtn.show = false;
           },

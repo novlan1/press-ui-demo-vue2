@@ -1,7 +1,5 @@
 ---
 url : pages/press/tab/tab
-title: 标签页
-subTitle: Tab
 ---
 
 ## Tab 标签页

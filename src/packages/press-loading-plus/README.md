@@ -1,10 +1,8 @@
 ---
 url : pages/press/loading-plus/loading-plus
-title: 加载中
-subTitle: Loading Plus
 ---
 
-## Loading Plus 加载中
+## LoadingPlus 加载中
 
 
 加载中，分为circular和spinner两种

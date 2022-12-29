@@ -1,7 +1,5 @@
 ---
 url : pages/press/overlay/overlay
-title: 遮罩层
-subTitle: Overlay
 ---
 ## Overlay 遮罩层
 

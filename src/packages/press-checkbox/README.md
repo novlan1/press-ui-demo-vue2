@@ -1,7 +1,5 @@
 ---
 url : pages/press/checkbox/checkbox
-title: 复选框
-subTitle: Checkbox
 ---
 
 ## Checkbox 复选框

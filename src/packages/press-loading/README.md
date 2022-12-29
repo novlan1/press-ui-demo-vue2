@@ -1,7 +1,5 @@
 ---
 url : pages/press/loading/loading
-title: 加载中
-subTitle: Loading
 ---
 
 ## Loading 加载中

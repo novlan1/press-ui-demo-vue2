@@ -1,7 +1,5 @@
 ---
 url : pages/press/button/button
-title: 按钮
-subTitle: Button
 ---
 
 ## Button 按钮

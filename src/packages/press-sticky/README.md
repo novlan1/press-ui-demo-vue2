@@ -1,7 +1,5 @@
 ---
 url : pages/press/sticky/sticky
-title: 粘性布局
-subTitle: Sticky
 ---
 
 ## Sticky 粘性布局

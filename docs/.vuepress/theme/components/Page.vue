@@ -63,8 +63,7 @@ export default {
   },
   watch: {
     $route: {
-      handler(val) {
-        console.log('$route.val', val);
+      handler() {
         this.getLang();
       },
     },

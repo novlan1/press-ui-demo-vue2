@@ -1,7 +1,5 @@
 ---
 url : pages/press/datetime-picker/datetime-picker
-title: 时间选择
-subTitle: Datetime Picker
 ---
 
 ## Datetime Picker 时间选择

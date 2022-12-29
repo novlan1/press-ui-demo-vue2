@@ -1,7 +1,5 @@
 ---
 url : pages/press/picker-plus/picker-plus
-title: 选择器
-subTitle: PickerPlus
 ---
 ## PickerPlus 选择器
 

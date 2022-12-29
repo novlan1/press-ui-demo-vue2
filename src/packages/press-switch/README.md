@@ -1,7 +1,5 @@
 ---
 url : pages/press/switch/switch
-title: 切换
-subTitle: Switch
 ---
 
 ## Switch 切换选择器

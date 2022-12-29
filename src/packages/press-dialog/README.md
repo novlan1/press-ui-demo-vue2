@@ -1,7 +1,5 @@
 ---
 url : pages/press/dialog/dialog
-title: 弹窗
-subTitle: Dialog
 ---
 
 ## Dialog 弹窗

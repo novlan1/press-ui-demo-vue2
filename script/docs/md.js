@@ -3,11 +3,13 @@ const path = require('path');
 const { getPureCompName } = require('../utils/utils');
 
 const LOCAL_DOC_NAME = 'README.md';
+const LOCAL_DOC_EN_NAME = 'README.en-US.md';
 const LOCAL_DEMO_NAME = 'demo.vue';
 
 const COMPONENT_DIR = './src/packages';
 
 const DOC_PATH = './docs/components/press';
+const DOC_EN_PATH = './docs/en/components/press';
 const DEMO_PATH = './src/pages/press';
 
 /**
@@ -55,7 +57,10 @@ function getLocalDocOrDemo(comps, postfix) {
 function moveDocs() {
   const comps = getComps();
   const docs = getLocalDocOrDemo(comps, LOCAL_DOC_NAME);
+  const docsEn = getLocalDocOrDemo(comps, LOCAL_DOC_EN_NAME);
+
   console.log(`[AUTO] 共有${docs.length}个组件文档\n`);
+  console.log(`[AUTO] 共有${docsEn.length}个英文组件文档\n`);
 
   for (const doc of docs) {
     const { path: dir, name } = doc;
@@ -63,7 +68,15 @@ function moveDocs() {
       encoding: 'utf-8',
     });
 
-    writeCompDoc(data, name);
+    writeCompDoc(data, name, DOC_PATH);
+  }
+  for (const doc of docsEn) {
+    const { path: dir, name } = doc;
+    const data = fs.readFileSync(dir, {
+      encoding: 'utf-8',
+    });
+
+    writeCompDoc(data, name, DOC_EN_PATH);
   }
 }
 
@@ -87,12 +100,12 @@ function moveDocs() {
 /**
  * 将文档写入docs目录
  */
-function writeCompDoc(data, name) {
+function writeCompDoc(data, name, docPath) {
   console.log(`[AUTO] 正在写入 ${name} 文档...`);
-  if (!fs.existsSync(DOC_PATH)) {
-    fs.mkdirSync(DOC_PATH);
+  if (!fs.existsSync(docPath)) {
+    fs.mkdirSync(docPath);
   }
-  fs.writeFileSync(path.resolve(DOC_PATH, `${name}.md`), data, {
+  fs.writeFileSync(path.resolve(docPath, `${name}.md`), data, {
     encoding: 'utf-8',
   });
 }

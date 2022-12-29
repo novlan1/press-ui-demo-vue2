@@ -32,13 +32,13 @@
           v-if="copied"
           class="config-tooltip"
         >
-          ✨ 复制已变更条目成功
+          ✨ {{ t('copySuccess') }}
         </div>
         <button
           class="config-button config-button--primary"
           @click.stop="onCopy"
         >
-          一键复制
+          {{ t('oneClickCopy') }}
         </button>
       </div>
       <div style="margin-left: 26px;position: relative;">
@@ -46,13 +46,13 @@
           v-if="resumed"
           class="config-tooltip"
         >
-          还原成功
+          {{ t('restoreSuccess') }}
         </div>
         <button
           class="config-button config-button--default"
           @click.stop="onResume"
         >
-          还原
+          {{ t('restore') }}
         </button>
       </div>
     </div>
@@ -63,6 +63,11 @@ import themeDefaultJson from './theme-default.json';
 import ColorPicker from './color-picker/color-picker.vue';
 
 const CHANGE_IFRAME_STYLE_TYPE = 'CHANGE_IFRAME_STYLE_TYPE';
+const DEFAULT_LANG = 'zh-CN';
+const LANG_MAP = {
+  en: 'en-US',
+};
+
 
 function copyText(text) {
   const textareaC = document.createElement('textarea');
@@ -101,11 +106,32 @@ export default {
       list: [],
       url: '',
       type: '',
+
+      lang: DEFAULT_LANG,
+      i18n: {
+        'zh-CN': {
+          oneClickCopy: '一键复制',
+          restore: '还原',
+          copySuccess: '复制已变更条目成功',
+          restoreSuccess: '还原成功',
+        },
+        'en-US': {
+          oneClickCopy: 'One Click Copy',
+          restore: 'Restore',
+          copySuccess: 'Copy changed items successfully',
+          restoreSuccess: 'Restored successfully',
+        },
+      },
     };
   },
   computed: {
   },
   watch: {
+    $route: {
+      handler() {
+        this.getLang();
+      },
+    },
     $page: {
       handler(newName) {
         const { frontmatter } = newName;
@@ -125,8 +151,26 @@ export default {
   },
   mounted() {
     this.list = getComponentTheme(this.type);
+    this.getLang();
   },
   methods: {
+    t(key) {
+      return (this.i18n[this.lang] && this.i18n[this.lang][key]) || '';
+    },
+    // 与Page.vue有重复，可优化
+    getLang() {
+      const { fullPath } = this.$route;
+      const keys = Object.keys(LANG_MAP);
+
+      for (const key of keys) {
+        if (fullPath.startsWith(`/${key}/`)) {
+          this.lang = LANG_MAP[key];
+          return;
+        }
+      }
+
+      this.lang = DEFAULT_LANG;
+    },
     onCopy() {
       this.copied = true;
       this.resumed = false;

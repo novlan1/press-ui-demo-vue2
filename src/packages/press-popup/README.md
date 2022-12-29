@@ -1,7 +1,5 @@
 ---
 url : pages/press/popup/popup
-title: 弹出层
-subTitle: Popup
 ---
 
 ## Popup 弹出层

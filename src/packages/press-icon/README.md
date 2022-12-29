@@ -1,7 +1,5 @@
 ---
 url : pages/press/icon/icon
-title: 图标
-subTitle: Icon
 ---
 
 ## Icon 图标

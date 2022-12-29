@@ -1,7 +1,5 @@
 ---
 url : pages/press/swipe-cell/swipe-cell
-title: 滑动单元格
-subTitle: SwipeCell
 ---
 
 ## SwipeCell 滑动单元格

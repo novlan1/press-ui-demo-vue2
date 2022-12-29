@@ -4,11 +4,10 @@ url : pages/press/icon/icon
 
 ## Icon 
 
-::: tip Component name: press-icon
-Code block: `press-icon`
-:::
 
 Used to display the icons icon .
+
+## Usage
 
 ### Basic Usage
 

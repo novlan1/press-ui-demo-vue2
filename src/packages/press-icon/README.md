@@ -4,11 +4,9 @@ url : pages/press/icon/icon
 
 ## Icon 图标
 
-::: tip 组件名：press-icon
-代码块： `press-icon`
-:::
-
 用于展示 icons 图标 。
+
+## 代码演示
 
 ### 基本用法
 

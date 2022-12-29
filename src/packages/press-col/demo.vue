@@ -1,6 +1,6 @@
 <template>
   <div class="demo-wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <press-row>
         <press-col :span="8">
           span: 8
@@ -35,7 +35,7 @@
       </press-row>
     </demo-block>
 
-    <demo-block title="设置列元素间距">
+    <demo-block :title="t('title2')">
       <press-row :gutter="20">
         <press-col :span="8">
           span: 8
@@ -55,6 +55,14 @@ import PressCol from 'src/packages/press-col/press-col.vue';
 import PressRow from 'src/packages/press-row/press-row.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      title2: '设置列元素间距',
+    },
+    'en-US': {
+      title2: 'Column Spacing',
+    },
+  },
   components: {
     PressCol,
     PressRow,

@@ -6,9 +6,11 @@ const { getFullCompName, getPureCompName } = require('../../utils/utils');
 const TEMPLATE_PATH = './script/new/template';
 const COMP_TARGET_PATH = './src/packages';
 const DEFAULT_COMP_NAME = 'press.vue';
+const DEFAULT_README_NAME = 'README.md';
+const DEFAULT_README_EN_NAME = 'README.en-US.md';
 
 function copyComponentDir(config) {
-  const { name  } = config;
+  const { name, title  } = config;
   if (!name) {
     throw new Error('请输入组件名称');
   }
@@ -32,21 +34,47 @@ function copyComponentDir(config) {
   fs.renameSync(compVue, newCompName);
   console.log(`[NEW] ${fullName}.vue 重命名成功`);
 
-  changeReadme(fullName, pureName);
+  changeReadme({
+    fullName,
+    pureName,
+    title,
+    name,
+  });
+  changeReadme({
+    fullName,
+    pureName,
+    title,
+    name,
+    isEn: true,
+  });
+  console.log(`[NEW] ${fullName} 文档变量替换成功`);
 }
 
 
-function changeReadme(fullName, pureName) {
-  const docPath = path.resolve(COMP_TARGET_PATH, fullName, 'README.md');
+function changeReadme({
+  fullName,
+  pureName,
+  title,
+  name,
+  isEn,
+}) {
+  const docPath = path.resolve(COMP_TARGET_PATH, fullName, isEn ? DEFAULT_README_EN_NAME : DEFAULT_README_NAME);
   const data = fs.readFileSync(docPath, {
     encoding: 'utf-8',
   });
 
-  const newData = data.replace(/{{COMP}}/g, pureName);
+  const newData = data
+    .replace(/COMP/g, pureName)
+    .replace(/SUBTITLE/g, name)
+    .replace(/TITLE/g, title);
+
   fs.writeFileSync(docPath, newData, {
     encoding: 'utf-8',
   });
-  console.log(`[NEW] ${fullName} 文档变量替换成功`);
+
+  fs.writeFileSync(docPath, newData, {
+    encoding: 'utf-8',
+  });
 }
 
 

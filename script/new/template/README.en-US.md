@@ -5,10 +5,9 @@ url : pages/press/COMP/COMP
 ## SUBTITLE TITLE
 
 
-## 代码演示
+## Usage
 
-### 基础用法
-
+### Basic Usage
 
 ## API
 

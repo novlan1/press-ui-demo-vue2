@@ -42,7 +42,19 @@ locale.add(messages);
 
 Current supported languages:
 
-| Language | Filename |
-| -------- | -------- |
-| Chinese  | zh-CN    |
-| English  | en-US    |
+| Language                 | Filename     |
+| ------------------------ | ------------ |
+| Chinese                  | zh-CN        |
+| Traditional Chinese (HK) | zh-HK        |
+| Traditional Chinese (TW) | zh-TW        |
+| English                  | en-US        |
+| German                   | de-DE        |
+| German (formal)          | de-DE-formal |
+| Norwegian                | nb-NO        |
+| Japanese                 | ja-JP        |
+| Romanian                 | ro-RO        |
+| Spanish (Spain)          | es-ES        |
+| Turkish                  | tr-TR        |
+| Thai                     | th-TH        |
+| French                   | fr-FR        |
+| Vietnamese               | vi-VN        |

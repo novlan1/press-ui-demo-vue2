@@ -89,6 +89,7 @@ module.exports = {
             path: '/en/',
           },
           '/en/quickstart',
+          '/en/locale',
           // '/changelog.md',
           // '/questions.md',
           // {
@@ -105,6 +106,7 @@ module.exports = {
         path: '/',
       },
       '/quickstart',
+      '/locale',
       // '/changelog.md',
       // '/questions.md',
       // {

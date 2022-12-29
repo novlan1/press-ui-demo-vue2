@@ -45,19 +45,23 @@ locale.add(messages);
 目前支持的语言:
 
 
-| 语言           | 文件名       |
-| -------------- | ------------ |
-| 简体中文       | zh-CN        |
-| 繁體中文（港） | zh-HK        |
-| 繁體中文（台） | zh-TW        |
-| 英语           | en-US        |
-| 德语           | de-DE        |
-| 德语 (正式)    | de-DE-formal |
-| 土耳其语       | tr-TR        |
-| 西班牙语       | es-ES        |
-| 日语           | ja-JP        |
-| 罗马尼亚语     | ro-RO        |
-| 挪威语         | nb-NO        |
-| 泰语           | th-TH        |
-| 法语           | fr-FR        |
-| 越南语         | vi-VN        |
+| 语言               | 文件名       |
+| ------------------ | ------------ |
+| 简体中文           | zh-CN        |
+| 繁體中文（港）     | zh-HK        |
+| 繁體中文（台）     | zh-TW        |
+| 英语               | en-US        |
+| 德语               | de-DE        |
+| 德语 (正式)        | de-DE-formal |
+| 土耳其语           | tr-TR        |
+| 西班牙语           | es-ES        |
+| 葡萄牙语（葡萄牙） | pt-pt        |
+| 葡萄牙语（巴西）   | pt-br        |
+| 日语               | ja-JP        |
+| 罗马尼亚语         | ro-RO        |
+| 挪威语             | nb-NO        |
+| 泰语               | th-TH        |
+| 法语               | fr-FR        |
+| 越南语             | vi-VN        |
+
+> 在 [这里](https://git.woa.com/pmd-mobile/support/press-ui/tree/develop/src/packages/locale/lang) 查看所有的语言包源文件。

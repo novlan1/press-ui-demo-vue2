@@ -54,7 +54,12 @@ Current supported languages:
 | Japanese                 | ja-JP        |
 | Romanian                 | ro-RO        |
 | Spanish (Spain)          | es-ES        |
+| Portuguese (Portugal)    | pt-pt        |
+| Portuguese (Brazil)      | pt-br        |
 | Turkish                  | tr-TR        |
 | Thai                     | th-TH        |
 | French                   | fr-FR        |
 | Vietnamese               | vi-VN        |
+
+
+> View all language configs [Here](https://git.woa.com/pmd-mobile/support/press-ui/tree/develop/src/packages/locale/lang).

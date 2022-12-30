@@ -37,7 +37,7 @@
         @click="onSelectItem(item)"
       >
         {{ item.text }}
-        <press-icon
+        <press-icon-plus
           v-if="computed.isActive(activeId, item.id)"
           :name="selectedIcon"
           size="16px"
@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressSidebar from '../press-sidebar/press-sidebar.vue';
 import PressSidebarItem from '../press-sidebar-item/press-sidebar-item.vue';
 import { defaultOptions, defaultProps } from '../common/press-component';
@@ -62,7 +62,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    PressIcon,
+    PressIconPlus,
     PressSidebar,
     PressSidebarItem,
   },

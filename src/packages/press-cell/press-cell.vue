@@ -7,7 +7,7 @@
     :style="customStyle"
     @click="onClick"
   >
-    <press-icon
+    <press-icon-plus
       v-if="icon"
       :name="icon"
       class="press-cell__left-icon-wrap"
@@ -60,7 +60,7 @@
       <slot v-else />
     </div>
 
-    <press-icon
+    <press-icon-plus
       v-if="isLink"
       :name="arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'"
       class="press-cell__right-icon-wrap"
@@ -77,7 +77,7 @@
 </template>
 <script>
 
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { link } from '../mixins/link';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -85,7 +85,7 @@ import { defaultProps, defaultOptions } from '../common/press-component';
 
 export default {
   components: {
-    PressIcon,
+    PressIconPlus,
   },
   options: {
     ...defaultOptions,

@@ -13,7 +13,7 @@
       </template>
       <template v-else>
         <div class="press-grid-item__icon icon-class">
-          <press-icon
+          <press-icon-plus
             v-if="icon"
             :name="icon"
             :color="iconColor"
@@ -43,7 +43,7 @@
   </div>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { link } from '../mixins/link';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -62,7 +62,7 @@ export default {
   // relation: useParent('grid'),
   classes: ['content-class', 'icon-class', 'text-class'],
   components: {
-    PressIcon,
+    PressIconPlus,
   },
   mixins: [ChildrenMixin(PARENT), link],
   props: {

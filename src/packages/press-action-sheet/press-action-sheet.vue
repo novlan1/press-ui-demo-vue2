@@ -16,7 +16,7 @@
       class="press-action-sheet__header"
     >
       {{ title }}
-      <press-icon
+      <press-icon-plus
         name="cross"
         custom-class="press-action-sheet__close"
         @click="onClose"
@@ -84,7 +84,7 @@
   <!-- </uni-shadow-root> -->
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressPopup from '../press-popup-plus/press-popup-plus.vue';
 import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import { button } from '../mixins/button';
@@ -97,7 +97,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    PressIcon,
+    PressIconPlus,
     PressPopup,
     PressLoading,
   },

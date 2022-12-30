@@ -45,7 +45,7 @@
       </div>
     </template>
     <template v-else>
-      <press-icon
+      <press-icon-plus
         v-if="icon"
         size="1.2em"
         :name="icon"
@@ -60,7 +60,7 @@
   </Button>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressLoadingPlus from '../press-loading-plus/press-loading-plus.vue';
 import PressLoading from '../press-loading/press-loading.vue';
 import { button } from '../mixins/button';
@@ -89,7 +89,7 @@ export default {
     ...defaultOptions,
   },
   components: {
-    PressIcon,
+    PressIconPlus,
     PressLoadingPlus,
     PressLoading,
   },

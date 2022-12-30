@@ -6,7 +6,7 @@
       @click="onClick"
     >
       <div class="press-tabbar-item__icon">
-        <press-icon
+        <press-icon-plus
           v-if="icon"
           :name="icon"
           :class-prefix="iconPrefix"
@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressInfo from '../press-info/press-info.vue';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
@@ -49,7 +49,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    PressIcon,
+    PressIconPlus,
     PressInfo,
   },
   mixins: [

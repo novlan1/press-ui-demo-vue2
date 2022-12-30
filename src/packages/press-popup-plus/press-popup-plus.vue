@@ -16,7 +16,7 @@
       @transitionend="onTransitionEnd"
     >
       <slot />
-      <press-icon
+      <press-icon-plus
         v-if="closeable"
         :name="closeIcon"
         :class="cCloseIconClass"
@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressOverlay from '../press-overlay/press-overlay.vue';
 import { transition } from '../mixins/transition';
 import utils from '../wxs-js/utils';
@@ -39,7 +39,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    PressIcon,
+    PressIconPlus,
     PressOverlay,
   },
   // classes: [

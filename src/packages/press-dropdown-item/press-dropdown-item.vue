@@ -33,7 +33,7 @@
         >
           {{ item.text }}
         </div>
-        <press-icon
+        <press-icon-plus
           v-if="item.value === innerValue"
           name="success"
           class="press-dropdown-item__icon"
@@ -48,7 +48,7 @@
 <script>
 import PressPopup from '../press-popup-plus/press-popup-plus.vue';
 import PressCell from '../press-cell/press-cell.vue';
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import utils from '../wxs-js/utils';
 
 import { defaultOptions, defaultProps } from '../common/press-component';
@@ -64,7 +64,7 @@ export default {
   components: {
     PressPopup,
     PressCell,
-    PressIcon,
+    PressIconPlus,
   },
   mixins: [
     ChildrenMixin(PARENT),

@@ -34,7 +34,7 @@
             :type="dataLoadingType"
             custom-style="margin: 10px 0;"
           />
-          <press-icon
+          <press-icon-plus
             v-else
             class="press-toast__icon"
             :name="dataType"
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import PressOverlay from '../press-overlay/press-overlay.vue';
 import PressTransition from '../press-transition/press-transition.vue';
@@ -94,7 +94,7 @@ export default {
     ...defaultOptions,
   },
   components: {
-    PressIcon,
+    PressIconPlus,
     PressLoading,
     PressOverlay,
     PressTransition,

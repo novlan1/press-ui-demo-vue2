@@ -18,7 +18,7 @@
         v-if="useIconSlot"
         name="icon"
       />
-      <press-icon
+      <press-icon-plus
         v-else
         name="success"
         size="0.8em"
@@ -40,7 +40,7 @@
 
 <script>
 import utils from '../wxs-js/utils';
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
 import computed from './index.js';
@@ -56,7 +56,7 @@ export default {
     ...defaultOptions,
   },
   components: {
-    PressIcon,
+    PressIconPlus,
   },
   mixins: [
     ChildrenMixin(PARENT),

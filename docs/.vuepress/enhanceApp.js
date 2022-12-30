@@ -11,7 +11,7 @@ function initReport() {
   const script = document.createElement('script');
   script.innerHTML = `
   setTimeout(() => {
-    new Aegis({
+    window.Aegis && new Aegis({
       id: 'OVeYwxAqgtnIXMHutM', // 项目ID，即上报id
       uin: '', // 用户唯一 ID（可选）
       reportApiSpeed: true, // 接口测速

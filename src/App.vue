@@ -1,5 +1,6 @@
 <script>
 import { updateManager } from './utils/update-manager/update-manager';
+import { setLang } from 'src/utils/i18n/i18n';
 const CHANGE_IFRAME_STYLE_TYPE = 'CHANGE_IFRAME_STYLE_TYPE';
 
 function onMessage(e) {
@@ -17,6 +18,8 @@ export default {
   onLaunch() {
     // #ifdef H5
     window.addEventListener('message', onMessage, false);
+
+    setLang();
     // #endif
 
     updateManager();
@@ -28,6 +31,13 @@ export default {
   },
   onHide() {
     console.log('App Hide');
+  },
+  watch: {
+    $route: {
+      handler() {
+        setLang();
+      },
+    },
   },
 };
 </script>

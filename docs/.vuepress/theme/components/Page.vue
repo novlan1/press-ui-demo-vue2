@@ -75,7 +75,9 @@ export default {
       immediate: true,
     },
   },
-  created() {},
+  created() {
+    this.getLang();
+  },
   mounted() {
     this.getLang();
   },

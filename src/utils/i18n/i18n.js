@@ -15,21 +15,13 @@ const LOCALE_DEMO_AMP = {
   'zh-CN': localeZhDemo,
 };
 
-const LANG = getLocale() || DEFAULT_LANG;
-
-
-if (LOCALE_MAP[LANG]) {
-  locale.use(LOCALE_MAP[LANG]);
-}
-
-
-if (LOCALE_DEMO_AMP[LANG]) {
-  locale.add(LOCALE_DEMO_AMP[LANG]);
-}
+let curLang = DEFAULT_LANG;
+setLang();
 
 function getLocale() {
   // #ifdef H5
   const { href } = window.location;
+  console.log('href', href);
   if (href.indexOf('?') <= -1) return;
   const search = href.split('?')[1];
   const map = search.split('&').reduce((acc, value) => {
@@ -41,6 +33,16 @@ function getLocale() {
 
   return map.locale || map.lang;
   // #endif
+}
+
+export function setLang() {
+  curLang = getLocale() || DEFAULT_LANG;
+  if (LOCALE_MAP[curLang]) {
+    locale.use(LOCALE_MAP[curLang]);
+  }
+  if (LOCALE_DEMO_AMP[curLang]) {
+    locale.add(LOCALE_DEMO_AMP[curLang]);
+  }
 }
 
 
@@ -63,8 +65,8 @@ export function demoI18n() {
       t(key, ...args) {
         const { i18n } = this.$options;
 
-        if (i18n && i18n[LANG] && i18n[LANG][key]) {
-          const value = i18n[LANG][key];
+        if (i18n && i18n[curLang] && i18n[curLang][key]) {
+          const value = i18n[curLang][key];
           if (typeof value === 'function') {
             return value(...args);
           }

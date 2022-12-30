@@ -54,8 +54,8 @@ Current supported languages:
 | Japanese                 | ja-JP        |
 | Romanian                 | ro-RO        |
 | Spanish (Spain)          | es-ES        |
-| Portuguese (Portugal)    | pt-pt        |
-| Portuguese (Brazil)      | pt-br        |
+| Portuguese (Portugal)    | pt-PT        |
+| Portuguese (Brazil)      | pt-BR        |
 | Turkish                  | tr-TR        |
 | Thai                     | th-TH        |
 | French                   | fr-FR        |

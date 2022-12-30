@@ -55,8 +55,8 @@ locale.add(messages);
 | 德语 (正式)        | de-DE-formal |
 | 土耳其语           | tr-TR        |
 | 西班牙语           | es-ES        |
-| 葡萄牙语（葡萄牙） | pt-pt        |
-| 葡萄牙语（巴西）   | pt-br        |
+| 葡萄牙语（葡萄牙） | pt-PT        |
+| 葡萄牙语（巴西）   | pt-BR        |
 | 日语               | ja-JP        |
 | 罗马尼亚语         | ro-RO        |
 | 挪威语             | nb-NO        |

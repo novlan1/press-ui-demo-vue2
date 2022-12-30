@@ -63,4 +63,8 @@ export const add = function (messages = {}) {
   deepAssign(lang, messages);
 };
 
-export default { use, t, i18n, add };
+export const getLang = function () {
+  return lang;
+};
+
+export default { use, t, i18n, add, getLang };

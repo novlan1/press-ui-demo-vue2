@@ -18,8 +18,6 @@ export default {
   onLaunch() {
     // #ifdef H5
     window.addEventListener('message', onMessage, false);
-
-    setLang();
     // #endif
 
     updateManager();

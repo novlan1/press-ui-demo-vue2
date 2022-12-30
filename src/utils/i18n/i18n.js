@@ -16,12 +16,16 @@ const LOCALE_DEMO_AMP = {
 };
 
 let curLang = DEFAULT_LANG;
-setLang();
+if (LOCALE_MAP[curLang]) {
+  locale.use(LOCALE_MAP[curLang]);
+}
+if (LOCALE_DEMO_AMP[curLang]) {
+  locale.add(LOCALE_DEMO_AMP[curLang]);
+}
 
 function getLocale() {
   // #ifdef H5
   const { href } = window.location;
-  console.log('href', href);
   if (href.indexOf('?') <= -1) return;
   const search = href.split('?')[1];
   const map = search.split('&').reduce((acc, value) => {
@@ -29,13 +33,17 @@ function getLocale() {
     acc[temp[0]] = temp[1];
     return acc;
   }, {});
+
   console.log('map', map);
 
   return map.locale || map.lang;
   // #endif
 }
+let set = false;
 
 export function setLang() {
+  if (set) return ;
+  set = true;
   curLang = getLocale() || DEFAULT_LANG;
   if (LOCALE_MAP[curLang]) {
     locale.use(LOCALE_MAP[curLang]);
@@ -64,7 +72,6 @@ export function demoI18n() {
     methods: {
       t(key, ...args) {
         const { i18n } = this.$options;
-
         if (i18n && i18n[curLang] && i18n[curLang][key]) {
           const value = i18n[curLang][key];
           if (typeof value === 'function') {

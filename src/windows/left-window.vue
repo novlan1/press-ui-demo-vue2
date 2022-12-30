@@ -5,6 +5,8 @@
 </template>
 <script>
 import indexPage from '@/pages/index/index';
+import { setLang } from '../utils/i18n/i18n';
+
 export default {
   components: { indexPage },
   props: {
@@ -16,6 +18,8 @@ export default {
     $route: {
       immediate: true,
       handler(newRoute) {
+        setLang();
+
         if (this.matchLeftWindow) {
           if (newRoute.path === '/') {
             uni.redirectTo({

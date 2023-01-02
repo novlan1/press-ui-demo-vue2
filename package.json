@@ -69,7 +69,7 @@
     "docs:watch": "node script/docs/watch-docs",
     "docs:serve": "vuepress dev docs",
     "docs:dev": "concurrently \"npm run docs:watch\" \"npm run docs:serve\"",
-    "docs:gen": "node script/docs/move-doc-demo",
+    "docs:gen": "node script/docs/move-doc-demo && npm run gen:config",
     "docs:build": "vuepress build docs",
     "docs:deploy": "node script/deploy-docs",
     "lint": "eslint --ext .js,.ts,.vue .",

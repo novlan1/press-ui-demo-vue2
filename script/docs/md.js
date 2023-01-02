@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { mkDirsSync } = require('t-comm');
 const { getPureCompName } = require('../utils/utils');
 
 const LOCAL_DOC_NAME = 'README.md';
@@ -103,7 +104,7 @@ function moveDocs() {
 function writeCompDoc(data, name, docPath) {
   console.log(`[AUTO] 正在写入 ${name} 文档...`);
   if (!fs.existsSync(docPath)) {
-    fs.mkdirSync(docPath);
+    mkDirsSync(docPath);
   }
   fs.writeFileSync(path.resolve(docPath, `${name}.md`), data, {
     encoding: 'utf-8',
@@ -118,12 +119,12 @@ function writeCompDemo(data, name) {
   const pureName = getPureCompName(name);
   console.log(`[AUTO] 正在写入 ${pureName} demo...`);
   if (!fs.existsSync(DEMO_PATH)) {
-    fs.mkdirSync(DEMO_PATH);
+    mkDirsSync(DEMO_PATH);
   }
   const dir = path.resolve(DEMO_PATH, pureName);
 
   if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
+    mkDirsSync(dir);
   }
   fs.writeFileSync(path.resolve(dir, `${pureName}.vue`), data, {
     encoding: 'utf-8',

@@ -53,13 +53,21 @@ export function setLang() {
   }
 }
 
+function getPage() {
+  const pages = getCurrentPages();
+  const path = pages[pages.length - 1].route;
+
+  // const { path } = this.$route;
+  const list = path.split('/');
+  const name = list[list.length - 1];
+
+  return name;
+}
 
 export function demoI18n() {
   Vue.mixin({
     onReady() {
-      const { path } = this.$route;
-      const list = path.split('/');
-      const name = list[list.length - 1];
+      const name = getPage();
       if (!name) return;
 
       const newTitle = this.t(`titleMap.${name}`);

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { mkDirsSync } = require('t-comm');
 
 const COMP_TYPE_MAP = require('./component-config.json');
 const DOC_SIDE_BAR_CONFIG_PATH = './docs/.vuepress/sidebar/sidebar.json';
@@ -133,6 +134,9 @@ function writeDemoIndexConfig() {
 function writeDocSidebar() {
   const sidebarConfig = getSidebarConfig();
   const sidebarEnConfig = getSidebarConfig(true);
+
+  mkDirsSync(path.dirname(DOC_SIDE_BAR_CONFIG_PATH));
+
   fs.writeFileSync(DOC_SIDE_BAR_CONFIG_PATH, JSON.stringify(sidebarConfig, null, 2), {
     encoding: 'utf-8',
   });

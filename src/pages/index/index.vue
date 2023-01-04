@@ -10,6 +10,8 @@
         class="home-header__logo"
         src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png"
         mode="aspectFit"
+        @longpress.stop="onMorsePwdLongPress"
+        @click.stop="onMorsePwdClick"
       />
       <div class="home-header__content">
         <div class="home-header__content-title">
@@ -56,11 +58,15 @@
   </div>
 </template>
 <script>
+import { morsePwdMixin } from '../../utils/morse-password/morse-password-mixin';
+import { toggleI18n } from '../../utils/i18n/toggle-i18n';
+
 const pagesConfig = require('./page-config.json');
 
 
 export default {
   components: {},
+  mixins: [morsePwdMixin([1, 1, 1], toggleI18n)],
   data() {
     return {
       pages: pagesConfig.pages.filter(item => item.list && item.list.length),

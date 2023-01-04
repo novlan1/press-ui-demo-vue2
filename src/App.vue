@@ -35,6 +35,7 @@ export default {
       handler() {
         setLang();
       },
+      immediate: true,
     },
   },
 };

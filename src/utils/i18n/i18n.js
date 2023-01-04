@@ -4,6 +4,9 @@ import locale, { t } from 'src/packages/locale';
 
 import localeEnDemo from './lang/en-US';
 import localeZhDemo from './lang/zh-CN';
+import { isInIFrame } from '../index';
+
+import { LOCALE_STORAGE_KEY, DEFAULT_LOCALE_NUMBER, LOCALE_NUMBER_MAP } from './config';
 
 const DEFAULT_LANG = 'zh-CN';
 
@@ -23,8 +26,7 @@ if (LOCALE_DEMO_AMP[curLang]) {
   locale.add(LOCALE_DEMO_AMP[curLang]);
 }
 
-function getLocale() {
-  // #ifdef H5
+function getLocaleFromLocation() {
   const { href } = window.location;
   if (href.indexOf('?') <= -1) return;
   const search = href.split('?')[1];
@@ -37,14 +39,29 @@ function getLocale() {
   console.log('map', map);
 
   return map.locale || map.lang;
-  // #endif
 }
+
+
+function getLocale() {
+  // #ifdef H5
+  if (isInIFrame()) {
+    return getLocaleFromLocation();
+  }
+  // #endif
+
+  const locale = uni.getStorageSync(LOCALE_STORAGE_KEY);
+  console.log('locale', locale);
+  return LOCALE_NUMBER_MAP[locale || DEFAULT_LOCALE_NUMBER];
+}
+
 let set = false;
 
 export function setLang() {
   if (set) return ;
   set = true;
   curLang = getLocale() || DEFAULT_LANG;
+  console.log('curLang', curLang);
+
   if (LOCALE_MAP[curLang]) {
     locale.use(LOCALE_MAP[curLang]);
   }

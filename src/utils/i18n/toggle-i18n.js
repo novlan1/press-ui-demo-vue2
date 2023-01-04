@@ -24,6 +24,13 @@ export function toggleI18n() {
     title: '重新打开后生效',
     content: `语言即将切换为 ${LOCALE_NUMBER_MAP[newNumber]}`,
     showCancel: false,
+    success(res) {
+      if (res.confirm) {
+        uni.exitMiniProgram({
+
+        });
+      }
+    },
   });
   // #endif
 }

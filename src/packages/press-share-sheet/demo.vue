@@ -10,13 +10,13 @@
         custom-style="width: auto;"
         @click="onShowShareSheet(item.type)"
       >
-        弹出菜单
+        {{ t('check') }}
       </press-button>
     </demo-block>
 
     <press-share-sheet
       :show="showShare"
-      title="立即分享给好友"
+      :title="t('title')"
       :description="description"
       :options="curOptions"
       @select="onSelect"
@@ -27,53 +27,44 @@
 <script>
 import PressShareSheet from 'src/packages/press-share-sheet/press-share-sheet.vue';
 
-const options = [
-  { name: '微信', icon: 'wechat', openType: 'share' },
-  { name: '微博', icon: 'weibo' },
-  { name: '复制链接', icon: 'link' },
-  { name: '分享海报', icon: 'poster' },
-  { name: '二维码', icon: 'qrcode' },
-];
-const multiLineOptions = [
-  [
-    { name: '微信', icon: 'wechat' },
-    { name: '微博', icon: 'weibo' },
-    { name: 'QQ', icon: 'qq' },
-  ],
-  [
-    { name: '复制链接', icon: 'link' },
-    { name: '分享海报', icon: 'poster' },
-    { name: '二维码', icon: 'qrcode' },
-  ],
-];
-const customIconOptions = [
-  {
-    name: '名称',
-    icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-fire.png',
-  },
-  {
-    name: '名称',
-    icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-light.png',
-  },
-  {
-    name: '名称',
-    icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-water.png',
-  },
-];
-
-const descriptionOptions = [
-  { name: '微信', icon: 'wechat' },
-  { name: '微博', icon: 'weibo' },
-  {
-    name: '复制链接',
-    icon: 'link',
-    description: '描述信息',
-  },
-  { name: '分享海报', icon: 'poster' },
-  { name: '二维码', icon: 'qrcode' },
-];
-
 export default {
+  i18n: {
+    'zh-CN': {
+      qq: 'QQ',
+      name: '名称',
+      link: '复制链接',
+      title: '立即分享给好友',
+      weibo: '微博',
+      wechat: '微信',
+      poster: '分享海报',
+      qrcode: '二维码',
+      multiLine: '展示多行选项',
+      showSheet: '显示分享面板',
+      withDesc: '展示描述信息',
+      customIcon: '自定义图标',
+      description: '描述信息',
+      weappQrcode: '小程序码',
+      wechatMoments: '朋友圈',
+    },
+    'en-US': {
+      qq: 'QQ',
+      name: 'Name',
+      link: 'Link',
+      title: 'Share',
+      weibo: 'Weibo',
+      wechat: 'Wechat',
+      poster: 'Poster',
+      qrcode: 'Qrcode',
+      multiLine: 'Multi Line',
+      showSheet: 'Show ShareSheet',
+      withDesc: 'Show Description',
+      customIcon: 'Custom Icon',
+      description: 'Description',
+      weappQrcode: 'Weapp Qrcode',
+      wechatMoments: 'Wechat Moments',
+    },
+  },
+
   components: {
     PressShareSheet,
   },
@@ -81,46 +72,103 @@ export default {
     return {
       demoList: [
         {
-          title: '基础用法',
+          title: this.t('basicUsage'),
           type: 'basic',
         },
         {
-          title: '展示多行选项',
+          title: this.t('multiLine'),
           type: 'multiLine',
         },
         {
-          title: '自定义图标',
+          title: this.t('customIcon'),
           type: 'customIcon',
         },
         {
-          title: '展示描述信息',
+          title: this.t('withDesc'),
           type: 'description',
         },
       ],
       showShare: false,
       description: '',
-      curOptions: options,
+      curOptions: [],
     };
+  },
+  computed: {
+    options() {
+      return [
+        { name: this.t('wechat'), icon: 'wechat', openType: 'share' },
+        { name: this.t('weibo'), icon: 'weibo' },
+        { name: this.t('link'), icon: 'link' },
+        { name: this.t('poster'), icon: 'poster' },
+        { name: this.t('qrcode'), icon: 'qrcode' },
+      ];
+    },
+    multiLineOptions() {
+      return [
+        [
+          { name: this.t('wechat'), icon: 'wechat' },
+          { name: this.t('weibo'), icon: 'weibo' },
+          { name: this.t('qq'), icon: 'qq' },
+        ],
+        [
+          { name: this.t('link'), icon: 'link' },
+          { name: this.t('poster'), icon: 'poster' },
+          { name: this.t('qrcode'), icon: 'qrcode' },
+        ],
+      ];
+    },
+    customIconOptions() {
+      return  [
+        {
+          name: this.t('name'),
+          icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-fire.png',
+        },
+        {
+          name: this.t('name'),
+          icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-light.png',
+        },
+        {
+          name: this.t('name'),
+          icon: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fcustom-icon-water.png',
+        },
+      ];
+    },
+    descriptionOptions() {
+      return [
+        { name: this.t('wechat'), icon: 'wechat' },
+        { name: this.t('weibo'), icon: 'weibo' },
+        {
+          name: this.t('link'),
+          icon: 'link',
+          description: this.t('description'),
+        },
+        { name: this.t('poster'), icon: 'poster' },
+        { name: this.t('qrcode'), icon: 'qrcode' },
+      ];
+    },
+  },
+  mounted() {
+    this.curOptions = this.options;
   },
   methods: {
     onShowShareSheet(type) {
       let description = '';
       switch (type) {
         case 'basic': {
-          this.curOptions = options;
+          this.curOptions = this.options;
           break;
         }
         case 'multiLine': {
-          this.curOptions = multiLineOptions;
+          this.curOptions = this.multiLineOptions;
           break;
         }
         case 'customIcon': {
-          this.curOptions = customIconOptions;
+          this.curOptions = this.customIconOptions;
           break;
         }
         case 'description': {
-          this.curOptions = descriptionOptions;
-          description = '描述信息';
+          this.curOptions = this.descriptionOptions;
+          description = this.t('description');
           break;
         }
         default: {

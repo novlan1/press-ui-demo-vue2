@@ -1,20 +1,20 @@
 <template>
   <div class="wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <button
         type="primary"
         @click="onClickShow('normal')"
       >
-        显示遮罩层
+        {{ t('showOverlay') }}
       </button>
     </demo-block>
 
-    <demo-block title="嵌入内容">
+    <demo-block :title="t('embeddedContent')">
       <button
         type="primary"
         @click="onClickShow('content')"
       >
-        嵌入内容
+        {{ t('embeddedContent') }}
       </button>
     </demo-block>
 
@@ -39,6 +39,17 @@
 <script>
 
 export default {
+  i18n: {
+    'zh-CN': {
+      showOverlay: '显示遮罩层',
+      embeddedContent: '嵌入内容',
+    },
+    'en-US': {
+      showOverlay: 'Show Overlay',
+      embeddedContent: 'Embedded Content',
+    },
+  },
+
   data() {
     return {
       options: {

@@ -81,6 +81,7 @@
 <script>
 import VanField from '../press-field/press-field.vue';
 import utils from '../wxs-js/utils';
+import { t } from '../locale';
 
 export default {
   components: {
@@ -109,7 +110,7 @@ export default {
     placeholderStyle: { type: String, default: '' },
     actionText: {
       type: String,
-      default: '取消',
+      default: t('cancel'),
     },
     background: {
       type: String,

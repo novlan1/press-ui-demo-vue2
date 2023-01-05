@@ -1,21 +1,21 @@
 <template>
   <div class="wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <press-button
         type="e-sport-primary-bg"
         @click="onShowPopup('center')"
       >
-        展示弹出层
+        {{ t('show') }}
       </press-button>
     </demo-block>
 
-    <demo-block title="弹出位置">
+    <demo-block :title="t('position')">
       <press-button
         type="e-sport-primary-bg"
         custom-style="margin: 0 12px 12px 0;"
         @click="onShowPopup('top')"
       >
-        顶部弹出
+        {{ t('top') }}
       </press-button>
 
       <press-button
@@ -23,7 +23,7 @@
         custom-style="margin: 0 0 12px 0;"
         @click="onShowPopup('bottom')"
       >
-        底部弹出
+        {{ t('bottom') }}
       </press-button>
 
       <press-button
@@ -31,24 +31,24 @@
         custom-style="margin: 0 12px 0 0;"
         @click="onShowPopup('left')"
       >
-        左侧弹出
+        {{ t('left') }}
       </press-button>
 
       <press-button
         type="e-sport-primary-bg"
         @click="onShowPopup('right')"
       >
-        右侧弹出
+        {{ t('right') }}
       </press-button>
     </demo-block>
 
-    <demo-block title="关闭图标">
+    <demo-block :title="t('closeIcon')">
       <press-button
         type="e-sport-primary-bg"
         custom-style="margin: 0 12px 12px 0;"
         @click="onShowPopup('bottom', { closeable: true })"
       >
-        关闭图标
+        {{ t('closeIcon') }}
       </press-button>
 
       <press-button
@@ -56,23 +56,23 @@
         custom-style="margin: 0 0 12px 0;"
         @click="onShowPopup('bottom', { closeable: true, closeIcon: 'close' })"
       >
-        自定义图标
+        {{ t('customIcon') }}
       </press-button>
 
       <press-button
         type="e-sport-primary-bg"
         @click="onShowPopup('bottom', { closeable: true, closeIconPosition: 'top-left' })"
       >
-        图标位置
+        {{ t('iconPosition') }}
       </press-button>
     </demo-block>
 
-    <demo-block title="圆角弹窗">
+    <demo-block :title="t('round')">
       <press-button
         type="e-sport-primary-bg"
         @click="onShowPopup('bottom', { round: true })"
       >
-        圆角弹窗
+        {{ t('round') }}
       </press-button>
     </demo-block>
 
@@ -86,7 +86,7 @@
       :close-icon-position="closeIconPosition"
       @close="onClose"
     >
-      {{ popupPosition ==='center' ? '内容' : '' }}
+      {{ popupPosition ==='center' ? t('content') : '' }}
     </press-popup-plus>
   </div>
 </template>
@@ -96,6 +96,32 @@ const DEFAULT_CLOSE_ICON = 'cross';
 const DEFAULT_CLOSE_ICON_POSITION = 'top-right';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      show: '展示弹出层',
+      position: '弹出位置',
+      bottom: '底部弹出',
+      top: 'top',
+      left: 'left',
+      right: 'right',
+      closeIcon: '关闭图标',
+      customIcon: '自定义图标',
+      iconPosition: '图标位置',
+      round: '圆角弹窗',
+    },
+    'en-US': {
+      show: 'Show',
+      position: 'Position',
+      bottom: 'Bottom',
+      top: 'Top',
+      left: 'Left',
+      right: 'Right',
+      closeIcon: 'Close Icon',
+      customIcon: 'Custom Icon',
+      iconPosition: 'Icon Position',
+      round: 'Round',
+    },
+  },
   data() {
     return {
       show: false,

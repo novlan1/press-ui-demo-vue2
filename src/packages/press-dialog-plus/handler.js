@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { t } from '../locale';
 
 let queue = [];
 const defaultOptions = {
@@ -17,8 +18,8 @@ const defaultOptions = {
   customStyle: '',
   messageAlign: '',
   overlayStyle: '',
-  confirmButtonText: '确认',
-  cancelButtonText: '取消',
+  confirmButtonText: t('confirm'),
+  cancelButtonText: t('cancel'),
   showConfirmButton: true,
   showCancelButton: false,
   closeOnClickOverlay: false,
@@ -69,7 +70,7 @@ const Dialog = (options) => {
       });
       queue.push(dialog);
     } else {
-      console.warn('未找到 van-dialog 节点，请确认 selector 及 context 是否正确');
+      console.warn('The van-dialog node is not found, please confirm whether the selector and context are correct');
     }
   });
 };

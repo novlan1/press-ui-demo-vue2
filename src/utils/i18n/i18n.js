@@ -4,7 +4,7 @@ import locale, { t } from 'src/packages/locale';
 
 import localeEnDemo from './lang/en-US';
 import localeZhDemo from './lang/zh-CN';
-import { isInIFrame } from '../index';
+import { isInIFrame, storageUtil } from '../index';
 
 import { LOCALE_STORAGE_KEY, DEFAULT_LOCALE_NUMBER, LOCALE_NUMBER_MAP } from './config';
 
@@ -49,7 +49,7 @@ function getLocale() {
   }
   // #endif
 
-  const locale = uni.getStorageSync(LOCALE_STORAGE_KEY);
+  const locale = storageUtil.get(LOCALE_STORAGE_KEY);
   console.log('locale', locale);
   return LOCALE_NUMBER_MAP[locale || DEFAULT_LOCALE_NUMBER];
 }
@@ -110,4 +110,5 @@ export function demoI18n() {
   });
 }
 
-
+setLang();
+demoI18n();

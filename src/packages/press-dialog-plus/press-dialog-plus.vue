@@ -133,6 +133,7 @@ import { GRAY, RED } from '../common/color';
 import { toPromise } from '../common/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import utils from '../wxs-js/utils';
+import { t } from '../locale';
 import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
 
 const props = {
@@ -167,11 +168,11 @@ const props = {
   },
   confirmButtonText: {
     type: String,
-    default: '确认',
+    default: t('confirm'),
   },
   cancelButtonText: {
     type: String,
-    default: '取消',
+    default: t('cancel'),
   },
   confirmButtonColor: {
     type: String,

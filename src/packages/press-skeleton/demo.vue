@@ -1,7 +1,7 @@
 <template>
   <div class="demo-wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :section-style="sectionStyle"
     >
       <press-skeleton
@@ -11,7 +11,7 @@
     </demo-block>
 
     <demo-block
-      title="显示头像"
+      :title="t('showAvatar')"
       :section-style="sectionStyle"
     >
       <press-skeleton
@@ -22,7 +22,7 @@
     </demo-block>
 
     <demo-block
-      title="展示子组件"
+      :title="t('showChildren')"
       :section-style="sectionStyle"
     >
       <div class="demo-switch-wrap">
@@ -45,10 +45,10 @@
           >
           <div class="demo-content">
             <div class="demo-content-h3">
-              关于 Press UI
+              {{ t('title') }}
             </div>
             <div class="demo-content-p">
-              Press UI 是基于 uni-app 的易用、灵活的组件库，也可用于普通 H5 项目。
+              {{ t('desc') }}
             </div>
           </div>
         </div>
@@ -61,6 +61,22 @@ import PressSkeleton from 'src/packages/press-skeleton/press-skeleton.vue';
 import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      showAvatar: '显示头像',
+      showChildren: '显示子组件',
+      title: '关于 Press UI',
+      desc:
+        'Press UI 是基于 uni-app 的易用、灵活的组件库，也可用于普通 H5 项目。',
+    },
+    'en-US': {
+      showAvatar: 'Show Avatar',
+      showChildren: 'Show Children',
+      title: 'About Press UI',
+      desc: 'Press UI is an easy-to-use and flexible component library based on uni-app, which can also be used in ordinary H5 projects.',
+    },
+  },
+
   components: {
     PressSkeleton,
     PressSwitch,

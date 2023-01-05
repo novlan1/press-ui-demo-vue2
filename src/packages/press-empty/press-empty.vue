@@ -53,7 +53,7 @@ export default {
     ...defaultOptions,
   },
   props: {
-    description: { type: String, default: '暂无数据' },
+    description: { type: String, default: '' },
     type: { type: String, default: '' },
     image: {
       type: String,

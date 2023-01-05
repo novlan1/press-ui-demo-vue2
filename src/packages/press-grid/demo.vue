@@ -1,31 +1,31 @@
 <template>
   <div class="demo-wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :section-style="sectionStyle"
     >
       <press-grid>
         <press-grid-item
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
         <press-grid-item
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
         <press-grid-item
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
         <press-grid-item
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
       </press-grid>
     </demo-block>
 
     <demo-block
-      title="自定义列数"
+      :title="t('columnNum')"
       :section-style="sectionStyle"
     >
       <press-grid :column-num="3">
@@ -33,13 +33,13 @@
           v-for="(item,index) of 6"
           :key="index"
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
       </press-grid>
     </demo-block>
 
     <demo-block
-      title="自定义内容"
+      :title="t('customContent')"
       :section-style="sectionStyle"
     >
       <press-grid
@@ -60,7 +60,7 @@
     </demo-block>
 
     <demo-block
-      title="正方形格子"
+      :title="t('square')"
       :section-style="sectionStyle"
     >
       <press-grid square>
@@ -68,13 +68,13 @@
           v-for="(item,index) of 8"
           :key="index"
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
       </press-grid>
     </demo-block>
 
     <demo-block
-      title="格子间距"
+      :title="t('gutter')"
       :section-style="sectionStyle"
     >
       <press-grid :gutter="10">
@@ -82,13 +82,13 @@
           v-for="(item,index) of 8"
           :key="index"
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
       </press-grid>
     </demo-block>
 
     <demo-block
-      title="内容横排"
+      :title="t('horizontal')"
       :section-style="sectionStyle"
     >
       <press-grid
@@ -97,21 +97,21 @@
       >
         <press-grid-item
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
         <press-grid-item
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
         <press-grid-item
           icon="photo-o"
-          text="文字"
+          :text="t('text')"
         />
       </press-grid>
     </demo-block>
 
     <demo-block
-      title="页面跳转"
+      :title="t('pageRoute')"
       :section-style="sectionStyle"
     >
       <press-grid
@@ -122,30 +122,30 @@
           icon="home-o"
           link-type="navigateTo"
           url="/pages/index/index"
-          text="Navigate 跳转"
+          :text="`Navigate ${t('jump')}`"
         />
         <press-grid-item
           icon="search"
           link-type="reLaunch"
           url="/pages/index/index"
-          text="ReLaunch 跳转"
+          :text="`ReLaunch ${t('jump')}`"
         />
       </press-grid>
     </demo-block>
 
     <demo-block
-      title="提示信息"
+      :title="t('showBadge')"
       :section-style="sectionStyle"
     >
       <press-grid :column-num="2">
         <press-grid-item
           icon="home-o"
-          text="文字"
+          :text="t('text')"
           dot
         />
         <press-grid-item
           icon="search"
-          text="文字"
+          :text="t('text')"
           badge="99+"
         />
       </press-grid>
@@ -158,6 +158,35 @@ import PressGridItem from 'src/packages/press-grid-item/press-grid-item.vue';
 
 
 export default {
+  i18n: {
+    'zh-CN': {
+      text: '文字',
+      route: '页面导航',
+      gutter: '格子间距',
+      square: '正方形格子',
+      columnNum: '自定义列数',
+      customContent: '自定义内容',
+      pageRoute: 'Page 跳转',
+      vueRoute: '路由跳转',
+      showBadge: '徽标提示',
+      horizontal: '内容横排',
+      jump: '跳转',
+    },
+    'en-US': {
+      text: 'Text',
+      route: 'Route',
+      gutter: 'Gutter',
+      square: 'Square',
+      columnNum: 'Column Num',
+      customContent: 'Custom Content',
+      pageRoute: 'Page',
+      vueRoute: 'Vue Router',
+      showBadge: 'Show Badge',
+      horizontal: 'Horizontal',
+      jump: 'Jump',
+    },
+  },
+
   components: {
     PressGrid,
     PressGridItem,

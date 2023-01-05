@@ -63,6 +63,7 @@ import ToolBar from './toolbar.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import { PARENT_PICKER as PARENT } from '../common/parent-map';
 
+import { t } from '../locale';
 import computed from './index.js';
 
 export default {
@@ -87,11 +88,11 @@ export default {
     showToolbar: { type: Boolean, default: false },
     cancelButtonText: {
       type: String,
-      default: '取消',
+      default: t('picker.cancel'),
     },
     confirmButtonText: {
       type: String,
-      default: '确认',
+      default: t('picker.confirm'),
     },
     valueKey: {
       type: String,

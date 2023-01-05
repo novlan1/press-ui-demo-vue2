@@ -1,18 +1,18 @@
 <template>
   <div class="wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       section-style="margin: 0;"
     >
       <press-sticky>
         <div class="btn1">
-          基础用法
+          {{ t('basicUsage') }}
         </div>
       </press-sticky>
     </demo-block>
 
     <demo-block
-      title="吸顶距离"
+      :title="t('offsetTop')"
       section-style="margin: 0;"
     >
       <press-sticky
@@ -21,13 +21,13 @@
         <div
           class="btn2"
         >
-          吸顶距离
+          {{ t('offsetTop') }}
         </div>
       </press-sticky>
     </demo-block>
 
     <demo-block
-      title="指定容器"
+      :title="t('setContainer')"
       section-style="margin: 0;"
     >
       <div
@@ -37,7 +37,7 @@
       >
         <press-sticky :container="container">
           <div class="btn3">
-            指定容器
+            {{ t('setContainer') }}
           </div>
         </press-sticky>
       </div>
@@ -49,13 +49,29 @@
       custom-style="position:relative;margin: 10px;padding: 0;"
       @click="onToggleShowHeader"
     >
-      {{ showHeader ? '隐藏' : '显示' }}头部
+      {{ showHeader ? t('hide') : t('show') }}
     </press-button>
     <!-- #endif -->
   </div>
 </template>
 <script>
+
 export default {
+  i18n: {
+    'zh-CN': {
+      offsetTop: '吸顶距离',
+      setContainer: '指定容器',
+      hide: '隐藏头部',
+      show: '显示头部',
+    },
+    'en-US': {
+      offsetTop: 'Offset Top',
+      setContainer: 'Set Container',
+      hide: 'Hide Head',
+      show: 'Show Head',
+    },
+  },
+
   data() {
     const that = this;
     return {

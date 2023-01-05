@@ -1,20 +1,20 @@
 <template>
   <div class="wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
       <press-field
         :value="value"
-        placeholder="请输入用户名"
+        :placeholder="t('placeholder')"
         :border="false"
         @change="onChange"
       />
     </demo-block>
 
     <demo-block
-      title="自定义类型"
+      :title="t('customType')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
@@ -22,16 +22,16 @@
         :value="text"
         required
         clearable
-        label="文本"
+        :label="t('label')"
         icon="question-o"
-        placeholder="请输入文本"
+        :placeholder="t('placeholder')"
         @click-icon="onClickIcon"
       />
 
       <press-field
         :value="tel"
-        placeholder="请输入手机号"
-        label="手机号"
+        :placeholder="t('phonePlaceholder')"
+        :label="t('phone')"
         required
         clearable
         type="tel"
@@ -42,8 +42,8 @@
 
       <press-field
         :value="digit"
-        placeholder="请输入整数"
-        label="整数"
+        :placeholder="t('digitPlaceholder')"
+        :label="t('digit')"
         required
         clearable
         type="digit"
@@ -53,8 +53,8 @@
 
       <press-field
         :value="number"
-        placeholder="请输入数字（支持小数）"
-        label="数字"
+        :placeholder="t('numberPlaceholder')"
+        :label="t('number')"
         required
         clearable
         type="digit"
@@ -64,8 +64,8 @@
 
       <press-field
         :value="password"
-        placeholder="请输入密码"
-        label="密码"
+        :placeholder="t('passwordPlaceholder')"
+        :label="t('password')"
         required
         clearable
         type="password"
@@ -75,51 +75,51 @@
     </demo-block>
 
     <demo-block
-      title="禁用输入框"
+      :title="t('disabled')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
       <press-field
-        label="用户名"
+        :label="t('label')"
         left-icon="contact"
         disabled
-        placeholder="输入框已禁用"
+        :placeholder="t('inputDisabled')"
         :border="false"
         @change="onChange"
       />
     </demo-block>
 
     <demo-block
-      title="错误提示"
+      :title="t('errorInfo')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
       <press-field
         :value="username"
-        label="用户名"
-        placeholder="请输入用户名"
+        :label="t('username')"
+        :placeholder="t('usernamePlaceholder')"
         error
         :border="false"
         @change="onChange"
       />
       <press-field
         :value="username"
-        label="手机号"
-        placeholder="请输入手机号"
-        error-message="手机号格式错误"
+        :label="t('phone')"
+        :placeholder="t('phonePlaceholder')"
+        :error-message="t('phoneError')"
         :border="false"
         @change="onChange"
       />
     </demo-block>
 
     <demo-block
-      title="内容对齐方式"
+      :title="t('inputAlign')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
       <press-field
-        label="用户名"
-        placeholder="请输入用户名"
+        :label="t('username')"
+        :placeholder="t('usernamePlaceholder')"
         :border="false"
         input-align="right"
         @change="onChange"
@@ -127,14 +127,14 @@
     </demo-block>
 
     <demo-block
-      title="高度自适应"
+      :title="t('autosize')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
       <press-field
-        label="留言"
+        :label="t('message')"
         type="textarea"
-        placeholder="请输入留言"
+        :placeholder="t('placeholderAutoSize')"
         :border="false"
         autosize
         @change="onChange"
@@ -142,15 +142,15 @@
     </demo-block>
 
     <demo-block
-      title="插入按钮"
+      :title="t('insertButton')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
       <press-field
         center
         clearable
-        label="短信验证码"
-        placeholder="请输入短信验证码"
+        :label="t('sms')"
+        :placeholder="t('smsPlaceholder')"
         :border="false"
         autosize
         @change="onChange"
@@ -160,7 +160,7 @@
           size="small"
           type="primary"
         >
-          发送验证码
+          {{ t('sendSMS') }}
         </press-button>
       </press-field>
     </demo-block>
@@ -168,7 +168,75 @@
 </template>
 <script>
 import PressField from 'src/packages/press-field/press-field.vue';
+
 export default {
+  i18n: {
+    'zh-CN': {
+      label: '文本',
+      placeholder: '请输入文本',
+
+      message: '留言',
+      autosize: '高度自适应',
+      placeholderAutoSize: '请输入留言',
+
+      text: '文本',
+      digit: '整数',
+      phone: '手机号',
+      number: '数字',
+      customType: '自定义类型',
+      smsPlaceholder: '请输入短信验证码',
+      textPlaceholder: '请输入文本',
+      digitPlaceholder: '请输入整数',
+      phonePlaceholder: '请输入手机号',
+      numberPlaceholder: '请输入数字（支持小数）',
+
+      disabled: '禁用输入框',
+      inputReadonly: '输入框只读',
+      inputDisabled: '输入框已禁用',
+
+      errorInfo: '错误提示',
+      phoneError: '手机号格式错误',
+
+      inputAlign: '输入框内容对齐',
+      alignPlaceHolder: '输入框内容右对齐',
+
+      sms: '短信验证码',
+      sendSMS: '发送验证码',
+      insertButton: '插入按钮',
+    },
+    'en-US': {
+      label: 'Label',
+      placeholder: 'Text',
+
+      message: 'SMS',
+      autosize: 'Auto Resize',
+      placeholderAutoSize: 'Message',
+
+      text: 'Text',
+      digit: 'Digit',
+      phone: 'Phone',
+      number: 'Number',
+      customType: 'Custom Type',
+      smsPlaceholder: 'SMS',
+      textPlaceholder: 'Text',
+      digitPlaceholder: 'Digit',
+      phonePlaceholder: 'Phone',
+      numberPlaceholder: 'Number',
+
+      inputReadonly: 'Input Readonly',
+      inputDisabled: 'Input Disabled',
+
+      errorInfo: 'Error Info',
+      phoneError: 'Invalid phone',
+
+      inputAlign: 'Input Align',
+      alignPlaceHolder: 'Input Align Right',
+
+      sms: 'SMS',
+      sendSMS: 'Send SMS',
+      insertButton: 'Insert Button',
+    },
+  },
   components: {
     PressField,
   },

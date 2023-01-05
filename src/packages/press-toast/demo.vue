@@ -1,21 +1,21 @@
 <template>
   <div class="wrap">
-    <demo-block title="文字提示">
+    <demo-block :title="t('text')">
       <PressButton
         type="e-sport-primary"
         :custom-style="customStyle"
         @click="onShowToast"
       >
-        查看
+        {{ t('check') }}
       </PressButton>
     </demo-block>
-    <demo-block title="加载提示">
+    <demo-block :title="t('loading')">
       <PressButton
         type="e-sport-primary"
         :custom-style="customStyle"
         @click="onShowToastLoading('normal')"
       >
-        默认
+        {{ t('default') }}
       </PressButton>
 
       <PressButton
@@ -26,31 +26,31 @@
         Spinner
       </PressButton>
     </demo-block>
-    <demo-block title="成功提示">
+    <demo-block :title="t('success')">
       <PressButton
         type="e-sport-primary"
         :custom-style="customStyle"
         @click="onShowToastSuccess('success')"
       >
-        查看
+        {{ t('check') }}
       </PressButton>
     </demo-block>
-    <demo-block title="失败提示">
+    <demo-block :title="t('fail')">
       <PressButton
         type="e-sport-primary"
         :custom-style="customStyle"
         @click="onShowToastSuccess('fail')"
       >
-        查看
+        {{ t('check') }}
       </PressButton>
     </demo-block>
-    <demo-block title="动态更新提示">
+    <demo-block :title="t('dynamic')">
       <PressButton
         type="e-sport-primary"
         :custom-style="customStyle"
         @click="onShowDynamicToast"
       >
-        查看
+        {{ t('check') }}
       </PressButton>
     </demo-block>
 
@@ -63,6 +63,36 @@
 import Toast from 'src/packages/press-toast';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      text: '文字提示',
+      loading: '加载提示',
+      default: '默认',
+      success: '成功提示',
+      fail: '失败提示',
+      dynamic: '动态更新提示',
+
+      toastTip: '我是提示文案，建议不超过十五字~',
+      loadingTip: '加载中...',
+      successTip: '成功文案',
+      failTip: '失败文案',
+      dynamicTip: second =>  `倒计时 ${second} 秒`,
+    },
+    'en-US': {
+      text: 'Show',
+      loading: 'Loading',
+      default: 'Default',
+      success: 'Success',
+      fail: 'Fail',
+      dynamic: 'Dynamic',
+
+      toastTip: 'Some messages',
+      loadingTip: 'Loading...',
+      successTip: 'Success',
+      failTip: 'Fail',
+      dynamicTip: second => `${second} seconds`,
+    },
+  },
   data() {
     return {
       customStyle: '',
@@ -77,7 +107,7 @@ export default {
   },
   methods: {
     onShowToast() {
-      Toast('我是提示文案，建议不超过十五字~');
+      Toast(this.t('toastTip'));
     },
     onShowToastLoading(type) {
       setTimeout(() => {
@@ -85,37 +115,37 @@ export default {
       }, 5000);
       if (type === 'normal') {
         Toast.loading({
-          message: '加载中...',
+          message: this.t('loadingTip'),
           forbidClick: true,
         });
         return;
       }
       // 自定义加载图标
       Toast.loading({
-        message: '加载中...',
+        message: this.t('loadingTip'),
         forbidClick: true,
         loadingType: 'spinner',
       });
     },
     onShowToastSuccess(type) {
       if (type === 'success') {
-        Toast.success('成功文案');
+        Toast.success(this.t('successTip'));
         return;
       }
-      Toast.fail('失败文案');
+      Toast.fail(this.t('failTip'));
     },
     onShowDynamicToast() {
       const toast = Toast.loading({
         duration: 0, // 持续展示 toast
         forbidClick: true,
-        message: '倒计时 3 秒',
+        message: this.t('dynamicTip', 3),
         // selector: '#custom-selector',
       });
       let second = 3;
       const timer = setInterval(() => {
         second -= 1;
         if (second) {
-          toast.set('dataMessage', `倒计时 ${second} 秒`);
+          toast.set('dataMessage', this.t('dynamicTip', second));
         } else {
           clearInterval(timer);
           Toast.clear();

@@ -1,13 +1,13 @@
 <template>
   <div class="demo-wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <PressSwitch
         :checked="checkedMap.basic"
         @change="value=>onChange(value, 'basic')"
       />
     </demo-block>
 
-    <demo-block title="禁用状态">
+    <demo-block :title="t('disabled')">
       <PressSwitch
         :checked="checkedMap.basic"
         disabled
@@ -15,7 +15,7 @@
       />
     </demo-block>
 
-    <demo-block title="加载状态">
+    <demo-block :title="t('loadingStatus')">
       <PressSwitch
         :checked="checkedMap.basic"
         loading
@@ -23,7 +23,7 @@
       />
     </demo-block>
 
-    <demo-block title="自定义大小">
+    <demo-block :title="t('customSize')">
       <PressSwitch
         :checked="checkedMap.size"
         size="24px"
@@ -31,7 +31,7 @@
       />
     </demo-block>
 
-    <demo-block title="自定义颜色">
+    <demo-block :title="t('customColor')">
       <PressSwitch
         :checked="checkedMap.color"
         active-color="#07c160"
@@ -41,7 +41,7 @@
     </demo-block>
 
 
-    <demo-block title="异步控制">
+    <demo-block :title="t('asyncControl')">
       <PressSwitch
         :checked="checkedMap.async"
         @change="value=>onChange(value, 'async')"
@@ -56,10 +56,10 @@
       />
     </demo-block>
 
-    <demo-block title="搭配单元格使用">
+    <demo-block :title="t('withCell')">
       <press-cell-group>
         <press-cell
-          title="标题"
+          :title="t('title')"
           clickable
           @click="onChange(!checkedMap.cell, 'cell')"
         >
@@ -85,6 +85,27 @@ import PressDialog from 'src/packages/press-dialog/press-dialog.vue';
 import PressDialogHandler from 'src/packages/press-dialog';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      title: '标题',
+      confirm: '提醒',
+      message: '是否切换开关？',
+      withCell: '搭配单元格使用',
+      customSize: '自定义大小',
+      customColor: '自定义颜色',
+      asyncControl: '异步控制',
+    },
+    'en-US': {
+      title: 'Title',
+      confirm: 'Confirm',
+      message: 'Are you sure to toggle switch?',
+      withCell: 'Inside a Cell',
+      customSize: 'Custom Size',
+      customColor: 'Custom Color',
+      asyncControl: 'Async Control',
+    },
+  },
+
   components: {
     PressSwitch,
     PressDialog,
@@ -117,10 +138,10 @@ export default {
 
       if (type === 'async') {
         PressDialogHandler.show({
-          title: '提示',
-          content: '是否切换开关',
-          confirmText: '确认',
-          cancelText: '取消',
+          title: this.t('title'),
+          content: this.t('message'),
+          confirmText: this.t('confirm'),
+          cancelText: this.t('cancel'),
         }).then(() => {
           this.checkedMap.async = value;
         });

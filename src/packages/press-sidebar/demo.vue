@@ -1,51 +1,51 @@
 <template>
   <div class="demo-wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <press-sidebar :active-key="activeKey">
-        <press-sidebar-item title="标签名" />
-        <press-sidebar-item title="标签名" />
-        <press-sidebar-item title="标签名" />
+        <press-sidebar-item :title="t('title')" />
+        <press-sidebar-item :title="t('title')" />
+        <press-sidebar-item :title="t('title')" />
       </press-sidebar>
     </demo-block>
 
-    <demo-block title="徽标提示">
+    <demo-block :title="t('showBadge')">
       <press-sidebar :active-key="activeKey">
         <press-sidebar-item
-          title="标签名"
+          :title="t('title')"
           dot
         />
         <press-sidebar-item
-          title="标签名"
+          :title="t('title')"
           badge="5"
         />
         <press-sidebar-item
-          title="标签名"
+          :title="t('title')"
           badge="99+"
         />
       </press-sidebar>
     </demo-block>
 
-    <demo-block title="禁用选项">
+    <demo-block :title="t('disabled')">
       <press-sidebar :active-key="activeKey">
-        <press-sidebar-item title="标签名" />
+        <press-sidebar-item :title="t('title')" />
         <press-sidebar-item
-          title="标签名"
+          :title="t('title')"
           disabled
         />
-        <press-sidebar-item title="标签名" />
+        <press-sidebar-item :title="t('title')" />
       </press-sidebar>
     </demo-block>
 
-    <demo-block title="监听切换事件">
+    <demo-block :title="t('changeEvent')">
       <press-sidebar
         :active-key="activeKey"
         @change="onChange"
       >
-        <press-sidebar-item title="标签名1" />
+        <press-sidebar-item :title="`${t('title')} 1`" />
         <press-sidebar-item
-          title="标签名2"
+          :title="`${t('title')} 2`"
         />
-        <press-sidebar-item title="标签名3" />
+        <press-sidebar-item :title="`${t('title')} 3`" />
       </press-sidebar>
     </demo-block>
 
@@ -60,6 +60,22 @@ import PressSidebarItem from 'src/packages/press-sidebar-item/press-sidebar-item
 import PressToast from 'src/packages/press-toast/press-toast.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      title: '标签名',
+      showBadge: '徽标提示',
+      disabled: '禁用选项',
+      changeEvent: '监听切换事件',
+      selectTip: '你切换到了',
+    },
+    'en-US': {
+      showBadge: 'Show Badge',
+      disabled: 'Disabled',
+      changeEvent: 'Change Event',
+      selectTip: 'You select ',
+    },
+  },
+
   components: {
     PressSidebar,
     PressSidebarItem,
@@ -73,7 +89,7 @@ export default {
   methods: {
     onChange(val) {
       console.log('onChange.val', val);
-      this.$toast(`你切换到了标签名${val + 1}`);
+      this.$toast(`${this.t('selectTip')}${val + 1}`);
     },
   },
 };

@@ -11,9 +11,9 @@
         :key="index"
       >
         <press-index-anchor :index="item" />
-        <press-cell title="文本" />
-        <press-cell title="文本" />
-        <press-cell title="文本" />
+        <press-cell :title="t('text')" />
+        <press-cell :title="t('text')" />
+        <press-cell :title="t('text')" />
       </view>
     </press-index-bar>
   </div>
@@ -35,6 +35,17 @@ function getEN() {
 const ANCHOR_LIST = getEN();
 
 export default {
+  i18n: {
+    'zh-CN': {
+      text: '文本',
+      customIndexList: '自定义索引列表',
+    },
+    'en-US': {
+      text: 'Text',
+      customIndexList: 'Custom Index List',
+    },
+  },
+
   components: {
     PressIndexBar,
     PressIndexAnchor,

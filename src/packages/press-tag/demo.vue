@@ -16,22 +16,22 @@
           :round="demo.round || false"
           :mark="demo.mark || false"
         >
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
     </demo-block>
 
     <demo-block
-      title="自定义颜色"
+      :title="t('customColor')"
     >
       <div class="demo-part">
         <press-tag color="#f2826a">
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
       <div class="demo-part">
         <press-tag color="#7232dd">
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
       <div class="demo-part">
@@ -39,7 +39,7 @@
           color="#7232dd"
           plain
         >
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
       <div class="demo-part">
@@ -47,17 +47,17 @@
           color="#ffe1e1"
           text-color="#ad0000"
         >
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
     </demo-block>
 
     <demo-block
-      title="标签大小"
+      :title="t('customSize')"
     >
       <div class="demo-part">
         <press-tag type="danger">
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
       <div class="demo-part">
@@ -65,7 +65,7 @@
           type="danger"
           size="medium"
         >
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
       <div class="demo-part">
@@ -73,13 +73,13 @@
           type="danger"
           size="large"
         >
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
     </demo-block>
 
     <demo-block
-      title="可关闭标签"
+      :title="t('closeable')"
     >
       <div
         v-if="show.primary"
@@ -90,7 +90,7 @@
           closeable
           @close="onClose('primary')"
         >
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
       <div class="demo-part">
@@ -100,14 +100,49 @@
           closeable
           @close="onClose('success')"
         >
-          标签
+          {{ t('tag') }}
         </press-tag>
       </div>
     </demo-block>
   </div>
 </template>
 <script>
+
 export default {
+  i18n: {
+    'zh-CN': {
+      type: '类型',
+      mark: '标记样式',
+      plain: '空心样式',
+      round: '圆角样式',
+      tagStyle: '样式风格',
+      closeable: '可关闭标签',
+      smallSize: '小号标签',
+      largeSize: '大号标签',
+      mediumSize: '中号标签',
+      customSize: '标签大小',
+      customColor: '自定义颜色',
+      customBgColor: '背景颜色',
+      customTextColor: '文字颜色',
+      customPlainColor: '空心颜色',
+    },
+    'en-US': {
+      mark: 'Mark style',
+      plain: 'Plain style',
+      round: 'Round style',
+      tagStyle: 'Tag Style',
+      closeable: 'Closeable',
+      smallSize: 'Small Size',
+      largeSize: 'Large Size',
+      mediumSize: 'Medium Size',
+      customColor: 'Custom Color',
+      customSize: 'Custom Size',
+      customBgColor: 'Background Color',
+      customTextColor: 'Text Color',
+      customPlainColor: 'Plain Color',
+    },
+  },
+
   data() {
     return {
       list: [
@@ -127,21 +162,21 @@ export default {
       demoList: [
         {
           key: 'basic',
-          title: '基础用法',
+          title: this.t('basicUsage'),
         },
         {
           key: 'plain',
-          title: '空心样式',
+          title: this.t('plain'),
           plain: true,
         },
         {
           key: 'round',
-          title: '圆角样式',
+          title: this.t('round'),
           round: true,
         },
         {
           key: 'mark',
-          title: '标记样式',
+          title: this.t('mark'),
           mark: true,
         },
       ],

@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :section-style="sectionStyle"
     >
       <press-tabbar
@@ -11,22 +11,22 @@
         @change="onChange"
       >
         <press-tabbar-item icon="home-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item icon="search">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item icon="friends-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item icon="setting-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
       </press-tabbar>
     </demo-block>
 
     <demo-block
-      title="通过名称匹配"
+      :title="t('matchByName')"
       :section-style="sectionStyle"
     >
       <press-tabbar
@@ -39,31 +39,31 @@
           icon="home-o"
           name="home"
         >
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item
           icon="search"
           name="search"
         >
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item
           icon="friends-o"
           name="friends"
         >
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item
           icon="setting-o"
           name="setting"
         >
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
       </press-tabbar>
     </demo-block>
 
     <demo-block
-      title="显示徽标"
+      :title="t('badge')"
       :section-style="sectionStyle"
     >
       <press-tabbar
@@ -73,31 +73,31 @@
         @change="onChange"
       >
         <press-tabbar-item icon="home-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item
           icon="search"
           dot
         >
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item
           icon="friends-o"
           info="5"
         >
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item
           icon="setting-o"
           info="20"
         >
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
       </press-tabbar>
     </demo-block>
 
     <demo-block
-      title="自定义图标"
+      :title="t('customIcon')"
       :section-style="sectionStyle"
     >
       <press-tabbar
@@ -119,19 +119,19 @@
             mode="aspectFit"
             style="width: 23px; height: 18px;"
           >
-          自定义
+          {{ t('custom') }}
         </press-tabbar-item>
         <press-tabbar-item icon="search">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item icon="setting-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
       </press-tabbar>
     </demo-block>
 
     <demo-block
-      title="自定义颜色"
+      :title="t('customColor')"
       :section-style="sectionStyle"
     >
       <press-tabbar
@@ -143,16 +143,16 @@
         @change="onChange"
       >
         <press-tabbar-item icon="home-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item icon="search">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item icon="friends-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
         <press-tabbar-item icon="setting-o">
-          标签
+          {{ t('tag') }}
         </press-tabbar-item>
       </press-tabbar>
     </demo-block>
@@ -164,6 +164,25 @@ import PressTabbarItem from 'src/packages/press-tabbar-item/press-tabbar-item.vu
 
 
 export default {
+  i18n: {
+    'zh-CN': {
+      badge: '徽标提示',
+      customIcon: '自定义图标',
+      customColor: '自定义颜色',
+      matchByName: '通过名称匹配',
+      switchEvent: '监听切换事件',
+      selectTip: '你切换到了',
+    },
+    'en-US': {
+      badge: 'Show Badge',
+      customIcon: 'Custom Icon',
+      customColor: 'Custom Color',
+      matchByName: 'Match by name',
+      switchEvent: 'Change Event',
+      selectTip: 'You select ',
+    },
+  },
+
   components: {
     PressTabbar,
     PressTabbarItem,

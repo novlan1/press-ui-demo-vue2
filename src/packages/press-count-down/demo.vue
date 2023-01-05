@@ -1,24 +1,24 @@
 <template>
   <div class="demo-wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :section-style="sectionStyle"
     >
       <press-count-down :time="time" />
     </demo-block>
 
     <demo-block
-      title="自定义格式"
+      :title="t('customFormat')"
       :section-style="sectionStyle"
     >
       <press-count-down
         :time="time"
-        format="DD 天 HH 时 mm 分 ss 秒"
+        :format="t('formatWithDay')"
       />
     </demo-block>
 
     <demo-block
-      title="毫秒级渲染"
+      :title="t('millisecond')"
       :section-style="sectionStyle"
     >
       <press-count-down
@@ -29,7 +29,7 @@
     </demo-block>
 
     <demo-block
-      title="自定义样式"
+      :title="t('customStyle')"
       :section-style="sectionStyle"
     >
       <press-count-down
@@ -50,7 +50,7 @@
     </demo-block>
 
     <demo-block
-      title="手动控制"
+      :title="t('manualControl')"
       :section-style="sectionStyle"
     >
       <press-count-down
@@ -68,17 +68,17 @@
       :column-num="3"
     >
       <press-grid-item
-        text="开始"
+        :text="t('start')"
         icon="play-circle-o"
         @click="start"
       />
       <press-grid-item
-        text="暂停"
+        :text="t('pause')"
         icon="pause-circle-o"
         @click="pause"
       />
       <press-grid-item
-        text="重置"
+        :text="t('reset')"
         icon="replay"
         @click="reset"
       />
@@ -91,6 +91,31 @@ import PressGrid from 'src/packages/press-grid/press-grid.vue';
 import PressGridItem from 'src/packages/press-grid-item/press-grid-item.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      millisecond: '毫秒级渲染',
+      customStyle: '自定义样式',
+      customFormat: '自定义格式',
+      manualControl: '手动控制',
+      formatWithDay: 'DD 天 HH 时 mm 分 ss 秒',
+      reset: '重置',
+      pause: '暂停',
+      start: '开始',
+      finished: '倒计时结束',
+    },
+    'en-US': {
+      millisecond: 'Millisecond',
+      customStyle: 'Custom Style',
+      customFormat: 'Custom Format',
+      manualControl: 'Manual Control',
+      formatWithDay: 'DD Day, HH:mm:ss',
+      reset: 'Reset',
+      pause: 'Pause',
+      start: 'Start',
+      finished: 'Finished',
+    },
+  },
+
   components: {
     PressCountDown,
     PressGrid,

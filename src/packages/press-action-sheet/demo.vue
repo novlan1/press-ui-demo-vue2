@@ -10,7 +10,7 @@
         custom-style="width: auto;"
         @click="onShowActionSheet(item.type)"
       >
-        弹出菜单
+        {{ t('check') }}
       </press-button>
     </demo-block>
 
@@ -28,12 +28,12 @@
 
     <press-action-sheet
       :show="showCustom"
-      title="标题"
+      :title="t('title')"
       @close="onClose"
       @select="onSelect"
     >
       <div style="padding: 16px;">
-        内容
+        {{ t('content') }}
       </div>
     </press-action-sheet>
   </div>
@@ -41,60 +41,73 @@
 <script>
 import PressActionSheet from 'src/packages/press-action-sheet/press-action-sheet.vue';
 
-const actions = [
-  {
-    name: '选项1',
-  },
-  {
-    name: '选项2',
-  },
-  {
-    name: '选项3',
-    subname: '描述信息',
-    openType: 'share',
-  },
-];
-const statusActions = [
-  { name: '着色选项', color: '#ee0a24' },
-  { loading: true },
-  { name: '禁用选项', disabled: true },
-];
-
-const wxActions = [
-  { name: '获取用户信息', color: '#07c160', openType: 'getUserInfo' },
-];
 
 export default {
+  i18n: {
+    'zh-CN': {
+      option1: '选项一',
+      option2: '选项二',
+      option3: '选项三',
+      subname: '描述信息',
+      showCancel: '展示取消按钮',
+      buttonText: '弹出菜单',
+      customPanel: '自定义面板',
+      description: '这是一段描述信息',
+      optionStatus: '选项状态',
+      coloredOption: '着色选项',
+      disabledOption: '禁用选项',
+      showDescription: '展示描述信息',
+      wxOpen: '微信开放能力',
+      getUserInfo: '获取用户信息',
+    },
+    'en-US': {
+      option1: 'Option 1',
+      option2: 'Option 2',
+      option3: 'Option 3',
+      subname: 'Description',
+      showCancel: 'Show Cancel Button',
+      buttonText: 'Show ActionSheet',
+      customPanel: 'Custom Panel',
+      description: 'Description',
+      optionStatus: 'Option Status',
+      coloredOption: 'Colored Option',
+      disabledOption: 'Disabled Option',
+      showDescription: 'Show Description',
+      wxOpen: 'Wechat Open API',
+      getUserInfo: 'Get User Info',
+    },
+  },
+
   components: {
     PressActionSheet,
   },
   data() {
     const  demoList = [
       {
-        title: '基础用法',
+        title: this.t('basicUsage'),
         type: 'basic',
       },
       {
-        title: '选项状态',
+        title: this.t('optionStatus'),
         type: 'status',
       },
       {
-        title: '展示取消状态',
+        title: this.t('showCancel'),
         type: 'cancel',
       },
       {
-        title: '展示描述状态',
+        title: this.t('showDescription'),
         type: 'description',
       },
       {
-        title: '展示标题栏',
+        title: this.t('customPanel'),
         type: 'title',
       },
 
     ];
     if (process.env.UNI_PLATFORM !== 'h5') {
       demoList.push({
-        title: '微信开放能力',
+        title: this.t('wxOpen'),
         type: 'wxOpen',
       });
     }
@@ -106,11 +119,40 @@ export default {
       cancelText: '',
       description: '',
       title: '',
-      curActions: actions,
+      curActions: [],
     };
+  },
+  computed: {
+    actions() {
+      return [
+        {
+          name: this.t('option1'),
+        },
+        {
+          name: this.t('option2'),
+        },
+        {
+          name: this.t('option3'),
+          subname: this.t('subname'),
+          openType: 'share',
+        },
+      ];
+    },
+  },
+  mounted() {
+    this.curActions = this.actions;
   },
   methods: {
     onShowActionSheet(type) {
+      const statusActions = [
+        { name: this.t('coloredOption'), color: '#ee0a24' },
+        { loading: true },
+        { name: this.t('disabledOption'), disabled: true },
+      ];
+
+      const wxActions = [
+        { name: this.t('getUserInfo'), color: '#07c160', openType: 'getUserInfo' },
+      ];
       let cancelText = '';
       let description = '';
       let curActions = [];
@@ -121,12 +163,12 @@ export default {
           return;
         }
         case 'basic': {
-          curActions = actions;
+          curActions = this.actions;
           break;
         }
         case 'wxOpen': {
           curActions = wxActions;
-          title = '标题';
+          title = this.t('title');
           break;
         }
         case 'status': {
@@ -134,13 +176,13 @@ export default {
           break;
         }
         case 'cancel': {
-          curActions = actions;
-          cancelText = '取消';
+          curActions = this.actions;
+          cancelText = this.t('cancel');
           break;
         }
         case 'description': {
-          curActions = actions;
-          description = '这是一段描述信息';
+          curActions = this.actions;
+          description =  this.t('description');
           break;
         }
         default: {

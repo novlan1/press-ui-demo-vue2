@@ -29,9 +29,9 @@
         </div>
 
         <div class="press-grid-item__text text-class">
-          <text v-if="text">
+          <span v-if="text">
             {{ text }}
-          </text>
+          </span>
 
           <slot
             v-else
@@ -159,6 +159,23 @@ export default {
   float: left;
   box-sizing: border-box;
 
+  &__icon {
+    display: flex;
+    align-items: center;
+    font-size: var(--grid-item-icon-size, $grid-item-icon-size);
+    height: var(--grid-item-icon-size, $grid-item-icon-size);
+  }
+
+  &__text {
+    word-wrap: break-word;
+    color: var(--grid-item-text-color, $grid-item-text-color);
+    font-size: var(--grid-item-text-font-size, $grid-item-text-font-size);
+  }
+
+  &__icon + &__text {
+    margin-top: 8px;
+  }
+
   &--square {
     height: 0;
   }
@@ -227,23 +244,6 @@ export default {
         $grid-item-content-active-color
       );
     }
-  }
-
-  &__icon {
-    display: flex;
-    align-items: center;
-    font-size: var(--grid-item-icon-size, $grid-item-icon-size);
-    height: var(--grid-item-icon-size, $grid-item-icon-size);
-  }
-
-  &__text {
-    word-wrap: break-word;
-    color: var(--grid-item-text-color, $grid-item-text-color);
-    font-size: var(--grid-item-text-font-size, $grid-item-text-font-size);
-  }
-
-  &__icon + &__text {
-    margin-top: 8px;
   }
 }
 </style>

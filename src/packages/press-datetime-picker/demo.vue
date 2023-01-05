@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <demo-block title="选择完整时间">
+    <demo-block :title="t('datetimeType')">
       <press-datetime-picker
         type="datetime"
         :value="currentDate"
@@ -10,7 +10,9 @@
       />
     </demo-block>
 
-    <demo-block title="选择年月日">
+    <demo-block
+      :title="t('dateType')"
+    >
       <press-datetime-picker
         type="date"
         :value="currentDate"
@@ -20,7 +22,7 @@
       />
     </demo-block>
 
-    <demo-block title="选择年月">
+    <demo-block :title="t('yearMonthType')">
       <press-datetime-picker
         type="year-month"
         :value="currentDate"
@@ -29,7 +31,7 @@
       />
     </demo-block>
 
-    <demo-block title="选择时间">
+    <demo-block :title="t('timeType')">
       <press-datetime-picker
         type="time"
         :value="currentTime"
@@ -39,7 +41,7 @@
       />
     </demo-block>
 
-    <demo-block title="选项过滤器">
+    <demo-block :title="t('optionFilter')">
       <press-datetime-picker
         type="time"
         :value="currentTime"
@@ -51,7 +53,41 @@
 </template>
 <script>
 
+let that;
+
 export default {
+  i18n: {
+    'zh-CN': {
+      day: '日',
+      year: '年',
+      month: '月',
+      hour: '时',
+      minute: '分',
+      timeType: '选择时间',
+      dateType: '选择年月日',
+      datetimeType: '选择完整时间',
+      datehourType: '选择年月日小时',
+      monthDayType: '选择月日',
+      yearMonthType: '选择年月',
+      optionFilter: '选项过滤器',
+      sortColumns: '自定义列排序',
+    },
+    'en-US': {
+      day: ' Day',
+      year: ' Year',
+      month: ' Month',
+      hour: 'Hour',
+      minute: 'Minute',
+      timeType: 'Choose Time',
+      dateType: 'Choose Date',
+      datetimeType: 'Choose DateTime',
+      datehourType: 'Choose DateHour',
+      monthDayType: 'Choose Month-Day',
+      yearMonthType: 'Choose Year-Month',
+      optionFilter: 'Option Filter',
+      sortColumns: 'Columns Order',
+    },
+  },
   data() {
     return {
       minHour: 10,
@@ -61,28 +97,18 @@ export default {
       currentDate: new Date().getTime(),
       currentTime: '12:00',
 
-      formatter(type, val) {
-        if (type === 'year') {
-          return `${val}年`;
-        } if (type === 'month') {
-          return `${val}月`;
-        } if (type === 'day') {
-          return `${val}日`;
-        } if (type === 'hour') {
-          return `${val}时`;
-        } if (type === 'minute') {
-          return `${val}分`;
-        }
-      },
       filter(type, options) {
         if (type === 'minute') {
           return options.filter(option => option % 5 === 0);
         }
         return options;
       },
+
+
     };
   },
   onLoad() {
+    that = this;
     // #ifdef MP-QQ
     qq.showShareMenu({
       showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment'],
@@ -90,7 +116,26 @@ export default {
     // #endif
   },
   methods: {
+    formatter(type, val) {
+      const year = that.t('year');
+      const month = that.t('month');
+      const day = that.t('day');
+      const hour = that.t('hour');
+      const minute = that.t('minute');
 
+      console.log('type', type, val);
+      if (type === 'year') {
+        return `${val}${year}`;
+      } if (type === 'month') {
+        return `${val}${month}`;
+      } if (type === 'day') {
+        return `${val}${day}`;
+      } if (type === 'hour') {
+        return `${val}${hour}`;
+      } if (type === 'minute') {
+        return `${val}${minute}`;
+      }
+    },
     onInput(event) {
       console.log('onInput.event', event);
       this.currentDate = event;

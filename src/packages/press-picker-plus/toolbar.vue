@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { t } from '../locale';
 
 export default {
   props: {
@@ -42,11 +43,11 @@ export default {
     showToolbar: Boolean,
     cancelButtonText: {
       type: String,
-      default: '取消',
+      default: t('picker.cancel'),
     },
     confirmButtonText: {
       type: String,
-      default: '确认',
+      default: t('picker.confirm'),
     },
   },
   methods: {

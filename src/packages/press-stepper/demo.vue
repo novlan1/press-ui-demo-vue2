@@ -1,13 +1,13 @@
 <template>
   <div class="wrap">
-    <press-cell title="基础用法">
+    <press-cell :title="t('basicUsage')">
       <press-stepper
         :value="value"
         @change="onChange"
       />
     </press-cell>
 
-    <press-cell title="步长设置">
+    <press-cell :title="t('step')">
       <press-stepper
         :value="value"
         :step="2"
@@ -15,7 +15,7 @@
       />
     </press-cell>
 
-    <press-cell title="限制输入范围">
+    <press-cell :title="t('range')">
       <press-stepper
         :value="value"
         :min="5"
@@ -24,7 +24,7 @@
       />
     </press-cell>
 
-    <press-cell title="限制输入整数">
+    <press-cell :title="t('integer')">
       <press-stepper
         :value="value"
         integer
@@ -32,7 +32,7 @@
       />
     </press-cell>
 
-    <press-cell title="禁用状态">
+    <press-cell :title="t('disabled')">
       <press-stepper
         disabled
         :value="value"
@@ -40,7 +40,7 @@
       />
     </press-cell>
 
-    <press-cell title="关闭长按">
+    <press-cell :title="t('closeLongPress')">
       <press-stepper
         :long-press="false"
         :value="value"
@@ -48,7 +48,7 @@
       />
     </press-cell>
 
-    <press-cell title="固定小数位数">
+    <press-cell :title="t('decimalLength')">
       <press-stepper
         :step="0.2"
         :decimal-length="1"
@@ -57,7 +57,7 @@
       />
     </press-cell>
 
-    <press-cell title="异步变更">
+    <press-cell :title="t('asyncChange')">
       <press-stepper
         async-change
         :value="asyncValue"
@@ -65,7 +65,7 @@
       />
     </press-cell>
 
-    <press-cell title="自定义大小">
+    <press-cell :title="t('customSize')">
       <press-stepper
         input-width="40px"
         button-size="32px"
@@ -85,6 +85,31 @@ import PressStepper from 'src/packages/press-stepper/press-stepper.vue';
 import PressToast from 'src/packages/press-toast/press-toast.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      step: '步长设置',
+      range: '限制输入范围',
+      integer: '限制输入整数',
+      roundTheme: '圆角风格',
+      asyncChange: '异步变更',
+      customSize: '自定义大小',
+      disableInput: '禁用输入框',
+      decimalLength: '固定小数位数',
+      closeLongPress: '关闭长按',
+    },
+    'en-US': {
+      step: 'Step',
+      range: 'Range',
+      integer: 'Integer',
+      roundTheme: 'Round Theme',
+      asyncChange: 'Async Change',
+      customSize: 'Custom Size',
+      disableInput: 'Disable Input',
+      decimalLength: 'Decimal Length',
+      closeLongPress: 'Close Long Press',
+    },
+  },
+
   components: {
     PressStepper,
     PressToast,

@@ -1,12 +1,12 @@
 <template>
   <div class="wrap">
-    <demo-block title="按钮模式">
+    <demo-block :title="t('buttonMode')">
       <div
         class="primary-btn"
         style="position:relative;margin-left: 10px;"
         @click.stop="onShowLoading('btn')"
       >
-        {{ options.btn.show ? '' : "点击加载" }}
+        {{ options.btn.show ? '' : t('click') }}
         <press-loading
           v-if="options.btn.show"
           loading-scenes="btn"
@@ -14,23 +14,23 @@
       </div>
     </demo-block>
 
-    <demo-block title="页面模式">
+    <demo-block :title="t('pageMode')">
       <div
         class="primary-btn"
         style="position:relative;margin-left: 10px;"
         @click.stop="onShowLoading('page')"
       >
-        点我查看
+        {{ t('check') }}
       </div>
     </demo-block>
 
-    <demo-block title="指定背景色">
+    <demo-block :title="t('customBackground')">
       <div
         class="primary-btn"
         style="position:relative;margin-left: 10px;"
         @click.stop="onShowLoading('bg')"
       >
-        三秒后消失
+        {{ t('disappear') }}
       </div>
     </demo-block>
 
@@ -45,6 +45,23 @@
 </template>
 <script>
 export default {
+  i18n: {
+    'zh-CN': {
+      buttonMode: '按钮模式',
+      pageMode: '页面模式',
+      customBackground: '指定背景色',
+      click: '点击加载',
+      disappear: '三秒后消失',
+    },
+    'en-US': {
+      buttonMode: 'Button Mode',
+      pageMode: 'Page Mode',
+      customBackground: 'Custom Background',
+      click: 'Check',
+      disappear: 'Check',
+    },
+  },
+
   data() {
     return {
       options: {

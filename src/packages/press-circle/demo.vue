@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
@@ -12,7 +12,7 @@
     </demo-block>
 
     <demo-block
-      title="样式定制"
+      :title="t('customStyle')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
@@ -20,7 +20,7 @@
         <press-circle
           :value="value"
           :stroke-width="6"
-          text="宽度定制"
+          :text="t('customWidth')"
         />
       </div>
 
@@ -30,7 +30,7 @@
           :stroke-width="6"
           layer-color="#eeeeee"
           color="#ee0a24"
-          text="颜色定制"
+          :text="t('customColor')"
         />
       </div>
 
@@ -39,7 +39,7 @@
           :value="value"
           :stroke-width="6"
           :color="gradientColor"
-          text="渐变色"
+          :text="t('gradient')"
         />
       </div>
 
@@ -49,7 +49,7 @@
           :stroke-width="6"
           color="#07c160"
           :clockwise="false"
-          text="逆时针"
+          :text="t('counterClockwise')"
         />
       </div>
 
@@ -57,7 +57,7 @@
         <press-circle
           :value="value"
           :size="120"
-          text="大小定制"
+          :text="t('customSize')"
         />
       </div>
 
@@ -67,13 +67,13 @@
           custom-style="margin-right:8px;"
           @click="onChangeCircleValue('plus')"
         >
-          增加
+          {{ t('add') }}
         </press-button>
         <press-button
           type="e-sport-primary"
           @click="onChangeCircleValue('minus')"
         >
-          减少
+          {{ t('decrease') }}
         </press-button>
       </div>
     </demo-block>
@@ -83,6 +83,25 @@
 import PressCircle from 'src/packages/press-circle/press-circle.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      gradient: '渐变色',
+      customSize: '大小定制',
+      customStyle: '样式定制',
+      customColor: '颜色定制',
+      customWidth: '宽度定制',
+      counterClockwise: '逆时针',
+    },
+    'en-US': {
+      gradient: 'Gradient',
+      customSize: 'Size',
+      customStyle: 'Custom Style',
+      customColor: 'Color',
+      customWidth: 'Width',
+      counterClockwise: 'Direction',
+    },
+  },
+
   components: {
     PressCircle,
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="demo-wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       section-style="margin:0;"
     >
       <press-swipe-cell
@@ -15,16 +15,16 @@
           slot="left"
           class="left"
         >
-          选择
+          {{ t('select' ) }}
         </div>
         <div class="content">
-          一些内容
+          {{ t('content') }}
         </div>
         <div
           slot="right"
           class="right"
         >
-          删除
+          {{ t('delete') }}
         </div>
       </press-swipe-cell>
     </demo-block>
@@ -33,6 +33,29 @@
 <script>
 
 export default {
+  i18n: {
+    'zh-CN': {
+      select: '选择',
+      delete: '删除',
+      collect: '收藏',
+      title: '单元格',
+      confirm: '确定删除吗？',
+      cardTitle: '商品标题',
+      beforeClose: '异步关闭',
+      customContent: '自定义内容',
+    },
+    'en-US': {
+      select: 'Select',
+      delete: 'Delete',
+      collect: 'Collect',
+      title: 'Cell',
+      confirm: 'Are you sure to delete?',
+      cardTitle: 'Title',
+      beforeClose: 'Before Close',
+      customContent: 'Custom Content',
+    },
+  },
+
   data() {
     return {
     };

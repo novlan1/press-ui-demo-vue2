@@ -7,75 +7,75 @@
     <!-- #endif -->
 
 
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <press-button
         type="e-sport-primary"
         custom-style="width: auto;"
-        @click="showNotify('通知内容')"
+        @click="showNotify(t('content'))"
       >
-        基础用法
+        {{ t('basicUsage') }}
       </press-button>
     </demo-block>
 
-    <demo-block title="通知类型">
+    <demo-block :title="t('notifyType')">
       <div style="margin-bottom: 12px;">
         <press-button
           type="e-sport-primary"
           custom-style="margin: 0 12px 0 0;width: auto;"
-          @click="showNotify({ type: 'primary', message: '通知内容' })"
+          @click="showNotify({ type: 'primary', message: t('content') })"
         >
-          主要通知
+          {{ t('primary') }}
         </press-button>
 
         <press-button
           type="e-sport-primary"
           custom-style="width: auto;"
-          @click="showNotify({ type: 'success', message: '通知内容' })"
+          @click="showNotify({ type: 'success', message: t('content') })"
         >
-          成功通知
+          {{ t('success') }}
         </press-button>
       </div>
       <div>
         <press-button
           type="e-sport-primary"
           custom-style="margin: 0 12px 0 0;width: auto;"
-          @click="showNotify({ type: 'danger', message: '通知内容' })"
+          @click="showNotify({ type: 'danger', message:t('content') })"
         >
-          危险通知
+          {{ t('danger') }}
         </press-button>
 
         <press-button
           type="e-sport-primary"
           custom-style="width: auto;"
-          @click="showNotify({ type: 'warning', message: '通知内容' })"
+          @click="showNotify({ type: 'warning', message: t('content')})"
         >
-          警告通知
+          {{ t('warning') }}
         </press-button>
       </div>
     </demo-block>
 
-    <demo-block title="自定义配置">
+    <demo-block :title="t('customNotify')">
       <press-button
         type="e-sport-primary"
         custom-style="margin: 0 12px 0 0;width: auto;"
         @click="showNotify({
-          message: '自定义颜色',
+          message: t('customColor'),
           color: '#ad0000',
           background: '#ffe1e1',
         })"
       >
-        自定义颜色
+        {{ t('customColor') }}
       </press-button>
 
       <press-button
         type="e-sport-primary"
         custom-style="width: auto;"
         @click="showNotify({
-          message: '自定义时长',
+          message: t('customDuration'),
           duration: 1000,
         })"
       >
-        自定义时长
+        {{ t('customDuration') }}
       </press-button>
     </demo-block>
   </div>
@@ -86,6 +86,33 @@ import PressNotifyHandler from 'src/packages/press-notify/';
 
 
 export default {
+  i18n: {
+    'zh-CN': {
+      primary: '主要通知',
+      success: '成功通知',
+      danger: '危险通知',
+      warning: '警告通知',
+      content: '通知内容',
+      notifyType: '通知类型',
+      customColor: '自定义颜色',
+      customNotify: '自定义配置',
+      componentCall: '组件调用',
+      customDuration: '自定义时长',
+    },
+    'en-US': {
+      primary: 'Primary',
+      success: 'Success',
+      danger: 'Danger',
+      warning: 'Warning',
+      content: 'Notify Message',
+      notifyType: 'Notify Type',
+      customColor: 'Custom Color',
+      customNotify: 'Custom Notify',
+      componentCall: 'Component Call',
+      customDuration: 'Custom Duration',
+    },
+  },
+
   components: {
     PressNotify,
   },

@@ -1,14 +1,14 @@
 <template>
   <div class="wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-nav-bar
-        title="标题"
-        left-text="返回"
-        right-text="按钮"
+        :title="t('title')"
+        :left-text="t('back')"
+        :right-text="t('button')"
         left-arrow
         :safe-area-inset-top="false"
         @click-left="onClickLeft"
@@ -17,13 +17,13 @@
     </demo-block>
 
     <demo-block
-      title="高级用法"
+      :title="t('useSlot')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
       <press-nav-bar
-        title="标题"
-        left-text="返回"
+        :title="t('title')"
+        :left-text="t('back')"
         left-arrow
         :safe-area-inset-top="false"
       >
@@ -37,6 +37,15 @@
 </template>
 <script>
 export default {
+  i18n: {
+    'zh-CN': {
+      useSlot: '使用插槽',
+    },
+    'en-US': {
+      useSlot: 'Use Slot',
+    },
+  },
+
   data() {
     return {
       sectionStyle: 'margin: 0;background: #f7f8fa;',

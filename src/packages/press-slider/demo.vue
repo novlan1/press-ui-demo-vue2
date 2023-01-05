@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :section-style="sectionStyle"
     >
       <PressSlider
@@ -11,7 +11,7 @@
     </demo-block>
 
     <demo-block
-      title="双滑块"
+      :title="t('title2')"
       :section-style="sectionStyle"
     >
       <PressSlider
@@ -22,7 +22,7 @@
     </demo-block>
 
     <demo-block
-      title="指定选择范围"
+      :title="t('title3')"
       :section-style="sectionStyle"
     >
       <PressSlider
@@ -34,7 +34,7 @@
     </demo-block>
 
     <demo-block
-      title="禁用"
+      :title="t('title4')"
       :section-style="sectionStyle"
     >
       <PressSlider
@@ -45,7 +45,7 @@
     </demo-block>
 
     <demo-block
-      title="指定步长"
+      :title="t('title5')"
       :section-style="sectionStyle"
     >
       <PressSlider
@@ -56,7 +56,7 @@
     </demo-block>
 
     <demo-block
-      title="自定义样式"
+      :title="t('customStyle')"
       :section-style="sectionStyle"
     >
       <PressSlider
@@ -68,7 +68,7 @@
     </demo-block>
 
     <demo-block
-      title="自定义按钮"
+      :title="t('customButton')"
       :section-style="sectionStyle"
     >
       <PressSlider
@@ -87,7 +87,7 @@
     </demo-block>
 
     <demo-block
-      title="垂直方向"
+      :title="t('vertical')"
       :section-style="sectionStyle"
     >
       <div style="height: 150px;">
@@ -116,6 +116,30 @@ import PressSlider from 'src/packages/press-slider/press-slider.vue';
 import PressToast from 'src/packages/press-toast/press-toast.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      title1: '基础用法',
+      title2: '双滑块',
+      title3: '指定选择范围',
+      title4: '禁用',
+      title5: '指定步长',
+      customStyle: '自定义样式',
+      customButton: '自定义按钮',
+      text: '当前值：',
+      vertical: '垂直方向',
+    },
+    'en-US': {
+      title1: 'Basic Usage',
+      title2: 'Dual thumb mode',
+      title3: 'Range',
+      title4: 'Disabled',
+      title5: 'Step size',
+      customStyle: 'Custom Style',
+      customButton: 'Custom Button',
+      text: 'Current value: ',
+      vertical: 'Vertical',
+    },
+  },
   components: {
     PressSlider,
     PressToast,
@@ -136,7 +160,7 @@ export default {
   methods: {
     onChange(val) {
       console.log('onChange.val', val);
-      this.$toast(`当前值： ${val.toString()}`, val);
+      this.$toast(`${this.t('text')}${val.toString()}`, val);
     },
     onDrag(val) {
       console.log('onDrag', val);

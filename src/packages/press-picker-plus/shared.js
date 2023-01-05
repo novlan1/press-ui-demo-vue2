@@ -1,14 +1,16 @@
+import { t } from '../locale';
+
 export const pickerProps = {
   title: String,
   loading: Boolean,
   showToolbar: Boolean,
   cancelButtonText: {
     type: String,
-    default: '取消',
+    default: t('picker.cancel'),
   },
   confirmButtonText: {
     type: String,
-    default: '确认',
+    default: t('picker.confirm'),
   },
   visibleItemCount: {
     type: Number,

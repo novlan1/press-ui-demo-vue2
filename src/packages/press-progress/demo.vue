@@ -1,12 +1,12 @@
 <template>
   <div class="demo-wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <div :style="progressStyle">
         <press-progress :percentage="50" />
       </div>
     </demo-block>
 
-    <demo-block title="线条粗细">
+    <demo-block :title="t('strokeWidth')">
       <div :style="progressStyle">
         <press-progress
           :percentage="50"
@@ -15,7 +15,7 @@
       </div>
     </demo-block>
 
-    <demo-block title="置灰">
+    <demo-block :title="t('title2')">
       <div :style="progressStyle">
         <press-progress
           :percentage="50"
@@ -24,10 +24,10 @@
       </div>
     </demo-block>
 
-    <demo-block title="样式定制">
+    <demo-block :title="t('title3')">
       <div :style="progressStyle">
         <press-progress
-          pivot-text="橙色"
+          :pivot-text="t('orange')"
           color="#f2826a"
           :percentage="25"
         />
@@ -35,7 +35,7 @@
 
       <div :style="progressStyle">
         <press-progress
-          pivot-text="红色"
+          :pivot-text="t('red')"
           color="#ee0a24"
           :percentage="50"
         />
@@ -44,7 +44,7 @@
       <div :style="progressStyle">
         <press-progress
           :percentage="75"
-          pivot-text="紫色"
+          :pivot-text="t('purple')"
           pivot-color="#7232dd"
           color="linear-gradient(to right, #be99ff, #7232dd)"
         />
@@ -57,6 +57,19 @@ import PressProgress from 'src/packages/press-progress/press-progress.vue';
 
 
 export default {
+  i18n: {
+    'zh-CN': {
+      title2: '置灰',
+      title3: '样式定制',
+      strokeWidth: '线条粗细',
+    },
+    'en-US': {
+      title2: 'Inactive',
+      title3: 'Custom Style',
+      strokeWidth: 'Stroke Width',
+    },
+  },
+
   components: {
     PressProgress,
   },

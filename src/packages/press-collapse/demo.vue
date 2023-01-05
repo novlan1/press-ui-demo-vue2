@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
@@ -10,28 +10,28 @@
         @change="onChange"
       >
         <press-collapse-item
-          title="标题1"
+          :title="`${t('title')} 1`"
           name="1"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
         <press-collapse-item
-          title="标题2"
+          :title="`${t('title')} 2`"
           name="2"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
         <press-collapse-item
-          title="标题3"
+          :title="`${t('title')} 3`"
           name="3"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
       </press-collapse>
     </demo-block>
 
     <demo-block
-      title="手风琴"
+      :title="t('accordion')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
@@ -41,28 +41,28 @@
         @change="onChangeAccordion"
       >
         <press-collapse-item
-          title="标题1"
+          :title="`${t('title')} 1`"
           name="1"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
         <press-collapse-item
-          title="标题2"
+          :title="`${t('title')} 2`"
           name="2"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
         <press-collapse-item
-          title="标题3"
+          :title="`${t('title')} 3`"
           name="3"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
       </press-collapse>
     </demo-block>
 
     <demo-block
-      title="禁用状态"
+      :title="t('disabled')"
       :header-style="headerStyle"
       :section-style="sectionStyle"
     >
@@ -72,30 +72,30 @@
         @change="onChangeDisabled"
       >
         <press-collapse-item
-          title="标题1"
+          :title="`${t('title')} 1`"
           name="1"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
         <press-collapse-item
-          title="标题2"
+          :title="`${t('title')} 2`"
           disabled
           name="2"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
         <press-collapse-item
-          title="标题3"
+          :title="`${t('title')} 3`"
           name="3"
           disabled
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
       </press-collapse>
     </demo-block>
 
     <demo-block
-      title="自定义标题内容"
+      :title="t('titleSlot')"
       :section-style="sectionStyle"
       :header-style="headerStyle"
     >
@@ -105,18 +105,18 @@
       >
         <press-collapse-item name="1">
           <div slot="title">
-            标题1
+            {{ t('title') }} 1
             <press-icon-plus name="question-o" />
           </div>
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
 
         <press-collapse-item
-          title="标题2"
+          :title="`${t('title')} 2`"
           name="2"
           icon="shop-o"
         >
-          代码是写出来给人看的，附带能在机器上运行
+          {{ t('text') }}
         </press-collapse-item>
       </press-collapse>
     </demo-block>
@@ -128,6 +128,19 @@ import PressCollapse from 'src/packages/press-collapse/press-collapse.vue';
 
 
 export default {
+  i18n: {
+    'zh-CN': {
+      accordion: '手风琴',
+      titleSlot: '自定义标题内容',
+      text: '代码是写出来给人看的，附带能在机器上运行',
+    },
+    'en-US': {
+      accordion: 'Accordion',
+      titleSlot: 'Custom title',
+      text: 'Content',
+    },
+  },
+
   components: {
     PressCollapseItem,
     PressCollapse,

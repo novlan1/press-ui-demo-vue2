@@ -1,6 +1,6 @@
 <template>
   <div class="demo-wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <press-card :is-shadow="false">
         <text class="press-body">
           这是一个基础卡片示例，内容较少，此示例展示了一个没有任何属性不带阴影的卡片。

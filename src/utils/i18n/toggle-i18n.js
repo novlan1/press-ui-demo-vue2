@@ -1,15 +1,15 @@
 import { LOCALE_STORAGE_KEY, DEFAULT_LOCALE_NUMBER, LOCALE_NUMBER_MAP } from './config';
-import { isInIFrame } from '../index';
+import { isInIFrame, storageUtil } from '../index';
 
 export function toggleI18n() {
   // #ifdef H5
   if (isInIFrame()) return;
   // #endif
 
-  const number = uni.getStorageSync(LOCALE_STORAGE_KEY) || DEFAULT_LOCALE_NUMBER;
+  const number = storageUtil.get(LOCALE_STORAGE_KEY) || DEFAULT_LOCALE_NUMBER;
   const newNumber = Number(!Number(number));
 
-  uni.setStorageSync(LOCALE_STORAGE_KEY, newNumber);
+  storageUtil.set(LOCALE_STORAGE_KEY, newNumber);
 
   // #ifdef H5
   uni.showToast({

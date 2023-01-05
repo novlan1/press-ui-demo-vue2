@@ -1,7 +1,7 @@
 <template>
   <div class="demo-wrap">
     <demo-block
-      title="基础用法"
+      :title="t('basicUsage')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -11,17 +11,17 @@
         <press-tab
           v-for="(item,index) of tabs4"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="通过名称匹配"
+      :title="t('matchByName')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -30,35 +30,35 @@
         <press-tab
           v-for="(item, index) of tabsWithName"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
           :name="item.name"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="横向滚动"
+      :title="t('title2')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs>
         <press-tab
           v-for="(item,index) of tabs7"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="禁用标签"
+      :title="t('title3')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -67,18 +67,18 @@
         <press-tab
           v-for="(item,index) of tabsDisabled"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
           :disabled="!!item.disabled"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="样式风格"
+      :title="t('title4')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -87,17 +87,17 @@
         <press-tab
           v-for="(item,index) of tabs4"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="点击事件"
+      :title="t('title5')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -106,17 +106,17 @@
         <press-tab
           v-for="(item,index) of tabs2"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="粘性布局"
+      :title="t('title6')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -125,17 +125,17 @@
         <press-tab
           v-for="(item,index) of tabs4"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="切换动画"
+      :title="t('title8')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -144,17 +144,17 @@
         <press-tab
           v-for="(item,index) of tabs4"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
     </demo-block>
 
     <demo-block
-      title="滑动切换"
+      :title="t('title9')"
       header-style="background: #f7f8fa;"
     >
       <press-tabs
@@ -163,10 +163,10 @@
         <press-tab
           v-for="(item,index) of tabs4"
           :key="index"
-          :title="`标签 ${index+1}`"
+          :title="`${t('tab')} ${index+1}`"
         >
           <div class="content">
-            内容 {{ index+1 }}
+            {{ t('content') }} {{ index+1 }}
           </div>
         </press-tab>
       </press-tabs>
@@ -176,6 +176,40 @@
 <script>
 
 export default {
+  i18n: {
+    'zh-CN': {
+      tab: '标签 ',
+      title2: '标签栏滚动',
+      title3: '禁用标签',
+      title4: '样式风格',
+      title5: '点击事件',
+      title6: '粘性布局',
+      title7: '自定义标签',
+      title8: '切换动画',
+      title9: '滑动切换',
+      title10: '滚动导航',
+      disabled: ' 已被禁用',
+      matchByName: '通过名称匹配',
+      beforeChange: '异步切换',
+    },
+    'en-US': {
+      tab: 'Tab ',
+      content: 'content of tab',
+      title2: 'Swipe Tabs',
+      title3: 'Disabled Tab',
+      title4: 'Card Style',
+      title5: 'Click Event',
+      title6: 'Sticky',
+      title7: 'Custom Tab',
+      title8: 'Switch Animation',
+      title9: 'Swipeable',
+      title10: 'Scrollspy',
+      disabled: ' is disabled',
+      matchByName: 'Match By Name',
+      beforeChange: 'Before Change',
+    },
+  },
+
   data() {
     return {
       active: 3,

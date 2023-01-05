@@ -1,50 +1,50 @@
 <template>
   <div class="demo-radio-group">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <press-radio-group
         :value="valueMap.basic"
         @change="(val) => onChange(val, 'basic')"
       >
         <press-radio name="a">
-          单选框 1
+          {{ t('radio') }} 1
         </press-radio>
         <press-radio name="b">
-          单选框 2
+          {{ t('radio') }} 2
         </press-radio>
       </press-radio-group>
     </demo-block>
 
-    <demo-block title="水平排列">
+    <demo-block :title="t('horizontal')">
       <press-radio-group
         :value="valueMap.horizontal"
         direction="horizontal"
         @change="(val) => onChange(val, 'horizontal')"
       >
         <press-radio name="a">
-          单选框 1
+          {{ t('radio') }} 1
         </press-radio>
         <press-radio name="b">
-          单选框 2
+          {{ t('radio') }} 2
         </press-radio>
       </press-radio-group>
     </demo-block>
 
-    <demo-block title="禁用状态">
+    <demo-block :title="t('disabled')">
       <press-radio-group
         :value="valueMap.disabled"
         disabled
         @change="(val) => onChange(val, 'disabled')"
       >
         <press-radio name="a">
-          单选框 1
+          {{ t('radio') }} 1
         </press-radio>
         <press-radio name="b">
-          单选框 2
+          {{ t('radio') }} 2
         </press-radio>
       </press-radio-group>
     </demo-block>
 
-    <demo-block title="自定义形状">
+    <demo-block :title="t('customShape')">
       <press-radio-group
         :value="valueMap.square"
         @change="(val) => onChange(val, 'square')"
@@ -53,18 +53,18 @@
           name="a"
           shape="square"
         >
-          单选框 1
+          {{ t('radio') }} 1
         </press-radio>
         <press-radio
           name="b"
           shape="square"
         >
-          单选框 2
+          {{ t('radio') }} 2
         </press-radio>
       </press-radio-group>
     </demo-block>
 
-    <demo-block title="自定义颜色">
+    <demo-block :title="t('customColor')">
       <press-radio-group
         :value="valueMap.customStyle"
         @change="(val) => onChange(val, 'customStyle')"
@@ -73,18 +73,18 @@
           name="a"
           checked-color="#07c160"
         >
-          单选框 1
+          {{ t('radio') }} 1
         </press-radio>
         <press-radio
           name="b"
           checked-color="#07c160"
         >
-          单选框 2
+          {{ t('radio') }} 2
         </press-radio>
       </press-radio-group>
     </demo-block>
 
-    <demo-block title="自定义大小">
+    <demo-block :title="t('customIconSize')">
       <press-radio-group
         :value="valueMap.customSize"
         @change="(val) => onChange(val, 'customSize')"
@@ -93,18 +93,18 @@
           name="a"
           icon-size="24px"
         >
-          单选框 1
+          {{ t('radio') }} 1
         </press-radio>
         <press-radio
           name="b"
           icon-size="24px"
         >
-          单选框 2
+          {{ t('radio') }} 2
         </press-radio>
       </press-radio-group>
     </demo-block>
 
-    <demo-block title="自定义图标">
+    <demo-block :title="t('customIcon')">
       <press-radio-group
         :value="valueMap.customIcon"
         @change="(val) => onChange(val, 'customIcon')"
@@ -113,7 +113,7 @@
           name="a"
           use-icon-slot
         >
-          单选框 1
+          {{ t('radio') }} 1
           <img
             slot="icon"
             :src="valueMap.customIcon === 'a' ? icon.active : icon.normal"
@@ -123,7 +123,7 @@
           name="b"
           use-icon-slot
         >
-          单选框 2
+          {{ t('radio') }} 2
           <img
             slot="icon"
             :src="valueMap.customIcon === 'b' ? icon.active : icon.normal"
@@ -132,7 +132,7 @@
       </press-radio-group>
     </demo-block>
 
-    <demo-block title="禁用文本点击">
+    <demo-block :title="t('disableLabel')">
       <press-radio-group
         :value="valueMap.labelDisabled"
         @change="(val) => onChange(val, 'labelDisabled')"
@@ -141,19 +141,19 @@
           name="a"
           label-disabled
         >
-          单选框 1
+          {{ t('radio') }} 1
         </press-radio>
         <press-radio
           name="b"
           label-disabled
         >
-          单选框 2
+          {{ t('radio') }} 2
         </press-radio>
       </press-radio-group>
     </demo-block>
 
     <demo-block
-      title="与 Cell 组件一起使用"
+      :title="t('withCell')"
       section-style="margin: 0;"
     >
       <press-radio-group
@@ -162,7 +162,7 @@
       >
         <press-cell-group>
           <press-cell
-            title="单选框 1"
+            :title="`${t('radio')} 1`"
             clickable
             data-name="1"
             @click="valueMap.cell = '1'"
@@ -173,7 +173,7 @@
             />
           </press-cell>
           <press-cell
-            title="单选框 2"
+            :title="`${t('radio')} 2`"
             clickable
             data-name="2"
             @click="valueMap.cell = '2'"
@@ -193,6 +193,33 @@ import PressRadio from 'src/packages/press-radio/press-radio.vue';
 import PressRadioGroup from 'src/packages/press-radio-group/press-radio-group.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      radio: '单选框',
+      text1: '未选中禁用',
+      text2: '选中且禁用',
+      withCell: '与 Cell 组件一起使用',
+      horizontal: '水平排列',
+      customIcon: '自定义图标',
+      customColor: '自定义颜色',
+      customShape: '自定义形状',
+      customIconSize: '自定义大小',
+      disableLabel: '禁用文本点击',
+    },
+    'en-US': {
+      radio: 'Radio',
+      text1: 'Disabled',
+      text2: 'Disabled and checked',
+      withCell: 'Inside a Cell',
+      horizontal: 'Hrizontal',
+      customIcon: 'Custom Icon',
+      customColor: 'Custom Color',
+      customShape: 'Custom Shape',
+      customIconSize: 'Custom Icon Size',
+      disableLabel: 'Disable label click',
+    },
+  },
+
   components: {
     PressRadio,
     PressRadioGroup,

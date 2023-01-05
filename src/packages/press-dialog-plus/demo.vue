@@ -1,34 +1,34 @@
 <template>
   <div class="demo-wrap">
-    <demo-block title="基础用法">
+    <demo-block :title="t('basicUsage')">
       <press-cell
-        title="提示弹窗"
+        :title="t('alert1')"
         is-link
         @click="onShowDialog('normal')"
       />
       <press-cell
-        title="提示弹窗（无标题）"
+        :title="t('alert2')"
         is-link
         @click="onShowDialog('noTitle')"
       />
       <press-cell
-        title="确认弹窗"
+        :title="t('confirm')"
         is-link
         @click="onShowDialog('cancel')"
       />
     </demo-block>
 
-    <demo-block title="异步关闭">
+    <demo-block :title="t('asyncClose')">
       <press-cell
-        title="异步关闭"
+        :title="t('asyncClose')"
         is-link
         @click="onShowDialog('async')"
       />
     </demo-block>
 
-    <demo-block title="组件调用">
+    <demo-block :title="t('componentCall')">
       <press-cell
-        title="组件调用"
+        :title="t('componentCall')"
         is-link
         @click="onShowDialog('component')"
       />
@@ -39,7 +39,7 @@
 
     <press-dialog-plus
       use-slot
-      title="标题"
+      :title="t('title')"
       :show="show"
       show-cancel-button
       confirm-button-open-type="getUserInfo"
@@ -69,6 +69,26 @@ const gBeforeClose = action => new Promise((resolve) => {
 
 
 export default {
+  i18n: {
+    'zh-CN': {
+      alert1: '提示弹窗',
+      alert2: '提示弹窗（无标题）',
+      confirm: '确认弹窗',
+      asyncClose: '异步关闭',
+      roundButton: '圆角按钮样式',
+      componentCall: '组件调用',
+      content: '代码是写出来给人看的，附带能在机器上运行',
+    },
+    'en-US': {
+      alert1: 'Alert',
+      alert2: 'Alert without title',
+      confirm: 'Confirm dialog',
+      asyncClose: 'Async Close',
+      roundButton: 'Round Button Style',
+      componentCall: 'Component Call',
+    },
+  },
+
   components: {
     PressDialogPlus,
     PressCell,
@@ -85,7 +105,7 @@ export default {
         return;
       }
 
-      let title = '标题';
+      let title = this.t('title');
       let showCancelButton = false;
       let beforeClose = null;
 
@@ -101,7 +121,7 @@ export default {
       Dialog.alert({
         title,
         showCancelButton,
-        message: '代码是写出来给人看的，附带能在机器上运行',
+        message: this.t('content'),
         beforeClose,
       }).then(() => {
         // on close

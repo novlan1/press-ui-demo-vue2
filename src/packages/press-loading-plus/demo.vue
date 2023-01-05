@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <demo-block title="加载类型">
+    <demo-block :title="t('type')">
       <div>
         <press-loading-plus />
       </div>
@@ -12,7 +12,7 @@
       </div>
     </demo-block>
 
-    <demo-block title="自定义颜色">
+    <demo-block :title="t('color')">
       <div>
         <press-loading-plus color="#1989fa" />
       </div>
@@ -25,7 +25,7 @@
       </div>
     </demo-block>
 
-    <demo-block title="自定义大小">
+    <demo-block :title="t('size')">
       <div>
         <press-loading-plus size="15" />
       </div>
@@ -38,18 +38,18 @@
       </div>
     </demo-block>
 
-    <demo-block title="加载文案">
+    <demo-block :title="t('text')">
       <press-loading-plus size="24px">
-        加载中...
+        {{ t('loading') }}
       </press-loading-plus>
     </demo-block>
 
-    <demo-block title="垂直排列">
+    <demo-block :title="t('vertical')">
       <press-loading-plus
         size="24px"
         vertical
       >
-        加载中...
+        {{ t('loading') }}
       </press-loading-plus>
     </demo-block>
   </div>
@@ -57,6 +57,25 @@
 <script>
 
 export default {
+  i18n: {
+    'zh-CN': {
+      type: '加载类型',
+      text: '加载文案',
+      size: '自定义大小',
+      color: '自定义颜色',
+      vertical: '垂直排列',
+      textColor: '自定义文本颜色',
+    },
+    'en-US': {
+      type: 'Type',
+      text: 'Text',
+      size: 'Size',
+      color: 'Color',
+      vertical: 'Vertical',
+      textColor: 'Text Color',
+    },
+  },
+
   data() {
     return {
       isOpen: false,

@@ -69,6 +69,7 @@ import utils from '../wxs-js/utils';
 import { DEFAULT_SIZE_LIST, rootStyle, loadingColor } from './index';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
+
 const eSportTypeClassMap = {
   'e-sport-primary': ['e-sport-primary'],
   'e-sport-primary-bg': ['e-sport-primary', 'e-sport-bg'],

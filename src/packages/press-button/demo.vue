@@ -302,7 +302,6 @@
 </template>
 <script>
 
-
 export default {
   i18n: {
     'zh-CN': {

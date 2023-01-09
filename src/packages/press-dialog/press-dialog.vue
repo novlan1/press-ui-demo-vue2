@@ -82,6 +82,7 @@
 </template>
 <script>
 import PressButton from '../press-button/press-button.vue';
+import { t } from '../locale';
 
 
 export default {
@@ -104,10 +105,10 @@ export default {
       dialogIsShow: false,
       src: '',
       dialogType: 1,
-      title: '温馨提示',
+      title: t('dialog.title'),
       content: '',
       canTouchRemove: true,
-      confirmText: '确定',
+      confirmText: t('confirm'),
       cancelText: '',
       onClickCancel: null,
       onConfirmClick: null,

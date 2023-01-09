@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueDialog from './press-dialog.vue';
+import { t } from '../locale';
 
 
 let instance;
@@ -38,11 +39,11 @@ function Dialog(options) {
 
 Dialog.defaultOptions = {
   show: true,
-  title: '温馨提示',
+  title: t('dialog.title'),
   content: '',
   src: '',
-  confirmText: '确认',
-  cancelText: '取消',
+  confirmText: t('confirm'),
+  cancelText: t('cancel'),
 };
 
 Dialog.setDefaultOptions = (options) => {

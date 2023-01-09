@@ -25,4 +25,7 @@ export default {
   picker: {
     confirm: '确定',
   },
+  dialog: {
+    title: '温馨提示',
+  },
 };

@@ -21,4 +21,7 @@ export default {
     monthTitle: (year, month) => `${year}/${month}`,
     rangePrompt: maxRange => `Alege maxim ${maxRange} zile`,
   },
+  dialog: {
+    title: 'Prompt',
+  },
 };

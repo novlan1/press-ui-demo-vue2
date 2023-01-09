@@ -21,4 +21,7 @@ export default {
     monthTitle: (year, month) => `${year}年${month}月`,
     rangePrompt: maxRange => `${maxRange}日以内を選択してください`,
   },
+  dialog: {
+    title: '促す',
+  },
 };

@@ -25,4 +25,7 @@ export default {
   picker: {
     confirm: 'Đảm bảo',
   },
+  dialog: {
+    title: 'Prompt',
+  },
 };

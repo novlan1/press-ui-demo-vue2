@@ -25,4 +25,7 @@ export default {
   picker: {
     confirm: 'ตกลง',
   },
+  dialog: {
+    title: 'Prompt',
+  },
 };

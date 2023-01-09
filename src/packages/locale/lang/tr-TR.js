@@ -21,4 +21,7 @@ export default {
     monthTitle: (year, month) => `${year}/${month}`,
     rangePrompt: maxRange => `En fazla ${maxRange} gün seçin`,
   },
+  dialog: {
+    title: 'Prompt',
+  },
 };

@@ -1,3 +1,4 @@
+import { t } from '../locale';
 let instance;
 
 function getContext() {
@@ -13,11 +14,11 @@ function Dialog() {
 
 Dialog.defaultOptions = {
   show: true,
-  title: '温馨提示',
+  title: t('dialog.title'),
   content: '',
   src: '',
-  confirmText: '确认',
-  cancelText: '取消',
+  confirmText: t('confirm'),
+  cancelText: t('cancel'),
 };
 
 Dialog.setDefaultOptions = (options) => {

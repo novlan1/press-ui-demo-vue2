@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.44](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.43...v0.1.44) (2023-01-09)
+
+
+### Features
+
+* 多语言支持 ([0c18f0e](https://git.woa.com/pmd-mobile/support/press-ui/commit/0c18f0e647d4228f1bcc71d76b41ea5313c7ba55))
+* 更新format ([cbfbc24](https://git.woa.com/pmd-mobile/support/press-ui/commit/cbfbc24d32192833f880943454a0d67ee9459d62))
+* 切换语言后自动退出 ([4145eea](https://git.woa.com/pmd-mobile/support/press-ui/commit/4145eea88503449ae00537225b97087d596a7a5d))
+* 使用多种方案国际化 ([a46b74b](https://git.woa.com/pmd-mobile/support/press-ui/commit/a46b74b2a3d47942c767da09eb6e463a39f382c0))
+* 移除多余文件 ([6753450](https://git.woa.com/pmd-mobile/support/press-ui/commit/67534505684802c1f2411f81b554ba6a8470e7c2))
+* 优化多语言配置 ([cc77d58](https://git.woa.com/pmd-mobile/support/press-ui/commit/cc77d58bc5dec37b98b1289be844c2a7c63097c3))
+* 优化命名 ([57313aa](https://git.woa.com/pmd-mobile/support/press-ui/commit/57313aac1338ab0f145408f4365daa31cd5d959a))
+* 优化上报 ([9bf2e35](https://git.woa.com/pmd-mobile/support/press-ui/commit/9bf2e35b5d12e4bfa86f865421740955fd45eb5f))
+* 优化一些文档 ([072f8e3](https://git.woa.com/pmd-mobile/support/press-ui/commit/072f8e3f7fe0823ee16bf8b96c989bf80f5689ff))
+* 优化自动生成组件逻辑 ([bf66030](https://git.woa.com/pmd-mobile/support/press-ui/commit/bf660301b7d0a1e27c30dd4d47e5a87e243bdef7))
+* 优化demo获取lang的逻辑 ([03a3b91](https://git.woa.com/pmd-mobile/support/press-ui/commit/03a3b9150b818484629486bb1eb8e925fb5a0df7))
+* 优化docs-gen ([dbce90b](https://git.woa.com/pmd-mobile/support/press-ui/commit/dbce90bfe15f1876a72b341a1a7cf4f2ecab63b5))
+* 优化i18n ([a729b40](https://git.woa.com/pmd-mobile/support/press-ui/commit/a729b40a94cffd93ff1d2559bb2d9f2a31942757))
+* 优化i18n ([86fd62c](https://git.woa.com/pmd-mobile/support/press-ui/commit/86fd62cb52752d8c65e870dd14ea34d19f748f80))
+* 优化title的i18n ([76fcfc9](https://git.woa.com/pmd-mobile/support/press-ui/commit/76fcfc991bc56c6a5ec9f61adce932fc0a33b43d))
+* 增加国际化文档 ([0537aec](https://git.woa.com/pmd-mobile/support/press-ui/commit/0537aec5163a8f1afbd6d0e4de1aa5419e74f457))
+* 增加葡萄牙语 ([f854f97](https://git.woa.com/pmd-mobile/support/press-ui/commit/f854f97315bc830ea488c1b20bd2665c302e04ce))
+* 增加其他语言 ([fbcdae0](https://git.woa.com/pmd-mobile/support/press-ui/commit/fbcdae0011a175c290f161d99512931089f39103))
+* **i18n:** 增加dialog的国际化 ([b891b61](https://git.woa.com/pmd-mobile/support/press-ui/commit/b891b61e42ba1bd1a225855939db26c546a273f9))
+* **i18n:** i18n的优化 ([ebf635a](https://git.woa.com/pmd-mobile/support/press-ui/commit/ebf635a4a915b99dbd0603bbe8ae19527d441e78))
+
 ### [0.1.43](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.42...v0.1.43) (2022-12-27)
 
 

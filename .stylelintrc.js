@@ -4,11 +4,5 @@ module.exports = {
   plugins: ['stylelint-scss'],
   customSyntax: 'postcss-scss',
   rules: {
-    // 'declaration-no-important': null,
-    // 'value-no-vendor-prefix': null,
-    // 'property-no-vendor-prefix': null,
-    // 'selector-no-vendor-prefix': null,
-    // 'at-rule-no-vendor-prefix': null,
-    // 'selector-max-id': 1,
   },
 };

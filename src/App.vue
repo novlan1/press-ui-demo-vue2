@@ -1,28 +1,14 @@
 <script>
 import { updateManager } from './utils/update-manager/update-manager';
 import { setLang } from 'src/utils/i18n/i18n';
-const CHANGE_IFRAME_STYLE_TYPE = 'CHANGE_IFRAME_STYLE_TYPE';
+import { watchMessage } from 'src/utils/post-message/post-message';
 
-function onMessage(e) {
-  if (e.data.type !== CHANGE_IFRAME_STYLE_TYPE) {
-    return ;
-  }
-  if (!e.data.data) return;
-
-  const { name, value } = e.data.data;
-  const html = document.getElementsByTagName('html')[0];
-  html.style.setProperty(name, value);
-}
 
 export default {
   onLaunch() {
-    // #ifdef H5
-    window.addEventListener('message', onMessage, false);
-    // #endif
-
-    updateManager();
-
     console.log('App Launch');
+    watchMessage();
+    updateManager();
   },
   onShow() {
     console.log('App Show');

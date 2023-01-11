@@ -175,7 +175,7 @@ export default {
   },
   data() {
     return {
-      cover: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc-site/094a9dc0-50c0-11eb-b680-7980c8a877b8.jpg',
+      cover: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/card-cover.jpeg',
       avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fpress-ui-avatar.png',
       extraIcon: {
         color: '#4cd964',

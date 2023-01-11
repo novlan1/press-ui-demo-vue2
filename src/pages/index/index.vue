@@ -8,7 +8,7 @@
       />
       <image
         class="home-header__logo"
-        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png"
+        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui-full-logo.png"
         mode="aspectFit"
         @longpress.stop="onMorsePwdLongPress"
         @click.stop="onMorsePwdClick"

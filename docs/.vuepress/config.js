@@ -33,7 +33,7 @@ module.exports = {
   },
   themeConfig: {
     logo: {
-      img: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui.png',
+      img: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui-full-logo.png',
       // link: 'https://mobile.woa.com/press-ui/',
     },
     subLogo: {

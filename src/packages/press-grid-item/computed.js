@@ -1,5 +1,5 @@
-const style = require('../wxs-js/style');
-const addUnit = require('../wxs-js/add-unit');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function wrapperStyle(data) {
   const width = `${100 / data.columnNum}%`;
@@ -26,7 +26,7 @@ function contentStyle(data) {
     : '';
 }
 
-module.exports = {
+export default {
   wrapperStyle,
   contentStyle,
 };

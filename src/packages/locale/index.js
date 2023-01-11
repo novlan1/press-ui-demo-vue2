@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import defaultLang from './lang/zh-CN';
 import { deepAssign } from '../common/utils';
-// import Format from './format';
 
-// const format = Format(Vue);
 let lang = defaultLang;
 let merged = false;
 

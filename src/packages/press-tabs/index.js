@@ -1,5 +1,5 @@
-const utils = require('../wxs-js/utils.js');
-const style = require('../wxs-js/style.js');
+import style from '../wxs-js/style';
+import utils from '../wxs-js/utils';
 
 function tabClass(active, ellipsis) {
   const classes = ['tab-class'];
@@ -73,7 +73,7 @@ function lineStyle(data) {
   });
 }
 
-module.exports = {
+export default {
   tabClass,
   tabStyle,
   trackStyle,

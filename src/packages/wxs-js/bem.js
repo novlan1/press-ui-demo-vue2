@@ -1,5 +1,3 @@
-const array = require('./array.js');
-const object = require('./object.js');
 const PREFIX = 'van-';
 const PREFIX2 = 'press-';
 
@@ -25,12 +23,12 @@ function traversing(mods, conf) {
 
   if (typeof conf === 'string' || typeof conf === 'number') {
     mods.push(conf);
-  } else if (array.isArray(conf)) {
+  } else if (Array.isArray(conf)) {
     conf.forEach((item) => {
       traversing(mods, item);
     });
   } else if (typeof conf === 'object') {
-    object.keys(conf).forEach((key) => {
+    Object.keys(conf).forEach((key) => {
       conf[key] && mods.push(key);
     });
   }
@@ -49,5 +47,5 @@ function bem2(name, conf) {
 }
 
 
-module.exports = bem;
-module.exports.bem2 = bem2;
+export default bem;
+export { bem2 };

@@ -1,4 +1,4 @@
-const style = require('../wxs-js/style');
+import style from '../wxs-js/style';
 
 function barStyle(data) {
   return style({
@@ -7,6 +7,6 @@ function barStyle(data) {
   });
 }
 
-module.exports = {
+export default {
   barStyle,
 };

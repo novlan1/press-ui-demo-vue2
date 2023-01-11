@@ -34,7 +34,7 @@ function getButtonDisabled(type, currentDate) {
   return !currentDate;
 }
 
-module.exports = {
+export default {
   getMonths,
   getButtonDisabled,
 };

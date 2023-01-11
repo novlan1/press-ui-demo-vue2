@@ -1,10 +1,12 @@
-const bem = require('./bem.js');
-const { bem2 } = require('./bem');
-const memoize = require('./memoize.js');
-const addUnit = require('./add-unit.js');
+import bem, { bem2 } from './bem';
+import memoize from './memoize';
+import addUnit from './add-unit';
 
-module.exports = {
-  bem: memoize(bem),
+
+const memoizeBem = memoize(bem);
+
+export default {
+  bem: memoizeBem,
   memoize,
   addUnit,
   bem2,

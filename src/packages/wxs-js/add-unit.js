@@ -1,5 +1,4 @@
 
-// var REGEXP = getRegExp('^-?\d+(\.\d+)?$');
 const REGEXP = /^-?\d+(\.\d+)?$/;
 
 function addUnit(value) {
@@ -9,4 +8,4 @@ function addUnit(value) {
   return REGEXP.test(`${value}`) ? `${value}px` : value;
 }
 
-module.exports = addUnit;
+export default addUnit;

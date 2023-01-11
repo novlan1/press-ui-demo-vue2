@@ -51,4 +51,4 @@ function memoize(fn) {
   };
 }
 
-module.exports = memoize;
+export default memoize;

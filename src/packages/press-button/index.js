@@ -1,4 +1,4 @@
-const style = require('../wxs-js/style.js');
+import style from '../wxs-js/style';
 
 export const DEFAULT_SIZE_LIST = [
   'normal', 'large', 'small', 'mini',

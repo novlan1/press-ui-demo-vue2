@@ -8,6 +8,6 @@ function getIconURL(icon) {
   return icon;
 }
 
-module.exports = {
+export default {
   getIconURL,
 };

@@ -1,4 +1,4 @@
-const style = require('../wxs-js/style.js');
+import style from '../wxs-js/style';
 
 function rootStyle(data) {
   return style([
@@ -11,6 +11,6 @@ function rootStyle(data) {
   ]);
 }
 
-module.exports = {
+export default {
   rootStyle,
 };

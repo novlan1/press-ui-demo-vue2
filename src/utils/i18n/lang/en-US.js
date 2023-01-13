@@ -41,7 +41,7 @@ export default {
     ...TITLE_I18N['en-US'],
   },
   introduce: {
-    name: 'Fully Compatible High Performance',
-    detail: 'Press UI is an easy-to-use, flexible, uni-app-based component library',
+    name: 'Fully Compatible',
+    detail: 'Press UI is an easy-to-use, uni-app-based component library',
   },
 };

@@ -1,16 +1,13 @@
 <template>
-  <!-- <uni-shadow-root class="vant-grid-index"> -->
   <div
     :class="`press-grid ${customClass} `+(border && !gutter ? 'press-hairline--top' : '')"
     :style="true ? computed.rootStyle({ gutter }) : ''"
   >
     <slot />
   </div>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import computed from './computed';
-// import { useChildren } from '../common/relation';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
 import { PARENT_GRID as PARENT } from '../common/parent-map';
@@ -24,50 +21,40 @@ export default {
   mixins: [
     ParentMixin(PARENT),
   ],
-  // relation: useChildren('grid-item'),
   props: {
     square: {
       type: Boolean,
-      // observer: 'updateChildren',
     },
     gutter: {
       type: [Number, null],
       default: 0,
-      // observer: 'updateChildren',
     },
     clickable: {
       type: Boolean,
-      // observer: 'updateChildren',
     },
     columnNum: {
       type: Number,
       default: 4,
-      // observer: 'updateChildren',
     },
     center: {
       type: Boolean,
       default: true,
-      // observer: 'updateChildren',
     },
     border: {
       type: Boolean,
       default: true,
-      // observer: 'updateChildren',
     },
     direction: {
       type: String,
       default: '',
-      // observer: 'updateChildren',
     },
     iconSize: {
       type: String,
       default: '',
-      // observer: 'updateChildren',
     },
     reverse: {
       type: Boolean,
       default: false,
-      // observer: 'updateChildren',
     },
     ...defaultProps,
   },

@@ -101,7 +101,6 @@ import { touch } from '../mixins/touch';
 
 import { getAllRect, getRect, groupSetData, nextTick, requestAnimationFrame } from '../common/utils';
 import { isDef } from '../common/validator';
-// import { useChildren } from '../common/relation';
 import { ParentMixin } from '../mixins/relation';
 import utils from '../wxs-js/utils';
 import computed from './index.js';
@@ -118,18 +117,11 @@ export default {
     VanSticky,
   },
   mixins: [
-    // #ifndef H5
-    // useChildren('tabs').mixin,
-    // #endif
-
     touch,
 
     ParentMixin(PARENT),
   ],
   classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
-  // relation: useChildren('tab', function () {
-  //   this.updateTabs();
-  // }),
   props: {
     ...defaultProps,
     sticky: {
@@ -172,11 +164,6 @@ export default {
     active: {
       type: [Number, String, null],
       default: 0,
-      // observer(name) {
-      //   if (name !== this.getCurrentName()) {
-      //     this.setCurrentIndexByName(name);
-      //   }
-      // },
     },
     type: {
       type: String,
@@ -197,11 +184,6 @@ export default {
     swipeThreshold: {
       type: Number,
       default: 5,
-      // observer(value) {
-      //   this.setData({
-      //     scrollable: this.children.length > value || !this.ellipsis,
-      //   });
-      // },
     },
     offsetTop: {
       type: Number,

@@ -7,7 +7,6 @@
 </template>
 <script>
 
-// import { useChildren } from '../common/relation';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
@@ -23,17 +22,14 @@ export default {
     ParentMixin(PARENT),
   ],
   field: true,
-  // relation: useChildren('radio'),
   props: {
     value: {
       type: [String, Number],
       default: '',
-      // observer: 'updateChildren',
     },
     direction: { type: String, default: '' },
     disabled: {
       type: Boolean,
-      // observer: 'updateChildren',
     },
     ...defaultProps,
   },

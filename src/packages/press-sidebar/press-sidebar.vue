@@ -11,7 +11,6 @@
 
 <script>
 
-// import { useChildren } from '../common/relation';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ParentMixin } from '../mixins/relation';
 import { PARENT_SIDEBAR as PARENT } from '../common/parent-map';
@@ -25,14 +24,10 @@ export default {
   mixins: [
     ParentMixin(PARENT),
   ],
-  // relation: useChildren('sidebar-item', function () {
-  //   this.setActive(this.data.activeKey);
-  // }),
   props: {
     activeKey: {
       type: Number,
       default: 0,
-      // observer: 'setActive',
     },
     ...defaultProps,
   },

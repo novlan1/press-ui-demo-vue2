@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.45](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.44...v0.1.45) (2023-01-13)
+
+
+### Bug Fixes
+
+* focus ([9514e42](https://git.woa.com/pmd-mobile/support/press-ui/commit/9514e4292aefbd92e4554c45ed755f8204184030))
+
 ### [0.1.44](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.43...v0.1.44) (2023-01-09)
 
 

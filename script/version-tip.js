@@ -1,8 +1,8 @@
-const { genVersionTip, batchSendWxRobotMarkdown, readEnvVariable } = require('t-comm');
+const { genVersionTip, batchSendWxRobotMarkdown  } = require('t-comm');
 const pkg = require('../package.json');
 
 function main() {
-  const webhookUrl = readEnvVariable('PRESS_UI_ROBOT_WEBHOOK_URL', './.env.local');
+  const webhookUrl = 'PRESS_UI_ROBOT___60b39ee3-5f01-43fe-83f6-7875e0f16b77';
   console.log('webhookUrl: ', webhookUrl);
 
   const content = genVersionTip({

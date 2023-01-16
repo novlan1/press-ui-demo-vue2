@@ -69,6 +69,7 @@ export function findRouteName(path, routes) {
           ...queryBasePath,
         },
         path: itemPath,
+        meta,
       };
     }
   }

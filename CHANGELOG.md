@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.49](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.46...v0.1.49) (2023-02-03)
+
+
+### Features
+
+* press-picker支持pc ([faf891a](https://git.woa.com/pmd-mobile/support/press-ui/commit/faf891a2a9fa541050d257eefa2fff4b19529040))
+
 ### [0.1.46](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.45...v0.1.46) (2023-01-16)
 
 

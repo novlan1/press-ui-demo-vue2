@@ -156,7 +156,9 @@ export default {
 @for $i from 1 through 12 {
   .van-loading__dot:nth-of-type(#{$i}) {
     transform: rotate($i * 30deg);
-    opacity: 1 - calc((0.75 / 12) * ($i - 1));
+
+    // 一些项目不支持某些写法，可能是sass-loader版本问题
+    opacity: calc(1 - calc((0.75 / 12) * (#{$i} - 1)));
   }
 }
 

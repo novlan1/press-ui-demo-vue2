@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.50](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.49...v0.1.50) (2023-02-08)
+
+
+### Bug Fixes
+
+* **loading-plus:** 优化sass写法，解决一些项目编译问题 ([c37f852](https://git.woa.com/pmd-mobile/support/press-ui/commit/c37f852949db37c4968c748c908d268bd1bdf6e0))
+
 ### [0.1.49](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.46...v0.1.49) (2023-02-03)
 
 

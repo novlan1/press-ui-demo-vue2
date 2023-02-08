@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.50](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.49...v0.1.50) (2023-02-08)
+
+
+### Bug Fixes
+
+* **loading-plus:** 优化sass写法，解决一些项目编译问题 ([c37f852](https://git.woa.com/pmd-mobile/support/press-ui/commit/c37f852949db37c4968c748c908d268bd1bdf6e0))
+
+### [0.1.49](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.46...v0.1.49) (2023-02-03)
+
+
+### Features
+
+* press-picker支持pc ([faf891a](https://git.woa.com/pmd-mobile/support/press-ui/commit/faf891a2a9fa541050d257eefa2fff4b19529040))
+
+### [0.1.46](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.45...v0.1.46) (2023-01-16)
+
+
+### Features
+
+* 增加meta参数 ([1458060](https://git.woa.com/pmd-mobile/support/press-ui/commit/14580604ffb6a108c43ce2a7ef354480bd746045))
+
+### [0.1.45](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.44...v0.1.45) (2023-01-13)
+
+
+### Bug Fixes
+
+* focus ([9514e42](https://git.woa.com/pmd-mobile/support/press-ui/commit/9514e4292aefbd92e4554c45ed755f8204184030))
+
 ### [0.1.44](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.43...v0.1.44) (2023-01-09)
 
 

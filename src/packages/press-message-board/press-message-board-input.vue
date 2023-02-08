@@ -22,6 +22,7 @@
         :auto-height="textAreaIsAutoHeight"
         :adjust-position="adjustPosition"
         :focus="textAreaIsFocus"
+        @focus="onFocus"
         @input="onInput"
         @blur="onBlur"
         @keyboardheightchange="keyboardheightchange"
@@ -113,6 +114,9 @@ export default {
     onBlur() {
       this.$emit('blur');
     },
+    onFocus(){
+      this.$emit('focus');
+    }
   },
 };
 

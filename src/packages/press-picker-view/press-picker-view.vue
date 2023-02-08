@@ -44,6 +44,9 @@
 <script>
 import { getRect } from '../common/utils';
 
+function getTouch(e) {
+  return (e.touches && e.touches[0]) ? e.touches[0] : e;
+}
 
 export default {
   props: {
@@ -141,11 +144,16 @@ export default {
       this.updateCurrent();
     });
     this.updateCurrent();
+
+    document.addEventListener('mouseup', this.mouseUp);
+  },
+  beforeDestroy() {
+    document.removeEventListener('mouseup', this.mouseUp);
   },
   methods: {
     // 开始点击
     mouseDown(e) {
-      this.$refs.dropListMask.addEventListener('mousemove', this.mouseMove);
+      document.addEventListener('mousemove', this.mouseMove);
       this.handleStart(e);
     },
     // 鼠标移动
@@ -154,13 +162,13 @@ export default {
     },
     // 鼠标松开
     mouseUp() {
-      this.$refs.dropListMask.removeEventListener('mousemove', this.mouseMove);
+      document.removeEventListener('mousemove', this.mouseMove);
       this.handleEnd();
     },
     // 开始
     handleStart(e) {
       // 记录开始点击的位置和当前滚动距离
-      const touch = e.touches ? e.touches[0] : e;
+      const touch = getTouch(e);
       this.start = touch?.clientY;
       this.startScroll = this.currentScroll;
       this.lastMove = 0;
@@ -169,7 +177,7 @@ export default {
     // 移动
     handleMove(e) {
       // 计算滑动距离，更新当前滚动位置，计算当前选中的index
-      const touch = e.touches ? e.touches[0] : e;
+      const touch = getTouch(e);
       this.move = touch?.clientY - this.start;
       let scroll = this.startScroll + this.move;
       scroll = Math.min(0, scroll);
@@ -215,14 +223,14 @@ export default {
       }
     },
     itemDown(e) {
-      const touch = e.touches ? e.touches[0] : e;
+      const touch = getTouch(e);
       this.downX = touch?.clientX;
       this.downY = touch?.clientY;
       this.upX = touch?.clientX;
       this.upY = touch?.clientY;
     },
     itemMove(e) {
-      const touch = e.touches ? e.touches[0] : e;
+      const touch = getTouch(e);
       this.upX = touch?.clientX;
       this.upY = touch?.clientY;
     },

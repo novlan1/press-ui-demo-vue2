@@ -128,7 +128,7 @@ export default {
           tip: '',
           showBackArrow: false,
           selectList: pickerBoList,
-          selectItem: { label: boStrList[1], value: 1 },
+          selectItem: { label: boStrList[7], value: 7 },
           onClickConfirm: (boItem) => {
             console.log('boItem', boItem);
             this.pickerOption.normal.show = false;

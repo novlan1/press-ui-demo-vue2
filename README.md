@@ -121,6 +121,7 @@ npm i @tencent/press-ui
 <template>
   <PressMessageDetail />
 </template>
+```
 
 ```ts
 <script>

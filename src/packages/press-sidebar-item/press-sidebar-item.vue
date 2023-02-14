@@ -25,7 +25,6 @@
 </template>
 <script>
 import VanInfo from '../press-info/press-info.vue';
-// import { useParent } from '../common/relation';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
@@ -44,7 +43,6 @@ export default {
     ChildrenMixin(PARENT),
   ],
   classes: ['active-class', 'disabled-class'],
-  // relation: useParent('sidebar'),
   props: {
     dot: Boolean,
     badge: { type: [String, Number], default: '' },
@@ -91,7 +89,6 @@ export default {
     },
     setActive(selected) {
       this.selected = selected;
-      // return this.setData({ selected });
     },
   },
 };

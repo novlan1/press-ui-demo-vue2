@@ -1,5 +1,5 @@
-const style = require('../wxs-js/style.js');
-const addUnit = require('../wxs-js/add-unit.js');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function containerStyle(data) {
   return style({
@@ -19,7 +19,7 @@ function wrapStyle(data) {
 }
 
 
-module.exports = {
+export default {
   containerStyle,
   wrapStyle,
 };

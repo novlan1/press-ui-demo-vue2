@@ -1,5 +1,5 @@
-const style = require('../wxs-js/style.js');
-const addUnit = require('../wxs-js/add-unit.js');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function titleStyle(data) {
   return style([
@@ -11,6 +11,6 @@ function titleStyle(data) {
   ]);
 }
 
-module.exports = {
+export default {
   titleStyle,
 };

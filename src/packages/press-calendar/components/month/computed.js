@@ -65,7 +65,7 @@ function getMonthStyle(visible, date, rowHeight) {
   }
 }
 
-module.exports = {
+export default {
   getMark,
   getDayStyle,
   formatMonthTitle,

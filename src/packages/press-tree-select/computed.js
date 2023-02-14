@@ -1,7 +1,5 @@
-const array = require('../wxs-js/array');
-
 function isActive(activeList, itemId) {
-  if (array.isArray(activeList)) {
+  if (Array.isArray(activeList)) {
     return activeList.indexOf(itemId) > -1;
   }
 

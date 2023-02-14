@@ -7,6 +7,6 @@ function isMulti(options) {
   return Array.isArray(options) && Array.isArray(options[0]);
 }
 
-module.exports = {
+export default {
   isMulti,
 };

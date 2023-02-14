@@ -1,4 +1,4 @@
-const style = require('../wxs-js/style');
+import style from '../wxs-js/style';
 
 function popupStyle(data) {
   return style([
@@ -12,6 +12,6 @@ function popupStyle(data) {
   ]);
 }
 
-module.exports = {
+export default {
   popupStyle,
 };

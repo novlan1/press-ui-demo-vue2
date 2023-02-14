@@ -59,7 +59,6 @@ export default {
     styleIsolation: 'shared',
     virtualHost: true,
   },
-  // relation: useParent('grid'),
   classes: ['content-class', 'icon-class', 'text-class'],
   components: {
     PressIconPlus,
@@ -107,7 +106,6 @@ export default {
         border,
         gutter,
       } = this;
-      console.log('border', border, center);
       return `content-class ${utils.bem2('grid-item__content', [direction, { center, square, reverse, clickable, surround: border && gutter }])} ${border ? 'press-hairline--surround' : ''}`;
     },
   },

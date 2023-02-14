@@ -66,7 +66,6 @@ export default {
     },
     ...defaultProps,
   },
-  // relation: useParent('tabbar'),
   data() {
     return {
       utils,

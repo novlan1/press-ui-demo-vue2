@@ -1,119 +1,124 @@
 <template>
   <div class="demo-wrap">
     <demo-block :title="t('basicUsage')">
-      <press-card :is-shadow="false">
-        <text class="press-body">
-          这是一个基础卡片示例，内容较少，此示例展示了一个没有任何属性不带阴影的卡片。
-        </text>
+      <press-card>
+        <span class="press-body">
+          {{ t('content') }}
+        </span>
       </press-card>
     </demo-block>
 
-    <demo-block title="额外信息">
+    <demo-block :title="t('title')">
       <press-card
-        title="基础卡片"
-        extra="额外信息"
+        :title="t('title')"
+        :extra="t('description')"
       >
-        <text class="press-body">
-          这是一个基础卡片示例，此示例展示了一个标题加标题额外信息的标准卡片。
-        </text>
+        <span class="press-body">
+          {{ t('content') }}
+        </span>
       </press-card>
     </demo-block>
 
-    <demo-block title="双标题">
+    <demo-block :title="t('subtitle')">
       <press-card
-        title="基础卡片"
-        sub-title="副标题"
-        extra="额外信息"
+        :title="t('title')"
+        :sub-title="t('subtitle')"
+        :extra="t('description')"
         :thumbnail="avatar"
         @click="onClick"
       >
-        <text class="press-body">
-          这是一个带头像和双标题的基础卡片，此示例展示了一个完整的卡片。
-        </text>
+        <span class="press-body">
+          {{ t('content') }}
+        </span>
       </press-card>
     </demo-block>
 
-    <demo-block title="通栏">
+    <demo-block :title="t('noMargin')">
       <press-card
-        title="基础卡片"
+        :title="t('title')"
+        :sub-title="t('subtitle')"
+        :extra="t('description')"
         :is-full="true"
-        sub-title="副标题"
-        extra="额外信息"
         :thumbnail="avatar"
       >
-        <text class="press-body">
-          这是一个通栏卡片 ，通栏没有外边距，左右会贴合父元素。
-        </text>
+        <span class="press-body">
+          {{ t('content') }}
+        </span>
       </press-card>
     </demo-block>
 
-    <demo-block title="封面图与操作栏">
+    <demo-block :title="t('cover')">
       <press-card
         :cover="cover"
         @click="onClick"
       >
-        <!-- <image slot='cover' style="width: 100%;" :src="cover"></image> -->
-        <text class="press-body">
-          这是一个带封面和操作栏的卡片示例，此示例展示了封面插槽和操作栏插槽的用法。
-        </text>
-        <view
+        <span class="press-body">
+          {{ t('content') }}
+        </span>
+      </press-card>
+    </demo-block>
+
+    <demo-block :title="t('actionBar')">
+      <press-card
+        @click="onClick"
+      >
+        <span class="press-body">
+          {{ t('content') }}
+        </span>
+        <div
           slot="actions"
           class="card-actions"
         >
-          <view
+          <div
             class="card-actions-item"
-            @click="actionsClick('分享')"
+            @click="actionsClick( t('share'))"
           >
             <uni-icons
               type="redo"
               size="18"
               color="#999"
             />
-            <text class="card-actions-item-text">
-              分享
-            </text>
-          </view>
-          <view
+            <span class="card-actions-item-text">
+              {{ t('share') }}
+            </span>
+          </div>
+          <div
             class="card-actions-item"
-            @click="actionsClick('点赞')"
+            @click="actionsClick( t('star'))"
           >
             <uni-icons
               type="heart"
               size="18"
               color="#999"
             />
-            <text class="card-actions-item-text">
-              点赞
-            </text>
-          </view>
-          <view
+            <span class="card-actions-item-text">
+              {{ t('star') }}
+            </span>
+          </div>
+          <div
             class="card-actions-item"
-            @click="actionsClick('评论')"
+            @click="actionsClick( t('comment'))"
           >
             <uni-icons
               type="chatbubble"
               size="18"
               color="#999"
             />
-            <text class="card-actions-item-text">
-              评论
-            </text>
-          </view>
-        </view>
+            <span class="card-actions-item-text">
+              {{ t('comment') }}
+            </span>
+          </div>
+        </div>
       </press-card>
     </demo-block>
 
-    <demo-block title="自定义标题">
+    <demo-block :title="t('customTitle')">
       <press-card
-        title="基础卡片"
-        sub-title="副标题"
-        extra="额外信息"
         padding="10px 0"
-        :thumbnail="avatar"
       >
         <template #title>
           <press-cell
-            title="标题"
+            :title="t('title')"
             clickable
             @click="checked = !checked"
           >
@@ -124,17 +129,11 @@
             />
           </press-cell>
         </template>
-        <image
-          style="width: 100%;"
-          :src="cover"
-        />
-        <text class="press-body uni-mt-5">
-          卡片组件通用来显示完整独立的一段信息，同时让用户理解他的作用。例如一篇文章的预览图、作者信息、时间等，卡片通常是更复杂和更详细信息的入口点。
-        </text>
+        <span class="press-body uni-mt-5">
+          {{ t('content') }}
+        </span>
       </press-card>
     </demo-block>
-
-    <demo-block title="自定义标题" />
   </div>
 </template>
 <script>
@@ -143,6 +142,32 @@ import UniIcons from 'src/packages/uni-icons/components/uni-icons/uni-icons.vue'
 import PressSwitch from 'src/packages/press-switch/press-switch.vue';
 
 export default {
+  i18n: {
+    'zh-CN': {
+      content: '代码是写出来给人看的，附带能在机器上运行',
+      subtitle: '副标题',
+      description: '描述',
+      noMargin: '没有外边距',
+      cover: '封面图',
+      customTitle: '自定义标题',
+      actionBar: '操作栏',
+      share: '分享',
+      star: '点赞',
+      comment: '评论',
+    },
+    'en-US': {
+      content: 'Content',
+      subtitle: 'SubTitle',
+      description: 'Description',
+      noMargin: 'No Margin',
+      cover: 'Cover',
+      customTitle: 'Custom Title',
+      actionBar: 'Action Bar',
+      share: 'Share',
+      star: 'Star',
+      comment: 'Comment',
+    },
+  },
   components: {
     PressCard,
     UniIcons,
@@ -150,8 +175,8 @@ export default {
   },
   data() {
     return {
-      cover: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc-site/094a9dc0-50c0-11eb-b680-7980c8a877b8.jpg',
-      avatar: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc-site/460d46d0-4fcc-11eb-8ff1-d5dcf8779628.png',
+      cover: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/card-cover.jpeg',
+      avatar: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fpress-ui-avatar.png',
       extraIcon: {
         color: '#4cd964',
         size: '22',

@@ -1,5 +1,5 @@
-const utils = require('../wxs-js/utils');
-const style = require('../wxs-js/style');
+import style from '../wxs-js/style';
+import utils from '../wxs-js/utils';
 
 function pivotText(pivotText, percentage) {
   return pivotText || `${percentage}%`;
@@ -27,7 +27,7 @@ function pivotStyle(data) {
   });
 }
 
-module.exports = {
+export default {
   pivotText,
   rootStyle,
   portionStyle,

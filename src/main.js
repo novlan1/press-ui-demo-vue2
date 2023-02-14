@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import { reportAegis } from 'src/utils/report/report';
 import { demoI18n } from 'src/utils/i18n/i18n';
-
+import { initMixin } from 'src/utils/mixin/mixin';
 
 import DemoBlock from 'src/pages/demo-block/demo-block.vue';
 import Toast from 'src/packages/press-toast/index';
@@ -92,16 +92,4 @@ const app = new Vue({
   ...App,
 });
 app.$mount();
-
-
-Vue.mixin({
-  onShareAppMessage() {
-    return {
-      title: 'Press UI 组件库演示',
-      path: '/pages/index/index',
-      imageUrl: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui-avatar-wx-share.png',
-    };
-  },
-});
-
-
+initMixin();

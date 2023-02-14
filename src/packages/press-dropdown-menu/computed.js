@@ -11,6 +11,6 @@ function displayTitle(item) {
   return displayTitle;
 }
 
-module.exports = {
+export default {
   displayTitle: displayTitle
 };

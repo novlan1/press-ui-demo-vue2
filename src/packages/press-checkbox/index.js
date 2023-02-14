@@ -1,5 +1,5 @@
-const style = require('../wxs-js/style.js');
-const addUnit = require('../wxs-js/add-unit.js');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function iconStyle(checkedColor, value, disabled, parentDisabled, iconSize) {
   const styles = {
@@ -14,6 +14,6 @@ function iconStyle(checkedColor, value, disabled, parentDisabled, iconSize) {
   return style(styles);
 }
 
-module.exports = {
+export default {
   iconStyle,
 };

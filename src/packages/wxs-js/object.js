@@ -1,4 +1,3 @@
-// const REGEXP = getRegExp('{|}|"', 'g');
 const REGEXP = /{|}|"/g;
 
 function keys(obj) {
@@ -8,4 +7,4 @@ function keys(obj) {
     .map(item => item.split(':')[0]);
 }
 
-module.exports.keys = keys;
+export default { keys };

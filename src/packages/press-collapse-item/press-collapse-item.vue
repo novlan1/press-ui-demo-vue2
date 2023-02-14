@@ -59,7 +59,6 @@
 </template>
 <script>
 import PressCell from '../press-cell/press-cell.vue';
-import { useParent } from '../common/relation';
 import { setContentAnimate } from './animate';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import utils from '../wxs-js/utils';
@@ -80,7 +79,6 @@ export default {
   ],
 
   classes: ['title-class', 'content-class'],
-  relation: useParent('collapse'),
   props: {
     size: { type: String, default: '' },
     name: { type: String, default: '' },

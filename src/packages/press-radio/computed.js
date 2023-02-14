@@ -1,5 +1,5 @@
-const style = require('../wxs-js/style');
-const addUnit = require('../wxs-js/add-unit');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function iconStyle(data) {
   const styles = {
@@ -43,7 +43,7 @@ function iconCustomStyle(data) {
   // });
 }
 
-module.exports = {
+export default {
   iconStyle,
   iconCustomStyle,
 };

@@ -1,12 +1,12 @@
 <template>
-  <view
+  <div
     class="uni-card"
     :class="{ 'uni-card--full': isFull, 'uni-card--shadow': isShadow,'uni-card--border':border}"
     :style="{'margin':isFull?0:margin,'padding':spacing,'box-shadow':isShadow?shadow:''}"
   >
     <!-- 封面 -->
     <slot name="cover">
-      <view
+      <div
         v-if="cover"
         class="uni-card__cover"
       >
@@ -16,20 +16,20 @@
           :src="cover"
           @click="onClick('cover')"
         />
-      </view>
+      </div>
     </slot>
 
     <slot name="title">
-      <view
+      <div
         v-if="title || extra"
         class="uni-card__header"
       >
         <!-- 卡片标题 -->
-        <view
+        <div
           class="uni-card__header-box"
           @click="onClick('title')"
         >
-          <view
+          <div
             v-if="thumbnail"
             class="uni-card__header-avatar"
           >
@@ -38,46 +38,46 @@
               :src="thumbnail"
               mode="aspectFit"
             />
-          </view>
-          <view class="uni-card__header-content">
-            <text class="uni-card__header-content-title uni-ellipsis">
+          </div>
+          <div class="uni-card__header-content">
+            <span class="uni-card__header-content-title uni-ellipsis">
               {{ title }}
-            </text>
-            <text
+            </span>
+            <span
               v-if="title&&subTitle"
               class="uni-card__header-content-subtitle uni-ellipsis"
             >
               {{ subTitle }}
-            </text>
-          </view>
-        </view>
-        <view
+            </span>
+          </div>
+        </div>
+        <div
           class="uni-card__header-extra"
           @click="onClick('extra')"
         >
-          <text class="uni-card__header-extra-text">
+          <span class="uni-card__header-extra-text">
             {{ extra }}
-          </text>
-        </view>
-      </view>
+          </span>
+        </div>
+      </div>
     </slot>
 
     <!-- 卡片内容 -->
-    <view
+    <div
       class="uni-card__content"
       :style="{padding:padding}"
       @click="onClick('content')"
     >
       <slot />
-    </view>
+    </div>
 
-    <view
+    <div
       class="uni-card__actions"
       @click="onClick('actions')"
     >
       <slot name="actions" />
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -93,27 +93,15 @@ export default {
       type: String,
       default: '',
     },
-    padding: {
-      type: String,
-      default: '10px',
-    },
-    margin: {
-      type: String,
-      default: '15px',
-    },
-    spacing: {
-      type: String,
-      default: '0 10px',
-    },
     extra: {
       type: String,
       default: '',
     },
-    cover: {
+    thumbnail: {
       type: String,
       default: '',
     },
-    thumbnail: {
+    cover: {
       type: String,
       default: '',
     },
@@ -134,6 +122,18 @@ export default {
     border: {
       type: Boolean,
       default: true,
+    },
+    margin: {
+      type: String,
+      default: '15px',
+    },
+    spacing: {
+      type: String,
+      default: '0 10px',
+    },
+    padding: {
+      type: String,
+      default: '10px',
     },
   },
   emits: ['click'],

@@ -10,4 +10,4 @@ function get(index, active) {
   return 'inactive';
 }
 
-module.exports = get;
+export default get;

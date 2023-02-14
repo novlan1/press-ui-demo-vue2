@@ -1,6 +1,3 @@
-const object = require('./object.js');
-const array = require('./array.js');
-
 function kebabCase(word) {
   const reg = /[A-Z]/g;
   const newWord = word
@@ -11,7 +8,7 @@ function kebabCase(word) {
 }
 
 function style(styles) {
-  if (array.isArray(styles)) {
+  if (Array.isArray(styles)) {
     return styles
       .filter(item => item != null && item !== '')
       .map(item => style(item))
@@ -21,7 +18,7 @@ function style(styles) {
     return styles;
   }
   // if ('Object' === styles.constructor) {
-  return object
+  return Object
     .keys(styles)
     .filter(key => styles[key] != null && styles[key] !== '')
     .map(key => [kebabCase(key), [styles[key]]].join(':'))
@@ -31,4 +28,4 @@ function style(styles) {
   // return styles;
 }
 
-module.exports = style;
+export default style;

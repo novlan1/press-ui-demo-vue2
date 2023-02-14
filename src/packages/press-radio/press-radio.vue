@@ -40,7 +40,6 @@
 <script>
 import VanIcon from '../press-icon-plus/press-icon-plus.vue';
 import { canIUseModel } from '../common/version';
-// import { useParent } from '../common/relation';
 import utils from '../wxs-js/utils';
 import computed from './computed';
 import { defaultOptions, defaultProps } from '../common/press-component';
@@ -60,9 +59,6 @@ export default {
     ChildrenMixin(PARENT),
   ],
   field: true,
-  // relation: useParent('radio-group', function () {
-  //   this.updateFromParent();
-  // }),
   classes: ['icon-class', 'label-class'],
   props: {
     name: { type: [String, Number], default: '' },

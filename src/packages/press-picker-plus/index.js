@@ -1,6 +1,5 @@
-const style = require('../wxs-js/style.js');
-const addUnit = require('../wxs-js/add-unit.js');
-const array = require('../wxs-js/array.js');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function columnsStyle(data) {
   return style({
@@ -22,7 +21,7 @@ function frameStyle(data) {
 }
 
 function columns(columns) {
-  if (!array.isArray(columns)) {
+  if (!Array.isArray(columns)) {
     return [];
   }
 
@@ -32,7 +31,7 @@ function columns(columns) {
   return columns;
 }
 
-module.exports = {
+export default {
   columnsStyle,
   frameStyle,
   maskStyle,

@@ -1,5 +1,5 @@
-const style = require('../wxs-js/style');
-const addUnit = require('../wxs-js/add-unit');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function inputStyle(autosize) {
   if (autosize && autosize.constructor === 'Object') {
@@ -12,6 +12,6 @@ function inputStyle(autosize) {
   return '';
 }
 
-module.exports = {
+export default {
   inputStyle,
 };

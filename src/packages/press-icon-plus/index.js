@@ -1,5 +1,5 @@
-const style = require('../wxs-js/style.js');
-const addUnit = require('../wxs-js/add-unit.js');
+import style from '../wxs-js/style';
+import addUnit from '../wxs-js/add-unit';
 
 function isImage(name) {
   return name.indexOf('/') !== -1;
@@ -31,7 +31,7 @@ function rootStyle(data) {
   ]);
 }
 
-module.exports = {
+export default {
   isImage,
   rootClass,
   rootStyle,

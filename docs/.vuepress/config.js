@@ -17,18 +17,23 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4'],
   },
   base: '/press-ui/',
+  head: [
+    [
+      'link', { rel: 'icon', href: '/images/favicon.ico' },
+    ],
+  ],
   locales: {
     // 键名是该语言所属的子路径
     // 作为特例，默认语言可以使用 '/' 作为其路径。
     '/': {
       lang: 'zh-CN',
-      // title: 'VuePress',
-      // description: 'Vue 驱动的静态网站生成器',
+      title: 'Press UI',
+      description: '易用、灵活、基于uni-app的跨端组件库',
     },
     '/en/': {
       lang: 'en-US',
-      // title: 'VuePress',
-      // description: 'Vue-powered Static Site Generator',
+      title: 'Press UI',
+      description: 'Easy-to-use, flexible, uni-app-based cross-end component library',
     },
   },
   themeConfig: {

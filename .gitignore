@@ -42,3 +42,6 @@ src/pages/index/page-config.json
 src/utils/i18n/title-i18n.json
 
 tests/coverage
+
+
+/b-*.log

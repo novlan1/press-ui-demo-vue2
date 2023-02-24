@@ -40,9 +40,16 @@
           @click.stop="clickCancel"
         />
 
-        <p class="press-popup--title">
+        <p
+          v-if="popupTitle"
+          class="press-popup--title"
+        >
           {{ popupTitle }}
         </p>
+        <slot
+          v-else
+          name="title"
+        />
 
         <div class="press-popup--title-btn-wrap">
           <PressButton

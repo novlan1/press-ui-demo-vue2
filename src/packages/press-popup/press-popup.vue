@@ -23,7 +23,7 @@
         class="press-popup--title-wrap"
       >
         <div
-          v-if="!isShowpopupClose && !showBackArrow && !isCrossSlab"
+          v-if="!isCrossSlab"
           class="press-popup--title-line"
           @click.stop="clickCancel"
         />
@@ -55,7 +55,7 @@
           <PressButton
             v-if="popupTitleBtn"
             :type="isBorderBtn ? 'e-sport-border' : 'e-sport-primary'"
-            custom-style="width:100%;height:100%;padding:0;font-size:inherit;"
+            custom-style="width:auto;height:100%;padding:0 12px;font-size:inherit;"
             @click.stop="clickConfirm"
           >
             {{ popupTitleBtn }}

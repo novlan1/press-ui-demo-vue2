@@ -394,6 +394,7 @@ export default {
     white-space: nowrap;
     // 修复文字被背景图片遮挡问题
     position: relative;
+    z-index: 1;
   }
 
   &__loading-text,

@@ -6,7 +6,7 @@
     <press-icon
       v-if="isESportType"
       type="empty"
-      color="#dfe2ea"
+      color="#bfc3e1"
       custom-class="customClass"
       size="30"
     />
@@ -122,7 +122,10 @@ export default {
     padding: $empty-description-padding;
     color: $empty-description-color;
     font-size: $empty-description-font-size;
+    color: $color-gray-4;
     line-height: $empty-description-line-height;
+    text-align: center;
+    word-break: break-all;
 
     &:empty {
       display: none;
@@ -139,9 +142,8 @@ export default {
 }
 
 .customClass {
-  margin-bottom: 0.08vmin;
   font-size: 0.8vmin;
-  color: $color-gray-3;
+  color: $color-gray-4;
   min-height: 0.84vmin;
 }
 </style>

@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.1.50...v0.5.1) (2023-02-24)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 优化一些语法 ([69816c5](https://git.woa.com/pmd-mobile/support/press-ui/commit/69816c59539919faf44b20fc6b09fe76cc56a97a))
+
+
+### 💄 Styles | 风格
+
+* 更新logo ([a1a75fd](https://git.woa.com/pmd-mobile/support/press-ui/commit/a1a75fd98a53a362de59be45dbfc41bc931f2d74))
+
+
+### ✏️ Documentation | 文档
+
+* 优化文档 ([260835c](https://git.woa.com/pmd-mobile/support/press-ui/commit/260835c9ab575f5eab4e6c60913d579d36e6b0a1))
+* 优化文档 ([d11d3e2](https://git.woa.com/pmd-mobile/support/press-ui/commit/d11d3e2800b9b1c0f3d74e1c8d64d7394cf06d80))
+* 优化文档 ([f6bc9a7](https://git.woa.com/pmd-mobile/support/press-ui/commit/f6bc9a787d94f2f6eb11c9b1d6439cff5ec4748d))
+* 优化文档 ([b23d6f4](https://git.woa.com/pmd-mobile/support/press-ui/commit/b23d6f454edb354249acd06c103bd23bb5f760ae))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 更新gitignore ([d633d99](https://git.woa.com/pmd-mobile/support/press-ui/commit/d633d99c372c5b9b8c640f1db3332ac05d5beef1))
+* 删除无用代码 ([dd8d85e](https://git.woa.com/pmd-mobile/support/press-ui/commit/dd8d85e15edfeca1c9a59033d63a8bc2596a1e70))
+* 删掉无用注释 ([1476d02](https://git.woa.com/pmd-mobile/support/press-ui/commit/1476d025f0bdd89c640d0bc413554451d9c0875d))
+* 升级版本 ([9bee3c3](https://git.woa.com/pmd-mobile/support/press-ui/commit/9bee3c33948cf1b41f869241d5e0c863e6527631))
+* 增加versionrc ([9cf4e08](https://git.woa.com/pmd-mobile/support/press-ui/commit/9cf4e08b9060da0078bb68ed1d7fe5f73a205ae3))
+* 整理文件 ([66026b1](https://git.woa.com/pmd-mobile/support/press-ui/commit/66026b1b6f7b068d4f6a1da4320b7defc063d9a3))
+* **release:** 0.1.53 ([756fbe5](https://git.woa.com/pmd-mobile/support/press-ui/commit/756fbe54b2a037c2539722e93b429b9f4302b914))
+* **release:** 0.2.0 ([36223f6](https://git.woa.com/pmd-mobile/support/press-ui/commit/36223f64e5f101eebbaf012817410df36103964c))
+* **release:** 0.3.0 ([076acd8](https://git.woa.com/pmd-mobile/support/press-ui/commit/076acd8ac4afdd275295520cc611373fdc3d63df))
+* **release:** 0.4.0 ([bf32793](https://git.woa.com/pmd-mobile/support/press-ui/commit/bf3279396d1a5501d4e006e496e1492d6b7021a4))
+* **release:** 0.5.0 ([c20bbe2](https://git.woa.com/pmd-mobile/support/press-ui/commit/c20bbe2e4f2882e672edf79c470b5270e4b37468))
+
+
+### ✨ Features | 新功能
+
+* 优化card ([d9ffb65](https://git.woa.com/pmd-mobile/support/press-ui/commit/d9ffb65df6e37f46a395909103cd56aaf44571da))
+* **popup:** 支持title的slot ([e8335a7](https://git.woa.com/pmd-mobile/support/press-ui/commit/e8335a778e2513afe924166da4bce5f959d8886a))
+
 ## [0.5.0](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.4.0...v0.5.0) (2023-02-14)
 
 ## [0.4.0](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.3.0...v0.4.0) (2023-02-14)

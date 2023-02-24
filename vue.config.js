@@ -1,5 +1,5 @@
 const path = require('path');
-const RemToRpxPlugin = require('uni-plugin-light/lib/loader/rem-to-rpx-plugin');
+const { RemToRpxPlugin } = require('uni-plugin-light/lib/plugin');
 
 const plugins = [];
 

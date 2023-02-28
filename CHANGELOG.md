@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.6](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.5.5...v0.5.6) (2023-02-28)
+
+
+### ✏️ Documentation | 文档
+
+* 显示增加切换语言 ([a31892d](https://git.woa.com/pmd-mobile/support/press-ui/commit/a31892d6aa86b0a78f2a3853d1355ca5a1723f7f))
+
+
+### ✨ Features | 新功能
+
+* **picker:** picker点击切换优化 ([7832d21](https://git.woa.com/pmd-mobile/support/press-ui/commit/7832d210e2478a1b8d5a742e3dc88d7923ec5ff5))
+
 ### [0.5.5](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.5.4...v0.5.5) (2023-02-28)
 
 

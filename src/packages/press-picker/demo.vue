@@ -79,7 +79,7 @@ export default {
       banSet: 'Ban位设置',
       tipContent: '创建比赛后，可按比赛轮次精确设置。',
       addVirtualTeam: '添加虚拟队伍',
-      addTeam: num => `添加 ${num} 队`,
+      addTeam: num => `添加${num}队`,
     },
     'en-US': {
       topTip: 'Top Tips',

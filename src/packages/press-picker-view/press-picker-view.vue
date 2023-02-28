@@ -26,6 +26,7 @@
         v-for="(item, index) in data"
         :id="index"
         :key="index"
+        :data-index="index"
         class="press-picker-view--item"
         :class="[index == currentIndex ? 'press-picker-view--item__active':'']"
         @mousedown="itemDown"
@@ -45,7 +46,13 @@
 import { getRect } from '../common/utils';
 
 function getTouch(e) {
-  return (e.touches && e.touches[0]) ? e.touches[0] : e;
+  if (e.changedTouches && e.changedTouches[0]) {
+    return e.changedTouches[0];
+  }
+  if (e.touches && e.touches[0]) {
+    return e.touches[0];
+  }
+  return e;
 }
 
 export default {
@@ -145,10 +152,14 @@ export default {
     });
     this.updateCurrent();
 
+    // #ifdef H5
     document.addEventListener('mouseup', this.mouseUp);
+    // #endif
   },
   beforeDestroy() {
+    // #ifdef H5
     document.removeEventListener('mouseup', this.mouseUp);
+    // #endif
   },
   methods: {
     // 开始点击
@@ -240,12 +251,7 @@ export default {
         { x: this.upX, y: this.upY },
       );
       if (distance < 10) {
-        let { target } = e;
-        // #ifndef H5
-        target = e.currentTarget;
-        // #endif
-
-        this.currentIndex = this.getElementIndex(target);
+        this.currentIndex = e.currentTarget.dataset.index;
         this.currentScroll = -this.currentIndex * this.itemHeight;
         this.hasClick = true;
       }

@@ -53,6 +53,28 @@
             />
           </uni-list>
         </template>
+
+        <uni-section
+          key="other-ability-section"
+          :title="t('introduce.otherAbility')"
+          color="#007aff"
+          type="line"
+          header-style="font-weight: 500;margin-bottom: 6px;"
+        />
+
+        <uni-list
+          key="other-ability-list"
+          :border="false"
+        >
+          <uni-list-item
+            custom-class="list-item"
+            :border="false"
+            show-arrow
+            clickable
+            :title="t('introduce.toggleLanguage')"
+            @click="onToggleLanguage"
+          />
+        </uni-list>
       </uni-card>
     </div>
   </div>
@@ -86,6 +108,9 @@ export default {
     },
     getComponentTypeTitle(item) {
       return this.t(`titleMap.${item.name}`);
+    },
+    onToggleLanguage() {
+      toggleI18n();
     },
   },
 

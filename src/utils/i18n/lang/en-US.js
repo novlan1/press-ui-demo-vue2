@@ -43,5 +43,7 @@ export default {
   introduce: {
     name: 'Fully Compatible',
     detail: 'Press UI is an easy-to-use, uni-app-based component library',
+    otherAbility: 'Other Ability',
+    toggleLanguage: 'Toggle Language',
   },
 };

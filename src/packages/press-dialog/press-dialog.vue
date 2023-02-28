@@ -1,49 +1,49 @@
 <!-- eslint-disable vue/no-v-html vue/no-v-text-v-html-on-component-->
 <template>
   <div
-    v-if="dialogIsShow"
+    v-if="dataDialogIsShow"
     class="press-dialog"
-    :style="{zIndex: `${zIndex}`}"
+    :style="{zIndex: `${dataZIndex}`}"
     @click.stop="touchRemove"
     @touchmove.stop="preventTouchMove"
   >
     <div class="press-dialog__content-wrap">
       <p class="press-dialog__title">
-        {{ title }}
+        {{ dataTitle }}
       </p>
       <scroll-view
-        v-if="useScrollView && htmlContent"
+        v-if="dataUseScrollView && dataHtmlContent"
         scroll-y="true"
         class="press-dialog__content"
-        v-html="htmlContent"
+        v-html="dataHtmlContent"
       />
 
       <p
-        v-else-if="htmlContent"
+        v-else-if="dataHtmlContent"
         class="press-dialog__content"
-        v-html="htmlContent"
+        v-html="dataHtmlContent"
       />
 
       <p
-        v-if="!htmlContent"
+        v-if="!dataHtmlContent"
         class="press-dialog__content"
       >
-        {{ content }}
+        {{ dataContent }}
       </p>
 
       <div
-        v-if="src"
+        v-if="dataSrc"
         class="press-dialog__img-wrap"
       >
         <img
-          v-if="src"
+          v-if="dataSrc"
           class="press-dialog__img"
           :show-menu-by-longpress="true"
-          :src="src"
+          :src="dataSrc"
         >
       </div>
       <div class="press-dialog__btn--wrap">
-        <template v-if="cancelText && cancelText.length > 0">
+        <template v-if="dataCancelText && dataCancelText.length > 0">
           <div
             class="press-dialog__btn--spacing"
           >
@@ -52,7 +52,7 @@
               custom-style="width: 100px;height: 36px;"
               @click="cancel"
             >
-              {{ cancelText }}
+              {{ dataCancelText }}
             </PressButton>
           </div>
 
@@ -62,7 +62,7 @@
             custom-style="width: 100px;height: 36px;"
             @click="confirm"
           >
-            {{ mShowButtonLoading ? '' : confirmText }}
+            {{ mShowButtonLoading ? '' : dataConfirmText }}
           </PressButton>
         </template>
 
@@ -73,7 +73,7 @@
             custom-style="width: 148px;height: 36px;"
             @click="confirm"
           >
-            {{ mShowButtonLoading ? '' : confirmText }}
+            {{ mShowButtonLoading ? '' : dataConfirmText }}
           </PressButton>
         </template>
       </div>
@@ -83,7 +83,62 @@
 <script>
 import PressButton from '../press-button/press-button.vue';
 import { t } from '../locale';
+import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
 
+const props = {
+  dialogIsShow: {
+    type: Boolean,
+    default: false,
+  },
+  src: {
+    type: String,
+    default: '',
+  },
+  dialogType: {
+    type: [Number, String],
+    default: 1,
+  },
+  title: {
+    type: String,
+    default: t('dialog.title'),
+  },
+  content: {
+    type: String,
+    default: '',
+  },
+  canTouchRemove: {
+    type: Boolean,
+    default: true,
+  },
+  confirmText: {
+    type: String,
+    default: t('confirm'),
+  },
+  cancelText: {
+    type: String,
+    default: '',
+  },
+  onClickCancel: {
+    type: [Function, null],
+    default: null,
+  },
+  onConfirmClick: {
+    type: [Function, null],
+    default: null,
+  },
+  htmlContent: {
+    type: String,
+    default: '',
+  },
+  zIndex: {
+    type: [Number, String],
+    default: '99',
+  },
+  useScrollView: {
+    type: Boolean,
+    default: false,
+  },
+};
 
 export default {
   name: 'PressDialog',
@@ -91,6 +146,7 @@ export default {
     PressButton,
   },
   props: {
+    ...props,
   },
   options: {
     virtualHost: true,
@@ -102,34 +158,42 @@ export default {
       promise: '',
       mShowButtonLoading: false,
 
-      dialogIsShow: false,
-      src: '',
-      dialogType: 1,
-      title: t('dialog.title'),
-      content: '',
-      canTouchRemove: true,
-      confirmText: t('confirm'),
-      cancelText: '',
-      onClickCancel: null,
-      onConfirmClick: null,
-      htmlContent: '',
-      zIndex: '99',
-      useScrollView: false, // 是否使用scroll-view包裹v-html
+      ...getPropsData(this, props),
+
+
+      // dialogIsShow: false,
+      // src: '',
+      // dialogType: 1,
+      // title: t('dialog.title'),
+      // content: '',
+      // canTouchRemove: true,
+      // confirmText: t('confirm'),
+      // cancelText: '',
+      // onClickCancel: null,
+      // onConfirmClick: null,
+      // htmlContent: '',
+      // zIndex: '99',
+      // useScrollView: false, // 是否使用scroll-view包裹v-html
     };
   },
-
+  watch: {
+    ...getPropsWatch(props),
+  },
   methods: {
+    setData(data) {
+      setPropsToData.call(this, data);
+    },
     preventTouchMove() {
       return;
     },
     confirm() {
-      if (this.dialogType === 2) {
+      if (this.dataDialogType === 2) {
         if (this.mShowButtonLoading) {
           return;
         }
         this.mShowButtonLoading = true;
-        if (typeof this.onConfirmClick === 'function') {
-          this.onConfirmClick(this)
+        if (typeof this.dataOnConfirmClick === 'function') {
+          this.dataOnConfirmClick(this)
             .then(() => {
               this.resolveConfirm();
             })
@@ -144,25 +208,27 @@ export default {
       if (this.resolve) {
         this.resolve('confirm');
       }
+      this.$emit('confirm');
       this.remove();
     },
     // 取消,将promise断定为reject状态
     cancel() {
-      if (typeof this.onClickCancel === 'function') {
-        this.onClickCancel(this);
+      if (typeof this.dataOnClickCancel === 'function') {
+        this.dataOnClickCancel(this);
       }
       if (typeof this.reject === 'function') {
         this.reject('cancel');
       }
+      this.$emit('cancel');
       this.remove();
     },
     // 弹出messageBox,并创建promise对象
-    showDialog(options) {
-      this.dialogIsShow = true;
+    showDialog() {
+      this.dataDialogIsShow = true;
 
-      Object.keys(options).map((key) => {
-        this[key] = options[key];
-      });
+      // Object.keys(options).map((key) => {
+      //   this[key] = options[key];
+      // });
       this.promise = new Promise((resolve, reject) => {
         this.resolve = resolve;
         this.reject = reject;
@@ -171,22 +237,22 @@ export default {
       return this.promise;
     },
     touchRemove() {
-      if (this.canTouchRemove) {
+      if (this.dataCanTouchRemove) {
         this.remove();
       }
     },
     remove() {
-      this.dialogIsShow = false;
-      setTimeout(() => {
-        this.destroy();
-      }, 500);
+      this.dataDialogIsShow = false;
+      // setTimeout(() => {
+      //   this.destroy();
+      // }, 500);
     },
     destroy() {
       // #ifdef H5
-      this.$destroy();
-      if (document.body.contains(this.$el)) {
-        document.body.removeChild(this.$el);
-      }
+      // this.$destroy();
+      // if (document.body.contains(this.$el)) {
+      //   this.$el.parentNode.removeChild(this.$el);
+      // }
       // #endif
     },
 

@@ -14,12 +14,26 @@
       </press-button>
     </demo-block>
 
-    <press-dialog id="tip-match-comm-tips-dialog" />
+    <PressDialogComp id="tip-match-comm-tips-dialog" />
+
+    <PressDialogComp
+      :title="t('title')"
+      :dialog-is-show="show"
+      content="Some fake news"
+      @confirm="onConfirm()"
+    />
+
+    <PressDialogComp
+      :title="t('title')"
+      :dialog-is-show="show2"
+      content="Some fake news 2"
+      @confirm="show2 = false"
+    />
   </div>
 </template>
 <script>
 import PressDialog from 'src/packages/press-dialog';
-
+import PressDialogComp from 'src/packages/press-dialog/press-dialog';
 
 const loadingConfirm = function () {
   return new Promise((resolve) => {
@@ -40,6 +54,8 @@ export default {
       longText: '长文本',
       onlyCaption: '仅限队长报名，发给队长来报名吧！',
       custom: '自定义',
+      componentCall: '组件调用',
+      multiple: '多例',
       longContent: () => [
         '念奴娇·赤壁怀古',
         '大江东去，浪淘尽，千古风流人物。故垒西边，人道是，三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。',
@@ -63,6 +79,8 @@ export default {
       longText: 'Long Text',
       onlyCaption: 'Only the captain can sign up, send it to the captain to sign up!',
       custom: 'Custom ',
+      componentCall: 'Component Call',
+      multiple: 'Multiple',
       longContent: () => [
         'Reflections on the Ancient Red Cliff--To the tune of Niannujiao',
         '',
@@ -92,10 +110,14 @@ export default {
       ].join('<br/>'),
     },
   },
-
+  components: {
+    PressDialogComp,
+  },
   data() {
     return {
       sectionStyle: '',
+      show: false,
+      show2: false,
       dialogTypeList: [
         {
           name: 'normal',
@@ -129,6 +151,14 @@ export default {
           name: 'longText',
           title: this.t('longText'),
         },
+        {
+          name: 'componentCall',
+          title: this.t('componentCall'),
+        },
+        {
+          name: 'multiple',
+          title: this.t('multiple'),
+        },
       ],
     };
   },
@@ -141,6 +171,16 @@ export default {
   },
   methods: {
     onShowDialog(type) {
+      if (type === 'componentCall') {
+        this.show = true;
+        return;
+      }
+      if (type === 'multiple') {
+        this.show = true;
+        this.show2 = true;
+        return;
+      }
+
       let cancelText = this.t('cancel');
       let dialogType = 1;
       let onConfirmClick = null;
@@ -183,8 +223,17 @@ export default {
         onConfirmClick,
         canTouchRemove,
         useScrollView,
-      }).then(() => {})
-        .catch(() => {});
+      })
+        .then(() => {
+          console.log('then');
+        })
+        .catch(() => {
+          console.log('cancel');
+        });
+    },
+
+    onConfirm() {
+      this.show = false;
     },
   },
 };

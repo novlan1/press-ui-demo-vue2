@@ -164,15 +164,18 @@ export default {
     };
   },
   watch: {
-    isShow(val) {
-      this.isShowPopup = val;
-      if (!val) {
-        setTimeout(() => {
-          this.innerShow = false;
-        }, ANIMATION_TIME);
-      } else {
-        this.innerShow = true;
-      }
+    isShow: {
+      handler(val) {
+        this.isShowPopup = val;
+        if (!val) {
+          setTimeout(() => {
+            this.innerShow = false;
+          }, ANIMATION_TIME);
+        } else {
+          this.innerShow = true;
+        }
+      },
+      immediate: true,
     },
     // #ifdef H5
     isShowPopup: {

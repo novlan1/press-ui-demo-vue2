@@ -10,6 +10,7 @@ module.exports = {
   settings: {
   },
   rules: {
+    'vue/no-v-text-v-html-on-component': 0,
   },
 };
 

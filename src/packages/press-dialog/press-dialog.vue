@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html vue/no-v-text-v-html-on-component-->
 <template>
   <div
-    v-if="dataDialogIsShow"
+    v-if="dataShow"
     class="press-dialog"
     :style="{zIndex: `${dataZIndex}`}"
     @click.stop="touchRemove"
@@ -86,7 +86,7 @@ import { t } from '../locale';
 import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
 
 const props = {
-  dialogIsShow: {
+  show: {
     type: Boolean,
     default: false,
   },
@@ -224,7 +224,7 @@ export default {
     },
     // 弹出messageBox,并创建promise对象
     showDialog() {
-      this.dataDialogIsShow = true;
+      this.dataShow = true;
 
       // Object.keys(options).map((key) => {
       //   this[key] = options[key];
@@ -240,9 +240,10 @@ export default {
       if (this.dataCanTouchRemove) {
         this.remove();
       }
+      this.$emit('cancel');
     },
     remove() {
-      this.dataDialogIsShow = false;
+      this.dataShow = false;
       // setTimeout(() => {
       //   this.destroy();
       // }, 500);

@@ -18,16 +18,18 @@
 
     <PressDialogComp
       :title="t('title')"
-      :dialog-is-show="show"
+      :show="show"
       content="Some fake news"
       @confirm="onConfirm()"
+      @cancel="show = false"
     />
 
     <PressDialogComp
       :title="t('title')"
-      :dialog-is-show="show2"
+      :show="show2"
       content="Some fake news 2"
       @confirm="show2 = false"
+      @cancel="show2 = false"
     />
   </div>
 </template>

@@ -4,7 +4,7 @@ import VueDialog from './press-dialog.vue';
 
 let queue = [];
 const defaultOptions = {
-  show: false,
+  // show: false,
   title: t('dialog.title'),
   content: '',
   src: '',

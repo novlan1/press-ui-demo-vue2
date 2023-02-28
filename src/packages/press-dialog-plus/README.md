@@ -118,7 +118,7 @@ Dialog.confirm({
 如果需要在弹窗内嵌入组件或其他自定义内容，可以使用组件调用的方式。
 
 ```html
-<press-dialog
+<press-dialog-plus
   use-slot
   title="标题"
   :show="show"
@@ -128,7 +128,7 @@ Dialog.confirm({
   @getuserinfo="getUserInfo"
 >
   <image src="https://img.yzcdn.cn/1.jpg" />
-</press-dialog>
+</press-dialog-plus>
 ```
 
 ```js

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.2](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.1...v0.6.2) (2023-03-02)
+
+
+### ✨ Features | 新功能
+
+* 调整队长标签 ([6004473](https://git.woa.com/pmd-mobile/support/press-ui/commit/6004473df3ee00678a40d2e8e5d3123fc75c501b))
+
 ### [0.6.1](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.0...v0.6.1) (2023-03-02)
 
 

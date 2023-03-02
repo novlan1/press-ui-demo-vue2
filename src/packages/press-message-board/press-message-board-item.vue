@@ -293,14 +293,16 @@ export default {
       }
 
       .press-message-board-item__reply-avatar {
+        position: relative;
+        top: 0.02rem;
         display: inline-block;
-        height: 0.32rem;
-        width: 0.58rem;
-        margin-right: 0.08rem;
-        vertical-align: middle;
-        background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png)
-          no-repeat;
-        background-size: 100%;
+        height: 0.28rem;
+        line-height: 0.28rem;
+        font-size: .2rem;
+        color: $color-white;
+        padding: 0 0.08rem;
+        border-radius: 0.08rem 0 0.08rem 0;
+        background-image: linear-gradient(272.01deg, #53C3F7 0%, #1181D7 100%);
       }
 
       .press-message-board-item__reply-nick {

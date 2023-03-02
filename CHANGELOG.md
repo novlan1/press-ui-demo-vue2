@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.5.0...v0.6.0) (2023-03-02)
+
+
+### ✏️ Documentation | 文档
+
+* 显示增加切换语言 ([a31892d](https://git.woa.com/pmd-mobile/support/press-ui/commit/a31892d6aa86b0a78f2a3853d1355ca5a1723f7f))
+
+
+### ✨ Features | 新功能
+
+* 赛宝海外适配 ([8d8fa71](https://git.woa.com/pmd-mobile/support/press-ui/commit/8d8fa718248ab142557beb16779d79e54db34a2b))
+* **dialog:** 优化命名 ([cc402ff](https://git.woa.com/pmd-mobile/support/press-ui/commit/cc402ffc41703d4e752ebdbf393ea9bfada5255b))
+* **dialog:** dialog支持组件调用和多例 ([2d45e8b](https://git.woa.com/pmd-mobile/support/press-ui/commit/2d45e8b228418a71a3bfb76934b22df7110ac5bf))
+* **picker:** picker点击切换优化 ([7832d21](https://git.woa.com/pmd-mobile/support/press-ui/commit/7832d210e2478a1b8d5a742e3dc88d7923ec5ff5))
+* **popup:** 支持title的slot ([e8335a7](https://git.woa.com/pmd-mobile/support/press-ui/commit/e8335a778e2513afe924166da4bce5f959d8886a))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 安装axios ([5bced73](https://git.woa.com/pmd-mobile/support/press-ui/commit/5bced73f96ef33958c7cb6e0f7c5e05218e3504a))
+* 升级依赖 ([0d4d559](https://git.woa.com/pmd-mobile/support/press-ui/commit/0d4d559774ff122b747cdfcdc1a279564c35e366))
+* 升级依赖 ([b5aee40](https://git.woa.com/pmd-mobile/support/press-ui/commit/b5aee404d194b52a58345dfe90dbffbed5cb2049))
+* 增加versionrc ([9cf4e08](https://git.woa.com/pmd-mobile/support/press-ui/commit/9cf4e08b9060da0078bb68ed1d7fe5f73a205ae3))
+* **release:** 0.5.1 ([a68f3bd](https://git.woa.com/pmd-mobile/support/press-ui/commit/a68f3bdcffd4e94d6fdd6729b3dfb723cff893c1))
+* **release:** 0.5.2 ([c1da5e8](https://git.woa.com/pmd-mobile/support/press-ui/commit/c1da5e85fe5f224f884d94dd072831bbeb64819d))
+* **release:** 0.5.3 ([cf1200f](https://git.woa.com/pmd-mobile/support/press-ui/commit/cf1200f8cbd4d0f3c783e963767b3f08710e706d))
+* **release:** 0.5.4 ([4dbd8cc](https://git.woa.com/pmd-mobile/support/press-ui/commit/4dbd8cc6fc98a9b643d11471ae1a09eeffbd4865))
+* **release:** 0.5.5 ([99ab504](https://git.woa.com/pmd-mobile/support/press-ui/commit/99ab504940cd506198bf2ac481c4a2e7cd7ea170))
+* **release:** 0.5.6 ([e5082d0](https://git.woa.com/pmd-mobile/support/press-ui/commit/e5082d0b43b56ae2c77bc36f241d46cd33d88d8c))
+
 ### [0.5.6](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.5.5...v0.5.6) (2023-02-28)
 
 

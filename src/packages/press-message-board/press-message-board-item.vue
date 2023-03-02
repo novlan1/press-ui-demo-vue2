@@ -178,7 +178,7 @@ export default {
 
   &__system-comment::after,
   &__normal-comment::after {
-    @include halfBottomBorder($color-gray-3);
+    @include halfBottomBorder($color-gray-7);
   }
 
   // 加入提示
@@ -302,7 +302,7 @@ export default {
         color: $color-white;
         padding: 0 0.08rem;
         border-radius: 0.08rem 0 0.08rem 0;
-        background-image: linear-gradient(272.01deg, #53C3F7 0%, #1181D7 100%);
+        background-image: linear-gradient(135deg, #FFA51F 0%, #FFD857 100%);
       }
 
       .press-message-board-item__reply-nick {

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.4](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.3...v0.6.4) (2023-03-06)
+
+
+### ✨ Features | 新功能
+
+* **popup:** popup支持异步promise确认后关闭 ([ea424d9](https://git.woa.com/pmd-mobile/support/press-ui/commit/ea424d9c984be212dceb278905dec2f08ed5ca55))
+
 ### [0.6.3](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.2...v0.6.3) (2023-03-02)
 
 

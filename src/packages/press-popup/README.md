@@ -146,6 +146,62 @@ export default {
 </template>
 ```
 
+### 异步关闭
+
+```html
+ <PressPopup
+  v-if="popupOptions.noClose.show"
+  :is-showpopup-close="false"
+  :show-back-arrow="false"
+  :popup-title="popupOptions.noClose.title"
+  :popup-title-btn="t('confirm')"
+  @onConfirm="popupOptions.noClose.onConfirm"
+  @onCancel="popupOptions.noClose.onCancel"
+>
+  <div class="content">
+    {{ t('SomeContent') }}
+  </div>
+</PressPopup>
+```
+
+```ts
+export default {
+  data() {
+    return {
+      popupOptions: {
+        noClose: {
+          show: false,
+          title: this.t('wayToWin'),
+          onCancel: () => {
+            this.popupOptions.noClose.show = false;
+          },
+          onConfirm: () => {
+            this.popupOptions.noClose.show = false;
+          },
+        },
+      }
+    }
+  },
+  methods: {
+    validateConfirm() {
+      if (['noClose', 'borderBtn'].indexOf(this.type) <= -1) return true;
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          if (this.type === 'noClose') {
+            console.log('异步确认后可以关闭');
+            resolve(true);
+          } else {
+            resolve(false);
+            console.log('异步确认后禁止关闭');
+          }
+        }, 2000);
+      });
+    }
+  }
+}
+```
+
 ## API
 
 ### Popup Props 

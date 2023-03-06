@@ -232,7 +232,6 @@ export default {
             resolve(false);
             console.log('异步确认后禁止关闭');
           }
-          resolve(true);
         }, 2000);
       });
     },

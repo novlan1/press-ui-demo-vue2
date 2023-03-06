@@ -149,6 +149,7 @@ export default {
   },
   data() {
     return {
+      type: '',
       customStyle: '',
       popupOptions: {
         normal: {
@@ -213,10 +214,27 @@ export default {
   },
   methods: {
     onShowPopup(type) {
+      this.type = type;
       console.log('type', type);
       if (this.popupOptions[type]) {
         this.popupOptions[type].show = true;
       }
+    },
+    validateConfirm() {
+      if (['noClose', 'borderBtn'].indexOf(this.type) <= -1) return true;
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          if (this.type === 'noClose') {
+            console.log('异步确认后可以关闭');
+            resolve(true);
+          } else {
+            resolve(false);
+            console.log('异步确认后禁止关闭');
+          }
+          resolve(true);
+        }, 2000);
+      });
     },
   },
 };

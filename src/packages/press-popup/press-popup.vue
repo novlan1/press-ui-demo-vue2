@@ -69,6 +69,7 @@
 <script>
 // import PressIcon from '../press-icon/press-icon.vue';
 import PressButton from '../press-button/press-button.vue';
+import { toPromise } from '../common/utils';
 const ANIMATION_TIME = 400;
 
 export default {
@@ -213,9 +214,17 @@ export default {
       }, ANIMATION_TIME);
     },
     clickConfirm() {
-      if (this.$parent.validateConfirm && !this.$parent.validateConfirm()) {
+      if (this.$parent.validateConfirm) {
+        toPromise(this.$parent.validateConfirm()).then((value) => {
+          if (value) {
+            this.emitConfirm();
+          }
+        });
         return;
       }
+      this.emitConfirm();
+    },
+    emitConfirm() {
       this.isShowPopup = false;
       this.timer = setTimeout(() => {
         this.$emit('onConfirm');

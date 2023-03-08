@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.7](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.5.6...v0.5.7) (2023-03-08)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 安装axios ([5bced73](https://git.woa.com/pmd-mobile/support/press-ui/commit/5bced73f96ef33958c7cb6e0f7c5e05218e3504a))
+* 升级依赖 ([0d4d559](https://git.woa.com/pmd-mobile/support/press-ui/commit/0d4d559774ff122b747cdfcdc1a279564c35e366))
+
+
+### ✨ Features | 新功能
+
+* 恢复press-dialog ([8a8ec54](https://git.woa.com/pmd-mobile/support/press-ui/commit/8a8ec546d49094911bd2834fe9b2769831a95dcb))
+
 ### [0.5.6](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.5.5...v0.5.6) (2023-02-28)
 
 

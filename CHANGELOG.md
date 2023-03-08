@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.6...v0.7.0) (2023-03-08)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 小程序模式下不引用vue ([477e783](https://git.woa.com/pmd-mobile/support/press-ui/commit/477e783698246a2bce793399d574892b46c8c36e))
+
 ### [0.6.6](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.3...v0.6.6) (2023-03-08)
 
 

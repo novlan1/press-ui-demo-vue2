@@ -74,7 +74,7 @@ export default {
   color: var(--popover-color, $color-white);
   padding: var(--popover-padding, tovmin(8) tovmin(24));
   border-radius: var(--popover-border-radius, tovmin(8));
-  background: var(--popover-background, rgba(0, 0, 37, 0.95));
+  background: var(--popover-background, #09134e);
   z-index: var(--popover-z-index, 8);
 
   &::before {
@@ -84,7 +84,7 @@ export default {
     height: 0;
     border-left: tovmin(12) solid transparent;
     border-right: tovmin(12) solid transparent;
-    border-top: tovmin(12) solid var(--popover-background, rgba(0, 0, 37, 0.95));
+    border-top: tovmin(12) solid var(--popover-background, #09134e);
   }
 
   &--top {
@@ -94,7 +94,7 @@ export default {
     margin: auto;
 
     &::before {
-      bottom: tovmin(-12);
+      bottom: tovmin(-10);
       left: 0;
       right: 0;
       margin: auto;
@@ -111,7 +111,7 @@ export default {
     &::before {
       top: 0;
       bottom: 0;
-      left: tovmin(-18);
+      left: tovmin(-16);
       margin: auto;
       transform: rotate(90deg);
     }
@@ -124,7 +124,7 @@ export default {
     margin: auto;
 
     &::before {
-      top: tovmin(-12);
+      top: tovmin(-10);
       left: 0;
       right: 0;
       margin: auto;
@@ -141,7 +141,7 @@ export default {
     &::before {
       top: 0;
       bottom: 0;
-      right: tovmin(-18);
+      right: tovmin(-16);
       margin: auto;
       transform: rotate(-90deg);
     }

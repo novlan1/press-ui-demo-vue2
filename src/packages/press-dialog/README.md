@@ -33,38 +33,6 @@ export default {
 };
 ```
 
-### 组件调用
-
-press-dialog支持组件调用，可以嵌入额外内容。
-
-多例模式可以用组件调用方式。
-
-```html
-<PressDialogComp
-  title="标题"
-  :show="show"
-  content="Some fake news"
-  @confirm="onConfirm"
-/>
-```
-
-```js
-export default {
-  data() {
-    return {
-      show: true,
-    }
-  },
-  methods: {
-    onConfirm() {
-      this.show = false;
-    },
-  }
-};
-```
-
-
-
 ## API
 
 ### Props

@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Nom incorrect',
   confirmDelete: 'Êtes-vous sûr de vouloir supprimer?',
   telInvalid: 'Numéro de téléphone incorrect',
+  reply: 'Reply',
   calendar: {
     end: 'Fin',
     start: 'Début',

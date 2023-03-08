@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Malformed name',
   confirmDelete: 'Are you sure you want to delete?',
   telInvalid: 'Malformed phone number',
+  reply: 'Reply',
   calendar: {
     end: 'End',
     start: 'Start',

@@ -32,7 +32,7 @@
           class="press-message-board-item__reply-btn"
           @click.stop="replyClick(item)"
         >
-          回复
+          {{ replyContent }}
         </p>
       </div>
 
@@ -65,7 +65,7 @@
 
             <p
               class="press-message-board-item__reply-word"
-            >回复
+            >{{ replyContent }}
               <template v-if="replyColon">
                 ：
               </template>
@@ -118,6 +118,7 @@
 </template>
 <script>
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { t } from '../locale';
 
 export default {
   options: {
@@ -153,6 +154,11 @@ export default {
     return {
     };
   },
+  computed: {
+    replyContent() {
+      return t('reply');
+    },
+  },
   mounted() {
 
   },
@@ -178,7 +184,7 @@ export default {
 
   &__system-comment::after,
   &__normal-comment::after {
-    @include halfBottomBorder($color-gray-3);
+    @include halfBottomBorder($color-gray-7);
   }
 
   // 加入提示
@@ -293,14 +299,16 @@ export default {
       }
 
       .press-message-board-item__reply-avatar {
+        position: relative;
+        top: 0.02rem;
         display: inline-block;
-        height: 0.32rem;
-        width: 0.58rem;
-        margin-right: 0.08rem;
-        vertical-align: middle;
-        background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/cpatain-blue.png)
-          no-repeat;
-        background-size: 100%;
+        height: 0.28rem;
+        line-height: 0.28rem;
+        font-size: 0.2rem;
+        color: $color-white;
+        padding: 0 0.08rem;
+        border-radius: 0.08rem 0 0.08rem 0;
+        background-image: linear-gradient(135deg, #ffa51f 0%, #ffd857 100%);
       }
 
       .press-message-board-item__reply-nick {

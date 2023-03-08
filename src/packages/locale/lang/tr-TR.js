@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Geçersiz isim',
   confirmDelete: 'Silmek istediğinize emin misiniz?',
   telInvalid: 'Geçersiz tel. numarası',
+  reply: 'Reply',
   calendar: {
     end: 'Son',
     start: 'Başlat',

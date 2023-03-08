@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Ugyldig navn',
   confirmDelete: 'Er du sikker på at du vil slette?',
   telInvalid: 'Ugyldig telefonnummer',
+  reply: 'Reply',
   calendar: {
     end: 'Slutt',
     start: 'Start',

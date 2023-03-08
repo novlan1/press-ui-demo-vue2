@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import { t } from '../locale';
+// #ifdef H5
 import VueDialog from './press-dialog.vue';
+// #endif
 
 let queue = [];
 const defaultOptions = {
@@ -57,6 +59,8 @@ const Dialog = (options) => {
     const newOptions = {
       ...options,
     };
+
+    console.log('dialog', dialog);
 
     // #ifdef H5
     dialog.setData(newOptions);

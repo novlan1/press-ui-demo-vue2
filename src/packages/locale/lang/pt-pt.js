@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Nome malformado',
   confirmDelete: 'Tem certeza de que deseja excluir?',
   telInvalid: 'Número de telefone incorreto',
+  reply: 'Recuperação',
   calendar: {
     end: 'Fim',
     start: 'Começar',

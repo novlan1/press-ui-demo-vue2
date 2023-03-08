@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Nume incorect',
   confirmDelete: 'Ești sigur ca vrei sa stergi?',
   telInvalid: 'Număr de telefon invalid',
+  reply: 'Reply',
   calendar: {
     end: 'Sfârșit',
     start: 'Început',

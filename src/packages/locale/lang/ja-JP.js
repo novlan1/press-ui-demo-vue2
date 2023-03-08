@@ -12,6 +12,7 @@ export default {
   nameInvalid: '正しい名前を入力してください',
   confirmDelete: '本当に削除しますか',
   telInvalid: '正しい電話番号を入力してください',
+  reply: 'Reply',
   calendar: {
     end: '終了',
     start: '開始',

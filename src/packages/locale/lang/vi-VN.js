@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Vui lòng nhập tên chính xác',
   confirmDelete: 'Bạn có chắc chắn muốn xóa',
   telInvalid: 'Vui lòng nhập số điện thoại chính xác',
+  reply: 'Reply',
   calendar: {
     end: 'Chấm dứt',
     start: 'Bắt đầu',

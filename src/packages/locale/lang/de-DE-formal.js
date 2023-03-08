@@ -12,6 +12,7 @@ export default {
   nameInvalid: 'Ungültiger Name',
   confirmDelete: 'Sind Sie sicher, dass Sie löschen möchten?',
   telInvalid: 'Ungültige Telefonnummer',
+  reply: 'Reply',
   calendar: {
     end: 'Ende',
     start: 'Start',

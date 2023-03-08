@@ -32,7 +32,7 @@
           class="press-message-board-item__reply-btn"
           @click.stop="replyClick(item)"
         >
-          回复
+          {{ replyContent }}
         </p>
       </div>
 
@@ -65,7 +65,7 @@
 
             <p
               class="press-message-board-item__reply-word"
-            >回复
+            >{{ replyContent }}
               <template v-if="replyColon">
                 ：
               </template>
@@ -118,6 +118,7 @@
 </template>
 <script>
 import { defaultProps, defaultOptions } from '../common/press-component';
+import { t } from '../locale';
 
 export default {
   options: {
@@ -152,6 +153,11 @@ export default {
   data() {
     return {
     };
+  },
+  computed: {
+    replyContent() {
+      return t('reply');
+    },
   },
   mounted() {
 
@@ -298,11 +304,11 @@ export default {
         display: inline-block;
         height: 0.28rem;
         line-height: 0.28rem;
-        font-size: .2rem;
+        font-size: 0.2rem;
         color: $color-white;
         padding: 0 0.08rem;
         border-radius: 0.08rem 0 0.08rem 0;
-        background-image: linear-gradient(135deg, #FFA51F 0%, #FFD857 100%);
+        background-image: linear-gradient(135deg, #ffa51f 0%, #ffd857 100%);
       }
 
       .press-message-board-item__reply-nick {

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.6](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.3...v0.6.6) (2023-03-08)
+
+
+### ✏️ Documentation | 文档
+
+* **popup:** 异步关闭 ([81ed2ab](https://git.woa.com/pmd-mobile/support/press-ui/commit/81ed2ab889422579a201f98fe8928d51fbf0eb00))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* **release:** 0.6.4 ([67fd570](https://git.woa.com/pmd-mobile/support/press-ui/commit/67fd570952aad304ce160a096e4db1626934677b))
+* **release:** 0.6.5 ([09af2b4](https://git.woa.com/pmd-mobile/support/press-ui/commit/09af2b44e87710c56a99dea058d9aff60a270a8f))
+
+
+### ✨ Features | 新功能
+
+* 赛宝更新 ([0e1e7ed](https://git.woa.com/pmd-mobile/support/press-ui/commit/0e1e7ed60ebf3c5a52c7692da34efe7a4755db81))
+* **message-board:** i18n ([42b188c](https://git.woa.com/pmd-mobile/support/press-ui/commit/42b188c91c3d8ba33d91e867a5916d4053677135))
+* **popup:** popup支持异步promise确认后关闭 ([ea424d9](https://git.woa.com/pmd-mobile/support/press-ui/commit/ea424d9c984be212dceb278905dec2f08ed5ca55))
+
 ### [0.6.5](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.6.4...v0.6.5) (2023-03-08)
 
 

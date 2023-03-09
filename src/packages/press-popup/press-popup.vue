@@ -55,7 +55,7 @@
           <PressButton
             v-if="popupTitleBtn"
             :type="isBorderBtn ? 'e-sport-border' : 'e-sport-primary'"
-            custom-style="width:auto;height:100%;padding:0 12px;font-size:inherit;"
+            custom-style="width:auto;height:100%;padding:0 6px;font-size:inherit;"
             @click.stop="clickConfirm"
           >
             {{ popupTitleBtn }}

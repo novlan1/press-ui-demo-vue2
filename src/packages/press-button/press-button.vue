@@ -344,7 +344,7 @@ export default {
   }
 
   &--normal {
-    padding: 0 15px;
+    padding: 0 6px;
     font-size: var(--button-normal-font-size, $button-normal-font-size);
   }
 

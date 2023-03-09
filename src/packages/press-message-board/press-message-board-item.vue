@@ -216,9 +216,7 @@ export default {
     }
 
     .press-message-board-item__reply-btn {
-      width: 0.8rem;
       height: 0.4rem;
-      // color: $color-primary;
       color: $color-gray-5;
       font-size: $font-s;
       line-height: 0.4rem;

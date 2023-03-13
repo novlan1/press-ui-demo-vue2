@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 
 function watchPackages(cb) {
-  const watcher = gulp.watch('./src/packages/**/*');
+  const watcher = gulp.watch('./packages/press-ui/**/*');
   console.log('[GULP] 正在监听 packages 文件夹...');
 
   watcher.on('change', (path) => {

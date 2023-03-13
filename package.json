@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "dev": "concurrently \"npm run demo:watch\" \"npm run serve\"",
-    "serve": "npm run dev:h5",
-    "build": "npm run build:h5",
+    "serve": "npm run env dev:h5",
+    "build": "npm run env build:h5",
     "deploy": "node script/deploy-h5-demo",
     "env": "node env",
     "build:mp": "npm run build:mp-weixin",

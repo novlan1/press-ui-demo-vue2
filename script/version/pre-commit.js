@@ -1,8 +1,9 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
+require('../utils/local-env')();
 
-
-const PACKAGE_JSON_PATH = './src/packages/package.json';
+const PROJECT_DIR = `./packages/${process.env.VUE_APP_PROJECT}`;
+const PACKAGE_JSON_PATH = `${PROJECT_DIR}/package.json`;
 const ROOT_PACKAGE_JSON_PATH = './package.json';
 
 
@@ -40,7 +41,7 @@ function main() {
 }
 
 function release() {
-  execSync('cd src/packages && npm publish', {
+  execSync(`cd ${PROJECT_DIR} && npm publish`, {
     stdio: 'inherit',
   });
 }

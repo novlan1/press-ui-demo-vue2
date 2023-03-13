@@ -2,16 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const { mkDirsSync } = require('t-comm');
 const { getPureCompName } = require('../utils/utils');
+require('../utils/local-env')();
 
 const LOCAL_DOC_NAME = 'README.md';
 const LOCAL_DOC_EN_NAME = 'README.en-US.md';
 const LOCAL_DEMO_NAME = 'demo.vue';
 
-const COMPONENT_DIR = './src/packages';
+const COMPONENT_DIR = `./packages/${process.env.VUE_APP_PROJECT}/packages`; // './src/packages';
 
 const DOC_PATH = './docs/components/press';
 const DOC_EN_PATH = './docs/en/components/press';
-const DEMO_PATH = './src/pages/press';
+const DEMO_PATH = `./packages/${process.env.VUE_APP_PROJECT}/pages/press`; // './src/pages/press';
 
 /**
  * 获取组件文件夹

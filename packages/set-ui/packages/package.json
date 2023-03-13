@@ -6,7 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "press-ui",
+    "set-ui",
+    "uni-app",
+    "component"
+  ],
+  "author": "guowangyang",
+  "license": "ISC",
+  "dependencies": {
+    "@tencent/press-ui": "^0.7.3"
+  }
 }

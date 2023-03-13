@@ -1,7 +1,9 @@
 const gulp = require('gulp');
+require('../utils/local-env')();
+
 
 function watchPackages(cb) {
-  const watcher = gulp.watch('./packages/press-ui/**/*');
+  const watcher = gulp.watch(`./packages/${process.env.VUE_APP_PROJECT}/packages/**/*`);
   console.log('[GULP] 正在监听 packages 文件夹...');
 
   watcher.on('change', (path) => {

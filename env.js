@@ -1,5 +1,5 @@
 const path = require('path');
-const os = require('os');
+// const os = require('os');
 const { spawnSync } = require('child_process');
 const dotenv = require('dotenv');
 
@@ -13,13 +13,13 @@ function main() {
 
   // // 执行真实的命令
   const realArgv = process.argv.slice(2);
-  let command = 'npm';
-  const platform = os.platform();
-  if (platform === 'win32') {
-    command = 'npm.cmd';
-  }
+  // let command = 'npm';
+  // const platform = os.platform();
+  // if (platform === 'win32') {
+  //   command = 'npm.cmd';
+  // }
 
-  spawnSync(command, ['run', ...realArgv], { stdio: 'inherit' });
+  spawnSync('npx', [...realArgv], { stdio: 'inherit' });
 }
 
 main();

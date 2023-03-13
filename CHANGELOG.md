@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.5](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.3...v0.7.5) (2023-03-13)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 优化监听工作 ([9879a3a](https://git.woa.com/pmd-mobile/support/press-ui/commit/9879a3a68135aade873d3785b7ac2fa916ca3333))
+* 重构项目-支持单仓 ([9aa3d45](https://git.woa.com/pmd-mobile/support/press-ui/commit/9aa3d45d5b1e07e6b3ef375854bd2da9cab88ab5))
+
+
+### ✨ Features | 新功能
+
+* 优化set-ui ([fae5317](https://git.woa.com/pmd-mobile/support/press-ui/commit/fae53173f1c97992d7077d7030bee26dd8012b88))
+* 增加set-ui ([71340f8](https://git.woa.com/pmd-mobile/support/press-ui/commit/71340f8fb3ddbab00b5b8e306ba75301136c5c02))
+
+### [0.7.4](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.3...v0.7.4) (2023-03-13)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 优化监听工作 ([9879a3a](https://git.woa.com/pmd-mobile/support/press-ui/commit/9879a3a68135aade873d3785b7ac2fa916ca3333))
+* 重构项目-支持单仓 ([9aa3d45](https://git.woa.com/pmd-mobile/support/press-ui/commit/9aa3d45d5b1e07e6b3ef375854bd2da9cab88ab5))
+
+
+### ✨ Features | 新功能
+
+* 优化set-ui ([fae5317](https://git.woa.com/pmd-mobile/support/press-ui/commit/fae53173f1c97992d7077d7030bee26dd8012b88))
+* 增加set-ui ([71340f8](https://git.woa.com/pmd-mobile/support/press-ui/commit/71340f8fb3ddbab00b5b8e306ba75301136c5c02))
+
 ### [0.7.3](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.2...v0.7.3) (2023-03-13)
 
 

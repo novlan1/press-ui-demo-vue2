@@ -1,6 +1,6 @@
 {
   "name": "@tencnet/press-ui",
-  "version": "0.7.3",
+  "version": "0.7.5",
   "private": true,
   "repository": {
     "type": "git",
@@ -79,7 +79,7 @@
     "gen:icon:list": "node script/icon-list",
     "gen:theme": "node script/docs/theme",
     "new:comp": "node script/new/generate-new-component/generate-new-component",
-    "release": " standard-version --release-as patch -a && npm run version:tip",
+    "release": "standard-version --release-as patch -a && npm run version:tip",
     "gen:config": "node script/component-config/generate-component-config",
     "test": "jest --coverage --verbose -u",
     "version:tip": "node script/version-tip"

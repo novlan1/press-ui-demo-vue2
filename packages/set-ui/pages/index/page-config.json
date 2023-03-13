@@ -1,0 +1,18 @@
+{
+  "pages": [
+    {
+      "name": "Business Components",
+      "list": [
+        {
+          "url": "/press/message-board/message-board"
+        },
+        {
+          "url": "/press/message-detail/message-detail"
+        },
+        {
+          "url": "/press/message-list/message-list"
+        }
+      ]
+    }
+  ]
+}

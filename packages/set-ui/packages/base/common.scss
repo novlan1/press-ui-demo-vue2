@@ -1,0 +1,16 @@
+/*
+* desc：全民电竞公共样式
+* date：2021-09-30
+* author：lauheeliu（刘诏熹）
+* email：lauheeliu@tencent.com
+*/
+
+@import "./reset.scss";
+@import "./animate.scss";
+@import "./press.scss";
+
+/* #ifndef H5 */
+@import "./reset-mp.scss";
+@import "./iconfont-mp.scss";
+@import "./reset-page-mp.scss";
+/* #endif */

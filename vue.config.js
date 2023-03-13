@@ -20,6 +20,7 @@ module.exports = {
     resolve: {
       alias: {
         packages: path.resolve(__dirname, './packages'),
+        '@tencent/press-ui': path.resolve(__dirname, './packages/press-ui/packages'),
         // src: path.resolve(__dirname, './src'),
       },
     },

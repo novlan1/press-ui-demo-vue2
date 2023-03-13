@@ -1,0 +1,66 @@
+{
+  "leftWindow": {
+    "path": "windows/left-window.vue",
+    "style": {
+      "width": "350px"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "%index.title%"
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pages/press/message-board",
+      "pages": [
+        {
+          "path": "message-board",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/press/message-detail",
+      "pages": [
+        {
+          "path": "message-detail",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/press/message-list",
+      "pages": [
+        {
+          "path": "message-list",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Set UI",
+    "navigationBarBackgroundColor": "#f7f8fa",
+    "backgroundColor": "#f5f5f5",
+    "h5": {
+      "maxWidth": 1190
+    },
+    "mp-weixin": {
+      "usingComponents": {}
+    },
+    "mp-qq": {
+      "usingComponents": {}
+    }
+  }
+}

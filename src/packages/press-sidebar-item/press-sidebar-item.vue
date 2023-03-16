@@ -113,7 +113,6 @@ export default {
   &__text {
     position: relative;
     display: inline-block;
-    word-break: break-all;
   }
 
   &--hover:not(&--disabled) {

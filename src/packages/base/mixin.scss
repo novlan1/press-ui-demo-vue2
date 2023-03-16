@@ -168,7 +168,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  word-break: break-all;
 }
 
 /* 文字超长处理多行 */
@@ -178,7 +177,6 @@
   max-height: $height;
   -webkit-line-clamp: $line;
   overflow: hidden;
-  word-break: break-all;
 }
 
 /* 0.5px边框--横向上边框(通过伪元素控制显示) */

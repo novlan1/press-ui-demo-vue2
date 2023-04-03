@@ -110,6 +110,10 @@
       span {
         color: $color-primary;
       }
+
+      .main-text {
+        word-break: break-word;
+      }
     }
   }
   .message-popover-info {

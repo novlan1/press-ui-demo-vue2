@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.5](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.4...v0.7.5) (2023-04-03)
+
+
+### ✨ Features | 新功能
+
+* 支持拦截取消操作 ([6af70c7](https://git.woa.com/pmd-mobile/support/press-ui/commit/6af70c77bb03c0b4ca099c3f62b29844ae485fa9))
+
 ### [0.7.4](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.3...v0.7.4) (2023-03-16)
 
 

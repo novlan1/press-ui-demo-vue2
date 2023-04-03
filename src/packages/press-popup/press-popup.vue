@@ -208,6 +208,17 @@ export default {
       }
     },
     clickCancel() {
+      if (this.$parent.validateCancel) {
+        toPromise(this.$parent.validateCancel()).then((value) => {
+          if (value) {
+            this.emitCancel();
+          }
+        });
+        return;
+      }
+      this.emitCancel();
+    },
+    emitCancel() {
       this.isShowPopup = false;
       this.timer = setTimeout(() => {
         this.$emit('onCancel');

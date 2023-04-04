@@ -1,5 +1,5 @@
 import { filterSameRequest } from './filter-same-request';
-
+import { IChatSDK } from '../types';
 
 async function innerLogin({
   tim,
@@ -10,7 +10,7 @@ async function innerLogin({
     console.warn(e);
     return Promise.reject(e);
   });
-  tim.isOnline = true;
+  tim.updateOnlineStatus(true);
   console.log('[TIM] login success: ', resp.data);
 
   if (resp.data.repeatLogin === true) {
@@ -27,8 +27,16 @@ export async function login({
   userId,
   userSig,
   tim,
+}: {
+  userId: string;
+  userSig: string;
+  tim: IChatSDK;
 }) {
   const url = 'LOGIN';
+
+  tim.updateUserId(userId);
+  tim.updateUserSig(userSig);
+
   const reqData = { userId, userSig };
 
   return await filterSameRequest({

@@ -1,4 +1,5 @@
 import { TIM } from './tim';
+import { IChatSDK } from '../types';
 
 const EVENT_LIST = [
   TIM.EVENT.SDK_READY,
@@ -35,20 +36,20 @@ const EVENT_LIST = [
 
 
 function onReady({ tim }) {
-  tim.isReady = true;
+  tim.updateReadyStatus(true);
 }
 
 function onNotReady({ tim }) {
-  tim.isReady = false;
+  tim.updateReadyStatus(false);
 }
 
 function onKickOut({ tim }) {
-  tim.isOnline = false;
+  tim.updateOnlineStatus(false);
 }
 
 
 const eventListenerMap: {
-  [k: string]: Array<(event: any) => void>
+  [k: string]: Array<(event: any, tim: IChatSDK) => void>
 } = {
   [TIM.EVENT.SDK_READY]: [onReady],
   [TIM.EVENT.SDK_NOT_READY]: [onNotReady],
@@ -64,7 +65,7 @@ function executeCallbacks({
   if (!eventListenerMap[type]) return;
   for (const cb of eventListenerMap[type]) {
     if (typeof cb === 'function') {
-      cb.call({ tim }, { tim, event });
+      cb.call({ tim }, event, tim);
     }
   }
 }
@@ -83,7 +84,9 @@ export function watchIMEvent({ tim }) {
 
 export function setEventListener(type, cb) {
   if (eventListenerMap[type]) {
-    eventListenerMap[type].push(cb);
+    if (eventListenerMap[type].indexOf(cb) === -1) {
+      eventListenerMap[type].push(cb);
+    }
   } else {
     eventListenerMap[type] = [cb];
   }

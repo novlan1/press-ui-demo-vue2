@@ -9,19 +9,42 @@ import {
   getMessageList,
   TIM,
 } from './helper';
-
+import TIM_TYPE from 'tim-js-sdk/tim-js';
+console.log('TIM_TYPE', TIM_TYPE);
 
 export class IM {
   tim: IChatSDK;
+  TIM: typeof TIM_TYPE;
 
   constructor({
     appId,
+    logLevel = 0,
+  }: {
+    appId: string;
+    logLevel?: number
   }) {
-    this.tim = this.init(appId);
+    this.tim = this.init(appId, logLevel);
+    this.TIM = TIM;
   }
 
-  init(appId) {
-    const tim = init(appId);
+  get isReady() {
+    return this.tim.isReady || false;
+  }
+
+  set isReady(value) {
+    this.tim.updateReadyStatus(!!value);
+  }
+
+  get isOnline() {
+    return this.tim.isOnline || false;
+  }
+
+  set isOnline(value) {
+    this.tim.updateOnlineStatus(!!value);
+  }
+
+  init(appId, logLevel) {
+    const tim = init(appId, logLevel);
     watchIMEvent({
       tim,
     });
@@ -32,14 +55,22 @@ export class IM {
     setEventListener(type, cb);
   }
 
-  login({ userId, userSig }) {
-    this.tim.userId = userId;
-    this.tim.userSig = userSig;
+  innerLogin({
+    userId,
+    userSig,
+  }) {
+    this.tim.updateUserId(userId);
+    this.tim.updateUserSig(userSig);
+
     return login({
       userId,
       userSig,
       tim: this.tim,
     });
+  }
+
+  innerLogout() {
+    return this.tim.logout();
   }
 
   async sendMessage({ to, text = '' }) {
@@ -59,12 +90,12 @@ export class IM {
   }
 
   getMessageList({
-    conversationId,
+    id,
     // count = 15,
     nextMsgId,
   }) {
     return getMessageList({
-      conversationId,
+      conversationId: id,
       // count,
       nextMsgId,
       tim: this.tim,
@@ -95,10 +126,6 @@ export class IM {
   // 获取全量的会话列表
   getConversationList() {
     return this.tim.getConversationList();
-  }
-
-  logout() {
-    return this.tim.logout();
   }
 }
 

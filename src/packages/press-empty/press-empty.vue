@@ -125,7 +125,6 @@ export default {
     color: $color-gray-4;
     line-height: $empty-description-line-height;
     text-align: center;
-    word-break: break-all;
 
     &:empty {
       display: none;

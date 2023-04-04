@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.7](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.6...v0.7.7) (2023-04-04)
+
+
+### ✨ Features | 新功能
+
+* 优化断字 ([d1b0336](https://git.woa.com/pmd-mobile/support/press-ui/commit/d1b033686b5f80ed06067300713cca71f43adbf6))
+
+### [0.7.6](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.5...v0.7.6) (2023-04-03)
+
+
+### ✨ Features | 新功能
+
+* 优化断字 ([031ee7e](https://git.woa.com/pmd-mobile/support/press-ui/commit/031ee7ee0ab8b8f9708328eca24092b7ef18d2e1))
+
+### [0.7.5](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.4...v0.7.5) (2023-04-03)
+
+
+### ✨ Features | 新功能
+
+* 支持拦截取消操作 ([6af70c7](https://git.woa.com/pmd-mobile/support/press-ui/commit/6af70c77bb03c0b4ca099c3f62b29844ae485fa9))
+
+### [0.7.4](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.3...v0.7.4) (2023-03-16)
+
+
+### ✏️ Documentation | 文档
+
+* 优化readme ([52a3bb0](https://git.woa.com/pmd-mobile/support/press-ui/commit/52a3bb0d3c39456a71789400b67f168148ad4cce))
+
+
+### ✨ Features | 新功能
+
+* 赛宝更新断字 ([a21cbf9](https://git.woa.com/pmd-mobile/support/press-ui/commit/a21cbf966692408a8709bf0b6c4bc93ebbf20361))
+
 ### [0.7.3](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.2...v0.7.3) (2023-03-13)
 
 

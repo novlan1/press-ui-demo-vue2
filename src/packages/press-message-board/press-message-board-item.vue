@@ -271,7 +271,6 @@ export default {
       // padding-left: .8rem;
       color: $color-gray-5;
       line-height: 0.44rem;
-      word-break: break-all;
     }
 
     .press-message-board-item-reply {
@@ -285,12 +284,10 @@ export default {
 
       .press-message-board-item__reply-item {
         // margin-bottom: .12rem;
-        text-align: justify;
 
         .press-message-board-item__reply-content {
           display: inline;
           width: 100%;
-          word-break: break-all;
           vertical-align: middle;
           line-height: 0.44rem;
         }
@@ -318,7 +315,6 @@ export default {
         .press-message-board-item__reply-word {
           display: inline;
           width: 100%;
-          word-break: break-all;
           vertical-align: middle;
           line-height: 0.44rem;
           color: $color-black;

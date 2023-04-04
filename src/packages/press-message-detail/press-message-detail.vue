@@ -373,7 +373,4 @@ export default {
 .message-detail-item:last-child {
   padding-bottom: 0.32rem;
 }
-.message-popover-text {
-  word-break: break-all;
-}
 </style>

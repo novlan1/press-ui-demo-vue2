@@ -35,7 +35,6 @@ export function isMatchPath(meta, path) {
 
 
 export function findRouteName(path, routes) {
-  // const routes = ROUTES || [];
   // eslint-disable-next-line @typescript-eslint/prefer-for-of
   for (let i = 0;i < routes.length;i++) {
     const item = routes[i];

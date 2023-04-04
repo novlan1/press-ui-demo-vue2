@@ -55,6 +55,26 @@ export class IM {
     setEventListener(type, cb);
   }
 
+  setReceivedMessagesListener(cb) {
+    this.setEventListener(this.TIM.EVENT.MESSAGE_RECEIVED, cb);
+  }
+
+  setKickedOutListener(cb) {
+    this.setEventListener(this.TIM.EVENT.KICKED_OUT, cb);
+  }
+
+  setReadyListener(cb) {
+    this.setEventListener(this.TIM.EVENT.SDK_READY, cb);
+  }
+
+  setConversationUpdateListener(cb) {
+    this.setEventListener(this.TIM.EVENT.CONVERSATION_LIST_UPDATED, cb);
+  }
+
+  setUnreadMsgCountUpdatedListener(cb) {
+    this.setEventListener(this.TIM.EVENT.TOTAL_UNREAD_MESSAGE_COUNT_UPDATED, cb);
+  }
+
   innerLogin({
     userId,
     userSig,

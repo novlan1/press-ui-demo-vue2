@@ -14,8 +14,6 @@ import {
 import TIM_TYPE from 'tim-js-sdk/tim-js';
 // #endif
 
-console.log('TIM_TYPE', TIM_TYPE);
-
 export class IM {
   tim: IChatSDK;
 

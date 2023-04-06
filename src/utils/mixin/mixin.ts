@@ -2,6 +2,7 @@ import Vue from 'vue';
 
 export function initMixin() {
   Vue.mixin({
+    // @ts-ignore
     onShareAppMessage() {
       return {
         title: 'Press UI 组件库演示',

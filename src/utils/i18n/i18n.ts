@@ -30,7 +30,10 @@ function getLocaleFromLocation() {
   const { href } = window.location;
   if (href.indexOf('?') <= -1) return;
   const search = href.split('?')[1];
-  const map = search.split('&').reduce((acc, value) => {
+  const map: {
+    locale?: string
+    lang?: string
+  } = search.split('&').reduce((acc, value) => {
     const temp = value.split('=');
     acc[temp[0]] = temp[1];
     return acc;
@@ -72,7 +75,7 @@ export function setLang() {
 
 function getPage() {
   const pages = getCurrentPages();
-  const path = pages[pages.length - 1].route;
+  const path: string = pages[pages.length - 1].route || '';
 
   // const { path } = this.$route;
   const list = path.split('/');
@@ -83,11 +86,12 @@ function getPage() {
 
 export function demoI18n() {
   Vue.mixin({
+    // @ts-ignore
     onReady() {
       const name = getPage();
       if (!name) return;
 
-      const newTitle = this.t(`titleMap.${name}`);
+      const newTitle = (this as any).t(`titleMap.${name}`);
       if (!newTitle) return;
 
       uni.setNavigationBarTitle({
@@ -96,8 +100,9 @@ export function demoI18n() {
     },
     methods: {
       t(key, ...args) {
+        // @ts-ignore
         const { i18n } = this.$options;
-        if (i18n && i18n[curLang] && i18n[curLang][key]) {
+        if (i18n?.[curLang]?.[key]) {
           const value = i18n[curLang][key];
           if (typeof value === 'function') {
             return value(...args);

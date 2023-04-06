@@ -1,5 +1,6 @@
 import { MorsePwd } from './morse-password';
 
+
 export const morsePwdMixin = (pwd, cb) => ({
   data() {
     return {
@@ -17,17 +18,17 @@ export const morsePwdMixin = (pwd, cb) => ({
         }
       },
       envType,
-    });
+    } as any);
   },
   beforeDestroy() {
     this.morsePwd.clear();
   },
   methods: {
     onMorsePwdLongPress() {
-      this.morsePwd.longPress();
+      (this as any).morsePwd.longPress();
     },
     onMorsePwdClick() {
-      this.morsePwd.click();
+      (this as any).morsePwd.click();
     },
   },
-});
+} as any);

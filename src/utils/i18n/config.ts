@@ -3,9 +3,7 @@ export const LOCALE_NUMBER_MAP = {
   1: 'en-US',
 };
 
-
 export const LOCALE_STORAGE_KEY = 'LOCALE';
-
 
 export const DEFAULT_LOCALE_NUMBER = 0;
 

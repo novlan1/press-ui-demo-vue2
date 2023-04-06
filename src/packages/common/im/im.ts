@@ -9,12 +9,19 @@ import {
   getMessageList,
   TIM,
 } from './helper';
+
+// #ifdef H5
 import TIM_TYPE from 'tim-js-sdk/tim-js';
+// #endif
+
 console.log('TIM_TYPE', TIM_TYPE);
 
 export class IM {
   tim: IChatSDK;
+
+  // #ifdef H5
   TIM: typeof TIM_TYPE;
+  // #endif
 
   constructor({
     appId,

@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.14](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.11...v0.7.14) (2023-04-07)
+
+
+### ✨ Features | 新功能
+
+* **scroll-view:** scroll-view的id从外层传入 ([1183857](https://git.woa.com/pmd-mobile/support/press-ui/commit/1183857fc217b10d3161f64b12bd67e98c2071a9))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* h5多个组件名嵌套会自动合并属性——去掉id ([da69206](https://git.woa.com/pmd-mobile/support/press-ui/commit/da692066b904c93b325a13944066f4cc1c1acf9c))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* **release:** 0.7.12 ([41d3f8f](https://git.woa.com/pmd-mobile/support/press-ui/commit/41d3f8f027b87937ac4eb329168c04cea222adfa))
+* **release:** 0.7.13 ([65c0b0b](https://git.woa.com/pmd-mobile/support/press-ui/commit/65c0b0b9c1e27f1fad80f7e96f721b35b37ca61f))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 去掉input中输入框的高度监听 ([4aa2bc4](https://git.woa.com/pmd-mobile/support/press-ui/commit/4aa2bc49e188bd92f032d0c1a7cea91673bc662b))
+
 ### [0.7.13](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.12...v0.7.13) (2023-04-07)
 
 

@@ -1,6 +1,6 @@
 <template>
   <div
-    :id="randomId"
+    :id="scrollViewId"
     style="height: 100%;overflow-y: auto"
     :class="customClass"
     @scroll="onScroll"
@@ -28,6 +28,10 @@ export default {
     lowerThreshold: {
       type: Number,
       default: () => 50,
+    },
+    scrollViewId: {
+      type: String,
+      default: '',
     },
     ...defaultProps,
   },

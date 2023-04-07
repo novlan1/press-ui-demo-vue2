@@ -2,6 +2,7 @@
   <PlatScrollView
     id="plat-scroll-view"
     style="height: 100%"
+    :scroll-view-id="scrollViewId"
     :scroll-y="scrollY"
     :scroll-with-animation="scrollWithAnimation"
     :scroll-anchoring="scrollAnchoring"
@@ -99,6 +100,10 @@ export default {
     finishedText: {
       type: String,
       default: () => '没有更多了',
+    },
+    scrollViewId: {
+      type: String,
+      default: '',
     },
   },
   data() {

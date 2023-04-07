@@ -1,6 +1,6 @@
 <template>
   <scroll-view
-    id="testtest"
+    :id="scrollViewId"
     style="height: 100%"
     :scroll-y="scrollY"
     :scroll-with-animation="scrollWithAnimation"
@@ -64,6 +64,10 @@ export default {
       default: () => 0,
     },
     scrollToElementById: {
+      type: String,
+      default: '',
+    },
+    scrollViewId: {
       type: String,
       default: '',
     },

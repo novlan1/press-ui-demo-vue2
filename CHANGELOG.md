@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.11](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.10...v0.7.11) (2023-04-07)
+
+
+### ✨ Features | 新功能
+
+* **scroll-view:** 优化scroll-view，增加更多参数 ([03a19ab](https://git.woa.com/pmd-mobile/support/press-ui/commit/03a19abde046171c0f82b4c8192b7fcf8e345348))
+
 ### [0.7.10](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.9...v0.7.10) (2023-04-07)
 
 

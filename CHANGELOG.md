@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.10](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.9...v0.7.10) (2023-04-07)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* TIM类型只在h5中显示 ([70f8816](https://git.woa.com/pmd-mobile/support/press-ui/commit/70f88160d9de5a3886dfb49204233b4e4bab9d46))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* im增加设置监听器 ([14057b0](https://git.woa.com/pmd-mobile/support/press-ui/commit/14057b066df27f6b1e52485d5e4ce3f6b05abdda))
+* ts改造 ([ff0869e](https://git.woa.com/pmd-mobile/support/press-ui/commit/ff0869e31d7d185f780be8bee872493c36f2a9ae))
+* 删除无用文件 ([27fd326](https://git.woa.com/pmd-mobile/support/press-ui/commit/27fd326ef9137bd47d818b090913e4334cb10954))
+
+
+### ✨ Features | 新功能
+
+* **message-board-input:** 优化input ([8bf7f28](https://git.woa.com/pmd-mobile/support/press-ui/commit/8bf7f2891c3edd9fbf3c3611d2dbf8cb8ece0eaa))
+
 ### [0.7.9](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.8...v0.7.9) (2023-04-04)
 
 

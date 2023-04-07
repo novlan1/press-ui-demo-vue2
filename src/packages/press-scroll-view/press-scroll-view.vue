@@ -1,6 +1,5 @@
 <template>
   <PlatScrollView
-    id="plat-scroll-view"
     style="height: 100%"
     :scroll-view-id="scrollViewId"
     :scroll-y="scrollY"

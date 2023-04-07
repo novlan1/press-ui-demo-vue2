@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.13](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.12...v0.7.13) (2023-04-07)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* h5多个组件名嵌套会自动合并属性——去掉id ([da69206](https://git.woa.com/pmd-mobile/support/press-ui/commit/da692066b904c93b325a13944066f4cc1c1acf9c))
+
 ### [0.7.12](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.11...v0.7.12) (2023-04-07)
 
 

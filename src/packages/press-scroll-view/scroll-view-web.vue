@@ -66,18 +66,19 @@ export default {
   },
   mounted() {
     if (this.$el.id) this.identifier = this.$el.id;
-    this.$nextTick(() => {
-      document.getElementById(this.identifier)?.addEventListener('scroll', this.onScroll);
-    });
+    // this.$nextTick(() => {
+    // document.getElementById(this.identifier)?.addEventListener('scroll', this.onScroll);
+    // });
   },
   destroyed() {
-    document.getElementById(this.identifier)?.removeEventListener('scroll', this.onScroll);
+    // document.getElementById(this.identifier)?.removeEventListener('scroll', this.onScroll);
   },
   methods: {
     onScroll(e) {
+      this.$emit('scroll', e);
       const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
       if (scrollTop + clientHeight >= scrollHeight - this.lowerThreshold) {
-        this.$emit('scrolltolower');
+        this.$emit('scrolltolower', e);
       }
     },
   },

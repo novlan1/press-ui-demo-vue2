@@ -1,11 +1,17 @@
 <template>
   <scroll-view
-    scroll-y="true"
+    id="testtest"
     style="height: 100%"
-    :class="customClass"
+    :scroll-y="scrollY"
+    :scroll-with-animation="scrollWithAnimation"
+    :scroll-anchoring="scrollAnchoring"
+    :enhanced="enhanced"
+    :enable-flex="enableFlex"
+    :enable-passive="enablePassive"
     :lower-threshold="lowerThreshold"
     :scroll-top="scrollTop"
     :scroll-into-view="scrollToElementById"
+    :class="customClass"
     @scrolltolower="scrolltolower"
     @scroll="scroll"
   >
@@ -24,6 +30,31 @@ export default {
   name: 'ScrollViewMp',
   components: {},
   props: {
+    scrollY: {
+      type: Boolean,
+      default: false,
+    },
+    enableFlex: {
+      type: Boolean,
+      default: false,
+    },
+    enhanced: {
+      type: Boolean,
+      default: false,
+    },
+    scrollWithAnimation: {
+      type: Boolean,
+      default: false,
+    },
+    enablePassive: {
+      type: Boolean,
+      default: false,
+    },
+    scrollAnchoring: {
+      type: Boolean,
+      default: false,
+    },
+
     lowerThreshold: {
       type: Number,
       default: () => 100,
@@ -32,7 +63,10 @@ export default {
       type: Number,
       default: () => 0,
     },
-    scrollToElementById: { type: String, default: '' },
+    scrollToElementById: {
+      type: String,
+      default: '',
+    },
     ...defaultProps,
   },
   data() {

@@ -1,6 +1,13 @@
 <template>
   <PlatScrollView
+    id="plat-scroll-view"
     style="height: 100%"
+    :scroll-y="scrollY"
+    :scroll-with-animation="scrollWithAnimation"
+    :scroll-anchoring="scrollAnchoring"
+    :enhanced="enhanced"
+    :enable-flex="enableFlex"
+    :enable-passive="enablePassive"
     :scroll-offset="scrollOffset"
     :scroll-to-element-by-id="scrollToElementById"
     @scrolltolower="scrolltolower"
@@ -44,6 +51,30 @@ export default {
     // #endif
   },
   props: {
+    scrollY: {
+      type: Boolean,
+      default: false,
+    },
+    enableFlex: {
+      type: Boolean,
+      default: false,
+    },
+    enhanced: {
+      type: Boolean,
+      default: false,
+    },
+    scrollWithAnimation: {
+      type: Boolean,
+      default: false,
+    },
+    enablePassive: {
+      type: Boolean,
+      default: false,
+    },
+    scrollAnchoring: {
+      type: Boolean,
+      default: false,
+    },
     scrollOffset: {
       type: Number,
       default: () => 0,

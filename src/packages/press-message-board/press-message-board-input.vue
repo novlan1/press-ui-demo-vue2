@@ -1,8 +1,9 @@
 <template>
+  <!-- :style="{ paddingBottom: `${inputBottom}px` }" -->
   <div
     class="press-message-board-input"
     :custom-class="customClass"
-    :style="{ paddingBottom: `${inputBottom}px` }"
+    :style="{ transform: `translateY(-${inputBottom}px)` }"
   >
     <!-- div模拟输入框 -->
     <div
@@ -59,10 +60,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    inputBottom: {
-      type: [Number, String],
-      default: 0,
-    },
+    // inputBottom: {
+    //   type: [Number, String],
+    //   default: 0,
+    // },
     placeholder: {
       type: String,
       default: '说点什么...',
@@ -91,12 +92,26 @@ export default {
   },
   data() {
     return {
+      inputBottom: 0,
     };
   },
   computed: {
 
   },
   mounted() {
+  },
+  onPageShow() {
+    uni.onKeyboardHeightChange((res) => { // 监听键盘高度变化
+      // const systemInfo = uni.getSystemInfoSync();
+      const keyHeight = res.height;
+      console.log('[onKeyboardHeightChange] res', res);
+      // - (systemInfo.screenHeight - systemInfo.windowHeight + systemInfo.safeAreaInsets.bottom);
+
+      this.inputBottom = `${keyHeight > 0 ? keyHeight : 0}`;
+    });
+  },
+  onPageHide() {
+    uni.offKeyboardHeightChange();
   },
   methods: {
     onInput(e) {
@@ -114,9 +129,9 @@ export default {
     onBlur() {
       this.$emit('blur');
     },
-    onFocus(){
+    onFocus() {
       this.$emit('focus');
-    }
+    },
   },
 };
 

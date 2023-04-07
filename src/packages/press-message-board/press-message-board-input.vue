@@ -26,8 +26,8 @@
         @focus="onFocus"
         @input="onInput"
         @blur="onBlur"
-        @keyboardheightchange="keyboardheightchange"
       >
+      <!-- @keyboardheightchange="keyboardheightchange" -->
     </div>
     <div
       class="press-message-board-input__btn"

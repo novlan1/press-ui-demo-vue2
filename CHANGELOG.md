@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.15](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.14...v0.7.15) (2023-04-08)
+
+
+### ✨ Features | 新功能
+
+* input监听高度变化事件 ([fd46980](https://git.woa.com/pmd-mobile/support/press-ui/commit/fd46980e792f88834fb9e3727887b1bc830cb4cc))
+
 ### [0.7.14](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.11...v0.7.14) (2023-04-07)
 
 

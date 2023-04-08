@@ -23,6 +23,7 @@
         :auto-height="textAreaIsAutoHeight"
         :adjust-position="adjustPosition"
         :focus="textAreaIsFocus"
+        :confirm-type="confirmType"
         @focus="onFocus"
         @input="onInput"
         @blur="onBlur"
@@ -88,6 +89,10 @@ export default {
       type: String,
       default: '发送',
     },
+    confirmType: {
+      type: String,
+      default: 'send',
+    },
     ...defaultProps,
   },
   data() {
@@ -126,7 +131,7 @@ export default {
     },
     keyboardheightchange(res) {
       // this.$emit('keyboardheightchange', e);
-      const keyHeight = res.height;
+      const keyHeight = res.detail && res.detail.height;
       console.log('[keyboardheightchange] res', res);
       // - (systemInfo.screenHeight - systemInfo.windowHeight + systemInfo.safeAreaInsets.bottom);
 

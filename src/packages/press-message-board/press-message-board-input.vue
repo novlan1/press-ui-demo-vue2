@@ -26,8 +26,8 @@
         @focus="onFocus"
         @input="onInput"
         @blur="onBlur"
+        @keyboardheightchange="keyboardheightchange"
       >
-      <!-- @keyboardheightchange="keyboardheightchange" -->
     </div>
     <div
       class="press-message-board-input__btn"
@@ -100,19 +100,20 @@ export default {
   },
   mounted() {
   },
-  onPageShow() {
-    uni.onKeyboardHeightChange((res) => { // 监听键盘高度变化
-      // const systemInfo = uni.getSystemInfoSync();
-      const keyHeight = res.height;
-      console.log('[onKeyboardHeightChange] res', res);
-      // - (systemInfo.screenHeight - systemInfo.windowHeight + systemInfo.safeAreaInsets.bottom);
+  // onPageShow() {
+  //   console.log('[onPageShow]');
+  //   uni.onKeyboardHeightChange((res) => { // 监听键盘高度变化
+  //     // const systemInfo = uni.getSystemInfoSync();
+  //     const keyHeight = res.height;
+  //     console.log('[onKeyboardHeightChange] res', res);
+  //     // - (systemInfo.screenHeight - systemInfo.windowHeight + systemInfo.safeAreaInsets.bottom);
 
-      this.inputBottom = `${keyHeight > 0 ? keyHeight : 0}`;
-    });
-  },
-  onPageHide() {
-    uni.offKeyboardHeightChange();
-  },
+  //     this.inputBottom = `${keyHeight > 0 ? keyHeight : 0}`;
+  //   });
+  // },
+  // onPageHide() {
+  //   uni.offKeyboardHeightChange();
+  // },
   methods: {
     onInput(e) {
       this.$emit('input', e.target.value);
@@ -123,8 +124,13 @@ export default {
     sendMsg() {
       this.$emit('sendMsg', this.value);
     },
-    keyboardheightchange(e) {
-      this.$emit('keyboardheightchange', e);
+    keyboardheightchange(res) {
+      // this.$emit('keyboardheightchange', e);
+      const keyHeight = res.height;
+      console.log('[keyboardheightchange] res', res);
+      // - (systemInfo.screenHeight - systemInfo.windowHeight + systemInfo.safeAreaInsets.bottom);
+
+      this.inputBottom = `${keyHeight > 0 ? keyHeight : 0}`;
     },
     onBlur() {
       this.$emit('blur');

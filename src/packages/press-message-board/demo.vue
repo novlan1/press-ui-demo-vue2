@@ -346,6 +346,7 @@ export default {
 @import "src/packages/base/mixin.scss";
 .demo-list-wrap {
   padding: 0 20px;
+  // height: 100vh;
 }
 .demo-input-wrap {
   padding-bottom: 20px;

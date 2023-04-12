@@ -1,6 +1,13 @@
 <template>
   <PressScrollView
+    scroll-view-id="scrollViewId"
     :scroll-offset="scrollOffset"
+    :scroll-y="true"
+    :scroll-with-animation="true"
+    :scroll-anchoring="true"
+    :enhanced="true"
+    :enable-flex="true"
+    :enable-passive="true"
     style="height: 100%"
   >
     <slot />

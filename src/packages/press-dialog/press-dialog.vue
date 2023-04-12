@@ -57,7 +57,7 @@
           </div>
 
           <PressButton
-            type="e-sport-primary"
+            type="e-sport-primary-bg"
             :loading="mShowButtonLoading"
             custom-style="width: 100px;height: 36px;"
             @click="confirm"

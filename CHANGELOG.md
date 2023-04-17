@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.19](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.16...v0.7.19) (2023-04-17)
+
+
+### ✨ Features | 新功能
+
+* 优化留言板 ([e9be8d7](https://git.woa.com/pmd-mobile/support/press-ui/commit/e9be8d7738ea1b9b40b9348aa9bb419fa5cbc9de))
+* 优化提示弹窗按钮 ([43b9553](https://git.woa.com/pmd-mobile/support/press-ui/commit/43b95532d4ca6e735876c254b8d67167f0220af8))
+* 优化文章 ([310e5e6](https://git.woa.com/pmd-mobile/support/press-ui/commit/310e5e606dc48b8752084e0db852f97106e377ec))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 删除打印，解决序列化时无限循环问题 ([6a05d0d](https://git.woa.com/pmd-mobile/support/press-ui/commit/6a05d0d196021913a4d9dc52fcc4c63e34391389))
+* **release:** 0.7.17 ([8c681e7](https://git.woa.com/pmd-mobile/support/press-ui/commit/8c681e794d0e43c679998c43cf147e4b8cfb0388))
+* **release:** 0.7.18 ([147a6a9](https://git.woa.com/pmd-mobile/support/press-ui/commit/147a6a9a37aa5c7f1e7b2aab669f02402f510cca))
+
 ### [0.7.18](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.17...v0.7.18) (2023-04-12)
 
 

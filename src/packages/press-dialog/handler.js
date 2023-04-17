@@ -60,8 +60,6 @@ const Dialog = (options) => {
       ...options,
     };
 
-    console.log('dialog', dialog);
-
     // #ifdef H5
     dialog.setData(newOptions);
     // #endif
@@ -98,7 +96,7 @@ const Dialog = (options) => {
 
     // queue.push(dialog);
   }
-  console.warn('The van-dialog node is not found, please confirm whether the selector and context are correct');
+  console.warn('The press-dialog node is not found, please confirm whether the selector and context are correct');
 };
 Dialog.alert = options => Dialog(options);
 Dialog.show = options => Dialog(options);

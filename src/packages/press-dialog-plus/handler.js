@@ -70,7 +70,7 @@ const Dialog = (options) => {
       });
       queue.push(dialog);
     } else {
-      console.warn('The van-dialog node is not found, please confirm whether the selector and context are correct');
+      console.warn('The press-dialog node is not found, please confirm whether the selector and context are correct');
     }
   });
 };

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.20](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.19...v0.7.20) (2023-04-19)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **im:** 回调参数修复 ([3774d72](https://git.woa.com/pmd-mobile/support/press-ui/commit/3774d7281a26f4c51690ce1a742a43472021b716))
+
 ### [0.7.19](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.16...v0.7.19) (2023-04-17)
 
 

@@ -35,15 +35,15 @@ const EVENT_LIST = [
 ];
 
 
-function onReady({ tim }) {
+function onReady(event, tim) {
   tim.updateReadyStatus(true);
 }
 
-function onNotReady({ tim }) {
+function onNotReady(event, tim) {
   tim.updateReadyStatus(false);
 }
 
-function onKickOut({ tim }) {
+function onKickOut(event, tim) {
   tim.updateOnlineStatus(false);
 }
 

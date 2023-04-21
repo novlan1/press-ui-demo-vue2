@@ -173,6 +173,7 @@ export default {
     },
     remove() {
       this.dataShow = false;
+      this.mShowButtonLoading = false;
     },
     destroy() {
     },

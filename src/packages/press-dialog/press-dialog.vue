@@ -82,63 +82,8 @@
 </template>
 <script>
 import PressButton from '../press-button/press-button.vue';
-import { t } from '../locale';
 import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
-
-const props = {
-  show: {
-    type: Boolean,
-    default: false,
-  },
-  src: {
-    type: String,
-    default: '',
-  },
-  dialogType: {
-    type: [Number, String],
-    default: 1,
-  },
-  title: {
-    type: String,
-    default: t('dialog.title'),
-  },
-  content: {
-    type: String,
-    default: '',
-  },
-  canTouchRemove: {
-    type: Boolean,
-    default: true,
-  },
-  confirmText: {
-    type: String,
-    default: t('confirm'),
-  },
-  cancelText: {
-    type: String,
-    default: '',
-  },
-  onClickCancel: {
-    type: [Function, null],
-    default: null,
-  },
-  onConfirmClick: {
-    type: [Function, null],
-    default: null,
-  },
-  htmlContent: {
-    type: String,
-    default: '',
-  },
-  zIndex: {
-    type: [Number, String],
-    default: '99',
-  },
-  useScrollView: {
-    type: Boolean,
-    default: false,
-  },
-};
+import { dialogProps } from './computed';
 
 export default {
   name: 'PressDialog',
@@ -146,7 +91,7 @@ export default {
     PressButton,
   },
   props: {
-    ...props,
+    ...dialogProps,
   },
   options: {
     virtualHost: true,
@@ -158,26 +103,13 @@ export default {
       promise: '',
       mShowButtonLoading: false,
 
-      ...getPropsData(this, props),
+      ...getPropsData(this, dialogProps),
 
 
-      // dialogIsShow: false,
-      // src: '',
-      // dialogType: 1,
-      // title: t('dialog.title'),
-      // content: '',
-      // canTouchRemove: true,
-      // confirmText: t('confirm'),
-      // cancelText: '',
-      // onClickCancel: null,
-      // onConfirmClick: null,
-      // htmlContent: '',
-      // zIndex: '99',
-      // useScrollView: false, // 是否使用scroll-view包裹v-html
     };
   },
   watch: {
-    ...getPropsWatch(props),
+    ...getPropsWatch(dialogProps),
   },
   methods: {
     setData(data) {
@@ -226,9 +158,6 @@ export default {
     showDialog() {
       this.dataShow = true;
 
-      // Object.keys(options).map((key) => {
-      //   this[key] = options[key];
-      // });
       this.promise = new Promise((resolve, reject) => {
         this.resolve = resolve;
         this.reject = reject;
@@ -244,17 +173,8 @@ export default {
     },
     remove() {
       this.dataShow = false;
-      // setTimeout(() => {
-      //   this.destroy();
-      // }, 500);
     },
     destroy() {
-      // #ifdef H5
-      // this.$destroy();
-      // if (document.body.contains(this.$el)) {
-      //   this.$el.parentNode.removeChild(this.$el);
-      // }
-      // #endif
     },
 
   },

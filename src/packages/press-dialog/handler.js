@@ -1,19 +1,17 @@
 import Vue from 'vue';
-import { t } from '../locale';
+import { dialogProps } from './computed';
 // #ifdef H5
 import VueDialog from './press-dialog.vue';
 // #endif
 
 let queue = [];
-const defaultOptions = {
-  // show: false,
-  title: t('dialog.title'),
-  content: '',
-  src: '',
-  confirmText: t('confirm'),
-  cancelText: t('cancel'),
+const defaultOptions = Object.keys(dialogProps).reduce((acc, item) => {
+  acc[item] = dialogProps[item].default;
+  return acc;
+}, {
   selector: '#tip-match-comm-tips-dialog',
-};
+});
+
 
 let currentOptions = Object.assign({}, defaultOptions);
 function getContext() {
@@ -53,9 +51,6 @@ const Dialog = (options) => {
   // #endif
 
   if (dialog) {
-    // dialog.callback = (action, instance) => {
-    //   action === 'confirm' ? resolve(instance) : reject(instance);
-    // };
     const newOptions = {
       ...options,
     };
@@ -66,19 +61,7 @@ const Dialog = (options) => {
     // #ifndef H5
     dialog.$vm.setData(newOptions);
     // #endif
-    // dialog.setData(newOptions);
 
-
-    // Vue.nextTick(() => {
-    //   // #ifdef H5
-    //   dialog.setData({ dialogIsShow: true });
-    //   // #endif
-    //   // #ifndef H5
-    //   dialog.$vm.setData({ dialogIsShow: true });
-    //   // #endif
-    //   // dialog.innerShow = true;
-    //   // dialog.setData({ show: true });
-    // });
     let promise;
     // #ifdef H5
     promise = dialog.showDialog(options);
@@ -87,14 +70,8 @@ const Dialog = (options) => {
     // #ifndef H5
     promise = dialog.$vm.showDialog(options);
     // #endif
-    return promise.then(val =>
-    // instance = null;
-      Promise.resolve(val))
-      .catch(err =>
-      // instance = null;
-        Promise.reject(err));
-
-    // queue.push(dialog);
+    return promise.then(val => Promise.resolve(val))
+      .catch(err => Promise.reject(err));
   }
   console.warn('The press-dialog node is not found, please confirm whether the selector and context are correct');
 };

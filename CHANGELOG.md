@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.21](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.20...v0.7.21) (2023-04-21)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **dialog:** 重新打开弹窗后重置props ([3b8c5af](https://git.woa.com/pmd-mobile/support/press-ui/commit/3b8c5af000b168c07fa055ea29cf80e25fd633d7))
+
 ### [0.7.20](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.19...v0.7.20) (2023-04-19)
 
 

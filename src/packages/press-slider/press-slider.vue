@@ -1,17 +1,17 @@
 <template>
-  <uni-shadow-root class="vant-slider-index">
+  <uni-shadow-root class="press-slider-index">
     <div
-      :class="'custom-class '+(utils.bem('slider', { disabled, vertical }))"
+      :class="'custom-class '+(utils.bem2('slider', { disabled, vertical }))"
       :style="wrapperStyle"
       @click="onClick"
     >
       <div
-        :class="'' + utils.bem('slider__bar')"
+        :class="'' + utils.bem2('slider__bar')"
         :style="(barStyle)+'; '+(style({ backgroundColor: activeColor }))"
       >
         <div
           v-if="range"
-          :class="'' + utils.bem('slider__button-wrapper-left')"
+          :class="'' + utils.bem2('slider__button-wrapper-left')"
           :data-index="0"
           @touchstart="onTouchStart"
           @touchmove.stop.prevent="onTouchMove"
@@ -24,12 +24,12 @@
           />
           <div
             v-else
-            :class="'' + utils.bem('slider__button')"
+            :class="'' + utils.bem2('slider__button')"
           />
         </div>
         <div
           v-if="range"
-          :class="'' + utils.bem('slider__button-wrapper-right')"
+          :class="'' + utils.bem2('slider__button-wrapper-right')"
           :data-index="1"
           @touchstart="onTouchStart"
           @touchmove.stop.prevent="onTouchMove"
@@ -42,13 +42,13 @@
           />
           <div
             v-else
-            :class="'' + utils.bem('slider__button')"
+            :class="'' + utils.bem2('slider__button')"
           />
         </div>
 
         <div
           v-if="(!range)"
-          :class="'' + utils.bem('slider__button-wrapper')"
+          :class="'' + utils.bem2('slider__button-wrapper')"
           @touchstart="onTouchStart"
           @touchmove.stop.prevent="onTouchMove"
           @touchend="onTouchEnd"
@@ -60,7 +60,7 @@
           />
           <div
             v-else
-            :class="'' + utils.bem('slider__button')"
+            :class="'' + utils.bem2('slider__button')"
           />
         </div>
       </div>
@@ -150,7 +150,7 @@ export default {
       }
       this.touchMove(event);
       this.dragStatus = 'draging';
-      getRect(this, '.van-slider').then((rect) => {
+      getRect(this, '.press-slider').then((rect) => {
         const { vertical } = this;
         const delta = vertical ? this.deltaY : this.deltaX;
         const total = vertical ? rect.height : rect.width;
@@ -173,7 +173,7 @@ export default {
     onClick(event) {
       if (this.disabled) return;
       const { min } = this;
-      getRect(this, '.van-slider').then((rect) => {
+      getRect(this, '.press-slider').then((rect) => {
         const { vertical } = this;
         const touch = event.touches[0];
         const delta = vertical
@@ -272,7 +272,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-slider {
+.press-slider {
   position: relative;
   height: var(--slider-bar-height, $slider-bar-height);
   border-radius: $border-radius-max;
@@ -341,15 +341,15 @@ export default {
     width: var(--slider-bar-height, $slider-bar-height);
     height: 100%;
 
-    .van-slider__button-wrapper,
-    .van-slider__button-wrapper-right {
+    .press-slider__button-wrapper,
+    .press-slider__button-wrapper-right {
       top: auto;
       right: 50%;
       bottom: 0;
       transform: translate3d(50%, 50%, 0);
     }
 
-    .van-slider__button-wrapper-left {
+    .press-slider__button-wrapper-left {
       top: 0;
       right: 50%;
       left: auto;

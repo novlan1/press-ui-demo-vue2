@@ -99,16 +99,7 @@
           @keyboardheightchange="onKeyboardHeightChange"
         >
 
-        <!-- <include
-          v-if="type === 'textarea'"
-          src="./textarea.wxml"
-        />
-        <include
-          v-else
-          src="./input.wxml"
-        /> -->
-
-        <press-icon
+        <press-icon-plus
           v-if="showClear"
           :name="clearIcon"
           class="press-field__clear-root press-field__icon-root"
@@ -118,7 +109,7 @@
           class="press-field__icon-container"
           @click="onClickIcon"
         >
-          <press-icon
+          <press-icon-plus
             v-if="rightIcon || icon"
             :name="rightIcon || icon"
             :class="'press-field__icon-root '+(iconClass)"
@@ -131,6 +122,7 @@
           <slot name="button" />
         </div>
       </div>
+
       <div
         v-if="showWordLimit && maxlength"
         class="press-field__word-limit"
@@ -139,6 +131,7 @@
           {{ value.length >= maxlength ? maxlength : value.length }}
         </div>/{{ maxlength }}
       </div>
+
       <div
         v-if="errorMessage"
         :class="'' + utils.bem2('field__error-message', [errorMessageAlign, { disabled, error }])"
@@ -150,7 +143,7 @@
 </template>
 <script>
 import PressCell from '../press-cell/press-cell.vue';
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { nextTick } from '../common/utils';
 import { commonProps, inputProps, textareaProps } from './props';
 import utils from '../wxs-js/utils';
@@ -166,7 +159,7 @@ export default {
   classes: ['input-class', 'right-icon-class', 'label-class'],
   components: {
     PressCell,
-    PressIcon,
+    PressIconPlus,
   },
   props: {
     ...commonProps,

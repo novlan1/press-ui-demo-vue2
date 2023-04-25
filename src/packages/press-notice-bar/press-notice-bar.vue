@@ -6,7 +6,7 @@
       :style="noticeBarStyle"
       @click="onClick"
     >
-      <press-icon
+      <press-icon-plus
         v-if="leftIcon"
         :name="leftIcon"
         class="press-notice-bar__left-icon"
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <press-icon
+      <press-icon-plus
         v-if="mode === 'closeable'"
         class="press-notice-bar__right-icon"
         name="cross"
@@ -39,7 +39,7 @@
         :url="url"
         :open-type="openType"
       >
-        <press-icon
+        <press-icon-plus
           class="press-notice-bar__right-icon"
           name="arrow"
         />
@@ -52,7 +52,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { getRect, requestAnimationFrame } from '../common/utils';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -63,7 +63,7 @@ export default {
     ...defaultOptions,
   },
   components: {
-    PressIcon,
+    PressIconPlus,
   },
   props: {
     text: {

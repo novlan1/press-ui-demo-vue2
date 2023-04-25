@@ -15,7 +15,7 @@
           @click="onClickLeft"
         >
           <template v-if="leftArrow || leftText">
-            <press-icon
+            <press-icon-plus
               v-if="leftArrow"
               size="16px"
               name="arrow-left"
@@ -66,7 +66,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { getRect, getSystemInfoSync } from '../common/utils';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -74,7 +74,7 @@ import computed from './computed';
 export default {
   classes: ['title-class'],
   components: {
-    PressIcon,
+    PressIconPlus,
   },
   props: {
     title: { type: String, default: '' },

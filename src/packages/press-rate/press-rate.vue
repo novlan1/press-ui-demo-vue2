@@ -10,7 +10,7 @@
         :class="'' + utils.bem2('rate__item')"
         :style="'' + style({ paddingRight: index !== count - 1 ? utils.addUnit(gutter) : null })"
       >
-        <press-icon
+        <press-icon-plus
           :name="index + 1 <= innerValue ? icon : voidIcon"
           :class="'' + utils.bem2('rate__icon', [{ disabled, full: index + 1 <= innerValue }])"
           :style="'' + style({ fontSize: utils.addUnit(size) })"
@@ -20,7 +20,7 @@
           @click="onSelect(index)"
         />
 
-        <press-icon
+        <press-icon-plus
           v-if="allowHalf"
           :name="index + 0.5 <= innerValue ? icon : voidIcon"
           :class="'' + utils.bem2('rate__icon', ['half', { disabled, full: index + 0.5 <= innerValue }])"
@@ -35,14 +35,14 @@
   </uni-shadow-root>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { getAllRect } from '../common/utils';
 import utils from '../wxs-js/utils';
 import style from '../wxs-js/style';
 
 export default {
   components: {
-    PressIcon,
+    PressIconPlus,
   },
   field: true,
   classes: ['icon-class'],

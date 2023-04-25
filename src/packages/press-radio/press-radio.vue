@@ -18,7 +18,7 @@
           name="icon"
         />
         <!-- :style="'' + computed.iconStyle({ iconSize, checkedColor, disabled, parentDisabled, value, name })" -->
-        <press-icon
+        <press-icon-plus
           v-else
           name="success"
           :class="radioIconClass"
@@ -38,7 +38,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import PressIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { canIUseModel } from '../common/version';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -53,7 +53,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    PressIcon,
+    PressIconPlus,
   },
   mixins: [
     ChildrenMixin(PARENT),

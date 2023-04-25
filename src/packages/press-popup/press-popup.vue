@@ -67,7 +67,6 @@
   </div>
 </template>
 <script>
-// import PressIcon from '../press-icon/press-icon.vue';
 import PressButton from '../press-button/press-button.vue';
 import { toPromise } from '../common/utils';
 const ANIMATION_TIME = 400;
@@ -76,7 +75,6 @@ export default {
   name: 'PopupContainer',
   components: {
     PressButton,
-    // PressIcon,
   },
   props: {
     // 是否显示标题

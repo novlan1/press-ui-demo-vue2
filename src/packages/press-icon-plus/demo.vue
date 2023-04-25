@@ -16,7 +16,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               :name="demoIcon"
               @click="copy(demoIcon)"
             />
@@ -24,7 +24,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               :name="demoImage"
               @click="copy(demoImage)"
             />
@@ -35,7 +35,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               :name="demoIcon"
               dot
               @click="copy(demoIcon, { dot: true })"
@@ -44,7 +44,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               :name="demoIcon"
               info="9"
               @click="copy(demoIcon, { badge: '9' })"
@@ -53,7 +53,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               :name="demoIcon"
               info="99+"
               @click="copy(demoIcon, { badge: '99+' })"
@@ -65,7 +65,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               name="cart-o"
               color="#1989fa"
               @click="copy(demoIcon, { color: '#1989fa' })"
@@ -74,7 +74,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               name="fire-o"
               :color="RED"
               @click="copy(demoIcon, { color: RED })"
@@ -86,7 +86,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               :name="demoIcon"
               size="40"
               @click="copy(demoIcon, { size: '40' })"
@@ -95,7 +95,7 @@
           <press-col
             :span="6"
           >
-            <press-icon
+            <press-icon-plus
               :name="demoIcon"
               size="1rem"
               @click="copy(demoIcon, { size: '3rem' })"
@@ -110,7 +110,7 @@
           :key="icon"
           :span="6"
         >
-          <press-icon
+          <press-icon-plus
             :name="icon"
             @click="copy(icon)"
           />
@@ -124,7 +124,7 @@
           :key="icon"
           :span="6"
         >
-          <press-icon
+          <press-icon-plus
             :name="icon"
             @click="copy(icon)"
           />
@@ -138,7 +138,7 @@
           :key="icon"
           :span="6"
         >
-          <press-icon
+          <press-icon-plus
             :name="icon"
             @click="copy(icon)"
           />
@@ -156,7 +156,7 @@ import PressNotifyHandler from 'src/packages/press-notify/';
 import PressTabs from 'src/packages/press-tabs/press-tabs.vue';
 import PressTab from 'src/packages/press-tab/press-tab.vue';
 import PressCol from 'src/packages/press-col/press-col.vue';
-import PressIcon from 'src/packages/press-icon-plus/press-icon-plus.vue';
+import PressIconPlus from 'src/packages/press-icon-plus/press-icon-plus.vue';
 
 import icons from 'src/packages/press-icon-plus/config';
 import { RED } from 'src/packages/common/color';
@@ -214,7 +214,7 @@ export default {
     PressTabs,
     PressTab,
     PressCol,
-    PressIcon,
+    PressIconPlus,
     PressNotify,
   },
   data() {
@@ -236,7 +236,7 @@ export default {
 
   methods: {
     copy(icon, option = {}) {
-      let tag = `<press-icon name="${icon}"`;
+      let tag = `<press-icon-plus name="${icon}"`;
       if ('dot' in option) {
         tag = `${tag} ${option.dot ? 'dot' : ''}`;
       }

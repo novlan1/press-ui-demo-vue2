@@ -21,7 +21,7 @@ export default {
   name: 'DemoBlock',
 
   props: {
-    card: Boolean,
+    card: { type: Boolean, default: false },
     title: { type: String, default: '' },
   },
 };

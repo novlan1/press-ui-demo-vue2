@@ -1,25 +1,25 @@
 <template>
-  <uni-shadow-root class="vant-notice-bar-index">
+  <uni-shadow-root class="press-notice-bar-index">
     <div
       v-if="show"
       :class="noticeBarClass"
       :style="noticeBarStyle"
       @click="onClick"
     >
-      <van-icon
+      <press-icon
         v-if="leftIcon"
         :name="leftIcon"
-        class="van-notice-bar__left-icon"
+        class="press-notice-bar__left-icon"
       />
       <slot
         v-else
         name="left-icon"
       />
 
-      <div class="van-notice-bar__wrap">
+      <div class="press-notice-bar__wrap">
         <!-- :animation="animationData" -->
         <div
-          :class="'van-notice-bar__content '+(scrollable === false && !wrapable ? 'van-ellipsis' : '')"
+          :class="'press-notice-bar__content '+(scrollable === false && !wrapable ? 'press-ellipsis' : '')"
           :style="animationStyle"
         >
           {{ text }}
@@ -27,9 +27,9 @@
         </div>
       </div>
 
-      <van-icon
+      <press-icon
         v-if="mode === 'closeable'"
-        class="van-notice-bar__right-icon"
+        class="press-notice-bar__right-icon"
         name="cross"
         @click.native.stop.prevent="onClickIcon"
       />
@@ -39,8 +39,8 @@
         :url="url"
         :open-type="openType"
       >
-        <van-icon
-          class="van-notice-bar__right-icon"
+        <press-icon
+          class="press-notice-bar__right-icon"
           name="arrow"
         />
       </navigator>
@@ -52,7 +52,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { getRect, requestAnimationFrame } from '../common/utils';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -63,7 +63,7 @@ export default {
     ...defaultOptions,
   },
   components: {
-    VanIcon,
+    PressIcon,
   },
   props: {
     text: {
@@ -118,7 +118,7 @@ export default {
   computed: {
     noticeBarClass() {
       const { mode, wrapable, customClass } = this;
-      return `${customClass} ${utils.bem('notice-bar', { withicon: mode, wrapable })}`;
+      return `${customClass} ${utils.bem2('notice-bar', { withicon: mode, wrapable })}`;
     },
     noticeBarStyle() {
       const { color, backgroundColor, background } = this;
@@ -163,8 +163,8 @@ export default {
     init() {
       requestAnimationFrame(() => {
         Promise.all([
-          getRect(this, '.van-notice-bar__content'),
-          getRect(this, '.van-notice-bar__wrap'),
+          getRect(this, '.press-notice-bar__content'),
+          getRect(this, '.press-notice-bar__wrap'),
         ]).then((rects) => {
           const [contentRect, wrapRect] = rects;
           const { speed, scrollable, delay } = this;
@@ -232,7 +232,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-notice-bar {
+.press-notice-bar {
   display: flex;
   align-items: center;
   height: var(--notice-bar-height, $notice-bar-height);
@@ -254,7 +254,7 @@ export default {
     height: auto;
     padding: var(--notice-bar-wrapable-padding, $notice-bar-wrapable-padding);
 
-    .van-notice-bar {
+    .press-notice-bar {
       &__wrap {
         height: auto;
       }
@@ -298,7 +298,7 @@ export default {
     position: absolute;
     white-space: nowrap;
 
-    &.van-ellipsis {
+    &.press-ellipsis {
       max-width: 100%;
     }
   }

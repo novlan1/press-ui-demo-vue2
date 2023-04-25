@@ -1,11 +1,11 @@
 <template>
-  <uni-shadow-root class="vant-loading-index">
+  <uni-shadow-root class="press-loading-index">
     <div
       :class="loadingClass"
       :style="customStyle"
     >
       <div
-        :class="'van-loading__spinner van-loading__spinner--'+(type)"
+        :class="'press-loading__spinner press-loading__spinner--'+(type)"
         :style="spinnerStyle"
       >
         <template
@@ -14,13 +14,13 @@
           <div
             v-for="(item,index) in (array12)"
             :key="index"
-            class="van-loading__dot"
+            class="press-loading__dot"
           />
         </template>
       </div>
 
       <div
-        class="van-loading__text"
+        class="press-loading__text"
         :style="textStyle"
       >
         <slot />
@@ -58,7 +58,7 @@ export default {
   computed: {
     loadingClass() {
       const { vertical, customClass } = this;
-      return `${customClass} ${utils.bem('loading', { vertical })}`;
+      return `${customClass} ${utils.bem2('loading', { vertical })}`;
     },
     spinnerStyle() {
       const { color, size  } = this;
@@ -77,12 +77,12 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.vant-loading-index {
+.press-loading-index {
   font-size: 0;
   line-height: 1;
 }
 
-.van-loading {
+.press-loading {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +96,7 @@ export default {
     max-width: 100%;
     max-height: 100%;
     height: var(--loading-spinner-size, $loading-spinner-size);
-    animation: van-rotate
+    animation: press-rotate
       var(
         --loading-spinner-animation-duration,
         $loading-spinner-animation-duration
@@ -129,7 +129,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    .van-loading__text {
+    .press-loading__text {
       margin: var(--padding-xs, $padding-xs) 0 0;
     }
   }
@@ -154,7 +154,7 @@ export default {
 }
 
 @for $i from 1 through 12 {
-  .van-loading__dot:nth-of-type(#{$i}) {
+  .press-loading__dot:nth-of-type(#{$i}) {
     transform: rotate($i * 30deg);
 
     // 一些项目不支持某些写法，可能是sass-loader版本问题
@@ -162,7 +162,7 @@ export default {
   }
 }
 
-@keyframes van-rotate {
+@keyframes press-rotate {
   0% {
     transform: rotate(0deg);
   }

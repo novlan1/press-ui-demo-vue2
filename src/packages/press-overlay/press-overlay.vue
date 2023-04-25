@@ -1,6 +1,6 @@
 <template>
-  <uni-shadow-root class="vant-overlay-index">
-    <van-transition
+  <uni-shadow-root class="press-overlay-index">
+    <press-transition
       v-if="lockScroll"
       :show="show"
       :overlay="true"
@@ -10,9 +10,9 @@
       @touchmove.native.stop.prevent="noop"
     >
       <slot />
-    </van-transition>
+    </press-transition>
 
-    <van-transition
+    <press-transition
       v-else
       :show="show"
       :overlay="true"
@@ -21,18 +21,18 @@
       @click.native="onClick"
     >
       <slot />
-    </van-transition>
+    </press-transition>
   </uni-shadow-root>
 </template>
 
 <script>
-import VanTransition from '../press-transition/press-transition.vue';
+import PressTransition from '../press-transition/press-transition.vue';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
 
 export default {
   components: {
-    VanTransition,
+    PressTransition,
   },
   props: {
     show: { type: Boolean, default: false },

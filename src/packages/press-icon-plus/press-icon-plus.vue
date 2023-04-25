@@ -1,5 +1,4 @@
 <template>
-  <!-- <uni-shadow-root class="vant-icon-index"> -->
   <div
     :class="rootClass"
     :style="rootStyle"
@@ -18,7 +17,6 @@
       class="van-icon__image"
     />
   </div>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import computed from './index.js';

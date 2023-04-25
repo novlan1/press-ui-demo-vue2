@@ -7,6 +7,7 @@
       <press-tabs
         :active="active"
         @change="onChange"
+        @input="onInput"
       >
         <press-tab
           v-for="(item,index) of tabs4"
@@ -245,6 +246,9 @@ export default {
   methods: {
     onChange(val) {
       console.log('onChange.val', val);
+    },
+    onInput(val) {
+      console.log('onInput.val', val);
     },
     onClickDisabled(val) {
       console.log('onClickDisabled.val', val);

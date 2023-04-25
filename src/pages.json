@@ -63,6 +63,17 @@
       ]
     },
     {
+      "root": "pages/press/icon-plus",
+      "pages": [
+        {
+          "path": "icon-plus",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        }
+      ]
+    },
+    {
       "root": "pages/press/popup",
       "pages": [
         {

@@ -5,6 +5,8 @@ import { demoI18n } from 'src/utils/i18n/i18n';
 import { initMixin } from 'src/utils/mixin/mixin';
 
 import DemoBlock from 'src/pages/demo-block/demo-block.vue';
+import DemoBlockPlus from 'src/pages/demo-block/demo-block-plus.vue';
+import DemoSection from 'src/pages/demo-block/demo-section.vue';
 import Toast from 'src/packages/press-toast/index';
 
 import PressLoading from 'src/packages/press-loading/press-loading.vue';
@@ -50,6 +52,8 @@ Vue.component('UniListItem', UniListItem);
 Vue.component('UniSection', UniSection);
 
 Vue.component('DemoBlock', DemoBlock);
+Vue.component('DemoBlockPlus', DemoBlockPlus);
+Vue.component('DemoSection', DemoSection);
 
 Vue.component('PressButton', PressButton);
 Vue.component('PressLoading', PressLoading);

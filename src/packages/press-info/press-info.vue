@@ -28,7 +28,7 @@ export default {
   computed: {
     infoClass() {
       const { dot, customClass } = this;
-      return `van-info ${utils.bem('info', { dot })} ${customClass}`;
+      return `press-info ${utils.bem2('info', { dot })} ${customClass}`;
     },
   },
 };
@@ -37,7 +37,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-info {
+.press-info {
   position: absolute;
   top: 0;
   right: 0;

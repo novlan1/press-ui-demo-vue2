@@ -3,7 +3,7 @@
   <div>
     <div
       ref="sticky"
-      class="van-sticky"
+      class="press-sticky"
       :class="customClass"
       :style="containerStyle"
     >
@@ -28,7 +28,7 @@ import { BindEventMixin } from '../mixins/bind-event';
 import { getScroller } from '../common/dom/scroll';
 import { defaultProps, defaultOptions } from '../common/press-component';
 
-const ROOT_ELEMENT = '.van-sticky';
+const ROOT_ELEMENT = '.press-sticky';
 
 const scrollMixin = pageScrollMixin(function (event) {
   if (this.scrollTop !== null) {
@@ -108,7 +108,7 @@ export default {
     },
     wrapClass() {
       const { fixed } = this;
-      return utils.bem('sticky-wrap', { fixed });
+      return utils.bem2('sticky-wrap', { fixed });
     },
   },
   watch: {
@@ -236,7 +236,7 @@ export default {
 <style lang="scss" scoped>
 @import "../common/index.scss";
 
-.van-sticky {
+.press-sticky {
   position: relative;
 
   &-wrap {

@@ -1,7 +1,7 @@
 <template>
-  <uni-shadow-root class="vant-sidebar-index">
+  <uni-shadow-root class="press-sidebar-index">
     <div
-      class="van-sidebar"
+      class="press-sidebar"
       :class="customClass"
     >
       <slot />
@@ -69,7 +69,7 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-sidebar {
+.press-sidebar {
   width: var(--sidebar-width, 80px);
 }
 </style>

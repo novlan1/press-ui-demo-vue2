@@ -1,5 +1,4 @@
 <template>
-  <!-- <uni-shadow-root class="vant-share-sheet-index"> -->
   <press-popup
     round
     class="press-share-sheet"
@@ -60,7 +59,6 @@
       {{ cancelText }}
     </button>
   </press-popup>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import PressPopup from '../press-popup-plus/press-popup-plus.vue';

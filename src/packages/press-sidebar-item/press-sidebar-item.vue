@@ -1,13 +1,13 @@
 <template>
-  <uni-shadow-root class="vant-sidebar-item-index">
+  <uni-shadow-root class="press-sidebar-item-index">
     <div
       :class="sidebarItemClass"
-      hover-class="van-sidebar-item--hover"
+      hover-class="press-sidebar-item--hover"
       hover-stay-time="70"
       @click="onClick"
     >
-      <div class="van-sidebar-item__text">
-        <van-info
+      <div class="press-sidebar-item__text">
+        <press-info
           v-if="badge != null || info !== null || dot"
           :dot="dot"
           :info="badge != null ? badge : info"
@@ -24,7 +24,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import VanInfo from '../press-info/press-info.vue';
+import PressInfo from '../press-info/press-info.vue';
 import utils from '../wxs-js/utils';
 import { defaultOptions, defaultProps } from '../common/press-component';
 import { ChildrenMixin } from '../mixins/relation';
@@ -37,7 +37,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanInfo,
+    PressInfo,
   },
   mixins: [
     ChildrenMixin(PARENT),
@@ -69,7 +69,7 @@ export default {
         activeClass,
         disabledClass,
       } = this;
-      return `${utils.bem('sidebar-item', { selected, disabled })} ${selected ? activeClass : ''} ${disabled ? disabledClass : ''} ${customClass}`;
+      return `${utils.bem2('sidebar-item', { selected, disabled })} ${selected ? activeClass : ''} ${disabled ? disabledClass : ''} ${customClass}`;
     },
   },
   mounted() {
@@ -98,7 +98,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-sidebar-item {
+.press-sidebar-item {
   display: block;
   box-sizing: border-box;
   overflow: hidden;
@@ -140,7 +140,7 @@ export default {
   }
 
   &--selected,
-  &--selected.van-sidebar-item--hover {
+  &--selected.press-sidebar-item--hover {
     background-color: var(
       --sidebar-selected-background-color,
       $sidebar-selected-background-color

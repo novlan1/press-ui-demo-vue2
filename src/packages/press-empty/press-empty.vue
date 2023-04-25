@@ -1,6 +1,6 @@
 <template>
   <div
-    class="van-empty"
+    class="press-empty"
     :class="customClass"
   >
     <press-icon
@@ -12,28 +12,28 @@
     />
 
     <template v-else>
-      <div class="van-empty__image">
+      <div class="press-empty__image">
         <slot name="image" />
       </div>
-      <div class="van-empty__image">
+      <div class="press-empty__image">
         <img
           v-if="image"
-          class="van-empty__image__img"
+          class="press-empty__image__img"
           :src="computed.imageUrl(image)"
           :style="imageCustomStyle"
         >
       </div>
     </template>
 
-    <div class="van-empty__description">
+    <div class="press-empty__description">
       <slot name="description" />
     </div>
 
-    <div class="van-empty__description">
+    <div class="press-empty__description">
       {{ description }}
     </div>
 
-    <div class="van-empty__bottom">
+    <div class="press-empty__bottom">
       <slot />
     </div>
   </div>
@@ -86,7 +86,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-empty {
+.press-empty {
   display: flex;
   flex-direction: column;
   align-items: center;

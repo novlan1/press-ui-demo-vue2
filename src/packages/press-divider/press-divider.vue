@@ -1,5 +1,5 @@
 <template>
-  <uni-shadow-root class="vant-divider-index">
+  <uni-shadow-root class="press-divider-index">
     <div
       :class="dividerClass"
       :style="dividerStyle"
@@ -30,7 +30,7 @@ export default {
   computed: {
     dividerClass() {
       const { dashed, hairline, contentPosition, customClass } = this;
-      return `${customClass} ${utils.bem('divider', [{ dashed, hairline }, contentPosition])}`;
+      return `${customClass} ${utils.bem2('divider', [{ dashed, hairline }, contentPosition])}`;
     },
     dividerStyle() {
       const { borderColor, textColor, fontSize, customStyle } = this;
@@ -43,7 +43,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-divider {
+.press-divider {
   display: flex;
   align-items: center;
   border-style: solid;

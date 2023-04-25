@@ -1,8 +1,7 @@
 <template>
-  <!-- <uni-shadow-root class="vant-area-index"> -->
   <press-picker
     ref="vanPicker"
-    class="van-area__picker"
+    class="press-area__picker"
     active-class="active-class"
     toolbar-class="toolbar-class"
     column-class="column-class"
@@ -19,7 +18,6 @@
     @confirm="onConfirm"
     @cancel="onCancel"
   />
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import PressPicker from '../press-picker-plus/press-picker-plus.vue';
@@ -107,7 +105,7 @@ export default {
     getPicker() {
       if (this.picker == null) {
         this.picker = this.$refs.vanPicker;
-        // this.picker = this.selectComponent('.van-area__picker');
+        // this.picker = this.selectComponent('.press-area__picker');
       }
       return this.picker;
     },

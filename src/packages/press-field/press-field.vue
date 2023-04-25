@@ -1,6 +1,6 @@
 <template>
-  <uni-shadow-root class="vant-field-index">
-    <van-cell
+  <uni-shadow-root class="press-field-index">
+    <press-cell
       :size="size"
       :icon="leftIcon"
       :center="center"
@@ -13,7 +13,7 @@
       title-style="margin-right: 12px;"
       :custom-style="customStyle"
       :arrow-direction="arrowDirection"
-      custom-class="van-field"
+      custom-class="press-field"
     >
       <slot
         slot="icon"
@@ -22,7 +22,7 @@
       <template #title>
         <div
           v-if="label"
-          :class="'label-class '+(utils.bem('field__label', { disabled }))"
+          :class="'label-class '+(utils.bem2('field__label', { disabled }))"
         >
           {{ label }}
         </div>
@@ -32,16 +32,16 @@
         />
       </template>
 
-      <div :class="'' + utils.bem('field__body', [type])">
+      <div :class="'' + utils.bem2('field__body', [type])">
         <div
-          :class="'' + utils.bem('field__control', [inputAlign, 'custom'])"
+          :class="'' + utils.bem2('field__control', [inputAlign, 'custom'])"
           @click="onClickInput"
         >
           <slot name="input" />
         </div>
         <textarea
           v-if="type === 'textarea'"
-          :class="'' + (utils.bem('field__control', [inputAlign, type, { disabled, error }]))+' input-class'"
+          :class="'' + (utils.bem2('field__control', [inputAlign, type, { disabled, error }]))+' input-class'"
           :fixed="fixed"
           :focus="focus"
           :cursor="cursor"
@@ -51,7 +51,7 @@
           :maxlength="maxlength"
           :placeholder="placeholder"
           :placeholder-style="placeholderStyle"
-          :placeholder-class="'' + utils.bem('field__placeholder', { error, disabled })"
+          :placeholder-class="'' + utils.bem2('field__placeholder', { error, disabled })"
           :auto-height="(!!autosize)"
           :style="'' + computed.inputStyle(autosize)"
           :cursor-spacing="cursorSpacing"
@@ -71,7 +71,7 @@
         />
 
         <input
-          :class="'' + (utils.bem('field__control', [inputAlign, { disabled, error }]))+' input-class'"
+          :class="'' + (utils.bem2('field__control', [inputAlign, { disabled, error }]))+' input-class'"
           :type="type"
           :focus="focus"
           :cursor="cursor"
@@ -81,7 +81,7 @@
           :maxlength="maxlength"
           :placeholder="placeholder"
           :placeholder-style="placeholderStyle"
-          :placeholder-class="'' + utils.bem('field__placeholder', { error })"
+          :placeholder-class="'' + utils.bem2('field__placeholder', { error })"
           :confirm-type="confirmType"
           :confirm-hold="confirmHold"
           :hold-keyboard="holdKeyboard"
@@ -108,49 +108,49 @@
           src="./input.wxml"
         /> -->
 
-        <van-icon
+        <press-icon
           v-if="showClear"
           :name="clearIcon"
-          class="van-field__clear-root van-field__icon-root"
+          class="press-field__clear-root press-field__icon-root"
           @touchstart.native.stop.prevent="onClear"
         />
         <div
-          class="van-field__icon-container"
+          class="press-field__icon-container"
           @click="onClickIcon"
         >
-          <van-icon
+          <press-icon
             v-if="rightIcon || icon"
             :name="rightIcon || icon"
-            :class="'van-field__icon-root '+(iconClass)"
+            :class="'press-field__icon-root '+(iconClass)"
             custom-class="right-icon-class"
           />
           <slot name="right-icon" />
           <slot name="icon" />
         </div>
-        <div class="van-field__button">
+        <div class="press-field__button">
           <slot name="button" />
         </div>
       </div>
       <div
         v-if="showWordLimit && maxlength"
-        class="van-field__word-limit"
+        class="press-field__word-limit"
       >
-        <div :class="'' + utils.bem('field__word-num', { full: value.length >= maxlength })">
+        <div :class="'' + utils.bem2('field__word-num', { full: value.length >= maxlength })">
           {{ value.length >= maxlength ? maxlength : value.length }}
         </div>/{{ maxlength }}
       </div>
       <div
         v-if="errorMessage"
-        :class="'' + utils.bem('field__error-message', [errorMessageAlign, { disabled, error }])"
+        :class="'' + utils.bem2('field__error-message', [errorMessageAlign, { disabled, error }])"
       >
         {{ errorMessage }}
       </div>
-    </van-cell>
+    </press-cell>
   </uni-shadow-root>
 </template>
 <script>
-import VanCell from '../press-cell/press-cell.vue';
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressCell from '../press-cell/press-cell.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { nextTick } from '../common/utils';
 import { commonProps, inputProps, textareaProps } from './props';
 import utils from '../wxs-js/utils';
@@ -165,8 +165,8 @@ export default {
   field: true,
   classes: ['input-class', 'right-icon-class', 'label-class'],
   components: {
-    VanCell,
-    VanIcon,
+    PressCell,
+    PressIcon,
   },
   props: {
     ...commonProps,
@@ -332,7 +332,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-field {
+.press-field {
   --cell-icon-size: var(--field-icon-size, $field-icon-size);
 
   &__label {

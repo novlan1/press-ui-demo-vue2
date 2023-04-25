@@ -1,10 +1,10 @@
 <template>
-  <uni-shadow-root class="vant-circle-index">
-    <div class="van-circle">
+  <uni-shadow-root class="press-circle-index">
+    <div class="press-circle">
       <!-- #ifdef H5 -->
       <canvas
         :id="canvasId"
-        class="van-circle__canvas"
+        class="press-circle__canvas"
         :type="type"
         :style="circleStyle"
         :canvas-id="canvasId"
@@ -15,7 +15,7 @@
       <!-- 小程序中动态canvasId不生效，相同问题: https://ask.dcloud.net.cn/question/67534 -->
       <canvas
         :id="canvasId"
-        class="van-circle__canvas"
+        class="press-circle__canvas"
         :type="type"
         :style="circleStyle"
         canvas-id="press-circle"
@@ -24,13 +24,13 @@
 
       <div
         v-if="(!text)"
-        class="van-circle__text"
+        class="press-circle__text"
       >
         <slot />
       </div>
       <cover-view
         v-else
-        class="van-circle__text"
+        class="press-circle__text"
       >
         {{ text }}
       </cover-view>
@@ -67,7 +67,6 @@ export default {
     value: {
       type: Number,
       default: 0,
-      // observer: 'reRender',
     },
     speed: {
       type: Number,
@@ -76,9 +75,6 @@ export default {
     size: {
       type: Number,
       default: 100,
-      // observer() {
-      //   this.drawCircle(this.currentValue);
-      // },
     },
     fill: { type: String, default: '' },
     layerColor: {
@@ -88,11 +84,6 @@ export default {
     color: {
       type: null,
       default: BLUE,
-      // observer() {
-      //   this.setHoverColor().then(() => {
-      //     this.drawCircle(this.currentValue);
-      //   });
-      // },
     },
     type: {
       type: String,
@@ -122,7 +113,7 @@ export default {
       if (process.env.UNI_PLATFORM !== 'h5') {
         return 'press-circle';
       }
-      return `van-circle-${this.id}`;
+      return `press-circle-${this.id}`;
     },
   },
   watch: {
@@ -280,7 +271,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-circle {
+.press-circle {
   position: relative;
   display: inline-block;
   text-align: center;

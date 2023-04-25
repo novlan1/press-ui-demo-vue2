@@ -1,5 +1,5 @@
 <template>
-  <uni-shadow-root class="vant-checkbox-group-index">
+  <uni-shadow-root class="press-checkbox-group-index">
     <div :class="groupClass">
       <slot />
     </div>
@@ -35,7 +35,7 @@ export default {
   computed: {
     groupClass() {
       const { direction } = this;
-      return utils.bem('checkbox-group', [{ horizontal: direction === 'horizontal' }]);
+      return utils.bem2('checkbox-group', [{ horizontal: direction === 'horizontal' }]);
     },
   },
   watch: {
@@ -70,7 +70,7 @@ export default {
 </script>
 <style platform="mp-weixin">
 @import "../common/index.scss";
-.van-checkbox-group--horizontal {
+.press-checkbox-group--horizontal {
   display: flex;
   flex-wrap: wrap;
 }

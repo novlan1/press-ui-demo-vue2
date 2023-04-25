@@ -1,5 +1,5 @@
 <template>
-  <uni-shadow-root class="vant-cell-group-index">
+  <uni-shadow-root class="press-cell-group-index">
     <div
       v-if="title"
       :class="titleClass"
@@ -29,11 +29,11 @@ export default {
   computed: {
     titleClass() {
       const { inset } = this;
-      return utils.bem('cell-group__title', { inset });
+      return utils.bem2('cell-group__title', { inset });
     },
     groupClass() {
       const { inset, border } = this;
-      return `custom-class ${utils.bem('cell-group', { inset })} ${border ? 'van-hairline--top-bottom' : ''}`;
+      return `custom-class ${utils.bem2('cell-group', { inset })} ${border ? 'press-hairline--top-bottom' : ''}`;
     },
   },
 };
@@ -42,7 +42,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-cell-group {
+.press-cell-group {
   &--inset {
     margin: var(--cell-group-inset-padding, $cell-group-inset-padding);
     border-radius: var(

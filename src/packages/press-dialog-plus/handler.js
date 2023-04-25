@@ -10,7 +10,7 @@ const defaultOptions = {
   message: '',
   zIndex: 100,
   overlay: true,
-  selector: '#van-dialog',
+  selector: '#press-dialog',
   className: '',
   asyncClose: false,
   beforeClose: null,

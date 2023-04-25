@@ -35,7 +35,7 @@
     </demo-block>
 
 
-    <press-dialog-plus id="van-dialog" />
+    <press-dialog-plus id="press-dialog" />
 
     <press-dialog-plus
       use-slot

@@ -1,8 +1,8 @@
 <template>
-  <uni-shadow-root class="vant-datetime-picker-index">
-    <van-picker
+  <uni-shadow-root class="press-datetime-picker-index">
+    <press-picker
       ref="pressPicker"
-      class="van-datetime-picker"
+      class="press-datetime-picker"
       active-class="active-class"
       toolbar-class="toolbar-class"
       column-class="column-class"
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import VanPicker from '../press-picker-plus/press-picker-plus.vue';
+import PressPicker from '../press-picker-plus/press-picker-plus.vue';
 import { isDef } from '../common/validator';
 import { pickerProps } from '../press-picker-plus/shared';
 import Vue from 'vue';
@@ -68,7 +68,7 @@ export default {
   },
   classes: ['active-class', 'toolbar-class', 'column-class'],
   components: {
-    VanPicker,
+    PressPicker,
   },
   props: Object.assign(Object.assign({}, pickerProps), {
     ...defaultProps,

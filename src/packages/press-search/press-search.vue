@@ -1,13 +1,13 @@
 <template>
-  <uni-shadow-root class="vant-search-index">
+  <uni-shadow-root class="press-search-index">
     <div
-      :class="'custom-class ' + (utils.bem('search', { withaction: showAction || useActionSlot }))"
+      :class="'custom-class ' + (utils.bem2('search', { withaction: showAction || useActionSlot }))"
       :style="'background: '+(background)"
     >
-      <div :class="'' + utils.bem('search__content', [shape])">
+      <div :class="'' + utils.bem2('search__content', [shape])">
         <div
           v-if="label"
-          class="van-search__label"
+          class="press-search__label"
         >
           {{ label }}
         </div>
@@ -16,7 +16,7 @@
           name="label"
         />
 
-        <van-field
+        <press-field
           type="search"
           :left-icon="(!useLeftIconSlot ? leftIcon : '')"
           :right-icon="(!useRightIconSlot ? rightIcon : '')"
@@ -24,7 +24,7 @@
           :error="error"
           :border="false"
           confirm-type="search"
-          class="van-search__field field-class"
+          class="press-search__field field-class"
           :value="innerValue"
           :disabled="disabled"
           :readonly="readonly"
@@ -54,13 +54,13 @@
             slot="right-icon"
             name="right-icon"
           />
-        </van-field>
+        </press-field>
       </div>
 
       <div
         v-if="showAction || useActionSlot"
-        class="van-search__action"
-        hover-class="van-search__action--hover"
+        class="press-search__action"
+        hover-class="press-search__action--hover"
         hover-stay-time="70"
       >
         <slot
@@ -79,13 +79,13 @@
   </uni-shadow-root>
 </template>
 <script>
-import VanField from '../press-field/press-field.vue';
+import PressField from '../press-field/press-field.vue';
 import utils from '../wxs-js/utils';
 import { t } from '../locale';
 
 export default {
   components: {
-    VanField,
+    PressField,
   },
   field: true,
   classes: ['field-class', 'input-class', 'cancel-class'],
@@ -191,7 +191,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-search {
+.press-search {
   display: flex;
   align-items: center;
   box-sizing: border-box;

@@ -1,12 +1,12 @@
 <template>
-  <uni-shadow-root class="vant-picker-toolbar">
+  <uni-shadow-root class="press-picker-toolbar">
     <div
       v-if="showToolbar"
-      class="van-picker__toolbar toolbar-class"
+      class="press-picker__toolbar toolbar-class"
     >
       <div
-        class="van-picker__cancel"
-        hover-class="van-picker__cancel--hover"
+        class="press-picker__cancel"
+        hover-class="press-picker__cancel--hover"
         hover-stay-time="70"
         data-type="cancel"
         @click="emit"
@@ -15,15 +15,15 @@
       </div>
       <div
         v-if="title"
-        class="van-picker__title van-ellipsis"
+        class="press-picker__title press-ellipsis"
       >
         {{
           title
         }}
       </div>
       <div
-        class="van-picker__confirm"
-        hover-class="van-picker__confirm--hover"
+        class="press-picker__confirm"
+        hover-class="press-picker__confirm--hover"
         hover-stay-time="70"
         data-type="confirm"
         @click="emit"
@@ -62,7 +62,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-picker {
+.press-picker {
   &__toolbar {
     display: flex;
     justify-content: space-between;

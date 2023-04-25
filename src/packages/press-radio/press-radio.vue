@@ -1,6 +1,6 @@
 <template>
-  <uni-shadow-root class="vant-radio-index">
-    <div :class="'' + (utils.bem('radio', [direction]))+' custom-class'">
+  <uni-shadow-root class="press-radio-index">
+    <div :class="'' + (utils.bem2('radio', [direction]))+' custom-class'">
       <div
         v-if="labelPosition === 'left'"
         :class="radioLabelClass"
@@ -9,7 +9,7 @@
         <slot />
       </div>
       <div
-        class="van-radio__icon-wrap"
+        class="press-radio__icon-wrap"
         :style="'font-size: '+(utils.addUnit(iconSize))"
         @click="onChange"
       >
@@ -18,7 +18,7 @@
           name="icon"
         />
         <!-- :style="'' + computed.iconStyle({ iconSize, checkedColor, disabled, parentDisabled, value, name })" -->
-        <van-icon
+        <press-icon
           v-else
           name="success"
           :class="radioIconClass"
@@ -29,7 +29,7 @@
       </div>
       <div
         v-if="labelPosition === 'right'"
-        :class="'label-class '+(utils.bem('radio__label', [labelPosition, { disabled: disabled || parentDisabled }]))"
+        :class="'label-class '+(utils.bem2('radio__label', [labelPosition, { disabled: disabled || parentDisabled }]))"
         @click="onClickLabel"
       >
         <slot />
@@ -38,7 +38,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { canIUseModel } from '../common/version';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -53,7 +53,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanIcon,
+    PressIcon,
   },
   mixins: [
     ChildrenMixin(PARENT),
@@ -100,7 +100,7 @@ export default {
         dataValue: value,
         name,
       } = this;
-      return `${utils.bem('radio__icon', [shape, { disabled: disabled || parentDisabled, checked: value === name }])}`;
+      return `${utils.bem2('radio__icon', [shape, { disabled: disabled || parentDisabled, checked: value === name }])}`;
     },
     radioLabelClass() {
       const {
@@ -108,7 +108,7 @@ export default {
         disabled,
         parentDisabled,
       } = this;
-      return `${utils.bem('radio__label', [labelPosition, { disabled: disabled || parentDisabled }])} label-class`;
+      return `${utils.bem2('radio__label', [labelPosition, { disabled: disabled || parentDisabled }])} label-class`;
     },
   },
   mounted() {
@@ -153,7 +153,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-radio {
+.press-radio {
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -186,7 +186,7 @@ export default {
 
     &--round {
       border-radius: 100%;
-      .van-icon {
+      .press-icon {
         // 【修改点】
         border-radius: 100%;
       }
@@ -212,7 +212,7 @@ export default {
       );
     }
 
-    &--disabled.van-radio__icon--checked {
+    &--disabled.press-radio__icon--checked {
       color: var(--radio-disabled-icon-color, $radio-disabled-icon-color);
     }
   }

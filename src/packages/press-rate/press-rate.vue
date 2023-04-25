@@ -1,18 +1,18 @@
 <template>
-  <uni-shadow-root class="vant-rate-index">
+  <uni-shadow-root class="press-rate-index">
     <div
-      :class="'' + (utils.bem('rate'))+' custom-class'"
+      :class="'' + (utils.bem2('rate'))+' custom-class'"
       @touchmove="onTouchMove"
     >
       <div
         v-for="(item,index) in (innerCountArray)"
         :key="index"
-        :class="'' + utils.bem('rate__item')"
+        :class="'' + utils.bem2('rate__item')"
         :style="'' + style({ paddingRight: index !== count - 1 ? utils.addUnit(gutter) : null })"
       >
-        <van-icon
+        <press-icon
           :name="index + 1 <= innerValue ? icon : voidIcon"
-          :class="'' + utils.bem('rate__icon', [{ disabled, full: index + 1 <= innerValue }])"
+          :class="'' + utils.bem2('rate__icon', [{ disabled, full: index + 1 <= innerValue }])"
           :style="'' + style({ fontSize: utils.addUnit(size) })"
           custom-class="icon-class"
           :data-score="index"
@@ -20,10 +20,10 @@
           @click="onSelect(index)"
         />
 
-        <van-icon
+        <press-icon
           v-if="allowHalf"
           :name="index + 0.5 <= innerValue ? icon : voidIcon"
-          :class="'' + utils.bem('rate__icon', ['half', { disabled, full: index + 0.5 <= innerValue }])"
+          :class="'' + utils.bem2('rate__icon', ['half', { disabled, full: index + 0.5 <= innerValue }])"
           :style="'' + style({ fontSize: utils.addUnit(size) })"
           custom-class="icon-class"
           :data-score="index - 0.5"
@@ -35,15 +35,14 @@
   </uni-shadow-root>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { getAllRect } from '../common/utils';
-// import { canIUseModel } from '../common/version';
 import utils from '../wxs-js/utils';
 import style from '../wxs-js/style';
 
 export default {
   components: {
-    VanIcon,
+    PressIcon,
   },
   field: true,
   classes: ['icon-class'],
@@ -51,11 +50,6 @@ export default {
     value: {
       type: Number,
       default: 0,
-      // observer(value) {
-      //   if (value !== this.data.innerValue) {
-      //     this.setData({ innerValue: value });
-      //   }
-      // },
     },
     readonly: Boolean,
     disabled: Boolean,
@@ -75,9 +69,6 @@ export default {
     count: {
       type: Number,
       default: 5,
-      // observer(value) {
-      //   this.setData({ innerCountArray: Array.from({ length: value }) });
-      // },
     },
     gutter: { type: [Number, String], default: '' },
     touchable: {
@@ -99,7 +90,6 @@ export default {
       handler(val) {
         if (val !== this.innerValue) {
           this.innerValue = val;
-          // this.setData({ innerValue: value });
         }
       },
       immediate: true,
@@ -125,7 +115,7 @@ export default {
       const { touchable } = this;
       if (!touchable) return;
       const { clientX } = event.touches[0];
-      getAllRect(this, '.van-rate__icon').then((list) => {
+      getAllRect(this, '.press-rate__icon').then((list) => {
         const target = list
           // .sort((cur, next) => cur.dataset.score - next.dataset.score)
           .sort((cur, next) => cur.x - next.x)
@@ -145,7 +135,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-rate {
+.press-rate {
   display: inline-flex;
   user-select: none;
 

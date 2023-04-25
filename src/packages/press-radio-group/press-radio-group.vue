@@ -1,6 +1,6 @@
 <template>
-  <uni-shadow-root class="vant-radio-group-index">
-    <div :class="'' + utils.bem('radio-group', [direction])">
+  <uni-shadow-root class="press-radio-group-index">
+    <div :class="'' + utils.bem2('radio-group', [direction])">
       <slot />
     </div>
   </uni-shadow-root>
@@ -63,7 +63,7 @@ export default {
 </script>
 <style platform="mp-weixin" lang="scss">
 @import "../common/index.scss";
-.van-radio-group--horizontal {
+.press-radio-group--horizontal {
   display: flex;
   flex-wrap: wrap;
 }

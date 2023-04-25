@@ -1,7 +1,7 @@
 <template>
-  <uni-shadow-root class="vant-picker-column-index">
+  <uni-shadow-root class="press-picker-column-index">
     <div
-      class="van-picker-column"
+      class="press-picker-column"
       :class="customClass"
       :style="columnStyle"
       @touchstart="onTouchStart"
@@ -16,11 +16,11 @@
           :data-index="index"
           :style="{height: `${itemHeight}px`, lineHeight: `${itemHeight}px`}"
           :class="[
-            'van-ellipsis',
-            'van-picker-column__item',
+            'press-ellipsis',
+            'press-picker-column__item',
             {
-              'van-picker-column__item--disabled':option && option.disabled,
-              'van-picker-column__item--selected':index === currentIndex,
+              'press-picker-column__item--disabled':option && option.disabled,
+              'press-picker-column__item--selected':index === currentIndex,
               activeClass: index === currentIndex
             }
           ]"
@@ -65,9 +65,6 @@ export default {
     defaultIndex: {
       type: Number,
       default: 0,
-      // observer(value) {
-      //   this.setIndex(value);
-      // },
     },
   },
   data() {
@@ -205,7 +202,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-picker-column {
+.press-picker-column {
   overflow: hidden;
   text-align: center;
   color: var(--picker-option-text-color, $picker-option-text-color);

@@ -255,7 +255,7 @@ export default {
 @import "src/packages/base/mixin.scss";
 .demo-radio-group {
   padding-bottom: 20px;
-  &::v-deep .van-radio {
+  &::v-deep .press-radio {
     margin-bottom: 8px;
   }
   img {

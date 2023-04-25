@@ -1,13 +1,13 @@
 <template>
-  <uni-shadow-root class="vant-stepper-index">
-    <div :class="(utils.bem('stepper', [theme]))+' custom-class'">
+  <uni-shadow-root class="press-stepper-index">
+    <div :class="(utils.bem2('stepper', [theme]))+' custom-class'">
       <div
         v-if="showMinus"
         data-type="minus"
         :style="'' + computed.buttonStyle({ buttonSize })"
         :class="'minus-class '+
-          (utils.bem('stepper__minus', { disabled: disabled || disableMinus || currentValue <= min }))"
-        hover-class="van-stepper__minus--hover"
+          (utils.bem2('stepper__minus', { disabled: disabled || disableMinus || currentValue <= min }))"
+        hover-class="press-stepper__minus--hover"
         hover-stay-time="70"
         @click="onTap"
         @touchstart="onTouchStart"
@@ -19,7 +19,7 @@
         :always-embed="false"
         :type="integer ? 'number' : 'digit'"
         :class="'input-class '+
-          (utils.bem('stepper__input', { disabled: disabled || disableInput }))"
+          (utils.bem2('stepper__input', { disabled: disabled || disableInput }))"
         :style="'' + computed.inputStyle({ buttonSize, inputWidth })"
         :value="currentValue"
         :focus="focus"
@@ -33,8 +33,8 @@
         data-type="plus"
         :style="'' + computed.buttonStyle({ buttonSize })"
         :class="'plus-class '+
-          (utils.bem('stepper__plus', { disabled: disabled || disablePlus || currentValue >= max }))"
-        hover-class="van-stepper__plus--hover"
+          (utils.bem2('stepper__plus', { disabled: disabled || disablePlus || currentValue >= max }))"
+        hover-class="press-stepper__plus--hover"
         hover-stay-time="70"
         @click="onTap"
         @touchstart="onTouchStart"
@@ -277,7 +277,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-stepper {
+.press-stepper {
   font-size: 0;
 
   &__minus,
@@ -307,10 +307,10 @@ export default {
       height: 9px;
     }
 
-    &:empty.van-stepper__minus::before,
-    &:empty.van-stepper__plus::before,
-    &:empty.van-stepper__minus::after,
-    &:empty.van-stepper__plus::after {
+    &:empty.press-stepper__minus::before,
+    &:empty.press-stepper__plus::before,
+    &:empty.press-stepper__minus::after,
+    &:empty.press-stepper__plus::after {
       position: absolute;
       top: 0;
       right: 0;
@@ -336,8 +336,8 @@ export default {
       );
     }
 
-    &--disabled.van-stepper__minus--hover,
-    &--disabled.van-stepper__plus--hover {
+    &--disabled.press-stepper__minus--hover,
+    &--disabled.press-stepper__plus--hover {
       background-color: var(
         --stepper-button-disabled-color,
         $stepper-button-disabled-color
@@ -375,12 +375,12 @@ export default {
   }
 
   &--round {
-    .van-stepper__input {
+    .press-stepper__input {
       background-color: transparent !important;
     }
 
-    .van-stepper__plus,
-    .van-stepper__minus {
+    .press-stepper__plus,
+    .press-stepper__minus {
       border-radius: 100%;
 
       &:active {
@@ -395,12 +395,12 @@ export default {
       }
     }
 
-    .van-stepper__plus {
+    .press-stepper__plus {
       color: $white;
       background-color: $stepper-button-round-theme-color;
     }
 
-    .van-stepper__minus {
+    .press-stepper__minus {
       color: $stepper-button-round-theme-color;
       background-color: $white;
       border: 1px solid $stepper-button-round-theme-color;

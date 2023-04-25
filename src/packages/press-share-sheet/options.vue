@@ -1,30 +1,30 @@
 <template>
-  <uni-shadow-root class="vant-share-sheet-options">
+  <uni-shadow-root class="press-share-sheet-options">
     <div :class="optionsClass">
       <div
         v-for="(item,index) in (options)"
         :key="item.index"
-        class="van-share-sheet__option"
+        class="press-share-sheet__option"
         :data-index="index"
         @click="onSelect"
       >
         <button
-          class="van-share-sheet__button"
+          class="press-share-sheet__button"
           :open-type="item.openType"
         >
           <image
             :src="computed.getIconURL(item.icon)"
-            class="van-share-sheet__icon"
+            class="press-share-sheet__icon"
           />
           <div
             v-if="item.name"
-            class="van-share-sheet__name"
+            class="press-share-sheet__name"
           >
             {{ item.name }}
           </div>
           <div
             v-if="item.description"
-            class="van-share-sheet__option-description"
+            class="press-share-sheet__option-description"
           >
             {{ item.description }}
           </div>
@@ -42,9 +42,7 @@ export default {
   options: {
     ...defaultOptions,
   },
-  components: {
-
-  },
+  components: {},
   props: {
     options: { type: Array, default: () => [] },
     showBorder: Boolean,
@@ -58,7 +56,7 @@ export default {
   computed: {
     optionsClass() {
       const { showBorder } = this;
-      return utils.bem('share-sheet__options', { border: showBorder });
+      return utils.bem2('share-sheet__options', { border: showBorder });
     },
   },
   methods: {
@@ -76,7 +74,7 @@ export default {
 @import "../common/style/var.scss";
 @import "../common/style/mixins/hairline.scss";
 
-.van-share-sheet {
+.press-share-sheet {
   &__options {
     position: relative;
     display: flex;

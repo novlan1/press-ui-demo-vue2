@@ -1,7 +1,7 @@
 <template>
-  <uni-shadow-root class="vant-picker-index">
+  <uni-shadow-root class="press-picker-index">
     <div
-      class="van-picker"
+      class="press-picker"
       :class="customClass"
     >
       <ToolBar
@@ -15,13 +15,13 @@
 
       <div
         v-if="loading"
-        class="van-picker__loading"
+        class="press-picker__loading"
       >
         <loading color="#1989fa" />
       </div>
 
       <div
-        class="van-picker__columns"
+        class="press-picker__columns"
         :style="columnStyle"
         @touchmove.stop.prevent="noop"
       >
@@ -29,7 +29,7 @@
           v-for="(item,index) in computedColumns"
           ref="pickerColumn"
           :key="index"
-          class="van-picker__column"
+          class="press-picker__column"
           :data-index="index"
           :custom-class="customClass"
           :value-key="valueKey"
@@ -41,11 +41,11 @@
           @change="value=>onChange(value, index)"
         />
         <div
-          class="van-picker__mask"
+          class="press-picker__mask"
           :style="maskStyle"
         />
         <div
-          class="van-picker__frame van-hairline--top-bottom"
+          class="press-picker__frame press-hairline--top-bottom"
           :style="frameStyle"
         />
       </div>
@@ -118,12 +118,6 @@ export default {
     columns: {
       type: Array,
       default: () => [],
-      // observer(columns = []) {
-      //   this.simple = columns.length && !columns[0].values;
-      //   if (Array.isArray(this.children) && this.children.length) {
-      //     this.setColumns().catch(() => { });
-      //   }
-      // },
     },
   },
   data() {
@@ -161,10 +155,6 @@ export default {
     },
   },
   beforeCreate() {
-    // Object.defineProperty(this, 'children', {
-    //   // get: () => this.selectAllComponents('.van-picker__column') || [],
-    //   get: () => this.$refs.pickerColumn,
-    // });
   },
   created() {
     this.children = [];
@@ -198,28 +188,23 @@ export default {
     onChange(event, index) {
       if (this.simple) {
         this.$emit('change', {
-          // picker: this,
           value: this.getColumnValue(0),
           index: this.getColumnIndex(0),
         });
       } else {
         this.$emit('change', {
-          // picker: this,
           value: this.getValues(),
-          index, // event.currentTarget.dataset.index,
+          index,
         });
       }
     },
-    // get column instance by index
     getColumn(index) {
       return this.children[index];
     },
-    // get column value by index
     getColumnValue(index) {
       const column = this.getColumn(index);
       return column && column.getValue();
     },
-    // set column value by index
     setColumnValue(index, value) {
       const column = this.getColumn(index);
       if (column == null) {
@@ -227,11 +212,9 @@ export default {
       }
       return column.setValue(value);
     },
-    // get column option index by column index
     getColumnIndex(columnIndex) {
       return (this.getColumn(columnIndex) || {}).currentIndex;
     },
-    // set column option index by column index
     setColumnIndex(columnIndex, optionIndex) {
       const column = this.getColumn(columnIndex);
       if (column == null) {
@@ -239,11 +222,9 @@ export default {
       }
       return column.setIndex(optionIndex);
     },
-    // get options of column by index
     getColumnValues(index) {
       return (this.children[index] || {}).options;
     },
-    // set options of column by index
     setColumnValues(index, options, needReset = true) {
       const column = this.children[index];
       if (column == null) {
@@ -259,20 +240,16 @@ export default {
         }
       });
     },
-    // get values of all columns
     getValues() {
       return this.children.map(child => child.getValue());
     },
-    // set values of all columns
     setValues(values) {
       const stack = values.map((value, index) => this.setColumnValue(index, value));
       return Promise.all(stack);
     },
-    // get indexes of all columns
     getIndexes() {
       return this.children.map(child => child.currentIndex);
     },
-    // set indexes of all columns
     setIndexes(indexes) {
       const stack = indexes.map((optionIndex, columnIndex) => this.setColumnIndex(columnIndex, optionIndex));
       return Promise.all(stack);
@@ -284,7 +261,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-picker {
+.press-picker {
   position: relative;
   overflow: hidden;
   -webkit-text-size-adjust: 100%; /* avoid iOS text size adjust */

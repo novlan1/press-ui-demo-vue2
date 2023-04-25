@@ -1,14 +1,14 @@
 <template>
-  <uni-shadow-root class="vant-notify-index">
-    <van-transition
+  <uni-shadow-root class="press-notify-index">
+    <press-transition
       name="slide-down"
       :show="dataShow"
-      custom-class="van-notify__container"
+      custom-class="press-notify__container"
       :custom-style="computed.rootStyle({ zIndex: dataZIndex, top: dataTop })"
       @click.native="onTap"
     >
       <div
-        :class="'van-notify van-notify--'+(dataType)"
+        :class="'press-notify press-notify--'+(dataType)"
         :style="true ? computed.notifyStyle({ background: dataBackground, color: dataColor }) : ''"
       >
         <div
@@ -17,11 +17,11 @@
         />
         <text>{{ dataMessage }}</text>
       </div>
-    </van-transition>
+    </press-transition>
   </uni-shadow-root>
 </template>
 <script>
-import VanTransition from '../press-transition/press-transition.vue';
+import PressTransition from '../press-transition/press-transition.vue';
 import { WHITE } from '../common/color';
 import { getSystemInfoSync } from '../common/utils';
 import { defaultProps, defaultOptions } from '../common/press-component';
@@ -67,7 +67,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanTransition,
+    PressTransition,
   },
   props,
   data() {
@@ -126,7 +126,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-notify {
+.press-notify {
   text-align: center;
   word-wrap: break-word;
   padding: var(--notify-padding, $notify-padding);

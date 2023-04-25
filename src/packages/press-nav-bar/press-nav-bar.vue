@@ -1,5 +1,5 @@
 <template>
-  <uni-shadow-root class="vant-nav-bar-index">
+  <uni-shadow-root class="press-nav-bar-index">
     <div
       v-if="fixed && placeholder"
       :style="'height: '+(height)+'px;'"
@@ -9,22 +9,22 @@
       :class="navBarClass"
       :style="navBarStyle"
     >
-      <div class="van-nav-bar__content">
+      <div class="press-nav-bar__content">
         <div
-          class="van-nav-bar__left"
+          class="press-nav-bar__left"
           @click="onClickLeft"
         >
           <template v-if="leftArrow || leftText">
-            <van-icon
+            <press-icon
               v-if="leftArrow"
               size="16px"
               name="arrow-left"
-              custom-class="van-nav-bar__arrow"
+              custom-class="press-nav-bar__arrow"
             />
             <div
               v-if="leftText"
-              class="van-nav-bar__text"
-              hover-class="van-nav-bar__text--hover"
+              class="press-nav-bar__text"
+              hover-class="press-nav-bar__text--hover"
               hover-stay-time="70"
             >
               {{ leftText }}
@@ -35,7 +35,7 @@
             name="left"
           />
         </div>
-        <div class="van-nav-bar__title title-class van-ellipsis">
+        <div class="press-nav-bar__title title-class press-ellipsis">
           <template v-if="title">
             {{ title }}
           </template>
@@ -45,13 +45,13 @@
           />
         </div>
         <div
-          class="van-nav-bar__right"
+          class="press-nav-bar__right"
           @click="onClickRight"
         >
           <div
             v-if="rightText"
-            class="van-nav-bar__text"
-            hover-class="van-nav-bar__text--hover"
+            class="press-nav-bar__text"
+            hover-class="press-nav-bar__text--hover"
             hover-stay-time="70"
           >
             {{ rightText }}
@@ -66,7 +66,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { getRect, getSystemInfoSync } from '../common/utils';
 import utils from '../wxs-js/utils';
 import computed from './computed';
@@ -74,17 +74,15 @@ import computed from './computed';
 export default {
   classes: ['title-class'],
   components: {
-    VanIcon,
+    PressIcon,
   },
   props: {
     title: { type: String, default: '' },
     fixed: {
       type: Boolean,
-      // observer: 'setHeight',
     },
     placeholder: {
       type: Boolean,
-      // observer: 'setHeight',
     },
     leftText: { type: String, default: '' },
     rightText: { type: String, default: '' },
@@ -111,7 +109,7 @@ export default {
   computed: {
     navBarClass() {
       const { border, fixed } = this;
-      return `${utils.bem('nav-bar', { fixed })} custom-class ${border ? 'van-hairline--bottom' : ''}`;
+      return `${utils.bem2('nav-bar', { fixed })} custom-class ${border ? 'press-hairline--bottom' : ''}`;
     },
     navBarStyle() {
       const { zIndex, statusBarHeight, safeAreaInsetTop, customStyle } = this;
@@ -134,10 +132,6 @@ export default {
     const { statusBarHeight } = getSystemInfoSync();
     this.statusBarHeight = statusBarHeight;
     this.height = 46 + statusBarHeight;
-    // this.setData({
-    //   statusBarHeight,
-    //   height: 46 + statusBarHeight,
-    // });
   },
   mounted() {
     this.setHeight();
@@ -154,10 +148,9 @@ export default {
         return;
       }
       wx.nextTick(() => {
-        getRect(this, '.van-nav-bar').then((res) => {
+        getRect(this, '.press-nav-bar').then((res) => {
           if (res && 'height' in res) {
             this.height = res.height;
-            // this.setData({ height: res.height });
           }
         });
       });
@@ -170,7 +163,7 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-nav-bar {
+.press-nav-bar {
   position: relative;
   text-align: center;
   user-select: none;
@@ -205,7 +198,7 @@ export default {
     font-size: var(--nav-bar-arrow-size, $nav-bar-arrow-size) !important;
     color: var(--nav-bar-icon-color, $nav-bar-icon-color) !important;
 
-    + .van-nav-bar__text {
+    + .press-nav-bar__text {
       margin-left: -20px;
       padding-left: 25px;
     }

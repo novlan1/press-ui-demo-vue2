@@ -1,7 +1,7 @@
 <template>
-  <uni-shadow-root class="vant-steps-index">
+  <uni-shadow-root class="press-steps-index">
     <div :class="stepsClass">
-      <div class="van-step__wrapper">
+      <div class="press-step__wrapper">
         <div
           v-for="(item,index) in (steps)"
           :key="item.index"
@@ -11,7 +11,7 @@
           @click="onClick"
         >
           <div
-            class="van-step__title"
+            class="press-step__title"
             :style="index === active ? 'color: ' + activeColor : ''"
           >
             <div>{{ item.text }}</div>
@@ -19,31 +19,31 @@
               {{ item.desc }}
             </div>
           </div>
-          <div class="van-step__circle-container">
+          <div class="press-step__circle-container">
             <template v-if="index !== active">
-              <van-icon
+              <press-icon
                 v-if="item.inactiveIcon || inactiveIcon"
                 :color="status(index, active) === 'inactive' ? inactiveColor: activeColor"
                 :name="item.inactiveIcon || inactiveIcon"
-                custom-class="van-step__icon"
+                custom-class="press-step__icon"
               />
               <div
                 v-else
-                class="van-step__circle"
+                class="press-step__circle"
                 :style="'background-color: ' + (index < active ? activeColor : inactiveColor)"
               />
             </template>
 
-            <van-icon
+            <press-icon
               v-else
               :name="item.activeIcon || activeIcon"
               :color="activeColor"
-              custom-class="van-step__icon"
+              custom-class="press-step__icon"
             />
           </div>
           <div
             v-if="index !== steps.length - 1"
-            class="van-step__line"
+            class="press-step__line"
             :style="'background-color: ' + (index < active ? activeColor : inactiveColor)"
           />
         </div>
@@ -52,7 +52,7 @@
   </uni-shadow-root>
 </template>
 <script>
-import VanIcon from '../press-icon-plus/press-icon-plus.vue';
+import PressIcon from '../press-icon-plus/press-icon-plus.vue';
 import { GREEN, GRAY_DARK } from '../common/color';
 import { defaultProps, defaultOptions } from '../common/press-component';
 import utils from '../wxs-js/utils';
@@ -64,7 +64,7 @@ export default {
     styleIsolation: 'shared',
   },
   components: {
-    VanIcon,
+    PressIcon,
   },
   classes: ['desc-class'],
   props: {
@@ -98,7 +98,7 @@ export default {
   computed: {
     stepsClass() {
       const { direction, customClass } = this;
-      return `${customClass} ${utils.bem('steps', [direction])}`;
+      return `${customClass} ${utils.bem2('steps', [direction])}`;
     },
   },
   methods: {
@@ -108,7 +108,7 @@ export default {
     },
     getStepClass(index) {
       const { direction, active } = this;
-      return `${utils.bem('step', [direction, status(index, active)])} van-hairline`;
+      return `${utils.bem2('step', [direction, status(index, active)])} press-hairline`;
     },
     getStepStyle(index) {
       const { active, inactiveColor } = this;
@@ -122,14 +122,14 @@ export default {
 @import "../common/index.scss";
 @import "../common/style/var.scss";
 
-.van-steps {
+.press-steps {
   overflow: hidden;
   background-color: var(--steps-background-color, $steps-background-color);
 
   &--horizontal {
     padding: 10px;
 
-    .van-step__wrapper {
+    .press-step__wrapper {
       position: relative;
       display: flex;
       overflow: hidden;
@@ -139,13 +139,13 @@ export default {
   &--vertical {
     padding-left: 10px;
 
-    .van-step__wrapper {
+    .press-step__wrapper {
       padding: 0 0 0 20px;
     }
   }
 }
 
-.van-step {
+.press-step {
   position: relative;
   flex: 1;
   font-size: var(--step-font-size, $step-font-size);
@@ -166,11 +166,11 @@ export default {
     padding-bottom: 14px;
 
     &:first-child {
-      .van-step__title {
+      .press-step__title {
         transform: none;
       }
 
-      .van-step__circle-container {
+      .press-step__circle-container {
         padding: 0 8px 0 0;
         transform: translate3d(0, 50%, 0);
       }
@@ -181,19 +181,19 @@ export default {
       right: 0;
       width: auto;
 
-      .van-step__title {
+      .press-step__title {
         text-align: right;
         transform: none;
       }
 
-      .van-step__circle-container {
+      .press-step__circle-container {
         right: 0;
         padding: 0 0 0 8px;
         transform: translate3d(0, 50%, 0);
       }
     }
 
-    .van-step__circle-container {
+    .press-step__circle-container {
       position: absolute;
       bottom: 6px;
       z-index: 1;
@@ -202,7 +202,7 @@ export default {
       padding: 0 var(--padding-xs, $padding-xs);
     }
 
-    .van-step__title {
+    .press-step__title {
       display: inline-block;
       transform: translate3d(-50%, 0, 0);
       font-size: var(
@@ -211,7 +211,7 @@ export default {
       );
     }
 
-    .van-step__line {
+    .press-step__line {
       position: absolute;
       right: 0;
       bottom: 6px;
@@ -221,10 +221,10 @@ export default {
       background-color: var(--step-line-color, $step-line-color);
     }
 
-    &.van-step--process {
+    &.press-step--process {
       color: var(--step-process-text-color, $step-process-text-color);
 
-      .van-step__icon {
+      .press-step__icon {
         display: block;
         line-height: 1;
         font-size: var(--step-icon-size, $step-icon-size);
@@ -257,9 +257,9 @@ export default {
       }
     }
 
-    .van-step__icon,
-    .van-step__circle,
-    .van-step__line {
+    .press-step__icon,
+    .press-step__circle,
+    .press-step__line {
       position: absolute;
       top: 19px;
       left: -14px;
@@ -267,12 +267,12 @@ export default {
       transform: translate3d(-50%, -50%, 0);
     }
 
-    .van-step__icon {
+    .press-step__icon {
       line-height: 1;
       font-size: var(--step-icon-size, $step-icon-size);
     }
 
-    .van-step__line {
+    .press-step__line {
       z-index: 1;
       width: 1px;
       height: 100%;

@@ -129,10 +129,10 @@ import PressButton from '../press-button/press-button.vue';
 // import VanGoodsActionButton from '../goods-action-button/index.vue';
 
 import { button } from '../mixins/button';
-import { GRAY, RED } from '../common/color';
+import { GRAY, RED } from '../common/constant/color';
 import { toPromise } from '../common/utils';
-import { defaultOptions, defaultProps } from '../common/press-component';
-import utils from '../wxs-js/utils';
+import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
+import utils from '../common/utils/utils';
 import { t } from '../locale';
 import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
 

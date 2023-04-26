@@ -100,12 +100,12 @@ import VanSticky from '../press-sticky/press-sticky.vue';
 import { touch } from '../mixins/touch';
 
 import { getAllRect, getRect, groupSetData, nextTick, requestAnimationFrame } from '../common/utils';
-import { isDef } from '../common/validator';
+import { isDef } from '../common/utils/validator';
 import { ParentMixin } from '../mixins/relation';
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import computed from './index.js';
-import { defaultProps, defaultOptions } from '../common/press-component';
-import { PARENT_TABS as PARENT } from '../common/parent-map';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import { PARENT_TABS as PARENT } from '../common/constant/parent-map';
 
 
 export default {

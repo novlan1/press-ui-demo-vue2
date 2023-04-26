@@ -1,5 +1,5 @@
 import { getCurrentPage } from '../common/utils';
-import { isDef } from '../common/validator';
+import { isDef } from '../common/utils/validator';
 
 function onPageScroll(event) {
   const { vanPageScroller = [] } = getCurrentPage();

@@ -22,9 +22,9 @@
 </template>
 <script>
 import PressTransition from '../press-transition/press-transition.vue';
-import { WHITE } from '../common/color';
+import { WHITE } from '../common/constant/color';
 import { getSystemInfoSync } from '../common/utils';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import computed from './computed';
 import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';
 

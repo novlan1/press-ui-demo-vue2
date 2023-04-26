@@ -24,7 +24,7 @@ import PressPicker from '../press-picker-plus/press-picker-plus.vue';
 import { pickerProps } from '../press-picker-plus/shared';
 import { requestAnimationFrame } from '../common/utils';
 import computed from './computed';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 const EMPTY_CODE = '000000';
 

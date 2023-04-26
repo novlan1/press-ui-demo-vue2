@@ -22,10 +22,10 @@
 
 <script>
 import PressPicker from '../press-picker-plus/press-picker-plus.vue';
-import { isDef } from '../common/validator';
+import { isDef } from '../common/utils/validator';
 import { pickerProps } from '../press-picker-plus/shared';
 import Vue from 'vue';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 const currentYear = new Date().getFullYear();
 function isValidDate(date) {

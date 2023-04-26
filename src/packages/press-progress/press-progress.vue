@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import { BLUE } from '../common/color';
+import { BLUE } from '../common/constant/color';
 import { getRect } from '../common/utils';
 import computed from './computed';
 

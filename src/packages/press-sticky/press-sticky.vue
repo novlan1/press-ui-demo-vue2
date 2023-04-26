@@ -17,16 +17,16 @@
   </div>
 </template>
 <script>
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import computed from './index.js';
 import Vue from 'vue';
 
 import { getRect } from '../common/utils';
-import { isDef } from '../common/validator';
+import { isDef } from '../common/utils/validator';
 import { pageScrollMixin } from '../mixins/page-scroll';
 import { BindEventMixin } from '../mixins/bind-event';
 import { getScroller } from '../common/dom/scroll';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 const ROOT_ELEMENT = '.press-sticky';
 

@@ -68,11 +68,11 @@
   </uni-shadow-root>
 </template>
 <script>
-import utils from '../wxs-js/utils';
-import style from '../wxs-js/style';
+import utils from '../common/utils/utils';
+import style from '../common/utils/style';
 
 import { touch } from '../mixins/touch';
-import { canIUseModel } from '../common/version';
+import { canIUseModel } from '../common/utils/version';
 import { getRect, addUnit } from '../common/utils';
 export default {
   mixins: [touch],

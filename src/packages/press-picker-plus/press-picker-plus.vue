@@ -60,8 +60,8 @@
 import PickerColumn from '../press-picker-column/press-picker-column.vue';
 import Loading from '../press-loading-plus/press-loading-plus.vue';
 import ToolBar from './toolbar.vue';
-import { defaultProps, defaultOptions } from '../common/press-component';
-import { PARENT_PICKER as PARENT } from '../common/parent-map';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import { PARENT_PICKER as PARENT } from '../common/constant/parent-map';
 
 import { t } from '../locale';
 import computed from './index.js';

@@ -80,7 +80,7 @@
 </template>
 <script>
 import PressField from '../press-field/press-field.vue';
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import { t } from '../locale';
 
 export default {

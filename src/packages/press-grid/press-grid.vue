@@ -8,9 +8,9 @@
 </template>
 <script>
 import computed from './computed';
-import { defaultOptions, defaultProps } from '../common/press-component';
+import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 import { ParentMixin } from '../mixins/relation';
-import { PARENT_GRID as PARENT } from '../common/parent-map';
+import { PARENT_GRID as PARENT } from '../common/constant/parent-map';
 
 
 export default {

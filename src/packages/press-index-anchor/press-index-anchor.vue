@@ -20,9 +20,9 @@
 <script>
 
 import { getRect } from '../common/utils';
-import { defaultOptions, defaultProps } from '../common/press-component';
+import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 import { ChildrenMixin } from '../mixins/relation';
-import { PARENT_INDEX_BAR  as PARENT } from '../common/parent-map';
+import { PARENT_INDEX_BAR  as PARENT } from '../common/constant/parent-map';
 
 
 export default {

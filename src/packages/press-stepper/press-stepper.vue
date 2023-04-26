@@ -46,8 +46,8 @@
   </uni-shadow-root>
 </template>
 <script>
-import { isDef } from '../common/validator';
-import utils from '../wxs-js/utils';
+import { isDef } from '../common/utils/validator';
+import utils from '../common/utils/utils';
 import computed from './computed';
 
 const LONG_PRESS_START_TIME = 600;

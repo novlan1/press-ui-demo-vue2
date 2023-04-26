@@ -39,12 +39,12 @@
 </template>
 <script>
 
-import { BLUE, WHITE } from '../common/color';
+import { BLUE, WHITE } from '../common/constant/color';
 import { getSystemInfoSync } from '../common/utils';
-import { isObj } from '../common/validator';
-import { canIUseCanvas2d } from '../common/version';
+import { isObj } from '../common/utils/validator';
+import { canIUseCanvas2d } from '../common/utils/version';
 import { adaptor } from './canvas';
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 
 let id = 0;
 

@@ -1,5 +1,5 @@
-import style from '../wxs-js/style';
-import utils from '../wxs-js/utils';
+import style from '../common/utils/style';
+import utils from '../common/utils/utils';
 
 function tabClass(active, ellipsis) {
   const classes = ['tab-class'];

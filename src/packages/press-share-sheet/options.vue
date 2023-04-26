@@ -34,8 +34,8 @@
   </uni-shadow-root>
 </template>
 <script>
-import { defaultProps, defaultOptions } from '../common/press-component';
-import utils from '../wxs-js/utils';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import utils from '../common/utils/utils';
 import computed from './options-computed';
 
 export default {

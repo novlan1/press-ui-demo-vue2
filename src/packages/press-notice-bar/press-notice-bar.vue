@@ -54,9 +54,9 @@
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { getRect, requestAnimationFrame } from '../common/utils';
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import computed from './computed';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 export default {
   options: {

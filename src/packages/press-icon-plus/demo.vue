@@ -159,7 +159,7 @@ import PressCol from 'src/packages/press-col/press-col.vue';
 import PressIconPlus from 'src/packages/press-icon-plus/press-icon-plus.vue';
 
 import icons from 'src/packages/press-icon-plus/config';
-import { RED } from 'src/packages/common/color';
+import { RED } from 'src/packages/common/constant/color';
 
 // from https://30secondsofcode.org
 function copyToClipboard(str) {

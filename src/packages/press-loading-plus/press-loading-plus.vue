@@ -29,9 +29,9 @@
   </uni-shadow-root>
 </template>
 <script>
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import computed from './index.js';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 
 export default {

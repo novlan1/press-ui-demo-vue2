@@ -1,5 +1,5 @@
-import style from '../wxs-js/style';
-import addUnit from '../wxs-js/add-unit';
+import style from '../common/utils/style';
+import addUnit from '../common/utils/add-unit';
 
 function wrapperStyle(data) {
   const width = `${100 / data.columnNum}%`;

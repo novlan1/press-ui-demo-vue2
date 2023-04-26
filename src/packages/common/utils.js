@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import { isDef, isNumber, isPlainObject, isPromise, isObject } from './validator';
-import { canIUseGroupSetData /* canIUseNextTick*/ } from './version';
+import { isDef, isNumber, isPlainObject, isPromise, isObject } from './utils/validator';
+import { canIUseGroupSetData /* canIUseNextTick*/ } from './utils/version';
 export function range(num, min, max) {
   return Math.min(Math.max(num, min), max);
 }

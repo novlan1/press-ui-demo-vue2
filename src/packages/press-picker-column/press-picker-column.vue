@@ -36,9 +36,9 @@
 import computed from './index.js';
 import Vue from 'vue';
 import { range } from '../common/utils';
-import { isObj } from '../common/validator';
-import { defaultProps, defaultOptions } from '../common/press-component';
-import { PARENT_PICKER as PARENT } from '../common/parent-map';
+import { isObj } from '../common/utils/validator';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import { PARENT_PICKER as PARENT } from '../common/constant/parent-map';
 
 const DEFAULT_DURATION = 200;
 

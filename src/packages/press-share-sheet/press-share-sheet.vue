@@ -63,7 +63,7 @@
 <script>
 import PressPopup from '../press-popup-plus/press-popup-plus.vue';
 import Options from './options.vue';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import computed from './computed';
 
 export default {

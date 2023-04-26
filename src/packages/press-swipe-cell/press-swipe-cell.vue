@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 import { touch } from '../mixins/touch';
 import { range } from '../common/utils';

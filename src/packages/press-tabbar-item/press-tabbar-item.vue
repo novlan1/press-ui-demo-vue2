@@ -37,10 +37,10 @@
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressInfo from '../press-info/press-info.vue';
-import utils from '../wxs-js/utils';
-import { defaultOptions, defaultProps } from '../common/press-component';
+import utils from '../common/utils/utils';
+import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 import { ChildrenMixin } from '../mixins/relation';
-import { PARENT_TABBAR  as PARENT } from '../common/parent-map';
+import { PARENT_TABBAR  as PARENT } from '../common/constant/parent-map';
 
 
 export default {

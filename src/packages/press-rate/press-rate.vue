@@ -37,8 +37,8 @@
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { getAllRect } from '../common/utils';
-import utils from '../wxs-js/utils';
-import style from '../wxs-js/style';
+import utils from '../common/utils/utils';
+import style from '../common/utils/style';
 
 export default {
   components: {

@@ -68,7 +68,7 @@
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import { getRect, getSystemInfoSync } from '../common/utils';
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import computed from './computed';
 
 export default {

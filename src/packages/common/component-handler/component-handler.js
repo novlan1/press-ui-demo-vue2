@@ -1,4 +1,4 @@
-import { isObj } from '../validator';
+import { isObj } from '../utils/validator';
 
 
 export function formatPropKey(key) {

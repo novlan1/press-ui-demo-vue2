@@ -6,9 +6,9 @@
   </uni-shadow-root>
 </template>
 <script>
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import { ParentMixin } from '../mixins/relation';
-import { PARENT_CHECKBOX_GROUP as PARENT } from '../common/parent-map';
+import { PARENT_CHECKBOX_GROUP as PARENT } from '../common/constant/parent-map';
 
 export default {
   mixins: [

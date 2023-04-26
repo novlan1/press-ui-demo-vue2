@@ -60,10 +60,10 @@
 <script>
 import PressCell from '../press-cell/press-cell.vue';
 import { setContentAnimate } from './animate';
-import { defaultProps, defaultOptions } from '../common/press-component';
-import utils from '../wxs-js/utils';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import utils from '../common/utils/utils';
 import { ChildrenMixin } from '../mixins/relation';
-import { PARENT_COLLAPSE as PARENT } from '../common/parent-map';
+import { PARENT_COLLAPSE as PARENT } from '../common/constant/parent-map';
 
 
 export default {

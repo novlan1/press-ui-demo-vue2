@@ -21,7 +21,7 @@
 <script>
 import computed from './index.js';
 import PressInfo from '../press-info/press-info.vue';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 export default {
   options: {

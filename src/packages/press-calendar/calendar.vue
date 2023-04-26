@@ -75,7 +75,7 @@ import CalendarHeader from './components/header/header.vue';
 import Month from './components/month/month.vue';
 import PressButton from '../press-button/press-button.vue';
 import computed from './computed';
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import { SHARE_PROPS } from './share-props';
 
 import {

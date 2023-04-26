@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 
 export default {
   props: {

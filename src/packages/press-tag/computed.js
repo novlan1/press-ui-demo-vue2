@@ -1,4 +1,4 @@
-import style from '../wxs-js/style';
+import style from '../common/utils/style';
 
 function rootStyle(data) {
   return style({

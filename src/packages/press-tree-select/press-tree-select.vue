@@ -51,9 +51,9 @@
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressSidebar from '../press-sidebar/press-sidebar.vue';
 import PressSidebarItem from '../press-sidebar-item/press-sidebar-item.vue';
-import { defaultOptions, defaultProps } from '../common/press-component';
+import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import computed from './computed';
 
 export default {

@@ -9,11 +9,11 @@
   </uni-shadow-root>
 </template>
 <script>
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 
 import { ChildrenMixin } from '../mixins/relation';
-import { defaultProps, defaultOptions } from '../common/press-component';
-import { PARENT_TABS as PARENT } from '../common/parent-map';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import { PARENT_TABS as PARENT } from '../common/constant/parent-map';
 
 
 export default {

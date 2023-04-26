@@ -1,4 +1,4 @@
-import { canIUseGetUserProfile } from '../common/version';
+import { canIUseGetUserProfile } from '../common/utils/version';
 export const button = {
   // externalClasses: ['hover-class'],
   props: {

@@ -1,4 +1,4 @@
-import style from '../wxs-js/style';
+import style from '../common/utils/style';
 
 export const DEFAULT_SIZE_LIST = [
   'normal', 'large', 'small', 'mini',

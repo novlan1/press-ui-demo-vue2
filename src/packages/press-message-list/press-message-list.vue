@@ -81,7 +81,7 @@
 import PressLoading from '../press-loading/press-loading.vue';
 import PressEmpty from '../press-empty/press-empty.vue';
 import PressSwipeCell from '../press-swipe-cell/press-swipe-cell.vue';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 
 export default {

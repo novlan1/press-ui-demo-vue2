@@ -86,8 +86,8 @@ import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressPopup from '../press-popup-plus/press-popup-plus.vue';
 import PressLoading from '../press-loading-plus/press-loading-plus.vue';
 import { button } from '../mixins/button';
-import { defaultProps, defaultOptions } from '../common/press-component';
-import utils from '../wxs-js/utils';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import utils from '../common/utils/utils';
 
 export default {
   options: {

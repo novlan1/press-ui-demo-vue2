@@ -94,7 +94,7 @@ import {
 } from './utils';
 import Toast from '../press-toast/handler';
 import { requestAnimationFrame } from '../common/utils';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import { SHARE_PROPS } from './share-props';
 import { t } from '../locale';
 

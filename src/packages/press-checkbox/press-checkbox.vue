@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import utils from '../wxs-js/utils';
+import utils from '../common/utils/utils';
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import { ChildrenMixin } from '../mixins/relation';
 import computed from './index.js';
-import { PARENT_CHECKBOX_GROUP as PARENT } from '../common/parent-map';
+import { PARENT_CHECKBOX_GROUP as PARENT } from '../common/constant/parent-map';
 
 function emit(target, value) {
   target.$emit('input', value);

@@ -64,10 +64,10 @@ import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
 import PressLoadingPlus from '../press-loading-plus/press-loading-plus.vue';
 import PressLoading from '../press-loading/press-loading.vue';
 import { button } from '../mixins/button';
-import { canIUseFormFieldButton } from '../common/version';
-import utils from '../wxs-js/utils';
+import { canIUseFormFieldButton } from '../common/utils/version';
+import utils from '../common/utils/utils';
 import { DEFAULT_SIZE_LIST, rootStyle, loadingColor } from './index';
-import { defaultProps, defaultOptions } from '../common/press-component';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 
 const eSportTypeClassMap = {

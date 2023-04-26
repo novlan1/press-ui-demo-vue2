@@ -1,4 +1,4 @@
-import { sortChildren } from '../common/vnodes';
+import { sortChildren } from '../common/dom/vnodes';
 
 export function ChildrenMixin(parent, options = {}) {
   const indexKey = options.indexKey || 'index';

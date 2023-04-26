@@ -7,10 +7,10 @@
 </template>
 <script>
 
-import utils from '../wxs-js/utils';
-import { defaultOptions, defaultProps } from '../common/press-component';
+import utils from '../common/utils/utils';
+import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 import { ParentMixin } from '../mixins/relation';
-import { PARENT_RADIO_GROUP as PARENT } from '../common/parent-map';
+import { PARENT_RADIO_GROUP as PARENT } from '../common/constant/parent-map';
 
 
 export default {

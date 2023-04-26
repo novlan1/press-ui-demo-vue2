@@ -1,4 +1,4 @@
-import { WHITE } from '../common/color';
+import { WHITE } from '../common/constant/color';
 
 export const DEFAULT_OPTIONS = {
   selector: '#press-notify',

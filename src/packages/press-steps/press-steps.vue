@@ -53,9 +53,9 @@
 </template>
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
-import { GREEN, GRAY_DARK } from '../common/color';
-import { defaultProps, defaultOptions } from '../common/press-component';
-import utils from '../wxs-js/utils';
+import { GREEN, GRAY_DARK } from '../common/constant/color';
+import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
+import utils from '../common/utils/utils';
 import status from './index-status';
 
 export default {

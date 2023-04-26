@@ -70,7 +70,7 @@
 </template>
 <script>
 import computed from './computed';
-import utils from '../../../wxs-js/utils';
+import utils from '../../../common/utils/utils';
 import { getMonthEndDay, compareDay, getPrevDay, getNextDay } from '../../utils';
 import { SHARE_PROPS } from '../../share-props';
 import { t } from '../../../locale';

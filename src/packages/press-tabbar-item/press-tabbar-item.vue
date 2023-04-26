@@ -62,7 +62,7 @@ export default {
     dot: Boolean,
     iconPrefix: {
       type: String,
-      default: 'van-icon',
+      default: 'press-icon-plus',
     },
     ...defaultProps,
   },

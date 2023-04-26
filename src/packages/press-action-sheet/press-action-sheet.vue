@@ -1,5 +1,4 @@
 <template>
-  <!-- <uni-shadow-root class="vant-action-sheet-index"> -->
   <press-popup
     :show="show"
     position="bottom"
@@ -81,7 +80,6 @@
       </div>
     </template>
   </press-popup>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';

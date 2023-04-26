@@ -69,7 +69,7 @@ export default {
     iconColor: { type: String, default: '' },
     iconPrefix: {
       type: String,
-      default: 'van-icon',
+      default: 'press-icon-plus',
     },
     dot: Boolean,
     info: { type: String, default: '' },

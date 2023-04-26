@@ -317,7 +317,7 @@ export default {
     }
   }
 
-  .van-icon {
+  .press-icon-plus {
     margin: 16px 0 16px;
     color: $text-color;
     font-size: 32px;

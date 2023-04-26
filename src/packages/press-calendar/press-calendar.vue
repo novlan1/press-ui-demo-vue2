@@ -1,5 +1,5 @@
 <template>
-  <uni-shadow-root class="vant-calendar-index">
+  <uni-shadow-root class="press-calendar-index">
     <press-popup
       v-if="poppable"
       :custom-class="'press-calendar__popup--'+(position)"

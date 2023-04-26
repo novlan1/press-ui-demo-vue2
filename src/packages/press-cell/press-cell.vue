@@ -1,5 +1,4 @@
 <template>
-  <!-- <uni-shadow-root class="vant-cell-index"> -->
   <div
     :class="cellClass"
     hover-class="press-cell--hover hover-class"
@@ -73,7 +72,6 @@
 
     <slot name="extra" />
   </div>
-  <!-- </uni-shadow-root> -->
 </template>
 <script>
 

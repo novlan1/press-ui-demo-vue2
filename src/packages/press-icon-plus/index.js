@@ -13,7 +13,7 @@ function rootClass(data) {
   }
 
   if (isImage(data.name)) {
-    classes.push('van-icon--image');
+    classes.push('press-icon-plus--image');
   } else if (data.classPrefix != null) {
     classes.push(`${data.classPrefix}-${data.name}`);
   }

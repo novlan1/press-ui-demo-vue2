@@ -101,7 +101,7 @@ export default {
     icon: { type: String, default: '' },
     classPrefix: {
       type: String,
-      default: 'van-icon',
+      default: 'press-icon-plus',
     },
     plain: Boolean,
     block: Boolean,

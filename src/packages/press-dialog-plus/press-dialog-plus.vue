@@ -1,5 +1,5 @@
 <template>
-  <uni-shadow-root class="vant-dialog-index">
+  <uni-shadow-root class="press-dialog-index">
     <press-popup
       :show="dataShow"
       :z-index="dataZIndex"

@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { getRect } from '../common/utils';
+import { getRect } from '../common/dom/rect';
 
 function getTouch(e) {
   if (e.changedTouches && e.changedTouches[0]) {

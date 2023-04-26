@@ -16,8 +16,7 @@
 </template>
 <script>
 import utils from '../common/utils/utils';
-
-import { getRect } from '../common/utils';
+import { getRect } from '../common/dom/rect';
 import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 import { ParentMixin } from '../mixins/relation';
 import { PARENT_TABBAR  as PARENT } from '../common/constant/parent-map';

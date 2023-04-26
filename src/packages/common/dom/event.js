@@ -1,4 +1,4 @@
-import { isServer } from '..';
+import { isServer } from '../utils/validator';
 // eslint-disable-next-line import/no-mutable-exports
 export let supportsPassive = false;
 

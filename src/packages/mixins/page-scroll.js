@@ -1,4 +1,4 @@
-import { getCurrentPage } from '../common/utils';
+import { getCurrentPage } from '../common/utils/page';
 import { isDef } from '../common/utils/validator';
 
 function onPageScroll(event) {

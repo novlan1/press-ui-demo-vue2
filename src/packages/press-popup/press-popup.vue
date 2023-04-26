@@ -68,7 +68,7 @@
 </template>
 <script>
 import PressButton from '../press-button/press-button.vue';
-import { toPromise } from '../common/utils';
+import { toPromise } from '../common/format/function';
 const ANIMATION_TIME = 400;
 
 export default {

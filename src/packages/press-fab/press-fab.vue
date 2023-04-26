@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import { getRect } from '../common/utils';
+import { getRect } from '../common/dom/rect';
 let platform = 'other';
 // #ifdef APP-NVUE
 platform = uni.getSystemInfoSync().platform;

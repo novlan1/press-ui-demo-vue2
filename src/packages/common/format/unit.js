@@ -1,5 +1,5 @@
-import { isDef, inBrowser } from '..';
-import { isNumeric } from '../validate/number';
+import { isDef, inBrowser, isNumeric } from '../utils/validator';
+
 export function addUnit(value) {
   if (!isDef(value)) {
     return undefined;

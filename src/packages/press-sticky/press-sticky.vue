@@ -21,7 +21,7 @@ import utils from '../common/utils/utils';
 import computed from './index.js';
 import Vue from 'vue';
 
-import { getRect } from '../common/utils';
+import { getRect } from '../common/dom/rect';
 import { isDef } from '../common/utils/validator';
 import { pageScrollMixin } from '../mixins/page-scroll';
 import { BindEventMixin } from '../mixins/bind-event';

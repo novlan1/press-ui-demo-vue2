@@ -73,7 +73,8 @@ import style from '../common/utils/style';
 
 import { touch } from '../mixins/touch';
 import { canIUseModel } from '../common/utils/version';
-import { getRect, addUnit } from '../common/utils';
+import { getRect } from '../common/dom/rect';
+import { addUnit } from '../common/format/unit';
 export default {
   mixins: [touch],
   props: {

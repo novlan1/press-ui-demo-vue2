@@ -174,7 +174,7 @@
 </template>
 <script>
 import PressLoadingPlus from '../press-loading-plus/press-loading-plus';
-import { isH5 } from '../common/validate/system';
+import { isH5 } from '../common/utils/validator';
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 export default {

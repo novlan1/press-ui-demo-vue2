@@ -26,7 +26,7 @@
 <script>
 
 import { GREEN } from '../common/constant/color';
-import { getRect } from '../common/utils';
+import { getRect } from '../common/dom/rect';
 import { isDef } from '../common/utils/validator';
 import { pageScrollMixin } from '../mixins/page-scroll';
 import { defaultOptions, defaultProps } from '../common/component-handler/press-component';

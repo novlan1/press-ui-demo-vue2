@@ -38,7 +38,7 @@ function serializer(args) {
   return JSON.stringify(obj);
 }
 
-function memoize(fn) {
+export function memoize(fn) {
   const cache = {};
 
   return function () {

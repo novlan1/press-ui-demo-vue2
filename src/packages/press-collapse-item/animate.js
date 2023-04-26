@@ -1,5 +1,5 @@
-import { getRect, requestAnimationFrame } from '../common/utils';
-
+import { requestAnimationFrame } from '../common/utils/system';
+import { getRect } from '../common/dom/rect';
 
 function getAnimation({ height, duration }) {
   return [

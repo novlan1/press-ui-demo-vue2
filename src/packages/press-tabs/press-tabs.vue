@@ -99,7 +99,8 @@ import VanSticky from '../press-sticky/press-sticky.vue';
 
 import { touch } from '../mixins/touch';
 
-import { getAllRect, getRect, groupSetData, nextTick, requestAnimationFrame } from '../common/utils';
+import {  groupSetData, nextTick, requestAnimationFrame } from '../common/utils/system';
+import { getAllRect, getRect } from '../common/dom/rect';
 import { isDef } from '../common/utils/validator';
 import { ParentMixin } from '../mixins/relation';
 import utils from '../common/utils/utils';

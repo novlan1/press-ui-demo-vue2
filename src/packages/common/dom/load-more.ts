@@ -1,4 +1,5 @@
-import { getRect } from '../utils';
+import { getRect } from './rect';
+
 function getScrollInfo(id, event, key = 'scrollTop') {
   let result = 0;
   // #ifdef H5
@@ -78,10 +79,6 @@ export function scrollToBottom(context, eleId, targetId) {
   console.log('dom.scrollHeight', dom.scrollHeight, dom.clientHeight);
   dom.scrollTop = dom.scrollHeight - dom.clientHeight;
   // #endif
-}
-
-function realScrollInto() {
-
 }
 
 

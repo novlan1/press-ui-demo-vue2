@@ -67,7 +67,8 @@
 </template>
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
-import { getRect, getSystemInfoSync } from '../common/utils';
+import { getSystemInfoSync } from '../common/utils/system';
+import { getRect } from '../common/dom/rect';
 import utils from '../common/utils/utils';
 import computed from './computed';
 

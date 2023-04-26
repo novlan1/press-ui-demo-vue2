@@ -38,7 +38,7 @@
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 
 import { touch } from '../mixins/touch';
-import { range } from '../common/utils';
+import { range } from '../common/format/number';
 
 const THRESHOLD = 0.3;
 

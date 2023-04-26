@@ -130,7 +130,7 @@ import PressButton from '../press-button/press-button.vue';
 
 import { button } from '../mixins/button';
 import { GRAY, RED } from '../common/constant/color';
-import { toPromise } from '../common/utils';
+import { toPromise } from '../common/format/function';
 import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 import utils from '../common/utils/utils';
 import { t } from '../locale';

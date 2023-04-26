@@ -27,7 +27,9 @@
   </div>
 </template>
 <script>
-import { addUnit, getRect, getSystemInfoSync } from '../common/utils';
+import { getSystemInfoSync } from '../common/utils/system';
+import { addUnit } from '../common/format/unit';
+import { getRect } from '../common/dom/rect';
 import utils from '../common/utils/utils';
 import computed from './computed';
 import { defaultOptions, defaultProps } from '../common/component-handler/press-component';

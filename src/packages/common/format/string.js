@@ -1,7 +1,9 @@
 const camelizeRE = /-(\w)/g;
+
 export function camelize(str) {
   return str.replace(camelizeRE, (_, c) => c.toUpperCase());
 }
+
 export function padZero(num, targetLength) {
   if (targetLength === void 0) {
     targetLength = 2;

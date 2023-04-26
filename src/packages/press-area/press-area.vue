@@ -22,7 +22,7 @@
 <script>
 import PressPicker from '../press-picker-plus/press-picker-plus.vue';
 import { pickerProps } from '../press-picker-plus/shared';
-import { requestAnimationFrame } from '../common/utils';
+import { requestAnimationFrame } from '../common/utils/system';
 import computed from './computed';
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 

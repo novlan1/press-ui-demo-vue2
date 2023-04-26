@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { requestAnimationFrame } from '../common/utils';
+import { requestAnimationFrame } from '../common/utils/system';
 import { isObj } from '../common/utils/validator';
 const getClassNames = (name, _this) => {
   const {

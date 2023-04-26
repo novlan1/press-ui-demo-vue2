@@ -93,7 +93,7 @@ import {
   getDayByOffset,
 } from './utils';
 import Toast from '../press-toast/handler';
-import { requestAnimationFrame } from '../common/utils';
+import { requestAnimationFrame } from '../common/utils/system';
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import { SHARE_PROPS } from './share-props';
 import { t } from '../locale';

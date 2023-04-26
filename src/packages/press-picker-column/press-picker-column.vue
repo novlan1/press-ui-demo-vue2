@@ -35,7 +35,7 @@
 <script>
 import computed from './index.js';
 import Vue from 'vue';
-import { range } from '../common/utils';
+import { range } from '../common/format/number';
 import { isObj } from '../common/utils/validator';
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import { PARENT_PICKER as PARENT } from '../common/constant/parent-map';

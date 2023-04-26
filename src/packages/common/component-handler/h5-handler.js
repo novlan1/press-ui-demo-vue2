@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { isServer } from '../index';
+import { isServer } from '../utils/validator';
 import { parseOptions } from './component-handler';
 
 

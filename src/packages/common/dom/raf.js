@@ -1,7 +1,7 @@
 /**
  * requestAnimationFrame polyfill
  */
-import { isServer } from '..';
+import { isServer } from '../utils/validator';
 let prev = Date.now();
 /* istanbul ignore next */
 

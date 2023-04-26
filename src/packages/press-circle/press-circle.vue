@@ -40,7 +40,7 @@
 <script>
 
 import { BLUE, WHITE } from '../common/constant/color';
-import { getSystemInfoSync } from '../common/utils';
+import { getSystemInfoSync } from '../common/utils/system';
 import { isObj } from '../common/utils/validator';
 import { canIUseCanvas2d } from '../common/utils/version';
 import { adaptor } from './canvas';

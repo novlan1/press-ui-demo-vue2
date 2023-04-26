@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import defaultLang from './lang/zh-CN';
-import { deepAssign } from '../common/utils';
+import { deepAssign } from '../common/utils/object';
 
 let lang = defaultLang;
 let merged = false;

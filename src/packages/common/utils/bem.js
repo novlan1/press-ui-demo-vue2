@@ -34,13 +34,13 @@ function traversing(mods, conf) {
   }
 }
 
-function bem(name, conf) {
+export function bem(name, conf) {
   const mods = [];
   traversing(mods, conf);
   return join(name, mods);
 }
 
-function bem2(name, conf) {
+export function bem2(name, conf) {
   const mods = [];
   traversing(mods, conf);
   return join2(name, mods);
@@ -48,4 +48,3 @@ function bem2(name, conf) {
 
 
 export default bem;
-export { bem2 };

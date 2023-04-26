@@ -1,7 +1,7 @@
 
 const REGEXP = /^-?\d+(\.\d+)?$/;
 
-function addUnit(value) {
+export function addUnit(value) {
   if (value == null) {
     return undefined;
   }

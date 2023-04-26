@@ -23,7 +23,7 @@
 <script>
 import PressTransition from '../press-transition/press-transition.vue';
 import { WHITE } from '../common/constant/color';
-import { getSystemInfoSync } from '../common/utils';
+import { getSystemInfoSync } from '../common/utils/system';
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import computed from './computed';
 import { getPropsWatch,  getPropsData, setPropsToData } from '../common/component-handler';

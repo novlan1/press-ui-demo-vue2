@@ -53,7 +53,8 @@
 </template>
 <script>
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
-import { getRect, requestAnimationFrame } from '../common/utils';
+import { requestAnimationFrame } from '../common/utils/system';
+import { getRect } from '../common/dom/rect';
 import utils from '../common/utils/utils';
 import computed from './computed';
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';

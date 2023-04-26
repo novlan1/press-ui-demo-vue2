@@ -7,7 +7,7 @@ function kebabCase(word) {
   return newWord;
 }
 
-function style(styles) {
+export function style(styles) {
   if (Array.isArray(styles)) {
     return styles
       .filter(item => item != null && item !== '')

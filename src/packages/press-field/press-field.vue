@@ -144,7 +144,7 @@
 <script>
 import PressCell from '../press-cell/press-cell.vue';
 import PressIconPlus from '../press-icon-plus/press-icon-plus.vue';
-import { nextTick } from '../common/utils';
+import { nextTick } from '../common/utils/system';
 import { commonProps, inputProps, textareaProps } from './props';
 import utils from '../common/utils/utils';
 import computed from './computed';

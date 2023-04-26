@@ -19,7 +19,7 @@
 
 <script>
 
-import { getRect } from '../common/utils';
+import { getRect } from '../common/dom/rect';
 import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
 import { ChildrenMixin } from '../mixins/relation';
 import { PARENT_INDEX_BAR  as PARENT } from '../common/constant/parent-map';

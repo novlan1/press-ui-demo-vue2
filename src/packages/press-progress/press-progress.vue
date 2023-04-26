@@ -74,7 +74,7 @@ export default {
 };
 </script>
 <style platform="mp-weixin" lang="scss">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 
 .press-progress {
   background: var(--progress-background-color, #ebedf0);

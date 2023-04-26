@@ -204,7 +204,7 @@ export default {
 };
 </script>
 <style platform="mp-weixin" lang="scss" scoped>
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 @import "../common/style/var.scss";
 
 .press-popup {

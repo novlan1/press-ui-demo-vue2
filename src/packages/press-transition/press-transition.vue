@@ -83,7 +83,7 @@ export default {
 };
 </script>
 <style platform="mp-weixin">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 .press-transition {
   transition-timing-function: ease;
 }

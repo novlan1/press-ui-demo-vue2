@@ -83,7 +83,7 @@ export default {
 
 </script>
 <style scoped lang="scss">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 @import "../common/style/var.scss";
 
 .press-empty {

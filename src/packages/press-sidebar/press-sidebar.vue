@@ -68,7 +68,7 @@ export default {
 
 </script>
 <style platform="mp-weixin" lang="scss">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 .press-sidebar {
   width: var(--sidebar-width, 80px);
 }

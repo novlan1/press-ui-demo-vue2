@@ -34,7 +34,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 @import "../common/style/var.scss";
 
 .press-info {

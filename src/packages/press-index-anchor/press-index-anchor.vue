@@ -66,7 +66,7 @@ export default {
 };
 </script>
 <style platform="mp-weixin" lang="scss">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 @import "../common/style/var.scss";
 
 .press-index-anchor {

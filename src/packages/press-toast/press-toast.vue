@@ -138,7 +138,7 @@ export default {
 </script>
 
 <style  lang="scss" platform="mp-weixin">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 @import "../common/style/var.scss";
 
 .press-toast {

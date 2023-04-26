@@ -133,7 +133,7 @@ export default {
 };
 </script>
 <style platform="mp-weixin" lang="scss">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 .press-grid {
   box-sizing: border-box;
   overflow: hidden;

@@ -130,7 +130,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 .vant-tab-index {
   box-sizing: border-box;
   flex-shrink: 0;

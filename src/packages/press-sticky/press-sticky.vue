@@ -234,7 +234,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../common/index.scss";
+@import "../common/style/index.scss";
 
 .press-sticky {
   position: relative;

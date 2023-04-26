@@ -14,6 +14,42 @@
   animation: fade-out .3s ease-in both;
 }
 
+/* 底部进出 */
+.press--animation__bottom-leave {
+  animation: down-leave .3s ease-in both;
+}
+
+.press--animation__bottom-enter {
+  animation: up-enter .3s ease-out both;
+}
+
+/* 头部进出 */
+.press--animation__top-leave {
+  animation: top-leave .3s ease-in both, fade-out .3s ease-in both;
+}
+
+.press--animation__top-enter {
+  animation: top-enter .3s ease-out both, fade-in .3s ease-out both;
+}
+
+/* 居中弹窗动效 */
+.press--animation__bounce-enter {
+  animation: bounce-enter .3s ease-out both;
+}
+
+.press--animation__bounce-leave {
+  animation: bounce-leave .3s ease-in both;
+}
+
+/* 右部进出 */
+.press--animation__right-leave {
+  animation: right-leave .3s ease-in both;
+}
+
+.press--animation__right-enter {
+  animation: right-enter .3s ease-out both;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -34,14 +70,6 @@
   }
 }
 
-/* 底部进出 */
-.press--animation__bottom-leave {
-  animation: down-leave .3s ease-in both;
-}
-
-.press--animation__bottom-enter {
-  animation: up-enter .3s ease-out both;
-}
 
 @keyframes down-leave {
   from {
@@ -63,14 +91,8 @@
   }
 }
 
-/* 头部进出 */
-.press--animation__top-leave {
-  animation: top-leave .3s ease-in both, fade-out .3s ease-in both;
-}
 
-.press--animation__top-enter {
-  animation: top-enter .3s ease-out both, fade-in .3s ease-out both;
-}
+
 
 @keyframes top-leave {
   from {
@@ -92,14 +114,6 @@
   }
 }
 
-/* 居中弹窗动效 */
-.press--animation__bounce-enter {
-  animation: bounce-enter .3s ease-out both;
-}
-
-.press--animation__bounce-leave {
-  animation: bounce-leave .3s ease-in both;
-}
 
 @keyframes bounce-enter {
   from {
@@ -127,14 +141,7 @@
 
 
 
-/* 右部进出 */
-.press--animation__right-leave {
-  animation: right-leave .3s ease-in both;
-}
 
-.press--animation__right-enter {
-  animation: right-enter .3s ease-out both;
-}
 
 @keyframes right-leave {
   from {

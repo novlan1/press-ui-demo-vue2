@@ -38,5 +38,5 @@ page {
   background: #fff !important;
 }
 </style>
-<style lang="scss" src="src/packages/base/reset.scss"></style>
-<style lang="scss" src="src/packages/base/iconfont-mp.scss"></style>
+<style lang="scss" src="src/common/style/reset.scss"></style>
+<style lang="scss" src="src/common/style/iconfont-mp.scss"></style>

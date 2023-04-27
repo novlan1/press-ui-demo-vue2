@@ -1,82 +1,90 @@
 <template>
   <div class="home-container">
-    <div class="home-header">
-      <image
-        class="home-header__bg"
-        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/uniui-header-bg.png"
-        mode="widthFix"
-      />
-      <image
-        class="home-header__logo"
-        src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui-full-logo.png"
-        mode="aspectFit"
-        @longpress.stop="onMorsePwdLongPress"
-        @click.stop="onMorsePwdClick"
-      />
-      <div class="home-header__content">
-        <div class="home-header__content-title">
-          {{ t('introduce.name') }}
-        </div>
-        <div class="home-header__content-info">
-          <text class="home-header__content-subtitle">
-            {{ t('introduce.detail') }}
-          </text>
+    <scroll-view
+      scroll-y
+      :scroll-top="scrollTop"
+      @scroll="onScroll"
+    >
+      <div class="home-header">
+        <image
+          class="home-header__bg"
+          src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/uniui-header-bg.png"
+          mode="widthFix"
+        />
+        <image
+          class="home-header__logo"
+          src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press/img/press-ui-full-logo.png"
+          mode="aspectFit"
+          @longpress.stop="onMorsePwdLongPress"
+          @click.stop="onMorsePwdClick"
+        />
+        <div class="home-header__content">
+          <div class="home-header__content-title">
+            {{ t('introduce.name') }}
+          </div>
+          <div class="home-header__content-info">
+            <text class="home-header__content-subtitle">
+              {{ t('introduce.detail') }}
+            </text>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="home-content">
-      <uni-card
-        padding="0"
+      <div
+        class="home-content"
       >
-        <template v-for="(item, index) of pages">
+        <uni-card
+          padding="0"
+        >
+          <template v-for="(item, index) of pages">
+            <uni-section
+              :key="`section-${index}`"
+              :title="getComponentTypeTitle(item)"
+              color="#007aff"
+              type="line"
+              header-style="font-weight: 500;margin-bottom: 6px;"
+            />
+            <uni-list
+              :key="`list-${index}`"
+              :border="false"
+            >
+              <uni-list-item
+                v-for="(nav, idx) in item.list"
+                :key="`nav-${idx}`"
+                custom-class="list-item"
+                :border="false"
+                show-arrow
+                :title="getNavName(nav)"
+                link
+                :to="`/pages${nav.url}`"
+              />
+            </uni-list>
+          </template>
+
           <uni-section
-            :key="`section-${index}`"
-            :title="getComponentTypeTitle(item)"
+            key="other-ability-section"
+            :title="t('introduce.otherAbility')"
             color="#007aff"
             type="line"
             header-style="font-weight: 500;margin-bottom: 6px;"
           />
+
           <uni-list
-            :key="`list-${index}`"
+            key="other-ability-list"
             :border="false"
           >
             <uni-list-item
-              v-for="(nav, idx) in item.list"
-              :key="`nav-${idx}`"
               custom-class="list-item"
               :border="false"
               show-arrow
-              :title="getNavName(nav)"
-              link
-              :to="`/pages${nav.url}`"
+              clickable
+              :title="t('introduce.toggleLanguage')"
+              @click="onToggleLanguage"
             />
           </uni-list>
-        </template>
-
-        <uni-section
-          key="other-ability-section"
-          :title="t('introduce.otherAbility')"
-          color="#007aff"
-          type="line"
-          header-style="font-weight: 500;margin-bottom: 6px;"
-        />
-
-        <uni-list
-          key="other-ability-list"
-          :border="false"
-        >
-          <uni-list-item
-            custom-class="list-item"
-            :border="false"
-            show-arrow
-            clickable
-            :title="t('introduce.toggleLanguage')"
-            @click="onToggleLanguage"
-          />
-        </uni-list>
-      </uni-card>
-    </div>
+        </uni-card>
+      </div>
+    </scroll-view>
   </div>
 </template>
 <script>
@@ -84,13 +92,14 @@ import { morsePwdMixin } from '../../utils/morse-password/morse-password-mixin';
 import { toggleI18n } from '../../utils/i18n/toggle-i18n';
 
 const pagesConfig = require('./page-config.json');
-
+const SCROLL_TOP_KEY = 'INDEX_SCROLL_TOP';
 
 export default {
   components: {},
   mixins: [morsePwdMixin([1, 1, 1], toggleI18n)],
   data() {
     return {
+      scrollTop: 0,
       pages: pagesConfig.pages.filter(item => item.list && item.list.length),
     };
   },
@@ -101,7 +110,16 @@ export default {
     });
     // #endif
   },
+  onShow() {
+    this.scrollTop = +uni.getStorageSync(SCROLL_TOP_KEY) || 0;
+  },
+  onHide() {
+    uni.setStorageSync(SCROLL_TOP_KEY, this.scrollTop);
+  },
   methods: {
+    onScroll(e) {
+      this.scrollTop = e.target.scrollTop;
+    },
     getNavName(item) {
       const list = item.url.split('/');
       return this.t(`titleMap.${list[list.length - 1]}`);
@@ -121,7 +139,13 @@ export default {
 .home-container {
   position: relative;
   background-color: #fff;
-  overflow: hidden;
+  height: 100%;
+  overflow: auto;
+
+  scroll-view {
+    height: 100%;
+    overflow: auto;
+  }
 }
 
 .home-header {

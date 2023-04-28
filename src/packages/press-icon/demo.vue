@@ -5,7 +5,7 @@
       is-full
     >
       <text class="uni-h6">
-        图标组件方便用户在设计页面的时候，减少小图片的使用。可方便自定义图标单色、尺寸。
+        仅保留 empty 图标，其他图标请使用 press-icon-plus。
       </text>
     </uni-card>
     <uni-section

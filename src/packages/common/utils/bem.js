@@ -1,15 +1,8 @@
 const PREFIX = 'van-';
 const PREFIX2 = 'press-';
 
-function join(name, mods) {
-  name = PREFIX + name;
-  mods = mods.map(mod => `${name}--${mod}`);
-  mods.unshift(name);
-  return mods.join(' ');
-}
-
-function join2(name, mods) {
-  name = PREFIX2 + name;
+function join(name, mods, prefix) {
+  name = prefix + name;
   mods = mods.map(mod => `${name}--${mod}`);
   mods.unshift(name);
   return mods.join(' ');
@@ -37,13 +30,25 @@ function traversing(mods, conf) {
 export function bem(name, conf) {
   const mods = [];
   traversing(mods, conf);
-  return join(name, mods);
+  return join(name, mods, PREFIX);
 }
 
 export function bem2(name, conf) {
   const mods = [];
   traversing(mods, conf);
-  return join2(name, mods);
+  return join(name, mods, PREFIX2);
+}
+
+export function bem3(name, conf, extraClassPrefix) {
+  if (!extraClassPrefix) {
+    return bem2(name, conf);
+  }
+  const mods = [];
+  traversing(mods, conf);
+  const classA = join(name, mods, extraClassPrefix);
+  const classB = join(name, mods, PREFIX2);
+
+  return `${classA} ${classB}`;
 }
 
 

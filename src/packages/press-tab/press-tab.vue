@@ -1,5 +1,6 @@
 <template>
-  <uni-shadow-root class="vant-tab-index van-tab__pane-wrapper">
+  <!-- TODO: tab-index后面去掉，冗余 -->
+  <uni-shadow-root :class="'' + bem3('tab-index') + ' ' + bem3('tab__pane-wrapper')">
     <div
       :class="tabClass"
       :style="shouldShow ? '' : 'display: none;'"
@@ -49,6 +50,11 @@ export default {
       type: [String, Number, null],
       default: '',
     },
+    extraClassPrefix: {
+      type: String,
+      // 兼容旧的class，可传入van-
+      default: '',
+    },
   },
   data() {
     return {
@@ -56,12 +62,14 @@ export default {
       shouldShow: false,
       shouldRender: false,
       initialled: false,
+
+      utils,
     };
   },
   computed: {
     tabClass() {
       const { active, customClass = '' } = this;
-      return `${utils.bem('tab__pane', { active, inactive: !active })} ${customClass}`;
+      return `${this.bem3('tab__pane', { active, inactive: !active })} ${customClass}`;
     },
   },
   watch: {
@@ -90,7 +98,6 @@ export default {
         this.update();
       },
     },
-
   },
   created() {
   },
@@ -98,11 +105,9 @@ export default {
     this.update();
   },
   methods: {
-    // setData(data) {
-    //   Object.keys(data).forEach((key) => {
-    //     this[key] = data[key];
-    //   });
-    // },
+    bem3(name, conf) {
+      return utils.bem3(name, conf, this.extraClassPrefix);
+    },
     getComputedName() {
       if (this.name !== '') {
         return this.name;
@@ -131,13 +136,13 @@ export default {
 </script>
 <style lang="scss">
 @import "../common/style/index.scss";
-.vant-tab-index {
+.press-tab__pane-wrapper {
   box-sizing: border-box;
   flex-shrink: 0;
   width: 100%;
 }
 
-.van-tab__pane {
+.press-tab__pane {
   box-sizing: border-box;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

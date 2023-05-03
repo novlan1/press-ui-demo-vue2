@@ -1,6 +1,6 @@
 <template>
   <press-picker
-    ref="vanPicker"
+    ref="pressPicker"
     class="press-area__picker"
     active-class="active-class"
     toolbar-class="toolbar-class"
@@ -104,7 +104,7 @@ export default {
   methods: {
     getPicker() {
       if (this.picker == null) {
-        this.picker = this.$refs.vanPicker;
+        this.picker = this.$refs.pressPicker;
         // this.picker = this.selectComponent('.press-area__picker');
       }
       return this.picker;

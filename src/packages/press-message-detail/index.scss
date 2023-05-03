@@ -116,20 +116,23 @@
       }
     }
   }
+
   .message-popover-info {
     max-width: 4.46rem;
     padding: .22rem;
     border-radius: .1rem;
     background: $color-white;
   }
+
   &.message-item-invite {
     .message-popover-left::after {
       border-right: .14rem solid #47a3e6;
     }
+
     .message-popover-right::after {
       border-left: .14rem solid #7dd0f4;
     }
-    
+
   }
 }
 
@@ -140,7 +143,7 @@
     color: $color-white;
     text-align: right;
   }
-  
+
   .message-popover-info {
     background: $color-primary;
   }
@@ -152,6 +155,7 @@
   text-align: left;
   overflow: hidden;
 }
+
 .message-team-info {
   position: relative;
   display: flex;
@@ -163,6 +167,7 @@
   color: $color-white;
   padding: .22rem;
   background-image: linear-gradient(225deg, #7dd0f4 0%, #47a3e6 100%);
+
   &:after {
     position: absolute;
     right: 0;
@@ -173,13 +178,16 @@
     background: url(https://image-1251917893.file.myqcloud.com/Esports/new/user/msg-bg.png) no-repeat center center;
     background-size: contain;
   }
+
   .message-team-tip {
     font-weight: 600;
   }
+
   .message-team-name {
     font-size: $font-s;
     margin-top: .06rem;
   }
+
   .icon-back {
     position: absolute;
     right: .3rem;
@@ -187,10 +195,12 @@
     transform: rotate(-180deg);
   }
 }
+
 .message-team-btn {
   width: 100%;
   padding: .4rem 0;
   background: $color-white;
+
   p {
     display: flex;
     align-items: center;
@@ -211,14 +221,17 @@
     .message-item-popover {
       color: $color-black;
     }
+
     .message-popover-info {
       background: $color-white;
     }
+
     .message-popover-right::after {
       border-left: .14rem solid $color-white;
     }
   }
 }
+
 .message-popover-btn {
   display: flex;
   align-items: center;
@@ -284,7 +297,7 @@
   }
 
   input,
-  .van-field {
+  .press-field {
     display: inline-block;
     width: 100%;
     min-height: .72rem;

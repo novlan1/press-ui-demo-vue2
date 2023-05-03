@@ -281,13 +281,13 @@ export default {
   font-size: 0;
   background-color: #f7f8fa;
 
-  & ::v-deep .van-tab__pane {
+  & ::v-deep .press-tab__pane {
     width: auto;
     margin: 20px;
     background-color: #fff;
     border-radius: 12px;
   }
-  & ::v-deep .van-tabs__content {
+  & ::v-deep .press-tabs__content {
     background-color: #f7f8fa;
   }
 

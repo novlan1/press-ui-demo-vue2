@@ -2,8 +2,8 @@ import { getCurrentPage } from '../common/utils/page';
 import { isDef } from '../common/utils/validator';
 
 function onPageScroll(event) {
-  const { vanPageScroller = [] } = getCurrentPage();
-  vanPageScroller.forEach((scroller) => {
+  const { pressPageScroller = [] } = getCurrentPage();
+  pressPageScroller.forEach((scroller) => {
     if (typeof scroller === 'function') {
       scroller(event);
     }
@@ -17,10 +17,10 @@ export const pageScrollMixin = scroller => ({
     if (!isDef(page)) {
       return;
     }
-    if (Array.isArray(page.vanPageScroller)) {
-      page.vanPageScroller.push(scroller.bind(this));
+    if (Array.isArray(page.pressPageScroller)) {
+      page.pressPageScroller.push(scroller.bind(this));
     } else {
-      page.vanPageScroller =  typeof page.onPageScroll === 'function'
+      page.pressPageScroller =  typeof page.onPageScroll === 'function'
         ? [page.onPageScroll.bind(page), scroller.bind(this)]
         : [scroller.bind(this)];
     }
@@ -29,7 +29,7 @@ export const pageScrollMixin = scroller => ({
   destroy() {
     const page = getCurrentPage();
     if (isDef(page)) {
-      page.vanPageScroller = page.vanPageScroller?.filter(item => item !== scroller) || [];
+      page.pressPageScroller = page.pressPageScroller?.filter(item => item !== scroller) || [];
     }
   },
 });

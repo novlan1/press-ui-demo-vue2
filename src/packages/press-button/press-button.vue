@@ -461,7 +461,7 @@ export default {
     background-size: contain;
     pointer-events: none;
 
-    transform: unset; // 去掉van-btn自带before的影响
+    transform: unset; // 去掉press-btn自带before的影响
     top: unset;
     right: unset;
     opacity: 1;
@@ -477,7 +477,7 @@ export default {
     background-size: contain;
     pointer-events: none;
 
-    transform: unset; // 去掉van-btn自带before的影响
+    transform: unset; // 去掉press-btn自带before的影响
     left: unset;
     bottom: unset;
     opacity: 1;

@@ -9,7 +9,7 @@ function tabClass(active, ellipsis) {
   }
 
   if (ellipsis) {
-    classes.push('van-ellipsis');
+    classes.push('press-ellipsis');
   }
 
   return classes.join(' ');

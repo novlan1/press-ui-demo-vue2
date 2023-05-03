@@ -1,9 +1,9 @@
 <template>
   <div
-    ref="vanTabs"
+    ref="pressTabs"
     :class="tabsClass"
   >
-    <van-sticky
+    <press-sticky
       :disabled="(!sticky)"
       :z-index="zIndex"
       :offset-top="offsetTop"
@@ -21,52 +21,32 @@
           :style="color ? 'border-color: ' + color : ''"
         >
           <div
-            :class="navClass"
+            :class="theNavClass"
             :style="navStyle"
           >
             <div
               v-if="type === 'line'"
-              class="van-tabs__line"
+              :class="bem3('tabs__line')"
               :style="lineStyle"
             />
-            <!-- TODO: 下面的style/class可以提取到方法中，否则小程序不易查看[object object] -->
             <div
               v-for="(item,index) in (tabs)"
               :key="item.index"
               :data-index="index"
-              :class="[
-                'tab-class',
-                'van-tab',
-                {
-                  'tab-active-class': index === currentIndex,
-                  'van-ellipsis': ellipsis,
-                  'van-tab--active': index === currentIndex,
-                  'van-tab--disabled': item.disabled,
-                  'van-tab--complete': !ellipsis,
-                }
-              ]"
-              :style="type === 'card'? {
-                borderColor: color,
-                backgroundColor: !item.disabled && active ? color : null,
-                color: (index === currentIndex ? titleActiveColor : titleInactiveColor)
-                  || (!item.disabled && !active ? color : null),
-                flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
-              }: {
-                color: index === currentIndex ? titleActiveColor : titleInactiveColor,
-                flexBasis: realEllipsis ? `${88 / swipeThreshold}%` : null,
-              }"
+              :class="getTabClass(item, index)"
+              :style="getTabStyle(item, index)"
               @click="onTap"
             >
               <div
-                :class="ellipsis ? 'van-ellipsis' : ''"
+                :class="ellipsis ? 'press-ellipsis' : ''"
                 :style="item.titleStyle"
               >
                 {{ item.title }}
-                <van-info
+                <press-info
                   v-if="item.info !== null || item.dot"
                   :info="item.info"
                   :dot="item.dot"
-                  custom-class="van-tab__title__info"
+                  custom-class="press-tab__title__info"
                 />
               </div>
             </div>
@@ -75,10 +55,10 @@
 
         <slot name="nav-right" />
       </div>
-    </van-sticky>
+    </press-sticky>
 
     <div
-      class="van-tabs__content"
+      :class="bem3('tabs__content')"
       @touchstart="onTouchStart"
       @touchmove="onTouchMove"
       @touchend="onTouchEnd"
@@ -94,8 +74,8 @@
   </div>
 </template>
 <script>
-import VanInfo from '../press-info/press-info.vue';
-import VanSticky from '../press-sticky/press-sticky.vue';
+import PressInfo from '../press-info/press-info.vue';
+import PressSticky from '../press-sticky/press-sticky.vue';
 
 import { touch } from '../mixins/touch';
 
@@ -114,8 +94,8 @@ export default {
     ...defaultOptions,
   },
   components: {
-    VanInfo,
-    VanSticky,
+    PressInfo,
+    PressSticky,
   },
   mixins: [
     touch,
@@ -125,6 +105,22 @@ export default {
   classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
   props: {
     ...defaultProps,
+    navClass: {
+      type: String,
+      default: '',
+    },
+    tabClass: {
+      type: String,
+      default: '',
+    },
+    tabActiveClass: {
+      type: String,
+      default: '',
+    },
+    lineClass: {
+      type: String,
+      default: '',
+    },
     sticky: {
       type: Boolean,
       default: false,
@@ -213,19 +209,19 @@ export default {
   computed: {
     tabsClass() {
       const { type, customClass  } = this;
-      return `${utils.bem('tabs', [type])} ${customClass}`;
+      return `${this.bem3('tabs', [type])} ${customClass}`;
     },
     tabsWrapClass() {
       const { scrollable, type, border } = this;
-      return `${utils.bem('tabs__wrap', { scrollable })} ${type === 'line' && border ? 'van-hairline--top-bottom' : ''}`;
+      return `${this.bem3('tabs__wrap', { scrollable })} ${type === 'line' && border ? this.bem3('hairline--top-bottom') : ''}`;
     },
     tabScrollClass() {
       const { type } = this;
-      return utils.bem('tabs__scroll', [type]);
+      return this.bem3('tabs__scroll', [type]);
     },
-    navClass() {
-      const { type, ellipsis } = this;
-      return `${utils.bem('tabs__nav', [type, { complete: !ellipsis }])} nav-class`;
+    theNavClass() {
+      const { type, ellipsis, navClass } = this;
+      return `${this.bem3('tabs__nav', [type, { complete: !ellipsis }])} ${navClass}`;
     },
     navStyle() {
       const { color, type } = this;
@@ -237,7 +233,7 @@ export default {
     },
     trackClass() {
       const { animated } = this;
-      return `${utils.bem('tabs__track', [{ animated }])} van-tabs__track`;
+      return `${this.bem3('tabs__track', [{ animated }])}}`;
     },
     trackStyle() {
       const { duration, currentIndex, animated } = this;
@@ -281,10 +277,10 @@ export default {
     requestAnimationFrame(() => {
       this.swiping = true;
       // #ifdef H5
-      this.container = () => this.$refs.vanTabs;
+      this.container = () => this.$refs.pressTabs;
       // #endif
       // #ifndef H5
-      this.container = () => this.createSelectorQuery().select('.van-tabs');
+      this.container = () => this.createSelectorQuery().select('.press-tabs');
       // #endif
 
       this.updateTabs();
@@ -297,6 +293,42 @@ export default {
     });
   },
   methods: {
+    bem3(name, conf) {
+      return utils.bem3(name, conf, this.extraClassPrefix);
+    },
+    getTabClass(item, index) {
+      const { currentIndex, ellipsis, tabClass, tabActiveClass } = this;
+      return `${this.bem3('tab', {
+        active: index === currentIndex,
+        disabled: item.disabled,
+        complete: !ellipsis,
+      })} ${this.bem3('ellipsis')} ${tabClass} ${index === currentIndex ? tabActiveClass : ''}`;
+    },
+    getTabStyle(item, index) {
+      const {
+        type,
+        color,
+        active,
+        currentIndex,
+        realEllipsis,
+        titleActiveColor,
+        titleInactiveColor,
+        swipeThreshold,
+      } = this;
+
+      const flexBasis =  realEllipsis ? `${88 / swipeThreshold}%` : null;
+
+      return type === 'card' ? {
+        borderColor: color,
+        backgroundColor: !item.disabled && active ? color : null,
+        color: (index === currentIndex ? titleActiveColor : titleInactiveColor)
+            || (!item.disabled && !active ? color : null),
+        flexBasis,
+      } : {
+        color: index === currentIndex ? titleActiveColor : titleInactiveColor,
+        flexBasis,
+      };
+    },
     setData(data) {
       Object.keys(data).forEach((key) => {
         this[key] = data[key];
@@ -394,8 +426,8 @@ export default {
       }
       const { currentIndex, ellipsis, skipTransition } = this;
       Promise.all([
-        getAllRect(this, '.van-tab'),
-        getRect(this, '.van-tabs__line'),
+        getAllRect(this, '.press-tab'),
+        getRect(this, '.press-tabs__line'),
       ]).then(([rects = [], lineRect]) => {
         const rect = rects[currentIndex];
         if (rect == null) {
@@ -428,8 +460,8 @@ export default {
         return;
       }
       Promise.all([
-        getAllRect(this, '.van-tab'),
-        getRect(this, '.van-tabs__nav'),
+        getAllRect(this, '.press-tab'),
+        getRect(this, '.press-tabs__nav'),
       ]).then(([tabRects, navRect]) => {
         const tabRect = tabRects[currentIndex];
         const offsetLeft = tabRects
@@ -495,7 +527,7 @@ export default {
 @import "../common/style/index.scss";
 @import "../common/style/var.scss";
 
-.van-tabs {
+.press-tabs {
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
@@ -504,7 +536,7 @@ export default {
     overflow: hidden;
 
     &--scrollable {
-      .van-tab {
+      .press-tab {
         flex: 0 0 22%;
 
         &--complete {
@@ -513,7 +545,7 @@ export default {
         }
       }
 
-      .van-tabs__nav {
+      .press-tabs__nav {
         &--complete {
           padding-right: 8px;
           padding-left: 8px;
@@ -560,7 +592,7 @@ export default {
       box-sizing: border-box;
       height: var(--tabs-card-height, $tabs-card-height);
 
-      .van-tab {
+      .press-tab {
         color: var(--tabs-default-color, $tabs-default-color);
         line-height: calc(
           var(--tabs-card-height, $tabs-card-height) - 2 * $border-width-base
@@ -572,7 +604,7 @@ export default {
           border-right: none;
         }
 
-        &.van-tab--active {
+        &.press-tab--active {
           color: $white;
           background-color: var(--tabs-default-color, $tabs-default-color);
         }
@@ -610,13 +642,13 @@ export default {
   }
 
   &--line {
-    .van-tabs__wrap {
+    .press-tabs__wrap {
       height: var(--tabs-line-height, $tabs-line-height);
     }
   }
 
   &--card {
-    .van-tabs__wrap {
+    .press-tabs__wrap {
       height: var(--tabs-card-height, $tabs-card-height);
     }
   }
@@ -629,7 +661,7 @@ export default {
   }
 }
 
-.van-tab {
+.press-tab {
   position: relative;
   flex: 1;
   box-sizing: border-box;

@@ -1,5 +1,5 @@
 export default {
-  name: 'vant-icon',
+  name: 'press-icon-plus',
   basic: [
     'arrow',
     'arrow-left',

@@ -26,15 +26,15 @@
           >
             <div
               v-if="type === 'line'"
-              :class="bem3('tabs__line')"
+              :class="[`${bem3('tabs__line')}`]"
               :style="lineStyle"
             />
             <div
               v-for="(item,index) in (tabs)"
               :key="item.index"
               :data-index="index"
-              :class="getTabClass(item, index)"
-              :style="getTabStyle(item, index)"
+              :class="[`${getTabClass(item, index)}`]"
+              :style="[`${getTabStyle(item, index)}`]"
               @click="onTap"
             >
               <div
@@ -58,7 +58,7 @@
     </press-sticky>
 
     <div
-      :class="bem3('tabs__content')"
+      :class="[`${bem3('tabs__content')}`]"
       @touchstart="onTouchStart"
       @touchmove="onTouchMove"
       @touchend="onTouchEnd"
@@ -87,6 +87,7 @@ import utils from '../common/utils/utils';
 import computed from './index.js';
 import { defaultProps, defaultOptions } from '../common/component-handler/press-component';
 import { PARENT_TABS as PARENT } from '../common/constant/parent-map';
+import style from '../common/utils/style';
 
 
 export default {
@@ -318,16 +319,16 @@ export default {
 
       const flexBasis =  realEllipsis ? `${88 / swipeThreshold}%` : null;
 
-      return type === 'card' ? {
+      return type === 'card' ? style({
         borderColor: color,
         backgroundColor: !item.disabled && active ? color : null,
         color: (index === currentIndex ? titleActiveColor : titleInactiveColor)
             || (!item.disabled && !active ? color : null),
         flexBasis,
-      } : {
+      }) : style({
         color: index === currentIndex ? titleActiveColor : titleInactiveColor,
         flexBasis,
-      };
+      });
     },
     setData(data) {
       Object.keys(data).forEach((key) => {

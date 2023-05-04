@@ -36,9 +36,11 @@
         <uni-card
           padding="0"
         >
-          <template v-for="(item, index) of pages">
+          <div
+            v-for="(item, index) of pages"
+            :key="getUniqueKey('section', index)"
+          >
             <uni-section
-              :key="`section-${index}`"
               :title="getComponentTypeTitle(item)"
               color="#007aff"
               type="line"
@@ -50,7 +52,7 @@
             >
               <uni-list-item
                 v-for="(nav, idx) in item.list"
-                :key="`nav-${idx}`"
+                :key="getUniqueKey('nav', idx)"
                 custom-class="list-item"
                 :border="false"
                 show-arrow
@@ -59,7 +61,7 @@
                 :to="`/pages${nav.url}`"
               />
             </uni-list>
-          </template>
+          </div>
 
           <uni-section
             key="other-ability-section"
@@ -111,14 +113,18 @@ export default {
     // #endif
   },
   onShow() {
+    // #ifdef H5
     this.scrollTop = +uni.getStorageSync(SCROLL_TOP_KEY) || 0;
+    // #endif
   },
   onHide() {
     uni.setStorageSync(SCROLL_TOP_KEY, this.scrollTop);
   },
   methods: {
     onScroll(e) {
+      // #ifdef H5
       this.scrollTop = e.target.scrollTop;
+      // #endif
     },
     getNavName(item) {
       const list = item.url.split('/');
@@ -129,6 +135,9 @@ export default {
     },
     onToggleLanguage() {
       toggleI18n();
+    },
+    getUniqueKey(a, b) {
+      return `${a}-${b}`;
     },
   },
 

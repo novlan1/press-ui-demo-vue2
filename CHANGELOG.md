@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.24-alpha.0](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.22...v0.7.24-alpha.0) (2023-05-04)
+
+
+### ✨ Features | 新功能
+
+* 首页滚动后记住位置 ([a7547e9](https://git.woa.com/pmd-mobile/support/press-ui/commit/a7547e989d5aa6bbffe34f0d5c34aa50cdcf5086))
+* 增加icon-plus示例 ([aabeb69](https://git.woa.com/pmd-mobile/support/press-ui/commit/aabeb6992c8eb576245ce81c1bb96e755342619e))
+* icon优化 ([4b66b2c](https://git.woa.com/pmd-mobile/support/press-ui/commit/4b66b2c19e6b77ea99edb5725b912095cfd70516))
+* press-popup优化 ([f3bfae5](https://git.woa.com/pmd-mobile/support/press-ui/commit/f3bfae5f32b2f2e8147d4ad3ccfa9fa4e95f2955))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 更新press-icon-plus ([38a28fb](https://git.woa.com/pmd-mobile/support/press-ui/commit/38a28fba102a1e03880a4720a53653e9effac1c5))
+* 更新steps命名 ([17cf5c0](https://git.woa.com/pmd-mobile/support/press-ui/commit/17cf5c01e59a6f2e430116167bfa879666781508))
+* 去掉vant ([9108c0f](https://git.woa.com/pmd-mobile/support/press-ui/commit/9108c0f5fe2750b23e9639d1d08a6d4dc7f87e05))
+* 删除无用的文件 ([1956620](https://git.woa.com/pmd-mobile/support/press-ui/commit/1956620cbe62cc418b02d55ca3ef7c1b74966d38))
+* 优化文件位置 ([fb2a04b](https://git.woa.com/pmd-mobile/support/press-ui/commit/fb2a04b60f69ff4505142806be9e796d964d65b8))
+* 优化样式路径 ([82b6ebb](https://git.woa.com/pmd-mobile/support/press-ui/commit/82b6ebb7400471474411228562faff14efc3cc34))
+* 整理utils ([f293e59](https://git.woa.com/pmd-mobile/support/press-ui/commit/f293e598b292e09bf36efc8027917df56237fb0c))
+* area、circle、datetime-picker、divider、empty、field命名更新 ([37741cc](https://git.woa.com/pmd-mobile/support/press-ui/commit/37741cc49790f82b00c1b8a19c5c2169d313bef7))
+* icon-plus命名更新 ([e4325e2](https://git.woa.com/pmd-mobile/support/press-ui/commit/e4325e23635edb249106945e7def351333449047))
+* info、sticky命名更新 ([6c73627](https://git.woa.com/pmd-mobile/support/press-ui/commit/6c73627627d89c26d96c738bd584c03c64c96d84))
+* radio、rate、search、toolbar、picker-plus命名更新 ([80a1438](https://git.woa.com/pmd-mobile/support/press-ui/commit/80a14386fae9512c1f1ed7a543977f190d9c6155))
+* sidebar命名更新 ([e442486](https://git.woa.com/pmd-mobile/support/press-ui/commit/e442486932f75ae14aa56c97e4e6014730c60a0e))
+* stepper命名更新 ([b1393aa](https://git.woa.com/pmd-mobile/support/press-ui/commit/b1393aa4d05b2343ec033ab8d7191776ee448154))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 写法兼容小程序 ([10fcf80](https://git.woa.com/pmd-mobile/support/press-ui/commit/10fcf8052eb7240ce436aa37e00ba140d0517625))
+* loading-plus、notice-bar、overlay样式更新 ([e1e3306](https://git.woa.com/pmd-mobile/support/press-ui/commit/e1e3306794ccb70fb59a66e9ccb348d562302c52))
+* **release:** 0.7.23 ([4eba716](https://git.woa.com/pmd-mobile/support/press-ui/commit/4eba7164d8ed88760d0a1a4f6e9aedbdcf1bf3a4))
+* share-sheet、nav-bar、notify命名更新 ([99f0705](https://git.woa.com/pmd-mobile/support/press-ui/commit/99f07050037ab27c511dcd8cdc57e34e3bd14ec6))
+* slider命名更新 ([e97a5e7](https://git.woa.com/pmd-mobile/support/press-ui/commit/e97a5e7f6ab48253f8bd582dc91786e59e5900d3))
+
 ### [0.7.23](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.22...v0.7.23) (2023-04-28)
 
 

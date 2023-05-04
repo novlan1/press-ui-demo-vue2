@@ -5,9 +5,7 @@ const { moveDemo  } = require('./md');
 function main() {
   moveDemo();
 
-  watchPackages(() => {
-    moveDemo();
-  });
+  watchPackages(moveDemo);
 }
 
 main();

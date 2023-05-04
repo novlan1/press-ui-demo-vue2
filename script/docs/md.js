@@ -55,7 +55,7 @@ function getLocalDocOrDemo(comps, postfix) {
 /**
  * 移动文档
  */
-function moveDocs() {
+function moveDocs(cb) {
   const comps = getComps();
   const docs = getLocalDocOrDemo(comps, LOCAL_DOC_NAME);
   const docsEn = getLocalDocOrDemo(comps, LOCAL_DOC_EN_NAME);
@@ -78,6 +78,10 @@ function moveDocs() {
     });
 
     writeCompDoc(data, name, DOC_EN_PATH);
+  }
+
+  if (typeof cb === 'function') {
+    cb();
   }
 }
 
@@ -132,7 +136,7 @@ function writeCompDemo(data, name) {
 }
 
 
-function moveDemo() {
+function moveDemo(cb) {
   const comps = getComps();
   const demos = getLocalDocOrDemo(comps, LOCAL_DEMO_NAME);
   console.log(`[AUTO] 共有${demos.length}个组件demo\n`);
@@ -144,6 +148,10 @@ function moveDemo() {
     });
 
     writeCompDemo(data, name);
+  }
+
+  if (typeof cb === 'function') {
+    cb();
   }
 }
 

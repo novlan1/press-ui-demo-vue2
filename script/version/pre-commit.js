@@ -1,36 +1,61 @@
 const fs = require('fs');
+const path = require('path');
 const { execSync } = require('child_process');
+const { traverseFolder } = require('t-comm');
 
-
-const PACKAGE_JSON_PATH = './src/packages/package.json';
-const ROOT_PACKAGE_JSON_PATH = './package.json';
+const TO_DELETE_FILES = ['demo.vue', 'README.md', 'README.en-US.md'];
+const PATH_MAP = {
+  SOURCE_PACKAGES: 'src/packages',
+  TARGET_PACKAGES: 'log/packages',
+  PACKAGE_JSON: './src/packages/package.json',
+  ROOT_PACKAGE_JSON: './package.json',
+};
 
 
 function getNewVersion() {
-  const pkg = JSON.parse(fs.readFileSync(ROOT_PACKAGE_JSON_PATH, {
+  const pkg = JSON.parse(fs.readFileSync(PATH_MAP.ROOT_PACKAGE_JSON, {
     encoding: 'utf-8',
   }));
   return pkg.version;
 }
 
 function changeVersion() {
-  const pkg = JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, {
-    encoding: 'utf-8',
-  }));
-
   const newVersion = getNewVersion();
 
-  // console.log(`[VERSION] The new version is ${newVersion}`);
-
+  const pkg = JSON.parse(fs.readFileSync(PATH_MAP.PACKAGE_JSON, {
+    encoding: 'utf-8',
+  }));
+  console.log(`[VERSION] The new version is ${newVersion}`);
   pkg.version = newVersion;
 
-  fs.writeFileSync(PACKAGE_JSON_PATH, JSON.stringify(pkg, null, 2), {
+  fs.writeFileSync(PATH_MAP.PACKAGE_JSON, JSON.stringify(pkg, null, 2), {
     encoding: 'utf-8',
   });
 }
+function release() {
+  execSync(`cd ${PATH_MAP.TARGET_PACKAGES} && npm publish`, {
+    stdio: 'inherit',
+  });
+}
+
+function genPureReleaseDir() {
+  const dir = path.dirname(PATH_MAP.TARGET_PACKAGES);
+  execSync(`rm -rf ${PATH_MAP.TARGET_PACKAGES} && cp -r ${PATH_MAP.SOURCE_PACKAGES} ${dir}`);
+
+  traverseFolder((file) => {
+    const name = path.basename(file);
+    if (TO_DELETE_FILES.includes(name)) {
+      fs.unlinkSync(file);
+      console.log('已删除文件: ', file);
+    }
+  }, PATH_MAP.TARGET_PACKAGES);
+}
+
 
 function main() {
   changeVersion();
+
+  genPureReleaseDir();
 
   execSync('git add .', {
     stdio: 'inherit',
@@ -39,10 +64,6 @@ function main() {
   release();
 }
 
-function release() {
-  execSync('cd src/packages && npm publish', {
-    stdio: 'inherit',
-  });
-}
 
 main();
+

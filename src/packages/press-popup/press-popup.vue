@@ -19,23 +19,22 @@
       :style="{width:isCrossSlab ? `${widthNumber}%` : '100%'}"
     >
       <div
+        v-if="!isShowTitle && (!isCrossSlab || !isShowpopupClose || !showBackArrow)"
+        class="press-popup--title-line"
+        @click.stop="clickCancel"
+      />
+      <div
         v-if="isShowTitle"
         class="press-popup--title-wrap"
       >
         <div
-          v-if="!isCrossSlab"
-          class="press-popup--title-line"
-          @click.stop="clickCancel"
-        />
-
-        <div
-          v-if="isShowpopupClose && !showBackArrow"
+          v-if="isShowpopupClose"
           class="press-popup--close iconfont icon-close"
           @click.stop="clickCancel"
         />
 
         <div
-          v-if="isShowpopupClose && showBackArrow"
+          v-if="showBackArrow"
           class="press-popup--arrow iconfont icon-back"
           @click.stop="clickCancel"
         />
@@ -55,7 +54,7 @@
           <PressButton
             v-if="popupTitleBtn"
             :type="isBorderBtn ? 'e-sport-border' : 'e-sport-primary'"
-            custom-style="width:auto;height:100%;padding:0 6px;font-size:inherit;"
+            custom-style="width:auto;height:100%;padding:0 10px;font-size:inherit;"
             @click.stop="clickConfirm"
           >
             {{ popupTitleBtn }}

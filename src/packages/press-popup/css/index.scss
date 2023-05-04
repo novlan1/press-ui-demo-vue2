@@ -64,8 +64,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: tovmin(144);
-    padding: tovmin(24) 0;
+    height: tovmin(114);
+    padding-bottom: tovmin(24);
     box-sizing: border-box;
 
     &::after {
@@ -83,23 +83,21 @@
   }
 
   &--title-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: tovmin(16);
-    margin: auto;
-    width: tovmin(64);
-    height: tovmin(8);
-    border-radius: tovmin(8);
-    background: $color-gray-2;
+    position: relative;
+    width: 100%;
+    height: tovmin(24);
 
     &::before {
       position: absolute;
       left: 0;
       right: 0;
-      top: tovmin(-14);
-      height: tovmin(16);
+      bottom: 0;
+      margin: auto;
       content: '';
+      width: tovmin(64);
+      height: tovmin(8);
+      border-radius: tovmin(8);
+      background: $color-gray-2;
     }
 
     &::after {
@@ -122,9 +120,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: tovmin(24);
     width: tovmin(104);
-    height: tovmin(96);
+    height: tovmin(90);
     font-size: tovmin(40);
     color: $color-gray;
   }
@@ -132,12 +129,11 @@
   &--arrow {
     position: absolute;
     left: 0;
-    top: tovmin(24);
     display: flex;
     align-items: center;
     justify-content: center;
     width: tovmin(104);
-    height: tovmin(96);
+    height: tovmin(90);
     font-size: tovmin(40);
     color: $color-gray;
   }
@@ -145,9 +141,7 @@
   // 改为press-button
   &--title-btn-wrap {
     position: absolute;
-    top: tovmin(50);
     right: tovmin(40);
-    min-width: tovmin(104);
     height: tovmin(52);
     line-height: tovmin(44);
     font-size: tovmin(28);

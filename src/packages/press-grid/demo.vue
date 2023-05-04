@@ -53,7 +53,7 @@
         >
           <img
             style="width: 100%; height: 90px;"
-            :src="`https://img.yzcdn.cn/vant/apple-${index + 1}.jpg`"
+            :src="imageList[index]"
           >
         </press-grid-item>
       </press-grid>
@@ -194,6 +194,11 @@ export default {
   data() {
     return {
       sectionStyle: 'margin: 0;',
+      imageList: [
+        'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2023/5/own_mike_9f901ce42e18990883.jpeg',
+        'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2023/5/own_mike_8f25b9e2e75f6754ad.jpeg',
+        'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2023/5/own_mike_260c4142c7225b5f73.jpeg',
+      ],
 
     };
   },

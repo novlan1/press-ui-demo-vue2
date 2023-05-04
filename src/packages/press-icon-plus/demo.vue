@@ -227,7 +227,7 @@ export default {
     return {
       tab: 0,
       demoIcon: 'chat-o',
-      demoImage: 'https://b.yzcdn.cn/vant/icon-demo-1126.png',
+      demoImage: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2023/5/own_mike_ce77489af93cb34c4b.png',
 
       offsetTop,
       icons,

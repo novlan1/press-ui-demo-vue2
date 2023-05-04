@@ -50,7 +50,7 @@ The content displayed by the grid can be customized through slots.
    >
      <image
        style="width: 100%; height: 90px;"
-       :src="`https://img.yzcdn.cn/vant/apple-${index + 1}.jpg`"
+       :src="imageList[index]"
      />
    </press-grid-item>
 </press-grid>

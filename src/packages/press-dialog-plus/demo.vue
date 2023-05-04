@@ -46,7 +46,7 @@
       @close="onClose"
       @getuserinfo="getUserInfo"
     >
-      <img src="https://img01.yzcdn.cn/vant/apple-3.jpg">
+      <img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2023/5/own_mike_260c4142c7225b5f73.jpeg">
     </press-dialog-plus>
   </div>
 </template>

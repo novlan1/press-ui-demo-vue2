@@ -43,8 +43,9 @@ function genPureReleaseDir() {
   execSync(`rm -rf ${PATH_MAP.TARGET_PACKAGES} && cp -r ${PATH_MAP.SOURCE_PACKAGES} ${dir}`);
 
   traverseFolder((file) => {
-    const name = path.basename(file);
-    if (TO_DELETE_FILES.includes(name)) {
+    // const name = path.basename(file);
+    const reg = new RegExp(`press-[\\w-]+/(${TO_DELETE_FILES.join('|')})`);
+    if (reg.test(file)) {
       fs.unlinkSync(file);
       console.log('已删除文件: ', file);
     }

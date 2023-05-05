@@ -11,10 +11,8 @@ export default {
     updateManager();
   },
   onShow() {
-    console.log('App Show');
   },
   onHide() {
-    console.log('App Hide');
   },
   watch: {
     $route: {

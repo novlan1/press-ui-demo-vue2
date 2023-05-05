@@ -85,6 +85,7 @@
     "release": " standard-version --release-as patch -a && npm run version:tip",
     "version:tip": "node script/deploy/version-tip",
     "test": "jest --coverage --verbose -u",
+    "cp:readme": "node script/docs-demo/readme",
     "prepare": "husky install && npm run init"
   },
   "dependencies": {

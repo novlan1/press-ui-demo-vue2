@@ -9,6 +9,8 @@ const PATH_MAP = {
   TARGET_PACKAGES: 'log/packages',
   PACKAGE_JSON: './src/packages/package.json',
   ROOT_PACKAGE_JSON: './package.json',
+  SOURCE_README: './README.md',
+  TARGET_README: './log/packages/README.md',
 };
 
 
@@ -52,11 +54,20 @@ function genPureReleaseDir() {
   }, PATH_MAP.TARGET_PACKAGES);
 }
 
+function copyReadme() {
+  const content = fs.readFileSync(PATH_MAP.SOURCE_README, {
+    encoding: 'utf-8',
+  });
+
+  fs.writeFileSync(PATH_MAP.TARGET_README, content, { encoding: 'utf-8' });
+}
+
 
 function main() {
   changeVersion();
 
   genPureReleaseDir();
+  copyReadme();
 
   execSync('git add .', {
     stdio: 'inherit',

@@ -1,5 +1,5 @@
 const { watchPackages } = require('./watch');
-const { moveDemo  } = require('./md');
+const { moveDemo } = require('./helper');
 
 
 function main() {

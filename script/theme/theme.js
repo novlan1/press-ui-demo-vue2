@@ -1,11 +1,23 @@
 const fs = require('fs');
-const THEME_VAR_PATH = './src/packages/common/style/var.scss';
-const THEME_CONFIG_PATH = './docs/.vuepress/components/theme-default.json';
+
+const PATH_MAP = {
+  THEME_VAR: './src/packages/common/style/var.scss',
+  THEME_CONFIG: './docs/.vuepress/components/theme-default.json',
+};
+
 
 const REPLACE_REG = /\$[\w-]+/g;
 
+function findRealValue(map, value) {
+  const tValue = map[value];
+  if (tValue.startsWith('$')) {
+    return findRealValue(map, tValue);
+  }
+  return tValue;
+}
+
 function getDefaultThemeConfig() {
-  const css = fs.readFileSync(THEME_VAR_PATH, {
+  const css = fs.readFileSync(PATH_MAP.THEME_VAR, {
     encoding: 'utf-8',
   });
 
@@ -32,17 +44,10 @@ function getDefaultThemeConfig() {
     const value = varMap[key];
     varMap[key] = value.replace(REPLACE_REG, a => findRealValue(varMap, a));
   });
-  fs.writeFileSync(THEME_CONFIG_PATH, JSON.stringify(varMap, null, 2), {
+  fs.writeFileSync(PATH_MAP.THEME_CONFIG, JSON.stringify(varMap, null, 2), {
     encoding: 'utf-8',
   });
 }
 
-function findRealValue(map, value) {
-  const tValue = map[value];
-  if (tValue.startsWith('$')) {
-    return findRealValue(map, tValue);
-  }
-  return tValue;
-}
 
 getDefaultThemeConfig();

@@ -21,7 +21,7 @@ press-ui是一套易用的、灵活的，基于uni-app的跨端组件库。
 首先要执行如下命令，进行组件的派发：
 
 ```bash
-npm run docs:gen
+npm run init
 ```
 
 ### 1.1. 组件开发

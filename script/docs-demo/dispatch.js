@@ -1,4 +1,4 @@
-const { moveDemo, moveDocs } = require('./md');
+const { moveDemo, moveDocs } = require('./helper');
 
 function main() {
   moveDemo();

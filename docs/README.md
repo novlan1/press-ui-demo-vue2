@@ -72,7 +72,7 @@ npm run docs:deploy
 ### 1.7. 样式规范
 
 
-BEM方式命名CSS，参考[这篇文章](https://km.woa.com/group/29321/articles/show/503041)。
+BEM方式命名CSS，参考[这篇文章](https://juejin.cn/post/7102980936232337445)。
 
 最外层结构命名为`press-组件名称`，如`press-loading`。
 

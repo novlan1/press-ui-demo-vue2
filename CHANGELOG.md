@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.24-alpha.3](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.24-alpha.0...v0.7.24-alpha.3) (2023-05-05)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 减少包体积 ([3a846eb](https://git.woa.com/pmd-mobile/support/press-ui/commit/3a846ebde72551c7561248909c374bb4e8e3f2e8))
+* 优化监听文件变化 ([94d44ac](https://git.woa.com/pmd-mobile/support/press-ui/commit/94d44ac4ab8d9fbe12b63a9bf4042bcdf1015ecc))
+
+
+### ✏️ Documentation | 文档
+
+* 替换图片地址 ([d5662db](https://git.woa.com/pmd-mobile/support/press-ui/commit/d5662dbbfacfec2c813e8711e6ac9cda86bd6fbf))
+* 优化文档 ([7e1586a](https://git.woa.com/pmd-mobile/support/press-ui/commit/7e1586a1e115ee7a790f9cb65da01dea4ef5055d))
+* 优化文档 ([56c8d6d](https://git.woa.com/pmd-mobile/support/press-ui/commit/56c8d6d977b61a4a05aefcd79e838bf82762247d))
+* pkg更新 ([fb2b163](https://git.woa.com/pmd-mobile/support/press-ui/commit/fb2b16308e125f45b0b105964273f7a61478e735))
+
+
+### ✨ Features | 新功能
+
+* 优化icon-plus demo效果 ([64aaec9](https://git.woa.com/pmd-mobile/support/press-ui/commit/64aaec9217cc18865b313f7f409ef19e4d70fed1))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 移动uni组件位置 ([b47fbb9](https://git.woa.com/pmd-mobile/support/press-ui/commit/b47fbb9ac7d54e1e02e1e3c844ea0cbbfb1242b1))
+
 ### [0.7.24-alpha.0](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.22...v0.7.24-alpha.0) (2023-05-04)
 
 

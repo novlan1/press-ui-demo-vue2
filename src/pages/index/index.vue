@@ -33,7 +33,7 @@
       <div
         class="home-content"
       >
-        <uni-card
+        <press-card
           padding="0"
         >
           <div
@@ -84,7 +84,7 @@
               @click="onToggleLanguage"
             />
           </uni-list>
-        </uni-card>
+        </press-card>
       </div>
     </scroll-view>
   </div>
@@ -92,12 +92,21 @@
 <script>
 import { morsePwdMixin } from '../../utils/morse-password/morse-password-mixin';
 import { toggleI18n } from '../../utils/i18n/toggle-i18n';
+import PressCard from 'src/packages/press-card/press-card.vue';
+import UniList from 'src/pages/components/uni-list/components/uni-list/uni-list.vue';
+import UniListItem from 'src/pages/components/uni-list/components/uni-list-item/uni-list-item.vue';
+import UniSection from 'src/pages/components/uni-section/components/uni-section/uni-section.vue';
 
 const pagesConfig = require('./page-config.json');
 const SCROLL_TOP_KEY = 'INDEX_SCROLL_TOP';
 
 export default {
-  components: {},
+  components: {
+    PressCard,
+    UniList,
+    UniListItem,
+    UniSection,
+  },
   mixins: [morsePwdMixin([1, 1, 1], toggleI18n)],
   data() {
     return {

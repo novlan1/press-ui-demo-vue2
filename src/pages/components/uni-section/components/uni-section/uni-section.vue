@@ -48,21 +48,6 @@
 
 <script>
 
-/**
-	 * Section 标题栏
-	 * @description 标题栏
-	 * @property {String} type = [line|circle|square] 标题装饰类型
-	 * 	@value line 竖线
-	 * 	@value circle 圆形
-	 * 	@value square 正方形
-	 * @property {String} title 主标题
-	 * @property {String} titleFontSize 主标题字体大小
-	 * @property {String} titleColor 主标题字体颜色
-	 * @property {String} subTitle 副标题
-	 * @property {String} subTitleFontSize 副标题字体大小
-	 * @property {String} subTitleColor 副标题字体颜色
-	 * @property {String} padding 默认插槽 padding
-	 */
 
 export default {
   name: 'UniSection',

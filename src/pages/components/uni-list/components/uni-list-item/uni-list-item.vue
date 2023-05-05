@@ -103,6 +103,7 @@
 </template>
 
 <script>
+import UniIcons from 'src/pages/components/uni-icons/components/uni-icons/uni-icons.vue';
 /**
 	 * ListItem 列表子组件
 	 * @description 列表子组件
@@ -139,6 +140,9 @@
 	 */
 export default {
   name: 'UniListItem',
+  components: {
+    UniIcons,
+  },
   options: {
     addGlobalClass: true,
   },

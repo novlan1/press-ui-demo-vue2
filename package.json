@@ -71,6 +71,7 @@
     "docs:dev": "concurrently \"npm run docs:watch\" \"npm run docs:serve\"",
     "docs:build": "vuepress build docs",
     "docs:deploy": "node script/deploy/docs",
+    "docs:deploy:mine": "node script/deploy/docs-mine",
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
     "lint:css": "stylelint **/*.{html,vue,css,sass,scss,less}",

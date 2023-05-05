@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.24-alpha.5](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.24-alpha.4...v0.7.24-alpha.5) (2023-05-05)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 删除默认样式文件 ([96980db](https://git.woa.com/pmd-mobile/support/press-ui/commit/96980db9d3426bb25848d5893d790bee4a981322))
+* 文档readme自动生成 ([8c9c506](https://git.woa.com/pmd-mobile/support/press-ui/commit/8c9c506351b706218b81260ae0010801981e23b8))
+* 优化部署、派发等脚本 ([697689f](https://git.woa.com/pmd-mobile/support/press-ui/commit/697689f5e1f58985ac9884eee9d4ca9d9b1976e4))
+* 增加额外的部署命令 ([7551e87](https://git.woa.com/pmd-mobile/support/press-ui/commit/7551e8715f6e75f769407bf43633d67c3e89b6f1))
+* 增加husky、更新测试用例 ([11e7d5c](https://git.woa.com/pmd-mobile/support/press-ui/commit/11e7d5c668bcee60b0f4aa4bc36e546407faf621))
+
 ### [0.7.24-alpha.4](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.24-alpha.3...v0.7.24-alpha.4) (2023-05-05)
 
 

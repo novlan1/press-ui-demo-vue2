@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.24-alpha.4](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.24-alpha.3...v0.7.24-alpha.4) (2023-05-05)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 打包产物保留readme ([7cf60bf](https://git.woa.com/pmd-mobile/support/press-ui/commit/7cf60bfbb5c4a3f7d4350bcc9e8d40a2b20f6a26))
+
 ### [0.7.24-alpha.3](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.24-alpha.0...v0.7.24-alpha.3) (2023-05-05)
 
 

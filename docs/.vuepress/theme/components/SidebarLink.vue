@@ -112,7 +112,7 @@ a.sidebar-link {
   box-sizing: border-box;
 
   .sub-title {
-    color: #ddd;
+    // color: #ddd; // 主标题和副标题同一个颜色
     margin-left: 5px;
   }
 

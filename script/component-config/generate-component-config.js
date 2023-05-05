@@ -53,8 +53,8 @@ function getSidebarConfig(isEn) {
         title: item.name,
         path: `/en/components/press/press-${hyphenate(item.name)}.md`,
       } : {
-        title: item.title,
-        subTitle: item.name,
+        title: item.name,
+        subTitle: item.title,
         path: `/components/press/press-${hyphenate(item.name)}.md`,
       }));
 

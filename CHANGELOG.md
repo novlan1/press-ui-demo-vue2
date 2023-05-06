@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.24-beta.0](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.24-alpha.5...v0.7.24-beta.0) (2023-05-06)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 小程序开发时也监听packages ([d2b3845](https://git.woa.com/pmd-mobile/support/press-ui/commit/d2b384536b0da76cf4b87cb621acfcfd062d83c2))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* **tab:** 增加一些老的类名 ([ebfc915](https://git.woa.com/pmd-mobile/support/press-ui/commit/ebfc9157c9f831c1b44ad731dccdb8e1e5477108))
+
 ### [0.7.24-alpha.5](https://git.woa.com/pmd-mobile/support/press-ui/compare/v0.7.24-alpha.4...v0.7.24-alpha.5) (2023-05-05)
 
 

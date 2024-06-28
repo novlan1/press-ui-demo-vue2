@@ -1,49 +1,39 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
+		<press-button type="default">默认按钮</press-button>
+		<press-button type="primary">主要按钮</press-button>
+		<press-button type="info">信息按钮</press-button>
+		<press-button type="warning">警告按钮</press-button>
+		<press-button type="danger">危险按钮</press-button>
 	</view>
 </template>
 
+
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
+import PressButton from 'press-ui/press-button/press-button';
+export default {
+	components: {
+		PressButton,
+	},
+	data() {
+		return {
 		}
+	},
+	onLoad() {
+
+	},
+	methods: {
+
 	}
+}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style scoped lang="scss">
+.content {
+	padding-top: 10px;
+}
+.press-button {
+	margin-right: 20px;
+	margin-top: 12px;
+}
 </style>

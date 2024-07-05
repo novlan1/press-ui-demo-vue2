@@ -6,7 +6,9 @@
 	"versionCode": "100",
 	"transformPx": false,
 	"app-plus": {
-		"usingComponents": true,
+		"nvueCompiler": "uni-app",
+		"nvueStyleCompiler": "uni-app",
+		"compilerVersion": 3,
 		"splashscreen": {
 			"alwaysShowBeforeRender": true,
 			"waiting": true,
@@ -19,50 +21,67 @@
 				"permissions": [
 					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
 					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
-					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
 					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
 					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
 					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
 					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
-					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
 					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
 					"<uses-permission android:name=\"android.permission.CAMERA\"/>",
-					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
 					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
-					"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
 					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
 					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
 					"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
-					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
 					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
 					"<uses-feature android:name=\"android.hardware.camera\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
 					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
 				]
 			},
 			"ios": {},
 			"sdkConfigs": {}
-		}
+		},
+		"nvueLaunchMode": "fast"
 	},
 	"quickapp": {},
 	"mp-weixin": {
-		"appid": "",
+		"usingComponents": true,
+		"lazyCodeLoading": "requiredComponents",
+		"appid": "wxd593abb04ef95f3e",
+		"libVersion": "latest",
 		"setting": {
-			"urlCheck": false
-		},
-		"usingComponents": true
-	},
-	"mp-alipay": {
-		"usingComponents": true
-	},
-	"mp-baidu": {
-		"usingComponents": true
-	},
-	"mp-toutiao": {
-		"usingComponents": true
+			"urlCheck": true,
+			"ignoreUploadUnusedFiles": true,
+			"minified": true
+		}
 	},
 	"mp-qq": {
-		"usingComponents": true
-	}
+		"lazyCodeLoading": "requiredComponents",
+		"usingComponents": true,
+		"appid": "1112254204",
+		"navigateToMiniProgramAppIdList": [
+			"1112254204",
+			"1112328124",
+			"1112217302",
+			"1112240178",
+			"1112328122"
+		]
+	},
+	"mp-alipay": {
+		"usingComponents": true,
+		"appid": "2021004137607104"
+	},
+	"h5": {
+		"router": {
+			"mode": "hash",
+			"base": ""
+		},
+		"title": "Press UI",
+		"template": "template.h5.html",
+		"publicPath": "./",
+		"optimization": {
+			"treeShaking": {
+				"enable": true
+			}
+		}
+	},
+	"vueVersion": "2"
 }

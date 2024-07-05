@@ -12,6 +12,4 @@
 	}
 </script>
 
-<style>
-	/*每个页面公共css */
-</style>
+<style lang="scss" src="src/utils/style/demo.scss"></style>

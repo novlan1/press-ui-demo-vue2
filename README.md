@@ -1,19 +1,4 @@
-# press-ui-demo-template
+# press-ui-demo-vue2
 
-## Project setup
-```
-yarn install
-```
+Press UI 适配 Vue2 的项目。
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

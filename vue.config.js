@@ -16,4 +16,4 @@ module.exports = {
     // plugins,
   },
   transpileDependencies: ['press-ui', '@zebra-ui/swiper'],
-}
+};

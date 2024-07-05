@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import App from './App'
-import './uni.promisify.adaptor'
+import Vue from 'vue';
+import App from './App';
+import './uni.promisify.adaptor';
 
 import { initMixin } from './utils/mixin/mixin';
 import { initDemoI18n } from './utils/i18n/i18n';
@@ -14,9 +14,9 @@ import PressPicker from './packages/press-picker/press-picker.vue';
 import PressPopupCell from './packages/press-popup-cell/press-popup-cell.vue';
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-App.mpType = 'app'
+App.mpType = 'app';
 
 Vue.component('DemoBlock', DemoBlock);
 Vue.component('ToggleHeader', ToggleHeader);
@@ -31,8 +31,7 @@ checkAndShowVConsole();
 // #endif
 
 
-
 const app = new Vue({
-  ...App
-})
-app.$mount()
+  ...App,
+});
+app.$mount();

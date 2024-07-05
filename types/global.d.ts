@@ -1,1 +1,3 @@
-declare module 'plugin-light/lib/plugin';
+declare const VConsole: any;
+declare const GameHelper: any;
+declare const weex: any;

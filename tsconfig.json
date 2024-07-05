@@ -44,6 +44,8 @@
     "dist/",
     "src/**/*.nvue",
     "log/",
-    "lib/"
+    "lib/",
+    "src/press-ui",
+    "**/*.spec.ts"
   ]
 }

@@ -32,6 +32,7 @@ specifiers:
   '@dcloudio/vue-cli-plugin-uni-optimize': ^2.0.2-4010520240507001
   '@dcloudio/webpack-uni-mp-loader': ^2.0.2-4010520240507001
   '@dcloudio/webpack-uni-pages-loader': ^2.0.2-4010520240507001
+  '@popperjs/core': ^2.11.8
   '@types/jest': ^29.5.12
   '@types/webpack-env': ^1.18.5
   '@vue/cli-plugin-babel': ~5.0.0
@@ -50,7 +51,7 @@ specifiers:
   miniprogram-api-typings: ^3.12.2
   plugin-light: ^1.3.9
   postcss-comment: ^2.0.0
-  press-ui: ^2.0.0
+  press-ui: ^2.0.7
   qrcode: ^1.5.3
   qrcode.vue: ^3.4.1
   sass: ^1.77.6
@@ -84,13 +85,14 @@ dependencies:
   '@dcloudio/uni-quickapp-webview': 2.0.2-4010520240507001
   '@dcloudio/uni-stacktracey': 2.0.2-4010520240507001
   '@dcloudio/uni-stat': 2.0.2-4010520240507001
+  '@popperjs/core': 2.11.8
   '@vue/shared': 3.4.31
   '@zebra-ui/swiper': 2.2.8
   aegis-mp-sdk: 1.39.1
   core-js: 3.37.1
   flyio: 0.6.14
   plugin-light: 1.3.9_z264erw2ajubx2gyir5nyuswmy
-  press-ui: 2.0.0
+  press-ui: 2.0.7
   qrcode: 1.5.3
   qrcode.vue: 3.4.1_vue@2.6.14
   sass: 1.77.6
@@ -3181,6 +3183,10 @@ packages:
   /@polka/url/1.0.0-next.25:
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
     dev: true
+
+  /@popperjs/core/2.11.8:
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
 
   /@prerenderer/prerenderer/0.7.2:
     resolution: {integrity: sha512-zWG3uFnrQWDJQoSzGB8bOnNhJCgIiylVYDFBP7Nw2LqngHOqwvpdBtGSjfajC8+fdR/iB2FqMqe27cfdmf/8TQ==}
@@ -13781,8 +13787,8 @@ packages:
       - debug
     dev: false
 
-  /press-ui/2.0.0:
-    resolution: {integrity: sha512-id46Jk5bQpkRcSF8buqIGe9sMYEfKSo1uI3elS36HzRI/28fi7qOvVje46/dnk+w6MrFwWZyxBwb2czKvWpakw==}
+  /press-ui/2.0.7:
+    resolution: {integrity: sha512-1Vp5wUpwo0vvvIoOhY4v7yNeg5+9mxjtnCb6d1N8g93DtBYCo4H+VnVbhyAe/rPHdIKKDuq/n8iZAuqI1Ksu4w==}
     dependencies:
       t-comm: 1.3.90
     transitivePeerDependencies:

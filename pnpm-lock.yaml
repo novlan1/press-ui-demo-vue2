@@ -51,7 +51,7 @@ specifiers:
   miniprogram-api-typings: ^3.12.2
   plugin-light: ^1.3.9
   postcss-comment: ^2.0.0
-  press-ui: ^2.0.9
+  press-ui: ^2.0.12
   qrcode: ^1.5.3
   qrcode.vue: ^3.4.1
   sass: ^1.77.6
@@ -92,7 +92,7 @@ dependencies:
   core-js: 3.37.1
   flyio: 0.6.14
   plugin-light: 1.3.9_z264erw2ajubx2gyir5nyuswmy
-  press-ui: 2.0.9
+  press-ui: 2.0.12
   qrcode: 1.5.3
   qrcode.vue: 3.4.1_vue@2.6.14
   sass: 1.77.6
@@ -13787,8 +13787,8 @@ packages:
       - debug
     dev: false
 
-  /press-ui/2.0.9:
-    resolution: {integrity: sha512-jjKLShZBqzFJEipquV3ujOXWQmC0lyb9pyY6lJ+lU5Oem3PFQ2mPdl4raSo1sNuGbvLDcbvRppkPS4okhs+AOA==}
+  /press-ui/2.0.12:
+    resolution: {integrity: sha512-yo3He9DK7pxHNkeMh/0ONK0b2Kp4e7aTzXLXBQgBB8UpHtXdkTklhALzJK8T9T9kZbK7yc3Zaaw33ozjSgq3xQ==}
     dependencies:
       t-comm: 1.3.90
     transitivePeerDependencies:

@@ -1,15 +1,25 @@
 <script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		}
-	}
+import { updateManager } from 't-comm/lib/mp/update-manager';
+import { setLang } from './utils/i18n/i18n';
+import { watchMessageFromTop } from './utils/post-message/post-message';
+
+export default {
+  mixins: [
+  ],
+  onLaunch() {
+    watchMessageFromTop();
+    updateManager();
+  },
+  watch: {
+    $route: {
+      handler() {
+        setLang();
+      },
+      immediate: true,
+    },
+  },
+};
 </script>
+
 
 <style lang="scss" src="src/utils/style/demo.scss"></style>

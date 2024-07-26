@@ -3,11 +3,11 @@ import App from './App';
 import './uni.promisify.adaptor';
 
 import { initMixin } from './utils/mixin/mixin';
-import { initDemoI18n } from './utils/i18n/i18n';
 import { checkAndShowVConsole } from 't-comm/lib/v-console/toggle';
 
-import DemoBlock from './pages/demo-block/demo-block.vue';
-import ToggleHeader from './pages/components/toggle-header/toggle-header.vue';
+import DemoBlock from './packages/press-demo-block/press-demo-block.vue';
+import ToggleHeader from './packages/press-toggle-header/press-toggle-header.vue';
+import { initDemoI18n } from './packages/locale/demo-lang';
 
 import PressCell from './packages/press-cell/press-cell.vue';
 import PressPicker from './packages/press-picker/press-picker.vue';

@@ -154,6 +154,7 @@ export default {
     'opened',
     'select',
     'touchstart',
+    'update:modelValue',
   ],
   data() {
     return {
@@ -214,11 +215,13 @@ export default {
 
       if (this.closeOnClickAction) {
         this.$emit('input', false);
+        this.$emit('update:modelValue', false);
       }
     },
 
     onClickOutside() {
       this.$emit('input', false);
+      this.$emit('update:modelValue', false);
     },
 
     onOpen() {
@@ -242,7 +245,6 @@ export default {
 };
 
 </script>
-<style scoped lang="scss" src="./css/index.scss">
-</style>
-<style scoped lang="scss" src="./css/h5.scss">
-</style>
+<style scoped lang="scss" src="./css/index.scss"></style>
+<style scoped lang="scss" src="./css/h5.scss"></style>
+<style scoped lang="scss" src="./css/mp-alipay.scss"></style>

@@ -51,7 +51,7 @@ specifiers:
   miniprogram-api-typings: ^3.12.2
   plugin-light: ^1.3.9
   postcss-comment: ^2.0.0
-  press-ui: ^2.0.19
+  press-ui: ^2.0.20
   qrcode: ^1.5.3
   qrcode.vue: ^3.4.1
   sass: ^1.77.6
@@ -93,7 +93,7 @@ dependencies:
   core-js: 3.37.1
   flyio: 0.6.14
   plugin-light: 1.3.9_z264erw2ajubx2gyir5nyuswmy
-  press-ui: 2.0.19
+  press-ui: 2.0.20
   qrcode: 1.5.3
   qrcode.vue: 3.4.1_vue@2.6.14
   sass: 1.77.6
@@ -13787,18 +13787,18 @@ packages:
   /press-ui/1.3.39:
     resolution: {integrity: sha512-w22hKAPlUZcR/Ub7MliNFMIH75iugm2BKPHZCIRhQ/zsyhSt+1wbilpmXC3YztHhVpX1iddYA8Rrto7ZpPrJEw==}
     dependencies:
-      t-comm: 1.3.90
+      t-comm: 1.3.94
     transitivePeerDependencies:
       - canvas
       - debug
     dev: false
 
-  /press-ui/2.0.19:
-    resolution: {integrity: sha512-KuhIYhBGyuBu5g613K0x3vPo+LE6T/G1yY2yzvRrf82qsGid2sLErKYk87TqM/INQICJwy4WcL3zOTDI7a/0iw==}
+  /press-ui/2.0.20:
+    resolution: {integrity: sha512-8oVCkGA8hLrmw+MHPR2HWMVTJ5jC/QrNHb4T0i8UB34eAtMzOBQAMNOFNevSSZyX8dfupVDPSUpYj0/SiIySew==}
     dependencies:
       '@popperjs/core': 2.11.8
       swiper-next: 0.1.1
-      t-comm: 1.3.90
+      t-comm: 1.3.94
     transitivePeerDependencies:
       - canvas
       - debug
@@ -15690,6 +15690,24 @@ packages:
 
   /t-comm/1.3.90:
     resolution: {integrity: sha512-WZD1tdddI+jQUn+eBagHmAliwkkFWMA0KZHrwXHQ7Gm7rM2Gxu8IRKvbi0mm5gC40/ZJ0SyNySYtLLZUkBAE9w==}
+    hasBin: true
+    peerDependencies:
+      canvas: ^2.6.1
+    dependencies:
+      '@babel/runtime': 7.24.7
+      axios: 1.7.2
+      cheerio: 1.0.0-rc.12
+      commander: 10.0.1
+      cron-parser: 4.9.0
+      qs: 6.12.2
+      request: 2.88.2
+      tar: 6.2.1
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /t-comm/1.3.94:
+    resolution: {integrity: sha512-D0Cw9GpT50qHzTHn8Ot2XRi6HRWDwp7iPPhWDdsPxNp/UGLaPs9Hdl9k9qFnlsfsNCgggPSqSemT8PYUKcKVrA==}
     hasBin: true
     peerDependencies:
       canvas: ^2.6.1

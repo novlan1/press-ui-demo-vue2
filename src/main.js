@@ -12,7 +12,7 @@ import { initDemoI18n } from './packages/locale/demo-lang';
 import PressCell from './packages/press-cell/press-cell.vue';
 import PressPicker from './packages/press-picker/press-picker.vue';
 import PressPopupCell from './packages/press-popup-cell/press-popup-cell.vue';
-
+import './packages/common/touch-emulator/index';
 
 Vue.config.productionTip = false;
 

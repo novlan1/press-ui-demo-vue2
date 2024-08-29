@@ -51,7 +51,7 @@ specifiers:
   miniprogram-api-typings: ^3.12.2
   plugin-light: ^1.3.9
   postcss-comment: ^2.0.0
-  press-ui: ^2.1.5
+  press-ui: ^2.1.13
   qrcode: ^1.5.3
   qrcode.vue: ^3.4.1
   sass: ^1.77.6
@@ -93,7 +93,7 @@ dependencies:
   core-js: 3.37.1
   flyio: 0.6.14
   plugin-light: 1.3.9_z264erw2ajubx2gyir5nyuswmy
-  press-ui: 2.1.5
+  press-ui: 2.1.13
   qrcode: 1.5.3
   qrcode.vue: 3.4.1_vue@2.6.14
   sass: 1.77.6
@@ -13793,8 +13793,8 @@ packages:
       - debug
     dev: false
 
-  /press-ui/2.1.5:
-    resolution: {integrity: sha512-My/5aGze5y5utiO3pNGDEm7Be7qVswGaaDtzswb4dcSzSP/j+B15Yz7OhBvFSewh0Q8OzJ/T3P6BRv9tSDoR7w==}
+  /press-ui/2.1.13:
+    resolution: {integrity: sha512-VNajZZ+eyjczRi8GcCPdR+qU0Q1vexWc8vvznhJAQHdmRqi8mhyTG51w31dPVXr1zNK8Feo+RBuzSDZb33UW/w==}
     engines: {node: '>=14'}
     dependencies:
       '@popperjs/core': 2.11.8

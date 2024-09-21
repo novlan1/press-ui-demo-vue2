@@ -1,12 +1,13 @@
 const path = require('path');
-const {
-  RemToRpxPlugin,
-  GenVersionMpPlugin,
-  GenVersionWebPlugin,
-  DispatchVuePlugin,
-  DispatchScriptPlugin,
-  FixNpmPackagePlugin,
-} = require('plugin-light/lib/plugin');
+
+const { DispatchScriptPlugin } = require('@plugin-light/webpack-plugin-dispatch-script');
+const { DispatchVuePlugin } = require('@plugin-light/webpack-plugin-dispatch-vue');
+
+const { RemToRpxPlugin } = require('@plugin-light/webpack-plugin-rem-to-rpx');
+const { FixNpmPackagePlugin } = require('@plugin-light/webpack-plugin-fix-npm-package');
+const { GenVersionMpPlugin, GenVersionWebPlugin } = require('@plugin-light/webpack-plugin-gen-version');
+
+
 const { BUILD_NAME_MAP } = require('t-comm/lib/v-console/config');
 
 

@@ -59,13 +59,14 @@ specifiers:
   miniprogram-api-typings: ^3.12.2
   plugin-light: ^1.3.9
   postcss-comment: ^2.0.0
-  press-ui: ^2.1.31
+  press-ui: 2.2.0-alpha.2
   qrcode: ^1.5.3
   qrcode.vue: ^3.4.1
   sass: ^1.77.6
   stylelint-config-common: ^1.0.10
   swiper-next: ^0.1.1
   t-comm: ^1.3.106
+  tinycolor2: ^1.6.0
   typescript: ^5.5.3
   vue: '>= 2.6.14 < 2.7'
   vue-barcode: ^1.3.0
@@ -101,13 +102,14 @@ dependencies:
   core-js: 3.37.1
   flyio: 0.6.14
   plugin-light: 1.3.9_z264erw2ajubx2gyir5nyuswmy
-  press-ui: 2.1.31
+  press-ui: 2.2.0-alpha.2
   qrcode: 1.5.3
   qrcode.vue: 3.4.1_vue@2.6.14
   sass: 1.77.6
   stylelint-config-common: 1.0.10
   swiper-next: 0.1.1
   t-comm: 1.3.106
+  tinycolor2: 1.6.0
   vue: 2.6.14
   vue-barcode: 1.3.0
   vue-qrcode: 0.4.0_qrcode@1.5.3+vue@2.6.14
@@ -3806,7 +3808,7 @@ packages:
       graphemer: 1.4.0
       ignore: 5.3.1
       natural-compare: 1.4.0
-      semver: 7.6.2
+      semver: 7.6.3
       ts-api-utils: 1.3.0_typescript@5.5.3
       typescript: 5.5.3
     transitivePeerDependencies:
@@ -3946,7 +3948,7 @@ packages:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
-      semver: 7.6.2
+      semver: 7.6.3
       ts-api-utils: 1.3.0_typescript@5.5.3
       typescript: 5.5.3
     transitivePeerDependencies:
@@ -3984,7 +3986,7 @@ packages:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/typescript-estree': 6.21.0_typescript@5.5.3
       eslint: 8.57.0
-      semver: 7.6.2
+      semver: 7.6.3
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -9176,7 +9178,7 @@ packages:
       memfs: 3.5.3
       minimatch: 3.1.2
       schema-utils: 2.7.0
-      semver: 7.6.2
+      semver: 7.6.3
       tapable: 1.1.3
       typescript: 5.5.3
       vue-template-compiler: 2.6.14
@@ -11859,7 +11861,7 @@ packages:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==}
     engines: {node: '>=10'}
     dependencies:
-      semver: 7.6.2
+      semver: 7.6.3
 
   /make-plural/4.3.0:
     resolution: {integrity: sha512-xTYd4JVHpSCW+aqDof6w/MebaMVNTVYBZhbB/vi513xXdiPT92JMVCo0Jq8W2UZnzYRFeVbQiQ+I25l13JuKvA==}
@@ -12614,7 +12616,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.14.0
-      semver: 7.6.2
+      semver: 7.6.3
       validate-npm-package-license: 3.0.4
     dev: false
 
@@ -13972,8 +13974,8 @@ packages:
       - debug
     dev: false
 
-  /press-ui/2.1.31:
-    resolution: {integrity: sha512-rOgyjfswysze7RSIKIKDBqVDj64qax/+Vrv3R3h+FjzPhbgh4mWnD6q9ZZKmXc47pFd73IOf9o4zpMBA9e8EQQ==}
+  /press-ui/2.2.0-alpha.2:
+    resolution: {integrity: sha512-bCn1O4ZljsHIPrNpQ5qnZo2/iMvLXjeYvQ26PHbW/Dow3EuJFO3F8bRUTWmh1Yfbpm9+GklDuwH4m41OoGPnCg==}
     engines: {node: '>=14'}
     dependencies:
       '@popperjs/core': 2.11.8
@@ -14939,7 +14941,6 @@ packages:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
     hasBin: true
-    dev: true
 
   /send/0.18.0:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
@@ -16104,7 +16105,6 @@ packages:
 
   /tinycolor2/1.6.0:
     resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==}
-    dev: true
 
   /tmpl/1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==}

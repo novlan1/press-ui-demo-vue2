@@ -40,7 +40,7 @@
 <script>
 
 import { GREEN } from '../common/constant/color';
-import { getRect } from '../common/dom/rect';
+import { getRect, getRealPageYOrClientY } from '../common/dom/rect';
 
 import { isDef } from '../common/utils/validator';
 import { defaultOptions, defaultProps } from '../common/component-handler/press-component';
@@ -93,10 +93,6 @@ export default {
     indexList: {
       type: Array,
       default: () => indexList(),
-    },
-    windowTop: {
-      type: Number,
-      default: 0,
     },
     ...defaultProps,
   },
@@ -196,10 +192,12 @@ export default {
     },
     getActiveAnchorIndex() {
       const { children, scrollTop } = this;
-      const { sticky, stickyOffsetTop } = this;
+      const { sticky } = this;
       for (let i = this.children.length - 1; i >= 0; i--) {
         const preAnchorHeight = i > 0 ? children[i - 1].height : 0;
-        const reachTop = sticky ? preAnchorHeight + stickyOffsetTop : this.stickyOffsetTop;
+        const reachTop = sticky ? preAnchorHeight : 0;
+        // 是否到顶，当前 index 以上的高度 + scrollTop，大于 当前 index 的 top
+        // 均不包含 windowTop
         if (reachTop + scrollTop >= children[i].top) {
           return i;
         }
@@ -208,9 +206,8 @@ export default {
     },
     onScroll(event) {
       if (event && (event.target || event.detail)) {
-        this.scrollTop = event.target.scrollTop || event.detail.scrollTop;
+        this.scrollTop = event.target?.scrollTop || event.detail?.scrollTop || 0;
       }
-      // console.log('[scrollTop]', this.scrollTop);
 
       const { children = [], scrollTop } = this;
       if (!children.length) {
@@ -218,7 +215,6 @@ export default {
       }
       const { sticky, stickyOffsetTop, zIndex, highlightColor } = this;
       const active = this.getActiveAnchorIndex();
-      // console.log('[active]', active);
 
       this.setDiffData({
         target: this,
@@ -229,7 +225,8 @@ export default {
       if (sticky) {
         let isActiveAnchorSticky = false;
         if (active !== -1) {
-          isActiveAnchorSticky = children[active].top <= stickyOffsetTop + scrollTop;
+          // 当前 active 的 top，小于 scrollTop，即表示要 sticky 样式了
+          isActiveAnchorSticky = children[active].top <= + scrollTop;
         }
         children.forEach((item, index) => {
           if (index === active) {
@@ -298,15 +295,13 @@ export default {
       const touch = event.touches[0];
       const itemHeight = this.sidebar.height / sidebarLength;
       let index;
-      console.log('[onTouchMove]',  touch.clientY, this.sidebar.top, this.top);
       // #ifdef H5
-      index = Math.floor((touch.clientY + this.windowTop - this.sidebar.top) / itemHeight);
-
+      // 不再 + windowTop， 因为 sidebar.top (getRect) 已经减去过了
+      index = Math.floor((getRealPageYOrClientY(touch.clientY) - this.sidebar.top) / itemHeight);
       // #endif
       // #ifndef H5
       index = Math.floor((touch.clientY - this.sidebar.top) / itemHeight);
       // #endif
-      console.log('[onTouchMove]', index);
 
       if (index < 0) {
         index = 0;
@@ -326,7 +321,6 @@ export default {
       this.scrollToAnchorIndex = index;
       const anchor = this.children.find(item => item.index === this.indexList[index]);
       if (anchor !== undefined) {
-        console.log('[scrollTop]', this.scrollTop);
         anchor.scrollIntoView(this.scrollTop, this.changeScrollerTop);
 
 
@@ -336,7 +330,6 @@ export default {
     onClickInner(event) {
       const index = event.currentTarget?.dataset?.index;
       if (index === undefined) return;
-      console.log('[index]', index, this.indexList);
 
       this.scrollToAnchor(+index);
     },
@@ -345,7 +338,6 @@ export default {
     },
     changeScrollerTop(top) {
       const selector = getScrollSelector('pressIndexBarWrapper');
-      console.log('[changeScrollerTop] top', top);
 
       // #ifdef H5
       const ref = document
@@ -363,10 +355,8 @@ export default {
         ?.select?.(selector)
         ?.node?.()
         ?.exec?.((res) => {
-          console.log('[changeScrollerTop] node', res);
           const scrollView = res[0]?.node;
           if (!scrollView) return;
-          console.log('[changeScrollerTop] scrollView', scrollView);
 
           scrollView.scrollTo({
             top,

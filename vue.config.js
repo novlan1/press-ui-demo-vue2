@@ -48,5 +48,15 @@ module.exports = {
     },
     plugins,
   },
+  css: {
+    loaderOptions: {
+      scss: {
+        sassOptions: {
+          silenceDeprecations: ['import', 'legacy-js-api'],
+          quietDeps: true,
+        },
+      },
+    },
+  },
   transpileDependencies: ['press-ui', '@zebra-ui/swiper'],
 };

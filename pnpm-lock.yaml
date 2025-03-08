@@ -87,8 +87,8 @@ importers:
         specifier: ^1.3.9
         version: 1.3.20(@babel/parser@7.26.2)(@types/babel__core@7.20.5)(@types/node@22.9.0)(canvas@2.11.2)(html-webpack-plugin@5.6.3(webpack@4.47.0))(jest@25.5.4(canvas@2.11.2))(rollup@2.79.2)(sass@1.81.0)(sugarss@2.0.0)(terser@5.36.0)(typescript@5.6.3)(vue-template-compiler@2.6.14)(vue@2.6.14)(webpack@4.47.0)
       press-ui:
-        specifier: 2.2.37
-        version: 2.2.37
+        specifier: 2.2.38
+        version: 2.2.38
       qrcode:
         specifier: ^1.5.3
         version: 1.5.4
@@ -206,7 +206,7 @@ importers:
         version: 1.5.3(jest@25.5.4(canvas@2.11.2))(typescript@5.6.3)
       eslint-import-resolver-alias:
         specifier: ^1.1.2
-        version: 1.1.2(eslint-plugin-import@2.31.0)
+        version: 1.1.2(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@2.7.1)(eslint@8.57.1))
       eslint-import-resolver-node:
         specifier: ^0.3.6
         version: 0.3.9
@@ -7757,8 +7757,8 @@ packages:
   press-ui@1.3.39:
     resolution: {integrity: sha512-w22hKAPlUZcR/Ub7MliNFMIH75iugm2BKPHZCIRhQ/zsyhSt+1wbilpmXC3YztHhVpX1iddYA8Rrto7ZpPrJEw==}
 
-  press-ui@2.2.37:
-    resolution: {integrity: sha512-wbU2HcMjemdywDLwbwpGTvxS3eB1RmJNK4j2b3kTD/2yjH4HkOMDgW6qEZgU5uEOn0JHGQP1QJOy8p8vHTIzsQ==}
+  press-ui@2.2.38:
+    resolution: {integrity: sha512-6gAHId91ngy687gqiIyxh0UXwAHw24QsG/iv/MgB7O1bS3lZK6EafC+WEs+seXDXHrx4ck5/mmsbCQz05lnAtQ==}
     engines: {node: '>=14'}
 
   prettier@2.8.8:
@@ -15453,7 +15453,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.31.0):
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@2.7.1)(eslint@8.57.1)):
     dependencies:
       eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
 
@@ -19400,7 +19400,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  press-ui@2.2.37:
+  press-ui@2.2.38:
     dependencies:
       '@popperjs/core': 2.11.8
       swiper-next: 0.1.1

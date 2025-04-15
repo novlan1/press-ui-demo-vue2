@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/novlan1/press-ui-demo-vue2"
   },
-  "author": "guowangyang",
+  "author": "novlan1",
   "scripts": {
     "build": "npm run build:h5",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",

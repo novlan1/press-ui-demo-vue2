@@ -1,9 +1,9 @@
 const path = require('path');
 const { readFileSync, writeFileSync, execCommand } = require('t-comm');
-const { initWithPressUI } = require('../../src/press-ui/packages/press-ui/script/watch/init');
+const { initWithPressUI } = require('../../src/press-ui/script/watch/init');
 
 const PATH_JSON_PATH = path.resolve(__dirname, '../../src/pages.json');
-const PAGE_JSON_PRESS_UI = path.resolve(__dirname, '../../src/press-ui/packages/press-ui/src/pages.json');
+const PAGE_JSON_PRESS_UI = path.resolve(__dirname, '../../src/press-ui/src/pages.json');
 
 
 const CP_LIST = [
@@ -31,7 +31,7 @@ function genPagesJson() {
   writeFileSync(PATH_JSON_PATH, targetPagesJson, true);
 }
 function copyAppVue() {
-  execCommand('rm -rf src/App.vue && cp src/press-ui/packages/press-ui/src/App.vue src/App.vue', process.cwd(), 'inherit');
+  execCommand('rm -rf src/App.vue && cp src/press-ui/src/App.vue src/App.vue', process.cwd(), 'inherit');
 }
 
 function main() {
